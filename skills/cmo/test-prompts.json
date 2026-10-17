@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are a Series A B2B SaaS company at $2M ARR with 80% gross margin. Sales complains the MQLs from our webinars don't convert. The board wants us to try Paid Social to hit our $5M target this year. How should we allocate our $500k marketing budget and should we fire our performance marketing agency?",
+    "expected": "Runs pipeline math from the revenue target before channel opinions; treats the MQL complaint as a fit\u00d7intent / SLA problem rather than pure volume; challenges Paid Social as a new channel before the proven channel is at diminishing returns; requires a written kill line for any new test; keeps agency firing as a last step after unit economics.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Core Rule 1 pipeline math + references/demand.md (fit\u00d7intent SLA) + Core Rules 5\u20136 (one channel to diminishing returns; kill line) + references/operations.md for agency/unit-economics. Would reconcile $5M target to leads/opps before reallocating the $500k, fix webinar MQL definitions with sales, and only then test Paid Social under a capped kill line; agency decision follows CAC/payback evidence, not board pressure.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our PLG app is launching a new Enterprise tier. The CEO wants to send a press release to Tier 1 tech media. Give me the launch strategy and the messaging for the enterprise buyer.",
+    "expected": "Rejects treating a pricing-tier launch as an automatic Tier 1 PR moment; tiers the launch and spends audience deliberately; enterprise messaging centers risk, security/SSO/admin control, and compliance rather than consumer launch theater; routes to references/launch.md, references/product-led.md, and references/comms.md.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Trap 'Launching everything at Tier 1' + references/launch.md tiering + references/product-led.md enterprise upgrade motion + references/comms.md. Would refuse wasting Tier 1 PR on a tier launch, prefer ABM/existing-user upgrade sequencing, and draft enterprise messaging around risk mitigation, SSO, and administrative control.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Board deck time: marketing wants more brand spend because 'Binet & Field say 60/40'. Sales wants all budget in capture. Who is right?",
+    "expected": "Frames 60/40 as an average not a rule; notes B2B mixes often skew more activation; applies 95:5 (capture harvests the in-market 5%, memory-building reaches the rest); requires holdout/incrementality thinking for large lines; cites references/brand.md, references/measurement.md, and references/sources.md.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Core Rules 3\u20134 + Where Experts Disagree + references/brand.md / measurement.md / sources.md. Would reject both absolutes: keep capture for the in-market 5%, size brand as evidence-backed average guidance adjusted for stage/runway, and put holdouts on the largest lines instead of arguing churches.",
+    "pass": true
+  }
+]

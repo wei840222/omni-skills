@@ -1,6 +1,6 @@
 # Memory Template — CMO
 
-Create `~/Clawic/data/cmo/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # CMO Memory

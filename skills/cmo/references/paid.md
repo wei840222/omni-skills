@@ -26,7 +26,7 @@ Bidding on your own brand name usually reports the best ROAS in the account and 
 ## Creative Testing
 
 - Test *concepts*, not colours: a different problem framing, a different proof, a different format. Button-colour tests belong to `cro`, not to media buying.
-- Diagnose fatigue with two numbers together: frequency rising while CTR falls at stable CPM = fatigue. CPM rising alone = auction competition, not your creative.
+- Diagnose fatigue with two numbers together: frequency rising while CTR falls at stable CPM = fatigue. CPM rising alone = auction competition, rather than your creative.
 - Refresh cadence follows spend velocity, not the calendar: the faster you spend against a fixed audience, the faster you exhaust it. A small audience with heavy spend can fatigue in days.
 - Keep a control running. An account with all-new creative every cycle has no baseline and cannot tell fatigue from a bad month.
 - Winning ad copy is a positioning asset: whatever wins in the auction goes into the homepage headline and the sales deck.

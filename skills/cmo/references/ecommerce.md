@@ -1,6 +1,6 @@
 # Ecommerce and DTC — Margin, MER, Promos, Marketplaces
 
-Applies when `motion` is `ecommerce` or `consumer-app`. The differences from B2B that change every decision: purchases are immediate and repeated, gross margin is the binding constraint, and the platform-reported ROAS on your screen is not profit.
+Applies when `motion` is `ecommerce` or `consumer-app`. The key distinctions from B2B: purchases are immediate and repeated, gross margin is the binding constraint, and the platform-reported ROAS on your screen is not profit.
 
 ## Contribution Margin Is the Only Scoreboard
 
@@ -8,7 +8,7 @@ Applies when `motion` is `ecommerce` or `consumer-app`. The differences from B2B
 contribution margin per order = price − COGS − shipping and fulfilment − payment fees − returns provision − variable ad cost
 ```
 
-Scale only what has a positive contribution margin at the *marginal* order, not the average one. A blended 3× ROAS hides a top-of-funnel campaign losing money on every unit.
+Scale only what has a positive contribution margin at the *marginal* order, rather than the average one. A blended 3× ROAS hides a top-of-funnel campaign losing money on every unit.
 
 - **MER** (marketing efficiency ratio) = total revenue ÷ total advertising spend. Crude, unattributable, and the number most operators trust because it cannot be gamed by attribution windows. Track it daily against a target derived from your margin, not from a benchmark.
 - **aMER / new-customer MER** = new-customer revenue ÷ total ad spend. This is the honest acquisition metric; blended MER improves whenever repeat customers grow, which flatters bad acquisition.
@@ -25,7 +25,7 @@ Retail calendars are real demand events; they are also where margin dies. Build 
 
 - Purpose per event: acquire new customers, clear inventory, reward existing customers, or defend share. The purpose sets the depth and the audience.
 - Floor: the discount depth that still leaves positive contribution margin, computed with the break-even lift formula — `break-even lift = d ÷ (m − d)` in margin points (`pricing.md`). 20% off at 50% margin needs 67% more units to stand still.
-- Do not discount to the same list on a predictable rhythm; buyers learn it and stop paying full price.
+- Discount to distinct lists on varied schedules; buyers adapt to predictable rhythms by waiting for sales.
 - Prefer bundles, gift-with-purchase, and free shipping thresholds over headline price cuts: they raise average order value instead of resetting the price anchor.
 - Measure incrementality on the big events with a holdout audience (`measurement.md`) — most promo revenue is pulled forward from customers who would have bought anyway.
 
@@ -36,7 +36,7 @@ Repeat purchase, not acquisition, decides whether a consumer brand survives its 
 - Segment by cohort and count **second-order rate** within a defined window (choose the window from your own repurchase curve, and keep the same window forever). The move from first to second order is the largest single drop in the customer lifetime.
 - Subscription or replenishment offers convert a purchase into a relationship — but only when consumption is genuinely periodic; forced subscriptions produce chargebacks and complaints, and cancellation must be as easy as signup (`compliance.md`).
 - Lifecycle email and SMS carry a disproportionate share of DTC profit because they have no media cost; deliverability and consent rules apply exactly as in `lifecycle.md`.
-- Post-purchase is the highest-attention moment you will ever get: shipping notifications are read more than any campaign. Use them for education and cross-sell, not for a discount.
+- Post-purchase is the highest-attention moment you will ever get: shipping notifications are read more than any campaign. Use them for education and cross-sell, reserving discounts for re-engagement.
 
 ## Site and Merchandising Levers
 
@@ -55,4 +55,4 @@ Rule: build the owned channel with the margin the other channels generate, not t
 
 ## Consumer-Specific Compliance Traps
 
-Price-comparison and "was/now" claims are regulated in many markets and require the earlier price to have genuinely applied for a set period; countdown timers that reset are treated as misleading; subscription auto-renewal disclosures and easy cancellation are enforced in an increasing number of jurisdictions; and influencer posts require conspicuous disclosure of the commercial relationship. Details and jurisdiction handling in `compliance.md` — do not improvise these, the penalties are public.
+Price-comparison and "was/now" claims are regulated in many markets and require the earlier price to have genuinely applied for a set period; countdown timers that reset are treated as misleading; subscription auto-renewal disclosures and easy cancellation are enforced in an increasing number of jurisdictions; and influencer posts require conspicuous disclosure of the commercial relationship. Details and jurisdiction handling in `compliance.md` — follow `compliance.md` strictly, as penalties are public.
