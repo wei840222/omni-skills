@@ -29,8 +29,10 @@ Light theme, clean and professional.
 **Design choices:**
 - Tone: Utilitarian/Clean
 - Layout: 240px fixed sidebar, fluid main
-- Components: shadcn/ui cards, recharts for graphs
-- Data table: tanstack-table with sorting/filtering
+- Components: shadcn/ui cards, Recharts for graphs
+- Data table: TanStack Table with sorting/filtering
+
+For dashboard IA beyond generic layout, also load `dashboard`.
 
 ## Checkout Form
 
@@ -45,16 +47,19 @@ validation with inline errors.
 **Design choices:**
 - Stepped progress bar at top
 - React Hook Form + Zod for validation
-- Preserve all input on navigation
-- Optimistic feedback on submission
+- Preserve all input on navigation and failed submits
+- Optimistic feedback only when rollback is defined
+
+For specialized field UX and recovery paths, also load `forms`.
 
 ## Pre-Implementation Checklist
 
-- [ ] Typography distinctive (not Inter/Roboto)
+- [ ] Typography distinctive (not Inter/Roboto as hero)
 - [ ] Color follows 70-20-10
 - [ ] Background has depth
 - [ ] One memorable element
 - [ ] Mobile-first responsive
 - [ ] Focus states visible
-- [ ] Loading states for async
-- [ ] Error recovery paths
+- [ ] Loading states for async work
+- [ ] Error recovery preserves input
+- [ ] LCP/CLS targets considered (https://web.dev/articles/vitals)
