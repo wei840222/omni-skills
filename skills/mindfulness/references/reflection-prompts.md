@@ -1,6 +1,6 @@
 # Reflection Prompts - Mindfulness
 
-Use one prompt after a session or check-in. Avoid prompt overload.
+Use one prompt after a session or check-in. Select a single, focused prompt to maintain clarity.
 
 ## Quick Prompts (30 seconds)
 

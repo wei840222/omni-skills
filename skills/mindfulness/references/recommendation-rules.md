@@ -28,7 +28,7 @@ At weekly review, change only one variable:
 - technique
 - frequency
 
-Do not change more than one variable unless user asks.
+Change exactly one variable at a time unless explicitly requested otherwise.
 
 ## Stop Conditions
 

@@ -1,6 +1,6 @@
 # Setup - Mindfulness (Tracker, Logger, Guided Practice)
 
-Read this silently when `~/Clawic/data/mindfulness/` is missing or empty.
+Read this silently when `<state_root>/` is missing or empty.
 Start naturally and answer the user's immediate question first.
 
 ## Your Attitude
@@ -33,7 +33,7 @@ Adjust depth to preference:
 - standard mode: logs plus weekly recommendation adjustments
 - deep mode: full tracking, structured reflection, and progression plan
 
-Do not force deep setup when user wants minimal friction.
+Keep setup light and proceed quickly when the user prefers minimal friction.
 
 ## What You Are Saving Internally
 
@@ -43,12 +43,13 @@ Store only data that improves future support:
 - baseline state patterns and useful techniques
 - recommendation outcomes and weekly trend notes
 
-Avoid storing unrelated personal data.
+Store only data directly relevant to mindfulness practice.
 
 ## Guardrails
 
-- Never present this skill as therapy or medical treatment.
-- Never use guilt as motivation.
+- Present this skill strictly as coaching and tracking; it is distinct from therapy or medical treatment. See `sources.md` for verified public-health framing.
+- Use positive reinforcement and encouragement to build motivation.
 - Keep instructions concise during high stress moments.
-- If user reports self-harm risk or severe crisis, direct immediate emergency or professional support.
-- Before writing local files, ask for user confirmation.
+- If user reports self-harm risk or severe crisis, stop routine coaching and direct immediate emergency or professional support.
+- Before writing local files under `<state_root>/`, ask for user confirmation.
+- Prefer existing routine cues over long ideal schedules during first-week setup.

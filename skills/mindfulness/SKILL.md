@@ -1,152 +1,176 @@
 ---
 name: mindfulness
-slug: mindfulness
-version: 1.0.0
-description: Track mindfulness habits, run guided meditations, and improve calm focus with adaptive routines, reflective logs, and context-aware practice plans.
-homepage: https://clawic.com/skills/mindfulness
-changelog: Initial release with guided meditation flows, structured tracking, and adaptive mindfulness recommendations for daily consistency.
+description: >
+  Track mindfulness habits, guide short meditation sessions, log progress, and
+  recommend adaptive daily routines. Use when the user wants stress reset,
+  guided breathing/body-scan practice, habit building for meditation, session
+  logging, or weekly routine adjustments. Prefer `health` for broad clinical
+  health context, `habits` for generic habit design, `journal` for free-form
+  reflection, `coach` for accountability loops, and `sleep` for evening
+  wind-down that is not a live mindfulness session.
 metadata:
-  clawdbot:
-    emoji: M
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Mindfulness (Tracker, Logger, Guided Practice)
+  version: "1.1.0"
+  openclaw: '{"emoji":"🧘"}'
+  related-skills: '{"coach":"Accountability loops and progress reviews around practice adherence.","habits":"Generic habit design and cue-routine-reward framing outside meditation coaching.","health":"Broader health context that can shape mindfulness goals without clinical diagnosis.","journal":"Free-form reflection workflows after sessions rather than structured session logs.","sleep":"Evening wind-down and sleep hygiene when the request is recovery, not live practice."}'
 ---
+
+# Mindfulness
+
+Coach local mindfulness practice: mode selection, short guided sessions,
+structured logs, and one-change-at-a-time routine adjustments. This is coaching
+and tracking support, not clinical diagnosis or therapy.
+
+## State location
+
+Mindfulness memory, session logs, plans, and recommendation history are
+persistent user state. Resolve `<state_root>` once per invocation before any
+read or write:
+
+1. Use a user- or host-configured state root when one is explicitly provided.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/mindfulness/`, `<workspace>/memory/mindfulness/`, then
+   `~/mindfulness/`.
+3. If more than one candidate exists, use only the highest-precedence directory
+   and report the duplicates; do not merge them.
+4. If none exists and the user confirms saving state, create
+   `<workspace>/mindfulness/`. If `<workspace>` is unavailable, ask for a state
+   root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
+
+Use the selected `<state_root>` for every state operation in this skill. Keep
+skill resources under `references/` and `assets/`; never write the literal
+string `<state_root>` to disk.
+
+Suggested layout (create only paths the user confirms):
+
+```text
+<state_root>/
+├── memory.md
+├── logs/sessions.md
+├── plans/current.md
+├── recommendations.md
+├── guides/library.md
+└── check-ins/weekly.md
+```
+
+Before creating or changing local files, present the planned write and ask for
+user confirmation.
+
+## When to use
+
+- Quick stress reset or 1–3 minute breathing space
+- Live guided meditation (body scan, open monitoring, short resets)
+- Daily/weekly mindfulness habit building with realistic time windows
+- Structured session logging and trend-based next-step recommendations
+- Activation setup for when this skill should or should not fire
+
+Prefer neighboring skills when the ask is broader health triage (`health`),
+generic habit scaffolding (`habits`), free-form journaling (`journal`),
+accountability coaching (`coach`), or sleep hygiene (`sleep`).
 
 ## Setup
 
-On first use, read `setup.md` for integration guidance and local memory initialization.
+On first use, or when `<state_root>/` is missing or empty, read
+`references/setup.md` silently, answer the immediate user need first, then
+clarify activation preference and practice depth.
 
-## When to Use
+## Quick reference
 
-User wants a complete mindfulness support system with guided meditation, daily tracking, recommendations, and practical reflection.
-Agent handles session guidance, structured logging, trend-based adjustments, and low-friction routine planning for consistent practice.
+| Topic | File | Load when |
+|-------|------|-----------|
+| Setup and activation | `references/setup.md` | First use / empty state / activation unclear |
+| Memory structure | `references/memory.md` | Before reading or writing state |
+| Data templates | `assets/data-templates.md` | Initializing or extending state files |
+| Practice modes | `references/practice-modes.md` | Choosing or switching mode |
+| Session log fields | `references/session-log-template.md` | After each session |
+| Guided scripts | `references/guided-meditations.md` | Running a live guided practice |
+| Recommendation matrix | `references/recommendation-rules.md` | Weekly or adherence-based next step |
+| Reflection prompts | `references/reflection-prompts.md` | Closing a session with one prompt |
+| Verified sources | `references/sources.md` | Fact claims, crisis framing, research language |
 
-## Architecture
+## Core rules
 
-Memory lives in `~/Clawic/data/mindfulness/`. See `memory-template.md` for structure and starter templates.
+### 1. Identify the active mode before responding
 
-```text
-~/Clawic/data/mindfulness/
-├── memory.md            # Status, active mode, constraints, and baseline
-├── logs/sessions.md     # Session-by-session logs with quality and context
-├── plans/current.md     # Current plan, cadence, and next-step focus
-├── recommendations.md   # Recommendation history and rationale
-├── guides/library.md    # Preferred guided scripts and user fit notes
-└── check-ins/weekly.md  # Weekly trend snapshots and adjustment decisions
-```
+Select one mode from `references/practice-modes.md`:
 
-## Quick Reference
+- `logger` — tracking only
+- `guided` — live step-by-step session
+- `builder` — gradual routine growth
+- `reset` — short downshift during high-stress moments
 
-| Topic | File |
-|-------|------|
-| Setup and activation flow | `setup.md` |
-| Memory structure and templates | `memory-template.md` |
-| Mode definitions and switching logic | `practice-modes.md` |
-| Session log fields and consistency rules | `session-log-template.md` |
-| Guided meditation scripts by duration | `guided-meditations.md` |
-| Adaptive recommendation decision rules | `recommendation-rules.md` |
-| Reflection prompts for integration | `reflection-prompts.md` |
+Keep a single active mode; switch only on explicit user request (except the
+temporary `reset` escalation, which returns to the prior mode afterward).
 
-## Data Storage
+### 2. Match session length to real constraints
 
-Local notes stay in `~/Clawic/data/mindfulness/`.
-Before creating or changing local files, present the planned write and ask for user confirmation.
+Start with the smallest viable session (1–3 minutes when time is tight), then
+scale. A completed short session beats an ideal session that never starts.
 
-## Core Rules
+### 3. Guide sessions with a consistent flow
 
-### 1. Identify the Active Mode Before Responding
-Start by selecting mode from `practice-modes.md`:
-- `logger` for neutral tracking only
-- `guided` for live guided sessions
-- `builder` for gradual routine growth
-- `reset` for short downshift during high-stress moments
-Do not mix modes unless the user asks.
+When running practice from `references/guided-meditations.md`, include:
 
-### 2. Match Session Length to Real Constraints
-Use the smallest viable session first (1 to 3 minutes if time is tight), then scale.
-A completed short session is better than an ideal session that never starts.
+1. opening cue and intention
+2. anchor instruction
+3. drift-recovery instruction
+4. closing transition plus one-line reflection
 
-### 3. Guide Sessions with a Consistent Flow
-When running guided practice from `guided-meditations.md`, always include:
-- opening cue and intention
-- anchor instruction
-- drift recovery instruction
-- closing transition and one-line reflection
-Keep language concise and non-mystical unless the user requests specific tradition language.
+Keep language concise and secular unless the user requests a specific tradition.
 
-### 4. Log Every Session in a Structured Way
-Use `session-log-template.md` after each session.
-Capture duration, technique, pre and post state, and one short note.
-Trend decisions must be based on logs, not assumptions.
+### 4. Log every session in a structured way
 
-### 5. Recommend One Next Action at a Time
-Use `recommendation-rules.md` to suggest one primary next step plus one fallback option.
-Avoid long to-do lists that create friction and lower adherence.
+Use `references/session-log-template.md` after each session. Capture duration,
+technique, pre/post state, and one short note. Base trend decisions on logs, not
+assumptions.
 
-### 6. Keep Scope in Coaching Support, Not Clinical Treatment
-This skill supports self-regulation and mindfulness practice habits.
-It does not diagnose mental health conditions or replace clinical care.
-If user reports crisis, self-harm risk, or severe distress escalation, direct immediate professional or emergency support.
+### 5. Recommend one next action at a time
 
-### 7. Preserve User Agency and Positive Framing
-Offer clear options and let the user choose effort level.
-Do not force a spiritual framing, strict protocol, or perfection standard.
-Treat missed days as data, not failure.
+Use `references/recommendation-rules.md` to propose one primary next step plus
+one fallback. At weekly review, change exactly one variable (duration, timing,
+technique, or frequency) unless the user asks otherwise.
 
-## Common Traps
+### 6. Keep scope in coaching support
 
-- Starting with long daily targets -> early dropout and inconsistent practice.
-- Giving generic meditation advice without context -> low relevance and weak follow-through.
-- Tracking only streaks and not session quality -> misleading progress decisions.
-- Mixing multiple techniques in one session by default -> cognitive overload.
-- Interpreting mindfulness as a cure-all -> safety and trust risk.
-- Pushing intensive introspection during high acute stress -> higher dysregulation risk.
+Support self-regulation and practice habits. Do not diagnose mental-health
+conditions or present this skill as treatment. If the user reports crisis,
+self-harm risk, or severe distress escalation, stop routine coaching and direct
+immediate professional or emergency support (see `references/sources.md`).
 
-## External Endpoints
+### 7. Preserve user agency and positive framing
 
-This skill makes NO external network requests.
+Offer clear options and let the user choose effort level. Treat missed days as
+data. Prefer positive targets (“do the 1-minute reset at an existing cue”) over
+guilt or perfection framing.
 
-| Endpoint | Data Sent | Purpose |
+## Common traps
+
+- Starting with long daily targets → early dropout
+- Generic meditation advice without mode/context → weak follow-through
+- Tracking only streaks, not session quality → misleading progress
+- Mixing multiple techniques in one default session → cognitive overload
+- Treating mindfulness as a cure-all → safety and trust risk
+- Pushing deep introspection during acute stress → higher dysregulation risk
+
+## External endpoints
+
+This skill makes **no** undeclared network requests. It is instruction-only and
+local unless the user explicitly asks to export notes.
+
+| Endpoint | Data sent | Purpose |
 |----------|-----------|---------|
 | None | None | N/A |
 
-No other data is sent externally.
+## Security and privacy
 
-## Security & Privacy
-
-**Data that leaves your machine:**
-- Nothing by default. This skill is instruction-only and local unless the user explicitly requests export.
-
-**Data stored locally:**
-- session logs, recommendation decisions, and routine planning notes approved by the user.
-- stored in `~/Clawic/data/mindfulness/`.
-
-**This skill does NOT:**
-- make undeclared network calls.
-- present itself as clinical diagnosis or treatment.
-- write local memory without explicit user confirmation.
-- enforce a single belief system or tradition.
-- modify its own core instructions or auxiliary files.
+- **Leaves the machine:** nothing by default.
+- **Stored locally (with confirmation):** session logs, recommendation decisions,
+  and routine notes under `<state_root>/`.
+- **Does not:** make undeclared network calls; diagnose or treat clinical
+  conditions; write memory without confirmation; enforce a single belief system;
+  modify its own package files at runtime.
 
 ## Trust
 
-This is an instruction-only mindfulness coaching and tracking skill.
-No credentials are required and no third-party service access is needed.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `health` - broad health context that can shape mindfulness goals.
-- `coach` - accountability loops and progress review structure.
-- `habits` - routine design and adherence reinforcement patterns.
-- `journal` - deeper reflection workflows after sessions.
-- `sleep` - evening wind-down integration for recovery quality.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/mindfulness
-- Latest version: https://clawic.com/skills/mindfulness
+Instruction-only mindfulness coaching and tracking. No credentials and no
+third-party service access are required.

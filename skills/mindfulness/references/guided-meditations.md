@@ -1,6 +1,6 @@
 # Guided Meditations - Mindfulness
 
-Keep the tone direct and calm. Avoid long theory during live guidance.
+Keep the tone direct and calm. Keep theory brief during live guidance.
 
 ## 1-Minute Reset
 
@@ -36,4 +36,5 @@ Keep the tone direct and calm. Avoid long theory during live guidance.
 
 - If user is anxious, shorten instructions and increase pacing cues.
 - If user is sleepy, use upright posture and eyes-open option.
-- If user wants secular framing, avoid spiritual language.
+- If user wants secular framing, use entirely secular language.
+- These scripts are coaching scaffolds inspired by common secular practice forms (breathing space, body scan, open monitoring). They are not a substitute for clinician-delivered MBCT/MBSR; see `sources.md`.
