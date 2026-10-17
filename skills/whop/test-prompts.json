@@ -1,0 +1,38 @@
+[
+  {
+    "id": "whop-checkout-link-dashboard-first",
+    "scenario": "new product needs a checkout link without custom API work",
+    "prompt": "How do I create a new product and checkout link on Whop?",
+    "expected": [
+      "Loads or cites references/offers-and-checkouts.md and/or references/setup.md",
+      "Defaults to native Whop dashboard checkout-link flow before API automation",
+      "Mentions free, one-time, and/or recurring checkout-link options"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: whop → references/offers-and-checkouts.md + references/setup.md; answer immediate ask; create product/pricing in dashboard; create free/one-time/recurring checkout link; avoid API unless scale/custom needed.",
+    "pass": true
+  },
+  {
+    "id": "whop-webhook-sandbox-verify",
+    "scenario": "membership cancellation webhook before production",
+    "prompt": "I need to set up a webhook to listen for membership cancellations.",
+    "expected": [
+      "Loads or cites references/webhooks-and-sandbox.md",
+      "Requires webhook verification (WHOP_WEBHOOK_SECRET / Standard Webhooks) before side effects",
+      "Prefers sandbox testing with separate keys/webhooks before production"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: whop → references/webhooks-and-sandbox.md; verify signatures; store WHOP_WEBHOOK_SECRET; idempotent handler; configure and test on sandbox.whop.com / sandbox-api before production recreate.",
+    "pass": true
+  },
+  {
+    "id": "whop-auth-mode-selection",
+    "scenario": "confused between company API key and iframe user context",
+    "prompt": "How should I structure my Whop API request to get user stats from an embedded app?",
+    "expected": [
+      "Loads or cites references/auth-permissions.md and/or references/api-workflows.md",
+      "Distinguishes bearer API-key REST vs x-whop-user-token iframe identity vs short-lived access tokens",
+      "Points stats/REST calls at api.whop.com/api/v1 (or sandbox-api) with server-side secrets only"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: whop → references/auth-permissions.md + references/api-workflows.md; iframe identity via verified x-whop-user-token; server stats/REST with Authorization Bearer against api.whop.com/api/v1 or sandbox-api; no API keys in browser.",
+    "pass": true
+  }
+]

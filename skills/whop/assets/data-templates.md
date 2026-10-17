@@ -1,13 +1,8 @@
-# Memory Template — Whop
-
-Create `~/Clawic/data/whop/memory.md` with this structure:
-
-```markdown
 # Whop Memory
 
 ## Status
 status: ongoing
-version: 1.0.1
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | done | declined
 
@@ -37,6 +32,7 @@ integration: pending | done | declined
 - Product and plan IDs such as `prod_...` and `plan_...`
 - User, webhook, file, affiliate, and experience IDs when they matter
 - Permissions requested and whether they have been re-approved
+- Secret presence only (for example `WHOP_API_KEY=present`, never the value)
 
 ## Notes
 - Important webhook events and callback endpoints
@@ -45,20 +41,3 @@ integration: pending | done | declined
 
 ---
 *Updated: YYYY-MM-DD*
-```
-
-## Status Values
-
-| Value | Meaning | Behavior |
-|-------|---------|----------|
-| `ongoing` | Still learning the user's Whop setup | Keep collecting context opportunistically |
-| `complete` | Enough Whop context is stable | Use saved context by default |
-| `paused` | User does not want more setup questions right now | Work with existing context and avoid digging deeper |
-| `never_ask` | User explicitly does not want proactive Whop setup questions | Never prompt for more context unless they ask |
-
-## Key Principles
-
-- Keep secrets out of memory. Store only safe metadata such as which key exists, not the value.
-- Preserve Whop ID prefixes exactly. Prefix loss causes real mistakes.
-- Record whether facts came from dashboard-only work, sandbox, or production.
-- Prefer short natural-language notes over config-like blobs.
