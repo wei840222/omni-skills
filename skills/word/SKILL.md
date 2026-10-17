@@ -115,10 +115,10 @@ the smallest reference that matches the current Word task and risk level:
 7. **Recover cleanly and leave attached sessions intact.** If you opened Word
    for this task, close only what you created. If you attached to an existing
    session, keep unrelated documents open and leave Word running unless the user
-   explicitly approves quitting. On failure, record the exact blocker: protected
-   document, modal dialog, compatibility mode, track changes mismatch, or missing
-   permissions; append durable notes to `<state_root>/incidents.md` only after
-   consent.
+   explicitly approves quitting. On failure, capture the exact blocker once
+   (protected document, modal dialog, compatibility mode, track changes
+   mismatch, or missing permissions), offer the next safe read-only check, and
+   append durable notes to `<state_root>/incidents.md` only after consent.
 
 ## Word traps
 
