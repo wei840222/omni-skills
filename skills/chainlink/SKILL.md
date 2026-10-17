@@ -59,5 +59,5 @@ Do not store keys, subscription IDs, or funded wallet exports in this package.
 ## Safety posture
 
 - Prefer read-only diagnosis first. For subscription funding, staking, CCIP sends, or consumer deploys, state the exact action and wait for explicit user authorization.
-- Never request seed phrases or private keys.
+- If a user pastes a seed phrase or private key, stop and tell them to rotate/abandon that secret; never store, echo, or ask for keys.
 - Multi-oracle / circuit-breaker patterns for critical collateral paths; do not treat a single feed as infallible.
