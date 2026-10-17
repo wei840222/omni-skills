@@ -80,6 +80,7 @@ Load only the smallest file that matches the current Word task and risk level:
 | `references/live-control-patterns.md` | Building bounded Word `osascript` read/write/export scripts |
 | `references/safety-checklist.md` | Before accept/reject-all, bulk cleanup, close-without-save, overwrite |
 | `references/troubleshooting.md` | Attach failures, wrong selection, silent review errors, stale PDF export |
+| `references/sources.md` | Verifying Word/osascript domain claims against primary docs |
 | `assets/data-templates.md` | Copying memory/incidents/document-notes skeletons into `<state_root>` |
 
 ## Core rules
