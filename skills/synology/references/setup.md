@@ -1,6 +1,6 @@
 # Setup - Synology
 
-Read this when `~/Clawic/data/synology/` is missing or empty.
+Read this when `<state_root>/` is missing or empty.
 Keep activation operational, calm, and biased toward evidence before change.
 
 ## Operating Priorities
@@ -24,14 +24,16 @@ Keep activation operational, calm, and biased toward evidence before change.
   - read-only audit first or immediate execution
   - approval required for upgrades, deletes, restores, or exposure changes
   - SSH available or DSM web UI only
-- If continuity will help and the user approves, initialize the local workspace:
+- If continuity will help and the user approves, initialize the local workspace under the resolved `<state_root>` (prefer `<workspace>/synology/` when creating new state):
+
 ```bash
-mkdir -p ~/synology
-touch ~/Clawic/data/synology/{memory.md,inventory.md,services.md,incidents.md}
-chmod 700 ~/synology
-chmod 600 ~/Clawic/data/synology/{memory.md,inventory.md,services.md,incidents.md}
+mkdir -p "<state_root>"
+touch "<state_root>"/{memory.md,inventory.md,services.md,incidents.md}
+chmod 700 "<state_root>"
+chmod 600 "<state_root>"/{memory.md,inventory.md,services.md,incidents.md}
 ```
-- If `memory.md` is empty, initialize it from `memory-template.md`.
+
+- If `memory.md` is empty, initialize it from `assets/memory-template.md`.
 
 ## Integration Defaults
 
@@ -49,7 +51,7 @@ chmod 600 ~/Clawic/data/synology/{memory.md,inventory.md,services.md,incidents.m
 
 ## Guardrails
 
-- Never ask the user to paste passwords, OTP codes, recovery keys, or private keys into chat.
-- Never recommend public DSM or SSH exposure as the default shortcut.
-- Never treat delete, restore, migration, or reformat work as routine; require an explicit confirmation point.
-- Never skip evidence collection when package failure, permission drift, or data risk is involved.
+- Ask for placeholders instead of live DSM passwords, OTP codes, recovery keys, or private keys in chat.
+- Prefer private remote access (VPN / QuickConnect) over public DSM or SSH exposure as the default shortcut.
+- Treat delete, restore, migration, or reformat work as high-impact; require an explicit confirmation point.
+- Collect evidence before package reinstall or destructive cleanup when package failure, permission drift, or data risk is involved.

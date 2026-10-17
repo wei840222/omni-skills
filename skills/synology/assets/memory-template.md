@@ -1,13 +1,13 @@
 # Memory Template - Synology
 
-Create `~/Clawic/data/synology/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Synology Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | complete | paused | never_ask
 
