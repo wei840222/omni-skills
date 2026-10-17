@@ -63,7 +63,10 @@ configuration or persistent user state.
 
 ## Prefer neighboring skills when
 
-- Map literacy, projections, or human geography patterns → `geography`
+- Map literacy, projections, choropleths, or human geography patterns → `geography`
 - Broad multi-domain science explanation → `science`
 - Planetary/space objects beyond Earth geology → `astronomy`
 - Human historical narrative or historiography → `history`
+
+Keep `SKILL.md` as the routing surface; load only the matching reference for
+the current audience or source check.
