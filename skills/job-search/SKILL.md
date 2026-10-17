@@ -24,7 +24,7 @@ Never write hunt state into the skill package. Create directories only under the
 
 ## Purpose
 
-Use this skill when the user is actively job hunting: track opportunities, research target companies, organize application materials, prepare interviews, and keep next actions current.
+Use this skill when the user is actively job hunting: track opportunities, research target companies, organize application materials, prepare interviews, and keep next actions current. For resume drafting alone, prefer `cv`/`resume`; for multi-year career strategy, prefer `career`.
 
 ## Architecture
 
