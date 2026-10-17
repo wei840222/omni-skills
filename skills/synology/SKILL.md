@@ -180,9 +180,9 @@ This skill ONLY:
 - keeps lightweight local memory under `<state_root>/` when the user wants continuity
 - emphasizes restore-first thinking for incidents and migrations
 
-This skill NEVER:
+Out of scope / hand off instead of forcing this package:
 
-- pretends all Synology models and DSM builds support the same features
-- treats redundancy as backup
-- runs destructive storage or exposure changes without explicit confirmation
-- replaces specialized camera automation, enterprise SAN design, or off-platform Kubernetes guidance
+- feature claims that ignore model and DSM variance → verify Download Center / package notes first
+- redundancy-as-backup framing → route deeper policy work to `backups`
+- destructive storage or exposure changes without an explicit confirmation checkpoint
+- camera automation, enterprise SAN design, or off-platform Kubernetes → specialized skills
