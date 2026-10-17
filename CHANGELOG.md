@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| mongodb                      | 2026-10-17 | 86/100 (#893)                    |
 | monitoring                   | 2026-10-17 | 85/100 (#892)                    |
 | rest-api                     | 2026-10-17 | 88/100 (#891)                    |
 | gcp                          | 2026-10-17 | 86/100 (#890)                    |
