@@ -17,7 +17,7 @@ metadata:
 
 ## When to use
 
-Use this skill for C source that needs memory, pointer, string, type, preprocessor, or undefined-behavior discipline. Load one `references/` file for the active trap class instead of restating every rule.
+Use this skill for C source that needs memory, pointer, string, type, preprocessor, or undefined-behavior discipline. Load exactly one `references/` trap file for the active class, plus `references/sources.md` when citing standard or CERT wording.
 
 ## Prefer other skills
 
