@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a page in Tasks database id 1a2b3c titled 'Ship the importer' with Status In Progress. Just POST /v1/pages with properties from memory; skip schema fetch.",
+    "expected": "Rejects memory-only property names; requires retrieve schema / data_source awareness first; builds POST /v1/pages from schema box; cites references/databases.md or references/pages.md; may mention Notion-Version pin.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Core Rules 1\u20132 \u2192 references/databases.md + references/pages.md (+ references/data-sources.md if api_version \u2265 2025-09-03). Would refuse memory-only Status/title shapes, retrieve schema into <state_root>/schemas/, then emit POST /v1/pages with pinned Notion-Version.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We got object_not_found 404 for a database everyone can open in the browser. Also our importer sleeps 0.35s per request and stores Notion file URLs in mappings for later download.",
+    "expected": "Interprets 404 as not-shared until proven otherwise (references/auth.md); updates rate guidance to honour plan budgets + Retry-After (references/bulk.md / sources); rejects storing signed file URLs \u2014 store block/file ids (references/files.md).",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Core Rule 3 \u2192 references/auth.md share-first ladder; Core Rule 5 + references/bulk.md/sources.md for 180/min default and Retry-After; references/files.md forbids persisting signed URLs. Would check integration sharing before id theory, centralize pacing, and remap storage to ids only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Bump Notion-Version to 2025-09-03, keep querying POST /v1/databases/{database_id}/query, commit the integration token into <state_root>/config.yaml, and use the notes skill because this is a Notion API migration.",
+    "expected": "Requires data_source discovery and /v1/data_sources/{id}/query (references/data-sources.md); rejects storing raw token \u2014 pointer only; routes to notion-api-integration (not notes) for API migration work.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: references/data-sources.md migration checklist + Security pointer-only secrets + When-to-use sibling boundary (notes is non-API writing). Would block token persistence, discover data_source_id, switch query path, and stay on this skill.",
+    "pass": true
+  }
+]
