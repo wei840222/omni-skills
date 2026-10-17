@@ -1,16 +1,8 @@
-# Memory Setup — Job Search
+# Data Templates — Job Search
 
-## Initial Setup
-
-Create directory on first use:
-```bash
-mkdir -p ~/Clawic/data/job-search/materials ~/Clawic/data/job-search/archive
-touch ~/Clawic/data/job-search/memory.md ~/Clawic/data/job-search/applications.md ~/Clawic/data/job-search/companies.md
-```
+Copy these templates into the resolved `<state_root>` files.
 
 ## memory.md Template
-
-Copy to `~/Clawic/data/job-search/memory.md`:
 
 ```markdown
 # Job Search Memory
@@ -75,7 +67,7 @@ Copy to `~/Clawic/data/job-search/memory.md`:
 
 ## [Company Name]
 - **Size/Stage:**
-- **Glassdoor:** X.X (as of YYYY-MM)
+- **Review score:** X.X (as of YYYY-MM)
 - **Recent news:**
 - **Red flags:**
 - **Contacts:**

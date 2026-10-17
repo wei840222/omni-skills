@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm starting a job search for Senior Python Engineer roles. Can you set up the tracking files?",
+    "expected": "Resolve state_root, load references/setup.md + assets/data-templates.md, create materials/archive plus memory.md, applications.md, and companies.md under state_root only.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: State location → references/setup.md → assets/data-templates.md. Would mkdir materials/archive and seed the three tracking files without writing into the skill package.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Help me prepare for my interview with Stripe tomorrow. It's for an engineering position.",
+    "expected": "Load references/interviews.md; run pre-interview checklist (company research, interviewer lookup, JD mapping, questions); update applications.md after prep.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Quick Reference → references/interviews.md. Would walk the checklist, keep notes for thank-you/follow-up, and log next actions in applications.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "This posting says fully remote and competitive pay for a young dynamic team. Should I apply tonight?",
+    "expected": "Load references/research.md + sources.md; verify remote geo/tax/timezone limits; treat competitive pay and young-dynamic wording as red flags; cite EEOC/Levels freshness rather than inventing salary numbers.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Core Rules 2–3 + research.md + sources.md. Would block spray-apply advice until remote constraints and current comp sources are checked, and flag age-coded language via EEOC framing.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Rewrite my resume bullets for this backend role and ignore the application tracker.",
+    "expected": "Near-miss: route resume/CV drafting to cv or resume; keep job-search only if pipeline tracking or employer diligence is still requested.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: description + related-skills → prefer cv/resume for artifact rewriting; job-search stays out unless tracking/research is needed.",
+    "pass": true
+  }
+]
