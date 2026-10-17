@@ -53,3 +53,8 @@ memory.
   route to `financial-literacy`, `invest`, or `trading`.
 - Site-specific regulatory or legal conclusions need jurisdiction-primary
   sources beyond this general skill package.
+
+## Specification references used during this refactor
+
+- **Agent Skills specification** — https://agentskills.io/specification — normative skill format used for Gate 1 validation.
+- **Agent Skills document index** — https://agentskills.io/llms.txt — entry point for current docs.
