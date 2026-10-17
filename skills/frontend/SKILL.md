@@ -97,7 +97,7 @@ In scope:
 - Stack and tooling recommendations (React, Next.js, Tailwind, shadcn/ui)
 - Responsive, accessible, performant implementation guidance
 
-Out of scope (hand off instead):
+Hand off instead of stretching this skill:
 - Network requests, auth, or data persistence owned by backend skills
 - Quantified visual critique without implementation → `design`
 - Deep CSS cascade debugging → `css`; Tailwind build/theme debugging → `tailwindcss`
