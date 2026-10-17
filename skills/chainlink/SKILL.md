@@ -1,85 +1,63 @@
 ---
 name: chainlink
-slug: chainlink
-version: 1.0.0
-description: Assist with Chainlink LINK tokens, oracle integrations, staking, and price feed usage.
-homepage: https://clawic.com/skills/chainlink
+description: >
+  Assist with Chainlink LINK tokens, Data Feeds, VRF v2.5, Automation, Functions,
+  CCIP, Data Streams, and staking. Use when the user asks about oracle price feeds,
+  stale-data checks, verifiable randomness, keepers/Automation, cross-chain CCIP
+  messaging, Data Streams reports, LINK funding, or Chainlink staking. Prefer
+  `ethereum` for generic EVM gas/approvals/bridges, `blockchain` for ledger
+  fundamentals, `solidity` for contract-security pitfalls, `crypto-tools` for
+  market data once oracle mechanics are settled, and `avalanche`/`polygon` for
+  chain-native ops outside Chainlink products.
 metadata:
-  clawdbot:
-    emoji: ⬡
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Chainlink
+  version: "1.1.0"
+  openclaw: '{"emoji":"⬡"}'
+  related-skills: '{"ethereum":"Generic EVM gas, approvals, nonce, and L2 bridge mechanics outside Chainlink product guidance.","blockchain":"Ledger fundamentals and viem contract interaction beyond oracle integration.","solidity":"Solidity security pitfalls (reentrancy, visibility) when writing consumer contracts.","crypto-tools":"Prices, explorers, and portfolio tooling after Chainlink product rules are clear.","avalanche":"Avalanche C/X/P-Chain operations when the ask is network-native rather than Chainlink feeds/CCIP.","polygon":"Polygon Chain PoS wallet/gas/Portal bridging outside Chainlink product flows."}'
 ---
 
-## LINK Token Basics
-- LINK is an ERC-20 token on Ethereum — standard wallet and exchange support
-- Also available on multiple chains — Arbitrum, Optimism, Polygon, Avalanche, BSC
-- Bridging LINK between chains uses official Chainlink bridge — verify bridge address before using
-- Different chains have different LINK contract addresses — verify correct address per network
+# Chainlink
 
-## Token Transfers
-- Standard ERC-20 transfer rules apply — gas paid in native token (ETH, MATIC, etc.)
-- Some DeFi protocols accept LINK as collateral — Aave, Compound
-- LINK has no special transfer restrictions — no tax tokens, no rebasing
-- Decimals: 18 — same as ETH, standard precision
+Stateless guidance for **Chainlink oracle products, LINK usage, and staking**.
+Do not store keys, subscription IDs, or funded wallet exports in this package.
 
-## Staking (v0.2)
-- Community staking allows LINK holders to stake — earn rewards for securing network
-- Staking has capacity limits — pool may be full, waitlist exists
-- Unbonding period applies — can't withdraw instantly after unstaking
-- Rewards in LINK — automatically added to staked balance
-- Slashing risk exists — node operators can lose stake for misbehavior
+## When to load
 
-## Price Feeds (For Developers)
-- Chainlink price feeds are the standard for DeFi — Aave, Synthetix, and most protocols use them
-- Feed addresses differ per network and pair — always verify on docs.chain.link
-- Feeds update based on deviation threshold and heartbeat — not every block
-- Check `latestRoundData()` not just `latestAnswer()` — includes timestamp and round info
-- Stale data check critical — verify `updatedAt` timestamp is recent
+- Read or integrate **Data Feeds** / SmartData / L2 sequencer uptime feeds
+- Request **VRF v2.5** randomness (subscription or direct funding)
+- Schedule **Automation** jobs or connect off-chain APIs via **Functions**
+- Send tokens/messages with **CCIP**, or pull high-frequency **Data Streams**
+- Fund subscriptions with LINK, verify feed addresses, or explain **staking v0.2**
 
-## Oracle Integration Patterns
-- Direct consumer: your contract calls feed directly — simplest approach
-- Chainlink Automation (Keepers): trigger actions based on conditions — no server needed
-- VRF (Verifiable Random Function): provably fair randomness — for NFT mints, games, lotteries
-- Functions: connect to any API — custom off-chain computation
-- CCIP: cross-chain messaging — official Chainlink interoperability protocol
+## Hard defaults
 
-## VRF Usage
-- Request/receive pattern: request randomness, receive in callback — not synchronous
-- Each request costs LINK — fund subscription or pay per request
-- Confirmation blocks add security but delay — more confirmations = more secure
-- Randomness is verifiable on-chain — anyone can verify it wasn't manipulated
+1. **Verify addresses on official docs** — feed, VRF coordinator, Automation registry, and CCIP router addresses differ per network; never hardcode from memory.
+2. **Treat feed answers as time-sensitive** — check `updatedAt` / round completeness; add circuit breakers for stale or extreme moves.
+3. **Prefer official docs and `data.chain.link`** over third-party address lists.
+4. **Re-open `references/sources.md`** before restating billing, staking caps, unbonding, lane availability, or feed deprecation claims.
+5. **No trading advice** — this skill explains oracle mechanics; portfolio decisions belong elsewhere.
 
-## Common Developer Mistakes
-- Hardcoding feed addresses — use address registry or config
-- Not checking for stale data — price feeds can stop updating
-- Assuming instant updates — deviation thresholds mean prices can be slightly stale
-- Not handling VRF callback failures — callback can revert, losing the randomness
-- Insufficient LINK for subscriptions — requests fail silently when underfunded
+## Ordered workflow
 
-## Network Comparisons
-- Ethereum mainnet: highest security, highest gas costs
-- L2s (Arbitrum, Optimism): lower cost, same security model
-- Alt-L1s (Polygon, Avalanche): native integration, different trust assumptions
-- Testnets: Sepolia for Ethereum, network-specific for others
+1. **Classify** — LINK/token basics, Data Feeds, VRF, Automation/Functions, CCIP, Data Streams, staking, or security/stale-data incident.
+2. **Load one matching reference** from the table below (plus `sources.md` when quoting mutable facts).
+3. **Verify live** — docs.chain.link address pages, `data.chain.link`, explorer, or subscription UI — before irreversible funding, staking, or cross-chain sends.
+4. **Near-miss routing** — pure EVM gas/approvals → `ethereum`; Solidity pitfalls → `solidity`; prices/TVL tooling → `crypto-tools`.
 
-## Security Considerations
-- Only use official Chainlink feeds — verify contract addresses on docs.chain.link
-- Monitor for feed deprecation — Chainlink announces deprecated feeds
-- Multi-oracle pattern for critical systems — don't rely on single source
-- Circuit breakers for extreme price movements — protect against oracle manipulation
+## Load the relevant reference
 
-## CCIP (Cross-Chain)
-- Send messages and tokens across chains — official Chainlink bridge
-- Lane availability varies — not all chain pairs supported
-- Fee estimation before sending — paid in LINK or native token
-- Message finality depends on source and destination chains
+| Reference | Load when |
+|---|---|
+| `references/link-and-networks.md` | LINK ERC-20 basics, multi-chain addresses, bridging via CCIP, network trade-offs. |
+| `references/data-feeds.md` | Price/SmartData/sequencer feeds, `latestRoundData`, stale checks, deprecation. |
+| `references/vrf.md` | VRF v2.5 subscription vs direct funding, billing, callback failure modes. |
+| `references/automation-functions.md` | Chainlink Automation triggers and Functions API connectivity. |
+| `references/ccip.md` | Cross-chain token/message transfers, fees, finality, rate limits. |
+| `references/data-streams.md` | Pull-based Streams reports, verification, latency-sensitive markets. |
+| `references/staking.md` | Community/node-operator staking v0.2 caps, unbonding, slashing scope. |
+| `references/sources.md` | Primary URLs for any mutable address, billing, staking, or deprecation claim. |
 
-## Ecosystem
-- Node operators earn LINK for providing data — professional infrastructure required
-- BUILD program for projects integrating Chainlink — access to resources and support
-- Extensive documentation at docs.chain.link — primary reference for developers
-- Community resources: Discord, Stack Overflow, GitHub
+## Safety posture
+
+- Prefer read-only diagnosis first. For subscription funding, staking, CCIP sends, or consumer deploys, state the exact action and wait for explicit user authorization.
+- Never request seed phrases or private keys.
+- Multi-oracle / circuit-breaker patterns for critical collateral paths; do not treat a single feed as infallible.
