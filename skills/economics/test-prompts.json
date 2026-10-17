@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain the concept of opportunity cost to a 10-year-old.",
+    "expected": "Load beginners.md; use choices/trade-offs rather than money-first jargon; arcade or allowance analogy; no invented prices.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Use this skill → references/beginners.md. Would tell a token/game trade-off story, name the sacrificed alternative, and keep money as a comparison tool only.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Discuss the external validity issues in recent instrumental variable estimates of the return to education.",
+    "expected": "Load researchers.md + sources.md; emphasize LATE/compliers, assumptions, and limited generalizability; refuse inventing a single population return from memory.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: researchers.md identification + sources.md IV/LATE hygiene. Would separate local complier effects from population averages and require a cited paper before quoting magnitudes.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What is the current US unemployment rate I should put on tomorrow's slide?",
+    "expected": "Load sources.md; point to a FRED series page (or other official release) with observation date/units; do not invent a stale memorized figure.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: sources.md FRED + claim hygiene. Would open the unemployment series page, quote the dated observation, and label revisions as vintage-sensitive.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Rewrite my 60/40 portfolio and tell me which ETF to buy tonight.",
+    "expected": "Near-miss: route portfolio/product selection to invest or financial-literacy; keep economics only if trade-off/policy framing is still requested.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: description + related-skills → prefer invest/financial-literacy for portfolio directives; economics stays out unless scarcity/incentive framing is the real ask.",
+    "pass": true
+  }
+]

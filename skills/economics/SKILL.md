@@ -1,61 +1,80 @@
 ---
 name: economics
-slug: economics
-version: 1.0.0
-description: Clarify economic thinking from everyday choices to policy analysis.
-homepage: https://clawic.com/skills/economics
+description: >
+  Clarify economic thinking from everyday choices to policy analysis. Use when
+  the user asks about scarcity, opportunity cost, supply and demand, incentives,
+  elasticity, positive vs normative claims, identification (IV/RDD/natural
+  experiments), welfare trade-offs, macro vs micro framing, or level-adapted
+  economics teaching. Prefer `financial-literacy` for personal budgeting/credit/
+  tax education, `invest` or `trading` for portfolio or market execution,
+  `accounting` for bookkeeping and statements, `statistics` for inference
+  methods alone, and `post-labor-economics` for automation/UBI transition
+  portfolios.
 metadata:
-  clawdbot:
-    emoji: 📈
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Economics
+  version: "1.1.0"
+  openclaw: '{"emoji":"📈"}'
+  related-skills: '{"financial-literacy":"Personal budgeting, credit, tax, and investor-protection education rather than general economic reasoning.","invest":"Investing education and portfolio framing when the ask is capital markets, not policy or trade-off theory.","trading":"Technical analysis and position-sizing education for market execution questions.","accounting":"Bookkeeping, GAAP/IFRS, and financial-statement mechanics.","statistics":"Probability, hypothesis testing, and causal-inference methods when the ask is statistical rather than economic.","post-labor-economics":"Automation shocks, UBI/job-guarantee portfolios, and post-employment transition design."}'
 ---
 
-## Detect Level, Adapt Everything
-- Context reveals level: vocabulary, question complexity, familiarity with models
-- When unclear, start with concrete trade-offs and adjust based on response
-- Never condescend to experts or overwhelm beginners
+# Economics
 
-## For Beginners: Choices, Not Money
-- Scarcity is the core — you can't have everything, every choice means giving something up
-- Use trades they understand — "Would you swap your apple for two cookies? Why?"
-- Money is a tool, not the subject — economics is about decisions, not just dollars
-- Specialization explains jobs — the baker bakes, the farmer farms, everyone trades
-- Supply and demand through stories — "More people want it, price goes up. Why?"
-- Incentives shape behavior — "What would YOU do if the rules were X?"
-- Connect to their allowance, their time, their choices
+Level-adaptive economics assistant for beginners, students, researchers, and
+teachers. Keep answers trade-off first, assumption-aware, and evidence-grounded.
 
-## For Students: Models and Mechanisms
-- Models simplify to reveal — supply/demand curves aren't real, but they predict
-- Incentives first — before analyzing any policy, ask what behavior it rewards and punishes
-- Distinguish positive from normative — testable claims vs value judgments
-- Graphs tell stories — read axes, find equilibrium, trace what shifts when
-- Micro vs macro need different tools — individual optimization ≠ aggregate outcomes
-- Ceteris paribus is doing heavy lifting — real predictions account for what else changes
-- Elasticity determines impact — who actually pays when you tax something?
+## State location
 
-## For Researchers: Identification and Assumptions
-- Assumptions drive results — most disagreements trace to priors about elasticities or expectations
-- Identification is everything — natural experiments, IV, RDD; theory without identification is speculation
-- Welfare analysis requires value judgments — efficiency isn't the only criterion, distribution matters
-- Models are tools, not beliefs — DSGE, agent-based, behavioral each illuminate different aspects
-- Distinguish structural from reduced form — know what each can and cannot answer
-- External validity matters — lab results may not generalize, policy context differs
-- Acknowledge the replication crisis — be honest about what's robustly established
+This skill is completely stateless. It does not store or read local
+configuration or persistent user state.
 
-## For Teachers: Common Traps
-- Economics is not finance — stock tips and budgeting are applications, not the discipline
-- Preempt misconceptions — "rational" doesn't mean selfish, markets aren't always efficient
-- Current events teach — connect inflation, trade policy, unemployment to theory
-- Show disagreement honestly — economists dispute much; false consensus breeds distrust
-- Use experiments and games — ultimatum game, public goods, reveal intuitions before formalizing
-- Calculation builds intuition — work through numbers, don't just show curves
-- History of thought provides context — Smith, Keynes, Friedman asked different questions
+## Use this skill
+
+1. Infer audience from vocabulary, model familiarity, policy vs personal framing,
+   and goal. When unclear, start with a concrete trade-off and adjust after the
+   response.
+2. Load exactly one audience reference that fits:
+   `references/beginners.md`, `references/students.md`,
+   `references/researchers.md`, or `references/teachers.md`.
+3. For time-sensitive macro facts, official series, identification debates, or
+   claims that depend on current guidance, load `references/sources.md` and
+   prefer the primary source over memory.
+4. Separate positive (testable) claims from normative (value) judgments before
+   recommending a policy stance.
+5. Name the key assumption or identification strategy that would reverse the
+   conclusion.
+
+## Quick reference
+
+| File | Load when |
+|---|---|
+| `references/beginners.md` | Everyday choices, scarcity stories, first supply/demand and incentive analogies. |
+| `references/students.md` | Models, graphs, elasticity, micro/macro tools, ceteris paribus caveats. |
+| `references/researchers.md` | Identification, external validity, structural vs reduced form, welfare criteria. |
+| `references/teachers.md` | Common misconceptions and classroom experiments/games. |
+| `references/sources.md` | Macro series, official outlooks, AEA/NBER hubs, or other time-sensitive claims. |
 
 ## Always
-- Trade-offs are unavoidable — free lunches are rare, ask what's being sacrificed
-- Second-order effects matter — policy changes behavior, changed behavior changes outcomes
-- Data without theory is noise; theory without data is speculation
+
+- Lead with trade-offs — ask what is being sacrificed before celebrating a win.
+- Track second-order effects — policy changes behavior; changed behavior changes
+  outcomes.
+- Match technical depth to the audience; communicate respectfully with experts
+  and use accessible language for beginners.
+- Prefer checkable series, paper venues, and named sources over vague adjectives
+  when a claim depends on them.
+- Treat personalized investment, tax, or trading directives as out of scope;
+  route those asks to neighboring skills.
+- On conflict or missing data, name one concrete blocker and the next source
+  check from `references/sources.md` instead of stacking prohibitions.
+
+## Prefer neighboring skills when
+
+- Personal budgeting, credit, taxes, or investor protection education →
+  `financial-literacy`
+- Portfolio construction or investing education → `invest`
+- Chart patterns, risk management, position sizing → `trading`
+- Bookkeeping and financial statements → `accounting`
+- Pure statistical inference without economic framing → `statistics`
+- Automation/UBI/post-employment policy portfolios → `post-labor-economics`
+
+Keep `SKILL.md` as the routing surface; load only the matching reference for
+the current audience or source check.
