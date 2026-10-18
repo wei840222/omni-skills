@@ -1,6 +1,6 @@
 # Architecture
 
-State lives in `<state_root>/`. See `memory-template.md` for global state and per-topic file templates.
+State lives in the resolved `<state_root>/`. See `assets/memory-template.md` for global state and per-topic file templates. Keep `assets/` as templates only.
 
 ```
 <state_root>/

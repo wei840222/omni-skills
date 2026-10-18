@@ -1,9 +1,9 @@
 # AGENTS Routing Rules
 
 Use this file when the user explicitly wants AGENTS auto-routing.
-Keep duolingo manual and user-invocable unless explicitly requested.
+Keep `duolingo` manual and user-invocable unless they ask for auto-routing.
 
-## Router Block Template
+## Router block template
 
 Provide this block for the user to paste into AGENTS:
 
@@ -20,7 +20,9 @@ Examples:
 If multiple topics match, ask which track to run now and keep other tracks queued.
 ```
 
-## Topic Registration Format
+Replace the documentation placeholder `<state_root>` with the concrete resolved path before the user pastes the block.
+
+## Topic registration format
 
 Store in `<state_root>/router/topics.md`:
 
@@ -32,9 +34,9 @@ Store in `<state_root>/router/topics.md`:
   triggers: cooking, recipes, kitchen skills, food prep
 ```
 
-## Sync Rules
+## Sync rules
 
-- If a topic is added or removed, update both `topics.md` and AGENTS router block.
+- When a topic is added or removed, update both `topics.md` and the AGENTS router block text stored in `agentsmd-snippet.md`.
 - Keep one router block only; prevent duplicates in AGENTS.
 - Preserve unrelated AGENTS rules during router changes.
-- Require the user to manually write AGENTS changes.
+- Require the user to manually write AGENTS changes; show the snippet and wait.

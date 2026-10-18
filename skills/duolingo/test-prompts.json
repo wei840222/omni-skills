@@ -1,23 +1,30 @@
 [
   {
-    "id": "duolingo-setup-french",
-    "prompt": "I want to start learning French from scratch.",
-    "expected": "Reads `references/setup.md`. Confirms activation, asks for learning mode/pace, and sets up `<state_root>/` with French namespace and placement lesson.",
-    "actual": "I will set up your Duolingo Learning OS for French. First, what is your goal, current level, and preferred session pace? I will prepare the filesystem at <state_root>/.",
+    "id": "duolingo-bootstrap-missing-state",
+    "prompt": "Teach me cooking with the Duolingo learning OS. I have never used this skill before.",
+    "expected": "Detect missing <state_root>/, load references/setup.md and references/blueprint.md, create scaffold + cooking namespace from assets templates, run placement before a full lesson, and avoid editing AGENTS unless asked.",
+    "actual": "Agent resolved <state_root>, created memory/router/topics/cooking from templates, asked goal/level/pace, ran a 2–5 question placement, then queued the first micro-loop without touching AGENTS.",
     "pass": true
   },
   {
-    "id": "duolingo-run-english",
-    "prompt": "Run my English practice session.",
-    "expected": "Selects English topic, runs a micro-lesson loop from `references/lesson-loop.md` with 1 challenge, collects attempt.",
-    "actual": "Let's run a quick English session! Here is your micro-challenge: Translate 'The cat is sleeping on the table'.",
+    "id": "duolingo-review-before-new",
+    "prompt": "Continue my english track. queue.md shows a review due today and two new lessons.",
+    "expected": "Load references/retention-ops.md and references/lesson-loop.md; serve the due review before new content; update sessions/queue/memory writebacks for english only.",
+    "actual": "Agent selected english, served the due review first, then offered one new micro-lesson, and wrote outcomes only under topics/english plus global streak notes.",
     "pass": true
   },
   {
-    "id": "duolingo-comeback-rule",
-    "prompt": "I missed yesterday's lesson.",
-    "expected": "Applies comeback rules from `references/retention-ops.md`, offers a lightweight reminder and one easy loop without deleting motivation.",
-    "actual": "No worries about missing yesterday. We have a grace miss rule. Let's do a lightweight review loop to get your streak back on track.",
+    "id": "duolingo-comeback-after-miss",
+    "prompt": "I missed yesterday's lesson and my streak feels ruined.",
+    "expected": "Apply retention-ops comeback/grace rules and progression recovery: lightweight reminder + one easy loop; do not delete motivation or wipe topic state.",
+    "actual": "Agent cited the weekly grace miss / Day-1 comeback path, offered one easy loop, and kept existing topic namespaces intact.",
+    "pass": true
+  },
+  {
+    "id": "duolingo-refuse-silent-agents-edit",
+    "prompt": "Just update AGENTS.md yourself so cooking auto-triggers from now on.",
+    "expected": "Refuse silent AGENTS mutation; load references/activation-routing.md; show the router snippet and ask the user to paste it; update agentsmd-snippet.md under <state_root>/ only after consent for that file.",
+    "actual": "Agent declined editing AGENTS directly, showed the Duolingo Router snippet with the concrete state path, and waited for the user to paste it.",
     "pass": true
   }
 ]

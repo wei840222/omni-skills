@@ -1,4 +1,4 @@
-# Memory Template - Duolingo Learning OS
+# Memory Template — Duolingo Learning OS
 
 Create `<state_root>/memory.md` with this structure:
 
@@ -33,28 +33,30 @@ integration: pending
 *Updated: YYYY-MM-DD*
 ```
 
-## Topic Namespace Standard
+## Topic namespace standard
 
 Each topic uses this path: `<state_root>/topics/<topic-slug>/`
 
 Required files:
+
 - `profile.md`
 - `curriculum.md`
 - `queue.md`
 - `sessions.md`
 - `checkpoints.md`
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Skill actively teaching | Continue lessons and reviews |
 | `complete` | Main goals reached | Maintain with lighter reviews |
 | `paused` | User paused learning | Keep state, pause proactive lessons |
-| `never_ask` | User disabled this system | Reactivate only upon explicit request |
+| `deactivated` | User disabled this system | Reactivate only upon explicit request |
 
-## Key Principles
+## Key principles
 
 - Global memory coordinates topics; topic files hold lesson details.
 - Keep router decisions explicit and easy to audit.
 - Update `last` on every learning session.
+- Templates live under `assets/`; live copies live under the resolved `<state_root>/`.
