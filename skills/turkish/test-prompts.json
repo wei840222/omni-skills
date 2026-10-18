@@ -1,0 +1,41 @@
+[
+  {
+    "id": "turkish-peer-coffee",
+    "scenario": "happy-path peer SMS",
+    "prompt": "Write a quick Turkish message to my friend asking if they want to grab coffee later.",
+    "expected": [
+      "Uses casual sen register and peer greeting such as Selam/Naber",
+      "Mentions coffee (kahve) without inventing a full itinerary",
+      "Keeps the ask short and warm rather than formal Merhaba/siz framing"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: turkish → casual sen + Selam/Naber + kahve ask, no siz. Example: \"Naber ya? Sonra kahve içelim mi?\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "turkish-colleague-thanks",
+    "scenario": "work-chat thanks",
+    "prompt": "Reply in Turkish to a colleague who just sent me the report I asked for. Keep it friendly but workplace-appropriate.",
+    "expected": [
+      "Thanks without crude slang",
+      "May use eline sağlık / teşekkürler / kolay gelsin class courtesy",
+      "Does not invent new work commitments"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: turkish → workplace-friendly thanks + eline sağlık/teşekkürler, no new commitment. Example: \"Süper, eline sağlık. Çok teşekkürler!\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "turkish-formal-office-note",
+    "scenario": "explicit formal edge case",
+    "prompt": "Write a short Turkish note to an unfamiliar government office asking whether my document was received. Keep it formal.",
+    "expected": [
+      "Uses siz or equivalent polite framing",
+      "Avoids naber/napıyon and intimate ya stacks",
+      "Asks only about document receipt"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: turkish → polite siz path from sources.md; no peer reductions. Example: \"Merhaba, gönderdiğim belgenin tarafınıza ulaşıp ulaşmadığını teyit edebilir misiniz? Saygılarımla.\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  }
+]
