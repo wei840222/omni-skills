@@ -1,0 +1,41 @@
+[
+  {
+    "id": "romanian-peer-text-cf",
+    "scenario": "happy-path peer SMS",
+    "prompt": "Translate 'Hello, how are you? I am going to the store' to Romanian in a text message format to a peer.",
+    "expected": [
+      "Uses casual tu register and greeting such as Salut/Sal",
+      "Includes cf or ce faci for the how-are-you beat",
+      "Keeps the store errand without adding plans or promises"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: romanian → casual tu + references/vocabulary.md (cf) + hai/măi particles only if natural. Example: \"Salut, cf? Mă duc până la magazin.\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "romanian-tired-decline",
+    "scenario": "peer hangout decline",
+    "prompt": "Write a short reply to a friend asking if I want to hang out tonight. Tell them I'm tired and want to stay home.",
+    "expected": [
+      "Peer tu voice with a softener such as măi / păi / nu-i bai",
+      "Preserves tiredness and stay-home facts",
+      "Does not invent an alternate meetup"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: romanian → măi + tiredness + stay home, no new plan. Example: \"Măi, sunt cam obosit, aș vrea să stau acasă, nu-i bai?\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "romanian-formal-office-note",
+    "scenario": "explicit formal edge case",
+    "prompt": "Write a short note to an unfamiliar government office asking whether my document was received. Keep it formal.",
+    "expected": [
+      "Uses dumneavoastră or equivalent polite framing",
+      "Avoids cf/mișto/nașpa and peer particles like măi",
+      "Asks only about document receipt"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: romanian → polite dumneavoastră path from sources.md T–V notes; no slang. Example: \"Bună ziua, vă rog să îmi confirmați dacă documentul pe care l-am trimis a fost primit. Cu stimă.\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  }
+]
