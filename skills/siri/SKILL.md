@@ -54,6 +54,19 @@ notes.
 3. Apply the narrowest reversible check from the matching reference, then
    retest the same phrase before escalating.
 
+## Quick start
+
+1. Confirm the failing phrase, device, and OS version.
+2. If activation fails, use Activation & Setup + Troubleshooting below.
+3. If a HomeKit name fails by voice, load `references/homekit.md`.
+4. If a Shortcut will not trigger, load `references/shortcuts.md`.
+5. If the ask is app development, load `references/development.md` and
+   `references/sources.md`.
+
+Prefer `homepod` when the symptom is HomePod audio/hub only; prefer
+`smart-home` for non-Apple hubs or VLAN design; prefer `ios` for
+entitlements and App Store lifecycle.
+
 ## Activation & Setup
 
 **Trigger methods:**
