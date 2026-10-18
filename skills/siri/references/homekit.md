@@ -3,12 +3,12 @@
 ## Device Naming Best Practices
 
 **Format:** Location + Function
-- ✅ "Kitchen Light", "Bedroom Fan", "Front Door Lock"
-- ❌ "Light 1", "Lamp", "Smart Bulb #3"
+- **Use:** "Kitchen Light", "Bedroom Fan", "Front Door Lock"
+- **Instead of:** "Light 1", "Lamp", "Smart Bulb #3"
 
 **Naming Rules:**
-- No punctuation or special characters
-- Avoid numbers unless meaningful ("Floor 2 Hallway")
+- Omit punctuation and special characters
+- Include numbers only if meaningful ("Floor 2 Hallway")
 - Keep names short (2-3 words ideal)
 - Make names phonetically distinct
 - Test by saying the command before committing
