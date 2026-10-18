@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| meal-planner                 | 2026-10-18 | 100/100 (#919)                   |
 | self-direction               | 2026-10-18 | 88/100 (#918)                    |
 | calories                     | 2026-10-18 | 86/100 (#917)                    |
 | turkish                      | 2026-10-18 | 88/100 (#916)                    |

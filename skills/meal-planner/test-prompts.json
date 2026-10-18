@@ -1,0 +1,35 @@
+[
+  {
+    "id": "meal-planner-01-week-plan-with-inventory",
+    "prompt": "Create a meal plan for next week using my standard budget and preferences. Check what's in the pantry first.",
+    "expected": [
+      "Resolves <state_root> and reads <state_root>/meal-planner/memory.md before planning",
+      "Checks <state_root>/meal-planner/inventory/pantry.md (and fridge when present) before shopping items",
+      "Writes a weekly plan under <state_root>/meal-planner/weeks/ and links shopping items to meals"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: meal-planner → resolved <state_root>/meal-planner/, read memory.md + pantry.md, drafted weeks/2026-W42.md with linked shopping list and 1–2 flex slots; no grocery checkout.",
+    "pass": true
+  },
+  {
+    "id": "meal-planner-02-allergy-blocks-shellfish",
+    "prompt": "I have an allergy to shellfish. What can we have for dinner tonight instead of the shrimp pasta?",
+    "expected": [
+      "Reads <state_root>/meal-planner/memory.md and records/confirms shellfish as allergy before suggesting food",
+      "Refuses shrimp/shellfish options and proposes a fully shellfish-free alternative",
+      "Updates the current week plan or tonight's slot without inventing medical nutrition advice"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: meal-planner → confirmed shellfish allergy in memory.md, blocked shrimp pasta, suggested chicken-vegetable stir-fry, updated the dinner slot; deferred clinical diet questions to dietitian.",
+    "pass": true
+  },
+  {
+    "id": "meal-planner-03-route-stove-rescue",
+    "prompt": "The sauce for tonight's planned pasta split and looks greasy. Fix it while we keep the rest of this week's meal plan.",
+    "expected": [
+      "Must prefer/hand off stove-side sauce rescue to `cooking` rather than expanding meal-planner into technique coaching",
+      "Must keep the weekly plan ownership in meal-planner without rewriting unrelated days",
+      "Must not invent USDA official budget figures while handling the cooking interruption"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: meal-planner → routed broken/split sauce to `cooking`, left weeks/ plan intact, offered only plan-level leftover/swap if cooking rescue changes the protein; no official cost-of-food numbers invented.",
+    "pass": true
+  }
+]

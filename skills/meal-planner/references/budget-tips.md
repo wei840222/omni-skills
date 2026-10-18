@@ -1,8 +1,13 @@
 # Budget Tips — Meal Planner
 
-## Weekly Budget Benchmarks
+## Weekly budget heuristics
 
-### Per-Person Weekly Ranges (US, 2024-2026)
+> These thrifty/moderate/liberal dollar bands are **local planning heuristics**,
+> not verified USDA Food Plans figures. Official CNPP cost-of-food pages were
+> unreachable (HTTP 403) during the 2026-10-18 repair live-check. Prefer the
+> user's stated weekly target. See `references/sources.md`.
+
+### Per-person weekly ranges (US heuristic, not an official series)
 | Budget Level | Weekly Per Person | Monthly Per Person |
 |--------------|-------------------|-------------------|
 | Thrifty | $50-65 | $200-260 |
@@ -10,7 +15,8 @@
 | Liberal | $90-120 | $360-480 |
 | Flexible | $120+ | $480+ |
 
-Adjust for location (cities +20-40%) and dietary restrictions (+10-30%).
+Adjust for location and dietary restrictions only as a conversation starter;
+do not present adjusted figures as official statistics.
 
 ### Family Multipliers
 | Household | Multiplier | Notes |
@@ -29,7 +35,7 @@ Adjust for location (cities +20-40%) and dietary restrictions (+10-30%).
 |----------|---------|----------------|
 | Store brands | 10-30% | Switch staples first |
 | Shopping list only | 15-20% | Avoid impulse buys |
-| Seasonal produce | 20-40% | Follow what's fresh |
+| Seasonal produce | varies | Prefer in-season items; see ERS fruit/vegetable prices in `references/sources.md` |
 | Unit price comparison | 5-15% | Bigger isn't always cheaper |
 | Sales cycle awareness | 10-20% | Stock up during deals |
 

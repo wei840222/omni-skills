@@ -11,7 +11,7 @@ This helps users understand why they're buying things and reduces waste.
 
 ### 2. Check Inventory First
 Before adding to list:
-1. Read `inventory/pantry.md` and `inventory/fridge.md`
+1. Read `<state_root>/meal-planner/inventory/pantry.md` and `fridge.md`
 2. Only add items marked "low" or "out"
 3. Note: "assuming you have olive oil" for common staples
 
