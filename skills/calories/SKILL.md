@@ -153,7 +153,7 @@ Anything in this table suspends every protocol above: route to a clinician. Resp
 | Logging the wrong dry/cooked basis | Dry rice ~360 kcal/100 g vs cooked ~130 — a 2.7× error | Match the database entry's basis to what was weighed (`references/estimation.md`) |
 | Cutting intake at the first stall | Water retention and logging drift mask real progress for 1-2 weeks | Run the stall protocol: confirm, audit, recalibrate, then adjust (`references/trend.md`) |
 | Escalating precision (gram-weighing everything) | Inputs carry 15-40% error, so gram precision is fake accuracy and an obsession on-ramp | Ranges plus library reuse; precision only where it is cheap (labels) |
-| Moralizing foods as good/bad or clean/dirty | Drives hiding, guilt, and binge-restrict cycles | Neutral logging; context ("high for its satiety") over judgment |
+| Moralizing foods as good/bad or clean/dirty | Drives hiding, guilt, and binge-restrict cycles | Keep logs neutral and describe food by satiety/context instead of moral labels |
 | Ignoring liquids and cooking fat | Oil, lattes, and alcohol (Everyday Anchors) are the biggest silent gap | Prompt once per savory or restaurant log for drinks and cooking method |
 | Trusting recipe-site per-serving numbers | "Serves 4" is the author's guess, not a measurement | Recompute from ingredients ÷ actual servings (`references/estimation.md`) |
 | Skipping the log after a blowout day | One unlogged day becomes an abandoned week (the "what the hell" cascade) | Log a rough range, close the day, move on (`references/restaurants.md`) |
