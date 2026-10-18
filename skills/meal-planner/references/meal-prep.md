@@ -156,3 +156,7 @@ Cook extra on purpose:
 | Cooked grains | 4-5 days | Mold, sour smell |
 | Cut vegetables | 4-5 days | Wilting, slime |
 | Soups/stews | 3-4 days | Bubbling, off smell |
+
+## Safety boundary
+
+For leftover storage times and internal cook temperatures, prefer current official charts at runtime. If FoodSafety.gov charts are unreachable, tell the user the number is unverified and do not invent temperatures. Waste-reduction framing may cite EPA preventing wasted food at home via `references/sources.md`.

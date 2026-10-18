@@ -1,260 +1,193 @@
 ---
 name: meal-planner
-slug: meal-planner
-version: 1.0.0
-description: Plan meals with weekly menus, shopping lists, batch cooking, budget tracking, dietary preferences, and recipe management.
-homepage: https://clawic.com/skills/meal-planner
+description: >
+  Plan household meals with weekly menus, shopping lists, batch-cooking notes,
+  budget targets, dietary restrictions, pantry checks, and leftover reuse. Use
+  when the user asks to plan dinners for the week, build a shopping list from a
+  menu, reduce food waste, track a food budget, coordinate household diets, or
+  turn preferences plus inventory into a cookable plan. Prefer `cooking` for
+  stove-side rescue, `recipe` for saving/scaling individual recipes, `grocery`
+  for pantry/list logistics without menus, `calories`/`nutrition`/`dietitian`
+  for macros/micros/clinical diets, and `daily-planner` for calendar timeboxing.
 metadata:
-  clawdbot:
-    emoji: 🍽️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Meal Planner
+  version: "1.1.0"
+  openclaw: '{"emoji":"🍽️","requires":{"config":["<state_root>/meal-planner/"]}}'
+  related-skills: '{"cooking":"Stove-side technique and dish rescue once a meal is chosen.","recipe":"Capture, scale, and file individual recipes rather than the household week.","grocery":"Shopping-list and pantry logistics when no weekly menu is needed.","nutrition":"Micronutrient gaps and supplement/food-drug interactions.","calories":"Calorie and macro tracking after menus exist.","dietitian":"Clinical or therapeutic nutrition plans.","daily-planner":"Calendar and timeboxing for cook/shop blocks.","food":"Casual food logging and classification outside multi-day planning."}'
 ---
 
-## Setup
+# Meal Planner
 
-On first use, read `setup.md` for onboarding guidelines. Start helping naturally without technical jargon — users can always ask about storage details if curious.
+Turn household preferences, dietary restrictions, inventory, and budget into a
+cookable weekly plan with linked shopping lists and batch-prep notes.
 
-## When to Use
+This skill is stateful. Runtime meal-planning data lives under a resolved
+`<state_root>/meal-planner/` tree outside this package. Never write runtime
+state into the skill tree.
 
-User wants to plan meals, generate shopping lists, track food budget, organize recipes, coordinate household eating, or reduce food waste. Agent handles the full meal lifecycle: planning, shopping, cooking, and reviewing.
+## State location
+
+Meal-planner preferences, weekly plans, recipes, shopping lists, inventory, and
+memory are persistent user state. Resolve one `<state_root>` before any read or
+write:
+
+1. Use an explicitly configured path when the user or host supplies one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/meal-planner/`, `<workspace>/memory/meal-planner/`,
+   `~/meal-planner/`.
+3. If several candidates exist, use only the highest-precedence directory,
+   report the split copies, and do not merge or cross-write.
+4. If none exists and the user wants durable meal-planning state, create
+   `<workspace>/meal-planner/` when `<workspace>` is available; otherwise ask
+   for a state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the rest of the invocation.
+
+Use the selected `<state_root>` for every meal-planner state path under
+`<state_root>/meal-planner/` (`memory.md`, `weeks/`, `recipes/`, `shopping/`,
+`inventory/`, `templates/`, `archive/`). Legacy `~/Clawic/data/meal-planner/`
+and `~/clawic/meal-planner/` copies are migration sources only — move them into
+the resolved `<state_root>/meal-planner/` when the user asks, and say in one
+line that you moved them and from where. Skill resources stay under
+`references/` and `assets/`; never treat the literal string `<state_root>` as a
+filesystem directory name.
+
+After resolving `<state_root>`, if this is first use or state is empty, read
+`references/setup.md`. File formats live in `assets/data-templates.md`.
+
+## Progressive disclosure
+
+Load reference files only when the matching situation needs depth:
+
+- first-run onboarding → `references/setup.md`
+- shopping-list construction → `references/shopping-guide.md`
+- batch cooking / component prep → `references/meal-prep.md`
+- food-budget heuristics → `references/budget-tips.md`
+- citation URLs and claim status → `references/sources.md`
+- markdown templates → `assets/data-templates.md`
+
+## When to use
+
+- User wants a weekly or multi-day meal plan with breakfast/lunch/dinner slots
+- User needs a shopping list generated from a plan and current inventory
+- User wants batch-prep suggestions, leftover reuse, or waste reduction
+- User is coordinating household diets, allergies, kid preferences, or guests
+- User asks for a food-budget target while planning meals
+
+Prefer other skills when:
+
+| Ask | Prefer |
+|-----|--------|
+| Dish is bland/burnt/broken at the stove | `cooking` |
+| Save/scale/convert one recipe | `recipe` |
+| Grocery list/pantry only, no menu | `grocery` / `shopping` / `inventory` |
+| Calories/macros | `calories` |
+| Micronutrients / labs / supplements | `nutrition` |
+| Clinical therapeutic diet | `dietitian` |
+| Timebox cook/shop on a calendar | `daily-planner` |
+| Casual “what did I eat” logging | `food` |
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/meal-planner/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/meal-planner/
-├── memory.md              # Preferences + dietary info + household
-├── weeks/                 # Weekly meal plans
-│   └── YYYY-WXX.md        # Week 12 of 2026 = 2026-W12.md
-├── recipes/               # Saved recipes
+```text
+<state_root>/meal-planner/
+├── memory.md
+├── weeks/
+│   └── YYYY-WXX.md
+├── recipes/
 │   └── {recipe-name}.md
-├── shopping/              # Shopping lists
+├── shopping/
 │   └── YYYY-MM-DD.md
-├── inventory/             # What's in pantry/fridge
+├── inventory/
 │   ├── pantry.md
 │   └── fridge.md
-├── templates/             # Reusable meal templates
+├── templates/
 │   └── {template-name}.md
-└── archive/               # Past weeks for reference
+└── archive/
 ```
 
-## Quick Reference
+## Quick reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Shopping optimization | `shopping-guide.md` |
-| Batch cooking | `meal-prep.md` |
-| Budget tracking | `budget-tips.md` |
+| Situation | Play |
+|-----------|------|
+| First use / empty state | Resolve `<state_root>`, then `references/setup.md` |
+| Plan next week | Read `memory.md` + inventory, write `weeks/YYYY-WXX.md` |
+| Shopping trip | Diff plan vs inventory → `shopping/YYYY-MM-DD.md` via `references/shopping-guide.md` |
+| Busy week | Component prep list via `references/meal-prep.md` |
+| Budget pressure | Qualifying heuristics in `references/budget-tips.md`; never invent official USDA figures without a live source |
+| Allergy / restriction change | Update `memory.md` before suggesting food |
+| Leftovers / waste | Reuse planned leftovers; see EPA wasted-food guidance in `references/sources.md` |
 
-## Core Rules
+## Core rules
 
-### 1. Check Memory First
-Before any meal planning, read `~/Clawic/data/meal-planner/memory.md` for:
-- Dietary restrictions and allergies (critical for safety)
-- Household composition (adults, kids, guests)
-- Cooking skill level and time constraints
-- Budget targets and preferences
-- Cuisine preferences and dislikes
+1. **Check memory first.** Before planning, read
+   `<state_root>/meal-planner/memory.md` for allergies, intolerances,
+   preferences, household members, time budget, and spend targets.
+2. **Restrictions are sacred.** Allergy and intolerance entries block a recipe
+   before suggestion. Prefer substitutions only after confirming severity.
+3. **Inventory before shopping.** Read
+   `<state_root>/meal-planner/inventory/pantry.md` and `fridge.md` when
+   present; do not duplicate stocked staples.
+4. **Link every shopping item to meals.** Orphan list items are a waste risk.
+5. **Plan for real life.** Leave 1–2 flex slots; include leftover reuse; keep
+   weeknight prep time honest.
+6. **Budget claims need sources.** Treat thrifty/moderate dollar bands as local
+   heuristics unless a live official series is cited in `references/sources.md`.
+7. **Stay in scope.** This skill plans and lists; it does not place grocery
+   orders, store payment data, or give medical nutrition therapy.
+8. **Consent for state writes.** Create or migrate state only after the user
+   wants durable planning files; say what you wrote and where.
 
-### 2. Meal Planning Lifecycle
-| Phase | Action |
-|-------|--------|
-| Plan | Create week file in `weeks/` with all meals |
-| Shop | Generate shopping list from week plan |
-| Prep | Suggest batch cooking opportunities |
-| Cook | Reference recipes, adjust portions |
-| Review | Note what worked, update preferences |
-
-### 3. Weekly Planning Rhythm
-When user asks to plan meals:
-- Check inventory first (avoid buying duplicates)
-- Balance nutrition across the week
-- Cluster similar ingredients (reduce waste)
-- Plan leftovers strategically (cook once, eat twice)
-- Leave 1-2 flex slots for spontaneity or eating out
-
-### 4. Shopping List Generation
-For each shopping trip:
-```markdown
-## Shopping List — YYYY-MM-DD
-
-### Produce
-- [ ] Onions (3) — Mon stir-fry, Wed soup
-- [ ] Spinach (1 bag) — Tue smoothie, Thu salad
-
-### Proteins
-- [ ] Chicken breast (1.5 lb) — Mon, Wed meals
-
-### Pantry (only if low)
-- [ ] Olive oil — check inventory first
-
-**Budget estimate:** $XX
-**Store suggestions:** [based on preferences]
-```
-Link items to meals so user knows why they're buying each thing.
-
-### 5. Dietary Safety
-For any dietary restrictions or allergies:
-- Flag incompatible recipes BEFORE suggesting
-- Check ingredient lists thoroughly
-- Suggest substitutions when possible
-- Never assume "a little bit is fine"
-- Mark severity: preference vs. intolerance vs. allergy (life-threatening)
-
-### 6. Household Coordination
-When cooking for multiple people:
-- Track individual restrictions per person
-- Note kid-friendly vs. adult portions
-- Plan meals everyone can eat (or easy modifications)
-- Track who likes what (reduce "I don't want that" moments)
-
-### 7. Budget Optimization
-| Strategy | Typical Savings | When to Apply |
-|----------|-----------------|---------------|
-| Seasonal produce | 20-40% | Always check what's in season |
-| Batch cooking | 30% time, 15% cost | Busy weeks |
-| Protein rotation | 15-25% | Alternate expensive/cheap proteins |
-| Pantry meals | 50%+ | End of budget cycle |
-| Store brands | 10-30% | Most staples |
-
-## Weekly Plan Format
+## Weekly plan format
 
 ```markdown
 # Week YYYY-WXX
 
 ## Overview
-- Budget target: $XXX
-- Dietary focus: [any theme]
-- Special events: [guests, holidays]
+- Budget target: $XXX (heuristic or user-stated)
+- Dietary focus: ...
+- Special events: ...
 
 ## Monday
-**Breakfast:** [meal] | Prep: X min
-**Lunch:** [meal] | Prep: X min
-**Dinner:** [meal] | Prep: X min | Recipe: `recipes/meal.md`
+**Breakfast:** ... | Prep: X min
+**Lunch:** ... | Prep: X min
+**Dinner:** ... | Prep: X min | Recipe: `recipes/meal.md`
 
-## Tuesday
-...
-
-## Batch Prep (Sunday)
-- [ ] Cook rice for Mon/Tue/Wed
-- [ ] Chop vegetables for week
-- [ ] Marinate Thu chicken
+## Batch Prep
+- [ ] ...
 
 ## Shopping Needed
-[Auto-generated from meals above]
+[Generated from meals above after inventory check]
 ```
 
-## Recipe Format
+## Recipe and shopping notes
 
-```markdown
-# {Recipe Name}
+Recipe cards and shopping-list section order live in
+`assets/data-templates.md` and `references/shopping-guide.md`. Keep dietary
+tags and substitutions next to ingredients when restrictions exist.
 
-**Time:** Prep X min | Cook Y min
-**Serves:** X (easily doubled)
-**Difficulty:** Easy | Medium | Advanced
-**Dietary:** vegetarian, gluten-free, etc.
+## Security and privacy
 
-## Ingredients
-- X cups ingredient — substitute: [alt]
-- Y tbsp ingredient
+**Local-only data:** plans, recipes, shopping lists, inventory, and household
+dietary notes under `<state_root>/meal-planner/`.
 
-## Instructions
-1. Step one
-2. Step two
+**This skill does not:**
 
-## Notes
-- Pairs well with: [sides]
-- Storage: X days fridge, Y months freezer
-- Kid modification: [if applicable]
+- send meal data to external services
+- access health apps or fitness trackers
+- store payment information
+- read files outside the resolved `<state_root>/meal-planner/` tree
 
-## History
-- YYYY-MM-DD: Made it, family loved it
-- YYYY-MM-DD: Added more garlic next time
-```
-
-## Inventory Management
-
-Proactively ask about inventory updates:
-- After shopping trips: "Want to update what you bought?"
-- When planning: "Checking pantry — last update was X days ago"
-- For staples: track approximate quantities (full, half, low, out)
-
-```markdown
-## Pantry — Updated YYYY-MM-DD
-
-### Grains & Pasta
-| Item | Status | Notes |
-|------|--------|-------|
-| Rice | Full | 5 lb bag |
-| Pasta | Half | |
-
-### Canned Goods
-...
-
-### Spices
-...
-```
-
-## Common Traps
-
-- Planning without checking inventory → duplicate purchases, waste
-- Overambitious meal plans → exhaustion, ordering takeout
-- Ignoring prep time → not just cook time, total time matters
-- Same proteins all week → meal fatigue, nutrition gaps
-- No flex meals → rigid plans break under real life
-- Forgetting leftovers → food waste
-- Not tracking what worked → repeating failures
-
-## Security & Privacy
-
-**Data that stays local:**
-- All meal plans, recipes, shopping lists stored in `~/Clawic/data/meal-planner/`
-- Dietary restrictions and household info in `~/Clawic/data/meal-planner/memory.md`
-- No cloud sync, no external services
-
-**This skill does NOT:**
-- Send any data to external servers
-- Access health apps or fitness trackers
-- Store payment information
-- Read files outside `~/Clawic/data/meal-planner/`
-
-**User consent:**
-- Files created only when user engages with meal planning
-- User can view/edit all stored data directly (plain markdown)
-- User can delete `~/Clawic/data/meal-planner/` at any time to remove all data
+**User control:** plain markdown files; the user may edit or delete
+`<state_root>/meal-planner/` at any time.
 
 ## Scope
 
-This skill ONLY:
-- Manages meal planning in `~/Clawic/data/meal-planner/`
-- Reads/writes markdown files for plans, recipes, shopping
-- Suggests based on preferences and inventory
+This skill only:
 
-This skill NEVER:
-- Orders groceries (provides list for user to order)
-- Accesses health apps or fitness trackers
-- Stores payment information
-- Reads files outside `~/Clawic/data/meal-planner/`
-- Provides medical nutrition advice (refer to dietitian for health conditions)
+- resolves `<state_root>` and manages meal-planning markdown under
+  `<state_root>/meal-planner/`
+- builds weekly plans, shopping lists, batch-prep notes, and preference memory
+- routes stove, recipe-collection, calorie, micronutrient, and clinical asks to
+  peer skills
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `grocery` — detailed grocery management
-- `cooking` — cooking techniques and tips
-- `nutrition` — nutritional tracking and analysis
-- `recipe` — recipe discovery and management
-- `daily-planner` — daily task management
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/meal-planner
-- Latest version: https://clawic.com/skills/meal-planner
+Outside scope: grocery checkout, medical nutrition advice, calorie coaching,
+and calendar ownership.

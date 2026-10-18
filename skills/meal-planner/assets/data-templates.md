@@ -1,8 +1,7 @@
-# Memory Template — Meal Planner
+# Meal Planner templates
 
-Create `~/Clawic/data/meal-planner/memory.md` with this structure:
+Copy into `<state_root>/meal-planner/` after consent. This file is a template only; do not write runtime state into the skill package.
 
-```markdown
 # Meal Planner Memory
 
 ## Status
@@ -84,21 +83,3 @@ online-delivery: yes | no
 
 ---
 *Updated: YYYY-MM-DD*
-```
-
-## Status Values
-
-| Value | Meaning | Behavior |
-|-------|---------|----------|
-| `ongoing` | Still learning preferences | Gather context, suggest gently |
-| `complete` | Has solid understanding | Plan confidently |
-| `paused` | User said "not now" | Work with what you have |
-| `never_ask` | User said stop asking | Never probe for preferences |
-
-## Key Principles
-
-- **Restrictions are sacred** — always check before suggesting
-- **Learn from feedback** — "that was too much work" → note time constraints
-- **Observe patterns** — meal history tells you more than questions
-- **Don't over-ask** — preferences emerge through cooking together
-- Update `last` on each planning session
