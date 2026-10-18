@@ -35,6 +35,8 @@ Use the selected `<state_root>` for every state operation in this skill.
 
 ## Operating Instructions
 
+Load only the reference required by the current failure mode; keep SKILL.md as the always-on path.
+
 Read references only when required:
 - `references/setup.md`: Read when `<state_root>` is missing or stale.
 - `references/send-flow.md`: Read when sending or testing SMTP delivery.
