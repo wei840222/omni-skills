@@ -149,7 +149,7 @@ Track confidence per element:
 - Autonomous decision: act from high-confidence evidence and report the why
 - Preference prediction: propose from patterns and ask for confirmation
 - Misalignment catch: pause when a task conflicts with a captured boundary
-- Honest gap: ask when the model is silent instead of inventing direction
+- Honest gap: ask when the model is silent; capture the answer instead of inventing direction
 
 ## Operating modes
 
