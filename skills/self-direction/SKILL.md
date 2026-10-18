@@ -1,364 +1,178 @@
 ---
 name: self-direction
-slug: self-direction
-version: 1.0.0
-description: Your agent learns to think like you. Captures your direction system, makes decisions as you would, guides all processes toward your goals.
-homepage: https://clawic.com/skills/self-direction
+description: >
+  Capture the user's direction system—values, goals, decision criteria, risk
+  tolerance, resource priorities, and hard boundaries—then decide and transmit
+  that direction to sub-agents as the user would. Use when the agent must act
+  without full instructions, explain WHY not only WHAT, keep multiple agents
+  aligned to the same priorities, learn preferences over time, or build a
+  direction frame before spawning work. Prefer `decide` for logging one
+  consequential branch choice, `escalate` for ask-vs-act thresholds,
+  `delegate` for spawn mechanics, `reflection` / `self-improving` for
+  post-outcome lessons, and `memory` for durable world facts.
 metadata:
-  clawdbot:
-    emoji: 🧭
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/self-direction/
-    displayName: Self-Direction
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/self-direction/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🧭","requires":{"config":["<state_root>/self-direction/"]}}'
+  related-skills: '{"reflection":"Heavier post-task evaluation of work quality; self-direction owns ongoing priority and value capture.","decide":"Log one consequential branch choice; self-direction maintains the broader direction model that informs many choices.","escalate":"Ask-vs-act thresholds by risk and reversibility; self-direction supplies the values and boundaries those thresholds protect.","delegate":"Spawn mechanics, tiers, and verification; self-direction supplies the transmission frame content.","memory":"Durable world facts and diary continuity; self-direction stores preference and decision-direction patterns, not factual memory."}'
 ---
 
-Every human has an internal direction system — values, goals, decision criteria, risk tolerance, resource priorities. When you direct an agent, you transmit fragments of that system. But fragments aren't enough for true autonomy.
+# Self-Direction
 
-This skill captures your complete direction system progressively. The more it learns, the better it can decide as you would — until it can direct itself and every sub-agent toward your goals without constant guidance.
+Build a durable model of how the user thinks, prioritizes, and decides, then
+use that model to act, explain, and brief sub-agents without constant
+re-prompting.
 
-## Setup
+This skill is stateful. Runtime direction data lives under a resolved
+`<state_root>/self-direction/` tree outside this package. Never write runtime state
+into the skill tree.
 
-On first use, read `setup.md` for integration guidelines.
+## State location
 
-## When to Use
+Self-direction state may exist in `<workspace>/self-direction/`,
+`<workspace>/memory/self-direction/`, or `~/self-direction/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Agent needs to make decisions without explicit instructions. Agent should understand WHY you want something, not just WHAT. You want consistent direction across multiple agents and processes. Agent should learn your priorities over time, not just follow rules.
+1. Use an explicitly configured path when the user or host supplies one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/self-direction/`, `<workspace>/memory/self-direction/`,
+   `~/self-direction/`.
+3. If more than one exists, use only the highest-precedence directory, report
+   the split copies, and do not merge or cross-write.
+4. If none exists and durable direction state must be created, default to
+   `<workspace>/self-direction/` when `<workspace>` is available; otherwise ask
+   for a state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the rest of the invocation.
 
-## The Direction System
+Use the selected `<state_root>` for every path under
+`<state_root>/self-direction/` (`direction.md`, `evidence.md`,
+`confidence.md`, `conflicts.md`, `transmission.md`). Legacy
+`~/Clawic/data/self-direction/` and `~/clawic/self-direction/` copies are
+migration sources only — move them into the resolved
+`<state_root>/self-direction/` when the user asks, and say in one line that you
+moved them and from where. Skill resources stay under `references/` and
+`assets/`; never treat the literal string `<state_root>` as a filesystem
+directory name.
 
-Every human's direction has these components. The agent captures each progressively:
+After resolving `<state_root>`, if this is first use or state is empty, read
+`references/setup.md`. Templates live in `assets/memory-template.md`.
 
+## When to use
+
+- The agent must decide without complete step-by-step instructions
+- The user wants consistent WHY/WHAT alignment across agents and sessions
+- Preferences should compound over time instead of resetting each turn
+- A sub-agent needs a faithful direction frame before spawn
+- A decision conflicts with a captured boundary or low-confidence inference
+
+Prefer adjacent skills when they fit better (do not stretch this skill to cover them):
+
+- One logged branch choice with outcome → `decide`
+- Ask-now vs act-now policy by risk → `escalate`
+- Spawn checklist, tier, recovery → `delegate`
+- Delivery QA / lesson retention after work → `reflection` / `self-improving`
+- Facts, people, dates, diary → `memory`
+
+## Direction system
+
+Capture these components progressively:
+
+| Component | Captures |
+|---|---|
+| Values | What to optimize, refuse, and trade off |
+| Goals | Objectives, reasons, and success signals |
+| Criteria | What makes work worth doing or rejecting |
+| Resources | Time, money, tokens, and attention priorities |
+| Boundaries | Hard limits and actions that need explicit approval |
+| Patterns | Mental models and default approach order |
+
+## Progressive disclosure
+
+| Need | Load |
+|---|---|
+| First use / empty state | `references/setup.md` |
+| Direction model schema | `assets/memory-template.md` |
+| Raw observation logging | `references/evidence.md` |
+| Sub-agent transmission frames | `references/transmission.md` |
+| Domain sources for Gate research | `references/sources.md` |
+
+## Capture loop
+
+```text
+OBSERVE → CAPTURE → VALIDATE → APPLY
 ```
-+─────────────────────────────────────────────────────────────+
-|                YOUR DIRECTION SYSTEM                        |
-+─────────────────────────────────────────────────────────────+
-|                                                             |
-|  VALUES — What matters to you fundamentally                 |
-|     What you optimize for (speed? quality? learning?)       |
-|     What you refuse to compromise on                        |
-|     What trade-offs you're willing to make                  |
-|                                                             |
-|  GOALS — What you're trying to achieve                      |
-|     The objectives (what)                                   |
-|     The reasons behind them (why)                           |
-|     The vision of success (how you'll know)                 |
-|                                                             |
-|  CRITERIA — How you make decisions                          |
-|     What makes something worth doing                        |
-|     What makes something not worth doing                    |
-|     How you weigh competing options                         |
-|                                                             |
-|  RESOURCES — What you spend and protect                     |
-|     Time: what's worth hours vs minutes                     |
-|     Money: what you'll pay for vs avoid                     |
-|     Tokens: when to go deep vs stay shallow                 |
-|     Attention: what deserves your focus                     |
-|                                                             |
-|  BOUNDARIES — What you never do                             |
-|     Hard limits that don't bend                             |
-|     Risks you won't take                                    |
-|     Actions that require explicit approval                  |
-|                                                             |
-|  PATTERNS — How you think about problems                    |
-|     Your mental models                                      |
-|     How you approach uncertainty                            |
-|     What you try first, second, third                       |
-|                                                             |
-+─────────────────────────────────────────────────────────────+
-```
 
-## The Learning Loop
+**Explicit signals:** stated preferences, reasoning (“because…”), hard
+boundaries (“never do X without asking”), and corrections.
 
-The agent doesn't start knowing your direction. It learns through a continuous loop:
+**Implicit signals:** option choices, resource allocation, reactions to
+outcomes, and rejected suggestions.
 
-```
-    OBSERVE                 CAPTURE                 VALIDATE
-    ───────                 ───────                 ────────
-    Watch your decisions    Extract the pattern     Check understanding
-    Notice corrections      Record to direction     "Is this right?"
-    Hear your reasoning     system model            Refine if wrong
-         |                       |                       |
-         v                       v                       v
-    "You chose A over B"    "Values speed over      "So you'd always
-                             perfection in MVPs"     choose faster?"
-         |                       |                       |
-         +───────────────────────+───────────────────────+
-                                 |
-                                 v
-                              APPLY
-                              ─────
-                         Use learned direction
-                         to make future decisions
-                         autonomously
-```
+Track confidence per element:
 
-### Capture Triggers
-
-The agent actively captures direction signals when:
-
-**Explicit signals:**
-- You state a preference ("I always want X before Y")
-- You explain reasoning ("Because we need to move fast")
-- You set boundaries ("Never do X without asking")
-- You correct a decision ("No, that's not the priority")
-
-**Implicit signals:**
-- You choose between options (reveals criteria)
-- You allocate resources (reveals priorities)
-- You react to outcomes (reveals values)
-- You reject suggestions (reveals boundaries)
+| Level | Meaning | Action |
+|---|---|---|
+| High | Multiple confirmations or explicit statements | Act and report |
+| Medium | Inferred or single confirmation | Act and cite evidence |
+| Low | Thin observation | Ask first, then capture |
+| Conflict | Contradictory signals | Resolve with the user before acting |
 
 ## Architecture
 
-The direction system lives in `~/Clawic/data/self-direction/`. See `memory-template.md` for templates.
-
-```
-~/Clawic/data/self-direction/
-├── direction.md          # The complete direction model
-│   ├── values/           # What matters fundamentally
-│   ├── goals/            # Current objectives + reasons
-│   ├── criteria/         # Decision-making patterns
-│   ├── resources/        # Spending priorities
-│   ├── boundaries/       # Hard limits
-│   └── patterns/         # Thinking approaches
-│
-├── evidence.md           # Raw observations that informed the model
-├── confidence.md         # How confident in each element (low/medium/high)
-├── conflicts.md          # Contradictions to resolve with user
-└── transmission.md       # Direction summaries for sub-agents
+```text
+<state_root>/self-direction/
+├── direction.md       # Values, goals, criteria, resources, boundaries, patterns
+├── evidence.md        # Raw observations that informed the model
+├── confidence.md      # Per-element confidence
+├── conflicts.md       # Contradictions awaiting resolution
+└── transmission.md    # Direction frames prepared for sub-agents
 ```
 
-## Confidence Levels
+## Core rules
 
-Not all direction knowledge is equally certain:
+1. **Capture before acting** on uncovered decisions: check the model, infer only
+   within confidence, ask when uncertain, and never guess on high-stakes
+   low-confidence choices.
+2. **Explain from evidence** — cite the captured value, criterion, or pattern.
+3. **Evolve continuously** — update entries, surface contradictions, adjust
+   confidence, and let unused patterns decay.
+4. **Respect confidence** — low or conflict blocks autonomous action.
+5. **Transmit faithfully** — include every relevant boundary, preserve values
+   exactly (do not soften or reinterpret), keep the why, and add escalation
+   triggers.
+6. **Surface gaps early** — say when the model is silent or low-confidence
+   before the gap becomes a bad decision.
+7. **Validate periodically** — confirm the highest-impact elements and clear
+   accumulated conflicts.
 
-| Level | Meaning | Action |
-|-------|---------|--------|
-| **High** | Multiple confirmations, explicit statements | Act autonomously |
-| **Medium** | Inferred from behavior, single confirmation | Act but mention reasoning |
-| **Low** | Single observation, uncertain inference | Ask before acting |
-| **Conflict** | Contradictory signals | Must resolve with user |
+## Self-direction in action
 
-The agent tracks confidence for every element and acts accordingly.
+- Autonomous decision: act from high-confidence evidence and report the why
+- Preference prediction: propose from patterns and ask for confirmation
+- Misalignment catch: pause when a task conflicts with a captured boundary
+- Honest gap: ask when the model is silent; capture the answer instead of inventing direction
 
-## Self-Direction in Action
+## Operating modes
 
-Once the model has sufficient depth, the agent can:
+| Mode | Behavior |
+|---|---|
+| Learning (default) | Capture signals, ask clarifying questions, deepen the model |
+| Autonomous | High-confidence action with cited reasoning |
+| Conservative | New relationship or critical domain; ask more, assume less |
 
-### 1. Make Autonomous Decisions
-"Based on your direction model, this is clearly X because [reasoning from captured values/criteria]. Proceeding."
+## Common traps
 
-### 2. Predict Your Preferences
-"You haven't said, but based on your pattern of [evidence], you'd probably want [prediction]. Correct?"
-
-### 3. Catch Misalignment Early
-"This task seems to conflict with [captured boundary/value]. Should I proceed anyway?"
-
-### 4. Explain Its Reasoning
-"I chose A over B because your direction model shows [specific evidence]. Here's why..."
-
-### 5. Know When It Doesn't Know
-"I don't have enough direction signal for this. Your model is silent on [gap]. What's your preference?"
-
-## Transmitting Direction to Sub-Agents
-
-When spawning sub-agents, the direction system propagates:
-
-```
-+─────────────────────────────────────────────────────────────+
-|                  DIRECTION TRANSMISSION                     |
-+─────────────────────────────────────────────────────────────+
-|                                                             |
-|  MAIN AGENT (full direction model)                          |
-|       |                                                     |
-|       | Extracts relevant subset for task                   |
-|       v                                                     |
-|  TRANSMISSION FRAME:                                        |
-|  +─────────────────────────────────────────────────────+    |
-|  | Context: Why this task exists                       |    |
-|  | Values: What matters for this work                  |    |
-|  | Criteria: How to judge success                      |    |
-|  | Boundaries: What NOT to do                          |    |
-|  | Resources: How much to spend                        |    |
-|  +─────────────────────────────────────────────────────+    |
-|       |                                                     |
-|       v                                                     |
-|  SUB-AGENT (receives direction frame)                       |
-|       |                                                     |
-|       | Can make aligned decisions within scope             |
-|       | Escalates when outside frame                        |
-|                                                             |
-+─────────────────────────────────────────────────────────────+
-```
-
-Every sub-agent inherits enough direction to stay aligned.
-
-## Core Rules
-
-### 1. Capture Before Acting
-
-When you encounter a decision point without clear direction:
-1. **CHECK** — Is this covered by the direction model?
-2. **INFER** — Can you reasonably predict from existing signals?
-3. **ASK** — If uncertain, ask AND capture the answer
-4. **NEVER** — Guess on high-stakes decisions with low confidence
-
-### 2. Always Explain From Evidence
-
-When making autonomous decisions, cite your reasoning:
-- "Based on [specific captured element]..."
-- "Your direction model shows [evidence]..."
-- "This matches your pattern of [observation]..."
-
-### 3. Evolve the Model Continuously
-
-The direction model is never "done":
-- New observations update existing entries
-- Contradictions surface for resolution
-- Confidence levels adjust with evidence
-- Old patterns decay if not reinforced
-
-### 4. Respect Confidence Levels
-
-| Confidence | Autonomous Action Allowed |
-|------------|--------------------------|
-| High | Yes — act and report |
-| Medium | Yes — act and explain reasoning |
-| Low | No — ask first, then capture |
-| Conflict | No — resolve contradiction first |
-
-### 5. Transmit Faithfully
-
-When creating direction frames for sub-agents:
-- Include ALL relevant boundaries
-- Don't soften or interpret values
-- Preserve the "why" not just the "what"
-- Include escalation triggers
-
-### 6. Surface Gaps Proactively
-
-Don't wait to hit a gap. Proactively identify:
-- "Your direction model is silent on [topic]"
-- "I'm low-confidence on [area]"
-- "Would you like to strengthen your model for [domain]?"
-
-### 7. Validate Periodically
-
-Every N interactions or time period:
-- "Here's my understanding of your direction. Correct?"
-- Surface the highest-impact elements for confirmation
-- Resolve accumulated conflicts
-
-## Building the Model
-
-The model builds through natural interaction, not interrogation:
-
-### Phase 1: Foundation (First Sessions)
-- Capture explicit statements
-- Note strong reactions
-- Record corrections
-- Ask clarifying questions naturally
-
-### Phase 2: Patterns (Days/Weeks)
-- Identify recurring themes
-- Connect observations to values
-- Build decision criteria from choices
-- Map resource allocation preferences
-
-### Phase 3: Prediction (Ongoing)
-- Start predicting before being told
-- Validate predictions to strengthen model
-- Catch edge cases that reveal nuance
-- Handle novel situations with inference
-
-### Phase 4: Transmission (Mature Model)
-- Create direction frames for sub-agents
-- Maintain consistency across all processes
-- Propagate updates when model changes
-- Audit sub-agent alignment
-
-## Direction Model Template
-
-See `memory-template.md` for the complete structure. Key sections:
-
-**Values:**
-```
-## Values
-
-### Speed vs Quality
-confidence: high
-evidence: [list of observations]
-pattern: "Prefers shipping fast for MVPs, quality for production"
-
-### Risk Tolerance  
-confidence: medium
-evidence: [list of observations]
-pattern: "Conservative with money, aggressive with time"
-```
-
-**Criteria:**
-```
-## Decision Criteria
-
-### What Makes Something Worth Doing
-confidence: high
-evidence: [list of observations]
-criteria:
-  - Moves toward [goal]
-  - Costs less than [threshold]
-  - Doesn't violate [boundary]
-```
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Direction model template | `memory-template.md` |
-| Evidence logging guide | `evidence.md` |
-| Sub-agent transmission | `transmission.md` |
-
-## Common Traps
-
-| Trap | Solution |
-|------|----------|
-| Acting on low-confidence inference | Check confidence level first, ask if low |
-| Capturing noise as signal | Require multiple observations for patterns |
-| Model becomes stale | Continuous updates, periodic validation |
-| Sub-agents ignore direction | Verify transmission frame is complete |
+| Trap | Fix |
+|---|---|
+| Acting on low-confidence inference | Ask first |
+| Capturing noise as signal | Require repeated evidence for patterns |
+| Stale model | Continuous updates + periodic validation |
+| Incomplete transmission | Verify boundaries and escalation triggers |
 | Assuming universal patterns | Context-tag observations (work vs personal) |
 
-## Operating Modes
+## Related skills
 
-### Learning (Default)
-Actively captures direction signals. Asks clarifying questions. Builds model depth.
-
-### Autonomous
-High-confidence model. Acts on direction without confirmation. Explains reasoning.
-
-### Conservative
-New relationship or critical domain. Asks more, assumes less. Prioritizes not breaking trust.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `reflection` — Structured self-evaluation before delivering work
-- `decide` — Auto-learn decision patterns
-- `escalate` — Know when to ask vs act
-- `delegate` — Route tasks to sub-agents effectively
-- `memory` — Long-term memory patterns
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/self-direction
-- Latest version: https://clawic.com/skills/self-direction
+- `reflection` — structured self-evaluation before or after delivery
+- `decide` — consequential branch-choice logging
+- `escalate` — ask-vs-act thresholds
+- `delegate` — spawn mechanics and verification
+- `memory` — long-term factual continuity
