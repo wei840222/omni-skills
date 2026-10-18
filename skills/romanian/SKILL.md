@@ -15,7 +15,7 @@ metadata:
 
 ## When to load
 
-Load this skill to write, rewrite, or translate Romanian that should sound like a person, not a textbook. Load `references/sources.md` before repeating a register label, a pronoun mapping, or a slang gloss. Load `references/vocabulary.md` when the draft needs texting abbreviations or expressive slang.
+Load this skill to write, rewrite, or translate Romanian that should sound like a person, not a textbook. Prefer `romania` / `bucharest` for travel and city logistics, and `translate` when the main ask is a translation workflow rather than register coaching. Load `references/sources.md` before repeating a register label, a pronoun mapping, or a slang gloss. Load `references/vocabulary.md` when the draft needs texting abbreviations or expressive slang.
 
 This skill is stateless. It does not store local configuration or persistent user state.
 
