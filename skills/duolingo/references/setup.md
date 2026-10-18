@@ -1,65 +1,70 @@
-# Setup - Duolingo Learning OS
+# Setup — Duolingo Learning OS
 
-Read this silently when `<state_root>/` is absent or uninitialized.
-Start naturally and configure activation plus multi-topic structure early.
+Read this when `<state_root>/` is absent, empty, or the user starts a new Learning OS.
 
-## Priority Order
+## Priority order
 
-### 1. Confirm Activation and Optional Routing Scope
-In the first exchanges, define when this should auto-activate.
-Ask for the real trigger topics now, for example:
-- english
-- cooking
-- math
+### 1. Confirm activation and optional routing scope
 
-If the user wants auto-routing, prepare the AGENTS block using `activation-routing.md`.
-Require the user to edit AGENTS manually. Always show the snippet and ask the user to apply it.
+In the first exchanges, name the topics that should auto-activate (examples: english, cooking, math).
+If the user wants AGENTS auto-routing, prepare the snippet from `activation-routing.md`.
+Show the snippet and ask the user to paste it themselves. Keep the skill fully manual if they decline.
 
-### 2. Confirm Learning Mode Per Topic
+### 2. Confirm learning mode per topic
+
 For each active topic, confirm:
+
 - target outcome
 - current level
-- session pace (light, normal, intense)
+- session pace (`light`, `normal`, `intense`)
 
-If user gives two or more topics, keep all active; maintain multiple parallel tracks.
+Multiple topics may stay active in parallel.
 
-### 3. Bootstrap Filesystem and Topic Namespaces
-Create `<state_root>/` with:
+### 3. Bootstrap filesystem and topic namespaces
+
+Create the resolved `<state_root>/` with:
+
 - global router files
 - global memory
 - one namespace per active topic
 
-Use templates from `blueprint.md` and `topic-template.md`.
+Use `blueprint.md`, `assets/memory-template.md`, and `assets/topic-template.md`.
+Never write the literal placeholder `<state_root>` to disk.
 
-### 4. Run Placement and First Micro-Lesson
+### 4. Run placement and first micro-lesson
+
 For each new topic:
-- run quick placement (2-5 prompts)
-- set starting lesson in `queue.md`
-- complete first loop from `lesson-loop.md`
 
-### 5. Configure Daily Rotation for Multi-Topic Learning
-When multiple topics are active, define a default rotation:
+- run quick placement (2–5 prompts)
+- set starting lessons in `queue.md`
+- complete the first loop from `lesson-loop.md`
+
+### 5. Configure daily rotation for multi-topic learning
+
+When multiple topics are active, choose a default rotation:
+
 - same-day stack (topic A then B)
 - alternating days
-- weighted plan (for example 70 percent English, 30 percent cooking)
+- weighted plan (example: 70% english, 30% cooking)
 
-Store this in global memory and apply automatically.
+Store the policy in global memory and apply it automatically.
 
-## What to Save
+## What to save
 
 | Save to | Content |
 |---------|---------|
-| `memory.md` | Global status, active topics, rotation policy, streak summary |
-| `router/topics.md` | Canonical topics and trigger phrases |
-| `router/agentsmd-snippet.md` | Current AGENTS.md routing snippet |
-| `topics/<slug>/profile.md` | Goal, level, constraints |
-| `topics/<slug>/curriculum.md` | Skill tree and lesson units |
-| `topics/<slug>/queue.md` | Next lessons and review backlog |
-| `topics/<slug>/sessions.md` | Session log and results |
+| `<state_root>/memory.md` | Global status, active topics, rotation policy, streak summary |
+| `<state_root>/router/topics.md` | Canonical topics and trigger phrases |
+| `<state_root>/router/agentsmd-snippet.md` | Current AGENTS.md routing snippet |
+| `<state_root>/topics/<slug>/profile.md` | Goal, level, constraints |
+| `<state_root>/topics/<slug>/curriculum.md` | Skill tree and lesson units |
+| `<state_root>/topics/<slug>/queue.md` | Next lessons and review backlog |
+| `<state_root>/topics/<slug>/sessions.md` | Session log and results |
+| `<state_root>/topics/<slug>/checkpoints.md` | Weekly and milestone checks |
 
 ## Guardrails
 
-- Start lessons only after confirming the topic namespace exists.
-- Require explicit user confirmation before removing a topic.
-- If AGENTS router is enabled, keep it synchronized with `router/topics.md`.
+- Start lessons only after the topic namespace exists.
+- Require explicit confirmation before removing or archiving a topic.
+- If AGENTS router is enabled, keep `agentsmd-snippet.md` synchronized with `router/topics.md`, then ask the user to update AGENTS.
 - Keep lesson loops short; split long explanations into multiple loops.

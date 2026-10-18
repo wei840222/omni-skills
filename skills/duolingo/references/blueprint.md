@@ -21,7 +21,7 @@ For each active topic slug:
 mkdir -p <state_root>/topics/<topic-slug>
 ```
 
-Create required files from `topic-template.md`:
+Create required files from `assets/topic-template.md`:
 - `profile.md`
 - `curriculum.md`
 - `queue.md`
