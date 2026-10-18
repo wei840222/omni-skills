@@ -16,11 +16,11 @@ function compress_lossless(original, target_level):
         # Refine: add missing information
         compressed = refine(compressed, diff.missing)
     
-    # Failed to converge
+    # No convergence at this level
     if target_level > L1:
         return compress_lossless(original, target_level - 1)
     else:
-        return original  # Cannot compress losslessly
+        return original  # Keep the original when L1 still cannot validate
 ```
 
 ---
@@ -69,7 +69,7 @@ When diff shows missing info:
    - Missing detail → Expand abbreviated section
 
 2. **Targeted addition**
-   - Don't recompress everything
+   - Preserve correct parts and recompress only the missing pieces
    - Inject only the missing piece
    - Re-validate just that section
 

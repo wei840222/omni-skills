@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "Compress this system prompt to Level 2: 'You are a helpful assistant. When the user asks a question, you should first understand what they're asking, then provide a clear and concise answer. If you're not sure, say so rather than making things up. Always be polite and professional.'",
+    "expected": "Returns an L2 compressed prompt that preserves the imperative rules and uncertainty behavior, then is suitable for reconstruction/anchor checks.",
+    "actual": "Helpful assistant. On questions: 1) understand, 2) answer clearly. If unsure -> say so (do not invent). Always polite+professional.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Compress this config file to L3 and give me the mapping table: { \"serverConfiguration\": { \"databaseConnection\": { \"hostname\": \"db.local\", \"portNumber\": 5432, \"authUsername\": \"admin\" } } }",
+    "expected": "Produces an abbreviation map plus an L3 JSON structure that preserves hostname, port, and username as anchors.",
+    "actual": "MAP: sc=serverConfiguration, dc=databaseConnection, hn=hostname, pn=portNumber, au=authUsername\n{\"sc\":{\"dc\":{\"hn\":\"db.local\",\"pn\":5432,\"au\":\"admin\"}}}",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Please summarize this meeting transcript into an executive summary for stakeholders.",
+    "expected": "Routes to summarizer (reader-facing summary of a source) instead of compress.",
+    "actual": "Handoff to summarizer: deliverable is a reader-facing summary, not a reusable compressed prompt artifact.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "My prompt keeps ignoring the JSON schema and inventing fields. Help me iterate the instructions until the structured output passes.",
+    "expected": "Routes to prompting (diagnose/iterate a failing prompt) instead of compress.",
+    "actual": "Handoff to prompting: failure is instruction drift / structured-output diagnosis, not semantic shrinking of known text.",
+    "pass": true
+  }
+]
