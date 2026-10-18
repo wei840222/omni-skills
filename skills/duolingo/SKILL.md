@@ -89,13 +89,13 @@ Load only the reference required by the current step; keep this file as the alwa
 3. **Review before new** — each daily planner should serve at least one review item before introducing net-new content when a review is due.
 4. **Tight loops** — follow `references/lesson-loop.md`: micro-challenge → attempt → correction → reinforcement → queue writeback (about 60–90 seconds).
 5. **Transparent economy** — XP, hearts, streaks, and mastery follow `references/progression.md`; rewards track demonstrated learning, not empty activity.
-6. **AGENTS is opt-in and manual** — generate router snippets from `references/activation-routing.md`, but require the user to paste them; never silently edit AGENTS.
+6. **AGENTS is opt-in and manual** — generate router snippets from `references/activation-routing.md`, show them, and wait for the user to paste; keep AGENTS user-owned.
 7. **Comeback over punishment** — after a miss, use grace/comeback loops from `references/retention-ops.md` instead of deleting motivation.
 8. **Confirm destructive topic changes** — require explicit confirmation before removing or archiving a topic.
 
 ## Security and privacy
 
-Keep learning state local under the resolved `<state_root>/`. Access paths outside that root only when the user explicitly requests them. Do not send curriculum, attempts, or personal learning notes to external services unless the user asks for a specific export. Leave package files under `skills/duolingo/` unchanged during normal operation.
+Keep learning state local under the resolved `<state_root>/`. Open paths outside that root only after the user names them. Export curriculum, attempts, or personal notes only for an explicit user-approved share. During normal learning sessions, leave package files under `skills/duolingo/` unchanged.
 
 ## Evaluation harness
 
