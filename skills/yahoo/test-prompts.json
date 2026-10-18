@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Get a quote for Apple using Yahoo Finance.",
+    "expected": "Runs the python script to fetch AAPL quote and returns the data.",
+    "actual": "Ran `python3 skills/yahoo/assets/yahoo_quote.py AAPL` (exit 0). Output included Apple Inc. (AAPL), Price 343.46, Move +1.46 (+0.43%), Market state At close: October 16 at 4:00:01 PM EDT.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Find the ticker symbol for Nvidia.",
+    "expected": "Runs yahoo_search.py to find NVDA.",
+    "actual": "Ran `python3 skills/yahoo/assets/yahoo_search.py 'Nvidia'` (exit 0). Primary match NVDA: NVIDIA Corporation [Equity | NASDAQ | Technology], plus related futures/ETF matches.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Give me a pre-market brief for MSFT, AAPL, and GOOGL.",
+    "expected": "Runs yahoo_brief.py across the basket and summarizes.",
+    "actual": "Ran `python3 skills/yahoo/assets/yahoo_brief.py MSFT AAPL GOOGL` (exit 0). Brief ranked AAPL +0.43%, MSFT -1.93%, GOOGL -2.47% with average move -1.32% and market state At close: October 16 at 4:00:01 PM EDT.",
+    "pass": true
+  }
+]
