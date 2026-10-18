@@ -56,7 +56,7 @@ L3: "EP:/users POST{name,email}→201{id,created} | GET{id}→200{user} | ERR:40
 
 ## L4: Maximum (~0.15x ratio)
 
-**Pure semantic encoding, requires LLM to decode. Not human-readable.**
+**Pure semantic encoding, requires LLM to decode. Designed exclusively for LLM parsing.**
 
 Techniques:
 - Entity-relationship graphs
@@ -70,9 +70,17 @@ Original: Multi-page technical specification
 L4: "§[1:cfg,2:api,3:err] E{U,S,D,R} R{U→S:auth,S→D:qry,D→R:fmt} F{1.2.a,1.2.b,2.1.c}"
 ```
 
-**Warning:** L4 requires decompression prompt. Store separately.
+**Note:** L4 needs a separate decompression prompt stored alongside the artifact.
 
 ---
+
+## Why Compress (Even With Large Contexts)
+
+Even with 128K+ context windows, compression still helps:
+1. **Lost in the Middle**: Facts buried mid-document are recalled less reliably. Compression shrinks noise and improves retrieval accuracy.
+2. **Cost and Latency**: Smaller prompts cost less and process faster.
+
+See `references/sources.md` for the pinned papers behind these claims.
 
 ## Choosing a Level
 
