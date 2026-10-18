@@ -4,6 +4,8 @@ Use this file when the SMTP transaction succeeds but inbox placement or reputati
 
 ## Minimum checks
 
+Starting in 2024, Google and Yahoo enforce strict bulk sender requirements (DKIM, SPF, DMARC alignment, and easy unsubscribe).
+
 1. SPF covers the actual return-path or sending service.
 2. DKIM signs with a domain the user expects to trust.
 3. DMARC aligns with the visible From domain.

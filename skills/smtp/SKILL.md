@@ -1,26 +1,17 @@
 ---
 name: smtp
-slug: smtp
-version: 1.0.0
-description: Send, test, and debug SMTP mail flows with safe dry runs, provider-aware auth, and deliverability checks.
-homepage: https://clawic.com/skills/smtp
-changelog: Initial release with safe SMTP send flow, provider profiles, auth diagnostics, and deliverability checks.
+description: >
+  Configure, test, send, and debug outbound SMTP mail with safe dry runs,
+  provider-aware auth, TLS/port matching, canary sends, and inbox-placement
+  diagnostics. Use when the user mentions SMTP host/port setup, STARTTLS vs
+  implicit TLS, auth failures (535/534), relay denial, bounce codes, SPF/DKIM/DMARC
+  alignment, or "sent but went to spam". Prefer `mail` / `email-management` for
+  inbox triage and drafting; prefer provider-native APIs when the user already
+  works in Gmail/Fastmail/Workspace tooling instead of raw SMTP.
 metadata:
-  clawdbot:
-    emoji: 📬
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/smtp/
-    displayName: SMTP
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/smtp/
+  version: "1.0.0"
+  openclaw: '{"emoji":"📬"}'
+  related-skills: '{"email-management":"Handles reading and sorting emails.","mail":"Uses Mail.app or himalaya to read and send email."}'
 ---
 
 ## When to Use
@@ -28,37 +19,57 @@ metadata:
 Use this skill when the user needs to configure, test, send, or debug outbound email over SMTP.
 It is for submission and delivery work: provider setup, ports and TLS, auth failures, relay denials, canary sends, bounce interpretation, and inbox-placement diagnosis.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/smtp/`. If `~/Clawic/data/smtp/` does not exist, run `setup.md`. Use `memory-template.md`, `memory.md`, `provider-profiles.md`, `send-log.md`, and `deliverability-notes.md` as the local baseline.
+SMTP state may exist in `<workspace>/smtp/`, `<workspace>/memory/smtp/`, or `~/smtp/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-```text
-~/Clawic/data/smtp/
-├── memory.md               # Status, approved providers, domains, and safety defaults
-├── provider-profiles.md    # Known-good hosts, ports, auth mode, and sender identity notes
-├── send-log.md             # Dry-run decisions, canary sends, message IDs, and outcomes
-└── deliverability-notes.md # SPF, DKIM, DMARC, bounce, and inbox-placement learnings
-```
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/smtp/`, `<workspace>/memory/smtp/`, `~/smtp/`.
+3. If more than one exists, use only the highest-precedence directory and report the duplicates; do not merge them.
+4. If none exists and state must be created, default to `<workspace>/smtp/` when `<workspace>` is available; otherwise ask for a state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+## Operating Instructions
+
+Read references only when required:
+- `references/setup.md`: Read when `<state_root>` is missing or stale.
+- `references/send-flow.md`: Read when sending or testing SMTP delivery.
+- `references/diagnostic-playbook.md`: Read to troubleshoot connection, auth, or relay failures.
+- `references/deliverability.md`: Read to troubleshoot spam placement or DKIM/SPF/DMARC issues.
+- `references/sources.md`: Read when verifying protocol, provider, or deliverability claims against primary sources.
+
+For static templates and data schemas, load assets as needed:
+- `assets/swaks-recipes.md`: Swaks command recipes.
+- `assets/memory-template.md`: Baseline for `<state_root>/memory.md`.
+- `assets/memory.example.md`: Example shape of a live SMTP memory file.
+- `assets/provider-profiles.md`: Baseline for `<state_root>/provider-profiles.md`.
+- `assets/send-log.md`: Baseline for `<state_root>/send-log.md`.
+- `assets/deliverability-notes.md`: Baseline for `<state_root>/deliverability-notes.md`.
 
 ## Quick Reference
 
 | Topic | File | Use it for |
 |-------|------|------------|
-| Setup and first-run guardrails | `setup.md` | Initialize `~/Clawic/data/smtp/` without storing secrets or sending mail too early |
-| Memory structure | `memory-template.md` | Create `~/Clawic/data/smtp/memory.md` with status and stable context |
-| Baseline memory example | `memory.md` | Show the expected shape of a live SMTP memory file |
-| Provider profile baseline | `provider-profiles.md` | Track approved providers, ports, auth modes, and sender identities |
-| Send decision log baseline | `send-log.md` | Record dry runs, canaries, queue IDs, and verification evidence |
-| Deliverability notes baseline | `deliverability-notes.md` | Capture DNS auth status, spam-folder evidence, and bounce patterns |
-| Safe execution workflow | `send-flow.md` | Run draft -> preflight -> canary -> verify -> scale |
-| Fault isolation guide | `diagnostic-playbook.md` | Separate DNS, TLS, auth, relay, and placement failures |
-| Deliverability rules | `deliverability.md` | Check SPF, DKIM, DMARC, alignment, and inbox placement |
-| CLI probe patterns | `swaks-recipes.md` | Use deterministic SMTP tests with placeholder-only examples |
+| Setup and first-run guardrails | `references/setup.md` | Initialize `<state_root>/` without storing secrets or sending mail too early |
+| Memory structure | `assets/memory-template.md` | Create `<state_root>/memory.md` with status and stable context |
+| Baseline memory example | `assets/memory.example.md` | Show the expected shape of a live SMTP memory file |
+| Provider profile baseline | `assets/provider-profiles.md` | Track approved providers, ports, auth modes, and sender identities |
+| Send decision log baseline | `assets/send-log.md` | Record dry runs, canaries, queue IDs, and verification evidence |
+| Deliverability notes baseline | `assets/deliverability-notes.md` | Capture DNS auth status, spam-folder evidence, and bounce patterns |
+| Safe execution workflow | `references/send-flow.md` | Run draft -> preflight -> canary -> verify -> scale |
+| Fault isolation guide | `references/diagnostic-playbook.md` | Separate DNS, TLS, auth, relay, and placement failures |
+| Deliverability rules | `references/deliverability.md` | Check SPF, DKIM, DMARC, alignment, and inbox placement |
+| CLI probe patterns | `assets/swaks-recipes.md` | Use deterministic SMTP tests with placeholder-only examples |
+| Primary sources | `references/sources.md` | Cite RFC and provider docs for protocol or policy claims |
 
 ## Requirements
 
 - SMTP host access only when the user wants real network testing or live sending.
-- Credentials must come from a user-approved secret source at runtime, never from files under `~/Clawic/data/smtp/`.
+- Credentials must come from a user-approved secret source at runtime, never from files under `<state_root>/`.
 - Recommended tools: `swaks` for SMTP probes, `openssl` for TLS inspection, and `dig` or `nslookup` for DNS checks.
 - Explicit confirmation before any live send, external-recipient test, or multi-recipient action.
 
@@ -85,7 +96,7 @@ Memory lives in `~/Clawic/data/smtp/`. If `~/Clawic/data/smtp/` does not exist, 
 - Only widen recipients after you have queue acceptance, message ID evidence, and inbox-or-spam confirmation.
 
 ### 6. Handle Credentials and Logs Safely
-- Never write raw SMTP passwords, API tokens, or full secrets into `~/Clawic/data/smtp/`.
+- Store raw SMTP passwords, API tokens, or full secrets securely outside of `<state_root>/`.
 - Redact logs and screenshots before storing or sharing them. Keep only the smallest evidence needed to debug.
 
 ### 7. Acceptance Is Not Delivery
@@ -114,12 +125,14 @@ No other data should be sent externally unless the user explicitly approves broa
 
 ## Data Storage
 
-Local state in `~/Clawic/data/smtp/` includes:
+Local state in `<state_root>/` includes:
 
-- activation state, approved providers, and safety defaults in `memory.md`
-- known-good server profiles and sender-identity notes in `provider-profiles.md`
-- dry-run decisions, canary evidence, and message IDs in `send-log.md`
-- domain-auth and placement findings in `deliverability-notes.md`
+- activation state, approved providers, and safety defaults in `<state_root>/memory.md`
+- known-good server profiles and sender-identity notes in `<state_root>/provider-profiles.md`
+- dry-run decisions, canary evidence, and message IDs in `<state_root>/send-log.md`
+- domain-auth and placement findings in `<state_root>/deliverability-notes.md`
+
+Initialize those files from the matching templates under `assets/` when creating a new `<state_root>/`.
 
 ## Security & Privacy
 
@@ -128,8 +141,8 @@ Local state in `~/Clawic/data/smtp/` includes:
 - DNS queries needed to validate sender-domain health and routing
 
 **Data that stays local:**
-- safe defaults and approved provider context in `~/Clawic/data/smtp/memory.md`
-- known-good provider settings and debugging evidence in `~/Clawic/data/smtp/provider-profiles.md`, `~/Clawic/data/smtp/send-log.md`, and `~/Clawic/data/smtp/deliverability-notes.md`
+- safe defaults and approved provider context in `<state_root>/memory.md`
+- known-good provider settings and debugging evidence in `<state_root>/provider-profiles.md`, `<state_root>/send-log.md`, and `<state_root>/deliverability-notes.md`
 
 **This skill does NOT:**
 - send live mail without explicit confirmation
@@ -145,26 +158,13 @@ Only install and run it if you trust those providers with your outbound mail flo
 
 ## Scope
 
-This skill ONLY:
-- helps configure and diagnose outbound SMTP submission
-- maintains small local notes in `~/Clawic/data/smtp/`
-- runs canary-first send workflows with explicit confirmation gates
+This skill covers:
+- configure and diagnose outbound SMTP submission
+- maintain small local notes in `<state_root>/`
+- run canary-first send workflows with explicit confirmation gates
 
-This skill NEVER:
-- guess live-send approval from vague user intent
-- keep credentials in `~/Clawic/data/smtp/`
-- treat queue acceptance as the final delivery result
-- broaden a one-off test into a bulk-send workflow without consent
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `mail` - broader mailbox operations across IMAP, SMTP, and Apple Mail workflows
-- `dns` - deeper DNS record work for SPF, DKIM, DMARC, MX, and TTL changes
-- `network` - port reachability, TLS, and connection debugging beyond mail workflows
-- `newsletter` - message design and campaign structure once SMTP delivery is healthy
-- `email-marketing` - deliverability and audience strategy after the send path is stable
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/smtp
-- Latest version: https://clawic.com/skills/smtp
+Prefer adjacent skills or ask when the task is inbox triage, bulk campaign tooling, or provider-native APIs instead of raw SMTP.
+When live-send approval is ambiguous, stay in draft or probe mode and ask for an explicit send confirmation.
+Keep credentials outside `<state_root>/`.
+Treat queue acceptance as incomplete until placement or bounce evidence is known.
+Keep one-off canaries one-recipient until the user confirms a wider send.

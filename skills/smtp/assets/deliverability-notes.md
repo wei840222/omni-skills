@@ -1,6 +1,6 @@
 # Deliverability Notes - SMTP
 
-Use this file as the baseline for `~/Clawic/data/smtp/deliverability-notes.md`.
+Use this file as the baseline for `<state_root>/deliverability-notes.md`.
 
 Track only reusable evidence. Ignore one-off noise.
 

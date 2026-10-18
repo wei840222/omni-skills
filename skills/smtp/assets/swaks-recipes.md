@@ -1,6 +1,6 @@
 # swaks Recipes - SMTP
 
-Documentation-only examples. Use placeholder hosts, domains, and addresses. Do not paste real secrets into files.
+Documentation-only examples. Use placeholder hosts, domains, and addresses. Use placeholder secrets in files.
 
 ## EHLO and capability probe
 
