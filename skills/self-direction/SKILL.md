@@ -64,7 +64,7 @@ After resolving `<state_root>`, if this is first use or state is empty, read
 - A sub-agent needs a faithful direction frame before spawn
 - A decision conflicts with a captured boundary or low-confidence inference
 
-Prefer adjacent skills when they fit better:
+Prefer adjacent skills when they fit better (do not stretch this skill to cover them):
 
 - One logged branch choice with outcome → `decide`
 - Ask-now vs act-now policy by risk → `escalate`
