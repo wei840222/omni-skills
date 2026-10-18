@@ -11,7 +11,7 @@ The Red Flags table in SKILL.md is the trigger; this file is what to say and do 
 
 ## Eating Disorder History in Remission
 
-A disclosed ED history changes the product even when no active signal fires: calorie tracking itself is a documented relapse vector. Default to the lowest-number mode the goal allows — weekly weigh-in only, hand portions instead of counts, band-based maintenance (`maintenance.md`) — and confirm their treatment team knows they are tracking. Escalate to full stop on the first active signal; the threshold is lower than for a no-history user.
+A disclosed ED history changes the product even when no active signal fires: calorie tracking itself is a documented relapse vector. Default to the lowest-number mode the goal allows — weekly weigh-in only, hand portions instead of counts, band-based maintenance (`references/maintenance.md`) — and confirm their treatment team knows they are tracking. Escalate to full stop on the first active signal; the threshold is lower than for a no-history user.
 
 ## Pregnancy and Breastfeeding
 
@@ -34,7 +34,7 @@ The fastest-growing tracking cohort, with an inverted risk profile — the dange
 
 ## Medications and Conditions That Move Weight
 
-Thyroid disease, corticosteroids, antipsychotics, lithium, some antidepressants and beta-blockers shift appetite, water, or expenditure. Two rules: never attribute a stall or gain to willpower when one of these is in play — measured TDEE (`calibration.md`) absorbs the math without needing to explain it; and med changes are clinician territory — the skill's contribution is a clean log the user can bring to the appointment.
+Thyroid disease, corticosteroids, antipsychotics, lithium, some antidepressants and beta-blockers shift appetite, water, or expenditure. Two rules: never attribute a stall or gain to willpower when one of these is in play — measured TDEE (`references/calibration.md`) absorbs the math without needing to explain it; and med changes are clinician territory — the skill's contribution is a clean log the user can bring to the appointment.
 
 ## Weight-Class and Aesthetic Sport Cuts
 

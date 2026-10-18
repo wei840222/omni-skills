@@ -1,6 +1,6 @@
 # Memory Templates — Calories
 
-Three files under `~/Clawic/data/calories/`, each with one job. Config lives separately in `config.yaml` (SKILL.md Configuration).
+Three files under `<state_root>/calories/`, each with one job. Config lives separately in `config.yaml` (SKILL.md Configuration).
 
 ## memory.md — who the user is
 
@@ -13,13 +13,13 @@ last: YYYY-MM-DD
 
 ## Goal & Targets
 <!-- goal: cut | bulk | maintain | recomp; current target kcal + protein g; date set -->
-<!-- measured TDEE: value, window it came from (calibration.md) -->
+<!-- measured TDEE: value, window it came from (`references/calibration.md`) -->
 
 ## Stats
 <!-- weight (7-day avg), height, age, sex as given — only what was volunteered or needed for a target -->
 
 ## Health Context
-<!-- Red Flags disclosures: meds, conditions, pregnancy, ED history — persists the guardrail (safety.md) -->
+<!-- Red Flags disclosures: meds, conditions, pregnancy, ED history — persists the guardrail (`references/safety.md`) -->
 
 ## Preferences
 <!-- logging medium, goal style, food conventions, data of record, restrictions, weigh-in ritual -->
@@ -37,7 +37,7 @@ last: YYYY-MM-DD
 
 ## library.md — the food library (the compounding asset)
 
-One line per confirmed food, matching the format `labels.md` saves in:
+One line per confirmed food, matching the format `references/labels.md` saves in:
 
 ```markdown
 # Food Library
@@ -47,7 +47,7 @@ One line per confirmed food, matching the format `labels.md` saves in:
 - Usual latte (oat, medium): ~180 kcal — user-confirmed estimate, 2026-06
 ```
 
-Rules: source tag always (`label` > `recipe math` > `user-confirmed estimate` > `estimate`); a user correction overwrites and upgrades the tag; re-scanning a food already in the library is the failure `labels.md` exists to prevent.
+Rules: source tag always (`label` > `recipe math` > `user-confirmed estimate` > `estimate`); a user correction overwrites and upgrades the tag; re-scanning a food already in the library is the failure `references/labels.md` exists to prevent.
 
 ## log.md — the daily record
 
@@ -62,4 +62,4 @@ Rules: source tag always (`label` > `recipe math` > `user-confirmed estimate` > 
 
 - Log the range, total the midpoints adjusted per rule 2; library hits need no range.
 - **A day runs wake-to-sleep, not midnight-to-midnight** — night-shift work and 1 a.m. eating belong to the day they end. Consistency of the boundary matters more than where it sits.
-- Unlogged day: enter `— unlogged` rather than nothing; calibration (`calibration.md`) must know which days to exclude, and a visible gap prevents the silent-deflation error.
+- Unlogged day: enter `— unlogged` rather than nothing; calibration (`references/calibration.md`) must know which days to exclude, and a visible gap prevents the silent-deflation error.

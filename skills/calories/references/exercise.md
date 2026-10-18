@@ -6,7 +6,7 @@ Exercise calories are the most over-credited number in tracking. Two honest acco
 
 | Accounting | How it works | Best for |
 |---|---|---|
-| Activity-inclusive multiplier | Training is already inside the 1.375-1.725 multiplier (`targets.md`); ignore per-workout burns entirely | Consistent training schedules — simplest, hardest to game |
+| Activity-inclusive multiplier | Training is already inside the 1.375-1.725 multiplier (`references/targets.md`); ignore per-workout burns entirely | Consistent training schedules — simplest, hardest to game |
 | Sedentary base + eat-back | TDEE at 1.2, then add back ≤50% of each workout's reported burn | Erratic schedules, endurance athletes with big session variance |
 
 Using an active multiplier AND eating back workouts counts every session twice — the #1 reason "I'm in a deficit" coexists with a flat trend line (SKILL.md Traps).
@@ -27,10 +27,10 @@ Using an active multiplier AND eating back workouts counts every session twice �
 
 ## NEAT — the Invisible Half
 
-Non-exercise activity (walking, fidgeting, standing) often exceeds workout burn, and it silently DROPS in a deficit — the body economizes without asking. Practical countermeasure: a daily step floor (e.g. hold whatever the user's normal is) so adaptation can't hollow out expenditure unnoticed. A falling step count during a stall is evidence for the audit in `trend.md`.
+Non-exercise activity (walking, fidgeting, standing) often exceeds workout burn, and it silently DROPS in a deficit — the body economizes without asking. Practical countermeasure: a daily step floor (e.g. hold whatever the user's normal is) so adaptation can't hollow out expenditure unnoticed. A falling step count during a stall is evidence for the audit in `references/trend.md`.
 
 ## Framing Guardrails
 
-- Exercise added to a plan raises TDEE for the NEXT calibration window (`calibration.md`); it is not a same-day spending account.
+- Exercise added to a plan raises TDEE for the NEXT calibration window (`references/calibration.md`); it is not a same-day spending account.
 - "I earned this meal" / "burning off" specific foods is punishment-adjacent framing — one mention is a teaching moment (food and training are separate ledgers); a pattern is a Red Flags signal (SKILL.md).
 - Training questions themselves — programming, progression, recovery — route to `gym`.
