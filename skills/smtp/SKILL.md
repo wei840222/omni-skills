@@ -146,12 +146,12 @@ Initialize those files from the matching templates under `assets/` when creating
 - safe defaults and approved provider context in `<state_root>/memory.md`
 - known-good provider settings and debugging evidence in `<state_root>/provider-profiles.md`, `<state_root>/send-log.md`, and `<state_root>/deliverability-notes.md`
 
-**This skill does NOT:**
-- send live mail without explicit confirmation
-- store raw SMTP passwords or tokens in local memory
-- modify DNS records, mailing lists, or provider settings unless the user explicitly asks
-- disable TLS verification silently
-- modify its own skill definition
+**Operating posture:**
+- require explicit confirmation before any live send
+- keep raw SMTP passwords or tokens outside local memory files
+- change DNS, mailing lists, or provider settings only when the user explicitly asks
+- keep TLS verification enabled and fix hostname/CA issues instead of bypassing checks
+- leave the skill package itself unchanged during normal operation
 
 ## Trust
 
