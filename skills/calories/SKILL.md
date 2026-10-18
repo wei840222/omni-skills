@@ -51,6 +51,22 @@ Preference areas to record as the user reveals them:
 - **restrictions** — vegetarian/vegan, allergies, religious rules; affects protein-source assumptions and meal defaults
 - **weigh-in ritual** — scale owned or not, daily vs 3-4×/week tolerance, cycle-aligned comparisons; affects the protocol and averaging in `references/trend.md`
 
+## Progressive disclosure
+
+Load reference files only when the matching situation table row or Core Rule needs depth:
+
+- meal/photo/text estimation → `references/estimation.md`
+- packaged labels → `references/labels.md`
+- restaurant/alcohol/travel weeks → `references/restaurants.md`
+- cut/bulk/maintain targets → `references/targets.md`
+- measured TDEE windows → `references/calibration.md`
+- stalls, overnight jumps, BIA readings → `references/trend.md`
+- workout burn accounting → `references/exercise.md`
+- leaving a cut / recomp → `references/maintenance.md`
+- Red Flags scripts and medical edge cases → `references/safety.md`
+- first-run state bootstrap → `references/setup.md`
+- citation URLs → `references/sources.md`
+
 ## When To Use
 
 - User logs a meal by photo, text, or label and wants a calorie/macro estimate
