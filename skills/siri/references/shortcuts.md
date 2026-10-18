@@ -1,5 +1,9 @@
 # Siri Shortcuts
 
+Load this reference only when building or debugging voice-triggered Shortcuts.
+Keep the primary SKILL.md path for activation and naming triage.
+
+
 ## Naming for Voice Activation
 
 **Rules:**

@@ -1,5 +1,9 @@
 # Siri HomeKit Control
 
+Load this reference only when HomeKit naming, scenes, zones, or accessory voice failures.
+Keep the primary SKILL.md path for everyday activation triage.
+
+
 ## Device Naming Best Practices
 
 **Format:** Location + Function

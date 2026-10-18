@@ -1,5 +1,9 @@
 # Siri Commands Reference
 
+Load this reference only when browsing the full command catalog.
+Keep the primary SKILL.md path for everyday activation triage.
+
+
 ## Communication
 - "Call [name]" / "FaceTime [name]" / "FaceTime Audio [name]"
 - "Send a message to [name]: [content]"
