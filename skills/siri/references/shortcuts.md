@@ -1,19 +1,23 @@
 # Siri Shortcuts
 
+Load this reference only when building or debugging voice-triggered Shortcuts.
+Keep the primary SKILL.md path for activation and naming triage.
+
+
 ## Naming for Voice Activation
 
 **Rules:**
 - 2-3 words ideal
-- No punctuation or special characters
-- Phonetically distinct (avoid rhymes with other shortcuts)
+- Omit punctuation and special characters
+- Phonetically distinct (ensure it sounds distinct from other shortcuts)
 - Easy to remember and pronounce
 - Test by saying it aloud before saving
 
-**Good Names:**
+**Effective Names:**
 - "Morning Routine", "Work Mode", "Quick Note"
 - "Start Workout", "Call Mom", "Night Mode"
 
-**Bad Names:**
+**Anti-patterns:**
 - "My Super Awesome Morning Routine v2" (too long)
 - "Do the thing" (too vague, easy to mis-trigger)
 - "Test 1" (meaningless)

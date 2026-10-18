@@ -1,5 +1,9 @@
 # SiriKit & App Intents Development
 
+Load this reference only when implementing SiriKit or App Intents in an app.
+Keep the primary SKILL.md path for everyday activation triage.
+
+
 ## Framework Evolution
 
 **SiriKit (iOS 10+):**

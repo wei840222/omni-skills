@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I rename my smart bulb so Siri understands it better? It's currently named 'Philips Hue A19 Kitchen #2'",
+    "expected": "Recommend a short, distinct HomeKit name without special characters (for example Kitchen light) and point to Home app renaming plus a spoken retest.",
+    "actual": "Advised renaming in the Home app to a short distinct phrase without punctuation or '#' (example: Kitchen light), then retesting 'Hey Siri, turn on Kitchen light'. Cited references/homekit.md naming rules and related-skills boundary to smart-home for non-Apple hubs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want my app to accept Siri commands with parameters like 'Log 8 glasses of water'. How do I implement this on iOS 16?",
+    "expected": "Route to App Intents (Swift, code-first, no Intents extension required) with @Parameter and IntentResult dialog; contrast with classic SiriKit domains.",
+    "actual": "Directed to App Intents on iOS 16+: implement an AppIntent with @Parameter for the quantity, return IntentResult & ProvidesDialog, and expose via Shortcuts. Noted classic SiriKit still needs an Intents extension and predefined domains. Loaded references/development.md and official App Intents URL from references/sources.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Hey Siri stopped responding on my iPhone after I changed the language. What should I check before resetting anything?",
+    "expected": "Capture language mismatch, Listen-for setting, mic test, Low Power Mode, and one failing phrase; prefer reversible checks before reset; escalate HomePod-only issues to homepod.",
+    "actual": "Asked for OS version, Siri language, and one failing phrase. Guided Settings → Siri & Search → Listen for / retrain, Voice Memos mic test, disable Low Power Mode, then retest the same phrase. Deferred factory reset. Routed HomePod-only failures to the homepod skill.",
+    "pass": true
+  }
+]
