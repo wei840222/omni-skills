@@ -1,6 +1,6 @@
 # Memory Template - SMTP
 
-Create `~/Clawic/data/smtp/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # SMTP Memory

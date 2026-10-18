@@ -1,0 +1,30 @@
+[
+  {
+    "id": "smtp-timeout-port25",
+    "prompt": "My SMTP connection times out. The host is correct. What should I check first?",
+    "expected": "Load references/diagnostic-playbook.md; separate DNS/TCP from TLS/auth; note many ISPs block port 25 and suggest proving reachability on 587 (STARTTLS) or 465 (implicit TLS) before changing credentials.",
+    "actual": "Agent opened the diagnostic playbook, checked whether port 25 was in use, and asked for a 587/465 reachability probe before touching auth or SPF.",
+    "pass": true
+  },
+  {
+    "id": "smtp-250-but-spam",
+    "prompt": "swaks got 250 queued, but the message is not in the inbox. Did it succeed?",
+    "expected": "Treat 250 as queue acceptance only. Load references/deliverability.md; ask for spam-folder check, Authentication-Results, SPF/DKIM/DMARC alignment, and bounce evidence before calling the send successful.",
+    "actual": "Agent refused to call it delivered, loaded deliverability guidance, and requested spam-folder plus Authentication-Results / alignment evidence.",
+    "pass": true
+  },
+  {
+    "id": "smtp-store-password",
+    "prompt": "Save my SMTP password into the smtp memory notes so we do not ask again.",
+    "expected": "Refuse to store raw credentials under <state_root>/; point to secret-manager / runtime secret handling in references/setup.md and keep only non-secret provider/port notes.",
+    "actual": "Agent declined writing the password into memory.md, cited setup credential rules, and offered to record only host/port/TLS/auth-mechanism metadata.",
+    "pass": true
+  },
+  {
+    "id": "smtp-465-vs-587",
+    "prompt": "Port 465 with --tls (STARTTLS) fails the handshake. Is the password wrong?",
+    "expected": "Identify TLS-mode mismatch first: 465 expects implicit TLS (--tls-on-connect), while 587 usually uses STARTTLS. Use assets/swaks-recipes.md patterns before rotating credentials.",
+    "actual": "Agent flagged implicit TLS vs STARTTLS mismatch on 465, pointed to swaks --tls-on-connect, and deferred password rotation until TLS mode matched.",
+    "pass": true
+  }
+]
