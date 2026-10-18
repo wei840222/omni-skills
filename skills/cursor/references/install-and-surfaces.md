@@ -10,16 +10,23 @@ Use the editor when:
 - the work benefits from direct codebase context, inline edits, and local iteration
 - you need to inspect how rules and context actually apply inside the repo
 
-### `cursor-agent`
+Editor modes that change behavior:
+- **Agent** — full tool access for implementation
+- **Ask** — read-only exploration
+- **Plan** — design the approach before coding
+
+### `agent` CLI
 Use the CLI when:
 - the task needs repeatable terminal execution
 - the user wants automation or non-interactive runs
 - you need a clean, explicit repo and command boundary
 
-### Background Agent
+Install from current Cursor docs (`curl https://cursor.com/install -fsS | bash` on macOS/Linux/WSL, or the Windows install snippet). Verify with `agent --help` rather than assuming flags.
+
+### Cloud Agent
 Use it when:
 - the task is longer-running and GitHub-connected execution is acceptable
-- remote command execution is worth the trust tradeoff
+- remote command execution in an isolated cloud VM is worth the trust tradeoff
 - the user wants work to continue outside the local editor session
 
 ### Bugbot
@@ -40,6 +47,6 @@ Ask only the questions that change the answer:
 
 Prefer the smallest surface that can solve the problem:
 1. editor for local interactive work
-2. `cursor-agent` for bounded automation
-3. Background Agent for explicitly approved remote execution
+2. `agent` CLI for bounded automation
+3. Cloud Agent for explicitly approved remote execution
 4. Bugbot for review-specific GitHub workflows

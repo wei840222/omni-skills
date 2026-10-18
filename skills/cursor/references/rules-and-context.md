@@ -5,10 +5,11 @@ Use this file when Cursor seems inconsistent, over-general, or blind to repo con
 ## Rule Hierarchy
 
 Current Cursor setups should prefer:
-1. `.cursor/rules` for project rules
-2. repo-level agent guidance when it already exists
-3. user rules only for durable personal defaults
-4. `.cursorrules` only as legacy material that may need migration
+1. `.cursor/rules` project rules (`.mdc` files; plain `.md` under that folder is ignored by the rules system)
+2. `AGENTS.md` when the repo wants a simple markdown agent instruction file
+3. user rules for durable personal defaults
+4. team rules managed from the Cursor dashboard when available
+5. `.cursorrules` only as legacy material that may need migration
 
 ## `.cursor/rules` Strategy
 
@@ -20,6 +21,7 @@ Useful rule categories:
 - review and verification expectations
 
 Keep rules short enough to load intentionally and specific enough to change behavior.
+Control attachment with rule metadata such as `alwaysApply`, `globs`, and description-driven agent requests.
 
 ## Attachment Modes
 
@@ -41,4 +43,4 @@ If too many rules attach at once, Cursor becomes noisy and less predictable.
 
 - `.cursorrules` is legacy, not the target design for new setups.
 - Migrate only when the repo is ready and you can preserve intent.
-- Do not leave duplicate instructions spread across `.cursorrules`, `.cursor/rules`, and repo-level agent guidance unless the overlap is deliberate.
+- Prefer one clear instruction home; keep deliberate overlap rare and documented.

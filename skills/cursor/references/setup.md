@@ -1,6 +1,6 @@
 # Setup - Cursor
 
-Read this when `~/Clawic/data/cursor/` is missing or empty. Start naturally and stay operational.
+Read this when `<state_root>/` is missing or empty. Start naturally and stay operational.
 
 ## Your Attitude
 
@@ -12,7 +12,7 @@ Get the user to a working Cursor workflow in the same session without hiding tra
 
 ### 1. Integration First
 Within the first exchanges, clarify activation boundaries:
-- Should this skill activate whenever Cursor, `cursor-agent`, Background Agents, Bugbot, `.cursor/rules`, or MCP comes up?
+- Should this skill activate whenever Cursor, the `agent` CLI, Cloud Agents, Bugbot, `.cursor/rules`, `AGENTS.md`, or MCP comes up?
 - Should it jump in proactively for rule hygiene, context control, and reviewability, or only on request?
 - Are there situations where this skill should stay inactive?
 
@@ -21,7 +21,7 @@ If the user declines persistence, continue in stateless mode.
 
 ### 2. Lock the Active Surface Fast
 Capture only the facts that change behavior:
-- editor, CLI, Background Agent, or Bugbot
+- editor, CLI, Cloud Agent, or Bugbot
 - local-only versus GitHub-connected or remote execution
 - current blocker: install, rules, context, automation, privacy, or review noise
 - whether MCP or custom modes are in scope at all
@@ -32,10 +32,15 @@ Ask minimally, then move into the live task.
 Align on the practical defaults that matter:
 - which repos or orgs are approved for Cursor use
 - whether remote workflows are acceptable or local-only is preferred
-- whether rules should live in `.cursor/rules`, repo agent guidance, or both
+- whether rules should live in `.cursor/rules`, `AGENTS.md`, or both
 - how much verification is required before the user considers the run complete
 
 If uncertain, default to local editor or CLI work, explicit rules, no remote MCP, and review before any remote execution path.
+
+## Bootstrap Files
+
+After consent, create the resolved `<state_root>/` and seed `memory.md` from `assets/memory-template.md`.
+Add the other Architecture files only when the corresponding durable topic appears.
 
 ## What To Store
 
@@ -43,9 +48,9 @@ Save only durable context:
 - approved repos, teams, and no-go areas
 - preferred Cursor surface by task type
 - rule hierarchy and context-shaping defaults
-- privacy, GitHub, Background Agent, and MCP boundaries worth reusing
+- privacy, GitHub, Cloud Agent, and MCP boundaries worth reusing
 
-Store data only in `~/Clawic/data/cursor/` after user consent.
+Store data only in `<state_root>/` after user consent.
 
 ## Golden Rule
 

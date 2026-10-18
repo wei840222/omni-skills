@@ -15,27 +15,28 @@ Check these in order:
 ## Common Failure Patterns
 
 ### Cursor ignores repo conventions
-- inspect `.cursor/rules` and repo agent guidance before rewriting prompts
+- inspect `.cursor/rules` (`.mdc`), `AGENTS.md`, and repo agent guidance before rewriting prompts
 - remove duplicate or conflicting guidance
 - narrow context to the files that actually matter
 
 ### CLI run widens scope
 - confirm the repo path and task boundary
 - restate the objective in one sentence
-- avoid rerunning vague non-interactive prompts
+- avoid rerunning vague headless prompts, especially with `--force` / `--yolo`
 
-### Background Agent results feel off
+### Cloud Agent results feel off
 - verify which repo, branch, and integration path the remote run actually used
 - separate command failure from bad task framing
-- inspect remote output before applying local fixes
+- inspect remote output / draft PR before applying local fixes
 
 ### Bugbot noise overwhelms signal
 - check whether the PR is too broad
 - refine review guidance if `.cursor/BUGBOT.md` exists
 - triage findings by severity before changing code
+- remember findings can be informational; branch protection behavior depends on check configuration
 
 ### Privacy assumptions were wrong
-- check whether indexing, GitHub integration, or MCP changed the trust boundary
+- check whether indexing, GitHub integration, Cloud Agents, or MCP changed the trust boundary
 - stop remote workflows until the data path is clear
 - move to a smaller local surface if the repo is more sensitive than expected
 
