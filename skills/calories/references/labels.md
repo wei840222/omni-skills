@@ -6,7 +6,7 @@ A label is the best routinely available data source and still carries ~20% legal
 
 - **Per serving vs per package.** US labels often declare implausible servings — a 500 ml drink as "2 servings", a pint of ice cream as 3. First question on every label: how much of the package was actually eaten?
 - **Per 100 g vs per serving.** EU/UK labels lead with per-100 g; US labels lead with per-serving. Confirm which column you are reading before multiplying.
-- **"As packaged" vs "as prepared."** Pasta, rice, oats, and cereal state DRY weight; boxed mixes may state "as prepared" assuming added butter/milk. Match the basis (`estimation.md` for conversions).
+- **"As packaged" vs "as prepared."** Pasta, rice, oats, and cereal state DRY weight; boxed mixes may state "as prepared" assuming added butter/milk. Match the basis (`references/estimation.md` for conversions).
 - **Rounding to zero.** US rules let <5 kcal per serving declare 0. Cooking spray is the canonical abuse: "0 kcal" per quarter-second spray, ~7 kcal per actual second of spraying — a real pan coating runs 20-40 kcal. Any "0 kcal" product used in quantity deserves this check.
 
 ## The Atwater Audit
@@ -29,8 +29,8 @@ Australia, NZ, and much of the EU co-label in kJ. kcal = kJ ÷ 4.184 (2000 kJ �
 
 ## Restaurant Nutrition Pages
 
-Chain-published data counts as label-grade (standardized recipes, legally posted in the US for 20+ location chains) — use it verbatim over any photo estimate. Custom orders break it: added cheese, extra dressing, "make it crispy" re-adds the hidden-calorie step from `estimation.md`.
+Chain-published data counts as label-grade (standardized recipes, legally posted in the US for 20+ location chains) — use it verbatim over any photo estimate. Custom orders break it: added cheese, extra dressing, "make it crispy" re-adds the hidden-calorie step from `references/estimation.md`.
 
 ## Save Everything
 
-Every extracted label goes to the library (`memory-template.md` format): `name: kcal [per amount], protein — label, date`. The second scan of the same product should never happen.
+Every extracted label goes to the library (`assets/data-templates.md` format): `name: kcal [per amount], protein — label, date`. The second scan of the same product should never happen.
