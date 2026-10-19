@@ -170,7 +170,7 @@ Every strategy includes conditions to ABANDON it:
 
 "If metric X drops below Y for Z weeks, stop and reassess."
 
-Missing kill criteria is a defect; add them before locking the plan.
+Missing kill criteria is a defect; add them before locking the plan. If the user resists, refuse to treat the plan as committed.
 
 ### 10. Progressive Framework Selection
 
