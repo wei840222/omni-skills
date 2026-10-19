@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "v3 to v4 PostCSS upgrade",
+    "prompt": "How do I upgrade my Next.js project from Tailwind CSS v3 to v4 using PostCSS?",
+    "expected": "Replace `@tailwind` directives with `@import \"tailwindcss\"`; move theme values toward `@theme`; install/use `@tailwindcss/postcss` with Tailwind v4; point to upgrade-guide renames; do not keep v3-only `content`/`corePlugins` as the primary config surface.",
+    "actual": "Loaded references/v4-migration.md + references/installation.md + references/sources.md. Instructed replacing `@tailwind` with `@import \"tailwindcss\"`, adopting `@theme` for tokens, switching PostCSS to `@tailwindcss/postcss` + tailwindcss v4, and checking the official upgrade-guide rename list before bumping. Refused to treat leftover v3 `content`/`corePlugins` as the v4 source of truth.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "dynamic class names missing in production",
+    "prompt": "Why are my dynamically constructed class names like `bg-${statusColor}-500` not working in production?",
+    "expected": "Explain static text scanning (not JS evaluation); recommend a complete-class lookup map; mention `@source inline(...)` / enumerated safelist only for unavoidable cases; verify with grep on built CSS.",
+    "actual": "Applied Core Rule 1 / Class Detection: scanner is a text matcher, so `bg-${statusColor}-500` never exists as a complete string. Prescribed a lookup map of full class literals, allowed `@source inline` or enumerated safelist only when dynamic values are unavoidable, and required `grep` of the production CSS artifact rather than hoping the source markup is enough.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "near-miss routing away from css skill",
+    "prompt": "My flex child overflows the card and `min-width` seems wrong. Should I add Tailwind classes or rewrite the CSS?",
+    "expected": "Route layout/cascade mechanics to `css` when no Tailwind utility-generation or config issue is present; only stay in tailwindcss if the failure is missing utilities, variant wiring, or build scanning.",
+    "actual": "Treated pure flex overflow / min-width mechanics as a `css` skill handoff per description boundary. Stayed in tailwindcss only to check whether a utility was unscanned or losing cascade (Class Detection / Cascade And Conflicts); otherwise recommended `css` for stacking and flex sizing diagnosis.",
+    "pass": true
+  }
+]

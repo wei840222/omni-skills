@@ -1,6 +1,7 @@
 # Memory Template — Tailwind CSS
 
-Create `~/Clawic/data/tailwindcss/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure (only after State location
+resolution and consent):
 
 ```markdown
 # Tailwind CSS Memory
@@ -14,7 +15,7 @@ last: YYYY-MM-DD
 <!-- Design system in play: own tokens, a UI kit, an imported token pipeline -->
 
 ## Pain Points
-<!-- Issues they've hit: missing styles, cascade fights, upgrade blockers -->
+<!-- Issues they have hit: missing styles, cascade fights, upgrade blockers -->
 
 ## Preferences
 <!-- Banned techniques, token promotion threshold, tolerance for ! and arbitrary values -->
@@ -23,6 +24,11 @@ last: YYYY-MM-DD
 ---
 *Updated: YYYY-MM-DD*
 ```
+
+Also create `<state_root>/config.yaml` when preferences must persist, using the
+keys from the Configuration table in `SKILL.md` (`tailwind_version`,
+`build_integration`, `dark_mode_strategy`, `component_syntax`, `merge_helper`,
+`rem_base`, `token_threshold`, `text_direction`, `a11y_target`).
 
 ## Status Values
 

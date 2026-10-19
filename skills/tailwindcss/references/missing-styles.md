@@ -1,6 +1,6 @@
 # Missing Styles — The Class Is There, The CSS Is Not
 
-The report that dominates Tailwind help channels, and almost never a Tailwind bug. Work the chain in order; every step is a check, not a guess.
+The report that dominates Tailwind help channels, and usually an environment mismatch. Work the chain in order; every step is a check, not a guess.
 
 ## Triage In Four Checks
 
@@ -11,7 +11,7 @@ The report that dominates Tailwind help channels, and almost never a Tailwind bu
 
 ## Dynamic Class Names — Rule This Out First
 
-The scanner extracts substrings; it never evaluates.
+The scanner extracts substrings; it only extracts literal matches.
 
 ```jsx
 // Broken — none of these strings exist in the file
@@ -24,7 +24,7 @@ const TONE = { danger: 'bg-red-500', ok: 'bg-green-500', warn: 'bg-amber-500' };
 <div className={TONE[tone]} />
 ```
 
-- Partial literals do not help: `bg-red-` plus `500` is two strings, and neither is a utility.
+- Partial literals bypass extraction: `bg-red-` plus `500` is two strings, and neither is a utility.
 - The same rule applies to CSS-in-template languages: `class="bg-{{ color }}-500"` in Blade, ERB, Jinja, or Go templates fails identically.
 - Numeric interpolation for widths (`w-[${pct}%]`) fails too. Use an inline `style` for genuinely continuous values — that is what `style` is for, and it costs no CSS.
 
@@ -32,7 +32,7 @@ const TONE = { danger: 'bg-red-500', ok: 'bg-green-500', warn: 'bg-amber-500' };
 
 | Source of the class | Why it's invisible | Fix |
 |---|---|---|
-| Database, CMS field, API response | Never appears in any source file | Force-generate the closed set: v4 `@source inline("…")`, v3 `safelist` |
+| Database, CMS field, API response | Absent from source code | Force-generate the closed set: v4 `@source inline("…")`, v3 `safelist` |
 | Compiled files inside a dependency | `node_modules` is excluded by default | v4 `@source "../../node_modules/@acme/ui/dist";` · v3 add the path to `content` |
 | Sibling package in a monorepo | Outside the app's scan root | v4 `@source "../ui/src";` (paths resolve relative to the CSS file) · v3 add the glob |
 | A new top-level directory | v3 only sees the globs it was given | Extend `content`; v4 needs nothing |
@@ -42,7 +42,7 @@ const TONE = { danger: 'bg-red-500', ok: 'bg-green-500', warn: 'bg-amber-500' };
 ## Forcing Generation Without Blowing Up The Bundle
 
 ```css
-/* v4 — enumerate, do not pattern-match */
+/* v4 — enumerate, prefer explicit enumeration over pattern-matching */
 @source inline("bg-red-500 bg-green-500 bg-amber-500");
 @source inline("{hover:,focus:,}bg-blue-{500,600,700}");  /* brace expansion */
 ```

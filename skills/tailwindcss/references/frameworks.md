@@ -41,7 +41,7 @@ This is what each stack does differently once Tailwind is already installed — 
 - Rails: `tailwindcss-rails` wraps the CLI and wires the watch process into `bin/dev`.
 - Laravel: the Vite plugin, with the CSS entry registered in `vite.config.js`.
 - Django/Flask: the CLI in watch mode alongside the dev server, output into `static/`; add a cache-busting query or hash in production.
-- Server-rendered HTML from a database (CMS pages, rich text) is never scanned — that content gets `prose` and a safelist for any utility the editors may emit.
+- Server-rendered HTML from a database (CMS pages, rich text) bypasses the scanner — that content gets `prose` and a safelist for any utility the editors may emit.
 
 ## Storybook
 
@@ -52,7 +52,7 @@ This is what each stack does differently once Tailwind is already installed — 
 ## React Native
 
 - Tailwind does not run on React Native; NativeWind maps a subset of utilities to style objects. Check which Tailwind major your NativeWind version targets before copying v4 syntax — the two release lines are not in lockstep.
-- No cascade, no pseudo-classes, no media queries in the platform: variants that depend on them either don't exist or are re-implemented differently.
+- No cascade, no pseudo-classes, no media queries in the platform: variants that depend on them either are absent or are re-implemented differently.
 
 ## Email
 
@@ -65,5 +65,5 @@ This is what each stack does differently once Tailwind is already installed — 
 - **One stylesheet per rendered document.** Two imports mean two copies of the utility layer.
 - **Scoped style blocks raise specificity** in Vue and Svelte; anything you write there beats plain utilities.
 - **`@reference`, not `@import`,** inside component style blocks in v4 — `@import "tailwindcss"` there emits the entire framework into that component's CSS.
-- **Framework class helpers** (`clsx`, `cva`, `tw`) need registering with IntelliSense and with the Prettier plugin, or autocomplete and sorting stop at the function boundary.
+- **Framework class helpers** (`clsx`, `cva`, `tw`) need registering with IntelliSense and with the Prettier plugin, or autocomplete and sorting halt at the function boundary.
 

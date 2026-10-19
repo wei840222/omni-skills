@@ -4,7 +4,7 @@ Tailwind's layout utilities encode opinions that plain CSS does not. These are t
 
 ## Spacing Between Children
 
-- `gap-*` is the default. It works in flex and grid, never collapses, and survives wrapping and reordering.
+- `gap-*` is the default. It works in flex and grid, preserves explicit spacing, and survives wrapping and reordering.
 - `space-x-4` / `space-y-4` apply a margin to all-but-one child via a sibling selector. Consequences: it breaks on a wrapping row (the wrapped item gets no top margin), inverts under `flex-row-reverse`, and fights any child that sets its own margin.
 - `divide-x` / `divide-y` use the same selector to draw borders between children — same wrapping caveat, plus it conflicts with `space-*` on the same element.
 - Reach for `space-*` only when gap is unavailable: a non-flex, non-grid block container where you want rhythm between arbitrary children (`[&>*+*]:mt-4` does the same with clearer intent).
@@ -25,7 +25,7 @@ Tailwind's layout utilities encode opinions that plain CSS does not. These are t
 - `flex-1` is `1 1 0%` (all space split evenly); `flex-auto` is `1 1 auto` (only leftover space split, larger content keeps a larger track). Equal columns need `flex-1`.
 - A flex child defaults to `min-width: min-content`: add `min-w-0` before expecting `truncate`, `overflow-hidden`, or shrinking to work. Column direction needs `min-h-0`.
 - `items-center` can push content out of a scroll container's top; `items-center-safe` (v4) falls back to `start` when the content overflows.
-- `order-*` changes paint order, never DOM order — keyboard and screen-reader order stay as written. Reordering visually past a couple of positions is an accessibility defect.
+- `order-*` changes paint order, leaving DOM order intact — keyboard and screen-reader order stay as written. Reordering visually past a couple of positions is an accessibility defect.
 
 ## Text Overflow
 
@@ -37,7 +37,7 @@ Tailwind's layout utilities encode opinions that plain CSS does not. These are t
 ## Positioning And Overflow
 
 - `rounded-*` on a parent with absolutely positioned or image children needs `overflow-hidden`, or the child paints over the corner.
-- `overflow-hidden` creates a scroll container: it breaks `sticky` descendants and clips focus rings and shadows. When the goal is only to stop horizontal scroll, `overflow-x-clip` creates no scroll container and sticky survives.
+- `overflow-hidden` creates a scroll container: it breaks `sticky` descendants and clips focus rings and shadows. When the goal is only to prevent horizontal scroll, `overflow-x-clip` creates no scroll container and sticky survives.
 - `sticky top-0` does nothing if any ancestor has `overflow-hidden`, or if the element has no positioned space to move within.
 - Tailwind's `z-*` scale stops at 50 by design. Needing `z-[9999]` means the element is trapped in a stacking context — diagnose with the `css` skill rather than escalating.
 - `inset-0` + `absolute` + `m-auto` centers an element with an intrinsic size; `grid place-content-center` is the default for everything else.
@@ -57,5 +57,5 @@ Tailwind's layout utilities encode opinions that plain CSS does not. These are t
 
 - Modern alternative that needs no utility at all: `mx-auto max-w-7xl px-6` — explicit, greppable, and it doesn't jump at each breakpoint.
 
-- Do not confuse `container` (a max-width utility) with `@container` (a container-query context) — different features, adjacent names.
+- Distinguish `container` (a max-width utility) with `@container` (a container-query context) — different features, adjacent names.
 

@@ -24,7 +24,7 @@ plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 
 ## `prose` In Practice
 
-- `prose` sets sizes, spacing, and colors for descendant elements — it is the antidote to Preflight on content you don't author (SKILL.md rule 5).
+- `prose` sets sizes, spacing, and colors for descendant elements — it is the antidote to Preflight on content you do not author (SKILL.md rule 5).
 - Size and theme modifiers: `prose prose-lg prose-slate dark:prose-invert`.
 - Element overrides use the element modifier: `prose-headings:font-display prose-a:text-brand-600 prose-img:rounded-lg`.
 - Escape a subtree with `not-prose` — the wrapper for an interactive widget or a code playground embedded in an article.
@@ -53,7 +53,7 @@ plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 ```
 
 - `@utility` output sorts inside the `utilities` layer, so variants (`md:`, `hover:`) and `@apply` both work on it. A rule written in `@layer components` gets neither.
-- The `*` suffix plus `--value(...)` is what makes a utility accept values; a static `@utility` name never takes an argument.
+- The `*` suffix plus `--value(...)` is what makes a utility accept values; a static `@utility` name rejects an argument.
 - Name with the framework's grammar (`scrollbar-none`, not `noScrollbar`) or IntelliSense and `twMerge` grouping both miss it.
 
 ## Writing A Plugin (v3, or when you need JS)

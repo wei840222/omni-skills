@@ -1,6 +1,6 @@
 # Dark Mode
 
-Three strategies, and the choice is made once. `dark_mode_strategy` records it; the wrong one produces a `dark:` prefix that never fires.
+Three strategies, and the choice is made once. `dark_mode_strategy` records it; the wrong one produces a `dark:` prefix that fails to trigger.
 
 ## Pick The Strategy
 
@@ -61,7 +61,7 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
 
 - The script must be **blocking and inline** in `<head>`. A deferred script, a bundled module, or a React effect all run after first paint — that gap is the white flash.
 - `color-scheme` is not decoration: it themes scrollbars, form controls, and the canvas background. Without it a dark page shows white scrollbars and a white flash between navigations.
-- Store three states, not two. A boolean cannot express "follow the system", so users who never touched the toggle get frozen into whatever the OS was on their first visit.
+- Store three states, not two. A boolean cannot express "follow the system", so users who omitted the toggle get frozen into whatever the OS was on their first visit.
 
 ## Server Rendering
 
@@ -72,8 +72,8 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
 
 ## Writing Dark Variants Well
 
-- **Pair foreground and background, always.** `dark:bg-gray-900` without `dark:text-gray-100` produces black-on-black in exactly the mode you don't develop in.
-- Dark mode is not an inversion. Reduce saturation and avoid pure black: `bg-gray-900` reads as a surface, `bg-black` reads as a hole and makes shadows invisible.
+- **Pair foreground and background, always.** `dark:bg-gray-900` without `dark:text-gray-100` produces black-on-black in the alternative mode.
+- Dark mode is not an inversion. Reduce saturation and prefer muted dark shades over pure black: `bg-gray-900` reads as a surface, `bg-black` reads as a hole and makes shadows invisible.
 - Shadows barely exist on dark surfaces — replace elevation with a lighter surface step (`dark:bg-gray-800` on a `dark:bg-gray-900` page) or a subtle ring.
 - Borders need to go lighter, not darker: `border-gray-200 dark:border-gray-700`.
 - Images and logos: `dark:invert` for monochrome marks; a second asset for anything with brand color. `dark:brightness-90` takes the glare off photos.
@@ -85,6 +85,6 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
 - Reload with the OS in the *other* mode from the stored preference.
 - Both modes against the contrast floor: 4.5:1 body text, 3:1 UI and focus rings (WCAG 2.2 AA, 1.4.3 / 1.4.11).
 - Focus rings visible in both — `ring-offset` uses the page background, so a fixed offset color goes invisible in one mode (`ring-offset-white dark:ring-offset-gray-900`).
-- Print: dark backgrounds do not print. `print:bg-white print:text-black` on the page root.
+- Print: dark backgrounds are omitted when printing. `print:bg-white print:text-black` on the page root.
 - Forms, scrollbars, and native pickers respect `color-scheme` — check a `<select>` and a date input, not just your own components.
 

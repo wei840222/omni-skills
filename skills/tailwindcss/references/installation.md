@@ -96,7 +96,7 @@ v4 output uses `@property`, `color-mix()`, and cascade layers, so it requires **
 ## Editor And Repo Tooling
 
 - **IntelliSense** (VS Code / Cursor / Zed extension): needs the CSS entrypoint (v4) or `tailwind.config.js` (v3) discoverable. In a monorepo, set the path explicitly in workspace settings — a silent no-autocomplete is almost always a discovery failure, not a bug.
-- Enable suggestions inside strings, or completion never appears in `className`:
+- Enable suggestions inside strings, or completion remains hidden in `className`:
 
 ```json
 {

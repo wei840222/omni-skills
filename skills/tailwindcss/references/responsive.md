@@ -63,7 +63,7 @@ Many layouts need no media query at all — fewer breakpoints means fewer states
 - `grid-cols-[repeat(auto-fit,minmax(min(16rem,100%),1fr))]` — a card grid that reflows on its own.
 - `flex flex-wrap gap-4` — toolbars and tag lists that wrap when they must.
 - `w-full max-w-md` — full width on small screens, capped above, one class pair.
-- `text-[clamp(1.5rem,1rem+2.5vw,3rem)]` — fluid type; keep a rem term in the clamp or browser zoom and user font-size stop working.
+- `text-[clamp(1.5rem,1rem+2.5vw,3rem)]` — fluid type; keep a rem term in the clamp or browser zoom and user font-size become ineffective.
 
 ## Mobile Viewport Units
 
@@ -76,7 +76,7 @@ Many layouts need no media query at all — fewer breakpoints means fewer states
 
 - Read the page at 320px wide: content reflows without horizontal scroll (WCAG 1.4.10).
 - Zoom to 200%: text-based sizes survive because they are rem, not vw.
-- Every `hidden md:block` pair audited — content hidden on mobile is content mobile users never get, and screen readers still announce it unless it is truly removed.
+- Every `hidden md:block` pair audited — content hidden on mobile is content is entirely inaccessible on mobile devices, and screen readers still announce it unless it is truly removed.
 - Boundary widths tested on both sides of each breakpoint.
 - Landscape phone (short viewport): `h-dvh` sections with vertical centering are the usual casualty.
 

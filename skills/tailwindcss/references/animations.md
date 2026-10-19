@@ -9,7 +9,7 @@ Four built-in animations, a transition system, and a set of traps that only appe
 - Defaults: `duration-150`, `ease-in-out` (`transition` sets both). Override with `duration-200 ease-out`.
 - Duration is in milliseconds and arbitrary values work: `duration-[240ms]`.
 - Frame budget: 60fps leaves ~16.7ms per frame for style, layout, paint, and your JS combined. Only `transform` and `opacity` skip layout and paint, which is why every other animated property risks jank on a mid-range phone.
-- A transition needs two states. `transition` on an element whose class never changes is dead weight in the class list.
+- A transition needs two states. `transition` on an element with static classes is dead weight in the class list.
 
 ## Built-In Animations
 
@@ -63,7 +63,7 @@ The hard case: animating an element that is being added to or removed from the D
 
 - `motion-reduce:` and `motion-safe:` map to `prefers-reduced-motion`. Prefer the opt-in direction: write the animation under `motion-safe:` so the default is calm, rather than adding overrides after the fact.
 - Vestibular triggers are large-area movement, parallax, and zoom — not fades. A reduced-motion path that replaces a slide with a fade is usually better than removing the transition entirely, because the state change still reads.
-- Infinite animations (`animate-spin`, `animate-pulse`) need an explicit `motion-reduce:animate-none`; a loading spinner that never stops is the exact case the setting exists for.
+- Infinite animations (`animate-spin`, `animate-pulse`) need an explicit `motion-reduce:animate-none`; a loading spinner that loops indefinitely is the exact case the setting exists for.
 
 ## Performance
 

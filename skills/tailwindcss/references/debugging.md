@@ -16,7 +16,7 @@ Each chain is ordered by probability. Start with the split: is the CSS missing, 
 4. The element isn't the one you think: check for a wrapper that receives `className` while the styled node is a child, the classic in Radix/Headless UI `asChild` composition.
 5. A parent has `display: contents`, `overflow: hidden`, or a transform that makes the property meaningless (positioning, sticky). That is CSS mechanics — hand off to the `css` skill.
 
-## Variant Never Fires
+## Variant Fails to Trigger
 
 | Variant | First thing to check |
 |---|---|
