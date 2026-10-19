@@ -70,6 +70,7 @@ the exact path and obtain approval for that update.
 | Incident response playbooks | `references/incidents.md` |
 | Vendor security assessments | `references/vendors.md` |
 | Verified official sources | `references/sources.md` |
+| First-run state consent | `references/setup.md` |
 
 Load only the reference needed for the current ask. Prefer
 `security-best-practices` when the deliverable is a code/config fix rather than
