@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have an API at api.example.com and a frontend at app.example.com. I want to allow requests with cookies. Write the necessary CORS response headers.",
+    "expected": "Exact Access-Control-Allow-Origin https://app.example.com (not *); Access-Control-Allow-Credentials: true; mention Vary: Origin; reject *+credentials.",
+    "actual": "Returned Access-Control-Allow-Origin: https://app.example.com and Access-Control-Allow-Credentials: true. Rejected * with credentials. Recommended Vary: Origin so caches do not reuse the credentialed response for another origin.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My browser is making an OPTIONS request but it's failing. The frontend uses Content-Type: application/json. What is causing the preflight and what headers should the server return?",
+    "expected": "Identify application/json as a preflight trigger; OPTIONS must be 2xx with Access-Control-Allow-Origin, Allow-Methods, and Allow-Headers including Content-Type.",
+    "actual": "Explained that Content-Type: application/json is not a CORS-safelisted content type, so the browser sends OPTIONS. Required a 2xx preflight response with Access-Control-Allow-Origin, Access-Control-Allow-Methods, and Access-Control-Allow-Headers: Content-Type (plus other requested headers).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "CORS works in staging but randomly fails for some users behind a CDN. We allow only https://app.example.com. What header are we probably missing?",
+    "expected": "Call out missing Vary: Origin (and possibly preflight request header varies); explain shared cache reuse across origins.",
+    "actual": "Diagnosed missing Vary: Origin on origin-dependent responses. Explained a CDN can cache one Allow-Origin response and serve it to another caller. For preflights, also vary on Access-Control-Request-Method/Headers when those shape the response.",
+    "pass": true
+  }
+]
