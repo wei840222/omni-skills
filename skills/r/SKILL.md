@@ -72,6 +72,15 @@ Hand off when a sibling owns the job:
 | SQL / warehouse queries | `sql` |
 | MATLAB array indexing and NaN | `matlab` |
 
+## Situation detection
+
+| Context | Load |
+|---------|------|
+| Indexing, `[`/`[[`, `drop`, recycling | This SKILL + Extract / Arithmetic manuals in `references/sources.md` |
+| NA, factors, `stringsAsFactors` | This SKILL + NA / factor / NEWS links in `references/sources.md` |
+| `sample` / `seq_along` / assignment scope | This SKILL + sample / seq manuals in `references/sources.md` |
+| Verified URLs before restating defaults | `references/sources.md` |
+
 ## Prefer
 
 - Use `is.na(x)` for missingness; use `na.rm = TRUE` on summaries that should ignore `NA`.
