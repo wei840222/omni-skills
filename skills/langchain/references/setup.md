@@ -9,7 +9,7 @@ LangChain moves fast and most published code is written against a version that n
 ## How To Load Preferences
 
 1. Read `<state_root>/config.yaml` if it exists. Apply its values.
-2. For anything absent, use the defaults in the Configuration table of `SKILL.md` — do not ask.
+2. For anything absent, use the defaults in the Configuration table of `SKILL.md`.
    - `lc_version_line: 1.x`, `chat_provider: openai`, `vector_store: chroma`, `python_runtime: 3.11+`, `async_style: sync`, `tracing: none`, `trace_pii: redact`, `structured_output_method: tool_calling`.
 3. Read `<state_root>/memory.md` for prior context (their app shape, recurring pain points). Absence is fine; proceed without comment.
 4. If the working directory contains a lockfile or requirements file, the versions there beat the configured `lc_version_line` — the installed code is the ground truth.
@@ -22,7 +22,7 @@ Write to config or memory only when the user states a preference during the work
 
 - User names a provider, vector store, Python version, or version line → update the matching key in `<state_root>/config.yaml`.
 - User expresses a habit or stance (where prompts live, LangGraph vs plain LCEL, approval before destructive tools, cost ceilings, citation requirements) → record it under the relevant preference area (tooling, conventions, platform, safety posture, cost posture, retrieval conventions, output format) in `<state_root>/memory.md`.
-- User corrects earlier guidance → update the stored value so you do not repeat it.
+- User corrects earlier guidance → update the stored value so later answers match the correction.
 
 If the user has said nothing, store nothing. Never store API keys, endpoints with credentials, or prompt content containing customer data.
 
