@@ -112,7 +112,7 @@ Guidelines:
 
 Metric types: revenue ($), percentage (%), time saved, team size, users/customers, scale (requests/sec), satisfaction scores.
 
-## Common weak patterns → positive targets
+## Weak patterns → positive targets
 
 | Weak pattern | Positive target |
 |--------------|-----------------|

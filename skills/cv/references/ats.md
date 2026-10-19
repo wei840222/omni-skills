@@ -13,7 +13,7 @@ Prefer:
 - Text-layer PDF **or** DOCX (not a scanned image)
 - Filename like `FirstName_LastName_Resume.pdf`
 
-Treat as high-risk for parsing:
+Prefer alternatives when these appear:
 
 - Tables, multi-column layouts, text boxes used for structure
 - Headers/footers holding critical contact or dates
