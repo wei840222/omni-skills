@@ -1,6 +1,6 @@
 # Retrieval — Loaders, Splitters, Indexing, Retrievers
 
-Scope: wiring retrieval correctly in LangChain. Strategy (what to chunk, how to evaluate) is `rag` and `rag-chunking`.
+Scope: wiring retrieval correctly in LangChain. Strategy (what to chunk, how to evaluate) belongs in `rag`; this file covers LangChain loaders, splitters, retrievers, and index updates.
 
 ## The Pipeline And Where It Breaks
 

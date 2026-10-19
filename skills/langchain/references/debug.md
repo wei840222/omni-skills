@@ -12,7 +12,7 @@ LangChain failures mislead because the error surfaces one or two layers below wh
 
 ## Missing Or Wrong Prompt Variables
 
-1. `prompt.input_variables` — includes anything created by an unescaped `{`. A variable you never wrote means a literal brace needs doubling (SKILL.md Core Rule 2).
+1. `prompt.input_variables` — includes anything created by an unescaped `{`. A variable you omitted means a literal brace needs doubling (SKILL.md Core Rule 2).
 2. Compare with the keys the previous step emits: `prev.invoke(x)` and look at the dict.
 3. `RunnablePassthrough` vs `.assign`: plain passthrough REPLACES the dict with the input; `.assign` keeps it and adds keys. Losing `question` three steps in is always this.
 4. Bare string into a multi-variable chain → wrap in a dict, or start the chain with `{"question": RunnablePassthrough()}`.
@@ -51,7 +51,7 @@ LangChain failures mislead because the error surfaces one or two layers below wh
 ## Async Errors
 
 - `this event loop is already running` → `asyncio.run()` (or `.invoke()` wrapping something that starts a loop) inside an existing loop — notebooks and web handlers. Use the `a*` methods.
-- `coroutine was never awaited` → an async tool or lambda invoked from a sync chain path.
+- `coroutine was left unawaited` → an async tool or lambda invoked from a sync chain path.
 - Async works alone, hangs in the service → a sync-only step is blocking the event loop; give it an `afunc`.
 
 ## Intermittent Failures

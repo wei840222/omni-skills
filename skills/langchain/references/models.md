@@ -7,7 +7,7 @@ from langchain.chat_models import init_chat_model
 model = init_chat_model("openai:gpt-4.1-mini", temperature=0, timeout=30, max_retries=2)
 ```
 
-- Provider-prefixed strings (`openai:`, `anthropic:`, `google_genai:`, `bedrock_converse:`, `ollama:`) avoid importing a partner class per branch — the clean way to honor `chat_provider` from config.
+- Provider-prefixed strings (`openai:`, `anthropic:`, `google_genai:`, `bedrock_converse:`, `ollama:`) prevent importing a partner class per branch — the clean way to honor `chat_provider` from config.
 - The partner package must be installed anyway (`langchain-openai`, `langchain-anthropic`, …); `init_chat_model` only defers the import.
 - `configurable_fields=("model", "temperature")` makes the model swappable at invoke time — pair with `configurable_alternatives` for A/B runs.
 - Embeddings have the same door: `init_embeddings("openai:text-embedding-3-small")`.
@@ -16,7 +16,7 @@ model = init_chat_model("openai:gpt-4.1-mini", temperature=0, timeout=30, max_re
 
 | Parameter | Reality |
 |---|---|
-| `temperature=0` | Not determinism. Same prompt can still differ across requests, model revisions, and load-balanced backends — never assert exact strings in tests |
+| `temperature=0` | Not determinism. Same prompt can still differ across requests, model revisions, and load-balanced backends — assert properties rather than exact strings in tests |
 | `max_tokens` | Caps the OUTPUT only, and a truncated response comes back as a valid message with `finish_reason: length` — check it before parsing |
 | `timeout` | Per HTTP request, not per chain. With `max_retries=2` the worst case is roughly 3× timeout plus backoff |
 | `max_retries` | Client-level, retries transport errors and 429s with backoff — this is the layer to keep; `.with_retry` is for parse failures (SKILL.md Core Rule 4) |
@@ -38,7 +38,7 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, Tool
 
 ## Provider Differences That Change Code
 
-- **System messages**: some providers accept exactly one, at the start. Concatenate rather than emitting several, and never place one after a tool exchange.
+- **System messages**: some providers accept exactly one, at the start. Concatenate rather than emitting several, and place it exactly at the start after a tool exchange.
 - **Tool-call pairing**: every `tool_call` id must be answered by a `ToolMessage` with that id before the next model call (SKILL.md Core Rule 7).
 - **JSON modes**: `json_mode` guarantees syntactic JSON, not your schema; `json_schema`/structured outputs enforce the schema where supported.
 - **Parallel tool calls**: some providers emit several tool calls in one message and some clients expose a flag to disable that. Code that assumes one call per turn breaks the day the model batches two.
@@ -53,4 +53,4 @@ Model choice is a per-call decision: extraction and routing run fine on the smal
 
 - The embedding model is part of the index: querying with a different model than you indexed with returns nonsense with no error. Store the model name in the collection metadata and assert it at startup.
 - Dimensions must match the store's configured vector size; mismatch is a store-level error at insert, or a silent accuracy collapse for stores that pad.
-- `embed_documents` (batch) vs `embed_query` (single) exist because some models use different prefixes or instructions for each side — never substitute one for the other.
+- `embed_documents` (batch) vs `embed_query` (single) exist because some models use different prefixes or instructions for each side — use distinct types for one for the other.

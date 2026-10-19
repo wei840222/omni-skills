@@ -54,7 +54,7 @@ prompt = ChatPromptTemplate.from_template(
 ).partial(format_instructions=parser.get_format_instructions())
 ```
 
-Forgetting `.partial(...)` is the most common cause of "the parser never works": the model was never told the format. Note the instructions contain literal braces — passing them as a variable, as above, avoids the escaping problem (SKILL.md Core Rule 2).
+Forgetting `.partial(...)` is the most common cause of "the parser fails": the model was never told the format. Note the instructions contain literal braces — passing them as a variable, as above, prevents the escaping problem (SKILL.md Core Rule 2).
 
 ## Diagnosing A Failure
 
@@ -74,4 +74,4 @@ Forgetting `.partial(...)` is the most common cause of "the parser never works":
 
 ## Validation Beyond The Schema
 
-The schema proves shape, not truth. For extraction that feeds anything consequential, add a cheap deterministic check after parsing — dates parse, ids exist in your database, numbers sum. Route failures back for one retry with the specific complaint, and stop after that: a second failure means the input, not the model, is the problem.
+The schema proves shape, not truth. For extraction that feeds anything consequential, add a cheap deterministic check after parsing — dates parse, ids exist in your database, numbers sum. Route failures back for one retry with the specific complaint, and halt after that: a second failure means the input, not the model, is the problem.

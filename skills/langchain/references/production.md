@@ -4,7 +4,7 @@
 
 - Set `timeout` on the model client always. A provider that stops responding otherwise holds the request until the HTTP client's own default, and a worker with it.
 - Worst-case latency for one step ≈ `timeout × (client max_retries + 1)` plus backoff. With `timeout=30, max_retries=2` that is 90 s+ before your chain has done anything else — size the caller's timeout accordingly, or it will give up while the retry is still in flight.
-- Count layers (SKILL.md Core Rule 4): client retries for transport and 429, `.with_retry` for parse and validation failures, and never both for the same class.
+- Count layers (SKILL.md Core Rule 4): client retries for transport and 429, `.with_retry` for parse and validation failures, and select exactly one layer for the same class.
 - Retry only idempotent work. A retried tool call that charges a card charges twice; put idempotency keys in the tool, not in the chain.
 
 ## Rate Limiting
@@ -47,12 +47,12 @@ set_llm_cache(SQLiteCache(database_path=".langchain.db"))
 | Script / batch job | Offline processing, evals | Checkpoint progress; a 6-hour job that dies at hour 5 must resume |
 | FastAPI service | Interactive apps | Async path throughout, streaming responses, singletons at startup |
 | Worker queue | Long agent runs, ingestion | Idempotency, visibility timeouts longer than the worst-case run |
-| Serverless | Spiky low-volume traffic | Cold starts, per-invocation import cost, in-memory caches and rate limiters that never warm up, execution-time caps below agent worst case |
+| Serverless | Spiky low-volume traffic | Cold starts, per-invocation import cost, in-memory caches and rate limiters that require warming up, execution-time caps below agent worst case |
 | Managed platform | Teams wanting persistence and scheduling without owning it | Cost model and lock-in on the state store |
 
 ## Configuration And Secrets
 
-- Keys come from the environment (`OPENAI_API_KEY`, …). Never in `config.yaml`, never in `metadata` or `tags`, never in a prompt (SKILL.md Configuration).
+- Keys come from the environment (`OPENAI_API_KEY`, …). keep them strictly in the environment (SKILL.md Configuration).
 - Read the env at startup and fail loudly if a key is missing — a missing key otherwise surfaces as an authentication error deep inside a chain during the first real request.
 - Pin every langchain package in the lockfile and upgrade them together (SKILL.md Core Rule 9). Floating versions turn a routine deploy into an import error at 3am.
 
