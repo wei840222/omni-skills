@@ -44,3 +44,12 @@ Use this file when choosing or reviewing system architecture.
 - every index job emits run id, duration, and error counts
 - every query path reports latency by stage
 - every release includes rollback instructions
+
+## Vector Search and Hybrid Retrieval
+
+When implementing semantic search or RAG-capable retrieval:
+
+- Prefer dense-vector fields inside the primary search store when operations want one cluster; use a dedicated vector store when isolation, specialized ANN, or multi-tenancy demands it. Verify field types against current vendor docs (for example Elasticsearch `dense_vector`).
+- Choose embeddings models for the domain vocabulary and language mix; do not treat a model name as portable without a live docs check.
+- For hybrid lexical + vector retrieval, combine BM25-style candidates with kNN via Reciprocal Rank Fusion (RRF) or an explicitly versioned learned weight, then measure with the offline suite in `evaluation-metrics.md` before production writes.
+- Keep embedding model id, dimension, similarity metric, and index schema version in the retrieval-contract notes under `<state_root>/`.
