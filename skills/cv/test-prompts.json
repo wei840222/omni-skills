@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you help me rewrite my work experience for a senior software engineer role to pass ATS systems? My current bullet is: 'Responsible for managing the engineering team and helping improve sales'.",
+    "expected": "Load document-craft + ats guidance; rewrite with CAR (action verb + task + metrics); ask for missing team size/sales figures instead of inventing; keep ATS-safe wording; stay in cv document-craft rather than job-search pipeline.",
+    "actual": "Loaded references/document-craft.md and references/ats.md. Rejected passive 'Responsible for' openings. Proposed CAR rewrites such as 'Led an N-person engineering team…' and 'Increased enterprise sales by $Y (Z% YoY) through…', and asked the user for real N/Y/Z instead of inventing metrics. Recommended single-column text-layer export and standard Experience/Skills headers. Did not open job-search tracking.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm applying for an academic research position in Europe. Should I use a resume or a CV, and what should be the length?",
+    "expected": "Choose CV for academic/EU research context; explain content-driven length (may exceed 2 pages); point to document-craft + sources; confirm local personal-data norms before adding photo/DOB fields.",
+    "actual": "Loaded references/document-craft.md and references/sources.md. Recommended a CV for an academic research role in Europe, noted length follows complete history rather than a hard 1–2 page industry cap, and listed academic CV section priorities (education, research, publications, teaching, grants). Flagged that photo/personal-data norms vary by country and should be confirmed before adding those fields.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Save this tailored resume draft for a Staff Platform Engineer posting and track all my other applications this week.",
+    "expected": "Resolve <state_root> only for the draft save using assets/draft-template.md; route multi-application tracking to job-search; do not write hunt state into the skill package.",
+    "actual": "Resolved <state_root> via workspace/cv → memory/cv → ~/cv and offered to save under <state_root>/drafts/ using assets/draft-template.md after consent. Explicitly routed 'track all my other applications' to job-search and refused to create an applications pipeline inside the cv package.",
+    "pass": true
+  }
+]
