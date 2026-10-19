@@ -27,7 +27,7 @@ Private Network Access requirements, or Fetch CORS algorithm details.
 
 ## When to use
 
-- Designing Allow-Origin / credentials policy for a browser client on another origin
+- Designing `Access-Control-Allow-Origin` / credentials policy for a browser client on another origin
 - Debugging failing OPTIONS preflights or missing Access-Control-* response headers
 - Fixing cookie/auth header failures caused by `*` + credentials conflicts
 - Correcting CDN/proxy cache breakage from missing `Vary: Origin`
