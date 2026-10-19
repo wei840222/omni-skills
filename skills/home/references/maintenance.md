@@ -9,8 +9,9 @@
 
 ## Recurring tasks
 
-- HVAC filters: replace about every 1–3 months. Confirm filter size and any
-  MERV limits with equipment docs before upgrading filtration.
+- HVAC filters: replace about every 1–3 months. MERV 8–11 suits many homes;
+  MERV 13+ only when the blower and duct design can handle higher static
+  pressure. Confirm with equipment docs or a technician when unsure.
 - Gutters: clear before rainy or leaf-heavy seasons; clogged gutters drive
   fascia and foundation problems.
 - Caulk and seals: inspect tubs, showers, and exterior window/door seals yearly;
