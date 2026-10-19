@@ -85,6 +85,19 @@ Route away when the ask is mainly:
 7. **Examples** — load `references/examples.md` when the user wants concrete cycle patterns.
 8. **Sources** — load `references/sources.md` when citing process frameworks or Agent Skills layout rules.
 
+## When to load what
+
+| Need | Load |
+|------|------|
+| Discovery questions before designing | `references/discovery.md` |
+| Phase contracts, PDCA scaffold, kill criteria | `references/design.md` |
+| Package the cycle as its own skill | `references/implementation.md` |
+| Concrete patterns (writing, review, research, expenses) | `references/examples.md` |
+| Citations for PDCA/BPMN/Agent Skills | `references/sources.md` |
+| Persist preferences after consent | `assets/memory-template.md` under resolved `<state_root>` |
+
+Load only the matching reference for the active step; do not preload the whole set.
+
 ## Cycle vs loop
 
 | Cycle | Loop |
