@@ -115,6 +115,8 @@ This skill does **not** auto-call external APIs. Provide URLs and let the user
 
 ## Common traps
 
+Load this list only when an interpretation looks stuck or overconfident.
+
 - Treating a single ClinVar submitter as definitive
 - Ignoring ancestry-specific frequency
 - Treating CADD/REVEL as stand-alone pathogenicity
