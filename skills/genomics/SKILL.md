@@ -50,6 +50,7 @@ Use the selected `<state_root>` for every state operation in this skill.
 | Everyday ACMG / PGx triage | Stay in this file |
 
 Do not preload every reference on a simple classification question.
+Prefer `references/sources.md` only when refreshing URLs or adjudicating a contested claim.
 
 ## Core workflow
 
