@@ -13,7 +13,7 @@
 | Organizational alignment | **McKinsey 7S** | Internal coherence check |
 | Strategy execution | **Balanced Scorecard** | Translate strategy to metrics |
 | End-to-end strategy | **Playing to Win** | Complete 5-question framework |
-| Priorization | **ICE/RICE Scoring** | Quantified feature/initiative ranking |
+| Prioritization | **ICE/RICE Scoring** | Quantified feature/initiative ranking |
 
 ---
 
