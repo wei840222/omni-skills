@@ -1,5 +1,8 @@
 # Layer Patterns — Keras
 
+Recipe fragments for Dense / Conv / RNN / attention blocks. Prefer `keras.ops`
+in custom math that must stay backend-portable; see `references/sources.md`.
+
 ## Dense Layers
 
 ```python

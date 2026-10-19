@@ -1,25 +1,26 @@
 # Memory Template — Keras
 
-Create `~/Clawic/data/keras/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure only after the user consents
+to persistent notes:
 
 ```markdown
 # Keras Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | done | declined
 
 ## Context
 <!-- Their deep learning context -->
-<!-- Framework: tf.keras or standalone -->
+<!-- Framework: Keras 3 / tf.keras; backend: jax|tensorflow|torch -->
 <!-- Typical tasks: vision, NLP, tabular -->
 <!-- Experience level: beginner, intermediate, advanced -->
 
 ## Preferences
 <!-- Learned from their work -->
-<!-- Default learning rate, batch size -->
+<!-- Default learning_rate, batch size -->
 <!-- Preferred architectures -->
 <!-- Regularization patterns they like -->
 
@@ -49,3 +50,4 @@ integration: pending | done | declined
 - Remember hardware constraints when user mentions them
 - Track hyperparameters the user explicitly shares
 - Update `last` on each use
+- Never treat the literal string `<state_root>` as a filesystem path
