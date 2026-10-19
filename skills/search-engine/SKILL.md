@@ -148,13 +148,15 @@ Over-engineering and under-engineering both create expensive rework.
 
 ## Common Traps
 
-- Define retrieval requirements before vendor selection to prevent architecture lock-in.
-- Apply field-level normalization before indexing so filters and matching stay clean.
-- Tune relevance across diverse query sets, not a handful of happy-path examples.
-- Put guardrails on business boosts so top results stay useful.
-- Load `references/evaluation-metrics.md` and compare retrieval changes against an offline baseline before shipping.
-- Make full reindex jobs resumable to avoid long outages.
-- Account for multilingual tokenization differences before claiming precision parity.
+When a search redesign starts drifting, recover with the positive next action first:
+
+- Missing retrieval contract → write the contract before vendor selection.
+- Weak filters / noisy matches → normalize fields before indexing.
+- Brittle relevance → tune across head, long-tail, multilingual, and negative queries.
+- Business boosts crowding useful hits → add explicit boost guardrails and re-measure.
+- Unverified ranking change → load `references/evaluation-metrics.md` and compare offline before shipping.
+- Reindex risk → make full reindex jobs resumable with checkpoints.
+- Multilingual precision claims → verify tokenization per language before asserting parity.
 
 ## Security & Privacy
 
