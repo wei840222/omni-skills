@@ -1,190 +1,121 @@
 ---
 name: cv
-slug: cv
-version: 1.0.0
-description: Create ATS-optimized resumes and CVs with proper structure, metrics, and industry targeting.
-homepage: https://clawic.com/skills/cv
+description: >
+  Draft and diagnose ATS-aware resumes and academic/professional CVs with
+  structure, quantified bullets, length calibration, and market-specific
+  document choice. Use when the user needs resume vs CV selection, CAR
+  achievement bullets, ATS-safe layout, tech/design packaging, or a scannable
+  draft for a target role. Prefer `resume` for deep callback diagnosis and
+  JD-tailoring workflows already specialized there, `job-search` for application
+  pipeline tracking, and `career` for offer/equity/stay-leave strategy.
 metadata:
-  clawdbot:
-    emoji: 📄
-    requires: {}
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CV
+  version: "1.1.0"
+  openclaw: '{"emoji":"📄"}'
+  related-skills: '{"resume":"Deep resume diagnosis, JD tailoring, and seniority calibration when that specialized workflow is the primary ask.","job-search":"Application pipeline, company research, and interview prep beyond drafting the document.","career":"Offer evaluation, promotion, pivot, and layoff strategy when the document itself is not the deliverable.","writing":"General prose voice work when the artifact is not a resume/CV."}'
 ---
 
-## Resume vs CV
+# CV / Resume Craft
 
-| Aspect | Resume | CV |
-|--------|--------|-----|
-| Length | 1-2 pages max | No limit (can be 10+ pages) |
-| Purpose | Snapshot tailored to job | Complete academic/professional history |
-| Use | Industry jobs (US, Canada) | Academia, research, medicine, EU jobs |
-| Update | Customize per application | Add new achievements continuously |
+Advise-and-draft mode for resume and CV documents the user supplies or requests.
+Produce scannable, ATS-aware content with quantified impact. Optional draft
+versions may live under a portable `<state_root>` only when the user asks to
+save them. Keep metrics, credentials, and employment dates user-evidenced.
 
-Use **resume** for: tech companies, startups, corporate jobs, when posting says "resume"
-Use **CV** for: academic positions, research roles, EU/UK applications, grants and fellowships
+## State location
 
-## Structure
+Resolve `<state_root>` before any read/write of saved drafts:
 
-**Order for experienced professionals:**
-1. Contact Info
-2. Professional Summary
-3. Work Experience
-4. Skills
-5. Education
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/cv/`, `<workspace>/memory/cv/`, `~/cv/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and the user asked to persist a draft, create
+   `<workspace>/cv/` when `<workspace>` is available; otherwise ask for a path.
 
-**Order for recent graduates:**
-1. Contact Info
-2. Professional Summary
-3. Education
-4. Skills
-5. Projects/Internships
+| Path | Required? | Role |
+|------|-----------|------|
+| `<state_root>/drafts/` | optional | Versioned resume/CV drafts the user asked to keep |
+| `<state_root>/notes.md` | optional | Target roles, approved phrasing, market constraints |
 
-**Never include:** Photo (US jobs), birth date, marital status, religion, full address (city + state only), "References available upon request"
+Write runtime drafts only under the resolved `<state_root>`. Keep secrets, government IDs,
+and unredacted personal data out of saved notes beyond what the user placed in
+the document. Destructive clear/reset of drafts stays under
+`<state_root>/drafts/` and requires explicit user consent.
 
-## Professional Summary
+## When to load
 
-Formula:
-```
-[Title] with [X years] of [domain] experience. 
-[Key achievement with metrics]. 
-Skilled in [top 3 relevant skills]. Seeking to [goal] at [company type].
-```
+Load this skill when the ask is **document craft**:
 
-Example:
-```
-Senior Software Engineer with 7 years of backend experience. 
-Reduced API latency by 40% serving 2M daily users at scale. 
-Expert in Python, AWS, and distributed systems. 
-Seeking to lead platform engineering at a growth-stage fintech.
-```
+- resume vs CV choice for a market or role type
+- structure, professional summary, and achievement bullets
+- ATS-safe formatting and keyword fit
+- tech or design packaging (GitHub, portfolio, skills taxonomy)
+- length calibration by experience band
 
-Avoid objective statements ("Seeking a position where I can grow...")—they're outdated and self-focused.
+Route away when the ask is mainly:
 
-## Experience Bullets
+- deep callback diagnosis / specialized JD rewrite loop → `resume`
+- multi-company hunt tracking / interview loops → `job-search`
+- offer, equity, promotion, stay-vs-leave → `career`
+- general essay or social prose → `writing`
 
-**CAR Formula:** Action Verb + Task + Result with Metrics
+Re-check `references/sources.md` before repeating ATS rejection-rate or
+recruiter scan-time heuristics as hard facts. Confirm local photo / personal-data
+norms with the user before adding fields outside U.S.-style applications.
 
-```
-❌ Responsible for managing the engineering team
-✅ Led 8-person engineering team, delivering 3 major features 2 weeks ahead of schedule
+## Quick reference
 
-❌ Helped improve sales
-✅ Increased enterprise sales by $2.3M (34% YoY) through automated lead scoring
+| Need | Load |
+|------|------|
+| Resume vs CV, structure, summaries, bullets | `references/document-craft.md` |
+| ATS layout, keywords, export hygiene | `references/ats.md` |
+| Tech / design packaging patterns | `references/industry.md` |
+| Length bands and pre-submit checks | `references/length-checklist.md` |
+| Verified source URLs (Gate 6) | `references/sources.md` |
+| Optional draft note shapes | `assets/draft-template.md` |
 
-❌ Worked on the checkout system
-✅ Reduced checkout abandonment from 68% to 41% by redesigning 3-step flow
-```
+## Operating loop
 
-**Action verbs by category:**
-| Leadership | Technical | Growth | Efficiency |
-|------------|-----------|--------|------------|
-| Led, Directed | Developed, Architected | Increased, Grew | Reduced, Streamlined |
-| Managed, Mentored | Engineered, Built | Expanded, Generated | Automated, Optimized |
+1. **Clarify target** — role, seniority, geography/market, resume vs CV need, and whether a JD exists.
+2. **Choose document type** — load `references/document-craft.md` when resume vs CV is ambiguous.
+3. **Structure pass** — contact → summary → experience/education order matched to experience level.
+4. **Achievement pass** — CAR (Action Verb + Task + Result with Metrics); ask once for missing numbers; mark unknowns instead of fabricating.
+5. **ATS pass** — load `references/ats.md`; prefer single-column, standard headers, text-layer PDF/DOCX.
+6. **Industry pass** — load `references/industry.md` for tech/design extras when relevant.
+7. **Length + checklist** — load `references/length-checklist.md` before finalizing.
+8. **Persist only on request** — resolve `<state_root>` and use `assets/draft-template.md` shapes when saving.
 
-Limit 3-5 bullets per role. Start with strongest achievement.
+## Core rules
 
-## Quantification
+### 1. Document choice before polish
 
-Every bullet should have numbers when possible:
+- **Resume**: industry jobs (US/Canada and many corporate roles); typically 1–2 pages; tailored snapshot.
+- **CV**: academia, research, medicine, many EU/UK applications, grants/fellowships; complete history; length follows content.
+- When the posting says "resume", prefer resume structure unless the user confirms an academic/EU CV expectation.
 
-| Vague | Quantified |
-|-------|------------|
-| Managed a team | Managed team of 12 across 3 time zones |
-| Improved performance | Reduced load time from 4s to 800ms |
-| Increased revenue | Generated $1.2M ARR from new product line |
-| Handled support | Resolved 50+ tickets/week with 98% satisfaction |
+### 2. Achievement bullets (CAR)
 
-Types of metrics: revenue ($), percentage (%), time saved, team size, users/customers, scale (requests/sec), satisfaction scores
+Every experience bullet aims for: **action verb + concrete task + result with evidence**.
 
-## ATS Optimization
+Transform patterns:
 
-75% of resumes never reach human eyes due to ATS filtering.
+- "Responsible for managing the team" → "Led an N-person engineering team, delivering X on schedule"
+- "Helped improve sales" → "Increased enterprise sales by $Y (Z% YoY) through …"
+- "Worked on checkout" → "Reduced checkout abandonment from A% to B% by …"
 
-**Do:**
-- Standard section headers: "Work Experience", "Education", "Skills"
-- Both acronym AND full version: "AWS (Amazon Web Services)"
-- Keywords from job description, naturally integrated
-- Standard fonts: Arial, Calibri, Times New Roman (10pt minimum)
-- PDF with selectable text (not scanned image)
+Limit about 3–5 bullets per role; lead with the strongest evidence. Prefer user-supplied metrics; mark unknowns instead of fabricating.
 
-**Don't:**
-- Tables, columns, or text boxes—ATS can't parse them
-- Headers/footers with important info—ATS may skip them
-- Images, logos, or graphics
-- Creative headers: "My Journey" → "Experience"
-- Special symbols (✓, ➤)—use standard bullets (•, -)
-- Keyword stuffing—triggers spam filters
+### 3. Professional summary over objectives
 
-## Tech Industry
+Use a short summary (title, years/domain, one quantified highlight, top skills, target) rather than a self-focused objective statement.
 
-**Must include:**
-- GitHub profile URL
-- Technical skills categorized (Languages, Frameworks, Cloud, Tools)
-- Projects with live links
-- Scale metrics (users, requests/sec, data volume)
+### 4. U.S.-style personal-data default
 
-**Skills format:**
-```
-Languages: Python, TypeScript, Go
-Frameworks: React, FastAPI, Django
-Cloud: AWS (EC2, Lambda, S3), GCP
-Tools: Docker, Kubernetes, Terraform, GitHub Actions
-```
+For U.S.-style applications, omit photo, birth date, marital status, religion, and full street address (city + region is enough). Confirm local convention before adding those fields for other markets. See EEOC-oriented notes in `references/sources.md`.
 
-**Avoid:** Obsolete tech (jQuery, Flash), "Proficient in Microsoft Office", vague titles ("Code Ninja")
+### 5. Honesty and recovery
 
-## Design Industry
-
-**Must include:**
-- Portfolio link (prominent, first line after name)
-- Tools: Figma, Sketch, Adobe CC
-- Process: user research, wireframing, prototyping, usability testing
-- Impact metrics: conversion rates, user satisfaction scores
-
-**Avoid:** Resume without portfolio link (instant rejection), listing only tools without methodology
-
-## Length Guidelines
-
-| Experience | Length |
-|------------|--------|
-| Student / Entry-level | 1 page |
-| 1-5 years | 1 page |
-| 5-10 years | 1-2 pages |
-| 10+ years / Executive | 2 pages max |
-| Academic CV | No limit |
-
-For senior roles, condense early-career positions to 1-2 lines.
-
-## Common Mistakes
-
-- Listing responsibilities instead of achievements—shows what you did, not impact
-- Starting bullets with "Responsible for..."—passive voice, no impact
-- No metrics—impossible to gauge value delivered
-- Same resume for every job—ATS matches keywords to job description
-- Typos and grammar errors—instant rejection at many companies
-- Unprofessional email (cooldude99@...)—use firstname.lastname@
-- Including photo in US applications—bias concerns, often auto-rejected
-- PDF from image/scan—ATS can't extract text
-- More than 2 pages—recruiters spend 6-7 seconds on first scan
-- First-person pronouns ("I managed...")—remove, start with verbs
-
-## Pre-Submit Checklist
-
-```
-□ Professional email address
-□ Summary tailored to target role
-□ 70%+ of bullets include metrics
-□ Skills match job description keywords
-□ Acronyms + full versions (SEO + Search Engine Optimization)
-□ Consistent formatting throughout
-□ 1-2 pages maximum
-□ Text-selectable PDF
-□ Filename: FirstName_LastName_Resume.pdf
-□ LinkedIn matches resume content
-□ No tables, columns, or text boxes
-□ No typos (use spell check + human review)
-```
+- Keep employers, titles, dates, degrees, and metrics user-evidenced only.
+- If ATS claims or scan-time heuristics are requested as precise statistics, open `references/sources.md` and treat them as industry heuristics unless a live primary supports the number.
+- If draft save fails or multiple state roots exist, report the path conflict and wait for user choice before writing.
