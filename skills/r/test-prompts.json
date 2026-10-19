@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write an R script to iterate through a list of numbers and sum them.",
+    "expected": "Prefer vectorized `sum(x)` (or `vapply`/`lapply` when mapping) over an accumulating `for` loop; note performance is secondary to correctness.",
+    "actual": "Structural dry-run: SKILL Prefer section and Core traps point to whole-vector `sum` / `lapply`/`vapply` and discourage accumulating loops; would answer with `sum(x)` first.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I check if a value in my data frame is NA?",
+    "expected": "Use `is.na(x)`; explain that `x == NA` yields `NA`, citing NA semantics.",
+    "actual": "Structural dry-run: Anti-patterns table maps `x == NA` → `is.na(x)`; sources.md links NA manual; would refuse `== NA`.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write code to remove the first row of a single-column data frame while keeping it as a data frame.",
+    "expected": "Use negative row indexing with `drop = FALSE`, e.g. `df[-1, , drop = FALSE]`, or an equivalent tibble-safe verb.",
+    "actual": "Structural dry-run: Indexing + Prefer sections require `drop = FALSE` when a one-column frame must stay tabular; would emit `df[-1, , drop = FALSE]`.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Why did `sample(5)` return a permutation of 1:5 when I meant to sample the number 5?",
+    "expected": "Explain length-one numeric `sample(n)` samples from `1:n`; suggest `sample(c(5), …)` or `sample.int` with explicit intent.",
+    "actual": "Structural dry-run: Anti-patterns and Sampling sections document `sample(5)` vs `sample(c(5))`; sources.md cites sample.html.",
+    "pass": true
+  },
+  {
+    "id": 5,
+    "prompt": "Does modern R still convert strings to factors in data.frame by default?",
+    "expected": "State that since R 4.0.0 the default is `stringsAsFactors = FALSE`; tell the user to verify older hosts / explicit arguments.",
+    "actual": "Structural dry-run: Prefer + NA/factors sections and sources.md cite NEWS 4.0.0 and the stringsAsFactors blog; would qualify pre-4.0 hosts.",
+    "pass": true
+  }
+]
