@@ -2,7 +2,7 @@
 
 ## Why Track
 
-Most outreach fails. The difference between 2% and 10% response rate is systematic learning. Track everything, find patterns, iterate.
+Cold outreach often underperforms until patterns are measured. The gap between weak and strong response rates is usually systematic learning. Track everything, find patterns, iterate.
 
 ---
 
@@ -93,11 +93,13 @@ After every campaign (or weekly for ongoing):
 1. **What won?** Document winning templates, subject lines, timing
 2. **What lost?** Note what flopped, hypothesize why
 3. **What to test next?** New angles, channels, personalization hooks
-4. **Update the Profile** in main SKILL.md with learnings
+4. **Update the Profile** in `<state_root>/memory.md` (and the SKILL profile section if patterns are durable)
 
 ---
 
 ## Benchmarks
+
+Directional vendor/industry ranges only — replace with the campaign's own measured rates when available. See `references/sources.md`.
 
 **Cold email:**
 - Open rate: 40-60% is good
@@ -120,16 +122,16 @@ If below these benchmarks → revisit personalization, targeting, or value prop.
 
 ---
 
-## Never Again List
+## Archived Contacts List
 
 Track contacts/outlets to avoid:
 
 | Contact | Reason | Date Added |
 |---------|--------|------------|
 | [Example] | Rude response, reported as spam | 2024-01-15 |
-| [Example] | Ghosted 5x, never responds | 2024-02-01 |
+| [Example] | Ghosted 5x, rarely responds | 2024-02-01 |
 
-Check before outreach. Don't waste effort on dead ends.
+Check before outreach. Focus effort on active prospects.
 
 ---
 

@@ -7,7 +7,7 @@
 **Key principles:**
 - Lead with business problem, not product features
 - Qualify before heavy investment (BANT: Budget, Authority, Need, Timeline)
-- Multi-thread: don't rely on single contact
+- Multi-thread: cover more than one contact when the deal matters
 - CRM hygiene: update after every touch
 
 **Trigger events to watch:**
@@ -33,7 +33,7 @@
 **Key principles:**
 - News hook is MANDATORY — why cover this TODAY?
 - Offer exclusives strategically (one outlet at a time)
-- No attachments — link to press kit
+- Prefer links to a press kit over attachments
 - Build relationships before you need coverage
 
 **What journalists want:**
@@ -56,7 +56,7 @@
 | Micro | 10K-50K | DM works, more flexible |
 | Nano | <10K | Product exchange often works |
 
-**Never:** Ask for "exposure" without budget. They know their worth.
+**Prefer:** Budgeted or clearly mutual exchanges. Unpaid "exposure-only" asks rarely convert.
 
 ---
 

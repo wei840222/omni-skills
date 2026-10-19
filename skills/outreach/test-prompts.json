@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Draft a 2-touch cold email sequence to mid-level engineering managers offering our developer productivity tool. We saw they just raised Series B.",
+    "expected": "Who+Why Now+WIIFT with Series B as trigger; Touch 1 under ~150 words and clear CTA; Touch 2 adds a new angle/value; subject under ~50 chars; no attachments.",
+    "actual": "Touch 1 congratulated the Series B, tied the tool to engineering throughput, stayed under 150 words with a 15-min CTA. Touch 2 added a peer case study instead of bumping. Subject stayed under 50 characters. Links preferred over attachments.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to pitch TechCrunch an exclusive on our product launch. Write the pitch and outline the follow-up cadence.",
+    "expected": "News hook + exclusive language; links not attachments; exclusivity table/rule so competing outlets stay blocked until TC responds or deadline; 3-4 touch cadence with break-up.",
+    "actual": "Pitch led with a dated news hook and offered a written exclusive window. Press kit linked rather than attached. Follow-up used Day 0 / 3-5 / 7-10 / break-up, and exclusivity tracking blocked sibling outlets until TC declined or the deadline passed.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I keep emailing a prospect who has not replied after four value-free bump messages this week?",
+    "expected": "Stop the bump pattern; recommend closing the loop / break-up or a new-value angle on a measured cadence; mention suppression/re-engage rather than guilt language.",
+    "actual": "Advised ending the bump sequence after 3-4 touches, sending one break-up with an optional re-engage trigger, and logging the contact under archived/re-engage instead of guilt-trip follow-ups.",
+    "pass": true
+  }
+]
