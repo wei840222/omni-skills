@@ -75,6 +75,13 @@ Preference areas to record as the user reveals them:
 - **constraints** — banned techniques (`@apply`, browser build, runtime class construction), legacy stylesheets that must keep winning, email or WebView targets
 - **output** — whether to show the generated CSS, and whether to name the mechanism before giving the fix
 
+## When to load
+
+Use this skill for Tailwind utility generation, theme/build wiring, and
+variant debugging. Load the smallest `references/` file for the symptom;
+keep `SKILL.md` as the router. Prefer `css` for non-utility layout/cascade
+mechanics and `design-system` for token taste beyond Tailwind.
+
 ## When To Use
 
 - Writing or reviewing Tailwind markup, `@theme`/`tailwind.config.js`, custom utilities, or plugins
