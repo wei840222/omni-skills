@@ -14,11 +14,11 @@ LangChain moves fast and most published code is written against a version that n
 3. Read `<state_root>/memory.md` for prior context (their app shape, recurring pain points). Absence is fine; proceed without comment.
 4. If the working directory contains a lockfile or requirements file, the versions there beat the configured `lc_version_line` — the installed code is the ground truth.
 
-Work from defaults immediately. Proceed from defaults; do not open with a stack questionnaire.
+Proceed from defaults. Ask only when a missing preference blocks a concrete code choice.
 
 ## Recording Preferences (only when the user declares one)
 
-Write to config or memory **only** when the user states a preference in the course of the work — only as actions occur, rather than as a preflight questionnaire.
+Write to config or memory only when the user states a preference during the work.
 
 - User names a provider, vector store, Python version, or version line → update the matching key in `<state_root>/config.yaml`.
 - User expresses a habit or stance (where prompts live, LangGraph vs plain LCEL, approval before destructive tools, cost ceilings, citation requirements) → record it under the relevant preference area (tooling, conventions, platform, safety posture, cost posture, retrieval conventions, output format) in `<state_root>/memory.md`.

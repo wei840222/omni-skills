@@ -155,7 +155,7 @@ Before shipping a chain, agent, or graph:
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml` after State location resolution. Record a preference the moment it is stated — do not interview for the whole matrix.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml` after State location resolution. Record a preference the moment it is stated.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
