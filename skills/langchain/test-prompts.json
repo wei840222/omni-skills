@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a LangChain agent using OpenAI that has a calculator tool and a web search tool. Enable LangSmith tracing.",
+    "expected": "Use langchain.agents.create_agent on the 1.x line; define tools with schemas/descriptions; wire LangSmith env vars; mention checkpointer/thread_id only if memory is requested; load references/agent-loop.md and references/observability.md as needed.",
+    "actual": "Routed to create_agent from langchain.agents (lc_version_line default 1.x). Defined calculator and web-search tools with explicit descriptions/schemas. Enabled LangSmith via tracing env vars from references/observability.md. Did not recommend create_react_agent unless lc_version_line=0.3. Pointed recursion_limit and tool-loop controls to references/agent-loop.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I upgrade an existing LLMChain to the current LangChain line?",
+    "expected": "Move LLMChain to LCEL prompt|model|parser; mention langchain-classic for legacy imports; distinguish 0.3 create_react_agent vs 1.x create_agent; point to references/migration.md.",
+    "actual": "Recommended replacing LLMChain with an LCEL chain (prompt | model | parser). Directed legacy chain imports to langchain-classic and version-line selection via lc_version_line. Clarified agents migrate to create_agent on 1.x, with create_react_agent retained only as the 0.3-era path. Cited references/migration.md and references/sources.md for official create_agent docs.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write a RAG pipeline that retrieves from a local Chroma DB and streams the answer. Also save my preference that I always use Chroma.",
+    "expected": "Resolve State location before writing config; store vector_store=chroma under <state_root>/config.yaml with consent; build retriever once; use .stream/.astream; keep strategy details in rag skill; use references/retrieval.md and references/streaming.md.",
+    "actual": "Resolved <state_root> via State location candidates before any write, then recorded vector_store=chroma in <state_root>/config.yaml after consent. Built a Chroma retriever at startup and composed retrieval into an LCEL chain ending in .stream()/.astream(). Deferred chunking/evaluation strategy to the rag skill and pointed LangChain wiring to references/retrieval.md plus streaming pitfalls to references/streaming.md.",
+    "pass": true
+  }
+]
