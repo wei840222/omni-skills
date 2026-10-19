@@ -22,6 +22,9 @@ metadata:
 Knowledge-only guidance for configuring and debugging Cross-Origin Resource
 Sharing. This skill does not store local configuration or persistent user state.
 
+Load `references/sources.md` before restating header names, Max-Age browser caps,
+Private Network Access requirements, or Fetch CORS algorithm details.
+
 ## When to use
 
 - Designing Allow-Origin / credentials policy for a browser client on another origin
@@ -135,3 +138,4 @@ One trigger is enough. Simple requests skip OPTIONS entirely.
 | Works in app, breaks behind CDN | Add `Vary: Origin` (+ preflight request header varies) |
 | JS cannot read rate-limit header | Add Access-Control-Expose-Headers |
 | Public page → localhost API | Check Private Network Access preflight sources |
+| Cite normative rules | `references/sources.md` |
