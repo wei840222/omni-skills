@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have a patient with a CYP2D6 *1/*4 diplotype. What does this mean for codeine dosing?",
+    "expected": "Map *1/*4 to an intermediate-metabolizer phenotype, explain reduced CYP2D6 activity for codeine activation, and point to CPIC/PharmGKB guidance rather than inventing a mg dose.",
+    "actual": "Identified CYP2D6 *1/*4 as Intermediate Metabolizer; explained reduced bioactivation of codeine to morphine; recommended consulting current CPIC CYP2D6-opioid guidance and considering alternative analgesic rather than guessing a numeric dose. Cited references/sources.md CPIC URLs and kept bioinformatics out of scope.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you call variants from this whole genome sequencing FASTQ file?",
+    "expected": "Refuse raw calling inside genomics; route to bioinformatics for alignment and variant calling; offer to interpret a VCF afterward.",
+    "actual": "Declined FASTQ variant calling, explained genomics starts after variants exist, and directed the user to the bioinformatics skill for alignment/variant calling. Offered ACMG/PGx interpretation once a VCF or diplotype is available.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A variant has an allele frequency of 2% in gnomAD. How should I classify it for a rare Mendelian disease?",
+    "expected": "Treat AF>1% as strong benign support for rare Mendelian disease unless a documented founder exception applies; still require full evidence review and ClinVar triangulation.",
+    "actual": "Noted 2% gnomAD AF exceeds the common >1% benign-support heuristic for rare Mendelian disease, so classification should lean Likely Benign/Benign on frequency grounds while still checking founder exceptions, phenotype fit, and ClinVar concordance before finalizing. Pointed to gnomAD + ACMG/AMP sources in references/sources.md.",
+    "pass": true
+  }
+]
