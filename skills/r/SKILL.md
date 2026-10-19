@@ -149,3 +149,9 @@ Hand off when a sibling owns the job:
 - [ ] Factor conversions preserve labeled values, not codes
 - [ ] Loops / samples avoid empty-length and length-one `sample` traps
 - [ ] Claims about defaults cite `references/sources.md` (R version noted)
+
+## Cognitive load notes
+
+- Phrase guidance as Prefer / Anti-patterns tables rather than stacked "never" lists.
+- Version-specific defaults (especially `stringsAsFactors`) are stated as positive R ≥ 4.0.0 behavior plus an explicit older-host check.
+- Sibling routing uses a handoff table so this skill stays on language traps instead of inference or Python/MATLAB runtimes.
