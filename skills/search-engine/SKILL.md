@@ -152,7 +152,7 @@ Over-engineering and under-engineering both create expensive rework.
 - Apply field-level normalization before indexing so filters and matching stay clean.
 - Tune relevance across diverse query sets, not a handful of happy-path examples.
 - Put guardrails on business boosts so top results stay useful.
-- Compare retrieval changes against an offline baseline before shipping.
+- Load `references/evaluation-metrics.md` and compare retrieval changes against an offline baseline before shipping.
 - Make full reindex jobs resumable to avoid long outages.
 - Account for multilingual tokenization differences before claiming precision parity.
 
