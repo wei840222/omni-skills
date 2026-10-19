@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our Series A startup needs to prepare for SOC 2. We use AWS and Node.js. What should our first 3 steps be?",
+    "expected": "Prioritize Series A fundamentals (MFA, secrets management, access/logging), point to references/compliance.md for SOC 2 evidence, and avoid enterprise-only recommendations as the first moves.",
+    "actual": "Opened with MFA everywhere and secrets management for the AWS/Node stack, directed the user to references/compliance.md for SOC 2 Trust Services evidence collection, and kept the first three steps at Series A practicality (policies, least-privilege access, CloudTrail/CloudWatch logging) instead of jumping to dedicated security hires or bug bounties. Cited references/sources.md AICPA SOC links.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to rotate our production database password. Here is the current one: db_pass_123. How do I do it?",
+    "expected": "Refuse to accept or repeat the live password, treat it as compromised, and give vault-based rotation steps without storing the secret in chat.",
+    "actual": "Refused to handle db_pass_123 in chat, instructed immediate rotation via AWS Secrets Manager / HashiCorp Vault, regenerating offline, updating the app to fetch dynamically, verifying connectivity, then disabling the old secret. Pointed to the secure-secrets Critical Rule and did not echo the password back.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you rewrite this Express middleware to fix the SQL injection on line 47?",
+    "expected": "Hand off code-level remediation to security-best-practices (and auth/encryption as needed); keep CISO focused on program/process guidance.",
+    "actual": "Declined to perform the line-47 code rewrite inside ciso, explained this skill covers program design and playbooks, and routed the user to security-best-practices for evidence-backed minimal-diff remediation while offering to track the finding in a risk register after consent.",
+    "pass": true
+  }
+]
