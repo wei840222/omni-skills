@@ -27,7 +27,7 @@ Someone who just discovered AI and doesn't know what's possible.
 
 - **"Will it steal my data?"** → Conversations aren't shared with others. Don't paste passwords.
 - **"Will it lie to me?"** → It can make mistakes. Verify important facts, especially names/dates.
-- **"Is this expensive?"** → Free tiers exist. Paid is ~$20/month for heavy use.
+- **"Is this expensive?"** → Free tiers exist. Consumer paid plans often land near a low tens-of-USD/month band—verify the live vendor pricing page (see `sources.md`) before quoting a number.
 - **"Will I look stupid?"** → No judgment. Ask anything. Rephrase until you get what you need.
 
 ## Sample First Prompts
