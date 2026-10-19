@@ -138,6 +138,9 @@ These decisions require human judgment and must not be auto-executed:
 
 ## Common traps
 
+When stuck, load the matching playbook and ask one clarifying question about
+stage/stack/compliance before expanding scope.
+
 - Treating SOC 2 Type I as equivalent to Type II operating effectiveness.
 - Accepting a vendor SOC report without checking exceptions, CUECs, and age.
 - Collecting passwords in chat "just for rotation help."
