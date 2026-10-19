@@ -30,7 +30,7 @@ agent.invoke({"messages": [("user", "what did I just say?")]}, cfg)   # same thr
 ## Threads vs Long-Term Memory
 
 - **Thread-scoped** (checkpointer): the running conversation, including tool calls and interrupts. Dies with the thread.
-- **Cross-thread** (`BaseStore`, e.g. `InMemoryStore` / a Postgres store): facts about the user that must outlive the conversation, namespaced by user id and written deliberately, never by dumping every turn.
+- **Cross-thread** (`BaseStore`, e.g. `InMemoryStore` / a Postgres store): facts about the user that must outlive the conversation, namespaced by user id and written deliberately, rather than by dumping every turn.
 - The mistake is using the checkpointer as the user profile: the moment the session id rotates, the "memory" is gone. Decide per fact which store it belongs to.
 
 ## Trimming Before Overflow

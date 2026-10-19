@@ -22,9 +22,9 @@ prompt = ChatPromptTemplate.from_messages([
 ## Escaping And Template Formats
 
 - Default format is f-string: every literal `{` must be `{{`. JSON examples, code samples, and regex in a prompt are the usual casualties.
-- Cleanest fix: pass the example as a variable instead of embedding it. A variable's VALUE is never re-parsed for braces, so no escaping is needed.
-- `template_format="jinja2"` avoids brace collisions but renders templates as code. Never build a jinja2 template from user input — it is a code-execution surface, not a formatting convenience.
-- Never build prompts with f-strings over user input: you lose the schema check, the trace shows one opaque blob, and the input can silently reshape the instructions.
+- Cleanest fix: pass the example as a variable instead of embedding it. A variable's VALUE is parsed securely exactly once for braces, so no escaping is needed.
+- `template_format="jinja2"` prevents brace collisions but renders templates as code. Treat jinja2 templates as code-execution surfaces, rejecting user input — it is a code-execution surface, not a formatting convenience.
+- Use parameter interpolation instead of f-strings over user input: you lose the schema check, the trace shows one opaque blob, and the input can silently reshape the instructions.
 
 ## Partials
 
@@ -48,7 +48,7 @@ prompt = ChatPromptTemplate.from_messages([("system", "…"), few_shot, ("human"
 
 - Examples as real human/AI message pairs beat examples pasted into the system prompt: the model reads them as demonstrated turns and imitates the shape.
 - Format matters more than count: a handful of examples in one identical shape outperforms a longer bank whose formatting drifts, because drift teaches the model that the shape is optional. Every example is also resent on every request — few-shot is a permanent token bill, so add one only to fix an observed failure.
-- Cover the edge cases you care about, especially the refusal or empty-result case. A model that has never seen "no answer found" in an example will invent one.
+- Cover the edge cases you care about, especially the refusal or empty-result case. A model that has requires an example of "no answer found" in an example will invent one.
 - Dynamic selection when the example bank is large: `SemanticSimilarityExampleSelector` (backed by a vector store) picks the k most similar to the current input; `LengthBasedExampleSelector` fits as many as the budget allows. Both replace `examples=` with `example_selector=`.
 - With a schema-constrained call, few-shot is usually unnecessary — the schema already carries the format (SKILL.md Choosing The Abstraction).
 

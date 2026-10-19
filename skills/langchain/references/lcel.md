@@ -9,7 +9,7 @@ Inside a chain, LangChain coerces three things:
 | You write | It becomes | Consequence |
 |---|---|---|
 | `{"a": chainA, "b": chainB}` | `RunnableParallel` | Branches run concurrently, each receiving the SAME input |
-| `lambda x: ...` or a plain function | `RunnableLambda` | Receives the whole input as one argument — never destructured |
+| `lambda x: ...` or a plain function | `RunnableLambda` | Receives the whole input as one argument — kept whole |
 | `itemgetter("q")` | `RunnableLambda` | The idiomatic key extractor: `from operator import itemgetter` |
 
 Coercion only happens when at least one operand is already a Runnable. `{"a": lambda x: x} | prompt` works; `{"a": lambda x: x}` alone is a dict.
@@ -29,7 +29,7 @@ rag = (
     | prompt | model | StrOutputParser()
 )
 
-# 3. Keep the input AND add fields (assign never drops keys)
+# 3. Keep the input AND add fields (assign preserves keys)
 chain = RunnablePassthrough.assign(context=itemgetter("question") | retriever) | prompt | model
 
 # 4. Return the answer plus what produced it

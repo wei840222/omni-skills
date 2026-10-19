@@ -59,10 +59,10 @@ Tool output is resent on every following step (SKILL.md cost formula). Rules tha
 
 ## Safety
 
-Arguments the model must never supply (`InjectedToolArg`), approval interrupts on destructive tools, allowlisting per role, sandboxing code-execution tools, and tools that carry injection → `security.md`.
+Arguments the model must be restricted from supplying (`InjectedToolArg`), approval interrupts on destructive tools, allowlisting per role, sandboxing code-execution tools, and tools that carry injection → `security.md`.
 
 ## Testing Tools Independently
 
 - Call `my_tool.invoke({"customer_id": "CUS-1"})` directly — it is a Runnable, so it batches, streams (if it returns a generator), and traces like any other step.
-- Assert the schema the model will see: `my_tool.args_schema.model_json_schema()`. A missing description here is the bug behind "it never calls it".
+- Assert the schema the model will see: `my_tool.args_schema.model_json_schema()`. A missing description here is the bug behind "it fails to call it".
 - Bind and inspect without paying for a full loop: `model.bind_tools([t]).invoke("…").tool_calls` shows exactly what the model chose and with which arguments.

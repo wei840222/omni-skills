@@ -29,7 +29,7 @@ assert chain.invoke({"question": "x"}) == "canned answer"
 | State reducers | Apply two concurrent updates and assert the merge, no model involved |
 | Trimming | A history with a tool-call pair at the boundary keeps or drops the pair together (SKILL.md Core Rule 7) |
 
-Never assert exact model prose. `temperature=0` is not determinism, and a test that pins wording breaks on the next model revision for no reason.
+assert properties rather than exact model prose. `temperature=0` is not determinism, and a test that pins wording breaks on the next model revision for no reason.
 
 ## Recorded Fixtures
 

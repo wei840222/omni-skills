@@ -77,4 +77,4 @@ You cannot stream a validated Pydantic object, but you can stream toward one:
 
 ## Cancellation and Timeouts
 
-`astream` respects task cancellation, so wrapping a stream in `asyncio.wait_for` stops generation at the provider. A sync `.stream()` in a thread does not cancel — for user-facing endpoints with a hard latency budget, use the async path.
+`astream` respects task cancellation, so wrapping a stream in `asyncio.wait_for` halts generation at the provider. A sync `.stream()` in a thread does not cancel — for user-facing endpoints with a hard latency budget, use the async path.

@@ -1,6 +1,6 @@
 # Memory Template — LangChain
 
-Create `~/Clawic/data/langchain/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # LangChain Memory
@@ -32,4 +32,4 @@ last: YYYY-MM-DD
 | `ongoing` | Still learning their stack and app shape |
 | `complete` | Know their versions, providers, and deployment target |
 
-Never record API keys, endpoints with embedded credentials, or prompt/document content that may contain customer data.
+Never store API keys, endpoints with embedded credentials, or prompt/document content that may contain customer data.
