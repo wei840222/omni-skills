@@ -1,186 +1,128 @@
 ---
 name: genomics
-slug: genomics
-version: 1.0.0
-description: Interpret genomic variants with ACMG classification, pharmacogenomics, and clinical annotation from ClinVar and gnomAD.
-homepage: https://clawic.com/skills/genomics
+description: >
+  Interpret clinical genomic variants with ACMG/AMP evidence categories,
+  population-frequency checks (gnomAD), ClinVar triangulation, and CPIC/PharmGKB
+  pharmacogenomics dosing phenotype guidance. Use when the user already has
+  called variants or diplotypes (for example VCF-derived findings, ClinVar IDs,
+  CYP2D6/* haplotypes) and needs structured classification, PGx actionability,
+  or annotation triage. Prefer `bioinformatics` for FASTQ/BAM alignment and
+  variant calling, `medicine` for broader clinical decision support beyond
+  variant-level interpretation, and `biology`/`chemistry` for molecular or
+  metabolism context without clinical reporting.
 metadata:
-  clawdbot:
-    emoji: 🧬
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Genomics
+  version: "1.1.0"
+  openclaw: '{"emoji":"🧬"}'
+  related-skills: '{"bioinformatics":"Alignment, variant calling, and raw NGS processing before interpretation.","medicine":"Broader clinical decision support beyond variant-level genomics.","biology":"Molecular mechanisms when pathway context is needed.","chemistry":"Drug metabolism chemistry underlying PGx phenotypes.","health":"Patient-care framing outside specialist genomic reporting."}'
 ---
 
-## Setup
+# Genomics
 
-On first use, read `setup.md` for integration guidelines. Ask user consent before creating `~/Clawic/data/genomics/` workspace.
+Clinical interpretation guidance for called genomic variants and pharmacogenomic
+diplotypes. This skill classifies and explains; it does not process raw NGS files
+or place clinical orders.
 
-## When to Use
+Optional persistent notes live under a resolved `<state_root>/genomics/` tree
+outside this package. Never write runtime state into the skill tree.
 
-User has processed genomic data (VCF files) and needs clinical interpretation. Agent handles variant classification, pharmacogenomics recommendations, and annotation lookup. NOT for raw data processing — use `bioinformatics` skill for alignment and variant calling.
+## State location
 
-## Architecture
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Memory lives in `~/Clawic/data/genomics/`. See `memory-template.md` for structure.
+1. If the host or user explicitly configures a genomics state root, use that path.
+2. Otherwise choose the first existing candidate:
+   - `$OPENCLAW_STATE_DIR/genomics`
+   - `$HOME/.openclaw/state/genomics`
+   - `$HOME/.local/share/genomics`
+3. If none exist and the user consents to persistence, create the preferred
+   host-appropriate candidate and use it as `<state_root>`.
+4. Keep the selected `<state_root>` fixed for the rest of the invocation.
 
-```
-~/Clawic/data/genomics/
-├── memory.md           # Context + preferences + interpretation history
-└── cases/              # Active interpretation cases
-```
+Use the selected `<state_root>` for every state operation in this skill.
 
-## Quick Reference
+## When to load what
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+| Need | Load |
+|------|------|
+| First-run consent + preference capture | `references/setup.md` |
+| Memory / case template shapes | `assets/data-templates.md` |
+| Official URLs and claim checklist | `references/sources.md` |
+| Everyday ACMG / PGx triage | Stay in this file |
 
-## Core Rules
+Do not preload every reference on a simple classification question.
 
-### 1. Classify Variants Using ACMG Guidelines
-Every variant needs systematic classification:
+## Core workflow
 
-| Category | Criteria |
-|----------|----------|
-| Pathogenic | PVS1, PS1-4, PM1-6, PP1-5 weighted |
-| Likely Pathogenic | Strong + moderate evidence |
-| VUS | Insufficient or conflicting evidence |
-| Likely Benign | BS1-4, BP1-7 weighted |
-| Benign | Strong benign evidence |
+1. Confirm context: germline vs somatic, disease rarity, ancestry considerations.
+2. Check population frequency first (gnomAD v4 when available).
+3. Triangulate ClinVar / OMIM / literature; never classify from one weak source.
+4. Apply ACMG/AMP evidence categories; state "insufficient data" when evidence is thin.
+5. For PGx: report diplotype → phenotype → CPIC/DPWG-style action, with guideline URL.
+6. Keep identifiable genomic detail inside `<state_root>/` only after consent.
 
-**Never classify without evidence.** State "insufficient data" when appropriate.
+## ACMG/AMP classification frame
 
-### 2. Check Population Frequency First
-Before clinical interpretation, verify frequency:
+| Category | Working rule |
+|----------|--------------|
+| Pathogenic / Likely pathogenic | Weighted PVS/PS/PM/PP evidence meets guideline thresholds |
+| VUS | Conflicting or insufficient evidence; schedule re-review |
+| Likely benign / Benign | Weighted BS/BP evidence, often with population frequency support |
 
-| Source | Use For |
-|--------|---------|
-| gnomAD v4 | Global population frequency |
-| gnomAD non-cancer | Somatic analysis |
-| Population-specific | Ancestry-appropriate filtering |
+Never invent criteria codes. Cite the evidence you actually have.
 
-**MAF >1% in any population = likely benign for rare disease.**
+## Population frequency
 
-### 3. Cross-Reference Multiple Databases
+| Source | Use |
+|--------|-----|
+| gnomAD v4 | Primary global / ancestry-aware allele frequency |
+| gnomAD non-cancer | Somatic / cancer-context filtering support |
 
-| Database | Information |
-|----------|-------------|
-| ClinVar | Clinical classifications + submitter evidence |
-| OMIM | Gene-disease relationships |
-| HGMD | Literature-reported mutations |
-| UniProt | Protein function + domains |
+For rare Mendelian disease, allele frequency **>1% in any well-powered population**
+is ordinarily strong benign support unless a clearly defined founder exception applies.
 
-**Single-source interpretation is insufficient.** Triangulate evidence.
+## Pharmacogenomics quick path
 
-### 4. Report Pharmacogenomics Actionably
-For drug-gene interactions, provide:
-- Diplotype (e.g., CYP2D6 *1/*4)
-- Predicted phenotype (poor/intermediate/normal/ultra-rapid metabolizer)
-- Drug list affected
-- Dosing guidance (CPIC/DPWG when available)
+High-priority CPIC Level A pairs to keep in view:
 
-### 5. Separate Germline from Somatic Context
+| Gene | Example drugs | Typical action class |
+|------|---------------|----------------------|
+| CYP2D6 | Codeine, tramadol, tamoxifen, some SSRIs | Dose / alternative |
+| CYP2C19 | Clopidogrel, PPIs, voriconazole | Dose / alternative |
+| CYP2C9 + VKORC1 | Warfarin | Algorithmic dosing |
+| DPYD | Fluorouracil, capecitabine | Reduce / avoid |
+| TPMT + NUDT15 | Thiopurines | Reduce / avoid |
+| HLA-B*57:01 | Abacavir | Avoid |
+| HLA-B*15:02 | Carbamazepine | Avoid (ancestry-relevant) |
+| SLCO1B1 | Simvastatin | Cap dose / alternative |
+| G6PD | Rasburicase, primaquine | Avoid |
+| CYP3A5 | Tacrolimus | Dose adjustment |
 
-| Context | Key Differences |
-|---------|-----------------|
-| Germline | Family implications, carrier testing, predictive |
-| Somatic | Tumor-specific, therapy selection, no inheritance |
+Phenotype labels: Poor / Intermediate / Normal / Rapid / Ultra-rapid metabolizer.
+Map diplotype → phenotype before recommending a dose change.
 
-**Always state which context you're interpreting.**
+## Annotation resources (manual lookup only)
 
-### 6. Acknowledge Uncertainty
-- Novel variants often lack evidence
-- VUS ≠ benign — requires ongoing monitoring
-- Reclassification happens (ClinVar updates monthly)
-- Computational predictions are supportive, not definitive
+| Resource | Role |
+|----------|------|
+| ClinVar | Clinical assertions + submitter concordance |
+| gnomAD | Population frequencies |
+| OMIM / ClinGen | Gene–disease validity |
+| PharmGKB / CPIC | Drug–gene guidelines |
 
-## Pharmacogenomics Reference
+This skill does **not** auto-call external APIs. Provide URLs and let the user
+(or an explicitly authorized tool call) fetch live records.
 
-### High-Priority Drug-Gene Pairs (CPIC Level A)
+## Common traps
 
-| Gene | Drugs | Clinical Action |
-|------|-------|-----------------|
-| CYP2D6 | Codeine, tramadol, tamoxifen, SSRIs | Dosing/alternative |
-| CYP2C19 | Clopidogrel, PPIs, voriconazole | Dosing/alternative |
-| CYP2C9 + VKORC1 | Warfarin | Dosing algorithm |
-| DPYD | Fluorouracil, capecitabine | Dose reduction/avoid |
-| TPMT + NUDT15 | Azathioprine, mercaptopurine | Dose reduction |
-| HLA-B*57:01 | Abacavir | Contraindication |
-| HLA-B*15:02 | Carbamazepine | Contraindication (Asian ancestry) |
-| SLCO1B1 | Simvastatin | Dose cap/alternative statin |
-| G6PD | Rasburicase, primaquine | Contraindication |
-| CYP3A5 | Tacrolimus | Dosing adjustment |
+- Treating a single ClinVar submitter as definitive
+- Ignoring ancestry-specific frequency
+- Treating CADD/REVEL as stand-alone pathogenicity
+- Missing compound-het / phase context
+- Using outdated gnomAD major versions without saying so
+- Skipping gene constraint (pLI / LOEUF) when LoF is claimed
 
-### Phenotype Interpretation
+## Privacy boundary
 
-| Metabolizer Status | Meaning | Typical Action |
-|--------------------|---------|----------------|
-| Poor (PM) | Little/no enzyme activity | Alternative drug or dose ↓↓ |
-| Intermediate (IM) | Reduced activity | Consider dose ↓ |
-| Normal (NM) | Expected activity | Standard dosing |
-| Rapid/Ultra-rapid (UM) | Increased activity | Dose ↑ or alternative |
-
-## Annotation Resources
-
-| Resource | URL | Content |
-|----------|-----|---------|
-| ClinVar | ncbi.nlm.nih.gov/clinvar | Clinical variant classifications |
-| gnomAD | gnomad.broadinstitute.org | Population frequencies |
-| OMIM | omim.org | Gene-disease relationships |
-| PharmGKB | pharmgkb.org | Drug-gene annotations |
-| CPIC | cpicpgx.org | Pharmacogenomics guidelines |
-| ClinGen | clinicalgenome.org | Gene-disease validity |
-| Franklin | franklin.genoox.com | Variant interpretation aid |
-| VarSome | varsome.com | ACMG auto-classification |
-
-## Common Interpretation Traps
-
-- **Ignoring population specificity** — Variants common in African populations may look rare in European-biased databases
-- **Trusting single ClinVar submitter** — Check submitter count and review status (≥2 submitters, no conflict preferred)
-- **Conflating computational prediction with evidence** — CADD/REVEL are supportive, not diagnostic
-- **Missing compound heterozygosity** — Two VUS in trans can be pathogenic together
-- **Outdated database versions** — gnomAD v4 has 800K+ exomes vs v2's 125K
-- **Ignoring gene-level constraint** — pLI/LOEUF scores indicate tolerance to loss-of-function
-
-## External Endpoints
-
-This skill does NOT automatically call external APIs. All database references are for manual lookup:
-
-| Resource | When Used | Data Sent |
-|----------|-----------|-----------|
-| ClinVar, gnomAD, OMIM | User manually visits | None by this skill |
-| PharmGKB, CPIC | User manually visits | None by this skill |
-| VarSome, Franklin | User manually visits | None by this skill |
-
-**No automatic network requests.** The skill provides URLs and guidance for manual lookup only.
-
-## Security & Privacy
-
-**Data that stays local:**
-- All interpretation work runs locally
-- No variant data sent externally by this skill
-- No automatic API calls to any database
-
-**This skill does NOT:**
-- Make network requests automatically
-- Upload patient variants anywhere
-- Connect to databases without explicit user action
-- Store identifiable genomic information outside ~/Clawic/data/genomics/
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `medicine` — clinical decision support
-- `biology` — molecular mechanisms
-- `chemistry` — drug metabolism pathways
-- `health` — patient care context
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/genomics
-- Latest version: https://clawic.com/skills/genomics
+- No automatic network upload of patient variants
+- Persist preferences/cases under `<state_root>/` only with consent
+- Do not store identifiable genomic data inside the skill package
