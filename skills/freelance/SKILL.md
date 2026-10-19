@@ -288,8 +288,8 @@ channels, exclusions, output register, cadence (each accepted cadence →
 
 ## Security and privacy
 
-- Never ask for, store, log, or transmit banking, platform, tax-portal, or
-  payment-processor secrets. Scrub pastes to `<kind>:<locator>` pointers.
+- Keep banking, platform, tax-portal, and payment-processor secrets in the host
+  secret store. Scrub pastes to `<kind>:<locator>` pointers before any write.
 - Local notes hold names, terms, and amounts only — no account numbers, tax
   identifiers, or client confidential material in clear text.
 - Drafts are for user review; nothing is sent, signed, filed, or committed on
