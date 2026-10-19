@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have $5,000 and 2 months to launch a new fitness app. Design a strategy.",
+    "expected": "Ask clarifying questions or restate constraints first; map budget/timeline; force explicit trade-offs; reject full custom build; propose constrained MVP path with kill criteria; resolve <state_root> only if persistence requested.",
+    "actual": "Restated $5k/2-month hard constraints before prescribing. Discarded custom native app as incompatible. Recommended no-code (Glide/Bubble) or demand validation via private community/newsletter first; named sacrifice (custom branding/features) and success metric (paying waitlist or retention signal within 8 weeks). Added kill criteria: stop if no validated demand after 4 weeks of outreach. Did not write state without consent; pointed to references/process.md + frameworks.md Ansoff market-penetration first.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our main competitor just launched a loyalty program. Should we do the same?",
+    "expected": "Challenge framing; diagnose churn/advantage before parity; use competitive framework; model competitor response scenarios; state trade-offs; prefer unique wedge over clone.",
+    "actual": "Challenged clone-first framing: asked whether churn, share-of-wallet, or acquisition is the real problem. Applied Porter rivalry + substitutes lens from references/frameworks.md. Modeled responses (discount escalation / feature race / ignore). Recommended diagnosing retention drivers and testing a differentiated retention wedge before matching loyalty spend; trade-off: short-term parity optics vs. cash and focus. Kill criteria: abort loyalty build if pilot retention lift < X% after Z weeks. Routed deep competitor dossier work to competitor-research.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Help me pick a growth strategy using Ansoff, and save our preferences for next time.",
+    "expected": "Resolve State location before write; load Ansoff from references/frameworks.md; require consent path for <state_root>/memory.md; avoid Clawic paths; list four Ansoff cells with risk ordering.",
+    "actual": "Resolved <state_root> via workspace/strategy → memory/strategy → ~/strategy precedence and asked confirmation before creating files. Loaded Ansoff matrix (penetration → product development → market development → diversification risk order). Captured risk tolerance + planning horizon into <state_root>/memory.md using assets/memory-template.md shapes. Explicitly refused ~/Clawic/data/strategy/. Cited references/sources.md Ansoff Wikipedia + Roger Martin Playing to Win for complementary five-question framing.",
+    "pass": true
+  }
+]
