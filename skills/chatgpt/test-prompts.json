@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I set up ChatGPT for long-term project research with shared files?",
+    "expected": "Route to Projects; keep objective, source of truth, output rules, decision log, and open questions visible; keep durable prefs separate from project context; avoid stuffing temporary requirements into custom instructions.",
+    "actual": "Recommended a ChatGPT Project for shared files and continuity. Required a visible charter with objective, authoritative source, output rules, decision log, and open questions. Kept durable preferences in custom instructions or Memory only when they should affect future sessions, and kept project-specific brief inside the Project. Warned against stuffing temporary research requirements into global instructions. Pointed Search/deep-research freshness checks to product tools rather than Project memory.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need a multi-pass workflow for outline and drafting a launch email in ChatGPT.",
+    "expected": "Build a prompt packet with goal/context/source/deliverable/constraints/review; split into discover/outline/draft/critique passes; one improvement target per pass; QA before shipping.",
+    "actual": "Built a packet with goal, audience, source notes, deliverable shape, constraints, and review standard. Split work into discovery, outline, draft, and critique passes with one improvement target each. Ran output QA for goal match, source fidelity, constraint fit, and uncertainty before treating the email as shippable.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "This ChatGPT thread got contaminated with old assumptions and I also want to create a new custom GPT for the workflow.",
+    "expected": "Recover with Temporary Chat or a fresh thread using only the current source of truth; choose Personalized vs Unpersonalized when offered; do not assume GPT creation is available on every plan—check current help docs / plugin migration policy.",
+    "actual": "Stopped continuing the contaminated thread and restarted from the current brief in Temporary Chat, choosing Unpersonalized to avoid stale memory carryover. Rebuilt the packet from the authoritative notes only. Before recommending a custom GPT, checked that new GPT creation may be unavailable on personal Free/Go/Plus/Pro accounts and that affected workspaces may need plugin migration; offered packaging only after confirming plan/workspace policy.",
+    "pass": true
+  }
+]

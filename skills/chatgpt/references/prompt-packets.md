@@ -1,8 +1,9 @@
 # Prompt Packets for ChatGPT
 
-Use packets, not vibes. A good packet gives ChatGPT enough structure to reason without guessing the job.
+Use packets, not vibes. A good packet gives ChatGPT enough structure to reason
+without guessing the job.
 
-## Core Packet
+## Core packet
 
 ```text
 Goal:
@@ -13,16 +14,17 @@ Constraints:
 Review standard:
 ```
 
-## Field Guidance
+## Field guidance
 
 - `Goal` -> the actual job to finish, not the topic.
 - `Context` -> why this matters, audience, and relevant background.
 - `Source of truth` -> files, bullets, or facts ChatGPT must anchor to.
-- `Deliverable` -> exact format: bullets, table, email, memo, outline, rubric, code patch.
-- `Constraints` -> tone, length, exclusions, assumptions to avoid, deadlines.
+- `Deliverable` -> exact format: bullets, table, email, memo, outline, rubric,
+  code patch.
+- `Constraints` -> tone, length, exclusions, assumptions to exclude, deadlines.
 - `Review standard` -> how ChatGPT should check itself before answering.
 
-## Quick Packets
+## Quick packets
 
 ### Writing
 
@@ -57,13 +59,15 @@ Constraints: No generic advice, no tasks without an owner or deadline.
 Review standard: Remove anything that cannot fit the time budget.
 ```
 
-## Upgrade Moves
+## Upgrade moves
 
 - Ask for questions first when missing facts will change the answer materially.
 - Ask for a draft plus a self-critique when quality matters more than speed.
 - Ask for two variants when tradeoffs are unclear.
-- Ask for a checklist or rubric before the final output when repeatability matters.
+- Ask for a checklist or rubric before the final output when repeatability
+  matters.
 
-## Compression Rule
+## Compression rule
 
-If the prompt keeps growing, simplify by strengthening the packet fields instead of adding more style adjectives.
+If the prompt keeps growing, strengthen the packet fields instead of adding more
+style adjectives.
