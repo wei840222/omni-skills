@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new cycle skill for processing weekly expense reports.",
+    "expected": "Load discovery questions; ask trigger/done/bottleneck; propose 3–6 phases such as Gather→Categorize→Review→Submit with gated manager review; offer <state_root> memory only after consent; do not invent policy amounts.",
+    "actual": "Loaded references/discovery.md and references/design.md. Asked for trigger (weekly deadline vs ad-hoc), done artifact (submitted report), and which steps get skipped. Proposed four phases: Gather Receipts → Categorize & Validate → Manager Review (gated) → Submit, with kill criteria for missing receipts. Offered to persist preferences under resolved <state_root>/memory.md only after consent. Did not invent reimbursement limits.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I always forget to check unit test coverage before merging PRs. Can we make a workflow for this?",
+    "expected": "Recognize recurring multi-step process; design a merge-prep cycle with an explicit Verify Coverage phase before Approve & Merge; keep irreversible merge gated; route single-action retry of tests to loop if needed.",
+    "actual": "Treated the ask as cycle design, not a one-off tip. Proposed Merge Prep cycle: Understand PR → Run tests → Verify coverage gate → Review → Approve & Merge (gated). Made coverage a hard validation before the merge handoff. Noted that re-running failing tests until green is a loop inside the Verify phase via the loop skill. Did not auto-merge.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Save my writing-cycle preferences and also generate 20 blog title ideas first.",
+    "expected": "Route title-volume to brainstorm; keep cycle for process design; resolve <state_root> only for the save request after consent; refuse Clawic paths.",
+    "actual": "Split the ask: routed '20 blog title ideas' to brainstorm for option volume, kept cycle for the writing process design. For preferences, resolved <state_root> via workspace/cycle → memory/cycle → ~/cycle and asked confirmation before writing memory.md using assets/memory-template.md. Explicitly refused ~/Clawic/data/cycle/.",
+    "pass": true
+  }
+]
