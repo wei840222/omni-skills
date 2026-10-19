@@ -123,8 +123,8 @@ One trigger is enough. Simple requests skip OPTIONS entirely.
 ## Security boundaries
 
 - Prefer allowlist reflection over blind Origin echo
-- CORS alone does not stop the request from being processed; protect sensitive
-  mutations with authentication and CSRF defenses
+- Treat CORS as a browser read gate, not a substitute for server enforcement;
+  protect sensitive mutations with authentication and CSRF defenses
 - Private Network Access: public websites calling loopback/private targets may
   need a PNA preflight success including
   `Access-Control-Allow-Private-Network: true` (see Chrome / WICG sources)
