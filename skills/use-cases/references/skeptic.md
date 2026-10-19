@@ -40,12 +40,12 @@ If AI saves 30%+ time at equal quality → you found a use case.
 
 ## Privacy Reality
 
-| Tier | Data Policy |
+| Tier | Typical pattern (always re-check the live policy) |
 |------|-------------|
-| Free | Often used for training |
-| Paid (consumer) | Usually not trained, check terms |
-| Business/Enterprise | Contractual privacy guarantees |
-| Self-hosted | You control everything |
+| Free | May allow training/use for product improvement |
+| Paid (consumer) | Often stricter; still read the current terms |
+| Business/Enterprise | Contractual privacy guarantees are the usual path |
+| Self-hosted | You control the stack when you operate it |
 
 **Practical rule:** Don't paste anything you wouldn't email to a stranger.
 
