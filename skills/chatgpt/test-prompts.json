@@ -3,7 +3,7 @@
     "id": 1,
     "prompt": "How do I set up ChatGPT for long-term project research with shared files?",
     "expected": "Route to Projects; keep objective, source of truth, output rules, decision log, and open questions visible; keep durable prefs separate from project context; avoid stuffing temporary requirements into custom instructions.",
-    "actual": "Recommended a ChatGPT Project for shared files and continuity. Required a visible charter with objective, authoritative source, output rules, decision log, and open questions. Kept durable preferences in custom instructions or Memory only when they should affect future sessions, and kept project-specific brief inside the Project. Warned against stuffing temporary research requirements into global instructions.",
+    "actual": "Recommended a ChatGPT Project for shared files and continuity. Required a visible charter with objective, authoritative source, output rules, decision log, and open questions. Kept durable preferences in custom instructions or Memory only when they should affect future sessions, and kept project-specific brief inside the Project. Warned against stuffing temporary research requirements into global instructions. Pointed Search/deep-research freshness checks to product tools rather than Project memory.",
     "pass": true
   },
   {
