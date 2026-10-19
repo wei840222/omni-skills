@@ -1,13 +1,13 @@
 # Memory Template — Genomics
 
-Create `~/Clawic/data/genomics/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure after consent:
 
 ```markdown
 # Genomics Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending
 
@@ -16,30 +16,26 @@ integration: pending
 **Role:** [bioinformatician | geneticist | clinician | researcher | mixed]
 
 **Focus areas:**
-- Organisms: 
-- Disease areas: 
-- Analysis types: [germline | somatic | both]
+- Organisms:
+- Disease areas:
+- Analysis types: [germline | somatic | PGx | mixed]
 
 **Technical environment:**
 - Reference genome: GRCh38
 - Compute: [local | HPC | cloud]
-- Primary tools: 
+- Primary tools:
 
 ## Preferences
 
 **Annotation sources prioritized:**
-- 
 
 **Filtering defaults:**
-- MAF threshold: 
-- Quality filters: 
+- MAF threshold:
+- Quality filters:
 
 **Reporting style:**
-- 
 
 ## Active Projects
-
-<!-- Track ongoing analyses -->
 
 | Project | Type | Status | Notes |
 |---------|------|--------|-------|
@@ -47,24 +43,22 @@ integration: pending
 
 ## Notes
 
-<!-- Observations, learned preferences, things to remember -->
-
 ---
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+Optional case notes live under `<state_root>/cases/`.
+
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Still learning their workflow | Gather context opportunistically |
 | `complete` | Knows their full setup | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
+| `paused` | User said "not now" | Don't ask; use what you have |
 
-## Key Principles
+## Principles
 
-- No config keys visible to user — natural language only
-- Learn from their questions and corrections
-- Update preferences when they mention changes
-- Track active projects so context carries across sessions
-- Most users stay `ongoing` — workflows evolve
+- Prefer natural language over config keys in user-facing talk
+- Update preferences when the user corrects them
+- Keep identifiable genomic detail inside `<state_root>/` only
