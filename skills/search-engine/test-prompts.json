@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are building a new internal knowledge base. We have about 10,000 documents. Can you help us design the architecture?",
+    "expected": "Resolve or propose <state_root>/search-engine/ only if persistence is requested, load references/architecture-blueprint.md, treat 10k docs as small-corpus, and recommend single-index lexical retrieval before hybrid/vector complexity.",
+    "actual": "Resolved portable state guidance. Loaded architecture-blueprint. Classified 10k docs as small corpus / low QPS. Recommended single index service with simple lexical retrieval and a deterministic ingestion pipeline; deferred hybrid/vector until evaluation justified it.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our Elasticsearch relevance is bad. We want to add a bunch of new boosts for recent documents and premium users.",
+    "expected": "Load references/evaluation-metrics.md, refuse silent relevance writes, require versioned policy notes plus offline Precision@k/NDCG comparison, and hand off ES-specific Query DSL to elasticsearch when implementation starts.",
+    "actual": "Warned against unmeasured boosts. Loaded evaluation-metrics. Required versioned relevance policy and offline benchmark queries before production writes. Noted elasticsearch as the handoff for Query DSL/boost syntax once the eval gate passed.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should we put vectors in Elasticsearch or use Pinecone for hybrid search?",
+    "expected": "Stay engine-agnostic first: define retrieval contract and eval suite, cite live dense_vector/RRF/hybrid docs from references/sources.md, and avoid inventing Milvus details when that host is unreachable.",
+    "actual": "Kept decision under the retrieval contract. Compared one-cluster dense_vector vs dedicated vector store tradeoffs. Pointed to Elastic RRF and Pinecone/Weaviate hybrid docs from sources.md; explicitly declined Milvus API claims after redirect-loop failure on milvus.io.",
+    "pass": true
+  }
+]

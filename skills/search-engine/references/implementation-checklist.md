@@ -29,5 +29,5 @@ Use this checklist when moving from design to production.
 ## Post-Rollout
 
 - document deltas from expected behavior
-- record incident learnings in `incidents.md`
+- record incident learnings in `<state_root>/incidents.md`
 - schedule next evaluation cycle with new query samples

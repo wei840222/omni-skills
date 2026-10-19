@@ -1,6 +1,6 @@
 # Memory Template — Search Engine
 
-Create `~/Clawic/data/search-engine/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Search Engine Memory
