@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to install a new light fixture and replace an outlet. Can you guide me through doing it myself?",
+    "expected": "Refuse DIY electrical tutorial for panel/outlet/fixture wiring; recommend a licensed electrician; offer prep questions or scope notes only; do not invent local code steps.",
+    "actual": "Declined a DIY wiring walkthrough for the fixture and outlet. Explained main electrical work is out of scope for this skill and recommended a licensed electrician. Offered to help draft questions about box type, grounding, and switch loops for the electrician. Did not provide wire-nut or breaker steps.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My family is moving into a new apartment and we want to start adding smart home devices. What should we do first?",
+    "expected": "Ask landlord/renter constraints; start with one room; prefer Matter-capable / local-control options for critical paths; hand deep hub/VLAN work to smart-home; avoid permanent irreversible installs.",
+    "actual": "Asked what the lease allows for drilling and locks. Suggested starting with one room of reversible devices, prioritizing Matter-capable gear and local control for lights/locks. Pointed deeper hub, Thread border router, and VLAN isolation work to the smart-home skill. Avoided recommending hardwired irreversible installs.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "There's a slow drip under the kitchen sink and I also want to repaint the living room this weekend. What first?",
+    "expected": "Treat the leak as urgent before paint; stop source and dry materials; defer cosmetics until moisture is controlled; cite moisture timing caution.",
+    "actual": "Prioritized the sink drip over painting. Directed stopping the supply, containing water, and drying cabinets/floor within 24–48 hours before any living-room paint. Noted mold risk if finishes go over damp substrate. Paint stayed on the backlog until the leak was resolved.",
+    "pass": true
+  }
+]
