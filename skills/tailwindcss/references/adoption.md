@@ -9,7 +9,7 @@ The greenfield story is easy. Introducing Tailwind next to an existing styleshee
 Three sanctioned exits, in order of preference (SKILL.md rule 5). All three leave the reset itself untouched: a vendored Preflight with rules commented out is the one handling that is always wrong, because it drifts from the framework on every upgrade with no error.
 
 1. **Keep Preflight, wrap unowned content in `prose`.** Correct for a product where Tailwind is becoming the system. CMS bodies, Markdown, and changelogs get `prose` from the typography plugin (`@plugin "@tailwindcss/typography";`).
-2. **Keep Preflight, restore what you need in your own `@layer base`.** Additive, not a patch: Preflight still ships intact and your layer puts back an explicit short list — heading sizes, list markers, whatever the content pages actually lost. Restore deliberately, around five rules, never a copy of the old reset.
+2. **Keep Preflight, restore what you need in your own `@layer base`.** Additive, not a patch: Preflight still ships intact and your layer puts back an explicit short list — heading sizes, list markers, whatever the content pages actually lost. Restore deliberately, around five rules, rather than a copy of the old reset.
 3. **Drop Preflight whole** by importing the layers individually:
 
 ```css
@@ -21,7 +21,7 @@ Three sanctioned exits, in order of preference (SKILL.md rule 5). All three leav
 
 v3 equivalent: `corePlugins: { preflight: false }`.
 
-Dropping it is right when Tailwind is a guest in someone else's design system, and wrong when it is going to become the design system — you inherit every browser default inconsistency you were about to stop fighting.
+Dropping it is right when Tailwind is a guest in someone else's design system, and wrong when it is going to become the design system — you inherit every browser default inconsistency you were about to resolve permanently.
 
 ## Who Wins The Cascade
 
@@ -50,7 +50,7 @@ Dropping it is right when Tailwind is a guest in someone else's design system, a
 ## Incremental Migration That Actually Finishes
 
 1. **Install without deleting anything.** Tailwind's presence changes nothing until classes are used — except Preflight, which is why that decision comes first.
-2. **Pick a leaf component**, not the shell. Convert it fully; delete the CSS it used in the same commit. A half-converted component is the state that never gets finished.
+2. **Pick a leaf component**, not the shell. Convert it fully; delete the CSS it used in the same commit. A half-converted component is the state that remains permanently incomplete.
 3. **Extract tokens before markup.** Port the palette, spacing, and type scale into `@theme` up front — otherwise the first fifty converted components hardcode arbitrary values and the rebrand becomes a repo-wide replace.
 4. **Track the old stylesheet's size** in CI. It should only ever go down; a migration that doesn't shrink it is adding a second system rather than replacing one.
 5. **Convert utilities-only rules first** (`.mt-lg { margin-top: 24px }`) — mechanical, low-risk, and it deletes the largest share of lines.
@@ -59,7 +59,7 @@ Dropping it is right when Tailwind is a guest in someone else's design system, a
 ## Signals The Migration Is Going Wrong
 
 - New `@apply` blocks appearing faster than old CSS disappears — the old system is being renamed, not replaced.
-- `!` modifiers accumulating in feature code: the layer decision was never made.
+- `!` modifiers accumulating in feature code: the layer decision was deferred.
 - Both `.btn` and a `Button` component in use, with different visuals.
 - The legacy stylesheet's size flat for a month.
 - Arbitrary values repeating the same hex — tokens were skipped at step 3.

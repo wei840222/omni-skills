@@ -87,11 +87,11 @@ When a stacked variant misbehaves, read the generated selector in devtools befor
 | Symptom | Cause |
 |---|---|
 | `group-hover:` fires on the wrong row | Nested groups, unnamed (→ named groups above) |
-| `peer-*` never fires | Peer is after the target in the DOM |
+| `peer-*` fails to trigger | Peer is after the target in the DOM |
 | `hover:` dead on mobile | Touch has no hover; add `active:` and `focus-visible:` |
 | Custom variant produces no CSS | Missing `&`, or defined after the CSS was last built |
 | Variant works in dev, not in production | The class string is dynamic (SKILL.md — Class Detection) |
-| `data-[state=open]:` never matches | Attribute is on the parent — prefix with `group-` |
+| `data-[state=open]:` fails to match | Attribute is on the parent — prefix with `group-` |
 | Variant applies but loses | Another utility sorts later, or unlayered CSS wins (SKILL.md — Cascade And Conflicts) |
 | Anything else | Copy the generated selector from devtools and test it in `document.querySelectorAll` |
 

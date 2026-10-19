@@ -51,7 +51,7 @@ Literal values rarely need the hint (`text-[14px]` is unambiguous); variables al
 ## When Not To Use One
 
 - **Promotion threshold**: a value used ≥ `token_threshold` times (default 3) becomes a theme token (SKILL.md rule 2). Three `bg-[#1da1f2]` in the codebase means a rebrand is a repo-wide find-and-replace instead of one line.
-- **Truly continuous values** — a width from a slider, a translate from a drag — are not arbitrary values; they are inline styles. Each distinct arbitrary value generates a distinct CSS rule, so a computed one either doesn't exist (built at runtime, never scanned) or generates a rule per possible value.
+- **Truly continuous values** — a width from a slider, a translate from a drag — are not arbitrary values; they are inline styles. Each distinct arbitrary value generates a distinct CSS rule, so a computed one either doesn't exist (built at runtime, escaping the scanner) or generates a rule per possible value.
 - **Anything a plain utility already covers.** `p-[16px]` instead of `p-4` breaks scale consistency and survives no scale change.
 - **Complex multi-line CSS.** Past roughly one declaration's worth of value, a class in `@layer components` or a `@utility` is more readable and reviewable.
 
