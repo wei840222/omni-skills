@@ -120,7 +120,7 @@ Create child files only when the matching workflow needs persistence.
 6. **One improvement target per pass** for multi-pass work.
 7. **Recover by restarting the source of truth**, not by stacking style nags.
 
-## Common traps
+## Failure modes to catch early
 
 - stuffing temporary requirements into custom instructions
 - using one long chat for unrelated jobs
