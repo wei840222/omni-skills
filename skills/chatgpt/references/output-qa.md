@@ -2,9 +2,9 @@
 
 Run this before trusting or shipping an answer.
 
-## Quick QA Grid
+## Quick QA grid
 
-| Check | Ask | Fail Signal |
+| Check | Ask | Fail signal |
 |-------|-----|-------------|
 | Goal match | Did it answer the actual brief? | Impressive output that solves a different problem |
 | Source fidelity | What facts came from the provided material? | Invented details or mixed sources |
@@ -12,7 +12,7 @@ Run this before trusting or shipping an answer.
 | Constraint fit | Did it honor exclusions and limits? | Ignores tone, budget, deadline, or "do not" rules |
 | Uncertainty | Did it label assumptions and gaps? | Confident claims with no evidence trail |
 
-## QA Prompts
+## QA prompts
 
 ### Self-critique
 
@@ -35,17 +35,21 @@ Check whether the draft violates any of these constraints: [paste constraints].
 Return only violations and precise fixes.
 ```
 
-## Hard Rules
+## Hard rules
 
-- Never skip QA for externally-facing content, factual summaries, or operational plans.
-- If the model cannot show where a claim came from, downgrade confidence immediately.
+- Always perform QA for externally facing content, factual summaries, or
+  operational plans.
+- If the model cannot show where a claim came from, downgrade confidence
+  immediately.
 - Prefer targeted QA prompts over "make this better."
-- If the answer fails the same check twice, rebuild the packet or switch surfaces.
+- If the answer fails the same check twice, rebuild the packet or switch
+  surfaces.
 
-## Shipping Threshold
+## Shipping threshold
 
 Use the output only after it clears:
-- goal match,
-- source fidelity,
-- constraint fit,
-- and at least one explicit uncertainty check.
+
+- goal match
+- source fidelity
+- constraint fit
+- and at least one explicit uncertainty check

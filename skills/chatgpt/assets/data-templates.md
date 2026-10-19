@@ -1,23 +1,24 @@
 # Memory Template - ChatGPT
 
-Create `~/Clawic/data/chatgpt/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure only after `<state_root>` is
+resolved. Do not treat the literal string `<state_root>` as a filesystem path.
 
 ```markdown
 # ChatGPT Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending
 
 ## Workflow Defaults
-<!-- Preferred surfaces: standard chat, Temporary Chat, Projects, GPTs -->
+<!-- Preferred surfaces: standard chat, Temporary Chat, Projects, GPTs/plugins -->
 <!-- Preferred prompt packet size, draft depth, and revision style -->
 
 ## Privacy Boundaries
-<!-- Data categories that should avoid remembered chats or uploads -->
-<!-- Rules for when to prefer Temporary Chat -->
+<!-- Data categories that should exclude remembered chats or uploads -->
+<!-- Rules for when to prefer Temporary Chat (Personalized vs Unpersonalized) -->
 
 ## Active Patterns
 <!-- Prompt packet shapes, QA checklists, and pass order that work repeatedly -->
@@ -34,16 +35,16 @@ integration: pending
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Default learning state | Keep refining ChatGPT workflow defaults from active use |
 | `complete` | Stable workflow established | Reuse defaults unless the user changes them |
 | `paused` | User wants fewer setup questions | Ask only when a critical ChatGPT choice is missing |
-| `never_ask` | User rejected setup prompts | Stop prompting and work from the task only |
+| `skip_asking` | User rejected setup prompts | Stop prompting and work from the task only |
 
-## Integration Values
+## Integration values
 
 | Value | Meaning |
 |-------|---------|
@@ -51,9 +52,21 @@ integration: pending
 | `done` | Activation preference confirmed |
 | `declined` | User wants manual activation only |
 
-## Key Principles
+## Optional sibling files
+
+Create only when needed:
+
+| Path | Purpose |
+|------|---------|
+| `<state_root>/workflows.md` | Reusable prompt packet patterns |
+| `<state_root>/projects.md` | Active project briefs and decision logs |
+| `<state_root>/gpts.md` | GPT / plugin roles and limitations |
+| `<state_root>/qa.md` | Recurring output failures and fixes |
+
+## Key principles
 
 - Store only patterns that improve future ChatGPT sessions.
 - Keep notes operational and short.
 - Save workflow boundaries, not raw user content.
 - Update `last` whenever memory changes.
+- Never write these files into the skill package tree.
