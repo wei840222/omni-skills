@@ -11,7 +11,7 @@ percentages, statutory rates, or unpublished case outcomes.
 |---|---|---|
 | Agent Skills specification | https://agentskills.io/specification | HTTP 200 |
 | Agent Skills machine summary | https://agentskills.io/llms.txt | HTTP 200 |
-| Agent Skills best practices | https://agentskills.io/skill-creation/best-practices | verify when rewriting description |
+| Agent Skills best practices | https://agentskills.io/skill-creation/best-practices | HTTP 200 |
 | Reference validator | https://github.com/agentskills/agentskills/tree/main/skills-ref | package `skills-ref` / `agentskills` |
 
 ## Worker classification / IR35

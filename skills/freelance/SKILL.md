@@ -91,6 +91,8 @@ classification, or late-payment guidance.
 
 ## When to use
 
+Trigger on practice-level arithmetic and paper, not on one-client ops or marketplace SEO.
+
 - Going independent or running the practice: rate, pipeline, capacity, buffer
 - Self-employment money: tax set-aside, filings, VAT/GST, entity, deductions
 - Paper: what to insist on before starting; red-lines on client templates
