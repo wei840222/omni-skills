@@ -55,7 +55,7 @@ silent move or delete.
 
 Use this skill when the user wants:
 
-- better ChatGPT prompts, packets, or multi-pass workflows
+- better ChatGPT prompts, packets, multi-pass workflows, or Search/deep-research routing
 - help choosing standard chat, Temporary Chat, Projects, custom instructions,
   GPTs, or plugins
 - project charter / file hygiene / decision-log patterns inside ChatGPT
