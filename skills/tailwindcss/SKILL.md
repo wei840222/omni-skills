@@ -178,7 +178,7 @@ Before emitting Tailwind markup or config, verify:
 |---|---|---|
 | `bg-${color}-500`, `'text-' + size` | The scanner is a text matcher; that string never exists in the source | Lookup map of complete classes (→ Class Detection) |
 | `class="px-4 px-6"` to override | Both are generated; the stylesheet decides, not the attribute | `twMerge`, or do not emit both (→ Cascade And Conflicts) |
-| `focus:outline-none` with nothing after it | Deletes the only affordance keyboard users have | `focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2` (→ Core Rule 8) |
+| `focus:outline-none` with nothing after it | Leaves keyboard users without a visible focus cue | Pair removal with `focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2` (→ Core Rule 8) |
 | `important: true` in the config | Every utility becomes `!important`: third-party CSS dies and your own overrides need escalation | Per-class `!` on the few that need it; layer your CSS instead (→ references/adoption.md) |
 | `@apply` in a Vue `<style>` or a CSS module | That file compiles in its own context with no theme loaded | v4 `@reference "../app.css";` first — better, move the classes to the markup (→ references/frameworks.md) |
 | `h-screen` for a full-height mobile section | `100vh` ignores the browser chrome that collapses on scroll | `h-dvh`, or `h-svh` when live resizing would be jumpy |
