@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a simple text classification model using a 1D CNN with Keras.",
+    "expected": "Load references/architectures.md text_cnn pattern; emit Embedding + parallel Conv1D + GlobalMaxPooling1D + Concatenate; keep state under resolved <state_root> only if persistence requested.",
+    "actual": "Resolved portable state guidance. Loaded architectures.md. Returned a Functional text_cnn with Embedding, Conv1D kernels [3,4,5], GlobalMaxPooling1D, Concatenate, Dropout, and Dense softmax; no Clawic path and no ImageDataGenerator.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My Keras training loss is becoming NaN after a few epochs. How can I debug this?",
+    "expected": "Follow references/training.md recovery order: inspect NaN/Inf in data, lower learning_rate, add clipnorm/clipvalue, temporarily disable mixed precision; avoid inventing unreachable guide URLs.",
+    "actual": "Started with a single-batch NaN/Inf check. Recommended Adam(clipnorm=1.0) or clipvalue, a 10x LR reduction, and temporary float32 while debugging, citing training.md and live Adam/EarlyStopping docs from sources.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I want to build a ResNet-style model in Keras 3 on the JAX backend.",
+    "expected": "Set KERAS_BACKEND before import, use Functional residual_block with skip connections, prefer keras.ops for custom math, and route tf.function/GPU OOM issues to tensorflow.",
+    "actual": "Instructed setting KERAS_BACKEND=jax before import. Provided a Functional residual_block with skip add, noted keras.ops for portable custom ops, pointed to keras.io/keras_3/ from sources.md, and handed tf.data/GPU OOM to tensorflow.",
+    "pass": true
+  }
+]

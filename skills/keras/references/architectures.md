@@ -1,5 +1,8 @@
 # Common Architectures — Keras
 
+Sketch patterns only. Verify backend-specific APIs against `references/sources.md`
+before treating field names or pretrained weight IDs as current facts.
+
 ## Image Classification
 
 ```python

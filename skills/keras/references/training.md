@@ -1,5 +1,11 @@
 # Training Diagnostics — Keras
 
+## Recovery order
+
+Work the smallest reversible fix first: inspect a single batch, check NaN/Inf,
+adjust `learning_rate` / clipping, then change architecture. Prefer recovery
+actions over stop-marker checklists.
+
 ## Loss Not Decreasing
 
 | Symptom | Cause | Fix |
@@ -50,8 +56,8 @@ optimizer = keras.optimizers.Adam(clipnorm=1.0)
 # or
 optimizer = keras.optimizers.Adam(clipvalue=0.5)
 
-# Mixed precision can cause NaN
-# Try disabling: tf.keras.mixed_precision.set_global_policy('float32')
+# Mixed precision can cause NaN; disable it temporarily while debugging.
+# TensorFlow path example: tf.keras.mixed_precision.set_global_policy('float32')
 ```
 
 ## Learning Rate Finder
@@ -67,17 +73,17 @@ class LRFinder(keras.callbacks.Callback):
         self.steps = steps
         self.lrs = []
         self.losses = []
-        
+
     def on_train_begin(self, logs=None):
         self.lr_mult = (self.max_lr / self.min_lr) ** (1 / self.steps)
-        keras.backend.set_value(self.model.optimizer.lr, self.min_lr)
-        
+        self.model.optimizer.learning_rate.assign(self.min_lr)
+
     def on_batch_end(self, batch, logs=None):
-        lr = float(keras.backend.get_value(self.model.optimizer.lr))
+        lr = float(self.model.optimizer.learning_rate.numpy())
         self.lrs.append(lr)
-        self.losses.append(logs['loss'])
-        keras.backend.set_value(self.model.optimizer.lr, lr * self.lr_mult)
-        if logs['loss'] > 10 * self.losses[0]:
+        self.losses.append(logs["loss"])
+        self.model.optimizer.learning_rate.assign(lr * self.lr_mult)
+        if logs["loss"] > 10 * self.losses[0]:
             self.model.stop_training = True
 
 # Usage
