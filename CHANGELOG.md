@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| langchain                    | 2026-10-19 | 88/100 (#932)                    |
 | chatgpt                      | 2026-10-19 | 86/100 (#931)                    |
 | home                         | 2026-10-19 | 86/100 (#930)                    |
 | cycle                        | 2026-10-19 | 88/100 (#929)                    |
