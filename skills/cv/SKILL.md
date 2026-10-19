@@ -66,6 +66,8 @@ norms with the user before adding fields outside U.S.-style applications.
 
 ## Quick reference
 
+Load only the matching reference for the current step; keep `SKILL.md` as the entry point.
+
 | Need | Load |
 |------|------|
 | Resume vs CV, structure, summaries, bullets | `references/document-craft.md` |
