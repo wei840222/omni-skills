@@ -91,7 +91,7 @@ DATA ELEMENT: [Name]
 - [ ] Data processing records maintained
 - [ ] DPA signed with all processors
 - [ ] Data subject request process
-- [ ] Breach response procedure
+- [ ] Breach response procedure (Art. 33: supervisory notice without undue delay / ≤72h where feasible — verify current EUR-Lex text via `references/sources.md`)
 - [ ] DPIA for high-risk processing
 - [ ] DPO appointed (if required)
 

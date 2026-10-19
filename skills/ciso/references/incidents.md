@@ -105,7 +105,7 @@
 ### Data Breach
 
 1. **Scope assessment** — What data, how much, how sensitive?
-2. **Legal notification** — 72 hours for GDPR, varies by jurisdiction
+2. **Legal notification** — GDPR Art. 33: notify the supervisory authority without undue delay and, where feasible, not later than 72 hours after becoming aware; other regimes vary (re-check `references/sources.md` before quoting clocks)
 3. **Customer notification** — If PII exposed
 4. **Credit monitoring** — Offer if SSN/financial data
 5. **Regulatory reporting** — HHS for HIPAA, etc.
