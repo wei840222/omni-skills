@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm quitting my job to freelance as a consultant. How do I calculate the hourly rate floor I should not go below?",
+    "expected": "Derive rate floor from take-home target, tax_setaside_pct, business costs, and realistic billable hours (not 2080); show the formula and a worked numeric example; state assumed tax jurisdiction if unset.",
+    "actual": "Applied Rule 1: pre-tax = take_home ÷ (1 − set-aside), billings = pre-tax + costs, floor = billings ÷ billable_hours_per_year. Used defaults 30% set-aside and 1,200 billable hours, walked a numeric example, and named the assumed tax jurisdiction before tax commentary because tax_jurisdiction was unset.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "One client is 65% of my trailing-12-month revenue and just asked me to cut my rate 25% for a six-month extension. What should I do?",
+    "expected": "Flag Rule 5 concentration red (>60%); refuse to treat the cut as free runway; evaluate cash-buffer impact; prefer scope/term trade or raise-on-renewal path; restart pipeline now; check classification risk if the engagement is exclusive/managed.",
+    "actual": "Named concentration red under Rule 5, refused to accept a 25% cut as the first move, sized buffer/runway impact, proposed keeping rate with scoped tradeoffs or timed renewal raise, required pipeline restart while the extension runs, and triggered a classification check because exclusivity/long-running single-client work was implied.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A new Upwork client wants to move off-platform and pay me directly before we even have a contract. They also asked for a free 4-hour trial. Advise me.",
+    "expected": "Treat off-platform-before-contract and unpaid multi-hour trial as red flags; keep escrow/protection; demand paid discovery or decline; load platforms guidance for ToS/exit rules; no paper/no work.",
+    "actual": "Marked both signals as stop/red-flag, refused unpaid 4-hour trial in favor of paid capped discovery, refused off-platform payment before contract, kept work inside escrow until terms exist, and routed to references/platforms.md for ToS and exit mechanics.",
+    "pass": true
+  }
+]
