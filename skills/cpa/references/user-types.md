@@ -52,7 +52,7 @@
 ### Needs
 - Score report analysis (why did they fail?)
 - Different strategy than first attempt
-- 18-month window pressure awareness
+- Credit-window pressure awareness (confirm Board length; commonly 30 months)
 - Psychological support and motivation
 - Targeted study plan focusing on weak areas
 

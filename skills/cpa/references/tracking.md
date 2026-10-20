@@ -1,6 +1,6 @@
 # CPA Progress Tracking System
 
-## File Structure in ~/Clawic/data/cpa/
+## File Structure in <state_root>/
 
 ### profile.md
 ```markdown
@@ -96,7 +96,7 @@
 ## Sections Covered
 - [ ] FAR - Scheduled: Jan 15
 - [ ] AUD - Not scheduled
-- [x] BEC - Passed Dec 20
+- [x] TCP - Passed Dec 20
 - [ ] REG - Not scheduled
 
 ## Fees Paid
@@ -121,7 +121,7 @@
 - Final score
 - Pass/fail
 - Credit expiration date added to calendar
-- 18-month clock updated
+- 30-month clock updated
 
 ## Alerts System
 
