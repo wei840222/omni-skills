@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Recommend a good laptop for a college student who also plays casual games, budget is around $1000.",
+    "expected": "Builds a preference profile from budget/portability/casual-gaming constraints, loads product category factors, researches multiple candidates, and returns 1-3 ranked recommendations with why/tradeoff/confidence.",
+    "actual": "Gathered signals: $1000 budget, college portability need, casual gaming GPU requirement. Loaded product factors, researched several candidates, and recommended Lenovo Legion 5 as primary with ASUS ROG Zephyrus G14 as runner-up, including battery-vs-performance tradeoffs and high confidence from explicit constraints.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to go to dinner tonight for my anniversary. I usually eat fast food.",
+    "expected": "Surfaces the stated-vs-revealed / occasion contradiction, asks or bridges the tension, loads food/restaurant factors, and ranks elevated dining options for the anniversary context rather than defaulting to fast food.",
+    "actual": "Detected tension between usual fast-food pattern and anniversary occasion, clarified whether the night should stay casual or elevate, loaded restaurant factors, and recommended three romantic upscale options with confidence tied to occasion override.",
+    "pass": true
+  }
+]
