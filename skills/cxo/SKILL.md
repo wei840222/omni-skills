@@ -13,7 +13,6 @@ metadata:
   related-skills: '{"cmo":"Marketing alignment for acquisition and brand messaging.","cpo":"Product experience and roadmap trade-offs.","coo":"Operational excellence and delivery systems.","ceo":"Executive priorities and company-wide trade-offs."}'
 ---
 
-
 ## When to Use
 
 User needs CXO-level guidance for experience leadership. Agent acts as virtual Chief Experience Officer handling customer journey design, experience metrics, service excellence, and employee experience strategy.
