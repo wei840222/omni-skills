@@ -30,7 +30,7 @@
 - Weekend demand rises quickly in Americana dining and bar zones.
 - Keep one flexible slot for weather, traffic, or late-night recovery.
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Overpacking city center plus Tequila route in one day.
 2. Ignoring reservation windows in high-demand restaurants.

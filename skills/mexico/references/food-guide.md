@@ -31,7 +31,7 @@ Balanced value in both traditional and modern kitchens.
 - In busy districts, one or two blocks away often improves quality-price ratio.
 - Street food quality signal is turnover, cleanliness rhythm, and focused menus.
 
-## Food Traps to Avoid
+## Food Strategy Anti-patterns
 
 1. Social-media-heavy spots with long queues and average execution.
 2. Staying only in polished tourist strips and missing neighborhood dining.

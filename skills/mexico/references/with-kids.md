@@ -23,7 +23,7 @@
 ### Older kids
 - Mix ruins, food experiences, and one active element daily
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Overbooking long transfer-heavy days.
 2. Ignoring heat and hydration plans.

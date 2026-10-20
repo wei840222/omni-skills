@@ -30,7 +30,7 @@
 - Late-night transport should be decided before final venue.
 - Venue quality differs block by block in tourist-heavy areas.
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Assuming every famous venue means best experience.
 2. Staying only in highest-tourist nightlife strips.

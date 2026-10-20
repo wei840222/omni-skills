@@ -23,7 +23,7 @@
 - Sargassum periods can affect some Caribbean beaches.
 - Parking and transfers can dominate time in peak periods.
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Planning beach-only days with no weather or algae backup.
 2. Underestimating heat and hydration needs.
