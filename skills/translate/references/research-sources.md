@@ -29,7 +29,7 @@ Re-open the live page before treating plural categories, language tags, bidi con
 
 ## Process and tooling references
 
-- https://www.iso.org/standard/59149.html
+- ISO 17100 translation-service process (translation + revision): https://www.iso.org/standard/59149.html
 - https://www.deepl.com/docs-api
 
 ## Usage rule

@@ -43,6 +43,7 @@ Practical planning posture before layout freeze:
 - Very short labels need the largest spare capacity
 - German / Finnish / Russian often sit toward the high end of expansion
 - CJK often contracts in characters but needs more line height and font coverage
+- Do not treat remembered IBM globalization percentage tables as live law; cite W3C text-size guidance and re-measure in the target UI
 
 Primary reference: https://www.w3.org/International/articles/article-text-size/
 
