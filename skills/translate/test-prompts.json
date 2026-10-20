@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this UI string catalog from English to Spanish for Latin America. One string is 'Open' on a toolbar button and another 'Open' is a status badge meaning the ticket is still open. Also we have 'Deleted {count} items' built by concatenation today.",
+    "expected": "Asks for or assumes es-419, refuses silent identical renderings without context, records assumptions, and rewrites concatenation into one ICU/plural-safe message with CLDR categories for the target locale while preserving placeholders.",
+    "actual": "Resolved locale to es-419 (regional variant_policy). Loaded references/software-strings.md. Flagged identical English keys with different senses as needing msgctxt/screenshot; recorded button=verb vs badge=adjective assumption in the delivery note. Replaced concatenation with a single ICU message using {count, plural, ...} and named placeholder; noted Spanish CLDR categories must be taken from the live CLDR chart rather than English one/other. Wrote glossary/register follow-ups under <state_root>/ after consent.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need German and Japanese translations of a medical dosage instruction for a device insert, and someone suggested just running DeepL because the deadline is tomorrow.",
+    "expected": "Treats content as regulated, blocks free-rein MT by default, requires locale+register, routes risk-bearing dosage segments through second-person or back-translation, and offers an on-machine workflow instead of sending confidential clinical text to a third party without disclosure.",
+    "actual": "Named target locales de-DE and ja-JP and asked for formality (Sie vs keigo level) once. Set mt_policy override to never for clinical dosage text; disclosed that DeepL would send source off-machine (references/research-sources.md + workflows.md). Required second-person revision or delayed self-review plus back-translation on dosage/negation segments per ISO 17100 posture. Offered on-machine human workflow and vendor brief template instead of free-rein MT.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our Arabic build shows the period on the left and some labels overflow the button after translation from English. What should we fix first?",
+    "expected": "Separates bidi isolation from string reversal, points to W3C bidi guidance, and applies expansion planning / re-measure before over-condensing German-style growth; loads locales-and-scripts plus software-strings references.",
+    "actual": "Diagnosed period-side issue as missing bidi isolation (not storage reversal); pointed to W3C inline-bidi and unicode controls pages via references/locales-and-scripts.md. Treated overflow as expansion: load software-strings.md, re-measure German-length labels, shorten source before over-condensing target, and re-check W3C text-size guidance rather than remembered IBM percentages.",
+    "pass": true
+  }
+]
