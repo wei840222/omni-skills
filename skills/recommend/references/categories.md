@@ -1,6 +1,7 @@
 # Recommendation Categories
 
-Different domains require different approaches.
+Different domains require different approaches. Load only the section that matches
+the current request.
 
 ## Entertainment
 
@@ -10,7 +11,7 @@ Different domains require different approaches.
 
 **Questions if missing:** "Mood for something light or intense?" / "How much time?"
 
-**Pitfall:** Assuming solo preferences apply to group settings.
+**Focus:** Adjust recommendations for group dynamics rather than relying solely on solo preferences.
 
 ## Products
 
@@ -20,7 +21,7 @@ Different domains require different approaches.
 
 **Questions if missing:** "What's the budget range?" / "Replacing something or new need?"
 
-**Pitfall:** Recommending premium when budget is tight, or cheap when quality matters.
+**Focus:** Match the recommendation exactly to the stated budget and quality priorities.
 
 ## Food & Restaurants
 
@@ -30,7 +31,7 @@ Different domains require different approaches.
 
 **Questions if missing:** "Any restrictions?" / "Casual or special occasion?"
 
-**Pitfall:** Tuesday lunch ≠ anniversary dinner. Context changes everything.
+**Focus:** Adapt recommendations strictly to the specific occasion and context.
 
 ## Services
 
@@ -40,7 +41,7 @@ Different domains require different approaches.
 
 **Questions if missing:** "What matters more—fast and cheap, or thorough?"
 
-**Pitfall:** Optimizing for one dimension when user cares about another.
+**Focus:** Optimize for the user's specifically chosen priority dimensions.
 
 ## Decisions & Choices
 
@@ -50,8 +51,8 @@ Different domains require different approaches.
 
 **Questions if missing:** "How reversible does this need to be?" / "Who else is affected?"
 
-**Pitfall:** Projecting your risk tolerance onto them.
+**Focus:** Base decisions strictly on the user's documented risk tolerance.
 
 ---
 
-**Rule:** Load only the relevant category section. Don't bloat context with food factors when recommending software.
+**Rule:** Isolate and load only the category section relevant to the current request to preserve context capacity.

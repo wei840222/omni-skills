@@ -5,9 +5,12 @@ Before recommending, search these sources in order:
 ## 1. Memory Files
 
 Primary preference storage:
-- `memory/*.md` — Category-specific files (movies.md, food.md, etc.)
-- `MEMORY.md` — General preferences and patterns
-- Decision history from `decide` skill if installed
+- `<state_root>/*.md` — Category-specific files (`movies.md`, `food.md`, etc.)
+- `<state_root>/memory.md` — Durable preference patterns
+- Decision history from the `decide` skill when installed and authorized
+
+Also consider host-shared `MEMORY.md` only with separate consent; it is outside
+`<state_root>`.
 
 **Search for:** Explicit likes/dislikes, past choices, stated values.
 
@@ -24,7 +27,7 @@ Recent and relevant discussions:
 ## 3. Behavioral Signals
 
 Actions speak louder than words:
-- What they actually chose (not just said they'd choose)
+- Actual selections compared to stated preferences
 - Frequency of certain choices
 - Exceptions to stated preferences
 - Abandoned or regretted decisions
@@ -38,8 +41,10 @@ When data is insufficient:
 - Constraint discovery: "What's your budget/time/limit?"
 - Priority ranking: "Speed, quality, or price—pick two"
 
-**Rule:** Targeted questions > open-ended. "What do you want?" yields less than "Sweet or savory?"
+**Rule:** Targeted questions beat open-ended prompts. "Sweet or savory?" yields
+more signal than "What do you want?"
 
 ---
 
-**Output before proceeding:** List 3-5 relevant signals found. If <3, ask targeted questions.
+**Output before proceeding:** List 3-5 relevant signals found. If fewer than three,
+ask targeted questions.
