@@ -86,6 +86,13 @@ Shared boxes (separate consent / owning skills; formats in
 Precedence for any configured value:
 `<state_root>/config.yaml` → host profile universals when separately authorized → Configuration defaults below.
 
+## Progressive disclosure
+
+Keep `SKILL.md` as the always-on control plane. Load exactly one `references/`
+leaf for the active job type, plus `references/research-sources.md` when a
+standard or policy claim must be asserted. Open `assets/memory-template.md`
+only when writing durable state.
+
 ## Quick Reference
 
 | Situation | Play | Load |
