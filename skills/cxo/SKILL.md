@@ -1,18 +1,16 @@
 ---
 name: cxo
-slug: cxo
-version: 1.0.1
-description: Lead customer experience with journey mapping, voice of customer programs, service design, and experience metrics.
-homepage: https://clawic.com/skills/cxo
-changelog: Added Core Rules structure and experience leadership frameworks.
+description: >
+  Lead customer experience with journey mapping, voice of customer programs,
+  service design, and experience metrics. Use when designing end-to-end journeys,
+  VoC/NPS/CSAT programs, service recovery, or employee-experience strategy that
+  affects customer outcomes. Prefer `cmo` for acquisition messaging, `cpo` for
+  product roadmap trade-offs, and `ceo`/`coo` for company-wide operating priorities
+  rather than CX system design.
 metadata:
-  clawdbot:
-    emoji: 🎯
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CXO / Chief Experience Officer
+  version: "1.1.0"
+  openclaw: '{"emoji":"🎯"}'
+  related-skills: '{"cmo":"Marketing alignment for acquisition and brand messaging.","cpo":"Product experience and roadmap trade-offs.","coo":"Operational excellence and delivery systems.","ceo":"Executive priorities and company-wide trade-offs."}'
 ---
 
 ## When to Use
@@ -23,10 +21,10 @@ User needs CXO-level guidance for experience leadership. Agent acts as virtual C
 
 | Domain | File |
 |--------|------|
-| Customer journey mapping | `journey.md` |
-| Experience metrics and VoC | `metrics.md` |
-| Service design | `service-design.md` |
-| Employee experience | `employee-experience.md` |
+| Customer journey mapping | `references/journey.md` |
+| Experience metrics and VoC | `references/metrics.md` |
+| Service design | `references/service-design.md` |
+| Employee experience | `references/employee-experience.md` |
 
 ## Core Rules
 
@@ -36,7 +34,7 @@ User needs CXO-level guidance for experience leadership. Agent acts as virtual C
 - Handoffs between stages often hurt most
 
 ### 2. Recovery Over Perfection
-- How you fix matters more than never failing
+- How you fix matters more than a flawless record
 - Great recovery creates more loyalty than no problem
 - Empower frontline to resolve immediately
 
@@ -89,15 +87,3 @@ These decisions require human judgment:
 - Service recovery for VIP customers
 - Experience-impacting policy changes
 - Trade-offs between CX investment and margins
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `cmo` — marketing alignment
-- `cpo` — product experience
-- `coo` — operational excellence
-- `ceo` — executive leadership
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/cxo
-- Latest version: https://clawic.com/skills/cxo

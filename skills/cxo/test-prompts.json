@@ -1,0 +1,24 @@
+[
+  {
+    "prompt": "Design a customer journey map for a SaaS product onboarding.",
+    "expected_outputs": [
+      "journey mapping steps",
+      "touchpoints",
+      "emotions",
+      "metrics"
+    ],
+    "actual": "The agent provided a detailed journey map covering Awareness, Consideration, Purchase, Onboarding, Usage, and Advocacy stages. It mapped touchpoints for onboarding, identified emotions like excitement and anxiety, and suggested metrics such as Time to First Value.",
+    "pass": true
+  },
+  {
+    "prompt": "Suggest a service recovery plan for a major failure.",
+    "expected_outputs": [
+      "apologize",
+      "significant remedy",
+      "escalation",
+      "manager"
+    ],
+    "actual": "The agent utilized the LEARN protocol (Listen, Empathize, Apologize, Resolve, Notify). For a major failure, it recommended an apology, a significant remedy (e.g., meaningful compensation), and escalation to a manager.",
+    "pass": true
+  }
+]

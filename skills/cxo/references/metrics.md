@@ -45,7 +45,7 @@
 ### Survey Best Practices
 - **Timing:** Ask when experience is fresh
 - **Length:** Max 3-5 questions for transactional
-- **Frequency:** Don't over-survey; max 1/quarter for relationship
+- **Frequency:** Limit surveys; max 1/quarter for relationship
 - **Follow-up:** Always ask "why" after score
 - **Close the loop:** Respond to detractors within 48h
 
