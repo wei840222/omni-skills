@@ -26,7 +26,7 @@ Good overlap between agave culture and modern wine programs.
 ### Baja routes
 Best full-day wine experiences with transport arranged in advance.
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Overpacking too many tastings in one day.
 2. Assuming all wineries accept walk-ins on weekends.

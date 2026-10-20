@@ -33,5 +33,10 @@
 ## Seasonal Notes
 
 - Peak holiday windows need earlier accommodation and transport booking.
-- Rainy and hurricane periods require flexible coastal planning.
+- Rain and hurricane periods require flexible coastal planning.
 - Shoulder weeks usually improve value and reservation access.
+
+## Duration Traps
+
+- Five days is usually one-base territory; CDMX + Oaxaca + beach in five days fails on transfers.
+- Confirm Tren Maya and long-distance bus/flight status on official pages before locking a coast finish.

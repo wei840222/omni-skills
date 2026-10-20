@@ -29,7 +29,7 @@
 - Book mezcal tastings and top restaurants ahead on weekends.
 - Use midday breaks in hotter months before evening plans.
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Trying to do Monte Alban plus long artisan route in one rushed day.
 2. Treating Oaxaca as only a quick stop between bigger destinations.

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 7-day trip to Mexico City. I love food and art, but I don't want to rush. Where should I stay and what should my daily rhythm look like?",
+    "expected": "Load references/cdmx.md, references/accommodation.md, and references/food-guide.md. Recommend Roma Norte / Condesa / Juarez style bases, market lunch timing, reserved dinners, museum pacing, and altitude downtime around 7,300 ft.",
+    "actual": "Reviewer dry-run: base in Roma Norte or Condesa; morning museums before queues; market lunch near 13:00; afternoon altitude recovery; reserve Thursday-Saturday dinners around 20:00. Routes through references/cdmx.md, references/food-guide.md, and references/accommodation.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can I do Mexico City, Oaxaca, and a beach in a 5-day trip?",
+    "expected": "Load references/itineraries.md, references/regions.md, and references/transport.md. Flag the multi-region transfer trap, explain that transfers consume most of a short trip, and recommend one primary base for five days.",
+    "actual": "Reviewer dry-run: reject CDMX + Oaxaca + beach in five days; transfers dominate; keep one base (focused CDMX or fly-in Oaxaca). Point to references/itineraries.md duration traps and references/transport.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We want to finish a Yucatan trip on Tren Maya from Cancun toward Tulum. Is that safe to lock in our itinerary tonight?",
+    "expected": "Load references/transport.md and references/sources.md. Tell the user to verify current Tren Maya segment and ticket status on the official site before locking plans; do not treat package text as a live timetable.",
+    "actual": "Reviewer dry-run: do not lock tonight from memory; open references/sources.md and https://www.trenmaya.gob.mx/ for live segment/ticket status, then fit coastal pacing from references/yucatan-riviera-maya.md.",
+    "pass": true
+  }
+]

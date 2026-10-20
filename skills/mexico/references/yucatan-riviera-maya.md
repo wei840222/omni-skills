@@ -28,7 +28,7 @@ This region is not one single base decision. Cancun, Playa del Carmen, Tulum, an
 - Pair ruins and cenotes by geography, not social-media checklist order.
 - Build midday rest windows in humid months.
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Treating Cancun to Tulum movement as frictionless at all times.
 2. Overstacking beach, ruins, and nightlife without recovery windows.

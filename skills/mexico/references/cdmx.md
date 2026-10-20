@@ -44,7 +44,7 @@
 - Rideshare is practical for late-night returns and cross-neighborhood jumps.
 - Traffic can reshape plans fast, especially weekday peaks.
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Staying only near the busiest tourist blocks.
 2. Packing too many museums and long meals into one day.

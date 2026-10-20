@@ -13,7 +13,7 @@
 ## Transport and Area Safety
 
 - Use planned transport after late nights.
-- Avoid unnecessary late-night route improvisation in unfamiliar areas.
+- Use pre-planned routes for late-night movement in unfamiliar areas.
 - Build arrival-day plans around known transfer options.
 
 ## Weather and Outdoor Safety

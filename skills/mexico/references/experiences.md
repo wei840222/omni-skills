@@ -20,7 +20,7 @@
 | Rainy months | City and food-focused plans with flexible coast windows |
 | Holiday peaks | Book key stays and experiences earlier |
 
-## Mistakes to Avoid
+## Common Anti-patterns
 
 1. Treating weather as stable across all regions.
 2. Using one fixed plan with no alternatives.

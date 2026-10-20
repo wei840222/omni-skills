@@ -20,6 +20,6 @@
 
 ## Respect and Awareness
 
-- Regional identities are strong; avoid treating all areas the same.
+- Regional identities are strong; recognize that regional identities are distinct.
 - Dress and behavior expectations can differ in religious and heritage sites.
 - Local recommendations often outperform generic listicles.
