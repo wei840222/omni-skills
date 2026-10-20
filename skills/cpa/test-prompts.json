@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a working professional who wants to take the CPA exam. I just finished my accounting degree last year. Can you help me schedule my first exam and figure out what order I should take them in?",
+    "expected": "Asks for Board/state eligibility context, recommends a Core/Discipline section order from background, mentions the jurisdiction credit window (commonly 30 months), and asks about review-course constraints before locking dates.",
+    "actual": "Asked for state/Board, work hours, and background; recommended FAR first under Core+Discipline; explained a 30-month-style credit window with a jurisdiction check; and sketched a study-plan tracker under <state_root>/.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I failed FAR with a 68. The score report says I was weaker in Government accounting and Leases, but comparable in Conceptual Framework. I used Becker and have 22 months left on my window. What's the plan?",
+    "expected": "Analyzes weaker/comparable bands, assigns full re-learn to weaker topics and moderate review to comparable ones, and produces a focused retake schedule that preserves the remaining credit window.",
+    "actual": "Parsed the score bands, prioritized Government/NFP and Leases for full re-learn, kept Conceptual Framework as moderate review, and built a 4-week retake plan while tracking the remaining credit-window cliff.",
+    "pass": true
+  }
+]

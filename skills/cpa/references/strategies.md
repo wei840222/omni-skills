@@ -7,8 +7,8 @@
 - **Best for:** Full-time students, those with strong accounting foundation
 - **Risk:** If you fail FAR, morale hit early
 
-### Momentum: BEC First
-- **Logic:** BEC is shortest, most conceptual; build confidence
+### Momentum: Discipline First
+- **Logic:** The discipline (BAR, ISC, or TCP) might align closely with current interests or recent college courses; build confidence
 - **Best for:** Working professionals, those returning to study after break
 - **Risk:** May underestimate FAR difficulty later
 
@@ -16,11 +16,11 @@
 - **Work in audit?** → AUD first (leverage daily experience)
 - **Work in tax?** → REG first
 - **Work in financial reporting?** → FAR first
-- **Corporate accounting?** → BEC first
+- **IT/Systems interest?** → ISC first
 
 ### Strategic Pairing
 - **FAR + AUD:** Overlap in financial statement concepts
-- **REG + BEC:** Both have business law elements
+- **REG + TCP:** TCP is a natural extension of REG
 - **FAR + REG:** Tax accounting connects to financial accounting
 
 ## Study Approaches by Section
@@ -43,11 +43,11 @@
 - Individual tax is highest weight
 - Business law is straightforward but easy to neglect
 
-### BEC
-- 4-5 weeks typical
-- Written communication is free points if you practice
-- Cost accounting calculations require practice
-- Economics section is conceptual—don't overstudy
+### Discipline Sections (BAR, ISC, TCP)
+- 4-6 weeks typical
+- **BAR:** Pairs well with FAR. Focus on data analytics and advanced technical accounting.
+- **ISC:** Pairs well with AUD. Focus on IT governance and SOC reports.
+- **TCP:** Pairs well with REG. Focus on entity planning and advanced taxation. Choose based on your career goals.
 
 ## Working Professional Strategy
 
@@ -58,8 +58,8 @@
 - Weekends for simulations and practice exams
 
 ### Busy Season Adjustments
-- Don't schedule exams during busy season (Jan-April for tax, year-end for audit)
-- Reduce study hours during crunch; don't stop entirely
+- Schedule exams outside of busy season (Jan-April for tax, year-end for audit)
+- Maintain a reduced baseline of study hours during crunch periods rather than pausing entirely
 - Use busy season to mentally "rest" one section, then return
 
 ### Leverage Work Experience
@@ -74,7 +74,7 @@
 - Compare to your study hours per topic
 - Identify: did you understudy it, or just not understand it?
 
-### Don't Restudy Everything
+### Targeted Retake Review
 - "Stronger" areas need light review only
 - "Weaker" areas need full re-learn
 - "Comparable" areas need moderate review
@@ -85,7 +85,7 @@
 - Hammering method: repeat only questions you miss until 90%+ accuracy
 
 ### Timeline Pressure
-- Calculate 18-month cliff
+- Calculate the 30-month cliff (jurisdiction dependent, but 30 is the new standard)
 - If credits expiring soon, prioritize those sections
 - Consider taking two sections close together if time is critical
 
