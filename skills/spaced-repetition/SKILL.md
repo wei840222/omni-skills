@@ -1,135 +1,126 @@
 ---
 name: spaced-repetition
-slug: spaced-repetition
-version: 1.0.0
-description: Scheduling review of material at expanding intervals to optimize long-term retention.
-homepage: https://clawic.com/skills/spaced-repetition
+description: >
+  Explain and apply spaced-repetition scheduling: retrieval practice, forgetting-curve
+  timing, SM-2 vs FSRS, atomic card design, review-load math, leeches/ease hell, and
+  when SR is the wrong tool. Use when choosing intervals or desired retention, clearing
+  a review backlog, rewriting failing cards, migrating SM-2→FSRS, or deciding whether
+  a fact belongs in a spaced deck. Prefer `anki` for Anki UI/sync/import operations,
+  `flashcards` for card-format authoring without scheduler theory, and `studying` for
+  exam countdowns and study-session coaching.
 metadata:
-  clawdbot:
-    emoji: ⚡
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Spaced Repetition
+  version: "1.1.0"
+  openclaw: '{"emoji":"⚡"}'
+  related-skills: '{"anki":"Anki product operations: deck options UI, FSRS toggles, sync, imports, templates.","flashcards":"Atomic card authoring and TSV/export formats when the ask is writing cards, not scheduling theory.","learning":"Broader learning strategy; use when SR is only one tactic inside a larger learning plan.","memory":"Durable fact store for lookup; use when the goal is storing a fact to retrieve later, not practicing recall on a schedule.","notes":"Source material and atomic notes that feed cards; use when capturing notes before carding.","studying":"Exam countdowns, study blocks, and session coaching beyond scheduler mechanics."}'
 ---
+
+This skill is knowledge-only: it does not store local configuration or persistent user state. Anki collection data stays in the user's Anki app; optional preferences for Anki itself belong to the `anki` skill's `<state_root>`.
+
+Load `references/supermemo.md` when choosing SM-2 vs FSRS, setting desired retention, or diagnosing interval explosion / ease hell. Load `references/sources.md` when a claim needs a primary URL or version-sensitive default.
+
+## When to use
+
+- Picking or explaining a review schedule (expanding intervals, desired retention)
+- Designing or repairing cards so retrieval—not rereading—drives learning
+- Diagnosing backlog, leeches, ease hell, or review-load blow-ups
+- Deciding that SR is the wrong tool (motor skills, daily procedures, one-off jargon)
+- Hand off Anki clicks/sync/imports to `anki`; hand off exam plans to `studying`
 
 ## Mechanism: retrieval is the active ingredient
 
 Spacing is the schedule; retrieval is the drug. Spacing rereading barely beats massed rereading; the retention gain lives in forcing recall, then checking.
 
-- Active recall first, feedback second: the act of pulling the answer out (not reading it) is what consolidates. A card where you peek before trying is a reread, not a review.
-- Testing effect size: retrieval beats rereading by ~2x at a one-week delay, and the gap widens as the delay grows (Roediger/Karpicke). The longer the gap, the more retrieval pays.
-- Desirable difficulty: a review you struggle slightly to recall consolidates more than one that is instant. A card always answered in <1s is over-reviewed; one you always fail is under-learned or badly written.
-- Recognition vs recall: multiple-choice and "looks familiar" build familiarity, not retrievability. Build cards that demand production (type the answer, say it aloud), not yes/no recognition.
-- Recollection, not familiarity, is the goal: SR defeats the illusion of knowing (you reread, it feels known, you cannot produce it). The proof of learning is reproducing the answer unaided.
-- No retrieval, no spacing benefit: passive re-exposure on a spaced schedule (re-reading notes every few days) yields a fraction of the gain. If you cannot make yourself retrieve, the schedule is wasted.
-- Feedback must be honest: grade against the real answer before marking known. Self-flattery ("I basically had it") is the silent killer; the curve punishes lenient grading within a week.
+- Active recall first, feedback second: pulling the answer out consolidates; peeking before trying is a reread.
+- Testing effect: retrieval beats rereading by roughly 2× at a one-week delay, and the gap widens with longer delays (Roediger/Karpicke line of work — see `references/sources.md`).
+- Desirable difficulty: slight struggle beats instant answers. Always-<1s cards are over-reviewed; always-fail cards are under-learned or badly written.
+- Prefer production over recognition: typed/spoken answers beat multiple-choice familiarity.
+- Honest grading: mark against the real answer. Self-flattery ("I basically had it") silently inflates intervals.
 
-## The forgetting curve and interval ladder
+## Forgetting curve and interval ladder
 
-- Curve shape: steepest in the first 24h. Nonsense-syllable retention drops to ~33% within a day and ~25% within a month (Ebbinghaus); real meaningful material decays slower, but the early-steep shape holds.
-- The first review is the highest-leverage: skipping day-1 review loses the most. The schedule front-loads reviews because that is where decay is fastest.
-- Expanding beats equal spacing for a fixed review budget: 1, 3, 7, 14, 28 beats 5, 5, 5, 5, 5. Expanding catches early decay, then spends reviews where decay has slowed.
-- A typical first ladder (SM-2-ish): 1d -> 3d -> 7d -> 14d -> 28d -> 60d -> 120d. Not a law; the algorithm adjusts the next interval from your grade.
-- The interval is a prediction of when you are about to forget, not a target to hit. Shorter-than-expected means you forgot, the interval was too long. Longer-than-expected and still easy means intervals are too short.
-- "About to forget" is the review moment: reviewing when recall is effortful but successful consolidates best. Reviewing when recall is instant wastes a slot; reviewing after you have forgotten relearns, does not reinforce.
-- Do not pre-empt the schedule: reviewing early "to be safe" collapses intervals and multiplies load. Trust the algorithm; if retention is off, fix the target or the card, not the timing.
+- Decay is steepest early (first day); day-1 review is the highest-leverage slot. Use the forgetting-curve overview in `references/sources.md` for shape, not as a universal percentage table.
+- For a fixed review budget, expanding schedules (1, 3, 7, 14, 28…) beat equal spacing.
+- A typical SM-2-ish first ladder: 1d → 3d → 7d → 14d → 28d → 60d → 120d. The algorithm then adjusts from grades.
+- The interval predicts when you are about to forget. Review when recall is effortful but successful; early "just in case" reviews collapse intervals and multiply load.
 
 ## Algorithms: SM-2 vs FSRS
 
-- SM-2 (Anki's legacy engine, from SuperMemo, 1987): each grade multiplies the interval by an ease factor; ease drifts up on "easy", down on "hard". No target retention; the schedule is a heuristic.
-- SM-2 weakness: ease inflates on early easy cards then never recovers, producing absurd intervals (a card "known" after three easy taps lands at a 6-month interval you will actually fail). Interval explosion is the tell.
-- FSRS (Free Spaced Repetition Scheduler): optimizes to a desired retention (default 0.9) via 19 parameters fit to your personal review history. Replaces SM-2 in Anki as of ~2024; strictly better once you have ~1k reviews logged to fit on.
-- FSRS needs history: on a fresh profile with <1000 reviews it falls back to defaults; the fit improves as data accumulates. Do not judge FSRS on the first week.
-- Set desired retention to 0.9 unless you have a reason. 0.85 = fewer reviews, more forgetting; 0.95+ = review load balloons. 0.97 costs ~2x the reviews of 0.90 (FSRS).
-- Retention target is the lever, not the interval: decide how much you can afford to forget, set the target, let the algorithm produce the intervals. Hand-tuning intervals per card is the #1000's rabbit hole.
-- Re-grade on actual recall, not difficulty feeling: marking "hard" because you disliked the question inflates load. Mark hard only when recall was slow or partial, not when the card annoys you.
-- Migration: SM-2 -> FSRS re-estimates intervals from history; expect some cards to jump shorter (they were over-scheduled) and some longer (under-scheduled). Let it settle a month before judging.
+Summary here; decision notes and URLs in `references/supermemo.md`.
+
+- **SM-2**: ease-factor heuristic, no retention target. Weakness — ease inflation → absurd multi-month intervals.
+- **FSRS**: targets desired retention (commonly 0.90 in Anki) with parameters fit on personal history; defaults until enough reviews exist.
+- Treat desired retention as the workload dial. ~0.85 = fewer reviews, more forgetting; ≥0.95 balloons load; guidance near 0.97 is roughly double the reviews of 0.90 (ABC of FSRS).
+- Grade by actual recall quality, not annoyance. After SM-2→FSRS migration, wait ~1 month of honest grading before judging intervals.
+- Product toggles live in Anki deck options — use skill `anki` for the UI path.
 
 ## Card design
 
-- One atomic fact per card: a card with three things to recall fails as one. If you miss one, you fail all three and cannot tell which. Split into three cards; review cost is the same, signal is clean.
-- Minimum information: the question should be answerable in a word or short phrase. A paragraph on the answer side means you are not testing recall, you are re-reading.
-- Cloze (fill-the-blank) for facts inside a sentence; Q&A for concepts needing a produced answer. Cloze is faster to author and good for lists and definitions; Q&A for anything where the blank gives away the answer.
-- Context-sufficiency: the card must make sense without the deck around it. A card that reads "the third one" only works in its original list; six months later it is opaque. Write the full question on the card.
-- Avoid yes/no and "did you understand": recognition, not recall. "Is X true?" lets familiarity pass. Force production: "What is X?"
-- Reverse cards for bidirectional facts: capital -> country and country -> capital are two cards. Language, names, and pairs need both directions or you build one-way recall.
-- Interference kills: near-synonyms (two foreign words for "big"), adjacent numbers (cranial nerves), similar formulas. If you keep confusing two cards, they interfere: merge, distinguish with a mnemonic, or stagger them apart.
-- Images where they earn it: anatomy, maps, diagrams. A labeled image beats a sentence for spatial and visual facts. Do not decorate; an image earns its place only if recall depends on it.
-- Do not copy textbook paragraphs as cards: they fail the atomic test and you will suspend them within a month. Pre-process: read, understand, then write 5-10 atomic cards capturing what you would want to recall in a year.
-- Source on the card: tag with origin so you can fix it when it is wrong. A card with no source cannot be audited; six months later you will not know if you misremembered the fact or the source did.
+- One atomic fact per card. Miss one item in a three-fact card and you cannot tell which failed — split it.
+- Minimum information: answer in a word or short phrase. A paragraph answer is a reread.
+- Cloze for facts inside a sentence; Q&A when a blank would leak the answer or a produced explanation is required.
+- Context-sufficient: the card must make sense months later without the surrounding deck.
+- Prefer production prompts ("What is X?") over yes/no recognition.
+- Bidirectional pairs need reverse cards (capital↔country, language pairs).
+- Interference: near-synonyms, adjacent numbers, similar formulas — merge, distinguish with a mnemonic, or stagger.
+- Use images only when recall depends on them (anatomy, maps, diagrams).
+- Pre-process sources: understand first, then write 5–10 atomic cards for what must still be recallable in a year. Tag each card with its source so wrong facts can be audited.
 
 ## Review economy and target retention
 
-- The marginal-retention curve is steep above 0.9: each 1% of desired retention above 0.90 adds ~10% more reviews (FSRS). 0.97 is roughly double the load of 0.90 for ~7% more remembered.
-- Sustainable new-card rate: 10-20 new/day for a serious learner; each new card generates ~7-10 reviews over its first month. 50 new/day buries you within weeks.
-- The steady state: at 0.9 retention with steady additions, daily reviews settle around 7-10x your daily new-card count. 20 new/day -> ~140-200 reviews/day at equilibrium.
-- Backlog is the failure mode: missing days compounds. A 3-day miss on a 150/day habit = 450 backlogged, which you will rush-grade (lenient, useless) or abandon. Daily, even if short, beats binge.
-- Cap reviews if you must, never new cards: cutting new cards keeps the deck from growing; cutting reviews lets the backlog rot. If overloaded, freeze new cards and grind reviews to zero first.
-- Review time budget: a mature card takes ~5-8s; a new or failed card 15-30s. 100 mature reviews ~10-15 min; 100 new or failing ~30-40 min. Budget by composition, not count.
-- Grade honestly even when slow: a review you got right-but-slow is "hard", not "good". Lenient grading under time pressure is the main reason decks silently rot.
+- Above 0.90, marginal retention is expensive: each extra retention point costs substantial review volume (FSRS guidance; see `references/supermemo.md`).
+- Sustainable new-card rate for a serious learner: about 10–20 new/day. Each new card generates roughly 7–10 reviews in its first month.
+- Steady state at 0.9 with steady additions: daily reviews ≈ 7–10× daily new cards (e.g. 20 new → ~140–200 reviews).
+- Backlog compounds. Prefer a short daily session over binge grading.
+- If overloaded: freeze new cards first and grind due reviews down; cutting reviews while adding new cards lets the deck rot.
+- Time budget: mature cards ~5–8s; new/failed ~15–30s. Grade honest even when slow — right-but-slow is Hard, not Good.
 
 ## Leeches, ease hell, and failure modes
 
-- Leech: a card you fail repeatedly. Anki flags at 8 lapses by default. A leech means the card is broken, not that you are dumb; fix or kill it.
-- Leech fixes, in order: rewrite it smaller, add a mnemonic, add an image, split it. If it still leeches after a rewrite, suspend it: one bad card drains disproportionate time.
-- Ease hell (SM-2): ease factor driven to its 1.3 floor by repeated "hard" grades, so intervals barely grow and the card reviews daily forever. Symptom: a card you have seen 30 times still at a 1-day interval.
-- Ease hell fix: reset the ease (Anki: set due date + reset, or migrate to FSRS which has no ease floor). The root cause is usually a badly-written card or chronic lenient-then-panicked grading; fix the card.
-- The lenient-grade trap: marking "good" on a slow recall to keep the deck moving inflates intervals, then you fail the card a week later, hammer ease, enter hell. Grade by recall quality, not by desired speed.
-- Over-learning a failed card: re-learning it 5x the same day does not help retention; it trains short-term memory. One clean recall, then let the schedule carry it.
-- Deck bloat: pre-made decks of 10k cards feel like progress; the math says you will never review them all. The #1 adds cards they have already engaged with, not decks to "cover later".
-- Suspended-card debt: suspending instead of deleting accumulates a graveyard you will never revisit. Periodically delete, not just suspend.
+- **Leech**: repeated failures (Anki default flag often at 8 lapses). The card is broken. Fix order: rewrite smaller → mnemonic → image → split → suspend if still failing.
+- **Ease hell (SM-2)**: ease driven to the ~1.3 floor so intervals barely grow. Reset ease and fix the card, or migrate to FSRS (no ease floor).
+- Lenient-grade trap: marking Good on slow recall to "keep moving" inflates intervals, then fails later and hammers ease.
+- Same-day over-learning: five relearns in one day trains short-term memory. One clean recall, then trust the schedule.
+- Deck bloat: huge untouched pre-made decks are not progress. Add cards already engaged with.
+- Suspended-card debt: periodically delete cards you will never revive.
 
 ## When spaced repetition is the wrong tool
 
-- Physical skills (serving a tennis ball, intubation): SR schedules recall of facts, not motor patterns. Motor learning needs massed, varied, feedback-driven practice, not spaced recall.
-- Procedures you use daily: if you do it every day, the job is the review; adding SR cards for it is overhead. SR is for things you would otherwise forget.
-- Understanding vs facts: SR holds facts and definitions; it does not build conceptual understanding. Learn the concept first (problems, explanation), then SR the facts you must recall cold.
-- Anything you can look up faster than recall: a rarely-used API endpoint you will always have docs for is not worth a card. SR costs review time; spend it on what must be in your head.
-- Near-term, then discard: material for a one-off task (a client's internal jargon for a 2-week project) does not deserve lifelong retention. Use it, drop it.
-- Massive, rapidly-changing sets: a 5000-card med-school deck you will relearn on rotation is borderline; maintenance cost can exceed value. Prefer fewer, high-yield cards.
+- Motor skills (serve, intubation): need massed, varied, feedback-driven practice — not spaced fact recall.
+- Daily procedures: the job is the review; SR is overhead.
+- Conceptual understanding first: learn via problems/explanation, then SR the facts that must be cold-recallable.
+- Look-up-faster-than-recall trivia (rare API endpoints with durable docs).
+- Near-term disposable jargon for a short project.
+- Massive, rapidly rotating sets where maintenance cost exceeds value — prefer fewer high-yield cards.
 
 ## Habit and daily load
 
-- Daily, not "when I have time": the schedule assumes consistency. Two days on, five off collapses intervals and spikes load; the algorithm cannot fit your forgetting.
-- One deck, one habit: reviewing across 8 small decks in scattered sessions erodes the habit. Consolidate into a daily review you do at a fixed time.
-- Review before adding: new cards compete for today's time with due reviews. Clear due first, then add new within your budget.
-- Mobile for reviews, desktop for adding: the friction of card creation belongs at a desk where you think; review is a 5-second-per-card loop you do anywhere.
-- Set a daily new-card ceiling and hold it for months: the temptation after a motivated weekend is to add 100; that is borrowing reviews from future-you at interest.
-- Audit the deck quarterly: delete leeches, rewrite confusing cards, check retention stats. A deck that is never audited decays toward a pile of cards you fail and ignore.
-- Do not review when exhausted: a tired review is a lenient review. Better to halve the load than to speed-grade 300 cards into uselessness.
+- Daily consistency beats heroic weekends; the algorithm assumes steady input.
+- Prefer one consolidated daily review habit over scattered micro-decks.
+- Clear due reviews before adding new cards.
+- Mobile for reviews; desktop for thoughtful card creation.
+- Hold a new-card ceiling for months; a motivated 100-card binge borrows future reviews at interest.
+- Audit quarterly: delete leeches, rewrite confusing cards, check retention stats.
+- Review when rested enough to grade honestly; halve load rather than speed-grade hundreds of cards into noise.
 
 ## Situations
 
 | Situation | Play |
 |---|---|
-| 500+ reviews backlogged | Freeze new cards, set a review cap you will actually do daily, grind to zero over 1-2 weeks. Do not binge-grade. |
-| Failed the same card 4 times today | It is a leech in the making. Rewrite it smaller or split it; if still failing, suspend. |
-| Learning a language with 50 near-synonyms | They will interfere. Add a distinguishing context to each card, or batch one synonym at a time over weeks. |
-| Exam in 3 days | SR will not save you. Massed practice plus practice questions now; feed what stuck into SR after. |
-| A card whose answer is a paragraph | It is not a card, it is a note. Break into 5-8 atomic cards or delete it. |
-| Reviews take >45 min/day | Lower desired retention to 0.85, cut new cards, or accept it. Load is a function of deck size and target. |
-| Want to learn to intubate | Wrong tool. Massed, supervised motor practice with feedback; SR only for the facts around it. |
-| Switching SM-2 to FSRS | Enable FSRS, let it optimize on existing history, keep retention at 0.9, wait a month before judging intervals. |
-| Two cards you keep swapping answers to | Interference. Merge into one card, add a distinguishing mnemonic, or stagger them. |
-| Just added 80 new cards in a day | Stop. You borrowed ~600 future reviews at interest. Cap at 10-20/day for the next week to absorb. |
+| 500+ reviews backlogged | Freeze new cards; set a daily review cap you will keep; grind to zero over 1–2 weeks with honest grades. |
+| Failed the same card 4× today | Treat as a forming leech: rewrite/split; suspend if still failing. |
+| Language deck with 50 near-synonyms | Expect interference; add distinguishing context or introduce one synonym cluster at a time. |
+| Exam in 3 days | SR will not rescue you now. Massed practice + practice questions; feed survivors into SR afterward (`studying`). |
+| Answer side is a paragraph | Not a card. Split into 5–8 atomic cards or delete. |
+| Reviews >45 min/day | Lower desired retention toward 0.85, cut new cards, or accept the cost. |
+| Want to learn a motor skill | Out of scope for SR. Massed supervised practice; SR only surrounding facts. |
+| Switching SM-2 → FSRS | Enable FSRS, keep ~0.90, wait a month before judging (`references/supermemo.md`, skill `anki`). |
+| Two cards keep swapping answers | Interference: merge, mnemonic, or stagger. |
+| Added 80 new cards in one day | Stop. Cap at 10–20/day next week to absorb the borrowed reviews. |
 
 ## Where camps disagree
 
-- **SM-2 vs FSRS**: SM-2 is simple, universal, no fit needed; FSRS optimizes to a retention target and beats SM-2 on review economy once you have ~1k+ reviews to fit on. FSRS wins for anyone with history; SM-2 only wins on a brand-new profile or a tool that does not support FSRS.
-- **Cloze vs Q&A**: cloze wins for speed and lists (definitions, facts inside sentences); Q&A wins for concepts where the blank would cue the answer and for anything requiring a produced explanation. The line is whether the blank leaks the answer.
-- **Pre-made decks vs self-made**: pre-made wins for bounded, high-consensus material (a country-capital deck, a drug-name deck); self-made wins for anything conceptual, because authoring is part of learning. Pre-made decks fail when the learner never engaged with the material first.
-- **Cap daily reviews vs unlimited**: capping prevents burnout and the backlog death-spiral but truncates the schedule; unlimited stays on schedule but can overwhelm. Cap when load threatens the habit; uncap when you can sustain it daily.
-- **Recognition vs recall grading**: recognition (flip-and-nod) is fast and lenient, builds familiarity; recall (produce before flipping) is slower, builds retrievability. Recall wins for anything you must produce; recognition is acceptable only for things you must merely recognize.
-
-## Related Skills
-
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `anki` - the dominant SR app: FSRS, deck options, card templates, add-ons
-- `memory` - the cognitive substrate: encoding, consolidation, the testing effect in depth
-- `learning` - broader learning strategy SR plugs into; when to reach for SR vs alternatives
-- `flashcards` - card authoring at scale: cloze design, shared decks, classroom use
-- `notes` - the source material; atomic notes feed atomic cards
+- **SM-2 vs FSRS**: FSRS wins on review economy once history exists; SM-2 remains only for brand-new profiles or tools without FSRS.
+- **Cloze vs Q&A**: cloze for speed/lists; Q&A when blanks leak answers or explanations must be produced.
+- **Pre-made vs self-made decks**: pre-made for bounded high-consensus facts; self-made for conceptual material (authoring is learning).
+- **Cap reviews vs unlimited**: cap when load threatens the habit; uncap when daily consistency is sustainable.
+- **Recognition vs recall grading**: recall wins whenever production is the goal; recognition only when recognition itself is the skill.
