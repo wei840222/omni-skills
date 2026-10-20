@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I pasted a whole textbook paragraph as the answer on one Anki card. Is that good spaced-repetition practice?",
+    "expected": "Reject paragraph-as-answer cards. Require atomic cards (one retrievable fact), explain that a paragraph answer becomes rereading not recall, and tell the user to split into several short cards after understanding the material.",
+    "actual": "Structural dry-run against SKILL.md Card design + Situations: answer leads with atomic-fact rule, rejects paragraph answers as rereads, and directs a 5–10 card split after pre-processing. Matches expected. Host did not invoke a live Anki UI.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have failed the same capital-city card about 30 times and keep pressing Hard. What should I do under spaced repetition?",
+    "expected": "Treat it as a leech / broken card. Prefer rewrite, mnemonic, image, or split; suspend if still failing. Do not keep hammering Hard on the same wording. Mention ease-hell risk under SM-2 and that FSRS avoids the ease floor.",
+    "actual": "Structural dry-run against Leeches / ease hell: identifies leech, ordered fixes (rewrite → mnemonic/image/split → suspend), warns against endless Hard presses, and notes SM-2 ease-floor vs FSRS. Matches expected.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I raise FSRS desired retention from 0.90 to 0.97 to remember more for my medical deck?",
+    "expected": "Explain desired retention as a workload dial. Note the steep cost above 0.90 (order-of-magnitude: ~2x reviews near 0.97 vs 0.90 per FSRS guidance) and recommend staying near 0.90 unless the user can sustain the load; point to Anki deck options / FSRS docs rather than inventing exact personal parameters.",
+    "actual": "Structural dry-run against Algorithms + Review economy + references/supermemo.md: keeps 0.90 as default lever, cites sharp review-cost rise toward 0.97, and routes product knobs to Anki/FSRS sources. No fabricated personal fit parameters. Matches expected.",
+    "pass": true
+  }
+]
