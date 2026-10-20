@@ -179,7 +179,9 @@ Preference areas recorded into config when stated: tooling, key/comment conventi
 - Before proposing MT, state which content would leave the machine. For legal, medical, personal, or confidential material, prefer an on-machine workflow.
 - Keep preferences, glossaries, style decisions, and delivery records under `<state_root>/`. Terms, locale codes, and word counts only by default.
 
-## Do Not Translate (default)
+## Default non-translation classes
+
+Keep these classes in the source form unless the brief explicitly localizes them:
 
 Code and identifiers · placeholders in every syntax · HTML/XML tag and attribute names · URLs/paths/extensions · emails/phones · API endpoints/params/headers/error codes · brand names without a registered local form · unit symbols · license IDs · English-kept key names · legal-entity suffixes · citations/DOIs/ISBNs · quoted UI that the reader will still see in the source language.
 
