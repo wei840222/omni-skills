@@ -44,9 +44,7 @@ by default.
 
 Host-shared memory such as workspace `MEMORY.md` is outside `<state_root>` and
 needs separate consent. Shared contact, project, or subscription rows belong to
-their owning skills and are listed separately below. Never store MT/CAT API
-secrets, full source documents under NDA, or third-party private data in
-translate state unless the user explicitly asks to keep a named reference text.
+their owning skills and are listed separately below. Store only term/locale/job metadata under translate state by default. Keep MT/CAT API secrets, NDA source dumps, and third-party private data out unless the user explicitly asks to retain a named reference text.
 
 ```text
 <state_root>/
