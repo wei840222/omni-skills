@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a README for a CLI that resizes images. Keep it to the documentation skill essentials.",
+    "expected": "Includes a one-sentence problem statement, copy-paste install, a minimal runnable quick start with expected output, and a link to fuller docs; stays README-scoped rather than dumping full reference.",
+    "actual": "img-resizer turns image files into the size you need from the terminal.\n\nInstall: `npm install -g img-resizer@2.1.0`\n\nQuick start:\n```bash\nimg-resizer photo.jpg --width 800 --out photo-800.jpg\n# writes photo-800.jpg (800px wide, aspect preserved)\n```\n\nFull docs: https://example.com/img-resizer/docs",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Review this API documentation and tell me what is missing: `GET /users returns a list of users.`",
+    "expected": "Flags missing authentication, parameters, real response body, and error codes; may also call out rate limits/pagination; does not invent endpoint behavior beyond the gap list.",
+    "actual": "The line is too thin for API reference. Add authentication, path/query parameters, a real response body example, and error codes. Put rate limits and pagination near the top once those exist.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our docs page mixes a beginner walkthrough with exhaustive CLI flags. How should we split it using Diátaxis?",
+    "expected": "Separates a tutorial or how-to path from a reference page, explains why mixing types fails, and does not invent product features.",
+    "actual": "Keep a tutorial/how-to for first success or the concrete task, and move the exhaustive flag list to a reference page. Mixing guided learning with lookup docs makes both audiences bounce.",
+    "pass": true
+  }
+]
