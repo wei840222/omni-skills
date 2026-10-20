@@ -23,7 +23,7 @@ A service blueprint maps both customer-facing and backstage elements:
 ## Channel Orchestration
 
 ### Channel Roles
-| Channel | Best For | Avoid For |
+| Channel | Best For | Ineffective For |
 |---------|----------|-----------|
 | **Self-service** | Simple queries, account management | Complex issues, emotional situations |
 | **Chat** | Quick questions, multitasking customers | Long conversations, sensitive data |
@@ -59,7 +59,7 @@ Customers who experience a problem that's well-resolved can become more loyal th
 | Critical/legal | Immediate escalation, executive involvement | CXO/CEO |
 
 ### Compensation Guidelines
-- **Match severity** — Don't over or under compensate
+- **Match severity** — Calibrate compensation appropriately
 - **Speed matters** — Faster resolution = less compensation needed
 - **Choice when possible** — Let customer pick remedy
 - **Document everything** — For patterns and policy refinement
