@@ -1,79 +1,92 @@
 ---
 name: estonian
-slug: estonian
-version: 1.0.0
-description: Write Estonian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/estonian
+description: >
+  Compose, translate, and revise natural Estonian for messages, posts, and
+  everyday copy. Use when Estonian text needs sina/Teie, understatement,
+  particles (noh, ju, küll), fillers, or a less formal translation; keep Teie
+  and standard register for official or unfamiliar recipients. Prefer
+  finnish/swedish for those languages and translate for multi-locale jobs—not
+  a full language course.
 metadata:
-  clawdbot:
-    emoji: 🇪🇪
-    displayName: Estonian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇪🇪"}'
+  related-skills: '{"finnish":"Write Finnish when Estonian is not the target language.","swedish":"Write Swedish when Estonian is not the target language.","translate":"Translate an existing source text into Estonian across a broader localization job.","writing":"Shape broader prose once the Estonian-language decision is settled.","english":"Draft or revise the English source before translating it into Estonian.","copywriting":"Shape persuasive marketing copy after the Estonian register is chosen."}'
 ---
 
-## The Real Problem
+Research notes for sina/Teie, particles, and understatement live in `references/sources.md`.
 
-AI Estonian is technically correct but sounds off. Too formal. Too literary. Natives write more casually, with particles and understated tone. Match that.
+Expanded particle tables, expressiveness swaps, and reaction templates live in `references/estonian-style-guide.md` (progressive disclosure).
 
-## Formality Default
+## When to load
 
-Default register is too high. Casual Estonian is understated and direct. Unless explicitly formal: lean casual. "Tere" or "Hei" not "Tere päevast". "Jah" or "Jep" not "Jah, kindlasti".
+Load this skill to write, rewrite, or translate **Estonian** that should sound like a person, not a textbook. Prefer this skill over generic `translate` when sina/Teie, understatement, particles, fillers, or casual Estonian tone change the draft.
+
+Do **not** load as the primary skill for Finnish (`finnish`), Swedish (`swedish`), or a multi-file localization pipeline that only needs generic MT post-editing (`translate`).
+
+This skill is stateless. It does not store local configuration or persistent user state.
+
+## Workflow
+
+1. Identify audience, relationship, channel, source text, and requested tone. If no register is named, choose casual sina-address Estonian and say so in one short note when the choice matters.
+2. Pick one register and keep it for the whole draft. Match a sample the user already supplied when one exists.
+3. Choose pronouns, particles, fillers, and expressive vocabulary that fit that register. Preserve names, numbers, dates, commitments, and how sure the source is.
+4. Run the delivery check, then return the Estonian text first.
+
+## Formality default
+
+Default AI register is too high. Everyday Estonian is understated and direct. Unless the user explicitly wants formal or official copy:
+
+- Prefer `Tere` / `Hei` over `Tere päevast`
+- Prefer `Jah` / `Jep` / `Okei` over stiff full affirmations
+- Prefer particles and understatement over literary completeness
 
 ## Sina vs Teie
 
-Critical distinction:
-- Teie: formal, elderly, professional
-- Sina: friends, peers, internet, casual
-- Estonian internet uses sina
-- Overusing teie = stiff, foreign
+Critical social distance:
 
-## Estonian Understatement
+- `Teie`: elderly addressees, unfamiliar institutions, marked professional distance
+- `sina`: friends, peers, most internet, casual workplaces
+- Estonian internet is overwhelmingly `sina`
+- Overusing `Teie` online reads stiff and foreign
 
-Estonians are famously reserved:
-- Less enthusiastic than other cultures
-- Understatement is the norm
-- "Päris hea" (quite good) = high praise
-- Don't over-enthuse—it sounds fake
+Keep `sina` unless the user explicitly requests formal address or the audience is clearly institutional.
 
-## Particles & Softeners
+## Particles, fillers, and flow
 
-These make Estonian natural:
-- Ju: shared knowledge ("Sa ju tead")
-- Küll: reassurance ("Küll saab")
-- Ikka: "still", emphasis
-- Noh: filler, "well"
-- Vist: "probably"
+These markers make Estonian sound native. Add one when it matches the voice—do not stack many:
 
-## Fillers & Flow
+| Particle / filler | Effect | Example |
+| --- | --- | --- |
+| `ju` | shared knowledge | `Sa ju tead` |
+| `küll` | reassurance | `Küll saab` |
+| `ikka` | still / emphasis | `Ikka tuleb` |
+| `noh` | soft filler / "well" | `Noh, vaatame` |
+| `vist` | "probably" | `Vist tuleb` |
+| `nagu` | hedge / softener | `nagu okei` |
 
-Real Estonian has fillers:
-- Noh, nagu, siis
-- Tead, kuule
-- Tegelikult, muide
-- Nii-öelda, onju
+Casual flow can also use `siis`, `tead`, `kuule`, `tegelikult`, `muide`, `nii-öelda`, and `onju`. Use a few, not a pile.
 
-## Expressiveness
+## Understatement and expressiveness
 
-Keep it understated:
-- Hea → Päris hea, Lahe, Äge
-- Halb → Kehv, Sitt, Jama
-- Väga → Täiega, Mega, Päris
+Estonian culture is reserved. Calibrate enthusiasm downward rather than upward:
 
-## Common Expressions
+- High praise often sounds like `päris hea`, not `suurepärane`
+- Prefer `Lahe` / `Äge` / `Kõva` over exaggerated cheer
+- Soften negatives with `Kehv` / `Jama` rather than theatrical outrage unless asked
 
-Natural expressions:
-- Okei, Selge, Saan aru
-- Pole hullu, Pole probleemi
-- Tõesti?, Päriselt?, Mis?
-- Äge!, Lahe!, Kõva!
+Natural reactions: `Tõesti?`, `Päriselt?`, `Ei või olla!`, `Oih!`, `Vau!`, `Jumal!`, `Äge!`, `Lahe!`. Light English mixing such as `Nice!` or `lol` can stay when it matches the channel.
 
-## Reactions
+## Fidelity and boundaries
 
-React naturally:
-- Tõesti?, Päriselt?, Ei või olla!
-- Oih!, Vau!, Jumal!
-- Äge!, Lahe!, Nice!
-- Haha, lol in text
+Natural wording does not add a promise, place, time, or certainty the source did not give. Marketing structure belongs to `copywriting` after register is chosen. English source polishing belongs to `english`. Finnish or Swedish targets belong to those skills. Broader localization catalogs belong to `translate`.
 
-## The "Native Test"
+For legal, medical, financial, or publication-sensitive Estonian, keep the requested formality and recommend a qualified native-speaker review.
 
-Before sending: would an Estonian screenshot this as "AI-generated"? If yes—too formal, too enthusiastic, too stiff. Tone down, add "noh".
+## Delivery check (Native Test)
+
+Before sending:
+
+- Register, pronouns (`sina` vs `Teie`), particles, understatement, and fillers agree with the audience
+- Facts, names, numbers, and commitments come from the source
+- One voice runs through the draft; casual default is `sina` with light particles
+- Ask: would an Estonian screenshot this as "AI-generated"? If yes—too formal, too enthusiastic, or too stiff—tone down, shorten, and add a natural particle such as `noh` without stuffing

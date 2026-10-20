@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Draft a quick Estonian reply to a coworker asking if I can review their pull request this afternoon. Keep it casual peer chat.",
+    "expected": "Uses sina-address, a light filler or acknowledgement such as okei/davai/noh, understated willingness, and does not invent a meeting time the source never gave.",
+    "actual": "Kuule, okei — vaatan su PR-i täna pealelõunal üle. Anna teada, kui midagi prioriteetsemat on.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a message to a friend saying the movie we just watched was pretty good but not amazing.",
+    "expected": "Uses understatement such as päris hea / käib kah, keeps sina peer voice, and avoids formal Teie or over-enthusiastic praise.",
+    "actual": "Käisime seda uut filmi vaatamas. See oli päris hea, aga mitte midagi erilist noh.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write a short note to an unfamiliar government office asking whether my document was received. Keep it formal.",
+    "expected": "Uses Teie / institutional register, full polite forms, and no casual particles such as noh/ju or peer slang.",
+    "actual": "Lugupeetud vastuvõtja, palun kinnitage, kas minu saadetud dokument on kätte jõudnud. Lugupidamisega",
+    "pass": true
+  }
+]
