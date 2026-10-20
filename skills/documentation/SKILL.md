@@ -17,6 +17,8 @@ metadata:
 
 This skill is stateless. It does not store local configuration or persistent user state.
 
+Research notes and primary sources live in `references/sources.md`. Load them before stating style-guide rules, Diátaxis type boundaries, or README/API checklist claims as current fact.
+
 ## When to load
 
 Load this skill to plan, draft, restructure, or audit **technical documentation**. Prefer it when the user needs README essentials, Diátaxis type selection, API reference completeness, example quality, versioned docs, troubleshooting searchability, or freshness/maintenance patterns.
@@ -40,6 +42,8 @@ Use one primary type per page:
 | How-to guide | Task-oriented goal | Steps to solve a specific problem |
 | Reference | Information-oriented lookup | Exhaustive, accurate, complete |
 | Explanation | Understanding-oriented context | Why it works this way; design background |
+
+Load `references/sources.md` when the boundary between types is contested.
 
 ## README essentials
 
