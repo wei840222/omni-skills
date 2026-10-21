@@ -24,7 +24,7 @@ This skill is stateless knowledge guidance. It does not store local configuratio
 
 1. Identify the user goal: onboard/deposit, withdraw, open or size a perp, diagnose margin/liquidation, funding, HLP vault, or HYPE staking/governance.
 2. Confirm account route (email login vs DeFi wallet), margin mode (cross vs isolated), asset, and whether the question is mainnet or testnet.
-3. Load only the matching reference section, then answer with current official constraints and recovery steps.
+3. Load only the matching reference section (tracer bullets for the asked mechanic), then answer with current official constraints and recovery steps.
 4. For any fund movement or position change, restate the action, required network/asset, and risk boundary; proceed only after the user confirms.
 
 ## Load references
