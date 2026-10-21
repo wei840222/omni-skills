@@ -45,7 +45,7 @@ Symptom: warnings in the log about `datfrozenxid`, then "database is not accepti
 
 1. Read the state breakdown (connections guide) — `idle in transaction` means an application bug, `active` means real load or one blocker.
 2. If one query is blocking everything: `pg_cancel_backend(pid)` on the blocker, not on the victims (locks guide).
-3. Stop the retry storm at the application: a client that reconnects instantly on failure is a denial of service against its own database. Exponential backoff with jitter is the fix, and it belongs in the client.
+3. Mitigate the retry storm at the application: a client that reconnects instantly on failure is a denial of service against its own database. Exponential backoff with jitter is the fix, and it belongs in the client.
 4. Raising `max_connections` requires a restart and makes memory exhaustion the next incident. Put a pooler in front instead, and only after the incident.
 
 ## Runaway Query
@@ -58,7 +58,7 @@ SELECT pg_cancel_backend(pid);      -- polite: cancels the statement
 SELECT pg_terminate_backend(pid);   -- kills the connection, rolls back
 ```
 
-- Cancel first, terminate second, `kill -9` never (SKILL.md Traps).
+- Cancel first, terminate second, avoid OS kill signals; use `pg_terminate_backend` (SKILL.md Traps).
 - A cancelled long `UPDATE` rolls back, which takes time and produces dead tuples equal to what it wrote. Cancelling at 90% costs almost as much as letting it finish.
 - Cancelling a `VACUUM` is safe and resumable. Cancelling `CREATE INDEX CONCURRENTLY` leaves an invalid index to drop (indexing guide).
 - Prevention is `statement_timeout` per role, set before the incident (SKILL.md Core Rules 4).
@@ -66,9 +66,9 @@ SELECT pg_terminate_backend(pid);   -- kills the connection, rolls back
 ## Accidental DELETE or UPDATE
 
 1. **Still in a transaction?** `ROLLBACK`. This is the entire reason for autocommit-off discipline on production consoles (psql guide).
-2. Committed: stop writes to the affected table if you can, and note the wall-clock time immediately — PITR needs a target.
+2. Committed: pause writes to the affected table if you can, and note the wall-clock time immediately — PITR needs a target.
 3. Restore the backup to a **scratch instance** at a timestamp a second before the statement, extract the rows, and merge them back. Never restore over the live database: you would trade one table's rows for every write since.
-4. If vacuum has not yet run, the old row versions may still be on disk and recoverable with specialist tooling — treat that as a lottery ticket, not a plan, and stop vacuum on that table while you decide.
+4. If vacuum has not yet run, the old row versions may still be on disk and recoverable with specialist tooling — treat that as a lottery ticket, not a plan, and suspend vacuum on that table while you decide.
 5. Postmortem action: `default_transaction_read_only` for consoles, RLS or a restricted role for humans, and a review gate on unqualified DML.
 
 ## Suspected Corruption

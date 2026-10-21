@@ -64,11 +64,11 @@ host      all       all         0.0.0.0/0        reject
 - `scram-sha-256`, never `md5` (deprecated, and its hash is offline-crackable). Switching requires `password_encryption = 'scram-sha-256'` **and** every user resetting their password — the old hash is not upgraded in place.
 - `trust` in any file reachable from a network is a total compromise; it is the default in some container images.
 - `hostssl` plus `ssl = on` forces TLS server-side. Client-side, `sslmode=require` only encrypts; `verify-full` is the one that stops a man in the middle. Managed providers hand you a CA bundle — use it.
-- `listen_addresses = 'localhost'` by default. If a database must be reachable, put it behind a private network or a bastion, never on a public IP with an allowlist as the only control.
+- `listen_addresses = 'localhost'` by default. If a database must be reachable, put it behind a private network or a bastion, use a private network or a bastion for reachable databases.
 
 ## Secrets, Auditing, and Data at Rest
 
-- Never put credentials in a SQL file, a migration, or a `postgresql.conf` comment. Passwords set via `CREATE ROLE ... PASSWORD` land in `pg_stat_activity` and in the logs unless `log_statement` excludes DDL — use `\password` in psql, which sends the hash.
+- Store credentials externally and use \password in psql to send the hash, a migration, or a `postgresql.conf` comment. Passwords set via `CREATE ROLE ... PASSWORD` land in `pg_stat_activity` and in the logs unless `log_statement` excludes DDL — use `\password` in psql, which sends the hash.
 - `log_statement = 'ddl'` plus `log_connections`/`log_disconnections` is a reasonable baseline audit trail; `log_statement = 'all'` writes every parameter value, including personal data, to a file with different access controls than the database. That is a compliance decision, not a debugging one.
 - `pgaudit` gives per-object, per-class auditing when a regime demands it.
 - Encryption at rest is a storage-layer concern (LUKS, provider-managed keys); Postgres has no built-in TDE. Column-level encryption with `pgcrypto` is real but means the key lives near the query — useful for a handful of columns, not for a strategy.
@@ -81,7 +81,7 @@ A "delete this person's data" request is a schema question before it is a legal 
 - Map the reachability first: `SELECT conrelid::regclass, confrelid::regclass FROM pg_constraint WHERE contype = 'f'` gives the FK graph, which is the only reliable list of where a subject's rows can live. Denormalized copies, audit tables, and jsonb payloads are outside it — enumerate those by hand once and write the list down.
 - Prefer anonymization to deletion where a row must survive for accounting: overwrite identifiers with a deterministic pseudonym in the same transaction, keep the aggregate. Deleting a row that a financial report depends on trades one compliance problem for another.
 - Deletion is not immediate on disk: the old row version lives until vacuum removes it, and it lives in backups until they expire. State that retention window in the policy rather than claiming instant erasure.
-- Scheduled retention (delete everything older than N) is a partition drop when the table is partitioned by time and a batched delete otherwise — never one unbounded `DELETE`.
+- Scheduled retention (delete everything older than N) is a partition drop when the table is partitioned by time and a batched delete otherwise — use batched deletes or partition drops.
 - Log the erasure itself in a table that contains no personal data: subject id hash, date, scope. That record is what an audit asks for.
 
 ## Injection, in the Database's Own Terms

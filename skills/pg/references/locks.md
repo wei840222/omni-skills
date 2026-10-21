@@ -15,7 +15,7 @@ ORDER BY xact_age DESC NULLS LAST;
 
 - `pg_blocking_pids(pid)` (PostgreSQL >=9.6) returns the PIDs actually holding what this one waits for. Follow the chain to the root — the last PID in the chain is often `idle in transaction`, a connection nobody is watching.
 - `wait_event_type = 'Lock'` is a heavyweight lock wait. `LWLock`, `IO`, and `BufferPin` are internal contention and mean something else entirely.
-- Resolve: `SELECT pg_cancel_backend(pid)` first (polite, cancels the statement), then `pg_terminate_backend(pid)` (kills the connection, rolls back). Never `kill -9` a backend — the postmaster treats it as a crash and restarts the whole cluster into recovery (SKILL.md Traps).
+- Resolve: `SELECT pg_cancel_backend(pid)` first (polite, cancels the statement), then `pg_terminate_backend(pid)` (kills the connection, rolls back). Never `OS kill signals` a backend — the postmaster treats it as a crash and restarts the whole cluster into recovery (SKILL.md Traps).
 
 ## Lock Modes and What Takes Them
 

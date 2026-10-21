@@ -1,6 +1,6 @@
 # Memory Template — PostgreSQL
 
-Create `~/Clawic/data/pg/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure after `<state_root>` is resolved:
 
 ```markdown
 # PostgreSQL Memory
@@ -25,6 +25,8 @@ last: YYYY-MM-DD
 ---
 *Updated: YYYY-MM-DD*
 ```
+
+Optional declared preferences live in `<state_root>/config.yaml` using the Configuration table keys from `SKILL.md`.
 
 ## Status Values
 

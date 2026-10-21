@@ -15,7 +15,7 @@ pg_dumpall --globals-only -f /backup/globals.sql   # roles, tablespaces — pg_d
 - `pg_dump` takes ACCESS SHARE on every table — it blocks nothing except DDL, and DDL blocks it.
 - Always dump with the `pg_dump` binary of the **higher** version when the two differ. Newer server plus older `pg_dump` fails or produces subtly wrong output; the reverse is supported.
 - Restore ordering: `pg_restore -j 8 --no-owner --no-privileges -d newdb app.dump`. Indexes and constraints are built after data by design — a restore that seems stuck at 90% is building indexes, and `maintenance_work_mem` is the knob.
-- Restore into a *new* database, never over a live one. `--clean --if-exists` on the wrong target is an outage with a dump-shaped alibi.
+- Restore into a *new* database, always restore into a *new* target database. `--clean --if-exists` on the wrong target is an outage with a dump-shaped alibi.
 
 ## Physical Backups and PITR
 

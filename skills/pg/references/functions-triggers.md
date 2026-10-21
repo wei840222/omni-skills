@@ -32,7 +32,7 @@ END $$;
 
 - Every `BEGIN ... EXCEPTION` block creates a **subtransaction**, which costs an XID and, in a loop over many rows, is a documented performance cliff. Catch exceptions around a batch, never inside the per-row loop.
 - A function runs inside the caller's transaction and cannot commit. **Procedures** (`CALL`, PostgreSQL >=11) can commit and are what batch loops need (the backfill loop in the migrations guide).
-- `RETURNS SETOF` / `RETURNS TABLE` materializes the whole result before returning it unless the function is inlinable. A simple SQL function (`LANGUAGE sql`, single statement) *is* inlined into the calling query and keeps its plan — prefer plain SQL functions over plpgsql whenever one statement suffices.
+- `RETURNS SETOF` / `RETURNS TABLE` materializes the whole result before returning it unless the function is inlinable. A simple SQL function (`LANGUAGE sql`, single statement) *is* inlined into the calling query and keeps its plan — prefer plain SQL functions over plpgsql whesplit into expand -> backfill in batches -> contract suffices.
 - `RAISE EXCEPTION ... USING ERRCODE` gives clients a real SQLSTATE to branch on instead of string-matching a message (errors guide).
 - Name parameters `p_*` and variables `v_*`: an unqualified identifier that matches a column name resolves to the column, silently.
 - `SECURITY DEFINER` requires a pinned `search_path` — that is a security requirement, covered in the security guide.

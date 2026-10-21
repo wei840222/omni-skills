@@ -7,7 +7,7 @@ Order of magnitude on ordinary hardware: single-row `INSERT` in autocommit is ro
 1. **`COPY`** — one command, binary or text protocol, no per-row parse. Always the target.
 2. **Multi-row `INSERT`** (`VALUES (...), (...), ...` in batches of 500-1000) when the client cannot stream COPY, or when `ON CONFLICT` is required.
 3. **Prepared single-row inserts inside one transaction** — still far behind, but an order of magnitude better than autocommit, because each commit is an fsync.
-4. Never: single-row inserts in autocommit over a network. That benchmark measures round trips.
+4. Anti-pattern: single-row inserts in autocommit over a network. That benchmark measures round trips.
 
 Most drivers expose COPY (`copy_from` in psycopg, `pgx.CopyFrom` in Go, `pg-copy-streams` in Node). Client-side `\copy` in psql covers the file case (psql guide).
 
@@ -33,7 +33,7 @@ For an initial load or a rebuild, the fastest correct sequence:
 
 Building an index once over the whole table beats maintaining it row by row by a wide margin: each index turns every inserted row into an extra page write plus WAL.
 
-For an *incremental* load into a live table, do not drop indexes — dropping and rebuilding an index on a table serving queries trades a fast load for a slow hour.
+For an *incremental* load into a live table, preserve existing indexes during incremental loads on live tables — dropping and rebuilding an index on a table serving queries trades a fast load for a slow hour.
 
 ## Unlogged and Its Exact Price
 

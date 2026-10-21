@@ -1,35 +1,59 @@
 ---
 name: pg
-slug: pg
-version: 1.0.3
-description: 'Tunes, designs, and operates PostgreSQL: slow queries, indexes, schemas, migrations, vacuum, locks, replication, backups. Use when writing Postgres SQL or psql, designing tables and indexes, reading an EXPLAIN plan, running DDL or a migration against a live table, or when a query suddenly got slow, a table keeps growing while rows stay flat, autovacuum cannot keep up, "too many clients already" appears, a replica lags, deadlocks and lock waits pile up, pg_wal fills the disk, or an upgrade, a restore, or a partitioning plan is on the table. Covers connection pooling and PgBouncer, full-text, trigram and pgvector search, JSONB, roles and row-level security, PITR, extensions, and managed Postgres (RDS, Aurora, Cloud SQL, Neon, Supabase). Not for cross-engine SQL portability or ORM-level modeling.'
-homepage: https://clawic.com/skills/pg
-changelog: 'Full coverage pass: deeper guides, situation-named files, and per-user configuration'
+description: >
+  Tune, design, and operate PostgreSQL: slow queries, indexes, schemas,
+  migrations, vacuum, locks, replication, and backups. Use when writing
+  Postgres SQL or psql, designing tables and indexes, reading an EXPLAIN plan,
+  running DDL or a migration on a live table, or when a query suddenly slowed,
+  a table grows while rows stay flat, autovacuum falls behind, "too many
+  clients already" appears, a replica lags, deadlocks and lock waits pile up,
+  pg_wal fills the disk, or an upgrade, restore, or partitioning plan is on
+  the table. Covers connection pooling and PgBouncer, full-text, trigram and
+  pgvector search, JSONB, roles and row-level security, PITR, extensions, and
+  managed Postgres (RDS, Aurora, Cloud SQL, Neon, Supabase). Prefer `sql` for
+  cross-engine SQL portability, `prisma` for ORM-level modeling, `timescaledb`
+  for hypertables/compression/continuous aggregates, and `db` for
+  engine-agnostic reliability patterns.
 metadata:
-  clawdbot:
-    emoji: 🐘
-    requires:
-      anyBins:
-      - psql
-      - pgcli
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: PostgreSQL
-    configPaths:
-    - ~/Clawic/data/pg/
-    - ~/pg/
-    - ~/clawic/pg/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/pg/
-      - ~/pg/
-      - ~/clawic/pg/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🐘"}'
+  related-skills: '{"db":"Engine-agnostic database reliability, scaling, and operations patterns beyond Postgres-specific recipes.","prisma":"ORM-level schema modeling and query pitfalls when the stack sits on top of Postgres.","sql":"Cross-engine SQL portability and dialect differences outside Postgres-only work.","timescaledb":"Time-series workloads on Postgres: hypertables, compression, and continuous aggregates."}'
 ---
 
-User preferences and memory live in `~/Clawic/data/pg/` (see `setup.md` on first use, `memory-template.md` for the file format). If you have data at an old location (`~/pg/` or `~/clawic/pg/`), move it to `~/Clawic/data/pg/`, and say in one line that you moved it and from where.
+## State location
+
+Optional PostgreSQL preferences and memory may exist in
+`<workspace>/pg/`, `<workspace>/memory/pg/`, or `~/pg/`.
+
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/pg/`, `<workspace>/memory/pg/`, `~/pg/`.
+3. If none exists and durable preferences must be created, default to
+   `<workspace>/pg/` only with user consent.
+4. If more than one candidate exists, use only the highest-precedence path,
+   report the conflict, and leave other copies unchanged.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd.
+   An existing `~/pg/` may be read; otherwise ask before creating data.
+6. Once selected, keep the same `<state_root>` for the whole invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Outside this section, every skill-state path uses `<state_root>/...`.
+
+Legacy locations `~/Clawic/data/pg/`, `~/clawic/pg/`, and bare `~/pg/` leftovers
+outside the resolver are migration sources only. Copy, validate, and cut over
+only after the user chooses migration; do not write there by default.
+
+```text
+<state_root>/
+├── config.yaml   # Declared preferences (version, provider, timeouts, …)
+└── memory.md     # Observed schema shape, incidents, and stance
+```
+
+Load `references/setup.md` on first use and `assets/data-templates.md` for blank shapes.
+Open `references/sources.md` before treating version-gated behavior, planner knobs,
+or extension claims as current fact.
 
 ## When To Use
 
@@ -39,45 +63,45 @@ User preferences and memory live in `~/Clawic/data/pg/` (see `setup.md` on first
 - Operating Postgres: connections, timeouts, vacuum, bloat, locks, replication, backups, upgrades
 - A production incident: disk full, wraparound warnings, connection storm, runaway query, suspected corruption
 - Building queue, upsert, search, or vector patterns that Postgres solves natively
-- Not for cross-engine SQL portability or ORM-level modeling (see Related Skills)
+- Not for cross-engine SQL portability (`sql`), ORM modeling (`prisma`), time-series hypertables (`timescaledb`), or engine-agnostic reliability patterns (`db`)
 
 ## Quick Reference
 
 | Situation | Play |
 |---|---|
-| Slow query, cause unknown | Slow-Query Triage below, in order — never tune from query text alone |
-| Plan shows a seq scan you did not expect | Not automatically the bug: a scan beats an index past roughly 5-15% of the table (→ `slow-queries.md`) |
+| Slow query, cause unknown | Slow-Query Triage below — start from `EXPLAIN (ANALYZE, BUFFERS)` |
+| Plan shows a seq scan you did not expect | Not automatically the bug: a scan beats an index past roughly 5-15% of the table (→ `references/slow-queries.md`) |
 | WHERE on a function of a column | Expression index matching the query text exactly (→ Indexing Essentials) |
 | Status/flag column, minority of rows queried | Partial index `WHERE status = 'active'` |
-| Substring/fuzzy search (`LIKE '%x%'`, ILIKE, typos) | pg_trgm GIN index; a B-tree cannot serve a leading wildcard (→ `search.md`) |
-| Word/phrase search, ranking | Stored generated `tsvector` + GIN, queried via `websearch_to_tsquery` (→ `search.md`) |
-| Job queue, retries, or an event outbox in Postgres | `SELECT ... FOR UPDATE SKIP LOCKED` — no external broker needed (→ `queues.md`) |
+| Substring/fuzzy search (`LIKE '%x%'`, ILIKE, typos) | pg_trgm GIN index; a B-tree cannot serve a leading wildcard (→ `references/search.md`) |
+| Word/phrase search, ranking | Stored generated `tsvector` + GIN, queried via `websearch_to_tsquery` (→ `references/search.md`) |
+| Job queue, retries, or an event outbox in Postgres | `SELECT ... FOR UPDATE SKIP LOCKED` — no external broker needed (→ `references/queues.md`) |
 | Insert-or-update | `INSERT ... ON CONFLICT ... DO UPDATE` + `RETURNING` |
 | First/top-N rows per group | `DISTINCT ON` for first-row; `LATERAL` + matching index for top-N at scale |
-| Deep pagination | Keyset (`WHERE (created_at, id) < (?, ?)`), never a large OFFSET |
+| Deep pagination | Keyset (`WHERE (created_at, id) < (?, ?)`) on an indexed sort key; avoid deep `OFFSET` |
 | DDL on a busy table | `SET lock_timeout` first, then the online variant (→ Safe DDL on Busy Tables) |
-| Query hangs with no CPU burn | It is blocked: `pg_blocking_pids()` names the holder (→ `locks.md`) |
-| Table grows on disk while row count is flat | Bloat: find the oldest transaction or replication slot first (→ `vacuum-bloat.md`) |
-| An error code or message to decode | Error Codes below; full catalog in `errors.md` |
-| Slow test suite, or a migration that needs rehearsing on real volume | Transaction-per-test and template databases; rehearse on a restored copy (→ `test-databases.md`) |
+| Query hangs with no CPU burn | It is blocked: `pg_blocking_pids()` names the holder (→ `references/locks.md`) |
+| Table grows on disk while row count is flat | Bloat: find the oldest transaction or replication slot first (→ `references/vacuum-bloat.md`) |
+| An error code or message to decode | Error Codes below; full catalog in `references/errors.md` |
+| Slow test suite, or a migration that needs rehearsing on real volume | Transaction-per-test and template databases; rehearse on a restored copy (→ `references/test-databases.md`) |
 | Anything else surprising | `EXPLAIN (ANALYZE, BUFFERS)` before and after every change; if it is live and stuck, check `pg_stat_activity` for a blocker before touching anything |
 
 Depth on demand, by phase:
 
-- **Diagnose** — `slow-queries.md` plan reading and misestimates · `locks.md` blocked queries and deadlocks · `errors.md` SQLSTATE to cause · `monitoring.md` what to watch and alert on · `incidents.md` disk full, wraparound, runaway query, corruption
-- **Design** — `schema-design.md` types, keys, constraints · `indexing.md` index types and when each wins · `partitioning.md` tables too big for one heap · `json.md` JSONB modeling and indexing · `search.md` text, fuzzy, and vector search · `queues.md` job queues, retries, transactional outbox
-- **Change** — `migrations.md` online DDL, backfills, expand/contract · `bulk-load.md` loading millions of rows · `upgrades.md` major versions, OS/glibc, extensions · `functions-triggers.md` plpgsql, triggers, LISTEN/NOTIFY · `test-databases.md` fast test isolation, anonymized copies, CI, rehearsals
-- **Operate** — `connections.md` pooling and PgBouncer · `vacuum-bloat.md` autovacuum tuning and reclaim · `tuning.md` postgresql.conf memory, WAL, planner · `backup-restore.md` dumps, PITR, restore drills · `replication.md` replicas, lag, failover · `security.md` roles, grants, RLS, pg_hba · `managed-postgres.md` RDS, Aurora, Cloud SQL, Neon, Supabase · `psql.md` client workflow and scripting · `extensions.md` which extension solves this
+- **Diagnose** — `references/slow-queries.md` · `references/locks.md` · `references/errors.md` · `references/monitoring.md` · `references/incidents.md`
+- **Design** — `references/schema-design.md` · `references/indexing.md` · `references/partitioning.md` · `references/json.md` · `references/search.md` · `references/queues.md`
+- **Change** — `references/migrations.md` · `references/bulk-load.md` · `references/upgrades.md` · `references/functions-triggers.md` · `references/test-databases.md`
+- **Operate** — `references/connections.md` · `references/vacuum-bloat.md` · `references/tuning.md` · `references/backup-restore.md` · `references/replication.md` · `references/security.md` · `references/managed-postgres.md` · `references/psql.md` · `references/extensions.md`
 
 ## Core Rules
 
-1. **Tune from a plan, never from query text.** `EXPLAIN (ANALYZE, BUFFERS)`; plain EXPLAIN prints estimates and the estimate is usually the bug. Check: estimated vs actual rows per node — off by more than 10x means a statistics problem, not a missing index.
-2. **Index every foreign key column you join or cascade on.** Postgres indexes primary keys and unique constraints automatically, never FK columns. A parent `DELETE` of 10k rows against an unindexed 50M-row child is 10k sequential scans.
-3. **Composite index order: equality columns first, then one range or sort column.** `(tenant_id, created_at)` answers `WHERE tenant_id = ? ORDER BY created_at DESC LIMIT 20` from the first 20 index entries; `(created_at, tenant_id)` walks every row in date order filtering as it goes, and gets slower as the tenant gets smaller. A column is usable only while every column to its left is pinned by equality.
-4. **Set the three timeouts per role before you need them, and start every live DDL with `lock_timeout`.** Defaults to apply: `lock_timeout = '2s'` (variable `lock_timeout_default`), `statement_timeout = '30s'`, `idle_in_transaction_session_timeout = '5min'`. A blocked `ALTER TABLE` waiting for ACCESS EXCLUSIVE queues every later query on that table behind it — the outage is the queue, not the lock. An idle transaction with no timeout freezes vacuum's horizon for the whole database, not just its own table.
-5. **`work_mem` is per sort/hash node, not per query.** Worst case = connections × nodes per query × `work_mem`: 100 × 4 × 64MB = 25.6GB, the classic out-of-memory. Keep it small globally (4-16MB) and raise it per session for a known heavy query.
-6. **Pick the type that deletes a class of bugs.** `TIMESTAMPTZ` (stores a UTC instant, not a zone) · money as `NUMERIC(12,2)` or integer cents, never float (0.1 + 0.2 ≠ 0.3) and never `money` · `TEXT` over `VARCHAR(n)` (identical performance; add length as a CHECK only if it is a business rule) · `GENERATED ALWAYS AS IDENTITY` over `SERIAL` (PostgreSQL >=10).
-7. **A schema change is expand → backfill in batches → contract, never one statement.** One `UPDATE` over 50M rows writes 50M new row versions in a single transaction: the table doubles on disk, vacuum cannot reclaim anything until commit, and a failure at minute 50 discards everything. Batch 1k-50k rows with a commit and a resume key per batch.
+1. **Tune from a plan.** Run `EXPLAIN (ANALYZE, BUFFERS)`; plain EXPLAIN prints estimates and the estimate is usually the bug. Check estimated vs actual rows per node — off by more than 10x means a statistics problem, not a missing index.
+2. **Index every foreign key column you join or cascade on.** Postgres indexes primary keys and unique constraints automatically; you must explicitly index FK columns. A parent `DELETE` of 10k rows against an unindexed 50M-row child is 10k sequential scans.
+3. **Composite index order: equality columns first, then one range or sort column.** `(tenant_id, created_at)` answers `WHERE tenant_id = ? ORDER BY created_at DESC LIMIT 20` from the first 20 index entries; `(created_at, tenant_id)` walks every row in date order filtering as it goes. A column is usable only while every column to its left is pinned by equality.
+4. **Set the three timeouts per role before you need them, and start every live DDL with `lock_timeout`.** Defaults: `lock_timeout = '2s'` (variable `lock_timeout_default`), `statement_timeout = '30s'`, `idle_in_transaction_session_timeout = '5min'`. A blocked `ALTER TABLE` waiting for ACCESS EXCLUSIVE queues every later query on that table behind it — the outage is the queue, not the lock. An idle transaction with no timeout freezes vacuum's horizon for the whole database.
+5. **`work_mem` is per sort/hash node, not per query.** Worst case = connections × nodes per query × `work_mem`: 100 × 4 × 64MB = 25.6GB. Keep it small globally (4-16MB) and raise it per session for a known heavy query.
+6. **Pick the type that deletes a class of bugs.** `TIMESTAMPTZ` (stores a UTC instant, not a zone) · money as `NUMERIC(12,2)` or integer cents (never binary float; never `money`) · `TEXT` over `VARCHAR(n)` (identical performance; add length as a CHECK only if it is a business rule) · `GENERATED ALWAYS AS IDENTITY` over `SERIAL` (PostgreSQL >=10).
+7. **Schema changes follow expand → backfill in batches → contract.** One `UPDATE` over 50M rows writes 50M new row versions in a single transaction: the table doubles on disk, vacuum cannot reclaim anything until commit, and a failure at minute 50 discards everything. Batch 1k-50k rows with a commit and a resume key per batch.
 8. **A backup you have never restored is a hypothesis.** Schedule the restore, not just the dump: restore into a scratch instance on a fixed cadence, time it, and write the measured RTO down. `pg_dump` also omits roles and tablespaces — only `pg_dumpall --globals-only` has them.
 
 ## Slow-Query Triage
@@ -98,7 +122,7 @@ Run in this order; skipping to step 4 spends the fix on the wrong query.
 - Covering index `INCLUDE (name)` enables index-only scans — verify "Heap Fetches" near 0 in EXPLAIN; vacuum lag leaves a stale visibility map and silently degrades them back to heap fetches.
 - Updating any indexed column defeats HOT updates and writes to every index on the table. Keep counters and churning timestamps out of indexes; set `fillfactor = 90` on update-heavy tables so HOT has page room.
 - Drop unused with care: `pg_stat_user_indexes` where `idx_scan = 0`, but only after a full business cycle (month-end reports) and checked on every replica — index statistics are per node.
-- Do not index a low-cardinality column alone (boolean, three-value enum): the planner ignores it. Fold it into a composite or make the index partial.
+- Defer indexing a low-cardinality column alone (boolean, three-value enum): the planner ignores it. Fold it into a composite or make the index partial.
 
 ## Postgres-Native Query Patterns
 
@@ -106,14 +130,14 @@ Run in this order; skipping to step 4 spends the fix on the wrong query.
 - `pg_advisory_xact_lock(key)`: application mutex with no table, released automatically at commit. The session variant (`pg_advisory_lock`) survives commit and leaks when a pooled connection is recycled.
 - `IS NOT DISTINCT FROM`: NULL-safe equality, replaces `(a = b OR (a IS NULL AND b IS NULL))`.
 - `x NOT IN (subquery)` returns zero rows if the subquery yields a single NULL — use `NOT EXISTS`.
-- `count(*) > 0` scans every match; `EXISTS (SELECT 1 ...)` stops at the first.
+- `count(*) > 0` scans every match; `EXISTS (SELECT 1 ...)` returns at the first match.
 - Aggregates with `FILTER (WHERE ...)` replace CASE-inside-SUM pivots, readably.
 - `now()` is frozen at transaction start, so every row written in one long transaction shares a timestamp; `clock_timestamp()` gives wall time.
 - CTEs: PostgreSQL >=12 inlines them like subqueries; below that every CTE is an optimization fence that blocks index pushdown. `MATERIALIZED` restores the fence deliberately.
 
 ## Safe DDL on Busy Tables
 
-Every recipe starts with `SET lock_timeout = '2s'` and a retry loop (rule 4). Full procedures, backfill loops and expand/contract sequencing in `migrations.md`.
+Every recipe starts with `SET lock_timeout = '2s'` and a retry loop (rule 4). Full procedures, backfill loops and expand/contract sequencing in `references/migrations.md`.
 
 - `ADD COLUMN ... DEFAULT <constant>` is metadata-only (PostgreSQL >=11); a volatile default (`now()`, `gen_random_uuid()`) rewrites the whole table. Add nullable, backfill in batches, then set the default.
 - New constraint on a big table: `ADD CONSTRAINT ... NOT VALID` (instant), then `VALIDATE CONSTRAINT` (weak lock, full scan that does not block writes).
@@ -123,14 +147,14 @@ Every recipe starts with `SET lock_timeout = '2s'` and a retry loop (rule 4). Fu
 
 ## Error Codes
 
-SQLSTATE is stable across versions; the message text is not. Match on the code. Full catalog with fixes in `errors.md`.
+SQLSTATE is stable across versions; the message text is not. Match on the code. Full catalog with fixes in `references/errors.md`.
 
 | SQLSTATE | Name | First move |
 |---|---|---|
 | 23505 | unique_violation | Genuine duplicate or a race — if the insert is idempotent, `ON CONFLICT DO NOTHING/UPDATE` |
-| 40001 | serialization_failure | Retry the whole transaction; on a replica it also means a recovery conflict (→ `replication.md`) |
+| 40001 | serialization_failure | Retry the whole transaction; on a replica it also means a recovery conflict (→ `references/replication.md`) |
 | 40P01 | deadlock_detected | Two transactions took the same rows in opposite order — impose one order in the app |
-| 53300 | too_many_connections | Pool before raising `max_connections` (→ `connections.md`) |
+| 53300 | too_many_connections | Pool before raising `max_connections` (→ `references/connections.md`) |
 | 55P03 | lock_not_available | Your `lock_timeout` fired, exactly as designed — back off and retry |
 | 57014 | query_canceled | `statement_timeout` or a human cancel |
 | 25P02 | in_failed_sql_transaction | An earlier statement failed; everything is refused until ROLLBACK |
@@ -139,7 +163,7 @@ SQLSTATE is stable across versions; the message text is not. Match on the code. 
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/pg/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -157,7 +181,7 @@ Preference areas — customizable dimensions; a stated preference is recorded in
 - **Tooling** — migration framework (plain SQL files, Flyway, Alembic, Prisma Migrate), diff tooling, bloat/repack tooling — affects the shape of emitted migrations
 - **Thresholds** — per-role `statement_timeout`, backfill batch size, slow-query threshold worth reporting, index-bloat percentage that triggers a rebuild
 - **Conventions** — schema layout (`public` vs per-domain schemas), enum vs lookup table, soft-delete policy, timestamp column names, index naming
-- **Platform** — major version, OS and glibc/ICU provider, storage class (NVMe vs network disk), instance memory — affects `tuning.md` numbers
+- **Platform** — major version, OS and glibc/ICU provider, storage class (NVMe vs network disk), instance memory — affects `references/tuning.md` numbers
 - **Risk posture** — whether to run DDL directly or hand back reviewed SQL, whether replicas may be read, how aggressive autovacuum tuning may be
 - **Output format** — SQL only vs SQL plus a plan walkthrough, how much EXPLAIN detail to narrate, whether to include rollback SQL by default
 - **Integrations** — monitoring stack (pg_stat_statements alone, Prometheus exporter, provider console), backup tooling (pgBackRest, WAL-G, provider snapshots)
@@ -186,7 +210,7 @@ Before emitting DDL, a migration, or a schema:
 | `CREATE INDEX` without CONCURRENTLY on a live table | SHARE lock blocks all writes for the whole build | CONCURRENTLY + `indisvalid` check |
 | DDL without `lock_timeout` | The waiting ALTER queues every later query behind it | `SET lock_timeout` + retry (→ Safe DDL) |
 | `VACUUM FULL` to fix bloat on a live table | ACCESS EXCLUSIVE for the whole rewrite — a full outage on that table, plus double the disk | `pg_repack`, or fix the cause: oldest transaction, replication slot, autovacuum settings |
-| `kill -9` on a stuck backend | The postmaster treats it as a crash and restarts the entire cluster into recovery | `pg_cancel_backend(pid)`, then `pg_terminate_backend(pid)` |
+| `OS kill signals` on a stuck backend | The postmaster treats it as a crash and restarts the entire cluster into recovery | `pg_cancel_backend(pid)`, then `pg_terminate_backend(pid)` |
 | `TIMESTAMP` (no time zone) for event times | Two servers in different zones write incomparable values; DST duplicates an hour | `TIMESTAMPTZ` (Core Rules 6) |
 | CTE performance assumed on old Postgres | Below 12 every CTE materializes: no index pushdown into it | Upgrade, inline as a subquery, or accept the fence knowingly |
 | Dropping an "unused" index seen on the primary only | Index statistics are per node; replicas may be serving reads from it | Check `pg_stat_user_indexes` on every node, across a full cycle |
@@ -200,15 +224,3 @@ Before emitting DDL, a migration, or a schema:
 - **App-side pool vs PgBouncer.** One or two services → the app pool suffices; many services or serverless connection churn → PgBouncer, accepting the session-state limits.
 - **Scale up vs scale out.** Read replicas push lag handling into the application; a bigger box stays defensible far longer than fashion suggests. Reach for replicas when reads are heavy AND tolerant of staleness, not at the first slow query.
 - **JSONB as a schema escape hatch.** One camp treats a jsonb column as pragmatic velocity; the other as a schema you failed to write. The testable boundary: any key you filter, join, or sort on regularly belongs in a real column, because jsonb keys carry no per-key statistics.
-
-## Related Skills
-
-More Clawic skills, get them at https://clawic.com/skills/pg (install if the user confirms):
-
-- `sql` — cross-engine SQL and portability; jump there when the target isn't Postgres-specific
-- `database-indexing` — deeper index theory: write-cost budgets, bitmap/hash structures
-- `prisma` — ORM-level schema modeling and query pitfalls on top of Postgres
-- `timescaledb` — time-series workloads on Postgres: hypertables, compression, continuous aggregates
-- `db` — general database operations, reliability, and scaling patterns
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/pg.
