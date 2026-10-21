@@ -1,66 +1,86 @@
 ---
 name: odoo
-slug: odoo
-version: 1.0.0
-description: Operate Odoo across CRM, sales, inventory, purchasing, and accounting with module-aware planning, read-before-write checks, and safe execution.
-homepage: https://clawic.com/skills/odoo
-changelog: Turns generic Odoo help into a module-aware workflow for safer reporting, imports, integrations, and business operations.
+description: >
+  Operate Odoo across CRM, sales, inventory, purchasing, manufacturing,
+  projects, subscriptions, and accounting with module-aware planning,
+  read-before-write checks, and safe execution. Use when the user needs help
+  inspecting, reporting, reconciling, importing, configuring, or changing data
+  in Odoo Online, Odoo.sh, or self-hosted Odoo. Prefer `crm` for generic sales
+  pipeline work outside Odoo, `inventory` for personal asset tracking, and
+  `accounting` for standards coaching that is not tied to an Odoo instance.
 metadata:
-  clawdbot:
-    emoji: 🏢
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/odoo/
-    displayName: Odoo
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/odoo/
+  version: "1.0.1"
+  openclaw: '{"emoji":"🏢"}'
+  related-skills: '{"crm":"Customer pipeline workflows when the work is mainly around leads, deals, and sales motion outside Odoo-specific ERP flows.","inventory":"Personal asset tracking rather than Odoo warehouse stock moves.","accounting":"Accounting standards coaching when the task is not tied to a live Odoo instance.","powerpoint":"Executive summaries and deck outputs from Odoo reporting work.","word":"Polished SOPs, proposals, and customer-facing documents built from Odoo context."}'
 ---
 
 # Odoo
 
-Odoo operating workflow for live ERP systems. Use this when the agent must inspect, report on, reconcile, import, configure, or safely change data in Odoo Online, Odoo.sh, or self-hosted environments.
+Odoo operating workflow for live ERP systems. Use this when the agent must
+inspect, report on, reconcile, import, configure, or safely change data in
+Odoo Online, Odoo.sh, or self-hosted environments.
 
-## When to Use
+## State location
 
-Use when the task clearly belongs to Odoo: CRM, quotations, sales orders, invoices, stock moves, purchase orders, manufacturing, projects, subscriptions, or accounting. Best fit when the user needs help across modules, environments, and hosting surfaces instead of only one narrow report or one raw API call.
+Odoo operating notes may exist in `<workspace>/odoo/`,
+`<workspace>/memory/odoo/`, or `~/odoo/`.
 
-Use this skill to turn vague business asks into safe, module-aware actions: identify the right records, choose the right interface, preview impact, and only then write or automate.
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-## Architecture
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/odoo/`, `<workspace>/memory/odoo/`, `~/odoo/`.
+3. If none exists and durable notes must be created, ask once and default to
+   `<workspace>/odoo/`.
+4. If more than one candidate exists, use only the highest-precedence directory,
+   report the conflict, and leave other copies unchanged.
+5. If `<workspace>` cannot be resolved, read an existing `~/odoo/` only.
+   Otherwise ask for a state root before creating files.
 
-Memory lives in `~/Clawic/data/odoo/`. If `~/Clawic/data/odoo/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Use the selected `<state_root>` for every Odoo note in this skill. Keep skill
+resources under `references/` and `assets/`; never treat them as mutable user
+state. Credentials stay outside `<state_root>/` — store pointers only.
 
 ```text
-~/Clawic/data/odoo/
+<state_root>/
 ├── memory.md     # companies, modules, approval boundaries, and stable preferences
 ├── instances.md  # instance URLs, environments, versions, and auth lanes
 ├── modules.md    # custom modules, renamed fields, and local conventions
 └── incidents.md  # failed imports, access issues, broken automations, and recoveries
 ```
 
+If `<state_root>/` does not exist, run `references/setup.md`. See
+`assets/data-templates.md` for structure.
+
+## When to Use
+
+Use when the task clearly belongs to Odoo: CRM, quotations, sales orders,
+invoices, stock moves, purchase orders, manufacturing, projects, subscriptions,
+or accounting. Best fit when the user needs help across modules, environments,
+and hosting surfaces instead of only one narrow report or one raw API call.
+
+Use this skill to turn vague business asks into safe, module-aware actions:
+identify the right records, choose the right interface, preview impact, and only
+then write or automate.
+
 ## Quick Reference
 
-Use the smallest matching file instead of mentally loading the whole ERP every time.
+Load only the smallest matching reference for the current lane. Do not preload
+the whole ERP package into context.
 
 | Topic | File |
 |-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Hosting surface map | `surfaces.md` |
-| Operating lanes by module | `operations.md` |
-| Real request translations | `examples.md` |
-| Safe writes and approval ladder | `safety.md` |
-| Reporting and KPI scoping | `reporting.md` |
-| API, imports, and automation choices | `integrations.md` |
-| Common Odoo models and objects | `models.md` |
-| Broken flow and access triage | `triage.md` |
+| Setup guide | `references/setup.md` |
+| Memory template | `assets/data-templates.md` |
+| Hosting surface map | `references/surfaces.md` |
+| Operating lanes by module | `references/operations.md` |
+| Real request translations | `references/examples.md` |
+| Safe writes and approval ladder | `references/safety.md` |
+| Reporting and KPI scoping | `references/reporting.md` |
+| API, imports, and automation choices | `references/integrations.md` |
+| Common Odoo models and objects | `references/models.md` |
+| Broken flow and access triage | `references/triage.md` |
+| Verified domain sources | `references/sources.md` |
 
 ## Requirements
 
@@ -109,13 +129,14 @@ Use the smallest matching file instead of mentally loading the whole ERP every t
 1. Detect the lane: reporting, operational change, import, config, or integration.
 2. Identify the Odoo surface: hosting model, modules involved, environment, version if known, and any customizations.
 3. Open the matching file:
-   - `surfaces.md` for Odoo Online, Odoo.sh, or self-hosted constraints
-   - `operations.md` for day-to-day business flows
-   - `examples.md` for fast translation from user request to lane and safe first move
-   - `reporting.md` for KPIs and reconciliation
-   - `safety.md` for risky writes, corrections, and approvals
-   - `integrations.md` for API, import/export, and automation design
-   - `triage.md` for access, module, and workflow failures
+   - `references/surfaces.md` for Odoo Online, Odoo.sh, or self-hosted constraints
+   - `references/operations.md` for day-to-day business flows
+   - `references/examples.md` for fast translation from user request to lane and safe first move
+   - `references/reporting.md` for KPIs and reconciliation
+   - `references/safety.md` for risky writes, corrections, and approvals
+   - `references/integrations.md` for API, import/export, and automation design
+   - `references/triage.md` for access, module, and workflow failures
+   - `references/sources.md` when domain facts need a verified official URL
 4. Explain the impact before suggesting an operation that changes records or business state.
 
 ## Default Moves
@@ -158,7 +179,7 @@ No other external endpoints should be used unless the user asks for a specific c
 ## Security & Privacy
 
 **Data that stays local:**
-- environment notes in `~/Clawic/data/odoo/`
+- environment notes in `<state_root>/`
 - known modules, company rules, and approval boundaries the user wants remembered
 - reusable operating decisions such as preferred import format or reporting defaults
 
@@ -168,18 +189,5 @@ No other external endpoints should be used unless the user asks for a specific c
 **This skill does NOT:**
 - bypass approvals for destructive writes or sensitive financial corrections
 - store passwords, tokens, session cookies, or raw export payloads in memory
-- assume a production write path when a safer review path exists
+- choose a production write path when a safer review path exists
 - make undeclared network requests by itself
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `crm` — customer pipeline workflows when the work is mainly around leads, deals, and sales motion
-- `inventory` — stock-focused operating guidance when warehouse flows become the main problem
-- `accounting` — accounting-first workflows for journals, reconciliation, close, and financial controls
-- `powerpoint` — executive summaries and deck outputs from Odoo reporting work
-- `word` — polished SOPs, proposals, and customer-facing documents built from Odoo context
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/odoo
-- Latest version: https://clawic.com/skills/odoo
