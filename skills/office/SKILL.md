@@ -33,6 +33,7 @@ the current ask; do not preload every deep dive.
 | Styles, headers, mail merge, TOC | Documents | `references/documents.md` |
 | Slide Master, animations, Presenter View | Presentations | `references/presentations.md` |
 | Supplies, vendors, facilities, space | Office admin | `references/facilities.md` |
+| Re-check primary docs / Gate 6 ledger | Sources | `references/sources.md` |
 
 ## Routing boundaries
 
