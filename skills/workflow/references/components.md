@@ -25,13 +25,13 @@ Account configurations for external services.
 ## Setup
 1. Go to {service} developer console
 2. Create API key / OAuth app
-3. Store in keychain: `security add-generic-password -a clawdbot -s {secret_name} -w "TOKEN"`
+3. Store in keychain: `security add-generic-password -a "$USER" -s {secret_name} -w "TOKEN"`
 
 ## Refresh (OAuth only)
 ```bash
 # Refresh token stored as: {service}_refresh_token
 ACCESS=$(curl -X POST "https://api.example.com/oauth/token" \
-  -d "refresh_token=$(security find-generic-password -a clawdbot -s {service}_refresh_token -w)" \
+  -d "refresh_token=$(security find-generic-password -a "$USER" -s {service}_refresh_token -w)" \
   -d "grant_type=refresh_token" | jq -r '.access_token')
 ```
 
@@ -82,7 +82,7 @@ Examples:
 
 Access in scripts:
 ```bash
-TOKEN=$(security find-generic-password -a clawdbot -s "daily-digest_gmail_oauth_refresh" -w)
+TOKEN=$(security find-generic-password -a "$USER" -s "daily-digest_gmail_oauth_refresh" -w)
 ```
 
 ## Nodes
@@ -173,8 +173,8 @@ while read -r request; do
   # ...
   
   # Trigger workflow
-  echo "$PAYLOAD" > "workflows/flows/$WORKFLOW/data/00-trigger.json"
-  (cd "workflows/flows/$WORKFLOW" && ./run.sh) &
+  echo "$PAYLOAD" > "<state_root>/workflows/flows/$WORKFLOW/data/00-trigger.json"
+  (cd "<state_root>/workflows/flows/$WORKFLOW" && ./run.sh) &
 done
 ```
 
@@ -212,7 +212,7 @@ done
 ## Configuration
 - **Watch path:** /path/to/directory
 - **Events:** create | modify | delete
-- **Debounce:** 5s (avoid rapid re-triggers)
+- **Debounce:** 5s (throttle rapid re-triggers)
 ```
 
 ## Discovery
@@ -221,16 +221,16 @@ Before creating new components:
 
 ```bash
 # Search connections
-ls workflows/components/connections/
+ls <state_root>/workflows/components/connections/
 
 # Search nodes
-ls workflows/components/nodes/
+ls <state_root>/workflows/components/nodes/
 
 # Search by keyword in all components
-grep -r "email" workflows/components/
+grep -r "email" <state_root>/workflows/components/
 
 # Find workflows using a component
-grep -l "gmail" workflows/flows/*/flow.md
+grep -l "gmail" <state_root>/workflows/flows/*/flow.md
 ```
 
 ## Maintenance
@@ -239,7 +239,7 @@ grep -l "gmail" workflows/flows/*/flow.md
 
 1. Find all workflows using it:
    ```bash
-   grep -l "{component}" workflows/flows/*/flow.md
+   grep -l "{component}" <state_root>/workflows/flows/*/flow.md
    ```
 
 2. Test with dry-run:

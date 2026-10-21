@@ -92,7 +92,7 @@ wait $PID_TW $PID_LI
 
 ## Large Data Handling
 
-For datasets that don't fit in memory:
+For datasets exceeding available memory:
 
 ```bash
 # Stream processing with jq

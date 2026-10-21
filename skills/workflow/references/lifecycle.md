@@ -15,22 +15,22 @@ Ask:
 
 ```bash
 # Search connections
-ls workflows/components/connections/
+ls <state_root>/workflows/components/connections/
 
 # Search nodes
-ls workflows/components/nodes/
+ls <state_root>/workflows/components/nodes/
 
 # Search similar workflows
-grep -i "keyword" workflows/index.md
+grep -i "keyword" <state_root>/workflows/index.md
 ```
 
 ### 3. Create Workflow Folder
 
 ```bash
 WORKFLOW="my-workflow"
-mkdir -p "workflows/flows/$WORKFLOW"/{state,data,logs}
-touch "workflows/flows/$WORKFLOW"/{flow.md,config.yaml,run.sh,CHANGELOG.md}
-chmod +x "workflows/flows/$WORKFLOW/run.sh"
+mkdir -p "<state_root>/workflows/flows/$WORKFLOW"/{state,data,logs}
+touch "<state_root>/workflows/flows/$WORKFLOW"/{flow.md,config.yaml,run.sh,CHANGELOG.md}
+chmod +x "<state_root>/workflows/flows/$WORKFLOW/run.sh"
 ```
 
 ### 4. Write config.yaml
@@ -87,12 +87,12 @@ log() {
 }
 
 # === Lock ===
-LOCKFILE="/tmp/workflow-$WORKFLOW_NAME.lock"
+LOCKFILE="$RESOLVED_STATE_ROOT/workflows/tmp/workflow-$WORKFLOW_NAME.lock"
 exec 200>"$LOCKFILE"
 flock -n 200 || { log "workflow" "skip" "\"reason\":\"already running\""; exit 0; }
 
 # === Secrets ===
-# TOKEN=$(security find-generic-password -a clawdbot -s "${WORKFLOW_NAME}_service_key" -w)
+# TOKEN=$(security find-generic-password -a "$USER" -s "${WORKFLOW_NAME}_service_key" -w)
 
 # === Config ===
 THRESHOLD=$(yq '.threshold' config.yaml)
@@ -155,7 +155,7 @@ Add entry under Active section.
 crontab -e
 
 # Add entry
-0 8 * * * cd /path/to/workflows/flows/my-workflow && ./run.sh >> /dev/null 2>&1
+0 8 * * * cd "$RESOLVED_STATE_ROOT/workflows/flows/my-workflow" && ./run.sh >> /dev/null 2>&1
 ```
 
 Or use OpenClaw cron:
@@ -168,7 +168,7 @@ cron action=add job={...}
 ### Dry-Run
 
 ```bash
-cd workflows/flows/my-workflow
+cd <state_root>/workflows/flows/my-workflow
 ./run.sh --dry-run
 
 # Or via environment
@@ -258,26 +258,26 @@ Remove from "Workflows Using This" in all connection and node files.
 
 ### 4. Keep Files
 
-Don't delete — may need for reference or restore.
+Keep files for reference or restore.
 
 ## Debugging
 
 ### Check Recent Logs
 
 ```bash
-tail -100 workflows/flows/{name}/logs/*.jsonl | jq .
+tail -100 <state_root>/workflows/flows/{name}/logs/*.jsonl | jq .
 ```
 
 ### Find Errors
 
 ```bash
-grep '"status":"error"' workflows/flows/{name}/logs/*.jsonl | jq .
+grep '"status":"error"' <state_root>/workflows/flows/{name}/logs/*.jsonl | jq .
 ```
 
 ### Manual Run
 
 ```bash
-cd workflows/flows/{name}
+cd <state_root>/workflows/flows/{name}
 ./run.sh
 echo "Exit code: $?"
 ```
@@ -285,7 +285,7 @@ echo "Exit code: $?"
 ### Check State
 
 ```bash
-cat workflows/flows/{name}/state/*.json | jq .
+cat <state_root>/workflows/flows/{name}/state/*.json | jq .
 ```
 
 ### Common Issues
@@ -294,6 +294,6 @@ cat workflows/flows/{name}/state/*.json | jq .
 |---------|--------------|-----|
 | Script doesn't run | Missing shebang or +x | `chmod +x run.sh` |
 | Auth fails | Token expired | Refresh OAuth, update secret |
-| Lock held | Previous run crashed | `rm /tmp/workflow-*.lock` |
+| Lock held | Previous run crashed | `$RESOLVED_STATE_ROOT/workflows/tmp` lock after confirming the workflow is not running |
 | Wrong data | Stale state | Clear state/, re-run |
 | No logs | Cron redirect wrong | Check crontab syntax |

@@ -4,7 +4,7 @@
 
 Use `state/` when workflow needs to:
 - Remember where it left off (cursor)
-- Avoid reprocessing items (seen set)
+- Skip already processed items (seen set)
 - Resume after failure (checkpoint)
 - Accumulate data across runs (accumulator)
 

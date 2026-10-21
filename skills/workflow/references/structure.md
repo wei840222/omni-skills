@@ -3,7 +3,7 @@
 ## Root Layout
 
 ```
-workflows/
+<state_root>/workflows/
 ├── index.md
 ├── components/
 │   ├── connections/
