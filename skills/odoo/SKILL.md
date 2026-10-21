@@ -80,6 +80,7 @@ time.
 | API, imports, and automation choices | `references/integrations.md` |
 | Common Odoo models and objects | `references/models.md` |
 | Broken flow and access triage | `references/triage.md` |
+| Verified domain sources | `references/sources.md` |
 
 ## Requirements
 
@@ -135,6 +136,7 @@ time.
    - `references/safety.md` for risky writes, corrections, and approvals
    - `references/integrations.md` for API, import/export, and automation design
    - `references/triage.md` for access, module, and workflow failures
+   - `references/sources.md` when domain facts need a verified official URL
 4. Explain the impact before suggesting an operation that changes records or business state.
 
 ## Default Moves
