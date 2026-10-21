@@ -2,12 +2,13 @@
 
 ## What to Persist
 
-Stored in ~/Clawic/data/loop/history/{loop-id}.json:
+Stored in `<state_root>/loop/history/{loop-id}.json`:
+
 - **learnings** — Append-only log: what tried, what happened, what to try next
 - **progress** — Structured state for complex multi-step tasks
 - **iteration_count** — Current iteration number
 
-## What NOT to Persist
+## What Not to Persist
 
 - Full conversation history (context bloat)
 - Failed code attempts (noise)
@@ -15,21 +16,24 @@ Stored in ~/Clawic/data/loop/history/{loop-id}.json:
 
 ## Storage Location
 
-All loop data stored in ~/Clawic/data/loop/:
-- active.json — Currently running loops
-- history/{id}.json — Completed loop logs
-- learnings.md — Cross-loop patterns (optional)
+All loop data stored in `<state_root>/loop/`:
+
+- `active.json` — Currently running loops
+- `history/{id}.json` — Completed loop logs
+- `learnings.md` — Cross-loop patterns (optional)
 
 ## Cost Awareness
 
 Loops multiply cost. Before starting:
+
 - Estimate tokens per iteration
-- Confirm with user if >10 iterations likely
-- Consider if approach should change rather than iterate
+- Confirm with the user if more than 10 iterations look likely
+- Consider whether the approach should change rather than iterate
 
 ## Safety Note
 
-This skill does NOT:
+Out of scope for this skill:
+
 - Make Git commits automatically
-- Persist data outside ~/Clawic/data/loop/
+- Persist data outside `<state_root>/loop/`
 - Modify files without explicit task approval

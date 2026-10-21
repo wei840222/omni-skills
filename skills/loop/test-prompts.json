@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to fix these failing tests. Run an iterative loop with a max of 3 attempts. Verify with `npm test`.",
+    "expected": "Starts a loop with task=fix failing tests, criteria=`npm test` exits 0, max=3; resolves <state_root> before writing history; records learnings per attempt; stops on success or at 3.",
+    "actual": "Structural dry-run against SKILL.md Workflow + Critical rules + references/memory.md.\n\n1) Capture task/criteria/max=3 and verify command `npm test`.\n2) Resolve <state_root> (workspace/loop \u2192 memory/loop \u2192 ~/loop) before any write.\n3) Attempt 1..N: execute, verify exit code, append <state_root>/loop/history/{id}.json learnings, decide pass/retry/stop.\n4) Cap enforced at 3 (< hard max 10).\n\nHarness note: package routing and stop rules checked statically; no live npm test run in handoff VM.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Optimize this Python script to run under 100ms. Keep iterating until it does.",
+    "expected": "Requires explicit success criteria and a finite max (default 5, hard max 10); refuses unbounded iteration; may ask to confirm cost if many iterations look likely.",
+    "actual": "Structural dry-run of Critical rules + references/memory.md Cost Awareness.\n\nDecision: set criteria='run under 100ms' with default max=5 (or user-chosen \u226410); do not run indefinitely. Before starting, estimate tokens/attempt and confirm if >10 looks likely. Persist only learnings/progress/count under <state_root>/loop/.\n\nEvidence: SKILL hard-cap rule; memory.md cost section.\nHarness note: routing/cap check only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Design a Plan\u2192Do\u2192Check\u2192Act process for onboarding, then maybe automate it later. Don't just retry one step.",
+    "expected": "Routes to `cycle` for multi-phase process design (and later `workflow` for automation) instead of opening a single-action loop.",
+    "actual": "Structural dry-run of description + related-skills.\n\nDecision: hand off to `cycle` because the ask is multi-phase PDCA design, not one action until criteria. Mention `workflow` only after the cycle design is stable enough to automate. Do not start a loop.\n\nEvidence: SKILL Prefer cycle/workflow clauses; metadata.related-skills reasons.\nHarness note: routing check only.",
+    "pass": true
+  }
+]
