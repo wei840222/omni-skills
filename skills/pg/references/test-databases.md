@@ -14,7 +14,7 @@ Two goals in tension: tests must be fast and isolated, and rehearsals must run a
 
 Template databases are the underused one: seed a database once, then `CREATE DATABASE t1 TEMPLATE seed` per worker. It copies files rather than replaying SQL, so it is far faster than re-running migrations, and each worker gets a genuinely separate database.
 
-Speed knobs that only belong on a throwaway test cluster, never anywhere else: `fsync = off`, `full_page_writes = off`, `synchronous_commit = off`, data directory on tmpfs. Together they cut a suite's database time substantially; any of them on real data is a corrupted cluster after one power loss.
+Speed knobs that belong only on a throwaway test cluster: `fsync = off`, `full_page_writes = off`, `synchronous_commit = off`, data directory on tmpfs. Together they cut a suite's database time substantially; any of them on real data is a corrupted cluster after one power loss.
 
 ## Building a Seed That Finds Bugs
 
@@ -25,7 +25,7 @@ Speed knobs that only belong on a throwaway test cluster, never anywhere else: `
 
 ## Production-Shaped Data Without the Risk
 
-A copy of production in a development environment is a breach waiting for a laptop. Anonymize at the point of copy, never afterwards:
+A copy of production in a development environment is a breach waiting for a laptop. Anonymize at the point of copy, before any extraction:
 
 - Restore into a scratch instance, run an anonymization script inside it, then dump the anonymized result. The un-anonymized copy never leaves that instance.
 - Deterministic pseudonyms (`md5(email || salt)`) preserve join cardinality and uniqueness; random values destroy the distribution that makes the copy worth having.

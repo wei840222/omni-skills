@@ -22,7 +22,7 @@ Composite ordering, partial, expression and covering indexes are in SKILL.md (In
 
 - Postgres can combine two separate indexes with a **BitmapAnd**, so two single-column indexes are not useless — they are just slower than one composite that matches the predicate, and they cost two write paths.
 - Rule of thumb: if a pair of columns appears together in the WHERE clause of a hot query, one composite. If they appear independently in different queries, separate indexes.
-- A composite `(a, b, c)` also serves `(a)` and `(a, b)` — do not create those separately. It does **not** serve `(b)` or `(c)` (PostgreSQL >=18 adds B-tree skip scan for such cases, but it depends on `a` having few distinct values; do not design around it).
+- A composite `(a, b, c)` also serves `(a)` and `(a, b)` — rely on the composite index instead of creating them separately. It does **not** serve `(b)` or `(c)` (PostgreSQL >=18 adds B-tree skip scan for such cases, but it depends on `a` having few distinct values; design for exact matches instead).
 - `btree_gin` / `btree_gist` let you mix scalar equality into a GIN/GiST index — the standard way to build `(tenant_id, tsvector)` or an exclusion constraint combining `room_id =` with `during &&`.
 
 ## Building Without Downtime
@@ -65,7 +65,7 @@ SELECT relname, seq_scan, idx_scan, n_live_tup
 FROM pg_stat_user_tables WHERE seq_scan > idx_scan AND n_live_tup > 100000;
 ```
 
-Never drop a unique or FK-supporting index on the basis of `idx_scan = 0`: constraint enforcement does not always increment the counter, and the referential integrity check needs it.
+Verify constraint dependencies before dropping any index, even if `idx_scan = 0`: constraint enforcement does not always increment the counter, and the referential integrity check needs it.
 
 ## The Write-Cost Budget
 

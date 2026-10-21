@@ -23,11 +23,11 @@ Counters are cumulative since the last reset (`stats_reset` column). Every meani
 
 | Alert | Threshold | Why this one |
 |---|---|---|
-| Disk free on the data and WAL filesystems | Warn 25%, page 15% | A full `pg_wal` stops the cluster; recovery from full is much harder than from 15% |
+| Disk free on the data and WAL filesystems | Warn 25%, page 15% | A full `pg_wal` halts the cluster; recovery from full is much harder than from 15% |
 | WAL archiving failing | `pg_stat_archiver.last_failed_time` recent | Silent failure means no PITR and a growing `pg_wal` |
 | Replication lag in **bytes** | Workload-specific; alert on trend | The time-based metric false-alarms on an idle primary (see the replication guide) |
 | Oldest transaction age | > 15min | One `BEGIN` blocks vacuum database-wide; anything here outlived the 5min idle-in-transaction timeout, so it is active or exempt |
-| `age(datfrozenxid)` | > 75% of `autovacuum_freeze_max_age` | Wraparound is a hard stop, and the fix is slow |
+| `age(datfrozenxid)` | > 75% of `autovacuum_freeze_max_age` | Wraparound is a critical failure, and the fix is slow |
 | Connection utilization | > 80% of `max_connections` | The last 20% goes fast under a retry storm |
 | Deadlocks per minute | Any sustained rate | Each one is an aborted user transaction |
 | Backup age and last successful restore drill | > expected interval | The only backup metric that means anything |
