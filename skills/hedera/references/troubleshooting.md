@@ -17,3 +17,8 @@
 3. For custom tokens: association present.
 4. Memo matches exchange instructions and contains no secrets.
 5. Payer can cover amount + fee; collect the transaction ID / mirror-node receipt before declaring success.
+
+## Retry hygiene
+
+- Avoid repeating the same signed payload after a clear terminal status; rebuild with corrected association, fee, or account inputs.
+- Separate user mistakes (wrong network/ID) from token-operator controls (freeze/wipe) so the user knows who can fix it.
