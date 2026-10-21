@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I create a new Hedera account so I can receive HBAR?",
+    "expected": "Explains that account creation is a paid network transaction (or wallet/exchange/auto-create path), account IDs are 0.0.x, and an existing funded account or portal faucet is required depending on network.",
+    "actual": "Pick the network first. On testnet/previewnet, create an account in the Hedera portal and fund it with test HBAR. On mainnet, an existing funded account (or a wallet/exchange that creates accounts) must submit AccountCreateTransaction and pay the fee—addresses are not usable until created, unless you intentionally use a documented auto-create/alias path. The resulting account ID looks like 0.0.12345.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I tried to send my new HTS token to a friend and the transfer failed. What should we check?",
+    "expected": "Mentions token association (or max automatic associations), correct network/account IDs, and checking the status/receipt before retrying.",
+    "actual": "Confirm both of you are on the same network and using account IDs (0.0.x), not an unrelated hex address. For custom HTS tokens the receiver usually must associate with the token ID first (TokenAssociateTransaction or wallet UI), which costs a small HBAR fee and requires their signature. Then retry and inspect the receipt/mirror-node status for TOKEN_NOT_ASSOCIATED or related errors instead of blindly resending.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Are Hedera staking rewards locked up for weeks like some proof-of-stake chains?",
+    "expected": "States there is no lock-up while staked and balances remain liquid; points to official staking/account-property docs rather than inventing APY.",
+    "actual": "No lock-up period is described for staking to a node: the staked HBAR balance stays liquid for transfers while remaining staked. An account stakes to one node or one account at a time and can decline rewards. Quote live docs for any reward-rate numbers instead of memorizing APY.",
+    "pass": true
+  }
+]
