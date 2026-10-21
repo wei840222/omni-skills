@@ -18,7 +18,7 @@
 - Beach quality and swimming conditions vary strongly by region.
 - Ferry and flight dependencies can reshape island schedules.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Planning beach-only days with no weather backup.
 2. Ignoring transfer logistics to smaller islands.

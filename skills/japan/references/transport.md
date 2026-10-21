@@ -22,11 +22,11 @@
 
 ## Practical Rules
 
-- Avoid same-day long transfer plus heavy sightseeing stack.
+- Separate same-day long transfers from heavy sightseeing stacks.
 - Keep backup routes for disruption days.
 - Check first and last train windows for nightlife plans.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Buying a pass without comparing real route costs.
 2. Booking tight station-to-tour transitions.

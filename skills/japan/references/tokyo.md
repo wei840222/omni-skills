@@ -34,7 +34,7 @@
 - Neighborhood clustering beats zig-zag planning across the city.
 - Reserve flagship dinners early and keep backup casual options.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Packing too many distant neighborhoods into one day.
 2. Only eating in station-adjacent chain zones.

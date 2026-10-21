@@ -17,10 +17,10 @@ This area works best with intentional pacing: one day for Hiroshima city history
 ## Route Rules
 
 - Keep at least one overnight if combining city and island.
-- Avoid stacking long transfer day plus major museum circuit.
+- Separate long transfer days from major museum circuits to preserve energy.
 - Build weather backup for island viewpoints.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Treating Miyajima as a rushed 2-hour stop.
 2. Missing final ferry planning and return buffer.

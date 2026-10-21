@@ -26,7 +26,7 @@ Useful for sake-focused routes with short transfers.
 ### Osaka
 Great balance of casual and higher-end whisky and sake bars.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Overpacking tastings in one evening.
 2. Assuming every famous bar accepts walk-ins.
