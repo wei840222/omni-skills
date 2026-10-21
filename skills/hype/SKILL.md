@@ -18,7 +18,7 @@ This skill is stateless knowledge guidance. It does not store local configuratio
 
 - Treat every rate, max leverage, deposit route, and fee tier as time-sensitive; verify against current official docs or the live app/API before irreversible actions.
 - Prefer read-only diagnosis first. For deposits, withdrawals, orders, approvals, vault transfers, or staking moves, state the exact action and wait for explicit user authorization before guiding a signed step.
-- Prefer official URLs and the app deposit UI over third-party bridges or unsolicited wallet connections.
+- Prefer official URLs and the app deposit UI; treat unsolicited third-party bridge or wallet-connect prompts as out of the guided path until the user explicitly chooses them.
 
 ## Workflow
 
