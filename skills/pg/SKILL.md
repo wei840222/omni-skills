@@ -55,6 +55,16 @@ Load `references/setup.md` on first use and `assets/data-templates.md` for blank
 Open `references/sources.md` before treating version-gated behavior, planner knobs,
 or extension claims as current fact.
 
+## Progressive disclosure
+
+| Situation | Load |
+|---|---|
+| First-use preference loading and write rules | `references/setup.md` |
+| Blank config/memory shapes | `assets/data-templates.md` |
+| Spec/docs freshness and official URLs | `references/sources.md` |
+| Plan reading / misestimates | `references/slow-queries.md` |
+| Online DDL and backfills | `references/migrations.md` |
+
 ## When To Use
 
 - A query is slow, a plan needs interpretation, or an index is being ignored
