@@ -60,7 +60,7 @@
 ```
 
 ### Performance
-- Aggregate data for display — don't query raw data live
+- Aggregate data for display instead of querying raw data live
 - Cache expensive calculations
 - Lazy-load below-the-fold charts
 - Use appropriate granularity (daily vs hourly)
