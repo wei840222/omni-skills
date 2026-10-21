@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to look up employee departments based on their ID numbers in Excel. The IDs are in column A, and the departments are in column C. How can I use XLOOKUP to do this?",
+    "expected": "Loads office; prefers XLOOKUP for Excel 365+ with lookup in A and return from C; may mention VLOOKUP/INDEX+MATCH as compatibility; does not hand off to excel-xlsx unless file mutation is requested.",
+    "actual": "Structural dry-run against SKILL.md Critical rules + references/spreadsheets.md + related-skills.\n\n1) Route as spreadsheet how-to → keep office; load references/spreadsheets.md only.\n2) Teach =XLOOKUP(A2, A:A, C:C) (or equivalent lookup_array/return_array form) for Excel 365+.\n3) Note VLOOKUP column-index / left-lookup limits and INDEX+MATCH fallback.\n4) Stay advise-only; no workbook rewrite via excel-xlsx unless asked.\n\nEvidence: Critical rule Prefer modern lookups; spreadsheets.md XLOOKUP note; related-skills excel-xlsx boundary.\nHarness note: formula routing checked statically; no live Excel session in handoff VM.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a long Word document and want an automatic Table of Contents. Also, tomorrow I need Presenter View notes the audience cannot see. Walk me through both.",
+    "expected": "Uses Heading styles before TOC; loads documents then presentations only as needed (or sequences clearly); Presenter View keeps notes private to presenter; does not open word/powerpoint live-control skills unless macOS live session is required.",
+    "actual": "Structural dry-run of progressive disclosure + documents.md + presentations.md + routing boundaries.\n\n1) Documents path: apply Heading 1/2/3 styles → Insert TOC (Word training path); cite accessibility/structure rationale.\n2) Presentations path: enable Presenter View so speaker notes/timer stay on presenter display.\n3) Load at most one reference at a time; do not preload facilities/sources.\n4) Hand off to word/powerpoint only if user needs live macOS app control rather than how-to.\n\nEvidence: SKILL progressive disclosure table; documents Styles/TOC; presentations Presenter tools; related-skills boundaries.\nHarness note: dual-domain routing check only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Please use the gws CLI to bulk-share a Drive folder and also rewrite this .xlsx with openpyxl. Office how-tos are not enough.",
+    "expected": "Routes Drive/CLI work to google-workspace-cli and programmatic workbook edits to excel-xlsx (or spreadsheet); does not pretend office can perform API/CLI or openpyxl mutation.",
+    "actual": "Structural dry-run of Routing boundaries + related-skills.\n\nDecision: split handoff — google-workspace-cli for gws Drive share/Admin paths; excel-xlsx for openpyxl/.xlsx mutation. Keep office only if residual Microsoft/Google UI how-to remains after the handoff.\n\nEvidence: SKILL related-skills reasons; Critical rule Route adjacent tools.\nHarness note: negative-path routing discrimination check.",
+    "pass": true
+  }
+]

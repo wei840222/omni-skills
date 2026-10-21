@@ -1,5 +1,7 @@
 # Spreadsheets Deep Dive
 
+*Note: XLOOKUP is generally preferred over VLOOKUP in modern Excel (365+) as it supports left-lookups and exact match by default.*
+
 ## Formula Patterns
 
 ### Lookup Values

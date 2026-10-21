@@ -1,101 +1,62 @@
 ---
 name: office
-slug: office
-version: 1.0.0
-description: Get productive with Excel, Word, PowerPoint, and Google Workspace with formulas, formatting, and automation.
-homepage: https://clawic.com/skills/office
+description: >
+  Route Excel/Sheets, Word/Docs, PowerPoint/Slides, and light office-admin
+  how-tos: formulas and lookups, Styles/TOC/mail merge, Slide Master and
+  Presenter View, plus supplies/vendor/space basics. Use when the user asks
+  how to do something in Microsoft 365 or Google Workspace apps, or needs
+  facility/admin checklists. Prefer `spreadsheet` / `excel-xlsx` for file
+  analysis or programmatic workbooks, `word` / `word-docx` for live or OOXML
+  document edits, `powerpoint` / `powerpoint-pptx` for live or PPTX decks,
+  and `google-workspace-cli` for API/CLI automation.
 metadata:
-  clawdbot:
-    emoji: 🏢
-    displayName: Office
+  version: "1.0.0"
+  openclaw: '{"emoji":"🏢"}'
+  related-skills: '{"spreadsheet":"Analyze or edit table files with schema memory when the artifact is the spreadsheet itself.","excel-xlsx":"Programmatic XLSX/XLSM generation and formula-safe edits beyond how-to guidance.","word":"Live macOS Word control when an open document or review markup matters.","word-docx":"Offline DOCX/OOXML structural edits without a live Word session.","powerpoint":"Live macOS PowerPoint control when presenter/window state matters.","powerpoint-pptx":"Offline PPTX generation and structural deck edits.","google-workspace-cli":"Drive Gmail/Drive/Calendar/Sheets/Docs through the gws CLI or Admin SDK."}'
 ---
 
-## What "Office" Means Here
+# Office
 
-Productivity software: Microsoft 365, Google Workspace, and office administration.
+Cross-app how-to router for Microsoft 365 and Google Workspace productivity
+tasks (Excel/Sheets, Word/Docs, PowerPoint/Slides), plus light physical-office administration. Stay in **advise** mode:
+give steps the human can run; do not send mail merges, alter shared calendars,
+or change vendor contracts without explicit authorization for that action.
+
+## Progressive disclosure
+
+Keep this file as the always-on contract. Load **at most one** reference for
+the current ask; do not preload every deep dive.
 
 | Signal | Context | Load |
-|--------|---------|------|
-| Formulas, pivot tables, VLOOKUP, macros | Spreadsheets | `tools/spreadsheets.md` |
-| Formatting, headers, mail merge, TOC | Documents | `tools/documents.md` |
-| Slides, animations, presenter view | Presentations | `tools/presentations.md` |
-| Supplies, vendors, facilities, space | Office admin | `admin/facilities.md` |
+| --- | --- | --- |
+| Formulas, pivot tables, VLOOKUP/XLOOKUP, macros | Spreadsheets | `references/spreadsheets.md` |
+| Styles, headers, mail merge, TOC | Documents | `references/documents.md` |
+| Slide Master, animations, Presenter View | Presentations | `references/presentations.md` |
+| Supplies, vendors, facilities, space | Office admin | `references/facilities.md` |
+| Re-check primary docs / Gate 6 ledger | Sources | `references/sources.md` |
 
----
+## Routing boundaries
 
-## Spreadsheets (Excel / Google Sheets)
+- Spreadsheet **file** analysis, schema memory, or CSV/Sheets edits as artifacts → `spreadsheet` or `excel-xlsx`.
+- Live Word window / track changes / selection-aware edits on macOS → `word`; offline DOCX → `word-docx`.
+- Live PowerPoint presenter/window state on macOS → `powerpoint`; offline PPTX → `powerpoint-pptx`.
+- Gmail/Drive/Calendar bulk ops, OAuth, or Admin SDK via CLI → `google-workspace-cli`.
+- Personal ID/contract vault tracking → `documents` (different skill).
 
-**Formulas people actually need:**
-- `VLOOKUP` / `XLOOKUP` — lookup value in table, return another column
-- `SUMIF` / `COUNTIF` — sum/count with conditions
-- `INDEX/MATCH` — more flexible than VLOOKUP
-- `IF` with `AND`/`OR` — conditional logic
+## Critical rules
 
-**Common problems:**
-- VLOOKUP returns #N/A → check for spaces, data types, exact match setting
-- Formula works in one cell, breaks when copied → missing `$` for absolute references
-- Dates sorting wrong → format as actual dates, not text
+1. **Advise only** — draft steps and formulas; do not execute destructive shared-mailbox, calendar, or contract changes unless the user authorizes that specific action.
+2. **Prefer modern lookups** — for Excel 365+, prefer `XLOOKUP` over `VLOOKUP` when teaching new formulas; keep `INDEX`/`MATCH` for compatibility paths.
+3. **Styles before cosmetics** — structure Word/Docs with Heading styles before building a TOC or fixing spacing by hand.
+4. **One idea per slide** — keep Presenter View / Slide Master guidance practical; avoid animation theatre.
+5. **Source mutable facts** — quote supplier discounts, SLA numbers, or product limits only from a current primary source in `references/sources.md` or a newly verified URL.
+6. **Route adjacent tools** — hand off to the related skills above when the user needs file mutation, live app control, or Workspace API automation rather than how-to guidance.
 
-**Pivot tables:** Right-click data → Create Pivot Table → drag fields to rows/columns/values.
-
----
-
-## Documents (Word / Google Docs)
-
-**Formatting essentials:**
-- Use Styles (Heading 1, 2, 3) for structure — enables automatic TOC
-- Page numbers starting on page 3: Insert break → Different First Page → start numbering
-- Different headers per section: Section breaks, unlink from previous
-
-**Mail Merge:**
-1. Prepare data source (Excel with columns: Name, Address, etc.)
-2. Word → Mailings → Start Mail Merge → Letters
-3. Insert Merge Fields where dynamic content goes
-4. Preview Results → Finish & Merge
-
----
-
-## Presentations (PowerPoint / Google Slides)
-
-**Professional basics:**
-- Slide Master for consistent styling (View → Slide Master)
-- 6x6 rule: max 6 bullets, 6 words per bullet
-- One idea per slide
-
-**Animations:**
-- Entrance animations for bullet reveal (Appear > Fade > Fly In)
-- Timing: On Click vs After Previous
-- Keep it subtle — animation should aid, not distract
-
-**Presenter View:** F5 to present, use Presenter View to see notes while audience sees slides.
-
----
-
-## Office Administration
-
-For those managing physical office operations:
-
-**Supplies & Inventory:**
-- Track with simple spreadsheet: Item, Quantity, Reorder Point, Supplier
-- Set calendar reminders for regular orders
-- Bulk ordering usually 15-30% cheaper
-
-**Vendor Management:**
-- Cleaning, maintenance, IT support contracts
-- Document SLAs and contact info in shared location
-- Review contracts annually for renegotiation
-
-**Space Planning:**
-- Hot-desking: Use booking system (even a shared calendar works)
-- Meeting room: Clear naming, visible displays, 15-min buffers
-
----
-
-## Quick Reference
+## Quick reference
 
 | Task | Excel/Sheets | Word/Docs | PowerPoint/Slides |
-|------|-------------|-----------|-------------------|
-| Find value | VLOOKUP/XLOOKUP | Find & Replace | Find & Replace |
-| Conditional format | Home → Conditional | N/A | N/A |
-| Auto-update content | Formulas | Fields | Links |
-| Export to PDF | File → Save As | File → Save As | File → Save As |
+| --- | --- | --- | --- |
+| Find value | `XLOOKUP` / `VLOOKUP` / `INDEX`+`MATCH` | Find & Replace | Find & Replace |
+| Structure | Tables + Pivot | Heading styles + TOC | Slide Master layouts |
+| Personalize at scale | Formulas | Mail merge | Linked content / notes |
+| Export | Save/Download as PDF | Save/Download as PDF | Export as PDF |
