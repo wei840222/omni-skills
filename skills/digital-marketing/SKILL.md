@@ -57,6 +57,8 @@ Local workspace is optional and only created with user consent.
 
 ## Quick Reference
 
+Load only the file needed for the current bottleneck. Prefer `references/market-model.md` before channel or creative work.
+
 | Topic | When to load | File |
 |-------|--------------|------|
 | Setup and activation | First use, consent, storage decision | `references/setup.md` |
