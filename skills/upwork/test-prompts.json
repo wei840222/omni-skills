@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I found a job posting on Upwork for a React developer but the budget is only $50 and they want me to start immediately. How should I proceed?",
+    "expected": "Flag the low budget + ASAP combo as a red flag, advise against applying or insist on clarification/funded milestones, keep payments and chat on Upwork, and leave any decline message as a draft for the user to send.",
+    "actual": "Reviewer dry-run against skills/upwork: surfaced budget <$100 for complex work and ASAP+low-budget as red flags from SKILL.md; advised skipping the apply or asking clarifying questions only after the user confirms; offered a polite decline draft; refused automation/login; reminded the user to keep money and chat on-platform per references/legal.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you help me write a proposal for a long-term SEO project? The client wants to increase organic traffic by 200% in 6 months.",
+    "expected": "Load references/proposals.md, draft a Hook-Credibility-Approach-CTA proposal tailored to the 200% goal, include a concrete next step, remind the user to review before sending, and mention checking the Freelancer Service Fee shown on that proposal screen.",
+    "actual": "Reviewer dry-run: loaded references/proposals.md; drafted a personalized Hook/Credibility/Approach/CTA proposal aimed at the 200% organic-traffic goal with a 15-minute discovery-call CTA; reminded the user to review before send; noted the per-contract 0–15% Freelancer Service Fee must be read from the live proposal screen via references/platform.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What fee does Upwork take from freelancers now? Is it still a flat 10%?",
+    "expected": "Reject the flat-10% claim; explain the current 0–15% per-contract Freelancer Service Fee locked at proposal/offer time; point to references/platform.md and references/sources.md; mention Direct Contracts / Freelancer Plus exceptions without inventing exact membership prices if unverified.",
+    "actual": "Reviewer dry-run: corrected the obsolete flat-10% / sliding-scale story; stated the official 0–15% per-contract Freelancer Service Fee with lock-at-proposal behavior from references/platform.md; cited references/sources.md (support article 211062538); noted Direct Contracts reduced fee and Freelancer Plus 0% Direct Contract fee without claiming a universal marketplace flat rate.",
+    "pass": true
+  }
+]
