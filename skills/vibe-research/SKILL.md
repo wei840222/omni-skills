@@ -24,7 +24,7 @@ This skill is stateless. It does not store local configuration or persistent use
 ## Workflow
 
 1. Capture the human's question, domain constraints, depth budget, and success criteria.
-2. Load only the reference needed for the current phase.
+2. Load only the smallest relevant reference for the current phase (progressive disclosure).
 3. Produce the phase artifact (gap map, synthesis, hypotheses, protocol, or report) with citations and confidence tags.
 4. Pause for human validation on methodology and load-bearing findings before irreversible publication or high-stakes advice.
 5. Log steps for reproducibility; escalate when evidence conflicts, ethics apply, or domain expertise is required.
