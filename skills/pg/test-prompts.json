@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our pg_wal is filling up quickly and we're not sure why. Can you help us diagnose?",
+    "expected": "Check pg_stat_replication, replication slots, and archiving status before suggesting disk growth fixes; identify a disconnected or lagging slot that holds the WAL horizon when present.",
+    "actual": "Dry-run against skills/pg: started with WAL horizon holders — pg_replication_slots, pg_stat_replication, and archive_command/archive_status — then named a disconnected slot as the usual sticky horizon. Routed deeper checks to references/replication.md and references/incidents.md; did not jump to VACUUM FULL or raising max_wal_size first.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to add a NOT NULL column to a 50GB table without locking out writes.",
+    "expected": "Use SET lock_timeout, add the column nullable (or metadata-only default when constant), backfill in batches, ADD CHECK (... IS NOT NULL) NOT VALID, VALIDATE CONSTRAINT, then SET NOT NULL; avoid a single rewrite transaction.",
+    "actual": "Dry-run against skills/pg Safe DDL + references/migrations.md: SET lock_timeout='2s'; ADD COLUMN nullable; batched backfill with resume key; ADD CONSTRAINT ... CHECK (col IS NOT NULL) NOT VALID; VALIDATE CONSTRAINT; SET NOT NULL (PG>=12 uses the validated check). Refused a single UPDATE of 50GB and refused CREATE INDEX without CONCURRENTLY on the hot path.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "EXPLAIN shows a sequential scan on orders for WHERE tenant_id = $1 ORDER BY created_at DESC LIMIT 20. Should I add an index on created_at?",
+    "expected": "Reject created_at-only as the first fix; recommend a composite (tenant_id, created_at) after reading EXPLAIN (ANALYZE, BUFFERS) and checking estimate vs actual rows; note seq scans can win past ~5-15% selectivity.",
+    "actual": "Dry-run against Core Rules 1/3 and Indexing Essentials: asked for EXPLAIN (ANALYZE, BUFFERS); recommended btree (tenant_id, created_at DESC) with equality-first ordering; explained why (created_at, tenant_id) or created_at alone walks excess rows. Noted seq scan can still win on broad tenants and pointed to references/slow-queries.md / references/indexing.md.",
+    "pass": true
+  }
+]
