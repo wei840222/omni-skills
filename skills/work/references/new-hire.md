@@ -9,10 +9,10 @@
 - Identify your manager's priorities and pain points
 - Find the person who "knows where everything is"
 
-**Don't:**
-- Suggest changes or improvements yet
-- Complain about how things were better at your old job
-- Skip 1:1s or social events
+**Instead:**
+- Defer suggesting changes or improvements until later
+- Focus on understanding the current environment rather than comparing to past roles
+- Prioritize attending 1:1s and team social events
 
 ## Week 3-4: Connect
 

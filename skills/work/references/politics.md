@@ -23,7 +23,7 @@
 - Present your own work when possible
 
 ### The Underminer
-- Don't react publicly
+- Pause, gather facts, then choose a private reset
 - Address privately once: "I noticed X. Can we align on how we communicate?"
 - If continues: document and escalate with facts, not emotions
 
