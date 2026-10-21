@@ -189,5 +189,5 @@ No other external endpoints should be used unless the user asks for a specific c
 **This skill does NOT:**
 - bypass approvals for destructive writes or sensitive financial corrections
 - store passwords, tokens, session cookies, or raw export payloads in memory
-- assume a production write path when a safer review path exists
+- choose a production write path when a safer review path exists
 - make undeclared network requests by itself
