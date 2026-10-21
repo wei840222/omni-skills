@@ -35,6 +35,7 @@ This skill is stateless. It does not store local configuration or persistent use
 | --- | --- |
 | `references/pipeline.md` | Running gap identification through synthesis phases or choosing an output shape. |
 | `references/risks.md` | Mitigating hallucination, bias, rigor loss, skill erosion, or integrity risk; deciding when to escalate. |
+| `references/sources.md` | Re-checking mutable methodology or AI-research-risk claims against primary docs. |
 
 ## Critical rules
 
