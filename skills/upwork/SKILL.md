@@ -44,14 +44,17 @@ before restating fee percentages, Connect prices, or membership benefits.
 
 ## Workflow
 
-Load only the reference needed for the current ask:
+Load **one** reference for the current ask; open `references/sources.md`
+only when restating a mutable fee, Connect price, or membership claim.
 
-1. **Proposal draft** → `references/proposals.md`
-2. **Profile rewrite** → `references/profile.md`
-3. **Client message / negotiation** → `references/communication.md`
-4. **Fees, Connects, JSS, contract types** → `references/platform.md`
-5. **ToS / compliance boundaries** → `references/legal.md`
-6. **Verify mutable platform facts** → `references/sources.md`
+| Ask | Load |
+|-----|------|
+| Proposal draft | `references/proposals.md` |
+| Profile rewrite | `references/profile.md` |
+| Client message / negotiation | `references/communication.md` |
+| Fees, Connects, JSS, contract types | `references/platform.md` |
+| ToS / compliance boundaries | `references/legal.md` |
+| Verify mutable platform facts | `references/sources.md` |
 
 ## Disclaimer
 
