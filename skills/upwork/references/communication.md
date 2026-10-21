@@ -2,9 +2,9 @@
 
 ## Response Timing
 
-- First reply <2 hours (algorithm rewards speed)
-- Business hours consistency (set expectations)
-- Weekend silence is OK if communicated
+- First reply under 2 hours when possible (speed often helps ranking)
+- Keep business-hours consistency and state your timezone
+- Weekend silence is fine when you set that expectation up front
 
 ## Message Templates (Adapt, Don't Copy)
 
@@ -19,10 +19,10 @@
 
 ## Negotiation Principles
 
-- Never negotiate against yourself (let them counter)
+- Wait for the client to counter before adjusting your price
 - "My rate is X because [value justification]"
-- Walk away from scope creep without pay adjustment
-- Document EVERYTHING in Upwork chat (legal protection)
+- Walk away from unpaid scope creep
+- Document every material agreement in Upwork chat (legal protection)
 
 ## Tone Matching
 
@@ -31,3 +31,5 @@
 | Corporate | Formal, structured, status updates |
 | Startup | Direct, casual, quick back-and-forth |
 | Creative | Show personality, collaborative tone |
+
+Always leave the final send to the user.

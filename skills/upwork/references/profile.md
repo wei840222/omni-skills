@@ -5,6 +5,7 @@
 `[Primary Skill] | [Secondary Skill] | [Differentiator]`
 
 Examples:
+
 - "React Developer | Next.js Expert | 50+ E-commerce Projects"
 - "Copywriter | Email Sequences | B2B SaaS Focus"
 
@@ -16,18 +17,21 @@ Rest: Skills, process, call to action
 
 ## Portfolio Curation
 
-- 6-8 pieces maximum (quality over quantity)
+- 6–8 pieces maximum (quality over quantity)
 - Lead with best work
-- Include outcome/results, not just deliverable
-- Match portfolio to jobs you want
+- Include outcome/results, not just the deliverable
+- Match portfolio to the jobs you want next
 
 ## Hourly Rate Strategy
 
 | Experience | Starting Rate | Goal |
 |------------|---------------|------|
 | New (<$1k earned) | Lower range for niche, build reviews fast |
-| Rising ($1k-10k) | Market rate, selective with projects |
-| Established (>$10k) | Premium rate, direct invitations |
+| Rising ($1k–10k) | Market rate, selective with projects |
+| Established (>$10k) | Premium rate, lean on direct invitations |
+
+When quoting an hourly rate, remind the user that the Freelancer Service Fee is
+deducted from earnings and is shown per contract (0–15%).
 
 ## What Tanks Profiles
 
