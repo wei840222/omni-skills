@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to learn French but I only have 2 hours a week. How long will it take to be conversational?",
+    "expected": "Quotes a range from weekly_hours (Rule 8), requires an exit test / curriculum before a date, and suggests tracking actual hours against the plan.",
+    "actual": "Dry-run (mode=dry_run) against SKILL Core Rule 8 + references/curriculum.md + Configuration weekly_hours: set weekly_hours=2; refused a single calendar date; asked for a conversational exit test with conditions; computed weeks=total_hours/2 and quoted weeks..2\u00d7weeks with upper-bound assumptions; wrote plan_review_weeks into ## Due to compare actual hours. Matches expected.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I've been going through a Python tutorial but when I try to write code from scratch I freeze. What should I do?",
+    "expected": "Identifies missing retrieval / scaffolding; points to Rule 2 capture into items and the copy\u2192modify\u2192blank ladder in projects.md.",
+    "actual": "Dry-run against Why Nothing Sticks (tutorial hell) + references/capture.md + references/projects.md: named cause as scaffolding never removed; required same-night gap-log items for unexplained copy steps (Rule 2); set dated Copy\u2192Modify\u2192Blank rungs with blank-file as the freeze exit. Matches expected.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I finished the Coursera machine learning course, does that mean I've learned it?",
+    "expected": "States course completion measures attendance not capability; requires an unseen unaided exit/transfer test and retention thinking.",
+    "actual": "Dry-run against Mastery Ladder + Traps (course completion) + references/verification.md: treated certificate as attendance not capability; required an unseen unaided transfer problem from a blank notebook; offered a \u226530-day cold re-test row in ## Due for Retention. Matches expected.",
+    "pass": true
+  }
+]
