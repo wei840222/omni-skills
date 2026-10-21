@@ -1,13 +1,14 @@
 # Memory Template - Trending Now
 
-Create `~/Clawic/data/trending-now/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure after resolving the real
+state root (see `SKILL.md` State location):
 
 ```markdown
 # Trending Now Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | complete | paused | never_ask
 
@@ -65,4 +66,4 @@ timezone: Area/City
 - Prefer natural language notes over rigid config dumps.
 - Update `last` after meaningful monitoring sessions.
 - Record misses and false positives to improve thresholds.
-- Never persist secrets unless explicitly requested by the user.
+- Persist secrets only when explicitly requested by the user.
