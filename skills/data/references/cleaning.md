@@ -17,7 +17,7 @@
 | Entire column missing | Drop column | >50% missing, not critical |
 | Time series gap | Interpolate | Regular intervals, smooth data |
 
-**Never impute without documenting** — create a `_was_imputed` flag column.
+**Document imputations** — create a `_was_imputed` flag column.
 
 ## Duplicates
 
@@ -46,7 +46,7 @@
 
 ### Safe Conversion Pattern
 ```python
-# Don't: df['date'] = pd.to_datetime(df['date'])
+# Weak pattern: df['date'] = pd.to_datetime(df['date'])
 # Do: handle errors explicitly
 df['date'] = pd.to_datetime(df['date'], errors='coerce')
 invalid_count = df['date'].isna().sum()

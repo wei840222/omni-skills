@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Here's a sample of user data. Please find the duplicates, handle missing values in 'age', and summarize the mean age by 'country'.",
+    "expected": "Identify duplicate keys, choose and document a missing-age strategy (drop/impute/flag), then group by country for mean age; show a before/after sample and refuse silent rewrites of the only copy.",
+    "actual": "Dry-run against skills/data Core rules 1/2/6 + references/cleaning.md: flagged exact/fuzzy duplicate detection, documented median impute with a _was_imputed flag instead of silent fill, then mean age by country. Previewed a sample before mutate and pointed SQL-heavy joins to sql when needed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have daily sales data. Can you generate a visualization that shows the trend over the last 30 days and highlight any anomalies?",
+    "expected": "Choose a time-series line (or small multiples), reserve axis space, call out spikes/drops with a stated baseline, and avoid dual y-axes/3D/oversized pies; cite visualization guidance rather than inventing chart APIs.",
+    "actual": "Dry-run against Core rule 7 + references/visualization.md: recommended a 30-day line with anomaly callouts vs a stated baseline, refused dual axes, and routed styling libraries to matplotlib/seaborn docs via references/sources.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write a SQL query that joins orders to customers on email and filters WHERE status = NULL. Optimize it while you are at it.",
+    "expected": "Reject `= NULL` in favor of `IS NULL` (or the real status predicate), warn about join-key nulls/cartesian risk, prefer parameterized predicates and explicit columns over SELECT *, and hand deep Postgres ops to pg/sql when asked.",
+    "actual": "Dry-run against references/querying.md Common Traps: replaced `= NULL` with `IS NULL`, checked join cardinality and email nulls, asked for explicit columns + EXPLAIN when optimizing, parameterized literals, and routed vacuum/work_mem questions to pg.",
+    "pass": true
+  }
+]

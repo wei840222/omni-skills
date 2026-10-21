@@ -10,14 +10,14 @@ When user describes data needs in natural language:
 
 ### Common Traps
 - **Cartesian joins** — always verify join conditions exist between all tables
-- **NULL in WHERE** — `= NULL` never matches, use `IS NULL`
+- **NULL in WHERE** — Use `IS NULL` instead of `= NULL` to match null values
 - **Aggregates without GROUP BY** — every non-aggregated column needs GROUP BY
 - **DISTINCT overuse** — usually masks a join problem
 - **String comparisons** — case sensitivity varies by database
 
 ### Query Optimization
 - Check if indexes exist on WHERE/JOIN columns
-- Avoid `SELECT *` — specify needed columns
+- Specify needed columns explicitly instead of using `SELECT *`
 - Push filters early — WHERE before JOIN when possible
 - Use EXPLAIN/EXPLAIN ANALYZE to verify plan
 
@@ -32,13 +32,13 @@ When user describes data needs in natural language:
 ### Files
 - Detect encoding (UTF-8, Latin-1, etc.)
 - Handle various delimiters (comma, tab, pipe, semicolon)
-- Parse dates explicitly — don't rely on auto-detection
+- Parse dates explicitly instead of relying on auto-detection
 - Handle quoted fields and escaped characters
 
 ### Databases
 - Use connection pooling for multiple queries
 - Close connections after use
-- Use parameterized queries — never string interpolation
+- Use parameterized queries exclusively for dynamic values
 - Handle timeouts gracefully
 
 ## Schema Discovery
