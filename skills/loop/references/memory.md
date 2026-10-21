@@ -32,7 +32,7 @@ Loops multiply cost. Before starting:
 
 ## Safety Note
 
-This skill does not:
+Out of scope for this skill:
 
 - Make Git commits automatically
 - Persist data outside `<state_root>/loop/`
