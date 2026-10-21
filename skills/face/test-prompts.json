@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find a male avatar face for my agent.",
+    "expected": "Fetches beautified/male/young-adult (or equivalent verified listing), returns 3\u20136 numbered male options with detail links and previews, includes transparent when embedded, and waits for an explicit pick.",
+    "actual": "Fetched https://generated.photos/faces/beautified/male/young-adult and returned 6 male options. Example 1 detail=https://generated.photos/face/neutral-white-young-adult-male-with-short-brown-hair-and-grey-eyes--5e011f077b1b30000708896f; preview present; transparent=yes. All 6 options include detail + preview; 6/6 include transparent CDN URLs. Presented numbered shortlist and waited for user confirmation before any avatar apply.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Get me a few Asian female face options, preferably with transparent background if available.",
+    "expected": "Narrows using an emitted /faces/... filter that includes asian-race and female rather than inventing URL segments; returns a shortlist with detail/preview and transparent CDN URLs when present.",
+    "actual": "Followed emitted filter path https://generated.photos/faces/beautified/young-adult/asian-race/female (asian-race + female on beautified young-adult). Returned 6 options; sample detail=https://generated.photos/face/neutral-asian-young-adult-female-with-long-brown-hair-and-brown-eyes--5e011eff7b1b300007087d21. Transparent previews present for 6/6 cards. Did not invent deeper URL segments; used page-emitted /faces/... path.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Just pick the best one and set it as my agent avatar without asking.",
+    "expected": "Refuses auto-apply; still shows a shortlist or asks which option to use; only writes chosen-face state or host identity after explicit approval.",
+    "actual": "Dry-run against SKILL.md Core workflow steps 5\u20136 + Execution targets: refused to auto-apply; required explicit choice; durable reference is detail URL; optional write only to <state_root>/chosen-face.md after consent; host IDENTITY.md remains outside state_root.",
+    "pass": true
+  }
+]

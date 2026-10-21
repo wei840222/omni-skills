@@ -1,163 +1,118 @@
 ---
 name: face
-slug: face
-version: 1.0.0
-description: Put a human face on your agent with fast avatar shortlists, gender control, transparent options, and reusable profile links. Use when the user wants an avatar, profile face, or group image.
-homepage: https://clawic.com/skills/face
-changelog: Refines the positioning around putting a human face on the agent with faster avatar selection.
+description: >
+  Shortlist AI-generated human faces from Generated Photos for agent avatars,
+  profile pictures, and group images with gender, age-look, pose, race, hair,
+  eye, and emotion filters, plus transparent previews when present. Use when
+  the user wants a human face, avatar shortlist, profile face, transparent
+  avatar, or reusable Generated Photos detail link. Prefer `agent` for persona
+  and voice, `stock-images` for non-face placeholders, and `image-generation`
+  for custom prompt-based faces.
 metadata:
-  clawdbot:
-    emoji: 👤
-    requires:
-      bins:
-      - curl
-      - python3
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Face
+  version: "1.0.1"
+  openclaw: '{"emoji":"👤","requires":{"bins":["curl","python3"]}}'
+  related-skills: '{"agent":"Persona, voice, and identity writing after a face is chosen.","stock-images":"Generic placeholders and non-face stock/avatar seeds instead of Generated Photos faces.","image-generation":"Prompt-based generative faces when a library shortlist is not enough.","image":"Compress or convert the chosen avatar file after selection.","image-edit":"Crop, mask, or background edits on an already chosen face asset."}'
 ---
 
-# Put a Face on Your Agent
+# Face
 
-Use this skill to give an agent, persona, group, or Telegram surface a real human-looking face fast.
+Give an agent, persona, group, or chat surface a human-looking face quickly by
+shortlisting Generated Photos gallery results and waiting for an explicit pick.
 
-The job is simple:
-- open a stable face listing URL
-- extract a small shortlist of faces
-- send the options to the user to choose
-- if one is approved, reuse that link as the avatar or suggest saving it in identity
+## State location
 
-## Core Workflow
+Chosen-face memory may exist in `<workspace>/face/`,
+`<workspace>/memory/face/`, or `~/face/`.
 
-### 1. Start from the stable URL
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Default to:
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/face/`, `<workspace>/memory/face/`, `~/face/`.
+3. If none exists and durable avatar memory must be created, default to
+   `<workspace>/face/` only with user consent.
+4. If more than one candidate exists, use only the highest-precedence path,
+   report the conflict, and leave other copies unchanged.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd.
+   An existing `~/face/` may be read; otherwise ask before creating data.
+6. Once selected, keep the same `<state_root>` for the whole invocation.
 
-`https://generated.photos/faces/beautified/{gender}/young-adult`
+Use the selected `<state_root>` for every state operation in this skill.
+Host-shared identity files such as workspace `IDENTITY.md` are outside
+`<state_root>` and need separate consent.
 
-Notes:
-- `beautified` and `young-adult` are the best default for this use case
-- gender is the main parameter that usually matters
-- the site may also accept `.../young-adult/{gender}`, but the canonical form resolves to `.../{gender}/young-adult`
-
-### 2. Only trust filters the site already exposes
-
-From the page HTML, the route families that were verified as stable are:
-- head pose: `front-facing`, `left-facing`, `right-facing`
-- race: `asian-race`, `black-race`, `latino-race`, `white-race`
-- eye color: `brown-eyes`, `grey-eyes`, `blue-eyes`, `green-eyes`
-- hair color: `brown-hair`, `black-hair`, `blond-hair`
-- hair length: `short`, `medium`, `long`
-- emotion: `joy`, `neutral`
-
-Do not invent deeper URL combinations from memory. If the user wants narrower filtering, open the base page and follow the exact links that page emits.
-
-### 3. Extract faces from HTML before using a browser
-
-The page already contains:
-- `/face/...` detail links
-- `data-image-id`
-- `https://images.generated.photos/...` preview URLs
-
-Use a direct fetch first. Return 3 to 6 options max.
-
-```python
-python3 - <<'PY'
-import json
-import re
-from urllib.request import Request, urlopen
-
-url = "https://generated.photos/faces/beautified/female/young-adult"
-raw = urlopen(Request(url, headers={"User-Agent": "Mozilla/5.0"})).read().decode()
-
-cards = re.findall(
-    r'href="(/face/[^"]+)".*?data-image-id="([^"]+)".*?src="(https://images.generated.photos[^"]+)"',
-    raw,
-    re.S,
-)
-transparent = {
-    image_id: thumb.replace("\\u002F", "/")
-    for image_id, thumb in re.findall(
-        r'id:"([^"]+)".*?transparent:\{thumb_url:"([^"]+)"',
-        raw,
-    )
-}
-
-for n, (detail, image_id, thumb) in enumerate(cards[:6], 1):
-    print(json.dumps({
-        "n": n,
-        "detail": "https://generated.photos" + detail,
-        "thumb": thumb,
-        "transparent": transparent.get(image_id),
-    }))
-PY
+```text
+<state_root>/
+└── chosen-face.md    # Optional approved detail URL and notes
 ```
 
-### 4. Treat background as extraction, not routing
+## When to use
 
-Do not model background as a clean route parameter.
+- Need 3–6 human face options for an agent avatar or profile image
+- Filter by gender and optional gallery facets already exposed by the site
+- Prefer transparent preview when the page embeds one
+- Persist an approved detail-page link for reuse
 
-What was verified:
-- the page UI shows a background area
-- the route itself does not expose a simple stable public background parameter
-- transparent versions appear in embedded data as `transparent.thumb_url`
+Route elsewhere when:
 
-Rule:
-- if the user wants a transparent avatar, prefer `transparent.thumb_url`
-- if the user wants a bigger preview, open the chosen detail page and use the 512px `og:image` or `twitter:image`
+- Defining persona/voice → `agent`
+- Generic placeholders / non-face stock → `stock-images`
+- Prompted generative art → `image-generation`
+- Pixel edits on a chosen file → `image-edit` / `image`
 
-### 5. Always keep the user in the loop
+## Core workflow
 
-Default output should be:
-- 3 to 6 numbered options
-- one normal preview per option
-- transparent preview too when available
-- the detail page link
+1. Confirm gender (and any extra filters the user named).
+2. Open a stable listing URL; start from
+   `https://generated.photos/faces/beautified/{gender}/young-adult`.
+3. Extract cards from HTML before opening a browser.
+4. Present 3–6 numbered options with detail link, preview, and transparent
+   preview when available.
+5. Wait for an explicit choice. Proceed to store or apply a face only when the user names an option.
+6. After approval, keep the detail-page URL (not only the CDN preview) and
+   optionally store it under `<state_root>/chosen-face.md`.
 
-Do not auto-pick unless the user asks.
+Load references only when needed:
 
-### 6. Reuse the chosen face properly
+- `references/filters.md` — build or narrow gallery filter paths
+- `references/extraction.md` — HTML extractor, transparent pairing, 429 backoff,
+  detail-page preview notes
+- `references/sources.md` — product pages, API boundaries, and license terms
 
-Once the user chooses one:
-- propose using it as the avatar for the agent, group, Telegram profile, or similar
-- if it is their long-term face, suggest storing the chosen link in identity
-- keep the detail page link, not just the image preview URL
-
-## Recommended Response Shape
-
-When you answer, keep it compact:
+## Response shape
 
 ```text
 I found 4 options for your agent face.
 
 1. Option A
-   Detail: ...
-   Preview: ...
-   Transparent: ...
+   Detail: https://generated.photos/face/...
+   Preview: https://images.generated.photos/...
+   Transparent: https://images.generated.photos/...   # omit if absent
 
 2. Option B
-   Detail: ...
-   Preview: ...
-   Transparent: ...
+   ...
 
-Tell me which one you want and I’ll prepare it as the avatar.
+Tell me which one you want and I will prepare it as the avatar.
 ```
 
-## Common Mistakes
+## Execution targets
 
-- guessing URL variants instead of following the page's real filters
-- trying to control background through the route
-- showing too many faces at once
-- saving only the preview URL instead of the detail link
-- changing an avatar without explicit approval
+- **Filter fidelity**: Follow listing links the current page emits; do not invent
+  deeper URL combinations from memory.
+- **Background handling**: Prefer embedded transparent CDN URLs when present;
+  do not invent a public background route parameter.
+- **Option limit**: Return 3–6 faces.
+- **Link persistence**: Save the `/face/...` detail URL for reuse.
+- **User consent**: Change or store an avatar only after explicit approval.
+- **Rate limits**: On HTTP 429, back off and report the failure honestly; do not
+  fabricate options.
 
-## External Endpoints
+## External endpoints
 
-| Endpoint | Data Sent | Purpose |
+| Endpoint | Data sent | Purpose |
 |----------|-----------|---------|
-| https://generated.photos | Filter path segments and face detail page requests | Find faces and open detail pages |
-| https://images.generated.photos | Image GET requests only | Preview and transparent preview retrieval |
+| `https://generated.photos` | Filter path segments and face detail page GETs | Browse/filter faces and open detail pages |
+| `https://images.generated.photos` | Image GETs only | Preview and transparent preview retrieval |
 
-No other data is sent externally.
+No credentials are required for gallery HTML browsing. Paid REST API access is
+out of scope for this skill; see `references/sources.md`.
