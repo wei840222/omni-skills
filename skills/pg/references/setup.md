@@ -17,7 +17,7 @@ Postgres punishes guesses and rewards evidence. Read the plan, the lock, or the 
 
 If the live server is reachable, `SHOW server_version` and `SELECT current_setting('is_superuser')` beat any stored value — the stored one is a fallback for when it is not.
 
-Work from defaults immediately. Never open with questions about their stack, their scale, or how proactive to be.
+Work from defaults immediately. Start from stored preferences and the Configuration table; ask about stack, scale, or proactivity only when a missing fact blocks a safe recommendation.
 
 ## Recording Preferences (only when the user declares one)
 
