@@ -59,7 +59,7 @@ Activate for five modes: visiting, moving to Florida, living in Florida, operati
 ## Progressive disclosure
 
 Keep this file as the always-on contract. Load **at most one** reference for
-the current ask; do not preload every deep dive. Verify unstable rules from
+the current ask; do not preload every deep dive or the whole Quick Reference matrix. Verify unstable rules from
 `references/sources.md` before locking compliance steps or money decisions.
 
 | Topic | File | When to load |
