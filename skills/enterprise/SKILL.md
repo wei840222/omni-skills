@@ -72,3 +72,9 @@ Before finishing:
 ## Output shape
 
 Lead with the recommended pattern, decision, or risk call. Put assessment tables, ADR drafts, and source citations after the deliverable unless the user only asked for a plan.
+
+## On first use
+
+1. Name the decision class and data class in one line.
+2. Load only the matching reference; keep other references closed.
+3. Answer with pattern + rollback; attach sources when statutes or frameworks are in play.
