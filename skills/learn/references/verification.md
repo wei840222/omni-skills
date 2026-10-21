@@ -6,7 +6,7 @@ Read before promoting a topic in `## Topics`, before declaring a stage done, and
 
 ## Designing the Test
 
-A verification test is written **before** the material is studied where possible, and always by working from the exit test, never from the notes. A test built from notes measures whether the notes were read.
+A verification test is written **before** the material is studied where possible, and always by working from the exit test, built from the exit test. A test built from notes measures whether the notes were read.
 
 Five properties, all required:
 
@@ -24,7 +24,7 @@ Draw the content from `errors/<topic>.md` first: the learner's own misconception
 
 | Level | Test | Passing bar |
 |---|---|---|
-| Recognition | Multiple choice, matching | Not a bar — never promote on this |
+| Recognition | Multiple choice, matching | Not a bar — reserve promotion for higher levels |
 | Recall | Blank-prompt production, no options | 4 of 5 items, cold |
 | Application | An unseen problem of a known type, no hint about method | Solved unaided within the domain's normal time |
 | Transfer | The same principle in a different surface: other dataset, other tool, other key, other client, other language | Solved, with the mapping stated explicitly |
@@ -91,7 +91,7 @@ The step almost universally skipped, and the reason "I learned this last year" i
 A failed verification is the most useful session in a topic — but only if it produces a diagnosis rather than a mood.
 
 1. Classify the failure: **never encoded** (blank), **not retrievable** (tip-of-tongue, recognised on reveal), **misconceived** (confident and wrong), or **not assembled** (all pieces present, could not combine them).
-2. Each maps to a different fix: encode → back to capture and the hard block; retrieve → shorten the interval; misconceive → contrast drill against the correct case; assemble → whole-task practice, not more drills (`practice.md`).
+2. Each maps to a different fix: encode → back to capture and the hard block; retrieve → shorten the interval; misconceive → contrast drill against the correct case; assemble → whole-task practice, rather than more drills (`practice.md`).
 3. Write the classification in `## Error Log`. The class, not the score, is what makes the next attempt different.
 4. Do not re-test the same day. A re-test after a fresh explanation measures the explanation.
 
