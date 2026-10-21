@@ -68,7 +68,7 @@ Route elsewhere when:
 3. Extract cards from HTML before opening a browser.
 4. Present 3–6 numbered options with detail link, preview, and transparent
    preview when available.
-5. Wait for an explicit choice. Do not auto-apply an avatar.
+5. Wait for an explicit choice. Proceed to store or apply a face only when the user names an option.
 6. After approval, keep the detail-page URL (not only the CDN preview) and
    optionally store it under `<state_root>/chosen-face.md`.
 
