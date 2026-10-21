@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to Tokyo for 5 days. What should I do?",
+    "expected": "Ask for dates/season, neighborhood preference, and priorities; load references/tokyo.md and references/accommodation.md; keep one Tokyo-depth base instead of inventing a multi-city rush.",
+    "actual": "Reviewer dry-run: asked nights, neighborhood preference, and food/nightlife priorities; routed to references/tokyo.md + references/accommodation.md; kept a single Tokyo base and deferred rail-pass math until route legs exist.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the regional differences between Kyoto and Hokkaido?",
+    "expected": "Load references/regions.md (and Kyoto/Hokkaido notes). Kyoto: heritage sites, temple density, strong seasonality crowds. Hokkaido: nature, seafood, winter sports, wider distance logistics.",
+    "actual": "Reviewer dry-run: contrasted Kyoto heritage/temple-crowd seasonality with Hokkaido nature/seafood/winter-sports distance logistics via references/regions.md and references/kyoto.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I do Tokyo, Kyoto, Osaka, and Hiroshima in a 5-day trip if I buy a rail pass tonight?",
+    "expected": "Load references/itineraries.md, references/transport.md, and references/sources.md. Flag the multi-city transfer trap, refuse to lock a pass from package text, and tell the user to verify live pass/fare pages before purchase.",
+    "actual": "Reviewer dry-run: rejected four-city five-day stack; recommended one or two bases with buffer; required live pass/fare checks from references/sources.md (JR West / JR Central / Hyperdia) before buying anything tonight.",
+    "pass": true
+  }
+]
