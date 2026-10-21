@@ -65,8 +65,8 @@ then write or automate.
 
 ## Quick Reference
 
-Use the smallest matching file instead of mentally loading the whole ERP every
-time.
+Load only the smallest matching reference for the current lane. Do not preload
+the whole ERP package into context.
 
 | Topic | File |
 |-------|------|
