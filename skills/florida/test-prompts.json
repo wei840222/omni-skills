@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm thinking of moving to Florida full-time. What regions are good and what should I consider regarding insurance and storms?",
+    "expected": "Classify as moving/future resident; ask for lifestyle/region constraints; load references/regions.md plus housing-and-insurance.md and/or storms-and-preparedness.md as needed; warn that no state income tax is not the full cost story; require flood/evacuation and insurance checks before locking a home; do not treat Florida as one market.",
+    "actual": "Structural dry-run against SKILL.md Core Rules 1/3/4/5 + progressive disclosure + references/regions.md + housing-and-insurance.md + storms-and-preparedness.md + costs-and-taxes.md.\n\n1) Mode=moving; ask region preferences, commute, family, budget, storm tolerance.\n2) Compare metros beyond beach/rent (insurance availability, surge/flood, seasonal feel).\n3) Lead with insurance + flood/evac readiness before home recommendation; cite costs-and-taxes for total cost.\n4) Load at most one reference at a time; verify portals via sources.md before precise compliance.\n\nHarness note: routing and trap checks only; no live FLHSMV/FEMA session in handoff VM.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to be snowbirds in Florida. What do we need to set up for our 4 months there each winter?",
+    "expected": "Route to seasonal/snowbird mode; load references/seasonal-living-and-snowbirds.md; cover dual-state mail, vehicles, healthcare continuity, insurance, and vacant-home storm prep; ask stay duration and which state is primary for voting/tax before precise advice.",
+    "actual": "Structural dry-run of Core Rule 6 + references/seasonal-living-and-snowbirds.md + healthcare-and-coverage.md + storms-and-preparedness.md.\n\n1) Mode=seasonal; confirm 4-month winter pattern and primary state.\n2) Checklist: mail forwarding, vehicle registration/insurance, healthcare continuity, vacant-home storm readiness.\n3) Avoid full-time resident assumptions; require local portal checks for unstable rules.\n\nHarness note: dual-state logistics routing check only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Build me a generic multi-country traveler CRM and also compare marketplace health plans in detail—Florida is just one stop.",
+    "expected": "Hand off traveler-system work to `travel` and deep plan comparison to `health-insurance`; keep florida only for Florida-specific logistics that remain after the handoff.",
+    "actual": "Structural dry-run of description Prefer clauses + metadata.related-skills.\n\nDecision: route standing multi-destination traveler system to `travel`; deeper plan comparison to `health-insurance`. Retain florida only if residual Florida region/storm/insurance/local logistics remain after the handoff.\n\nEvidence: SKILL description Prefer lines; related-skills reasons for travel and health-insurance.\nHarness note: negative-path routing discrimination check.",
+    "pass": true
+  }
+]
