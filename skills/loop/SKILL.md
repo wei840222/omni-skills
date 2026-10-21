@@ -52,6 +52,10 @@ On first durable use, create only the paths needed under `<state_root>/loop/`.
 4. Stop on success, max iterations, or unrecoverable error (missing dependency, permission denied).
 5. On max-without-success: summarize attempts, name the common failure pattern, and recommend a different approach or manual intervention.
 
+## Progressive disclosure
+
+Keep `SKILL.md` as the always-on contract. Load at most one reference file for the current need; do not preload examples, memory, and sources together.
+
 ## Load the relevant reference
 
 | Reference | Load when |
