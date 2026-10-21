@@ -17,7 +17,7 @@ Use these sources when precise Florida rules or current workflows matter.
 
 - Florida Division of Emergency Management: https://www.floridadisaster.org/
 - Florida insurance consumer resources: https://www.myfloridacfo.com/division/consumers
-- FEMA flood maps overview / MSC entry: https://www.fema.gov/flood-maps
+- FEMA flood maps overview (MSC entry): https://www.fema.gov/flood-maps
 
 ## Health and Education
 
@@ -36,3 +36,4 @@ Use these sources when precise Florida rules or current workflows matter.
 - Use official state or local sources for unstable rules.
 - Use county, district, tax collector, or emergency-management portals when state pages point to local execution.
 - If a portal requires an address, county, or flood-zone context, send it only when the user wants location-specific help.
+- Flood-zone lookups: start from FEMA flood-maps guidance, then the county flood/emergency portal for parcel-level execution.
