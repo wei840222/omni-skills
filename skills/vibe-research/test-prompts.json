@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need help researching the effectiveness of spaced repetition for learning programming languages. Act as a vibe researcher.",
+    "expected": "Starts a human-directed cycle: clarifies success criteria/depth budget, produces a gap or literature synthesis shape with citations/confidence, and keeps human validation on key findings.",
+    "actual": "Structural dry-run against SKILL.md Workflow + references/pipeline.md Phases 1–2 + references/risks.md hallucination mitigations.\n\n1) Confirm question: spaced repetition for programming languages; ask for depth budget (Quick/Standard/Thorough).\n2) Gap map: established (spacing effect in declarative memory literature), contested (transfer to coding fluency / project work), unexplored (IDE-integrated SRS vs flashcards for APIs).\n3) Synthesis stub cites primary/secondary sources rather than asserting efficacy as ground truth; confidence Medium until human validates load-bearing studies.\n4) Offer hypothesis candidates only after gap map; do not skip to final advice.\n\nHarness note: package routing and artifact shapes checked statically; no live model research run in handoff VM.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need to investigate the long-term impact of remote work on employee productivity across software engineering domains. Produce an analysis design.",
+    "expected": "Delivers Phase 4 analysis-design / protocol components (data, methods, success criteria, confounds, reproducibility) and pauses for human methodology validation before execution.",
+    "actual": "Structural dry-run against references/pipeline.md Phases 3–4 + Critical rules.\n\nProtocol draft sections: inclusion criteria (SWE roles, remote/hybrid definitions, time window), metrics (throughput, quality, retention—not a single productivity proxy), methods (systematic review + optional org telemetry if authorized), falsification/success criteria, confounds (selection bias, pandemic shocks), reproducibility plan (search strings, screening log).\nCheckpoint: request human validation of methodology before Phase 5 execution.\n\nHarness note: pass reflects presence of required protocol components in package guidance, not a live study.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I already pasted three PDFs about the same topic. Just reconcile them for me—no new web search.",
+    "expected": "Routes to synthesize (user-provided documents) instead of opening a full vibe-research external cycle; may keep citation/contradiction discipline without a fresh literature sweep.",
+    "actual": "Structural dry-run of description + related-skills.\n\nDecision: hand off to `synthesize` because sources are user-supplied; do not start multi-engine discovery or Phases 1–2 external sweep. Retain contradiction-explicit reconciliation habits overlapping synthesize guidance.\n\nEvidence: SKILL description Prefer synthesize clause; metadata.related-skills synthesize reason.\nHarness note: routing check only.",
+    "pass": true
+  }
+]
