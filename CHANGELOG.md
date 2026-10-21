@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| upwork                       | 2026-10-22 | 86/100 (#960)                    |
 | workflow                     | 2026-10-22 | 85/100 (#959)                    |
 | japan                        | 2026-10-22 | 85/100 (#958)                    |
 | odoo                         | 2026-10-21 | 85/100 (#957)                    |

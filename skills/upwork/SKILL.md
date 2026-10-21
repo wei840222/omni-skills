@@ -1,51 +1,62 @@
 ---
 name: upwork
-slug: upwork
-version: 1.0.0
-description: Win freelance projects on Upwork with profile optimization, proposal writing, client communication, and scam detection.
-homepage: https://clawic.com/skills/upwork
+description: >
+  Optimize Upwork profiles, draft proposals, flag scam/red-flag jobs, and coach
+  in-platform negotiation while keeping payments and messaging on Upwork. Use
+  when the user asks about Connects, Job Success Score, funded milestones,
+  Freelancer Service Fee, marketplace fees, or Upwork ToS boundaries. Prefer
+  `freelance` for practice-wide rate/cashflow design, `clients` for non-Upwork
+  relationship systems, `negotiate` for live counterparty deal craft, and
+  `fiverr` for Fiverr-specific tactics.
 metadata:
-  clawdbot:
-    emoji: 💼
-    displayName: Upwork
+  version: "1.0.1"
+  openclaw: '{"emoji":"💼"}'
+  related-skills: '{"freelance":"Practice-wide rate floor, pipeline coverage, and cash buffer outside marketplace UI tactics.","clients":"Standing client CRM and renewals when the relationship is not Upwork-specific.","negotiate":"Live counterparty bargaining once Upwork fee/Connect constraints are already clear.","fiverr":"Fiverr gig SEO and platform mechanics instead of Upwork proposals.","pricing":"Product or SaaS list pricing rather than freelancer labour rates.","career":"Employed-role offer strategy rather than marketplace freelancing."}'
 ---
 
-## Quick Reference
+# Upwork
 
-| Area | What the Agent Does |
-|------|---------------------|
-| Profile | Optimize title, bio, portfolio, hourly rate |
-| Proposals | Write personalized, non-templated proposals |
-| Red Flags | Detect scams, problematic clients, bad contracts |
-| Communication | Draft professional responses, handle negotiations |
-| Strategy | JSS optimization, pricing, client retention |
+Advise mode only. Draft what the human can paste into Upwork; leave sending,
+payment setup, and account access to the user. Re-check `references/sources.md`
+before restating fee percentages, Connect prices, or membership benefits.
 
-## Critical Rules
+## Critical rules
 
-1. **Human-in-the-loop MANDATORY** — Agent prepares drafts, human reviews and sends manually. Never auto-send proposals or messages.
-2. **No credential access** — Agent never logs into Upwork or accesses account directly. User copy-pastes info as needed.
-3. **No automation scripts** — Never provide code to automate Upwork actions, bypass detection, or scrape data.
-4. **Honest timelines** — Never promise delivery faster than realistically achievable.
-5. **No off-platform payments** — Always warn against payments outside Upwork (ToS violation = ban).
+1. **Human confirmation before send** — prepare drafts, then wait for the user
+   to review and submit proposals or messages.
+2. **User-supplied context only** — work from copy-pasted job posts, profiles,
+   and screenshots; do not request or use Upwork credentials.
+3. **No automation or scraping tooling** — decline scripts that log in, mass-
+   apply, bypass detection, or scrape the marketplace.
+4. **Realistic timelines** — quote delivery dates the user can actually meet.
+5. **On-platform money and chat** — keep negotiation and payment inside Upwork
+   so payment protection and ToS compliance stay available.
 
-## Red Flags to Always Flag
+## Red flags to surface early
 
-- Budget <$100 for complex work
-- "Need ASAP" + low budget
-- Client with no payment history or <4.5 stars
-- Requests for free "test" work
-- Wants to move to WhatsApp/email immediately
-- Vague scope ("build me an app")
-- Payment outside platform
+- Budget under $100 for complex scoped work
+- "Need ASAP" combined with a low budget
+- Client with no payment history or under 4.5 stars
+- Requests for unpaid "test" work
+- Pressure to move to WhatsApp/email before a contract
+- Vague scope ("build me an app") with no milestones
+- Payment outside Upwork
 
 ## Workflow
 
-**For proposals:** See `proposals.md`
-**For profile optimization:** See `profile.md`
-**For client communication:** See `communication.md`
-**For platform mechanics:** See `platform.md`
-**For legal context:** See `legal.md`
+Load **one** reference for the current ask; open `references/sources.md`
+only when restating a mutable fee, Connect price, or membership claim.
+
+| Ask | Load |
+|-----|------|
+| Proposal draft | `references/proposals.md` |
+| Profile rewrite | `references/profile.md` |
+| Client message / negotiation | `references/communication.md` |
+| Fees, Connects, JSS, contract types | `references/platform.md` |
+| ToS / compliance boundaries | `references/legal.md` |
+| Verify mutable platform facts | `references/sources.md` |
 
 ## Disclaimer
 
-This skill helps freelancers work more effectively on Upwork. The user is solely responsible for complying with Upwork's Terms of Service. All agent outputs must be reviewed before use. This is productivity assistance, not automation.
+This skill is productivity assistance for freelancers on Upwork. The user remains
+responsible for Upwork Terms of Service compliance. Review every draft before use.
