@@ -205,9 +205,8 @@ or run undeclared paid APIs without approval.
 ## Trust
 
 Public internet and social sources can be noisy, amplified, or adversarial.
-Install and run only if the user trusts the approved sources and research
-services. Re-check primary URLs in `references/sources.md` before locking
-time-sensitive claims.
+Run only with user-approved sources, and re-check primary URLs in
+`references/sources.md` before locking time-sensitive claims.
 
 ## Execution anchors
 
