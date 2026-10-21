@@ -1,6 +1,6 @@
 # Setup - Trending Now
 
-Use this file when `~/Clawic/data/trending-now/` is missing or empty.
+Use this file when `<state_root>/` is missing or empty.
 
 ## Operating Priorities
 
@@ -26,21 +26,28 @@ Use this file when `~/Clawic/data/trending-now/` is missing or empty.
 - strictness level (conservative, balanced, aggressive)
 - message style (brief alerts or richer mini-briefs)
 
-4. If setup context is approved, initialize local workspace:
+4. If setup context is approved, initialize local workspace after resolving
+   `<state_root>` (see `SKILL.md` State location):
+
 ```bash
-mkdir -p ~/trending-now
-touch ~/Clawic/data/trending-now/{memory.md,topics.md,runs.md,alerts.md}
-chmod 700 ~/trending-now
-chmod 600 ~/Clawic/data/trending-now/{memory.md,topics.md,runs.md,alerts.md}
+mkdir -p <state_root>
+touch <state_root>/{memory.md,topics.md,runs.md,alerts.md}
+chmod 700 <state_root>
+chmod 600 <state_root>/{memory.md,topics.md,runs.md,alerts.md}
 ```
 
-5. If `memory.md` is empty, initialize it from `memory-template.md`.
+Replace `<state_root>` with the resolved absolute path before running shell
+commands. Never create a directory literally named `<state_root>`.
+
+5. If `memory.md` is empty, initialize it from `assets/data-templates.md`.
+   Seed heartbeat thresholds from `assets/HEARTBEAT.md` when the user wants a
+   recurring cadence.
 
 ## Integration Defaults
 
 - Start in conservative mode unless the user requests aggressive monitoring.
 - Prefer no-op output (`HEARTBEAT_OK`) over low-quality alerts.
-- Require at least two independent sources before sending alerts.
+- Require at least two independent source families before sending alerts.
 - Keep focus tight: fewer topics with higher signal quality.
 
 ## What to Save
@@ -52,6 +59,6 @@ chmod 600 ~/Clawic/data/trending-now/{memory.md,topics.md,runs.md,alerts.md}
 
 ## Guardrails
 
-- Never claim certainty without source evidence and timestamps.
-- Never store secrets or private credentials in local notes.
-- Never auto-post to social networks.
+- State certainty conditionally, based strictly on source evidence and timestamps.
+- Keep local notes free of secrets or private credentials.
+- Require explicit user confirmation before posting to any social network.

@@ -21,7 +21,7 @@ Use this map to balance speed and reliability by source type.
 | Source | Strength | Weakness | Best Use |
 |--------|----------|----------|----------|
 | Google News | Publisher recency and coverage breadth | Can lag very early signals | Confirm mainstream pickup and framing |
-| Google Trends | Relative demand momentum | Not topic-complete | Check whether interest is actually rising |
+| Google Trends | Relative demand momentum | Not topic-complete; rate-limited | Check whether interest is actually rising |
 
 ## Recommended Blend
 
@@ -38,3 +38,17 @@ Avoid alerting from a single-source signal.
 - Tier 3: low-confidence reposts or anonymous claims
 
 Alerts should rely on Tier 1 plus at least one supporting Tier 2 source.
+
+## Operating notes from Gate 6 sources
+
+- Treat high-velocity social APIs as rate-limited discovery channels; plan for
+  quota and pagination rather than continuous scraping
+  (`https://docs.x.com/x-api/fundamentals/rate-limits`).
+- Google Trends answers relative interest questions; it is not a complete topic
+  catalog (`https://support.google.com/trends/answer/4365533?hl=en`).
+- Amplification and coordinated inauthentic behavior are known failure modes for
+  social signals; require an independent family before promoting a spike
+  (`https://www.cisa.gov/sites/default/files/publications/tactics-of-disinformation_508.pdf`).
+- Platform reach and usage patterns differ by demographic; interpret "trending"
+  relative to the user's approved audience, not a global absolute
+  (`https://www.pewresearch.org/internet/fact-sheet/social-media/`).

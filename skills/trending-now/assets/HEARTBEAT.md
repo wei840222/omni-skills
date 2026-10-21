@@ -10,10 +10,10 @@ Monitor selected topics across internet and social platforms and send concise al
 
 | Field | Value |
 |------|-------|
-| Timezone | Europe/Madrid |
-| Active Hours | 08:00-22:00 |
+| Timezone | Area/City (user-approved) |
+| Active Hours | HH:MM-HH:MM (user-approved) |
 | Quiet Hours Behavior | only critical alerts |
-| Cadence | every 30 minutes |
+| Cadence | every 30-60 minutes (user-approved) |
 
 ## Topic Watchlist
 

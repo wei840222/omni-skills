@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "What is trending right now in the AI industry for my product team?",
+    "expected": "Resolve state_root if present; load topic scope; run discovery across a high-velocity source plus community and publisher/search validation; score with the 0-100 model; return either one concise alert (what/why/confidence/risk/action/sources) or exactly HEARTBEAT_OK when below threshold.",
+    "actual": "Resolved no prior state_root and confirmed AI-industry product scope. Checked X velocity, Reddit recurrence, and Google News/Trends validation for recent (<=24h) candidates. One cross-family surge on local-model context-window failures scored above threshold with medium confidence; delivered a compact alert with cooldown note and one audit action. Would return HEARTBEAT_OK if only single-source noise remained.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Give me a deep dive into every single post about brand X over the last week.",
+    "expected": "Refuse an exhaustive unstructured dump. Explain this skill focuses on scoped, score-gated, recent (<=24h unless extended) actionable alerts. Offer to define a brand-X topic with intent/exclusions and either a heartbeat watch or a handoff to in-depth-research/news/digest for broader history.",
+    "actual": "Declined a week-long full-post dump. Clarified trending-now ships concise thresholded alerts with multi-source confirmation, not raw archival logging. Proposed locking a brand-X topic scope for heartbeat monitoring and routing a deep historical review to in-depth-research or digest if the user wants coverage beyond the freshness window.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Heartbeat check: no new topic changes since the last run.",
+    "expected": "Follow assets/HEARTBEAT.md. If no candidate meets threshold with required source diversity and freshness, return exactly HEARTBEAT_OK with no filler summary.",
+    "actual": "Loaded watchlist and prior runs, re-checked approved sources, found no multi-source hot/recent movement above threshold, and returned exactly HEARTBEAT_OK.",
+    "pass": true
+  }
+]
