@@ -55,7 +55,7 @@ Learning fails in one of five places: the goal was never testable, the material 
 
 ## When To Use
 
-- Planning a path from zero to a defined outcome in a skill or subject nobody else is grading
+- Planning a path from zero to a graded outcome in a self-taught skill or subject (no external course/exam owner)
 - Running the loop: practice, retrieval, spaced review, error logging, weekly plan checks
 - Diagnosing why learning is not working (tutorials with no capability, abandoned queues, no transfer)
 - Proving a skill was acquired — transfer tests, calibration, honest failure
