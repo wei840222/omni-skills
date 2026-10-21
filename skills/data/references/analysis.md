@@ -25,7 +25,7 @@
 - Point-biserial for continuous vs binary
 - Chi-square for categorical vs categorical
 
-**Trap:** Correlation ≠ causation. Always note this when reporting.
+**Trap:** Correlation ≠ causation. Note this when reporting.
 
 ## Statistical Tests
 
