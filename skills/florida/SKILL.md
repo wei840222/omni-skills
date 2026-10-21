@@ -127,6 +127,8 @@ the current ask; do not preload every deep dive or the whole Quick Reference mat
 
 ## Common Traps
 
+Prefer these recovery checks when advice starts to overfit:
+
 - Treating Florida like one market instead of a mix of metros, retiree corridors, inland towns, and high-risk coastal zones.
 - Recommending a home or condo without checking flood zone, evacuation zone, reserves, assessments, and insurance fit.
 - Calling Florida affordable because there is no state income tax while ignoring property insurance, HOA dues, tolls, and car costs.
