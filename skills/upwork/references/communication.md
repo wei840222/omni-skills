@@ -6,7 +6,7 @@
 - Keep business-hours consistency and state your timezone
 - Weekend silence is fine when you set that expectation up front
 
-## Message Templates (Adapt, Don't Copy)
+## Message Templates (Adapt Before Reuse)
 
 **Scope creep:**
 > "Happy to add [feature]. Since it's outside original scope, I can include it for $X additional. Want me to update the milestone?"

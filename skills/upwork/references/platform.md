@@ -63,9 +63,10 @@ memos, stay inside weekly hour limits, and prefer clients with verified billing.
   Basic (eligibility varies; check Connects history). Freelancer Plus includes
   **100** Connects/month after the first month.
 - Proposal cost varies per job and can change while the post is live; read the
-  number shown on that job before applying. Do not hard-code a fixed 8–22 range.
+  number shown on that job before applying instead of assuming a fixed range.
 - Refunds happen in limited cases documented by Upwork (for example certain
-  platform closures). Do not promise a refund for ordinary declines.
+  platform closures). Treat ordinary declines as non-refundable unless the live
+  Help article says otherwise.
 - Boosting spends extra Connects for priority placement; use only when the job
   is a strong profile fit.
 

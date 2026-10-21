@@ -36,6 +36,6 @@ membership claims.
 
 ## Notes
 
-- Do not restate the retired sliding 20%/10%/5% freelancer fee or a universal flat 10% as current marketplace policy.
+- Treat the retired sliding 20%/10%/5% freelancer fee and any universal flat 10% marketplace claim as historical only.
 - Client Marketplace Fee and Contract Initiation Fee amounts can vary by plan and history; quote ranges and point users to the live checkout line items.
 - Some Upwork Help URLs returned HTTP 403 to bare curl from this runner; jina.ai text extraction returned 200 for the same official URLs on 2026-10-22.

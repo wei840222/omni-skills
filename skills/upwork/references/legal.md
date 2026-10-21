@@ -16,7 +16,7 @@ Treat these as outside the skill’s task boundary:
 - AI assistance for drafting when the human reviews before sending
 - Research and analysis of public job posts the user pasted in
 - Templates customized for each proposal
-- CRM tracking outside Upwork that never stores Upwork credentials
+- CRM tracking outside Upwork that stores pointers only, not Upwork credentials
 - Productivity tools that do not access the Upwork account
 
 ## Consequences of violations
@@ -43,7 +43,7 @@ Treat these as outside the skill’s task boundary:
 - Use funded milestones for fixed-price protection
 - Document scope in writing before starting
 - Save important conversations from the Upwork thread
-- Keep Upwork credentials private — never paste them into the agent session
+- Keep Upwork credentials private — leave login secrets out of the agent session
 
 Cross-check scam patterns with Upwork’s own guidance:
 [Recognize red flags and avoid scams](https://support.upwork.com/hc/en-us/articles/35088484250003-Recognize-red-flags-and-avoid-scams).
