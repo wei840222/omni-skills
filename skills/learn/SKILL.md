@@ -41,7 +41,7 @@ Use the selected `<state_root>` for every learn-owned state operation in this sk
 - `<state_root>/profile.yaml` — optional shared locale/timezone fallback when present
 - Shared boxes by name only: projects → `<workspace>/projects/` (or that skill's resolved root), contacts → contacts skill root, finances/subscriptions → finances skill root
 
-Never write the literal string `<state_root>` to disk. Legacy paths such as `~/Clawic/data/learn/`, `~/clawic/learn/`, and `~/learn/` copies outside the active lookup order are migration sources only—ask before migrating; report any move in one line. Credentials stay out of scope: store pointers (`env:…`, `keychain:…`, `1password:…`) and strip values.
+Write only concrete resolved filesystem paths to disk (expand `<state_root>` before any write). Treat legacy `~/Clawic/data/learn/`, `~/clawic/learn/`, and extra `~/learn/` copies outside the active lookup order as migration sources only—ask before migrating; report any move in one line. Credentials are out of scope: store pointers (`env:…`, `keychain:…`, `1password:…`) and strip values.
 
 ## Mode
 
@@ -60,7 +60,7 @@ Learning fails in one of five places: the goal was never testable, the material 
 - Diagnosing why learning is not working (tutorials with no capability, abandoned queues, no transfer)
 - Proving a skill was acquired — transfer tests, calibration, honest failure
 - Keeping an earned skill alive, recovering a rusty one, or retiring a topic on purpose
-- Not for live teaching (`learning`), exam/coursework calendars (`studying`), or deck authoring (`anki` / `flashcards`)
+- Live teaching, exam/coursework calendars, and deck authoring stay with `learning`, `studying`, and `anki` / `flashcards` respectively
 
 ## When to load references
 
@@ -121,7 +121,7 @@ Learning fails in one of five places: the goal was never testable, the material 
 
 | Symptom | Most likely cause | First move |
 |---|---|---|
-| Understands explanation, blanks alone | Never retrieved | Close notes; reproduce; then check (Rule 2) |
+| Understands explanation, blanks alone | No retrieval yet | Close notes; reproduce; then check (Rule 2) |
 | Perfect today, gone in three weeks | No spacing | Expanding interval (`references/schedule.md`) |
 | Passes exercises, fails real task | Pre-decomposed practice | Unprompted method choice (`references/practice.md`) |
 | Months of tutorials, blank-file freeze | Scaffolding never removed | Copy → modify → blank (`references/projects.md`) |

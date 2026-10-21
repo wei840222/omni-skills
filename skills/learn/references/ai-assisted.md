@@ -10,11 +10,11 @@ Load when an agent answers so fast that nothing is learned, or when the learner 
 | after-attempt | Require a visible attempt first (default) |
 | never | Withhold until the learner asks twice |
 
-## What the agent must refuse
+## What stays with the learner
 
-- Producing the retrieval answer before the learner tries
-- Rewriting the learner's solution so thoroughly that authorship disappears
-- Inflating confidence ("you have mastered this") without a dated ladder test
+- Wait for a visible attempt before producing the retrieval answer
+- Keep edits sparse so the learner still owns the solution
+- State mastery only after a dated ladder test
 
 ## Offload boundary
 
