@@ -72,11 +72,12 @@ Route elsewhere when:
 6. After approval, keep the detail-page URL (not only the CDN preview) and
    optionally store it under `<state_root>/chosen-face.md`.
 
-Load `references/filters.md` when building or narrowing filter paths.
-Load `references/extraction.md` for the extractor, transparent pairing, 429
-backoff, and detail-page preview notes.
-Load `references/sources.md` when citing product pages, API boundaries, or
-license terms.
+Load references only when needed:
+
+- `references/filters.md` — build or narrow gallery filter paths
+- `references/extraction.md` — HTML extractor, transparent pairing, 429 backoff,
+  detail-page preview notes
+- `references/sources.md` — product pages, API boundaries, and license terms
 
 ## Response shape
 
