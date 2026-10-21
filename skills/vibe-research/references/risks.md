@@ -10,7 +10,7 @@ AI generates plausible but false information.
 
 - Require citations for every factual claim
 - Cross-verify critical facts across 3+ independent sources when stakes are high
-- Prefer retrieval grounded in retrieved docs over unaided recall
+- Prefer citations and triangulation over unaided recall
 - Flag confidence levels explicitly
 - Human validates key findings before publication
 
