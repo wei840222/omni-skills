@@ -20,4 +20,3 @@ Reachability was checked during the 2026-10-22 Jules handoff takeover. Prefer li
 ## Secret storage
 
 - macOS security(1) keychain (reachable 200): https://developer.apple.com/library/archive/documentation/Security/Conceptual/KeychainServConcepts/01introduction/introduction.html
-
