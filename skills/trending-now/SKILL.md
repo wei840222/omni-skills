@@ -17,7 +17,7 @@ metadata:
 
 # Trending Now
 
-Heartbeat-driven **trend monitoring**: define topic scope, gather fast + community + validation signals, score freshness/novelty/relevance, and send a short alert only when the threshold is met. Otherwise return exactly `HEARTBEAT_OK`.
+Heartbeat-driven **trend monitoring** with progressive disclosure: define topic scope, gather fast + community + validation signals, score freshness/novelty/relevance, and send a short alert only when the threshold is met. Otherwise return exactly `HEARTBEAT_OK`.
 
 ## State location
 
