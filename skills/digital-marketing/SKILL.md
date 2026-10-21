@@ -121,6 +121,7 @@ Load only the file needed for the current bottleneck. Prefer `references/market-
 - Pick one growth thesis, one channel bundle, and up to three meaningful experiments.
 - Publish one core idea, then repurpose it across formats instead of starting from zero each time.
 - End the week with keep, kill, scale, and recycle decisions.
+- If no experiment had a named win/kill threshold, stop launching new tests until the backlog uses `references/experiments.md`.
 
 ### Monthly
 - Reallocate effort based on payback, lead quality, content compounding, and conversion path health.
