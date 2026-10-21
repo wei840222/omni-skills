@@ -44,6 +44,14 @@ Example narrowed links emitted from a female young-adult beautified page:
    `href="/faces/..."` the HTML already contains.
 3. Do not reorder or invent segments that the current page does not expose.
 
+## Live verification notes (2026-10-21)
+
+- Gallery reports about 2.6M pre-generated faces on product navigation copy.
+- Listing pages return card grids with `/face/...` detail links and CDN previews.
+- Transparent previews are embedded in SSR payloads rather than as a listing
+  query parameter.
+- Narrowing must follow emitted `/faces/...` hrefs from the fetched page.
+
 ## Out of scope filters
 
 - Background color is a detail-page UI control, not a stable public listing
