@@ -182,7 +182,7 @@ fi
 ## Lock Files (Prevent Concurrent Runs)
 
 ```bash
-LOCKFILE="/tmp/workflow-${WORKFLOW_NAME}.lock"
+LOCKFILE="$RESOLVED_STATE_ROOT/workflows/tmp/workflow-${WORKFLOW_NAME}.lock"
 
 acquire_lock() {
   exec 200>"$LOCKFILE"

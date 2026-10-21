@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new workflow that fetches Hacker News top stories and saves them to a JSON file hourly.",
+    "expected": "Resolve <state_root> first; create <state_root>/workflows/flows/hn-top-stories/{flow.md,config.yaml,run.sh,state,data,logs}; set an hourly cron trigger; use curl+jq; declare on-error/on-empty; take flock under <state_root>/workflows/tmp before running.",
+    "actual": "Reviewer dry-run: asked for state-root consent, scaffolded hn-top-stories under the resolved workflows tree, wrote curl|jq into run.sh with hourly cron, declared retry/fail behavior, and used $RESOLVED_STATE_ROOT/workflows/tmp flock. Refused /tmp locks and workspace-root bare workflows/ paths.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Review the 'hn-top-stories' workflow and ensure it uses cursor-based state management to only fetch stories we haven't seen before.",
+    "expected": "Load references/state.md; update run.sh to read state/seen.json (or cursor), filter already-seen IDs, append new IDs after successful write, and keep node outputs in data/{NN}-*.json.",
+    "actual": "Reviewer dry-run: patched run.sh to load seen.json, skip known IDs, write data/02-new.json, then atomically update seen.json after success. Confirmed mutation: removing the seen filter would reprocess old IDs and fail the expected dedupe behavior.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Two cron invocations of the same workflow overlap. What should happen?",
+    "expected": "Second run must flock-fail and exit 0 without corrupting state; locks live under <state_root>/workflows/tmp, not /tmp; crashed prior runs need explicit lock cleanup only after confirming the process is gone.",
+    "actual": "Reviewer dry-run: first run held $RESOLVED_STATE_ROOT/workflows/tmp/workflow-hn-top-stories.lock; second invocation exited 0 via flock -n. Guidance pointed at references/errors.md and rejected restoring /tmp/workflow-*.lock.",
+    "pass": true
+  }
+]
