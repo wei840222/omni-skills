@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have an assignment but I'm not entirely clear on what my manager wants, and the deadline is tomorrow. How should I approach them?",
+    "expected": "Load clarity guidance, propose an interpretation instead of only open questions, and ask what done looks like, who it is for, and the real deadline.",
+    "actual": "Dry-run against SKILL Core workflow + references/clarity.md. Drafted: 'To make sure I'm aligned, the deliverable would be X for audience Y by tomorrow EOD. Does that match your expectation, and if I can only finish one slice today which part matters most?' Also asked done-looks-like / owner / priority. Did not invent org policy.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I noticed a coworker took credit for an analysis I did during a large meeting. How should I handle this?",
+    "expected": "Prefer private follow-up first, use a specific attribution script, and recommend a written trail going forward; avoid public escalation as the first move.",
+    "actual": "Dry-run against references/politics.md + references/scripts.md. Advised pausing in-room unless a gentle reclaim is safe, then private follow-up: 'I noticed my analysis was presented without attribution. Going forward, can we credit contributors?' Recommended written summaries before meetings. Did not escalate or send messages on the user's behalf.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I keep doing solid work but leadership never seems to notice. Can you help me get more visibility without looking like I'm bragging?",
+    "expected": "Load visibility guidance, recommend outcome-focused written trails and a brag document, and keep state writes optional behind consent.",
+    "actual": "Dry-run against references/visibility.md + State location. Suggested concise status notes with impact, presenting own work in meetings, and a weekly brag.md entry under resolved <state_root> only after consent. Framed as sharing outcomes/learnings, not self-praise. Routed career/promotion strategy to career if asked.",
+    "pass": true
+  }
+]
