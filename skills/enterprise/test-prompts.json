@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to integrate a new microservice with our legacy monolithic billing database without rewriting it. What pattern should we start with?",
+    "expected": "Run the assessment framework (owner, last deploy, dependents, docs, SLA). Prefer wrap patterns: Anti-Corruption Layer and/or CDC/Database Sync for the DB seam; use Strangler Fig when traffic can be intercepted via an API. Require reconciliation and a rollback window.",
+    "actual": "Start with the assessment questions (owner, last deploy, dependents, docs, SLA). Because the hard seam is a legacy billing database, lead with Database Sync/CDC plus an Anti-Corruption Layer so the new service speaks a clean domain model. Reach for Strangler Fig once billing traffic can be intercepted through an API or router. Keep dual-run reconciliation and an explicit rollback freeze window before cutover.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Design a new internal employee HR tool that handles PII. Someone says security review is unnecessary because it is internal-only.",
+    "expected": "Reject the internal exemption. Classify PII as Restricted; require authentication, encryption, DLP, and immutable audit (who/what/when/where/result). Name GDPR/SOC-style evidence needs; do not bury consent or leave audit logs deletable.",
+    "actual": "Internal placement is not an exemption. PII is Restricted: require authentication, encryption, DLP, retention limits, and immutable audit trails capturing who/what/when/where/result. Call out GDPR (or local privacy law) consent and deletion needs, and refuse plaintext PII logging. Hand deep control catalogs to cybersecurity/security-best-practices and buyer questionnaire packaging to saas when those are the real asks.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Engineering wants microservices for a three-person team shipping a non-differentiating internal admin console. Product wants speed next quarter. Draft the ADR call.",
+    "expected": "Prefer modular monolith or buy. Use buy-vs-build and trade-off matrix: microservices raise ops cost and slow initial velocity for a tiny team on commodity admin work. Document ADR with context, decision, consequences, and rollback/change path; translate for product/finance.",
+    "actual": "ADR decision: keep a modular monolith or buy a commodity admin product. For a three-person team on non-differentiating work, microservices trade early velocity for high operational cost and harder debugging. Record context/decision/consequences, name the blast radius, and restate for product (timeline) and finance (TCO). Revisit service split only when team boundaries or scale force it.",
+    "pass": true
+  }
+]
