@@ -21,7 +21,7 @@
 | Autumn | Foliage and cultural routes with strong atmosphere |
 | Winter | Snow regions, onsen focus, and city-food value |
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Treating one fixed plan as weather-proof.
 2. Overfilling days with transfers plus late nights.

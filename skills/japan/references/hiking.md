@@ -22,7 +22,7 @@ Pick hikes by season, weather alerts, and realistic fitness, not only photos.
 - Respect closures, weather alerts, and wildlife guidelines.
 - Turn back when conditions degrade.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Casual footwear on technical or wet terrain.
 2. Ignoring weather shifts at higher elevation.

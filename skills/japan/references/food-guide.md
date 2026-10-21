@@ -30,7 +30,7 @@ Best for traditional cuisine depth and seasonal dining.
 - Queue quality varies; popularity alone is not enough signal.
 - Keep one backup option near each planned area.
 
-## Food Traps to Avoid
+## Common Food Pitfalls and Solutions
 
 1. Eating only in landmark-adjacent corridors.
 2. Overcommitting to social-media queues.

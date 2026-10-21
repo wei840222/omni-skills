@@ -23,7 +23,7 @@
 ### Older kids
 - Mix culture stops, food routes, and one active element daily
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Overbooking transfer-heavy schedules.
 2. Ignoring heat and hydration planning in summer.

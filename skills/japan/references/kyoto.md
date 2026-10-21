@@ -30,7 +30,7 @@
 - Use buses selectively; walk-and-train combinations are often more predictable.
 - Plan one lighter evening after heavy temple days.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Visiting top temples only at midday peak.
 2. Overstacking distant temple zones in one day.

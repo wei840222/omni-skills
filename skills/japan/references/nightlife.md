@@ -25,7 +25,7 @@
 - High-demand bars may need reservations even on weekdays.
 - Late-night food options vary by neighborhood.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Assuming all nightlife starts and ends at same times by city.
 2. Staying only in highest-tourist strips.

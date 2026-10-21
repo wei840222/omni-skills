@@ -1,70 +1,101 @@
 ---
 name: japan
-slug: japan
-version: 1.0.0
-description: Discover Japan like a local with concrete city tips, regional route planning, food context, and practical travel logistics.
-homepage: https://clawic.com/skills/japan
-changelog: Initial release with city guides, route planning, and practical Japan travel playbooks.
+description: >
+  Plan Japan travel with city-level routing, regional base selection, food and
+  season pacing, and practical rail logistics. Use when choosing Tokyo, Kyoto,
+  Osaka, Hiroshima, Hokkaido, or Okinawa bases, avoiding multi-city transfer
+  traps, or answering lodging, food, transit, etiquette, and season questions.
+  Prefer `travel` for standing multi-destination traveler systems,
+  `travel-planning` for generic multi-city itinerary scaffolding, `tokyo` for
+  Greater Tokyo depth, and `japanese` for Japanese writing rather than destination
+  routing.
 metadata:
-  clawdbot:
-    emoji: 🇯🇵
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/japan/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Japan
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇯🇵"}'
+  related-skills: '{"travel":"Standing traveler system for passports, visas, bookings, and trip memory across destinations.","travel-planning":"Generic multi-city itineraries and packing/budget scaffolding beyond Japan-specific routing.","tokyo":"Greater Tokyo neighborhoods, living costs, and visitor depth when the trip stays inside Tokyo.","japanese":"Write or edit Japanese-language text rather than plan Japan travel.","english":"English drafting support for international booking or support messages.","food":"Deeper restaurant and cuisine research after Japan region and meal timing are chosen.","booking":"Search lodging after neighborhood or city base is chosen.","flight":"Search or compare flights once Japan airports and region hops are decided."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/japan/` doesn't exist or is empty, read `setup.md` and start naturally.
+Optional Japan trip context may exist in
+`<workspace>/japan/`, `<workspace>/memory/japan/`, or `~/japan/`.
+
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/japan/`, `<workspace>/memory/japan/`, `~/japan/`.
+3. If none exists and durable trip context must be created, default to
+   `<workspace>/japan/` only with user consent.
+4. If more than one candidate exists, use only the highest-precedence path,
+   report the conflict, and leave other copies unchanged.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd.
+   An existing `~/japan/` may be read; otherwise ask before creating data.
+6. Once selected, keep the same `<state_root>` for the whole invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Outside this section, every skill-state path uses `<state_root>/...`.
+
+**Data.** Durable notes live in `<state_root>/memory.md` when the user wants
+trip context kept across sessions (see `references/memory-template.md` and
+`references/setup.md`). This skill is primarily routing knowledge; durable notes
+are optional. Do not invent a booking CRM unless the user asks to keep state.
+Avoid storing credentials, full passport numbers, payment details, or third-party
+private data in skill state. Host-shared memory such as workspace `MEMORY.md` is
+outside `<state_root>` and needs separate user consent.
+
+```text
+<state_root>/
+└── memory.md     # Trip context, route logic, and evolving constraints
+```
 
 ## When to Use
 
-User planning a trip to Japan or asking for local insights: what to prioritize, where to base, what to skip, and how to handle transport, seasonality, and budgeting.
+- Planning a Japan trip beyond brochure-level city lists
+- Choosing a primary base among Tokyo/Kanto, Kyoto-Nara, Osaka/Kansai, Hiroshima/western Honshu, Hokkaido, or Okinawa
+- Pacing temple queues, food reservations, summer heat, and seasonal crowds
+- Avoiding short-trip multi-city transfer traps and unverified rail-pass math
+- Answering lodging style, food strategy, intercity transport, etiquette, and practical safety
+- Not for standing multi-destination travel systems (`travel`), generic itinerary scaffolding (`travel-planning`), Greater Tokyo-only depth (`tokyo`), or Japanese composition (`japanese`)
 
-## Architecture
+## Core path
 
-Memory lives in `~/Clawic/data/japan/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/japan/
-└── memory.md     # Trip context
-```
+1. Ask for dates/season, trip length, preferred bases, trip style, constraints, and transport preference.
+2. Choose one city-depth anchor before adding a contrasting region; for short trips prefer fewer bases.
+3. Load only the matching references below; verify live fares, pass value, reservations, weather, and entry rules from `references/sources.md` before locking money or timed transfers.
+4. Write durable preferences to `<state_root>/memory.md` only when the user wants continuity.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Cities and Regions** | |
-| Tokyo complete guide | `tokyo.md` |
-| Kyoto complete guide | `kyoto.md` |
-| Osaka complete guide | `osaka.md` |
-| Hiroshima and Miyajima complete guide | `hiroshima-miyajima.md` |
-| **Planning** | |
-| Sample itineraries | `itineraries.md` |
-| Where to stay by style | `accommodation.md` |
-| Useful apps | `apps.md` |
-| **Food and Drink** | |
-| Regional dishes and restaurant strategy | `food-guide.md` |
-| Wine, sake, and whisky context | `wine.md` |
-| **Experiences** | |
-| Signature experiences | `experiences.md` |
-| Beaches and island stops | `beaches.md` |
-| Hikes and mountain safety | `hiking.md` |
-| Nightlife by city | `nightlife.md` |
-| **Reference** | |
-| Regions and route differences | `regions.md` |
-| Culture, etiquette, expectations | `culture.md` |
-| Traveling with children | `with-kids.md` |
-| **Practical** | |
-| Intercity transport and passes | `transport.md` |
-| Phone and internet | `telecoms.md` |
-| Emergencies and safety | `emergencies.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Cities and Regions** | | |
+| Tokyo complete guide | `references/tokyo.md` | Tokyo bases, neighborhoods, city pacing |
+| Kyoto complete guide | `references/kyoto.md` | Temples, season crowds, Kyoto depth |
+| Osaka complete guide | `references/osaka.md` | Food-first pace and Kansai nightlife |
+| Hiroshima and Miyajima | `references/hiroshima-miyajima.md` | History plus island pacing |
+| Regions and route differences | `references/regions.md` | Choosing bases and contrast regions |
+| **Planning** | | |
+| Sample itineraries | `references/itineraries.md` | Duration-based route sketches |
+| Where to stay by style | `references/accommodation.md` | Neighborhood and lodging style |
+| Useful apps | `references/apps.md` | Maps, translation, booking helpers |
+| Setup / first session | `references/setup.md` | First-time questions and memory bootstrap |
+| Memory template | `references/memory-template.md` | Creating `<state_root>/memory.md` |
+| **Food and Drink** | | |
+| Regional dishes and restaurant strategy | `references/food-guide.md` | Meal timing and regional food routes |
+| Wine, sake, and whisky context | `references/wine.md` | Bar and tasting pacing |
+| **Experiences** | | |
+| Signature experiences | `references/experiences.md` | Season-aware highlights |
+| Beaches and island stops | `references/beaches.md` | Coastal and island days |
+| Hikes and mountain safety | `references/hiking.md` | Weather-aware outdoor plans |
+| Nightlife by city | `references/nightlife.md` | Late hours and last-train buffers |
+| Culture and etiquette | `references/culture.md` | Behavior norms and expectations |
+| Traveling with children | `references/with-kids.md` | Family pacing and logistics |
+| **Practical** | | |
+| Intercity transport and passes | `references/transport.md` | Rail, passes, transfer math |
+| Phone and internet | `references/telecoms.md` | SIM / eSIM / pocket Wi-Fi |
+| Emergencies and safety | `references/emergencies.md` | Emergency numbers and disruption basics |
+| Official / primary sources | `references/sources.md` | Before quoting live fares, passes, weather, or entry rules |
 
 ## Core Rules
 
@@ -96,23 +127,23 @@ What locals and repeat travelers actually do, not brochure advice:
 - Winter can be excellent for cities and snow regions with logistics planning
 - Temple and museum quality improves with early start windows
 
-### 5. Flag Tourist Traps
-Be explicit about what to avoid:
-- Eating only in landmark-adjacent strips with long lines and weak value
-- Attempting Tokyo, Kyoto, Osaka, and Hiroshima in one short trip without buffer
-- Buying rail passes without route math
-- Stacking long transit day plus heavy nightlife and early temple start
+### 5. Offer Better Alternatives to Common Traps
+When a plan hits a tourist trap, name the better local alternative:
+- Landmark-adjacent strips with long lines → neighborhood food streets and reserved dinners
+- Tokyo + Kyoto + Osaka + Hiroshima in one short trip → one or two bases with buffer
+- Blind rail-pass purchase → compare planned legs against live pass pages in `references/sources.md`
+- Long transit day plus heavy nightlife and early temple start → separate recovery windows
 
 ### 6. Match Trip Style
 
 | Traveler | Focus on |
 |----------|----------|
-| Foodie | `food-guide.md`, `osaka.md`, `tokyo.md` |
-| Culture and temples | `kyoto.md`, `regions.md`, `culture.md` |
-| City and nightlife | `tokyo.md`, `osaka.md`, `nightlife.md` |
-| Family | `with-kids.md`, `accommodation.md`, `itineraries.md` |
-| Nature and hiking | `hiking.md`, `experiences.md`, `regions.md` |
-| Mixed route trip | `itineraries.md`, `transport.md`, `regions.md` |
+| Foodie | `references/food-guide.md`, `references/osaka.md`, `references/tokyo.md` |
+| Culture and temples | `references/kyoto.md`, `references/regions.md`, `references/culture.md` |
+| City and nightlife | `references/tokyo.md`, `references/osaka.md`, `references/nightlife.md` |
+| Family | `references/with-kids.md`, `references/accommodation.md`, `references/itineraries.md` |
+| Nature and hiking | `references/hiking.md`, `references/experiences.md`, `references/regions.md` |
+| Mixed route trip | `references/itineraries.md`, `references/transport.md`, `references/regions.md` |
 
 ## Common Traps
 
@@ -125,18 +156,6 @@ Be explicit about what to avoid:
 
 ## Security & Privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/japan/`
+**Data that stays local:** Trip preferences in `<state_root>/memory.md` when durable notes are enabled.
 
-**This skill does NOT:** Access files outside `~/Clawic/data/japan/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structuring
-- `food` — Deeper restaurant and cuisine recommendations
-- `japanese` — Language support for local communication and signage
-- `english` — Backup communication support for multilingual travel
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/japan
-- Latest version: https://clawic.com/skills/japan
+**This skill does NOT:** Access files outside the resolved `<state_root>/`, invent credentials, or treat package text as live transport or entry status.

@@ -34,7 +34,7 @@
 - Use Osaka as a practical base for Kansai day trips.
 - Keep one flexible slot for late-night recovery.
 
-## Mistakes to Avoid
+## Common Pitfalls and Solutions
 
 1. Spending every night only in Dotonbori.
 2. Ignoring reservation needs on peak weekends.
