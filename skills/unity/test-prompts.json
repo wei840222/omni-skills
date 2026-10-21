@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a player movement script with Rigidbody that jumps and runs efficiently.",
+    "expected": "Cache Rigidbody in Awake/Start; apply MovePosition/AddForce in FixedUpdate; avoid per-frame GetComponent and transform.position writes that bypass physics.",
+    "actual": "Cache the Rigidbody in Awake (or Start), then move with Rigidbody.MovePosition or AddForce inside FixedUpdate so the physics step stays consistent. Skip per-frame GetComponent and prefer physics APIs over writing transform.position, which bypasses the Rigidbody.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a script that destroys a game object and then checks if it's null before doing something else in the same frame.",
+    "expected": "Use UnityEngine.Object overloaded == null (fake null) rather than CLR ?. ; note Destroy is delayed until end of update loop/frame; DestroyImmediate is Editor-only.",
+    "actual": "After Object.Destroy, compare with == null so Unity's overloaded operator sees the detached native object as null. Destroy is delayed until the end of the current update loop, so same-frame code should treat the reference as pending destruction; keep DestroyImmediate for Editor tooling only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My enemy AI uses tag == \"Enemy\" and GetComponentInChildren every Update, plus a ScriptableObject config it mutates at runtime in a player build. What should change?",
+    "expected": "Use CompareTag; cache GetComponentInChildren outside Update; treat ScriptableObject asset mutation as Editor-only or clone-before-write because player builds do not persist asset edits.",
+    "actual": "Switch tag checks to CompareTag(\"Enemy\") to avoid the allocating tag getter, cache GetComponentInChildren results in Awake/Start instead of Update, and keep ScriptableObject asset writes in Editor tooling or mutate a runtime clone—player builds do not save ScriptableObject asset changes.",
+    "pass": true
+  }
+]
