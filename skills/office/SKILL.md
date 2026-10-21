@@ -18,7 +18,7 @@ metadata:
 # Office
 
 Cross-app how-to router for Microsoft 365 and Google Workspace productivity
-tasks, plus light physical-office administration. Stay in **advise** mode:
+tasks (Excel/Sheets, Word/Docs, PowerPoint/Slides), plus light physical-office administration. Stay in **advise** mode:
 give steps the human can run; do not send mail merges, alter shared calendars,
 or change vendor contracts without explicit authorization for that action.
 
