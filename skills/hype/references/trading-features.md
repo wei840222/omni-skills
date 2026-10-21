@@ -17,7 +17,7 @@ Official onboarding distinguishes methods by route:
 **Email login deposit window**
 
 - Send USDC on Arbitrum, Ethereum, Base, or Polygon to the deposit address (or QR). Deposit arrives as USDC on HyperCore.
-- Also supported: BTC on Bitcoin; ETH/ENA on Ethereum; SOL and listed Solana assets; MON on Monad; XPL on Plasma; AVAX on Avalanche; ZEC on Zcash (spot assets may need conversion to the quote asset used for the market).
+- Also supported: BTC on Bitcoin; ETH/ENA on Ethereum; SOL/2Z/ANSEM/BONK/FARTCOIN/PUMP/SPX on Solana; MON on Monad; XPL on Plasma; AVAX on Avalanche; ZEC on Zcash (spot assets may need conversion to the quote asset used for the market).
 
 **DeFi wallet deposit**
 
@@ -29,7 +29,7 @@ Official onboarding distinguishes methods by route:
 - Many CEXs and bridges support Hyperliquid via HyperCore or HyperEVM.
 - USDC can move from other chains via CCTP; source chain needs USDC plus native gas. Trading on Hyperliquid itself is gas-free.
 - Arbitrum is a common intermediate when a CEX does not support Hyperliquid directly.
-- Do **not** state that deposits are exclusively via Arbitrum or that Ethereum/mainnet deposits are categorically impossible. Route, asset, and UI method decide availability.
+- Confirm the active login method and the deposit networks shown in the official UI. Email USDC deposits may use Arbitrum/Ethereum/Base/Polygon; DeFi-wallet USDC commonly starts from Arbitrum; Unit-protocol spot assets and CCTP paths also exist when listed.
 
 ### Withdrawals
 
@@ -82,7 +82,7 @@ Process (official order):
    - Maintenance margin is not returned on backstop (buffer for liquidator profitability).
 4. Liquidations use **mark price**.
 
-Do **not** claim “partial liquidation always happens first.” Partial size reduction is conditional on notional threshold and cooldown rules; small positions liquidate in full via the book path first.
+Partial size reduction applies only when liquidatable notional exceeds 100k USDC (10k on testnet): then 20% goes to the book first, followed by a 30s cooldown where later liquidation orders cover the entire position. Smaller positions liquidate in full via the book path first.
 
 ### Auto-deleveraging (ADL)
 
@@ -92,7 +92,7 @@ Do **not** claim “partial liquidation always happens first.” Partial size re
 ## Order execution notes
 
 - On-chain order book; trading has no gas fee (trading fees still apply).
-- Prefer stating cancellation and fill behavior as exchange/API observed facts; avoid absolute “always instant cancel” guarantees without a current API citation for the specific client path.
+- State cancellation and fill behavior as exchange/API observed facts for the specific client path, and cite a current API reference before promising a latency bound.
 - REST and WebSocket APIs exist for programmatic trading; respect rate limits. Testnet is available for practice.
 
 ## Fees and where they go
@@ -101,7 +101,7 @@ Do **not** claim “partial liquidation always happens first.” Partial size re
 - Maker rebates can apply at high maker-volume share tiers.
 - Docs state fees are directed to the community via **HLP**, the **assistance fund**, and **deployers**. The assistance fund converts trading fees to HYPE and burns them.
 - Spot/HIP-3 deployers may keep a configured share of fees on deployed markets.
-- Correct framing: HYPE stakers can receive **fee discounts** (and separate staking rewards from emissions). Do **not** claim that trading fees are paid out as direct revenue share to all HYPE stakers.
+- Correct framing: HYPE stakers can receive **fee discounts** (and separate staking rewards from emissions). Trading fees are directed to HLP, the assistance fund (burn), and deployers—not paid out as a direct revenue share to all HYPE stakers.
 
 ## HLP vaults
 

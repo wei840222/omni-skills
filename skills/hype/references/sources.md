@@ -1,11 +1,12 @@
 # Research sources (Gate 6)
 
-Retrieved 2026-10-03 during repair of Jules session `14121828639315505087`. Prefer re-fetching `.md` docs before asserting live numeric tiers.
+Originally retrieved 2026-10-03 during repair of Jules session `14121828639315505087`; re-verified 2026-10-21 for Jules handoff `15254246107563164234`. Prefer re-fetching `.md` docs before asserting live numeric tiers.
 
 ## Onboarding / deposits / withdrawals
 
 - **How to start trading** — email vs DeFi wallet routes; USDC on Arbitrum/Ethereum/Base/Polygon for email deposits; Unit-protocol spot assets; CCTP; Arbitrum as common intermediate; withdraw UI.
   https://hyperliquid.gitbook.io/hyperliquid-docs/onboarding/how-to-start-trading.md
+  Live 2026-10-21 note: email USDC still Arbitrum/Ethereum/Base/Polygon; Solana spot list includes SOL/2Z/ANSEM/BONK/FARTCOIN/PUMP/SPX.
   Local snapshot SHA256: `11f3c200e4d50edbca9c2961128460b4be8f168064b4a6bb4db26829c2889bda`
 
 ## Margin and leverage
@@ -53,7 +54,7 @@ Retrieved 2026-10-03 during repair of Jules session `14121828639315505087`. Pref
 
 | Old claim | Correction | Source |
 |---|---|---|
-| Deposits only via Arbitrum; no Ethereum/mainnet deposits | Route-dependent; email USDC accepts Arbitrum/Ethereum/Base/Polygon; other Unit assets supported | how-to-start-trading |
+| Deposits only via Arbitrum; no Ethereum/mainnet deposits | Route-dependent; email USDC accepts Arbitrum/Ethereum/Base/Polygon; DeFi-wallet USDC commonly Arbitrum; Unit spot assets + CCTP also listed | how-to-start-trading |
 | Partial liquidations always happen first | Conditional on >100k USDC (10k testnet); else full book liquidation; backstop at <2/3 MM | liquidations |
 | Global up to 50x leverage | Per-asset tiered max (BTC 40x tier-0 example; many alts lower) | margin-tiers / margining |
 | Trading fees partially go to HYPE stakers as revenue share | Fees → HLP, assistance fund burn, deployers; stakers get fee **discounts** + separate staking rewards | fees / staking |
