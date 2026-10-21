@@ -124,5 +124,5 @@ Load `references/new-hire.md` for the full week-by-week plan.
 
 ## Sources
 
-Refresh mutable guidance from `references/sources.md` rather than remembered
-benchmarks or viral workplace advice.
+Load `references/sources.md` when refreshing domain evidence. Prefer the live
+URLs there over remembered benchmarks or viral workplace advice.
