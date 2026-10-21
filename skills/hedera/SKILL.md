@@ -18,7 +18,7 @@ This skill is stateless and does not store local configuration or persistent use
 ## Workflow
 
 1. Identify the network (`mainnet` / `testnet` / `previewnet`), account ID or alias, token ID, transaction ID/status, and whether the ask is native HTS or EVM/smart-contract.
-2. Load only the reference that covers that branch. Prefer current fee tables, mirror-node data, or explorer receipts over memorized prices.
+2. Load only the reference that covers that branch. Prefer current fee tables, mirror-node receipts, or explorer data over memorized prices.
 3. Before irreversible advice, verify the recipient account exists (or is a valid auto-create path), required token associations, keys/signatures, and the exact error code.
 
 ## Load the relevant reference
