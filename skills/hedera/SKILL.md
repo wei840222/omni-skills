@@ -1,90 +1,41 @@
 ---
 name: hedera
-slug: hedera
-version: 1.0.0
-description: Assist with Hedera HBAR transactions, account creation, token service, and consensus features.
-homepage: https://clawic.com/skills/hedera
+description: >
+  Assist with Hedera HBAR transfers, account creation, Hedera Token Service
+  (HTS) association, staking, and consensus or file service lookups. Use when
+  the user asks about Hedera account IDs (0.0.x), HBAR fees, token association
+  failures, mirror-node queries, or Hashgraph finality. Prefer `ethereum` for
+  EVM L1/L2 gas and approvals, `solana` for SPL/ATA issues, and `crypto-tools`
+  for cross-chain market or explorer tooling.
 metadata:
-  clawdbot:
-    emoji: ℏ
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Hedera
+  version: "1.0.1"
+  openclaw: '{"emoji":"ℏ"}'
+  related-skills: '{"ethereum":"EVM gas, approvals, and L2 bridges rather than Hedera account/HTS mechanics.","solana":"SPL token accounts and Solana fee/priority issues instead of Hedera association.","blockchain":"Ledger-fit decisions and generic EVM contract interaction beyond Hedera-native services.","crypto-tools":"Prices, explorers, and portfolio tooling when the ask is not Hedera account or HTS operations."}'
 ---
 
-## Account Model (Critical Difference)
-- Hedera accounts must be created before receiving funds — unlike Bitcoin/Ethereum, addresses don't exist until created
-- Account creation costs HBAR — someone must fund the initial creation
-- Account IDs are numeric (0.0.12345) — not cryptographic hashes like other chains
-- Memo field available on accounts — can store small amounts of data
-- Accounts can be deleted to recover balance — but requires all tokens and associations removed first
+This skill is stateless and does not store local configuration or persistent user state.
 
-## Account Creation
-- New users need someone to create their account — can't just generate address and receive
-- Exchanges create accounts on withdrawal — but self-custody requires creation first
-- HashPack and other wallets offer account creation — may require payment or sponsor
-- Testnet accounts free to create — use for development and testing
+## Workflow
 
-## Transaction Fees
-- Fees are extremely low and predictable — typically $0.0001 or less
-- Fees paid in HBAR only — no gas token complexity
-- Transaction fees set by network, not auction — no priority fee bidding
-- Scheduled transactions cost extra — pay for scheduling plus execution
+1. Identify the network (`mainnet` / `testnet` / `previewnet`), account ID or alias, token ID, transaction ID/status, and whether the ask is native HTS or EVM/smart-contract.
+2. Load only the reference that covers that branch. Prefer current fee tables, mirror-node data, or explorer receipts over memorized prices.
+3. Before irreversible advice, verify the recipient account exists (or is a valid auto-create path), required token associations, keys/signatures, and the exact error code.
 
-## Token Service (HTS)
-- Native token support without smart contracts — create tokens via Hedera Token Service
-- Token association required before receiving — must explicitly associate with token ID
-- Association costs small HBAR fee — limits spam tokens
-- Fungible and NFT tokens supported natively — no need for custom contracts
-- Token admin keys control supply, freeze, wipe — verify token permissions before trusting
+## Load the relevant reference
 
-## Memo Field
-- Transactions can include memo — used for exchange deposits like destination tags
-- Memo is public and permanent — don't include sensitive data
-- Some services require specific memo format — verify before sending
-- Max memo size is 100 bytes — keep it short
+| Reference | Load when |
+| --- | --- |
+| `references/accounts.md` | Creating, funding, deleting, or explaining Hedera account IDs, aliases, hollow accounts, or keys. |
+| `references/tokens.md` | Creating or transferring HTS fungible/NFT tokens, association requirements, or admin-key risk. |
+| `references/fees-staking.md` | Estimating fees, explaining USD-denominated pricing paid in HBAR, or staking/liquidity. |
+| `references/services.md` | Consensus (HCS), File (HFS), smart-contract/EVM, or mirror-node query guidance. |
+| `references/troubleshooting.md` | Interpreting a concrete Hedera status code or failed transfer. |
+| `references/sources.md` | Re-checking mutable fee, association, staking, or network claims against primary docs. |
 
-## Consensus and Finality
-- Transactions finalize in 3-5 seconds — no waiting for confirmations
-- Hashgraph consensus provides ordering guarantees — no MEV or frontrunning possible
-- Fair ordering prevents manipulation — transactions processed in order received
-- Mirror nodes provide historical data — main network doesn't store full history
+## Critical rules
 
-## Smart Contracts
-- Hedera supports Solidity smart contracts — EVM compatible
-- Contracts interact with native HTS tokens — best of both worlds
-- Contract deployment costs more than simple transactions — plan accordingly
-- State storage costs ongoing rent — unused contracts still cost
-
-## Staking
-- Native staking to nodes — no minimum, no lockup
-- Rewards paid automatically every 24 hours — no claiming needed
-- Staking doesn't transfer funds — HBAR stays in your account
-- Choosing a node affects decentralization — spread stakes across nodes
-
-## Keys and Security
-- Accounts can have multiple keys — threshold signatures supported
-- Key rotation possible without changing account ID — update keys if compromised
-- Different key types: Ed25519, ECDSA (secp256k1) — affects wallet compatibility
-- Admin keys on tokens can freeze/wipe holdings — check before acquiring tokens
-
-## Common Issues
-- "INSUFFICIENT_PAYER_BALANCE" — need more HBAR for fees
-- "INVALID_ACCOUNT_ID" — account doesn't exist, needs creation
-- "TOKEN_NOT_ASSOCIATED" — must associate with token before receiving
-- "INSUFFICIENT_TX_FEE" — rare, fee estimate was too low
-- "ACCOUNT_FROZEN_FOR_TOKEN" — token admin has frozen transfers
-
-## Exchanges and Transfers
-- Most major exchanges support HBAR — verify account ID format (0.0.xxxxx)
-- Memo often required for exchange deposits — critical like XRP destination tags
-- Account ID is not a wallet address — don't confuse with Ethereum-style addresses
-- Verify recipient account exists before sending — non-existent accounts reject transfers
-
-## Network Services
-- Hedera Consensus Service (HCS) — ordered message logging
-- Hedera File Service (HFS) — store larger data on network
-- Mirror nodes for queries — don't query mainnet for historical data
-- SDKs available for major languages — JavaScript, Java, Go, Python
+1. **Advise only** — draft SDK steps or wallet actions; do not request private keys or operate someone else's account.
+2. **Network first** — mainnet uses real HBAR; testnet/previewnet use valueless test HBAR and may reset.
+3. **Association before custom tokens** — HTS receivers usually must associate (or use a documented auto-association path) before a transfer succeeds.
+4. **Public memos** — treat account and transaction memos as public; never put secrets there.
+5. **Verify with live sources** — fee USD amounts and network parameters change; open `references/sources.md` or the live fee estimator before quoting exact costs.
