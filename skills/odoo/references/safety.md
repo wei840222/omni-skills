@@ -25,7 +25,7 @@ Use this file for any task that could change business state, financial truth, or
 ## Hard Stops
 
 - No `unlink` on live business data without explicit confirmation and a recovery story.
-- No direct edits to posted accounting, closed periods, or finalized stock history as a casual shortcut.
+- No direct edits to posted accounting, closed periods, or finalized stock history as a casual shortcut; use corrective flows instead.
 - No mass import without deduplication keys or clear update-vs-create rules.
 - No direct database writes unless the user is intentionally doing backend repair and accepts the blast radius.
 
