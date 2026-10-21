@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are launching a new B2B SaaS for HR managers. Help me create a digital marketing campaign.",
+    "expected": "Asks for market-model elements (audience, trigger, problem, offer, proof, objection) before channels; proposes a Launch Sprint style bundle with landing, short-form, follow-up, and a review window.",
+    "actual": "Dry-run against Core Rules 1/4/6 + references/market-model.md + references/playbooks.md: refused channel picks until five message-map fields were named; proposed Launch Sprint with one promise, landing angle, short-form scripts, email sequence, retargeting path, and 72h keep/kill review. Matches expected.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to go viral on TikTok with our new accounting software. Give me 10 video ideas.",
+    "expected": "Warns against virality without a capture path; focuses hooks/claims testing and native short-form structure; routes TikTok Ads Manager specifics to tiktok-ads when needed.",
+    "actual": "Dry-run against Trap #2 + Core Rule 3 + references/short-form-video.md: required a landing/CTA/follow-up before idea volume; generated hook-led native scripts (objection, before/after, proof) instead of polished production; offered tiktok-ads for paid creative rules. Matches expected.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our ads get cheap clicks but demos are junk. What should we change?",
+    "expected": "Separates attention metrics from lead quality/economics; inspects funnel breakpoints and message-market fit before recommending spend scale; ends with keep/kill/scale/recycle style next actions.",
+    "actual": "Dry-run against Core Rules 4/5 + references/funnels.md + references/measurement.md: treated CTR as attention-only; checked ad-landing promise match, form friction, follow-up latency, and CAC/payback; recommended fixing route-to-value before budget scale and logged keep/kill/recycle candidates. Matches expected.",
+    "pass": true
+  }
+]
