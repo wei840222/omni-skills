@@ -13,7 +13,7 @@ Simple spreadsheet columns:
 
 ### Reorder Process
 1. Weekly check against reorder points
-2. Consolidate orders to same supplier (bulk discount)
+2. Consolidate orders to the same supplier when that vendor offers a documented bulk discount
 3. Track delivery, update inventory on arrival
 4. Review usage patterns quarterly (adjust reorder points)
 
@@ -53,7 +53,7 @@ For each vendor, maintain:
 ## Space Planning
 
 ### Meeting Room Management
-- Clear naming convention (avoid confusion)
+- Establish clear naming conventions to ensure predictability
 - Booking system (shared calendar, dedicated app)
 - Rules: release room if not using, 5-min buffer between meetings
 - Equipment check: projector, whiteboard, video conferencing

@@ -3,6 +3,7 @@
 ## Structure with Styles
 
 **Why use Styles:**
+- Improves accessibility (e.g., for screen readers)
 - Automatic Table of Contents
 - Consistent formatting throughout
 - Easy global changes (change Heading 1 once, all update)
