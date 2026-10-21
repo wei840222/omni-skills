@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this form markup: <div>Name: <input type='text' id='name'></div> <div onclick='submitForm()'>Submit</div>",
+    "expected": "Identify missing label/name/form semantics. Recommend <form>, <label for='name'>, name on the input, and <button type='submit'> instead of a clickable div.",
+    "actual": "Flagged div-as-button (no keyboard/focus/disabled/form participation), missing <label for>, and missing input name. Proposed: wrap in <form method='post'>, <label for='name'>Name</label> + <input id='name' name='name' autocomplete='name'>, replace submit div with <button type='submit'>Submit</button>. Cited Core Rules 1/2/4 and Output Gates.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create an accessible card with an image, title, and a 'Read more' link to an article about semantic HTML.",
+    "expected": "Use semantic container/heading, correct alt for the image's job, and link text that names the destination (not bare 'Read more').",
+    "actual": "Emitted <article> with <h3> title, <img width height> with informative alt describing the illustration's information (not filename), and link text 'Read more about semantic HTML' (visually optional extra text acceptable). Reserved image space to avoid CLS. Routed styling concerns to css.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "The hero image is lazy-loaded and the page fails LCP. The markup is <img src='/hero.jpg' loading='lazy' alt='Team photo'> with no dimensions.",
+    "expected": "Remove lazy-loading on the LCP image, add fetchpriority=high, and supply width/height (or equivalent aspect-ratio reservation).",
+    "actual": "Identified lazy-loaded LCP + unsized media. Recommended loading='eager' fetchpriority='high' width height on the hero, keep lazy for below-the-fold images only. Pointed to Core Rule 3 and performance topic; CLS/LCP claims grounded via references/sources.md web.dev links.",
+    "pass": true
+  }
+]
