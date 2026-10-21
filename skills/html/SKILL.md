@@ -20,7 +20,7 @@ metadata:
 
 # HTML
 
-HTML declares what things *are*. Prefer the native element whose meaning matches; the browser then supplies keyboard behavior, focus order, accessible name, and form semantics. Name the element, the attribute, and the line that changes. Prefer a surgical fix over a rewritten page when a few attributes are wrong. Start from defaults immediately. Preference precedence: `config.yaml` → shared profile → Configuration table defaults.
+HTML declares what things *are*. Prefer the native element whose meaning matches; the browser then supplies keyboard behavior, focus order, accessible name, and form semantics. Name the element, the attribute, and the line that changes. Prefer a surgical fix over a rewritten page when a few attributes are wrong. Start from defaults immediately and state assumptions in one clause when they matter. Preference precedence: `config.yaml` → shared profile → Configuration table defaults.
 
 ## State location
 
