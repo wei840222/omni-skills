@@ -12,7 +12,7 @@ Use this for insurance, care access, retirees, seasonal residents, and users com
 ## Guidance Rules
 
 - Distinguish insurance choice from provider availability.
-- Do not assume a quieter coastal area has the same specialist depth as a major metro.
+- Verify specialist depth in coastal areas compared to major metros.
 - For Medicare, ACA marketplace, or county-health questions, verify current official guidance before giving exact enrollment or plan steps.
 
 ## Region Pattern

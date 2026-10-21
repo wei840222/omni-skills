@@ -11,7 +11,7 @@ Use official state and local sources when rules are current or location-specific
 ## Guidance Rules
 
 - Separate statewide law from county, city, campus, HOA, or beach-specific enforcement.
-- Avoid false confidence on weapon, boating, cannabis, landlord-tenant, or short-term-rental questions without checking current official sources.
+- Verify weapon, boating, cannabis, landlord-tenant, or short-term-rental questions using current official sources before answering.
 - For family and senior households, include fraud and contractor-scam awareness after storms.
 
 ## Florida-Specific Traps

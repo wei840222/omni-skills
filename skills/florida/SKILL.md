@@ -1,73 +1,93 @@
 ---
 name: florida
-slug: florida
-version: 1.0.0
-description: Navigate Florida for living, moving, working, seasonal stays, and road trips with region fit, storm planning, insurance reality, and daily logistics.
-homepage: https://clawic.com/skills/florida
-changelog: Initial release with resident-first Florida guidance, seasonal-living support, and practical statewide logistics.
+description: >
+  Navigate Florida for living, moving, working, seasonal stays, and road
+  trips with region fit, storm/insurance reality, licensing, housing, and
+  dual-state logistics. Use when choosing a Florida region, relocating,
+  settling as a resident, planning snowbird/seasonal living, or designing
+  statewide trips that generic U.S. advice gets wrong. Prefer `travel` for
+  multi-destination traveler systems, `car-rental` for rental/airport logistics,
+  `booking` for reservation workflows, `business` for non-Florida business ops,
+  and `health-insurance` for deeper plan comparison beyond Florida access.
 metadata:
-  clawdbot:
-    emoji: 🌴
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/florida/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/florida/
-    displayName: Florida
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/florida/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🌴"}'
+  related-skills: '{"booking":"Reservation workflows for flights, cruises, resorts, and schedule holds after Florida bases or dates are chosen.","business":"Broader business operations guidance beyond Florida-specific rules and Sunbiz workflows.","car-rental":"Rental car, airport pickup, and highway planning for Florida trips.","health-insurance":"Deeper plan-comparison support beyond Florida-specific access questions.","travel":"General itinerary design and standing multi-destination traveler systems outside Florida-specific logistics."}'
 ---
+
+## State location
+
+Optional Florida continuity notes may exist in
+`<workspace>/florida/`, `<workspace>/memory/florida/`, or `~/florida/`.
+
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/florida/`, `<workspace>/memory/florida/`, `~/florida/`.
+3. If none exists and durable context must be created, default to
+   `<workspace>/florida/` only with user consent.
+4. If more than one candidate exists, use only the highest-precedence path,
+   report the conflict, and leave other copies unchanged.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd.
+   An existing `~/florida/` may be read; otherwise ask before creating data.
+6. Once selected, keep the same `<state_root>` for the whole invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Outside this section, every skill-state path uses `<state_root>/...`.
+Treat legacy `~/Clawic/data/florida/` only as a migration source—ask before
+copying or deleting it.
+
+**Data.** Durable notes live in `<state_root>/memory.md` when the user wants
+continuity (see `references/memory-template.md` and `references/setup.md`).
+This skill answers one-off Florida questions without state. Avoid storing
+credentials, SSNs, Medicare numbers, payment details, or full street addresses
+unless the user explicitly asks for that continuity. Host-shared memory such as
+workspace `MEMORY.md` is outside `<state_root>` and needs separate consent.
+
+```text
+<state_root>/
+└── memory.md     # User context, regions, timelines, insurance concerns, and open loops
+```
 
 ## When to Use
 
 User needs Florida-specific guidance that generic U.S. advice usually gets wrong: choosing a region, moving, licensing, insurance, hurricane prep, HOA or condo reality, healthcare access, seasonal living, or statewide trip planning.
 
-This skill should activate for five modes: visiting, moving to Florida, living in Florida, operating a Florida-based business, and managing a seasonal or snowbird setup.
+Activate for five modes: visiting, moving to Florida, living in Florida, operating a Florida-based business, and managing a seasonal or snowbird setup.
 
-## Architecture
+## Progressive disclosure
 
-This skill works statelessly for one-off Florida questions. If the user wants continuity across sessions, memory lives in `~/Clawic/data/florida/`. If `~/Clawic/data/florida/` does not exist, read `setup.md`, explain planned local storage in plain language, and ask for confirmation before creating files. See `memory-template.md` for structure.
+Keep this file as the always-on contract. Load **at most one** reference for
+the current ask; do not preload every deep dive or the whole Quick Reference matrix. Verify unstable rules from
+`references/sources.md` before locking compliance steps or money decisions.
 
-```text
-~/Clawic/data/florida/
-└── memory.md     # User context, regions, timelines, insurance concerns, and open loops
-```
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Region fit and metro tradeoffs | `regions.md` |
-| Move-in sequence and resident checklist | `moving-and-settling.md` |
-| License, registration, tolls, and vehicles | `florida-dmv-and-vehicles.md` |
-| Renting, buying, condo rules, and insurance pressure | `housing-and-insurance.md` |
-| Utilities, internet, storm outages, and recurring bills | `utilities-and-bills.md` |
-| Taxes, wages, insurance costs, and total budget reality | `costs-and-taxes.md` |
-| Hurricanes, flooding, heat, and preparedness | `storms-and-preparedness.md` |
-| Laws, scams, and practical safety | `laws-and-safety.md` |
-| Schools, childcare, and family planning | `family-and-schools.md` |
-| Health insurance, providers, Medicare, and care access | `healthcare-and-coverage.md` |
-| Jobs, LLC setup, tourism exposure, and business tradeoffs | `work-and-business.md` |
-| Driving, airports, transit, and corridor planning | `transit-and-driving.md` |
-| Part-time residency, snowbirds, and dual-state logistics | `seasonal-living-and-snowbirds.md` |
-| Beaches, parks, theme parks, and road-trip strategy | `road-trips-and-visiting.md` |
-| Official sources map | `sources.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup guide | `references/setup.md` | No `<state_root>` yet, or user asks what would be stored |
+| Memory template | `references/memory-template.md` | Creating or reshaping `<state_root>/memory.md` |
+| Region fit and metro tradeoffs | `references/regions.md` | Choosing among South Florida, Central, Tampa Bay, SWFL, Panhandle, First Coast, Keys |
+| Move-in sequence and resident checklist | `references/moving-and-settling.md` | Relocation deadlines, homestead, settling tasks |
+| License, registration, tolls, and vehicles | `references/florida-dmv-and-vehicles.md` | DL/ID, plates, tolls, title/registration |
+| Renting, buying, condo rules, and insurance pressure | `references/housing-and-insurance.md` | Housing search, HOA/condo, wind/flood coverage |
+| Utilities, internet, storm outages, and recurring bills | `references/utilities-and-bills.md` | Move-in utilities and outage planning |
+| Taxes, wages, insurance costs, and total budget reality | `references/costs-and-taxes.md` | Total cost of living beyond "no state income tax" |
+| Hurricanes, flooding, heat, and preparedness | `references/storms-and-preparedness.md` | Storm timing, surge/flood, evacuation readiness |
+| Laws, scams, and practical safety | `references/laws-and-safety.md` | Practical legal/safety traps and scam patterns |
+| Schools, childcare, and family planning | `references/family-and-schools.md` | Districts, childcare, family logistics |
+| Health insurance, providers, Medicare, and care access | `references/healthcare-and-coverage.md` | Marketplace, Medicare, provider networks |
+| Jobs, LLC setup, tourism exposure, and business tradeoffs | `references/work-and-business.md` | Employment or Florida entity setup |
+| Driving, airports, transit, and corridor planning | `references/transit-and-driving.md` | Car-first mobility, airports, corridors |
+| Part-time residency, snowbirds, and dual-state logistics | `references/seasonal-living-and-snowbirds.md` | Split-year / second-home logistics |
+| Beaches, parks, theme parks, and road-trip strategy | `references/road-trips-and-visiting.md` | Visitor pacing and statewide trip design |
+| Official sources map | `references/sources.md` | Before precise compliance, insurance, school, or portal steps |
 
 ## Core Rules
 
 ### 1. Classify the User Before Giving Advice
 - Decide which Florida mode applies first: visitor, future resident, current resident, business operator, or seasonal resident.
 - Then anchor the answer to the user's region, metro, county, ZIP, flood zone, and school district when those variables change the recommendation.
-- If that context is missing, ask for it before pretending Florida is one market.
+- If that context is missing, ask for it before treating Florida as one market.
 
 ### 2. Separate State Rules from Local Execution
 - Florida-level rules are only the first layer. County tax collectors, cities, flood zones, evacuation zones, condo associations, school districts, and utility territories often change the real answer.
@@ -75,41 +95,43 @@ This skill works statelessly for one-off Florida questions. If the user wants co
 - For address-specific questions, prefer official portals over generic summaries.
 
 ### 3. Florida Is Multiple Operating Environments
-- South Florida, Central Florida, Tampa Bay, Southwest Florida, the Panhandle, the First Coast, and the Keys do not solve the same problem.
-- Never compare them only on beach access or rent.
-- The correct answer usually depends on storm exposure, insurance availability, commute style, age mix, healthcare access, and how seasonal the area feels.
+- South Florida, Central Florida, Tampa Bay, Southwest Florida, the Panhandle, the First Coast, and the Keys address distinct problems.
+- Compare regions using multiple factors beyond beach access or rent.
+- Fit usually depends on storm exposure, insurance availability, commute style, age mix, healthcare access, and how seasonal the area feels.
 
 ### 4. No State Income Tax Does Not Mean Low Cost
 - Include homeowners or condo insurance, flood insurance, car insurance, tolls, HOA dues, utility spikes, and storm-prep costs.
 - For condo or coastal housing, mention reserves, assessments, wind mitigation, and coverage exclusions when relevant.
-- Use `costs-and-taxes.md` before saying a place is "cheap."
+- Use `references/costs-and-taxes.md` before calling a place affordable.
 
 ### 5. Storm and Heat Planning Change Good Advice
-- Hurricanes, storm surge, inland flooding, lightning, heat, humidity, algae events, and outage risk are not side notes.
+- Hurricanes, storm surge, inland flooding, lightning, heat, humidity, algae events, and outage risk belong in the primary plan.
 - Adjust home choice, seasonal timing, trip design, and evacuation guidance around actual exposure.
-- When weather is part of the problem, lead with readiness and fallback plans, not brochure copy.
+- When weather is part of the problem, lead with readiness and fallback plans.
 
 ### 6. Seasonal Residents Need Different Guidance
 - Snowbirds, second-home owners, and split-year residents care about mail, insurance, vehicles, healthcare continuity, taxes, and storm readiness when away.
-- Do not give full-time resident advice to a part-time household without checking how long they stay, where they vote, insure, and receive medical care.
-- Use `seasonal-living-and-snowbirds.md` whenever the user splits time across states.
+- Verify stay duration, voting location, insurance, and medical care setup before advising part-time households.
+- Use `references/seasonal-living-and-snowbirds.md` whenever the user splits time across states.
 
 ### 7. Deliver Sequence, Not Vacation Copy
 - Florida users often need deadlines, documents, portals, and tradeoffs.
 - For administrative topics, answer in the form "do this today / this week / later" whenever possible.
 - For relocation or seasonal topics, show why one base region fits better than another.
-- Before creating or changing local files in `~/Clawic/data/florida/`, explain the planned write and ask for confirmation.
+- Before creating or changing local files in `<state_root>/`, explain the planned write and ask for confirmation.
 
 ### 8. Use Official Sources for Unstable Rules
 - Licensing, registration, homestead, evacuation, school boundaries, insurance programs, Medicare options, and park rules can change.
 - Verify current information from the official state or local source before giving precise compliance steps.
-- If current verification is blocked, say so plainly and avoid false precision.
+- State clearly if current verification is blocked and provide only general guidance.
 
 ## Common Traps
 
+Prefer these recovery checks when advice starts to overfit:
+
 - Treating Florida like one market instead of a mix of metros, retiree corridors, inland towns, and high-risk coastal zones.
 - Recommending a home or condo without checking flood zone, evacuation zone, reserves, assessments, and insurance fit.
-- Saying "Florida is affordable because there is no state income tax" while ignoring property insurance, HOA dues, tolls, and car costs.
+- Calling Florida affordable because there is no state income tax while ignoring property insurance, HOA dues, tolls, and car costs.
 - Giving resident advice without asking whether the user is full-time, seasonal, retired, or theme-park or hospitality adjacent.
 - Planning trips by map distance instead of I-4 traffic, heat, afternoon storms, cruise timing, and airport spread.
 - Mixing up FLHSMV, county tax collectors, property appraisers, insurance offices, and local emergency management.
@@ -127,7 +149,7 @@ This skill works statelessly for one-off Florida questions. If the user wants co
 | https://www.floridahealth.gov | County references if the user asks for public-health or local-care guidance | Health department and care navigation |
 | https://www.visitflorida.com | Page requests only | Official trip-planning and regional travel references |
 
-No other data is sent externally.
+Only the endpoints above are used for external lookups in this skill.
 
 ## Security & Privacy
 
@@ -136,28 +158,15 @@ No other data is sent externally.
 - ZIP, county, flood-zone, or district data only when the user asks for location-specific guidance
 
 **Data that stays local:**
-- Region preference, move timeline, seasonal-living setup, insurance concerns, and open tasks in `~/Clawic/data/florida/`
+- Region preference, move timeline, seasonal-living setup, insurance concerns, and open tasks in `<state_root>/`
 
-**This skill does NOT:**
-- Submit government forms on the user's behalf without explicit instruction
-- Store credentials, SSNs, Medicare numbers, or payment information in local memory
-- Assume local rules when the answer depends on a county, municipality, condo association, or flood zone
+**Boundaries:**
+- Government forms are submitted only with explicit user instruction for that action
+- Credentials, SSNs, Medicare numbers, and payment information stay out of local memory by default
+- County, municipality, condo association, and flood-zone answers require local verification instead of statewide assumptions
 
 ## Trust
 
 By using this skill, location details such as ZIP, county, district, or flood-zone context may be checked against official Florida or local-government websites when the user asks for precise guidance.
 
-Only install if you trust those public services with that lookup context.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General itinerary design and trip planning structure
-- `car-rental` — Rental car, airport pickup, and highway planning for Florida trips
-- `booking` — Reservation workflows for flights, cruises, resorts, and schedule holds
-- `business` — Broader business operations guidance beyond Florida-specific rules
-- `health-insurance` — Deeper plan-comparison support beyond Florida-specific access questions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/florida
-- Latest version: https://clawic.com/skills/florida
+Install only when those public services are acceptable for that lookup context.

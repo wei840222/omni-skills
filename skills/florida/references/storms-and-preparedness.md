@@ -17,7 +17,7 @@ Storm planning is part of ordinary Florida decision-making.
 - For condos, confirm building process for storms and post-storm reentry.
 
 ### Trips
-- Avoid overcommitting fixed itineraries during hurricane season without fallback plans.
+- Ensure fixed itineraries during hurricane season include clear fallback plans.
 - Cruise, Keys, and barrier-island trips need extra weather flexibility.
 
 ### Daily Life

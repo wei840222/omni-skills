@@ -19,4 +19,4 @@ Florida mobility is usually car-first, but the failure mode differs by region.
 
 ## Practical Rule
 
-Do not call a Florida area "easy without a car" unless the user's exact neighborhood and routine support that claim.
+Verify the user's exact neighborhood and routine support living without a car before confirming an area is transit-friendly.

@@ -1,6 +1,6 @@
 # Setup — Florida
 
-Read this when `~/Clawic/data/florida/` does not exist or is empty. Start helping naturally, but be explicit before creating persistent local memory.
+Read this when `<state_root>/` does not exist or is empty. Start helping naturally, but be explicit before creating persistent local memory.
 
 ## Your Attitude
 
@@ -15,7 +15,7 @@ Florida questions usually hide one of five problems:
 
 Answer the user's question first whenever possible. Then gather only the next detail that improves the next step.
 
-This skill works statelessly if the user does not want continuity. If persistent memory would help, explain what would be stored and ask for confirmation before creating `~/Clawic/data/florida/` or `memory.md`.
+This skill works statelessly if the user does not want continuity. If persistent memory would help, explain what would be stored and ask for confirmation before creating `<state_root>/` or `<state_root>/memory.md`.
 
 ## Priority Order
 
@@ -58,11 +58,11 @@ Pick up only the constraints that change future advice:
 
 ## What You're Saving (internally)
 
-Keep `~/Clawic/data/florida/memory.md` lightweight and useful:
+Keep `<state_root>/memory.md` lightweight and useful:
 - activation preference for Florida topics
 - current mode and target region
 - major deadlines, seasonal patterns, and open loops
 - persistent family, school, housing, insurance, and storm constraints
 - which official portals or local agencies already matter for this user
 
-Do not store credentials, account numbers, SSNs, Medicare IDs, full street addresses, or payment details unless the user explicitly asks for that behavior.
+Omit credentials, account numbers, SSNs, Medicare IDs, full street addresses, and payment details from storage unless explicitly requested.
