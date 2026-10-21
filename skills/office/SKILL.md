@@ -49,7 +49,7 @@ the current ask; do not preload every deep dive.
 2. **Prefer modern lookups** — for Excel 365+, prefer `XLOOKUP` over `VLOOKUP` when teaching new formulas; keep `INDEX`/`MATCH` for compatibility paths.
 3. **Styles before cosmetics** — structure Word/Docs with Heading styles before building a TOC or fixing spacing by hand.
 4. **One idea per slide** — keep Presenter View / Slide Master guidance practical; avoid animation theatre.
-5. **No invented benchmarks** — do not quote supplier discount percentages, SLA numbers, or product limits without a current primary source.
+5. **Source mutable facts** — quote supplier discounts, SLA numbers, or product limits only from a current primary source in `references/sources.md` or a newly verified URL.
 6. **Route adjacent tools** — hand off to the related skills above when the user needs file mutation, live app control, or Workspace API automation rather than how-to guidance.
 
 ## Quick reference
