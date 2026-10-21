@@ -17,7 +17,7 @@ Use these sources when precise Florida rules or current workflows matter.
 
 - Florida Division of Emergency Management: https://www.floridadisaster.org/
 - Florida insurance consumer resources: https://www.myfloridacfo.com/division/consumers
-- FEMA flood map service center: https://msc.fema.gov/portal/home
+- FEMA flood maps overview / MSC entry: https://www.fema.gov/flood-maps
 
 ## Health and Education
 

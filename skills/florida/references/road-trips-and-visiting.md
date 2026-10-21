@@ -11,7 +11,7 @@ Florida travel works best when you plan around heat, storms, theme-park intensit
 
 ## Practical Rules
 
-- Do not stack full-heat outdoor plans without rest and hydration windows.
+- Ensure full-heat outdoor plans include scheduled rest and hydration windows.
 - Treat hurricane season as a flexibility problem, not just a weather note.
 - Use realistic drive times; Florida corridors can feel longer than the map suggests.
 - If the trip includes theme parks, cruises, or Keys driving, build buffer time.

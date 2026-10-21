@@ -25,6 +25,6 @@ Use this before telling the user that Florida is cheap because there is no state
 
 ## Better Question to Answer
 
-Do not ask whether Florida is cheap.
+Ask which specific costs shape the user's budget.
 
 Ask whether a specific Florida region works for the user's income, insurance tolerance, healthcare needs, and seasonality pattern.

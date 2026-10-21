@@ -24,5 +24,5 @@ Florida housing advice is incomplete without insurance, flood exposure, and buil
 
 - Homeowners insurance availability can shape which homes are realistic.
 - Flood insurance may matter even outside the user's mental model of "high risk."
-- Condo and homeowner policies have different gaps; do not blur them.
+- Distinguish clearly between the coverage gaps in condo and homeowner policies.
 - For address-specific decisions, direct the user to official insurance and flood resources before overcommitting.
