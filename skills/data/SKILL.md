@@ -74,6 +74,10 @@ Before finishing:
 - [ ] Secrets absent from commands, logs, and package files
 - [ ] Adjacent skill used when the ask is runtime- or engine-specific
 
+## Output shape
+
+Lead with the cleaned table, query, chart, or finding the user asked for. Put transform logs, assumption checks, and quality alerts after the deliverable unless the user only asked for a plan.
+
 ## On first use
 
 1. Identify the source (database, file, API) and access method
