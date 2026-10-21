@@ -1,13 +1,13 @@
 ---
 name: hype
 description: >
-  Assist with Hyperliquid perpetuals, deposits/withdrawals, cross/isolated margin,
-  liquidations, funding, HLP vaults, and HYPE staking. Use when the user asks about
-  Hyperliquid onboarding, margin modes, liquidation risk, funding rates, vault
-  deposits, or HYPE delegation. Not for unrelated CEX APIs (binance) or generic
-  portfolio allocation (invest).
+  Assist with Hyperliquid perpetuals, deposits, withdrawals, cross/isolated margin,
+  liquidations, funding rates, HLP vaults, and HYPE staking. Trigger when the user
+  asks about Hyperliquid onboarding, margin modes, liquidation risk, vault deposits,
+  or HYPE delegation. Out of scope: unrelated CEX APIs (binance) and generic portfolio
+  allocation (invest).
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   openclaw: '{"emoji":"🟢"}'
   related-skills: '{"binance":"Binance Spot REST/WebSocket and CEX account flows instead of Hyperliquid L1 perps.","ethereum":"Ethereum gas, approvals, and L2 bridges when the path is EVM deposit plumbing rather than Hyperliquid trading.","bitcoin":"Bitcoin UTXO and fee recovery when Unit BTC deposit paths need chain-native diagnosis.","aave":"Aave lending Health Factor risk rather than Hyperliquid perp liquidations.","invest":"General portfolio education after Hyperliquid mechanics are settled.","crypto-tools":"Market data and multi-venue tooling once Hyperliquid-specific account rules are clear."}'
 ---
@@ -34,17 +34,17 @@ This skill is stateless knowledge guidance. It does not store local configuratio
 | `references/trading-features.md` | Deposits/withdrawals, margin, leverage tiers, liquidations, funding, order notes, HLP, HYPE staking, common failures, or security checks. |
 | `references/sources.md` | Need primary-source URLs, claim freshness notes, or research provenance for PR/review. |
 
-## Near-miss routing
+## Route adjacent asks
 
-- CEX Spot API keys / Binance signed REST → `binance`
-- Generic ETH gas or ERC-20 approve debugging without Hyperliquid deposit context → `ethereum`
+- Binance Spot API keys / signed REST → `binance`
+- ETH gas or ERC-20 approve debugging without Hyperliquid deposit context → `ethereum`
 - Portfolio allocation education without Hyperliquid mechanics → `invest`
 - Aave Health Factor / supply-borrow → `aave`
 
 ## Quick checks
 
-- **Deposit path depends on login route.** Email onboarding can accept USDC on Arbitrum/Ethereum/Base/Polygon and several Unit-protocol spot assets; DeFi-wallet USDC deposit commonly starts from Arbitrum. Do not claim “Arbitrum only.”
+- **Deposit path depends on login route.** Email onboarding can accept USDC on Arbitrum/Ethereum/Base/Polygon and several Unit-protocol spot assets; DeFi-wallet USDC deposit commonly starts from Arbitrum. State the verified networks for the active login method rather than a single-chain default.
 - **Max leverage is per asset and tier**, not a global 50x. BTC can reach 40x in the lowest tier; other assets are lower.
 - **Liquidation** first sends book market orders; positions above the partial-liquidation notional threshold may liquidate 20% first with a short cooldown; backstop liquidation via the liquidator vault applies if equity falls below 2/3 maintenance margin.
-- **Fees** go to HLP, the assistance fund (burns HYPE), and deployers—not a direct “trading fees to HYPE stakers” revenue share. Staking HYPE can unlock **fee discounts** by tier.
+- **Fees** go to HLP, the assistance fund (burns HYPE), and deployers. Staking HYPE unlocks **fee discounts** by tier plus separate staking rewards from emissions—distinct from a trading-fee revenue share.
 - **Funding** is peer-to-peer and paid hourly.
