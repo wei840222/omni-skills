@@ -12,7 +12,7 @@ Before changing a legacy system, answer:
 | Is there documentation? | Knowledge extraction priority |
 | What is the SLA? | Downtime tolerance and parallel-run budget |
 
-Record answers before choosing a pattern. Prefer wrap-and-observe over rewrite-from-memory.
+Record answers before choosing a pattern. Start with wrap-and-observe; rewrite only after behavior is characterized.
 
 ## Integration patterns
 
