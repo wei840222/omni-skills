@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| icloud                       | 2026-10-23 | 87/100 (#975)                    |
 | rag                          | 2026-10-23 | 85/100 (#974)                    |
 | los-angeles                  | 2026-10-23 | 85/100 (#973; retained from #201; Gate 6 Metro fare refresh) |
 | dominican-republic           | 2026-10-23 | 85/100 (#972)                    |
