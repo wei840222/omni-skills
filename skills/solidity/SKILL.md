@@ -1,63 +1,50 @@
 ---
 name: solidity
-slug: solidity
-version: 1.0.0
-description: Avoid common Solidity mistakes — reentrancy, gas traps, storage collisions, and security pitfalls.
-homepage: https://clawic.com/skills/solidity
+description: >
+  Avoid common Solidity pitfalls—reentrancy, ether-send patterns, overflow/
+  unchecked math, upgradeable storage collisions, and tx.origin auth mistakes.
+  Use when writing or reviewing Solidity contracts, choosing Checks-Effects-
+  Interactions vs ReentrancyGuard, or explaining proxy/EIP-1967 layout. Prefer
+  `ethereum` for L1 gas/approvals/MEV, `blockchain` for viem interaction and
+  ledger-fit decisions, and `arbitrum` for L2 ops.
 metadata:
-  clawdbot:
-    emoji: ⟠
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Solidity
+  version: "1.1.0"
+  openclaw: '{"emoji":"⟠"}'
+  related-skills: '{"ethereum":"L1 gas, approvals, MEV, and bridge framing once Solidity authoring is not the main ask.","blockchain":"Ledger-fit decisions and viem contract reads/writes beyond Solidity language pitfalls.","arbitrum":"Arbitrum One/Nova bridging and L2 ops rather than Solidity authoring.","security-best-practices":"General secure-code review when the finding is not Solidity-specific.","crypto-tools":"Explorers, prices, and contract screening tools after language-level guidance."}'
 ---
 
-## Reentrancy
-- External calls before state updates — attacker can re-enter before state changes
-- Checks-Effects-Interactions pattern — validate, update state, THEN external call
-- `ReentrancyGuard` from OpenZeppelin — use `nonReentrant` modifier on vulnerable functions
-- `transfer()` and `send()` have 2300 gas limit — but don't rely on this for security
+This skill is stateless and does not store local configuration or persistent user state.
 
-## Integer Handling
-- Solidity 0.8+ reverts on overflow — but `unchecked {}` blocks bypass this
-- Division truncates toward zero — `5 / 2 = 2`, no decimals
-- Use fixed-point math for precision — multiply before divide, or use libraries
-- `type(uint256).max` for max value — don't hardcode large numbers
+## When to use
 
-## Gas Gotchas
-- Unbounded loops can exceed block gas limit — paginate or limit iterations
-- Storage writes cost 20k gas — memory/calldata much cheaper
-- `delete` refunds gas but has limits — refund capped, don't rely on it
-- Reading storage in loop — cache in memory variable first
+Load this skill for Solidity **language and contract-authoring** pitfalls: reentrancy, ether handling, integer/unchecked math, visibility, storage vs memory, upgradeable proxies, and common compiler/EVM footguns.
 
-## Visibility and Access
-- State variables default to `internal` — not `private`, derived contracts see them
-- `private` doesn't mean hidden — all blockchain data is public, just not accessible from other contracts
-- `tx.origin` is original sender — use `msg.sender`, `tx.origin` enables phishing attacks
-- `external` can't be called internally — use `public` or `this.func()` (wastes gas)
+Hand off when the ask is mainly:
 
-## Ether Handling
-- `payable` required to receive ether — non-payable functions reject ether
-- `selfdestruct` sends ether bypassing fallback — contract can receive ether without receive function
-- Check return value of `send()` — returns false on failure, doesn't revert
-- `call{value: x}("")` preferred over `transfer()` — forward all gas, check return value
+- L1 fees, approvals, MEV, or generic bridging → `ethereum`
+- Architecture fit or viem read/write workflows → `blockchain`
+- Arbitrum deposits/exits or chain parameters → `arbitrum`
+- Generic secure-code review outside Solidity → `security-best-practices`
 
-## Storage vs Memory
-- `storage` persists, `memory` is temporary — storage costs gas, memory doesn't persist
-- Structs/arrays parameter default to `memory` — explicit `storage` to modify state
-- `calldata` for external function inputs — read-only, cheaper than memory
-- Storage layout matters for upgrades — never reorder or remove storage variables
+## Workflow
 
-## Upgradeable Contracts
-- Constructors don't run in proxies — use `initialize()` with `initializer` modifier
-- Storage collision between proxy and impl — use EIP-1967 storage slots
-- Never `selfdestruct` implementation — breaks all proxies pointing to it
-- `delegatecall` uses caller's storage — impl contract storage layout must match proxy
+1. Identify the failure mode (reentrancy, send/transfer vs call, overflow/unchecked, auth with `tx.origin`, upgrade storage, loop gas, randomness).
+2. Prefer the official Solidity Security Considerations wording; load only the matching reference below.
+3. Give a minimal safe pattern (Checks-Effects-Interactions, withdraw pattern, `msg.sender` auth, append-only upgrade storage) before optional library helpers such as OpenZeppelin `ReentrancyGuard`.
+4. Do not invent gas costs, stipend values, or hard-fork behavior from memory—re-check `references/sources.md` when precision matters.
 
-## Common Mistakes
-- Block timestamp can be manipulated slightly — don't use for randomness or precise timing
-- `require` for user errors, `assert` for invariants — assert failures indicate bugs
-- String comparison with `==` doesn't work — use `keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b))`
-- Events not indexed — first 3 params can be `indexed` for efficient filtering
+## Load the relevant reference
+
+| Reference | Load when |
+|---|---|
+| `references/security-pitfalls.md` | Reentrancy, ether send/receive, loops/gas, `tx.origin`, overflow/unchecked, visibility, storage/memory, upgradeable proxies. |
+| `references/sources.md` | Verifying any numeric, hard-fork, EIP, or library claim before giving irreversible advice. |
+
+## Critical rules
+
+- Treat every external call and Ether transfer as handing control to the callee; finish Checks → Effects before Interactions.
+- Prefer a withdraw pattern over push-payments when recipients can revert or reenter.
+- Authorize with `msg.sender`, never `tx.origin`.
+- Solidity 0.8+ checked arithmetic still reverts on overflow; `unchecked {}` opts into wrapping—do not treat checked mode as a substitute for input bounds.
+- On upgradeable contracts: no constructor side effects (use `initializer`), keep implementation storage append-only / EIP-1967-aware, and do not rely on `selfdestruct` of an implementation.
+- Everything on-chain is observable; `private` is not confidentiality, and block data is a weak randomness source.
