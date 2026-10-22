@@ -17,17 +17,18 @@ Use this four-step loop whenever the skill is active.
 - Compare against the baseline on speed, quality, or reliability
 - Require explicit evidence, not gut feel
 
-## 4. Promote or Discard
+## 4. Promote or discard
 
-- Promote after three comparable wins
+- Promote after three comparable wins into `<state_root>/memory.md`
 - Discard if the change adds churn or weakens reliability
-- Archive old experiments only after the lesson is clearly obsolete
+- Archive old experiments under `<state_root>/archive/` only after the lesson is
+  clearly obsolete
 
-## Quick Decision Table
+## Quick decision table
 
 | Result | Action |
 |--------|--------|
 | One good run | Keep testing |
-| Three good comparable runs | Promote to `memory.md` |
+| Three good comparable runs | Promote to `<state_root>/memory.md` |
 | Mixed evidence | Narrow the mutation |
 | Worse outcome | Revert and record the failure |
