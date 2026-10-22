@@ -12,5 +12,12 @@
     "expected": "Identify neighborhoods near Silicon Beach (Santa Monica, Venice, Culver City, Playa Vista) that fit a $2500 budget for a 1-bedroom, noting that some areas might be tight on that budget. Discuss the commute.",
     "actual": "Moving to Silicon Beach (the Westside tech hub) is exciting! With a $2,500 budget for a 1-bedroom, you have options, but you'll need to be strategic as the Westside is expensive.\n\n**Neighborhoods to Consider:**\n*   **Culver City/Palms:** This is often the sweet spot for tech workers. Palms is slightly more affordable than Culver City itself, but both offer great access to Silicon Beach and a more reasonable commute.\n*   **Mar Vista:** A quieter, more residential area adjacent to Venice and Santa Monica. You can sometimes find older apartments in your budget here.\n*   **El Segundo:** Located just south of LAX, this area is growing and often slightly cheaper than Santa Monica or Venice proper.\n\n**Areas that might be tight:** Santa Monica and Venice are the heart of Silicon Beach, but a $2,500 budget will likely mean an older, smaller unit, or you might need to look for a studio.\n\n**The Commute Reality:** Traffic on the Westside (especially the 405) is brutal. Living as close to your office as possible is highly recommended to maintain your sanity.",
     "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What does a regular Metro ride cost in LA right now, and is there still a monthly pass?",
+    "expected": "Quote the official one-way fare and daily/7-day fare caps from metro.net/fares, mention free transfers within two hours when tapping, and avoid presenting a flat monthly pass price as current unless the fares page still lists that product.",
+    "actual": "As of the 2026-10-23 check of https://www.metro.net/fares/, a regular one-way Metro ride is $1.75. Metro uses fare capping: after three paid rides in a day you hit a $5 daily cap, and you never pay more than $18 over seven days when tapping to ride. Transfers are free within two hours (round-trips excluded). Pay with TAP stored value, contactless card/wallet, Apple Wallet TAP, or bus cash (cash does not get fare caps). I would not quote a flat monthly Metro pass price as current unless the official fares page still lists that product for the rider's payment method; verify discounts (student, senior 62+, disability, LIFE) on the same page before promising a reduced rate.",
+    "pass": true
   }
 ]
