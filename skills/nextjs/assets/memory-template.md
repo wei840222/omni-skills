@@ -1,6 +1,6 @@
 # Memory Template — NextJS
 
-## ~/Clawic/data/nextjs/memory.md
+## `<state_root>/memory.md`
 
 ```markdown
 # Next.js Patterns
@@ -26,7 +26,7 @@
 <!-- Patterns discovered through working together -->
 ```
 
-## ~/Clawic/data/nextjs/projects/{name}.md
+## `<state_root>/projects/{name}.md`
 
 ```markdown
 # {Project Name}
@@ -50,7 +50,7 @@
 
 | Field | Values |
 |-------|--------|
-| Version | 13 / 14 / 15 |
+| Version | 13 / 14 / 15 / 16 |
 | Router | App Router / Pages Router |
 | TypeScript | Yes / No |
 | Proactive help | Yes / On request only |
