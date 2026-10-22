@@ -68,6 +68,8 @@ Prefer adjacent skills when they fit better:
 
 ## Progressive disclosure
 
+Keep `SKILL.md` as the always-on contract. Load at most one reference or asset for the current need.
+
 | Topic | File | Load when |
 |-------|------|-----------|
 | First activation / setup | `references/setup.md` | No `<state_root>/memory.md`, empty state, or first session |
