@@ -16,7 +16,7 @@ metadata:
 
 # Fox News Monitor
 
-Fox-owned **section routing, RSS sweeps, and event live-page follow-through**. Keep reporting, video/clips, and opinion on separate surfaces; treat outside corroboration as an explicitly labeled follow-up block.
+Fox-owned **section routing, RSS sweeps, and event live-page follow-through**. Keep reporting, video/clips, and opinion on separate surfaces. Treat outside corroboration as an explicitly labeled follow-up block only.
 
 ## When to load
 
