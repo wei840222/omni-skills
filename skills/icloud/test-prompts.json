@@ -52,5 +52,18 @@
     "actual": "STRUCTURAL_DRY_RUN 2026-10-23: Applied references/photos-ops.md + Core Rule 3. Album check, one-asset sample, confirm /data/photos + quota, then batch; no remote deletes.",
     "pass": true,
     "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "icloud-china-mainland-auth",
+    "scenario": "regional auth",
+    "prompt": "My Apple ID region is China mainland. Authenticate and list Drive root.",
+    "expected": [
+      "Passes china_mainland=True to PyiCloudService",
+      "Uses local interactive prompts for credentials",
+      "Lists via api.drive after auth, not chat credentials"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-23: Applied references/auth-session.md China mainland section + drive-ops read-only preflight. Would construct PyiCloudService(..., china_mainland=True) from local prompts, then api.drive.dir().",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
   }
 ]
