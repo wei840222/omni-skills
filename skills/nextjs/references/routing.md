@@ -5,11 +5,11 @@
 | File | Purpose | Gotcha |
 |------|---------|--------|
 | `page.tsx` | Route UI; makes the route public | A folder without one is just a path segment |
-| `layout.tsx` | Shared UI, preserves state across navigation | Does NOT re-render on navigation within it — never put auth or per-page data here |
+| `layout.tsx` | Shared UI, preserves state across navigation | Does NOT re-render on navigation within it — place auth and per-page data in page.tsx / data layer instead |
 | `template.tsx` | Like layout but remounts per navigation | Use for enter animations or state that must reset per page |
 | `loading.tsx` | Suspense fallback for the whole segment | Coarse — prefer explicit `<Suspense>` around slow parts (`references/data-fetching.md`) |
 | `error.tsx` | Error boundary (must be `'use client'`) | Doesn't catch errors in the layout of the SAME segment — that needs the parent's boundary |
-| `not-found.tsx` | 404 UI; triggered by `notFound()` | `notFound()` throws, like `redirect()` — don't catch it |
+| `not-found.tsx` | 404 UI; triggered by `notFound()` | `notFound()` throws, like `redirect()` — allow it to propagate |
 | `default.tsx` | Parallel-route fallback | Missing one → hard navigation 404s the whole page |
 | `route.ts` | API endpoint | Cannot coexist with `page.tsx` in the same folder |
 
