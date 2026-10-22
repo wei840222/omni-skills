@@ -8,7 +8,7 @@
 | Page/Server Component | Session read for rendering decisions | Display only, not enforcement |
 | Data layer (queries, Server Actions, route handlers) | Verify session before every read/write | The actual security boundary |
 
-Why middleware can't be the boundary: CVE-2025-29927 (fixed in `next 15.2.3` / `14.2.25`, backported to older lines) let attackers skip middleware entirely with a spoofed `x-middleware-subrequest` header. Any app whose only check lived in middleware was fully open. Layouts aren't a boundary either — they don't re-render on client-side navigation within them, so a session check there goes stale without any error.
+Why middleware can't be the boundary: CVE-2025-29927 (fixed in `next 15.2.3` / `14.2.25` / `13.5.9` / `12.3.5`) let attackers skip middleware entirely with a spoofed `x-middleware-subrequest` header. Any app whose only check lived in middleware was fully open. Layouts aren't a boundary either — they don't re-render on client-side navigation within them, so a session check there goes stale without any error.
 
 The data-access-layer (DAL) pattern — every data function verifies for itself:
 
