@@ -55,5 +55,4 @@ PY
 
 If the user declines persistence:
 
-- Do not create or update files under `<state_root>/`.
-- Keep all context in the current session output only.
+- Leave `<state_root>/` untouched; keep all context in the current session output only.

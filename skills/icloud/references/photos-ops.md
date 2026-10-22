@@ -37,7 +37,7 @@ PY
 
 ## Boundaries
 
-- Do not bulk download without a user-approved destination and quota awareness.
-- Do not delete remote photos from this workflow.
+- Bulk download only after a user-approved destination and quota check.
+- Keep remote photo deletion out of this workflow.
 - For organizing a **local** library (EXIF, duplicates, rename plans), hand off
   to the `photos` skill.
