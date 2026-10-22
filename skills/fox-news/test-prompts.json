@@ -1,0 +1,41 @@
+[
+  {
+    "id": "fox-news-latest-sweep",
+    "scenario": "happy-path section sweep",
+    "prompt": "Give me a quick Fox News latest headlines sweep \u2014 five items max, no opinion.",
+    "expected": [
+      "Uses one Fox-owned latest/section surface first (RSS preferred)",
+      "Returns <=5 items with surface labels and timestamps",
+      "Keeps opinion out of the straight-news sweep"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: fox-news \u2192 route to latest RSS only; label Surface: Latest; include timestamps; sample titles ['Abortion, ICE and socialism spark fireworks in swing state governor debate: 5 top moments', \"WATCH: Top 3 clashes in heated MN governor debate as Walz's legacy looms large: 'Change the culture'\", \"Trump voters reveal their biggest fear heading into midterms \u2014 and it's not rising prices\"]; no opinion mix; offer follow-up per selected items.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "fox-news-live-event-routing",
+    "scenario": "breaking live-page edge case",
+    "prompt": "Follow the Fox live coverage for the biggest breaking story right now and keep watching updates.",
+    "expected": [
+      "Does not rely on a stable /live-news index",
+      "Opens one event live-page slug and timestamps the latest update",
+      "Falls back to public clips/articles if playback is gated"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: fox-news \u2192 refuse stable /live-news index; discover event slug from homepage; open one live-news/<slug>; note latest update time; gated TV \u2192 public clips/articles fallback.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "fox-news-outside-verification",
+    "scenario": "contested claim follow-up",
+    "prompt": "Summarize Fox politics coverage of this contested claim, then check an independent source too.",
+    "expected": [
+      "Keeps Fox coverage as the first labeled block",
+      "Adds outside corroboration in a separate follow-up block",
+      "Does not request Fox/TV-provider credentials"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: fox-news \u2192 Fox block first from politics RSS/page; then separate OUTSIDE CHECK block; keep source boundaries explicit; no credential prompts.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  }
+]
