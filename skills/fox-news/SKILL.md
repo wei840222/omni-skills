@@ -1,158 +1,97 @@
 ---
 name: fox-news
-slug: fox-news
-version: 1.0.0
-description: Monitor Fox News sections and breaking updates with official RSS routes, live-event tracking, and optional outside verification.
-homepage: https://clawic.com/skills/fox-news
-changelog: Initial release with official feed routing, live coverage workflows, and section-based briefing formats for Fox News readers.
+description: >
+  Monitor Fox News sections and breaking updates with official RSS routes,
+  event live-page follow-through, and optional outside verification. Use when
+  the user wants Fox-owned headlines, section sweeps, Fox-first briefings, or
+  clip/article packaging that keeps reporting and opinion separate. Prefer
+  `news` for multi-outlet personalized briefings, `hacker-news` for HN API
+  work, `apple-news` for News.app/Shortcuts on macOS, `digest` for recurring
+  curated digests, and `summarizer` to compress one already-chosen article.
 metadata:
-  clawdbot:
-    emoji: F
-    requires:
-      bins:
-      - curl
-      anyBins:
-      - python3
-      - python
-      config:
-      - ~/Clawic/data/fox-news/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/fox-news/
-    displayName: Fox News Monitor
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/fox-news/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🦊","requires":{"bins":["curl"],"anyBins":["python3","python"]}}'
+  related-skills: '{"news":"Personalized multi-outlet briefings once the ask is broader than Fox-owned surfaces.","hacker-news":"Live Hacker News API/search rather than Fox RSS or section pages.","apple-news":"macOS News.app and Apple News Shortcuts instead of Fox web/RSS workflows.","digest":"Recurring curated digests across many sources when Fox is only one input.","summarizer":"Compress one known Fox article or transcript after the source is already chosen.","scrape":"Extract structured content from a single Fox URL when the briefing needs a primary document."}'
 ---
 
-## Setup
+# Fox News Monitor
 
-On first use, follow `setup.md` to lock activation scope, preferred sections, and whether the user wants Fox-only reads or source-balanced follow-up.
+Fox-owned **section routing, RSS sweeps, and event live-page follow-through**. Keep reporting, video/clips, and opinion on separate surfaces. Treat outside corroboration as an explicitly labeled follow-up block only.
 
-## When to Use
+## When to load
 
-User explicitly wants Fox News coverage, Fox News section monitoring, headline summaries from Fox-owned properties, or a Fox-first briefing with optional outside verification.
-Use this skill for section routing, official RSS sweeps, live-event follow-through, clip/article packaging, and concise recaps that keep reporting and opinion clearly separated.
+Load when the user wants:
 
-## Requirements
+- Fox News section monitoring or Fox-owned headline sweeps
+- Fox-first briefings with optional outside verification
+- event live-page updates, clips, or article packaging from Fox properties
 
-- Web access for current headlines and live coverage.
-- Clear user intent when opening multiple articles, clips, or rolling live updates.
-- Explicit permission before saving recurring preferences under `~/Clawic/data/fox-news/`.
+Prefer other skills when the ask is mainly:
 
-## Architecture
+- multi-outlet personalized briefings → `news`
+- Hacker News API/search → `hacker-news`
+- Apple News.app / Shortcuts → `apple-news`
+- recurring multi-source digests → `digest`
+- one known article to shorten → `summarizer`
 
-Memory lives in `~/Clawic/data/fox-news/`. See `memory-template.md` for the baseline structure.
+## State location
+
+Optional preferences and run notes may live under `<workspace>/fox-news/`, `<workspace>/memory/fox-news/`, or `~/fox-news/`. `<workspace>` is the host/runtime workspace root, never the shell cwd.
+
+Resolve `<state_root>` once per invocation:
+
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/fox-news/`, `<workspace>/memory/fox-news/`, `~/fox-news/`.
+3. If multiple candidates exist, keep the highest-precedence one only, report the conflict, and leave other copies unchanged.
+4. If none exists and persistent state must be created, describe the write, obtain confirmation, then default to `<workspace>/fox-news/`.
+5. Keep the resolved `<state_root>` fixed for the invocation. Never write the literal string `<state_root>` to disk.
 
 ```text
-~/Clawic/data/fox-news/
-├── memory.md          # Activation scope, preferred sections, and balance defaults
-├── sources.md         # Approved Fox surfaces and section notes
-├── runs.md            # Fetch timestamps, live-event notes, and follow-up history
-└── briefs/            # Saved briefings when the user asks to archive them
+<state_root>/
+├── memory.md    # Activation scope, preferred sections, balance defaults
+├── sources.md   # Approved Fox surfaces and section notes
+├── runs.md      # Fetch timestamps, live-event notes, follow-up history
+└── briefs/      # Saved briefings only when the user asks to archive them
 ```
 
-## Quick Reference
+If older notes exist at a legacy Clawic fox-news data directory, migrate them into the resolved `<state_root>/` on first write and say in one line that you moved them and from where. Seed new memory from `assets/memory-template.md`.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory schema and status rules | `memory-template.md` |
-| Official feeds and section mapping | `feed-map.md` |
-| Repeatable fetch and briefing workflows | `workflow-patterns.md` |
-| Output shapes for fast or balanced summaries | `briefing-formats.md` |
-| Recovery paths for broken links or gated streams | `troubleshooting.md` |
+## Workflow
 
-## Data Storage
+1. Confirm the request is Fox-specific and map it to **one** primary surface before fetching.
+2. Load `references/feed-map.md` for the matching RSS/page route; use RSS for deterministic headline capture and page routes for section context or event live pages.
+3. Load `references/workflow-patterns.md` for the matching pattern (section sweep, breaking follow-through, opinion/video, multi-link, app/device).
+4. Load `references/briefing-formats.md` when shaping the reply; keep surface labels and timestamps on every freshness claim.
+5. If the user wants analysis, controversy review, or credibility checking, keep the Fox block first and add outside corroboration as a separate labeled block.
+6. Load `references/troubleshooting.md` when RSS is empty/stale, a stream is gated, opinion leaks into news, or a story feels one-sided.
+7. Persist only durable preferences under `<state_root>/` after consent; skip full article bodies unless the user asks to archive a brief.
 
-Local notes in `~/Clawic/data/fox-news/` may include:
-- preferred sections such as politics, U.S., world, business, opinion, or video
-- whether the user wants Fox-only output or a Fox-first summary with outside corroboration
-- recency expectations for breaking coverage versus recap mode
-- archived briefings only when the user asks to keep them
+## Progressive disclosure
 
-## Core Rules
+| File | Load when |
+|---|---|
+| `references/feed-map.md` | Choosing RSS feeds, section pages, or event live-page routing |
+| `references/workflow-patterns.md` | Running a section sweep, live follow-through, opinion/video, or multi-link flow |
+| `references/briefing-formats.md` | Formatting quick scans, standard briefings, balanced follow-up, or live updates |
+| `references/troubleshooting.md` | Recovering from empty feeds, gated streams, mixed surfaces, or contested claims |
+| `references/sources.md` | Citing or refreshing official Fox surface evidence |
+| `assets/memory-template.md` | Creating `<state_root>/memory.md` on first persist |
 
-### 1. Route Every Request to One Fox Surface First
-- Map the request to one primary surface before fetching: homepage, section feed, live page, video page, or opinion page.
-- Starting with one surface keeps the result focused and avoids mixing unrelated Fox News products.
+## Core rules
 
-### 2. Separate Reporting, Live Coverage, Video, and Opinion
-- Label each item by surface type before summarizing it.
-- Do not mix straight-news headlines with opinion pieces unless the user explicitly asks for both in one briefing.
+1. **One surface first** — homepage/latest, section feed/page, event live page, video, or opinion — before widening.
+2. **Label the surface type** before summarizing; keep opinion and video out of straight-news briefings unless requested.
+3. **Timestamp freshness claims**; mark older items as recap/background instead of breaking.
+4. **Fox-owned sources first**; outside checks stay in a separate follow-up block.
+5. **Preview high-volume work** and require confirmation before opening multiple articles, clips, or rolling updates.
+6. **Stay on public surfaces** — when live TV / Fox Nation / provider login appears, state the boundary and continue with public headlines, clips, or articles.
+7. **Persist reusable preferences only** under the resolved `<state_root>/`.
 
-### 3. Timestamp Everything That Claims Freshness
-- For every headline or clip, include when it was published or last updated when that information is available.
-- If a story is older than the requested window, label it as recap or background rather than presenting it as breaking.
+## Security boundary
 
-### 4. Use Fox-Owned Sources First, Then Balance When Needed
-- Start with official Fox News pages and RSS feeds for Fox-specific requests.
-- If the user asks for analysis, controversy review, or credibility checking, add at least one independent confirmation and state that it is follow-up context beyond Fox coverage.
+May leave the machine: HTTP requests to Fox News pages/RSS and optional on-site search terms the user asked for, plus user-requested outside follow-up URLs.
 
-### 5. Confirm High-Volume Reads Before Opening or Pulling
-- Preview the sections, feeds, or number of links before opening many tabs or preparing a broad sweep.
-- Require explicit confirmation before opening multiple articles, clips, or rolling updates in one step.
+Stays local: activation scope, preferred sections, briefing defaults, fetch history, and archived briefs under `<state_root>/`.
 
-### 6. Respect Access Boundaries
-- Do not request account passwords, TV-provider credentials, or Fox Nation credentials in chat.
-- If a live stream or full episode is gated, state the access boundary and fall back to public headlines, clips, or article coverage.
-
-### 7. Persist Only Reusable Preferences
-- Save only durable context such as favored sections, briefing depth, and balance preference.
-- Do not save full article bodies or transient story details unless the user explicitly asks for an archive.
-
-## Common Traps
-
-- Treating opinion headlines as straight reporting -> users get a distorted briefing.
-- Mixing stale recap items into "latest" coverage -> trust drops quickly.
-- Opening many Fox tabs without preview -> noisy and hard to recover from.
-- Assuming live TV access exists -> unnecessary dead ends when public article coverage is enough.
-- Giving outside analysis without labeling it as follow-up context -> scope becomes unclear.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://www.foxnews.com | Section paths, article URLs, and optional on-site search terms | Read current Fox News headlines, sections, live pages, and article details |
-| https://moxie.foxnews.com | RSS feed URLs only | Fetch official Fox News XML feeds for deterministic section sweeps |
-| https://help.foxnews.com | Help article URLs only | Confirm device support, app behavior, and access constraints when troubleshooting |
-
-No other data should be sent externally unless the user explicitly asks for non-Fox follow-up sources.
-
-## Security & Privacy
-
-Data that may leave your machine:
-- HTTP requests to Fox News web pages, RSS feeds, and help pages
-- optional on-site search terms if the user asks for a Fox-site search workflow
-
-Data that stays local:
-- activation scope, preferred sections, and briefing defaults in `~/Clawic/data/fox-news/`
-- fetch history and saved briefings only when the user wants them stored
-
-This skill does NOT:
-- collect or store Fox account credentials
-- bypass paywalls, TV-provider gates, or Fox Nation restrictions
-- post, share, or interact with social platforms automatically
-- access files outside `~/Clawic/data/fox-news/`
-
-## Trust
-
-This skill relies on Fox News-owned properties and may surface editorial positions from Fox reporting, live pages, and opinion products.
-Only install it if you want Fox-specific workflows and trust Fox as one of your news sources.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `news` - General news briefings and preference-aware coverage beyond one outlet.
-- `digest` - Turn multiple reads into concise digests when Fox is only one input.
-- `monitoring` - Track recurring topics or entities across repeated checks.
-- `reading` - Manage reading order, queues, and follow-up decisions after a sweep.
-- `summarizer` - Compress long Fox articles or transcripts into tighter takeaways.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/fox-news
-- Latest version: https://clawic.com/skills/fox-news
+Stay on public Fox surfaces and the resolved `<state_root>/` (plus host-owned paths the user explicitly names for migration). Credential collection, gate/paywall bypass, and social auto-posting are outside this skill's task boundary.

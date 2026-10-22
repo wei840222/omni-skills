@@ -1,6 +1,6 @@
-# Briefing Formats - Fox News Desk
+# Briefing Formats — Fox News Desk
 
-## Quick Headlines
+## Quick headlines
 
 Use when the user wants a fast scan.
 
@@ -12,18 +12,15 @@ FOX NEWS QUICK SCAN
 
 2. [Headline] - [one-sentence summary]
    Surface: Politics | Updated: [time]
-
-3. [Headline] - [one-sentence summary]
-   Surface: World | Updated: [time]
 ```
 
 Rules:
 - Maximum 5 items
 - One sentence each
 - Include surface and time
-- Do not mix opinion unless requested
+- Keep opinion out unless requested
 
-## Standard Fox Briefing
+## Standard Fox briefing
 
 Use for a fuller Fox-specific read.
 
@@ -35,15 +32,11 @@ TOPLINE
 
 HEADLINES
 1. [Headline]
-   Surface: [latest/politics/world/live]
-   Why it matters: [1-2 sentences]
-
-2. [Headline]
-   Surface: [latest/politics/world/live]
+   Surface: [latest/politics/world/live-event]
    Why it matters: [1-2 sentences]
 
 FOLLOW-UP
-- Ask for a deeper read, live watch, or outside verification
+- Ask for a deeper read, live-page watch, or outside verification
 ```
 
 Rules:
@@ -51,7 +44,7 @@ Rules:
 - Keep article summaries tighter than analysis
 - Label every item by surface
 
-## Balanced Follow-Up
+## Balanced follow-up
 
 Use only when the user asks for context beyond Fox coverage.
 
@@ -71,15 +64,16 @@ TAKEAWAY
 Rules:
 - Start with Fox coverage because that is the requested source
 - Add outside context only as a separate block
-- Never blur source boundaries
+- Keep source boundaries explicit
 
-## Live Event Update
+## Live event update
 
 Use for active stories that keep changing.
 
 ```text
 FOX LIVE UPDATE
 
+Event page: [slug or URL]
 Latest update seen: [time]
 Current state: [1-2 sentences]
 New since last check:
