@@ -77,7 +77,7 @@ Prefer other skills when the ask is mainly:
 | Drive operations | `references/drive-ops.md` | Drive listing, download, upload, rename/delete gates |
 | Photos operations | `references/photos-ops.md` | Album list, sample download, bulk-download gates |
 | Confirmation gates | `references/safety-boundaries.md` | Any risky write or bulk action |
-| Verified sources | `references/sources.md` | Re-checking versions, Apple docs, or API claims |
+| Verified sources | `references/sources.md` | Before changing the pyicloud pin, endpoints, or API claims |
 
 ## Core rules
 
