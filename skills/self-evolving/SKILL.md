@@ -35,8 +35,7 @@ per invocation before any read or write:
 4. If none exists and the user confirms saving evolution notes, create
    `<workspace>/self-evolving/`. If `<workspace>` is unavailable, ask for a
    state root instead of guessing from the current directory.
-5. Keep `<state_root>` fixed for the invocation. Never write the literal string
-   `<state_root>` to disk.
+5. Keep `<state_root>` fixed for the invocation. Write only the resolved filesystem path; the literal token `<state_root>` is documentation-only.
 
 ```text
 <state_root>/
