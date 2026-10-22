@@ -7,9 +7,9 @@ Reference for skill finder, find skills, Skills.sh search, and Clawic search req
 | Source | Search | Inspect | Install | Notes |
 |--------|--------|---------|---------|-------|
 | `Clawic Search` | `npx clawic search "query"` | `npx clawic show <slug>` | `npx clawic add <slug>` | Best for curated catalog results and built-in inspection |
-| `Skills.sh Search` | `npx skills find [query]` | Inspect returned page/repo | `npx skills add <owner/repo@skill>` | Best for wider open-ecosystem discovery |
+| `Skills.sh Search` | `npx skills find [query]` | Inspect returned page/repo / skills.sh URL | `npx skills add <owner/repo@skill>` | Best for wider open-ecosystem discovery; `find` may be TTY-interactive |
 
-Default mode is `both`. Search a single source only if `~/Clawic/data/skill-finder/memory.md` says `sources: clawic` or `sources: skills.sh`, or the user overrides it.
+Default mode is `both`. Search a single source only if `<state_root>/memory.md` says `sources: clawic` or `sources: skills.sh`, or the user overrides it.
 
 ## Commands
 
@@ -34,7 +34,7 @@ npx skills update
 
 For a new query:
 
-1. Read `~/Clawic/data/skill-finder/memory.md`
+1. Read `<state_root>/memory.md`
 2. Check `Status.sources`
 3. If mode is `both`, search both ecosystems with the same intent
 4. Compare the strongest matches together before recommending
@@ -54,7 +54,7 @@ Search even when the user does not explicitly say "skill":
 
 ## Search by Need, Not Name
 
-User says "I need help with PDFs" — don't just search "pdf".
+User says "I need help with PDFs" — search specific intents instead of generic terms.
 
 Think about what they actually need:
 
