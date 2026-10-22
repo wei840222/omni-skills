@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "How can I prevent reentrancy attacks when calling external contracts?",
+    "expected": "Teaches Checks-Effects-Interactions (update state before external call), mentions that any external call/Ether transfer hands over control, and may cite ReentrancyGuard as defense\u2014not transfer/send gas stipend as security.",
+    "actual": "Use Checks-Effects-Interactions: validate, then zero/update the balance, then perform msg.sender.call{value: share}(\"\") (or other external call) and require success. Ether transfer and any external call hand control to the callee, so updating state afterward enables double-withdraw. OpenZeppelin ReentrancyGuard/nonReentrant is an additional guard; do not rely on transfer/send 2300-gas behavior as the security boundary.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the common gas gotchas when working with large unbounded arrays in a loop?",
+    "expected": "Warns that storage-grown/unbounded loops can exceed the block gas limit and stall the contract; suggests pagination/caps; notes view helpers may still be called on-chain.",
+    "actual": "Loops whose iteration count grows with storage can eventually exceed the block gas limit, so state-changing functions may become permanently unusable. Cap or paginate work, avoid unbounded storage writes inside the loop, and document that even view enumeration can be invoked by other contracts on-chain. Cache storage reads into memory when repeatedly needed.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Why shouldn't I use selfdestruct in an upgradeable contract implementation?",
+    "expected": "Explains proxies delegatecall into the implementation; destroying or removing implementation code breaks proxies that still point at it; constructors do not run on proxies\u2014use initialize; keep storage append-only/EIP-1967-aware.",
+    "actual": "Upgradeable proxies execute implementation logic via delegatecall against proxy storage. If the implementation is destroyed or replaced unsafely, proxies that still reference it stop working. Prefer initializer-based setup (constructors do not run through the proxy), keep implementation storage layout append-only and EIP-1967-aware for proxy metadata, and avoid relying on selfdestruct of an implementation as an upgrade step.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "How do I safely handle large integer multiplications and avoid division truncations in Solidity?",
+    "expected": "Notes 0.8+ checked arithmetic reverts on overflow unless unchecked; division truncates toward zero; multiply before divide or use a reviewed fixed-point/math library; bound inputs.",
+    "actual": "On Solidity 0.8+ arithmetic is checked by default and overflows revert; wrap only inside unchecked when the invariant is proven. Division truncates toward zero (5/2=2), so for scaled math multiply before divide or use a reviewed fixed-point library. Prefer type(uint256).max over huge literals and require() untrusted inputs into a safe range.",
+    "pass": true
+  }
+]
