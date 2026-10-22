@@ -1,0 +1,41 @@
+[
+  {
+    "id": "rag-retrieval-vs-generation",
+    "scenario": "happy-path diagnosis split",
+    "prompt": "Our RAG bot cites confidently but the cited paragraph is not in the retrieved context. Is this a chunk-size problem?",
+    "expected": [
+      "Splits retrieval vs generation before changing chunk size",
+      "Requires retrieved chunks printed beside the question",
+      "Treats a cited id absent from the retrieved set as a generation/hallucination bug with programmatic verification"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-23: Applied Core Rule 1 + references/generation.md. Printed that cited chunk ids must exist in the retrieved set; missing id => generation bug, not chunk-size tuning. Deferred chunk changes until recall@retrieve_k is measured.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "rag-filter-inside-search",
+    "scenario": "permission post-filter failure",
+    "prompt": "We retrieve 50 chunks then drop the ones the user cannot see. Users with tight ACLs often get empty answers even though matching docs exist. Fix?",
+    "expected": [
+      "Rejects post-filter-after-ANN as the control",
+      "Requires server-side permission filters during search derived from the session",
+      "Mentions over-fetch only as a degraded store-specific workaround with selectivity cost"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-23: Applied Core Rule 6 + references/security.md + references/indexing.md. Filter during search from session context; fail closed; do not post-filter 50 hits. If store only post-filters, over-fetch by k/selectivity and treat as cost.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "rag-fingerprint-mismatch",
+    "scenario": "model-swap score collapse",
+    "prompt": "We switched embedding models yesterday. Same corpus, same prompts, scores all look weird and ranking is garbage. What broke?",
+    "expected": [
+      "Names the six-field index fingerprint mismatch",
+      "Requires full reindex/blue-green rather than mixed vector spaces",
+      "Checks asymmetric prefixes (E5/BGE) and dimension/metric agreement"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-23: Applied Core Rule 2 + references/embeddings.md + references/sources.md. Compared model id/version/dim/normalization/prefix/metric against Index Registry; ordered a blue-green reindex; verified E5/BGE prefix rules.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  }
+]
