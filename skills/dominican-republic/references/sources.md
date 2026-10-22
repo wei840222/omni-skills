@@ -1,14 +1,16 @@
 # Sources - Dominican Republic Skill
 
-Last checked: 2026-10-09
+Last checked: 2026-10-23
 
-Reachability was re-checked during the 2026-10-09 refactor review. Prefer live official pages over package summaries for money, visa, and entry claims.
+Reachability was re-checked on 2026-10-23. Prefer live official pages over package summaries for money, visa, and entry claims.
 
 ## Entry and Stay
 
-- Dominican Republic official travel FAQ (reachable 200; mentions e-ticket/entry/visa language): https://www.godominicanrepublic.com/travel/faqs/
-- Dominican Republic official e-ticket portal (listed official path; automated fetch returned 403 from this runner — open in a browser before travel-day claims): https://eticket.migracion.gob.do/
-- Dominican Ministry of Foreign Affairs home (reachable 200; use live site search for nationality-specific visa paths — older `/visas/` deep link 404'd): https://mirex.gob.do/
+- Dominican Republic official travel FAQ (HTTP 200 on 2026-10-23; e-ticket, round-trip ticket, departure tax, stays past 30 days): https://www.godominicanrepublic.com/travel/faqs/
+- Official entry requirements (HTTP 200 on 2026-10-23; six-month passport rule and the tourist exception through 31 December 2026): https://www.godominicanrepublic.com/travel/entry-requirements/
+- Dominican Republic official e-ticket portal (HTTP 200 on 2026-10-23; free commercial-flight form, QR, family form up to seven): https://eticket.migracion.gob.do/
+- Dominican Ministry of Foreign Affairs home (HTTP 200 on 2026-10-23). The older visa deep link `https://mirex.gob.do/condiciones-para-extranjeros-ingresar/` returned 404 on 2026-10-23; use the live site, not that path: https://mirex.gob.do/
+- Migration stay-extension index (HTTP 200 on 2026-10-23; fee schedule lives on the linked stay-fee service, do not quote a stale amount): https://migracion.gob.do/en/servicio/stay-extension/
 
 ## Tourism and Destination Planning
 
@@ -38,5 +40,6 @@ Reachability was re-checked during the 2026-10-09 refactor review. Prefer live o
 
 ## Verification notes
 
-- Destination pages under `godominicanrepublic.com/destinations/*` returned HTTP 200 on 2026-10-09.
+- Destination pages under `godominicanrepublic.com/destinations/*` (Punta Cana, Santo Domingo, Samana, Puerto Plata, Las Terrenas, Jarabacoa) and `travel/getting-around` returned HTTP 200 on 2026-10-23.
+- `911.gob.do` returned HTTP 470 and the U.S. State Department Dominican Republic page returned HTTP 403 from this runner on 2026-10-23. Keep both as labels to open live; do not treat the fetch failure as a content change.
 - Package guidance remains routing knowledge. Re-open the live official URL before stating current visa duration, fees, e-ticket process changes, or advisory levels as fact.

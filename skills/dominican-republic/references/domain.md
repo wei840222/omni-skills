@@ -64,7 +64,7 @@ Use this map to load only the decision module that changes the plan in front of 
 
 1. Choose the coast before packing stops. East-coast resort ease, north-coast wind, Samana nature, and Santo Domingo city logic are different products.
 2. Prefer fewer transfers and clearer water-fit over ambitious multi-base routes for first-time or low-tolerance travelers.
-3. Treat commercial-flight e-ticket completion as a travel-day task; verify nationality-specific visa rules before non-refundable purchases.
+3. Treat commercial-flight e-ticket completion as a travel-day task. Check the nationality-specific passport rule (six months, or the tourist exception through 31 December 2026), require a round-trip ticket for foreign air passengers, and flag a stay past 30 days for the extra departure fee before non-refundable purchases.
 4. Default against night self-driving after long flights; prefer professional transfers or an initial hotel night.
 5. Load only the reference files needed for the current decision; keep answers execution-oriented and source-checkable.
 

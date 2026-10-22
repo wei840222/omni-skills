@@ -12,5 +12,12 @@
     "expected": "The agent should load `references/road-trips-and-driving.md` and `references/safety-and-emergencies.md`. It should strongly advise against driving at night due to poor lighting, animals on the road, and unpredictable local driving habits. It should mention toll roads and traffic realities in Santo Domingo.",
     "actual": "references/road-trips-and-driving.md and references/safety-and-emergencies.md encode night-driving risk, toll-road reality, and Santo Domingo traffic caution. Reviewer dry-run: warn against night self-drive after long flights, note Punta Cana\u2013Santo Domingo toll corridor, and prefer daylight or professional transfer.",
     "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We are two U.S. passport holders flying to Punta Cana for 10 days in November 2026. Our passports expire in March 2027, so they will not have six months left on arrival. Do we still need a visa, a tourist card, and the e-ticket? What if we extend the trip to 40 days?",
+    "expected": "Load references/entry-and-documents.md and references/sources.md. Say U.S. tourist passports may use the exception through 31 December 2026 if the passport stays valid through the stay and departure, so the six-month rule does not block this November 2026 trip. No separate Dominican tourist visa for this ordinary U.S. tourist path. Commercial-flight e-ticket is still required and free; the old 72-hour lead time is gone. A round-trip ticket is required. Ten days stays inside the 30-day window; 40 days can add a sliding stay fee, so open the live migration fee page before quoting an amount. Do not invent a tourist-card cash fee or revive COVID tests.",
+    "actual": "Dry-run against references/entry-and-documents.md and references/sources.md on 2026-10-23: U.S. nationals are inside the tourist passport exception through 31 December 2026, so a passport valid through departure in March 2027 is enough for a November 2026 tourist stay; the six-month rule is the baseline for nationalities outside that list. No separate Dominican tourist visa on this ordinary U.S. path. Complete the free e-ticket before the airline counter; the 72-hour rule is withdrawn. Foreign air passengers need a round-trip ticket. Ten days needs no extra stay fee; 40 days crosses the 30-day boundary and needs the live migration stay-fee page before any dollar amount. COVID vaccination cards and PCR tests are not routine entry requirements.",
+    "pass": true
   }
 ]
