@@ -56,27 +56,33 @@
 
 ## Metro (Public Transit)
 
-### Current Lines (2025)
+### Current Lines
 
-| Line | Route | Useful For |
+Treat line names and termini as planning context. Confirm live routes, alerts, and maps on [LA Metro maps](https://www.metro.net/riding/maps/) before locking a transfer.
+
+| Line | Route (planning context) | Useful For |
 |------|-------|------------|
-| **A Line (Blue)** | DTLA → Long Beach | Long Beach, South LA |
-| **B/D Line (Red/Purple)** | DTLA → Hollywood → North Hollywood/Koreatown | Hollywood, K-Town, Universal |
-| **C Line (Green)** | Norwalk → Redondo Beach | LAX connection, South Bay |
-| **E Line (Expo)** | DTLA → Santa Monica | Beach from downtown |
-| **K Line** | Expo/Crenshaw corridor | Inglewood, SoFi Stadium |
-| **G Line (Orange)** | North Hollywood → Chatsworth | Valley connector (bus rapid) |
+| **A Line** | DTLA ↔ Long Beach corridor | Long Beach, South LA |
+| **B / D Lines** | DTLA ↔ Hollywood / North Hollywood / Koreatown | Hollywood, K-Town, Universal area |
+| **C Line** | Norwalk ↔ Redondo Beach corridor | South Bay, airport-adjacent transfers |
+| **E Line** | DTLA ↔ Santa Monica | Beach from downtown |
+| **K Line** | Crenshaw / Expo corridor | Inglewood, SoFi Stadium area |
+| **G Line** | North Hollywood ↔ Chatsworth | Valley connector (bus rapid) |
 
-### Metro Fares
+### Metro Fares (verify before quoting)
 
-| Type | Cost |
-|------|------|
-| **Single ride** | $1.75 |
-| **Day pass** | $5.00 |
-| **Weekly** | $18.00 |
-| **Monthly** | $50.00 |
+Checked against [LA Metro Fares](https://www.metro.net/fares/) on 2026-10-23. Prefer fare caps over legacy “pass product” wording when giving current advice:
 
-**Get a TAP card** at any station ($2 card fee, reloadable).
+| Type | Amount |
+|------|--------|
+| **Regular one-way** | $1.75 |
+| **Daily cap** | Never more than $5 after three paid rides the same day |
+| **7-day cap** | Never more than $18 in seven days |
+| **Transfers** | Free within 2 hours when tapping to ride (round-trips not included) |
+
+Payment options on the same page include TAP card / TAP app stored value, contactless credit or debit (including digital wallets), Apple Wallet TAP, and bus cash (exact fare; fare caps do not apply to cash). Children under 6 may ride free with a fare-paying adult. Discount and free programs for students, seniors (62+), riders with disabilities, and low-income LIFE participants change by eligibility — verify on the fares page before promising a rate.
+
+Do not present a flat monthly Metro pass price as current unless the official fares page still lists that product for the rider’s payment method.
 
 ### Metro Reality Check
 
@@ -123,7 +129,7 @@
 |--------|------|------|-------|
 | **Uber/Lyft** | Varies | $25-50+ | Drop-off at terminal |
 | **FlyAway Bus** | 30-60 min | $8-10 | From Union Station, Van Nuys, others |
-| **Metro K Line** | Opening soon | ~$2 | To Inglewood, then shuttle |
+| **Metro K Line + transfer** | Varies | ~$1.75+ | Confirm current airport connection path on Metro / LAX pages |
 | **Driving** | Varies | Parking $15-40/day | Central lots or economy |
 
 ### LAX Tips

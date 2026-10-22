@@ -96,7 +96,7 @@ CA insurance rates are among highest in US.
 
 | Item | Monthly |
 |------|---------|
-| **Metro pass** | $50-100 |
+| **Metro transit (fare caps / stored value)** | Budget from official caps; verify https://www.metro.net/fares/ |
 | **Uber/Lyft budget** | $200-400 |
 | **TOTAL** | $250-500 |
 

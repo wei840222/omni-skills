@@ -6,7 +6,9 @@ Los Angeles travel, housing, transit, weather, event, and local-service informat
 
 | Decision | Verify with | Source |
 | --- | --- | --- |
-| Metro routes, service alerts, fares, and TAP payment | LA Metro | https://www.metro.net/riding/ |
+| Metro routes, service alerts, and trip planning | LA Metro Ride | https://www.metro.net/riding/ |
+| Metro fares, fare caps, transfers, and payment methods | LA Metro Fares | https://www.metro.net/fares/ |
+| Metro system maps and line schedules | LA Metro Maps | https://www.metro.net/riding/maps/ |
 | DMV deadlines, licenses, vehicle registration, and fees | California DMV | https://www.dmv.ca.gov/portal/ |
 | City services, permits, and local government contacts | City of Los Angeles | https://lacity.gov/ |
 | County services and public-health information | Los Angeles County | https://lacounty.gov/ |
