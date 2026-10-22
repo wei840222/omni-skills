@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new Next.js App Router route handler at /api/health that returns JSON {\"status\":\"healthy\"} with HTTP 200. Do not use the Pages router.",
+    "expected": "Creates app/api/health/route.ts exporting GET (or equivalent App Router handler) returning Response.json with status healthy; refuses Pages API routes.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: Applied Core Rules + references/routing.md special-file table. Chose app/api/health/route.ts with export async function GET() { return Response.json({ status: 'healthy' }, { status: 200 }) }. Rejected pages/api/health.ts as Pages-router scope.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My /dashboard Server Component fetch keeps showing stale data. How do I force fresh data on every request in Next.js 14 vs 15?",
+    "expected": "Explains Next 14 default fetch cache vs Next 15 uncached default; recommends cache:'no-store' and/or dynamic='force-dynamic'; warns that next dev lies about caching and to verify with next build && next start.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: Used Core Rule 4 + references/caching.md. For next 14 recommended fetch(url, { cache: 'no-store' }) or export const dynamic = 'force-dynamic'. Noted next >=15 already defaults fetch/GET handlers uncached. Required verification via next build && next start because next dev renders dynamically.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We only check the session cookie in middleware before /admin. Is that enough after CVE-2025-29927?",
+    "expected": "Rejects middleware-only enforcement; cites CVE-2025-29927 / GHSA-f82v-jwr5-mffw and patched versions; requires data-access-layer re-verification in Server Actions/queries plus optimistic middleware redirects only.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: Applied Core Rule 5 + references/auth.md + references/sources.md. Stated middleware is UX-only; CVE-2025-29927 (GHSA-f82v-jwr5-mffw) bypassed auth via x-middleware-subrequest. Required patch to 12.3.5 / 13.5.9 / 14.2.25 / 15.2.3 (or block the header) and requireUser()/DAL checks in every Server Action and query.",
+    "pass": true
+  }
+]

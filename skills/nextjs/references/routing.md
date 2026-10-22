@@ -7,7 +7,7 @@
 | `page.tsx` | Route UI; makes the route public | A folder without one is just a path segment |
 | `layout.tsx` | Shared UI, preserves state across navigation | Does NOT re-render on navigation within it — never put auth or per-page data here |
 | `template.tsx` | Like layout but remounts per navigation | Use for enter animations or state that must reset per page |
-| `loading.tsx` | Suspense fallback for the whole segment | Coarse — prefer explicit `<Suspense>` around slow parts (`data-fetching.md`) |
+| `loading.tsx` | Suspense fallback for the whole segment | Coarse — prefer explicit `<Suspense>` around slow parts (`references/data-fetching.md`) |
 | `error.tsx` | Error boundary (must be `'use client'`) | Doesn't catch errors in the layout of the SAME segment — that needs the parent's boundary |
 | `not-found.tsx` | 404 UI; triggered by `notFound()` | `notFound()` throws, like `redirect()` — don't catch it |
 | `default.tsx` | Parallel-route fallback | Missing one → hard navigation 404s the whole page |
@@ -117,7 +117,7 @@ Prefetch behavior in production: static routes prefetch fully on viewport entry;
 
 ## Route Segment Config
 
-Common per-route exports (cache-related ones are canonical in `caching.md`):
+Common per-route exports (cache-related ones are canonical in `references/caching.md`):
 
 ```typescript
 export const runtime = 'nodejs'        // or 'edge' — see SKILL.md, Where Experts Disagree

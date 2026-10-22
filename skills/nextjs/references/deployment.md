@@ -140,7 +140,7 @@ Cluster mode multiplies the ISR cache-divergence problem above — same fix (sha
 ## Pre-Deploy Checklist
 
 - [ ] `next build` clean locally — build errors never get better in CI
-- [ ] Build output symbols match intent: `○`/`●` for content pages, `ƒ` only where expected (`caching.md`, Debugging)
+- [ ] Build output symbols match intent: `○`/`●` for content pages, `ƒ` only where expected (`references/caching.md`, Debugging)
 - [ ] Cache behavior verified with `next build && next start`, not dev
 - [ ] Secrets have no `NEXT_PUBLIC_` prefix; grep the client bundle if unsure
 - [ ] Standalone: static + public copied; container sets `HOSTNAME=0.0.0.0`

@@ -93,7 +93,7 @@ import { cache } from 'react'
 export const getUser = cache(async (id: string) => db.user.findUnique({ where: { id } }))
 ```
 
-Dedup lasts one render pass only. Persistent caching is the Data Cache's job — `caching.md`.
+Dedup lasts one render pass only. Persistent caching is the Data Cache's job — `references/caching.md`.
 
 ## Server Actions for Mutations
 
