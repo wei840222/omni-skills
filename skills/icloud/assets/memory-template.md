@@ -1,13 +1,14 @@
-# Memory Template - iCloud
+# Memory Template — iCloud
 
-Create `~/Clawic/data/icloud/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure (replace the placeholder
+path with the resolved absolute directory first):
 
 ```markdown
 # iCloud Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | complete | paused | never_ask
 
@@ -31,7 +32,7 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
@@ -40,8 +41,8 @@ integration: pending | complete | paused | never_ask
 | `paused` | User paused memory updates | Read-only memory usage |
 | `never_ask` | User does not want setup prompts | Never ask for persistence again |
 
-## Key Principles
+## Key principles
 
-- Never store passwords, 2FA codes, tokens, or recovery keys.
-- Keep only operational context needed for reliable execution.
+- Keep passwords, 2FA codes, tokens, and recovery keys out of this file.
+- Store only operational context needed for reliable execution.
 - Update `last` on each confirmed memory write.

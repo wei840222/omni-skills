@@ -1,146 +1,134 @@
 ---
 name: icloud
-slug: icloud
-version: 1.0.0
-description: Let agents operate your iCloud Drive, Photos, and Find My safely with local 2FA authentication and explicit confirmation gates.
-homepage: https://clawic.com/skills/icloud
-changelog: Initial release with secure iCloud account integration, read-first workflows, and confirmation gates for risky actions.
+description: >
+  Operate a personal iCloud account for Find My device discovery, iCloud Drive
+  listing/transfer, and Photos album inspection through local pyicloud auth with
+  interactive 2FA. Use when listing devices by stable ID, playing a sound or
+  enabling Lost Mode after confirmation, downloading or uploading a single Drive
+  path, or sampling Photos albums — never for chat-pasted Apple passwords or
+  bypassing Apple security. Prefer `photos` for local library indexing,
+  `cloud-storage` for cross-provider transfers, and `ios`/`macos` for device
+  settings outside the iCloud web session.
 metadata:
-  clawdbot:
-    emoji: ☁️
-    requires:
-      bins:
-      - python3
-    install:
-    - id: pyicloud
-      kind: pip
-      package: pyicloud==2.4.1
-      label: Install pyicloud 2.4.1 (pip)
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: iCloud
+  version: "1.1.0"
+  openclaw: '{"emoji":"☁️","requires":{"bins":["python3"]},"install":[{"id":"pyicloud","kind":"pip","package":"pyicloud==2026.10.1","label":"Install pyicloud 2026.10.1 (pip)"}]}'
+  related-skills: '{"cloud-storage":"Cross-provider storage workflows and transfer safety when the work spans Drive plus another provider.","ios":"Apple device settings, permissions, and account behavior outside the iCloud web session.","macos":"macOS keychain, SIP, and local runtime diagnostics for Apple tooling.","photos":"Local photo-library indexing and EXIF-safe organization when the workload is not iCloud Photos API access."}'
 ---
 
-## Setup
+# iCloud
 
-On first use, read `setup.md` for secure integration guidelines.
+Operate **your own** iCloud account through `pyicloud`: Find My device IDs,
+Drive path listing/transfer, and Photos album inspection. Auth stays on the
+local terminal; risky writes need an explicit confirmation gate and a second
+read-back.
 
-## When to Use
+## State location
 
-Use this skill when the user wants agents to interact with their own iCloud account: list devices, retrieve Find My status, inspect iCloud Drive, or pull photo metadata/files.
-Use it for operational automation with strict safety gates, not for bypassing Apple account security.
+Optional operational notes are persistent user state. Resolve `<state_root>`
+once per invocation before any read or write:
 
-## Architecture
-
-Memory lives in `~/Clawic/data/icloud/`. See `memory-template.md` for structure and status fields.
+1. Use a user- or host-configured state root when one is explicitly provided.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/icloud/`, `<workspace>/memory/icloud/`, then `~/icloud/`.
+3. If more than one candidate exists, use only the highest-precedence directory
+   and report the duplicates; do not merge them.
+4. If none exists and the user confirms saving operational notes, create
+   `<workspace>/icloud/`. If `<workspace>` is unavailable, ask for a state root
+   instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation. Never write the literal string
+   `<state_root>` to disk.
 
 ```text
-~/Clawic/data/icloud/
-|-- memory.md               # Status, integration mode, and current account scope
-|-- operations-log.md       # Executed commands, result checks, and rollback notes
-|-- device-map.md           # Known device aliases and stable IDs
-|-- drive-map.md            # iCloud Drive folder map and verified paths
-`-- safety-events.md        # Confirmed risky actions and explicit approvals
+<state_root>/
+|-- memory.md           # Status, integration mode, account scope (no secrets)
+|-- operations-log.md   # Executed commands, result checks, rollback notes
+|-- device-map.md       # Known device aliases and stable IDs
+|-- drive-map.md        # Verified iCloud Drive roots and paths
+`-- safety-events.md    # Confirmed risky actions and explicit approvals
 ```
 
-## Quick Reference
+If older notes exist under a legacy Clawic iCloud data directory, migrate them
+into the resolved `<state_root>/` on first write and say in one line that you
+moved them and from where. Seed new memory from `assets/memory-template.md`.
 
-Load only the file needed for the current task.
+## When to use
 
-| Topic | File |
-|-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Authentication and session handling | `auth-session.md` |
-| Find My operations | `findmy-ops.md` |
-| iCloud Drive operations | `drive-ops.md` |
-| Photos operations | `photos-ops.md` |
-| Safety boundaries and confirmations | `safety-boundaries.md` |
+- List Find My devices and map display names to stable device IDs
+- Play a sound, display a message, or enable Lost Mode after confirmation
+- Inspect iCloud Drive folders; download or upload one verified path
+- List Photos albums / sample one asset before any bulk download
+- Recover from expired sessions or 2FA challenges with local prompts only
 
-## Core Rules
+Prefer other skills when the ask is mainly:
 
-### 1. Authenticate Locally, Never Through Chat
-- Never ask the user to paste Apple password, 2FA code, session token, or app password in conversation.
-- Use interactive local auth with terminal prompts or secure local input prompts only.
+- local photo library indexing / EXIF / duplicates → `photos`
+- cross-provider copy or transfer policy → `cloud-storage`
+- device settings, permissions, or App Review → `ios`
+- keychain / SIP / launchd diagnostics → `macos`
 
-### 2. Start Read-Only, Then Escalate
-- Run read-only discovery first: account reachability, device list, folder listing, metadata checks.
-- Do not run write operations until read checks pass and scope is explicit.
+## Progressive disclosure
 
-### 3. Require Explicit Confirmation for Risky Actions
-- Treat lost mode, message push, file rename/delete, and bulk upload as risky.
-- Before running risky actions, summarize target, effect, and rollback option, then request explicit confirmation.
+| Topic | File | Load when |
+|-------|------|-----------|
+| First activation / install | `references/setup.md` | No `<state_root>/memory.md`, missing `pyicloud`, or first session |
+| Memory template | `assets/memory-template.md` | Creating or reshaping `<state_root>/memory.md` |
+| Auth / 2FA / session | `references/auth-session.md` | Login, 2FA, China mainland accounts, session expiry |
+| Find My actions | `references/findmy-ops.md` | Device list, locate, play sound, Lost Mode |
+| Drive operations | `references/drive-ops.md` | Drive listing, download, upload, rename/delete gates |
+| Photos operations | `references/photos-ops.md` | Album list, sample download, bulk-download gates |
+| Confirmation gates | `references/safety-boundaries.md` | Any risky write or bulk action |
+| Verified sources | `references/sources.md` | Re-checking versions, Apple docs, or API claims |
 
-### 4. Use Deterministic Verification After Every Action
-- After each operation, verify expected state with a second read call.
-- Never report success from command exit code alone.
+## Core rules
 
-### 5. Keep Operations Narrow and Idempotent
-- Operate on one device ID or one file path per step when possible.
-- Prefer repeat-safe commands and avoid broad wildcard operations.
+1. **Local auth only** — Collect Apple ID, password, and 2FA codes through
+   interactive local prompts (`input` / `getpass` / host-secure prompt). Keep
+   credentials out of chat logs and out of `<state_root>/`.
+2. **Read first** — Discover account reachability, device list, folder listing,
+   or album metadata before any write.
+3. **Confirm risky writes** — Lost Mode, display message, play sound, erase,
+   Drive rename/delete, and bulk Photos download need an explicit confirmation
+   that names the target ID/path, effect, and rollback note.
+4. **Verify by re-read** — After every mutation, run a second read and report
+   from that evidence. Exit codes alone are not success.
+5. **Narrow scope** — Prefer one device ID or one Drive path per step. Avoid
+   wildcard bulk mutations.
+6. **Treat auth expiry as normal** — On session failure, pause writes, re-auth
+   locally, then resume only after a successful read check.
+7. **Minimal persistence** — Store only stable IDs, verified paths, and last-good
+   patterns under `<state_root>/`. Never store passwords, tokens, or 2FA codes.
 
-### 6. Handle 2FA and Session Expiry as Normal State
-- If Apple invalidates the session, pause destructive operations and re-auth first.
-- Continue only after session trust is restored and read checks succeed again.
+## Common traps
 
-### 7. Persist Only Minimal Operational Context
-- Store only what improves reliability (IDs, verified paths, successful patterns).
-- Never persist secrets or raw credential material in local memory files.
+- Pasting an Apple password or 2FA code into chat
+- Targeting a device by display name when two devices share a similar name
+- Calling legacy `api.files` after Apple migrated the account to iCloud Drive
+  (`Account migrated` → use `api.drive`)
+- Pinning an obsolete `pyicloud` wheel while the maintained package has moved on
+- Claiming success from a command exit code without a post-action listing
+- Bulk Drive/Photos changes without a pre-action snapshot
 
-## Common Traps
+## External endpoints
 
-- Asking for Apple credentials in chat -> immediate privacy and trust failure.
-- Running write operations before discovery -> wrong device/path targeted.
-- Using device names without IDs -> ambiguous actions on similarly named devices.
-- Assuming session validity across days -> sudden auth failures mid-workflow.
-- Executing bulk file changes without snapshot -> difficult rollback after mistakes.
-- Claiming action success without re-read verification -> silent failures reach users.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
+| Endpoint | Data sent | Purpose |
 |----------|-----------|---------|
-| https://idmsa.apple.com | Apple account auth payload during login | Apple ID authentication |
-| https://setup.icloud.com | Session and webservice negotiation | iCloud service bootstrap |
-| https://www.icloud.com | Service API requests (Drive/Photos/Find My) | iCloud operations |
-| https://idmsa.apple.com.cn | Apple account auth payload (China mainland accounts) | Regional Apple ID authentication |
-| https://setup.icloud.com.cn | Session and webservice negotiation (China mainland accounts) | Regional iCloud bootstrap |
-| https://pypi.org | Package metadata (install time only) | Install `pyicloud` |
-| https://files.pythonhosted.org | Package download (install time only) | Install `pyicloud` |
+| `https://idmsa.apple.com` | Apple account auth during login | Apple ID authentication |
+| `https://setup.icloud.com` | Session / webservice negotiation | iCloud bootstrap |
+| `https://www.icloud.com` | Service API requests | Drive / Photos / Find My |
+| `https://idmsa.apple.com.cn` | Auth payload (China mainland) | Regional Apple ID auth |
+| `https://setup.icloud.com.cn` | Session negotiation (China mainland) | Regional bootstrap |
+| `https://pypi.org` / `https://files.pythonhosted.org` | Package metadata/download | Install `pyicloud` only |
 
-No other data is sent externally by this skill's documented workflow.
+No other external destinations are part of this skill's documented workflow.
 
-## Security & Privacy
+## Security & trust
 
-Data that leaves your machine:
-- Apple account authentication and iCloud API requests needed for requested operations.
-- Package install traffic only when installing dependencies.
+Data that leaves the machine: Apple authentication and the iCloud API calls
+needed for the requested operation, plus optional package install traffic.
 
-Data that stays local:
-- Optional operational notes under `~/Clawic/data/icloud/`.
-- Local keyring entries managed by the `pyicloud` tool if the user chooses to store password.
+Data that stays local: optional notes under `<state_root>/`, and keyring entries
+if the user opts into password storage via `pyicloud` / the `icloud` CLI.
 
-This skill does NOT:
-- Bypass Apple security flows or 2FA requirements.
-- Request undeclared credentials in chat.
-- Execute undeclared network endpoints.
-- Modify its own SKILL file.
-
-## Trust
-
-By using this skill, you trust Apple iCloud endpoints and the `pyicloud` package.
-Only install and run this workflow if you trust these services with your account operations.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `cloud-storage` - Cross-provider storage workflows and transfer safety checks
-- `ios` - Apple device settings, permissions, and account behavior troubleshooting
-- `macos` - macOS security, keychain, and runtime diagnostics for Apple tooling
-- `photos` - Media management strategies when iCloud Photos is the main workload
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/icloud
-- Latest version: https://clawic.com/skills/icloud
+This skill does not bypass Apple 2FA, request undeclared credentials in chat, or
+modify its own package files at runtime. Using it means trusting Apple iCloud
+endpoints and the `pyicloud` package for the requested personal-account work.
