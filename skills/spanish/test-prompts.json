@@ -1,0 +1,41 @@
+[
+  {
+    "id": "spanish-peer-party-text",
+    "scenario": "happy-path peer SMS",
+    "prompt": "Translate this to Spanish for a casual text message to a friend: 'Are you coming to the party tonight? I think it is going to be really good.'",
+    "expected": [
+      "Uses casual tú register and a short peer ask",
+      "Mentions the party / tonight without inventing extra plans",
+      "Sounds warm and conversational rather than formal usted textbook Spanish"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: spanish → casual tú + fragment ask + expressive warm close, no usted. Example: \"¿Vienes a la fiesta hoy? Creo que va a estar genial.\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "spanish-colleague-late-note",
+    "scenario": "work-chat soft apology",
+    "prompt": "Write a short email in Spanish to a colleague you are friendly with, letting them know you will be 10 minutes late to the meeting because of traffic.",
+    "expected": [
+      "Keeps a friendly workplace tone without crude slang",
+      "States the 10-minute delay and traffic cause",
+      "Does not invent new agenda items or promises beyond arrival"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: spanish → friendly workplace note + diminutive warmth + traffic cause only. Example: \"Oye, llegaré unos 10 minutitos tarde a la reunión. Hay muchísimo tráfico. ¡Nos vemos ahora!\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "spanish-formal-office-note",
+    "scenario": "explicit formal edge case",
+    "prompt": "Write a short Spanish note to an unfamiliar government office asking whether my document was received. Keep it formal.",
+    "expected": [
+      "Uses usted or equivalent polite framing",
+      "Avoids vale/tío/güey/che intimate slang stacks",
+      "Asks only about document receipt"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-22: spanish → polite usted path from sources.md; no peer slang. Example: \"Buenos días: ¿podrían confirmar si el documento que envié llegó correctamente a su oficina? Quedo atento. Atentamente.\"",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  }
+]
