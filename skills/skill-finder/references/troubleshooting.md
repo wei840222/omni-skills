@@ -50,7 +50,7 @@ Reference for handling edge cases and common problems.
    > "I can recommend similar skills that are not flagged, then we pick the best match."
 
 4. **Do not skip scanner warnings**
-   - Never use force-install options
+   - Use standard install options exclusively
    - Prefer normal installation only for non-flagged options with explicit user consent
 
 ## Skill Not Found (404)
@@ -95,7 +95,7 @@ Reference for handling edge cases and common problems.
 **After installation:**
 - Uninstall a Clawic skill: `npx clawic` has no uninstall command yet — delete the skill's folder from each installed agent directory (`.claude/skills/`, `.codex/skills/`, `.gemini/skills/`, etc., or the equivalent under `~/` if installed with `--global`)
 - Remove Skills.sh install: `npx skills remove <skill>`
-- Don't reinstall: Add to Passed in memory.md with reason
+- To prevent future suggestions: Add to Passed in memory.md with reason
 
 **During recommendation:**
 - Just move on, no need to store unless they explain why
@@ -124,7 +124,7 @@ Reference for handling edge cases and common problems.
 ## Memory Issues
 
 **Memory file corrupted or malformed:**
-1. Backup: `cp ~/Clawic/data/skill-finder/memory.md ~/Clawic/data/skill-finder/memory.md.bak`
+1. Backup: `cp <state_root>/memory.md <state_root>/memory.md.bak`
 2. Recreate from `memory-template.md`
 3. Ask user to re-state key preferences
 

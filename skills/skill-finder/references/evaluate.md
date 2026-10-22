@@ -28,7 +28,7 @@ After `npx clawic show`:
 - Clear sections (When to Use, Core Rules)
 - Progressive disclosure pattern
 
-❌ **Red flags:**
+⚠️ **Indicators of low quality:**
 - Wall of text in single file
 - No organization
 - Explains obvious concepts
@@ -42,7 +42,7 @@ After `npx clawic show`:
 - Clear triggers (when to activate)
 - Examples where helpful
 
-❌ **Red flags:**
+⚠️ **Indicators of low quality:**
 - Passive voice ("Users should consider...")
 - Theory without actionable guidance
 - Vague instructions ("be careful with...")
@@ -58,7 +58,7 @@ After `npx skills find` returns a candidate:
 - skills.sh page or repo makes the purpose obvious
 - The skill feels installable without extra guesswork
 
-❌ **Red flags:**
+⚠️ **Indicators of low quality:**
 - Unclear install target
 - Repo with weak description or no obvious maintenance
 - Name sounds relevant but source package is confusing

@@ -6,7 +6,7 @@ Read this guide when upgrading from older published versions.
 
 ### 1) Memory template now stores source-selection defaults
 
-**Before:** `~/Clawic/data/skill-finder/memory.md` tracked status, preferences, liked skills, passed skills, and domains.
+**Before:** `<state_root>/memory.md` tracked status, preferences, liked skills, passed skills, and domains.
 
 **Now:** the memory file also tracks:
 - `sources: both|clawic|skills.sh`
@@ -16,7 +16,7 @@ Read this guide when upgrading from older published versions.
 **Migration steps:**
 1. Back up the current memory file before editing:
    ```bash
-   cp ~/Clawic/data/skill-finder/memory.md ~/Clawic/data/skill-finder/memory.md.bak 2>/dev/null || true
+   cp <state_root>/memory.md <state_root>/memory.md.bak 2>/dev/null || true
    ```
 2. Preserve all existing sections and user notes.
 3. Add missing status keys if they do not exist:
@@ -38,16 +38,16 @@ Read this guide when upgrading from older published versions.
 **Now:** the skill can search both Clawic and Skills.sh, and setup should explain both ecosystems before first use.
 
 **Migration steps:**
-1. If `~/Clawic/data/skill-finder/` already exists, keep using the same folder.
+1. If `<state_root>/` already exists, keep using the same folder.
 2. Do not delete or rename existing files.
-3. Optionally create `~/Clawic/data/skill-finder/searches.md` if the user wants recent-query continuity.
+3. Optionally create `<state_root>/searches.md` if the user wants recent-query continuity.
 4. If the workspace or AGENTS routing references the old one-source behavior, update it so the agent loads:
    - the `skill-finder` skill
-   - `~/Clawic/data/skill-finder/memory.md`
+   - `<state_root>/memory.md`
 
 ## Post-Migration Verification
 
-- [ ] `~/Clawic/data/skill-finder/memory.md` still contains all prior preferences and history
+- [ ] `<state_root>/memory.md` still contains all prior preferences and history
 - [ ] `sources:` exists and matches the user's explicit choice
 - [ ] `integration:` exists
 - [ ] `## Source Policy` exists
@@ -55,6 +55,6 @@ Read this guide when upgrading from older published versions.
 
 ## Cleanup Policy
 
-- Never delete `memory.md.bak` without explicit user confirmation.
+- Preserve `memory.md.bak` until explicit user confirmation is received to remove it.
 - Do not remove legacy notes that still provide value.
 - Prefer additive migration over rewrite.
