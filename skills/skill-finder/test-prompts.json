@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find a skill to help me with docker deployment",
+    "expected": "Search both Clawic and Skills.sh for docker/deploy intent; keep source-specific install commands; recommend a ranked fit without installing.",
+    "actual": "Mode both. Clawic `npx clawic search \"docker\"` returned `docker`, `docker-compose`, `beszel`, `devops`, `home-server`, `k8s` (and related). Clawic `npx clawic search \"docker deploy\"` returned no skills. Skills.sh `npx skills find docker deploy` returned ranked matches including `manutej/luxor-claude-marketplace@docker-compose-orchestration` (skills.sh URL), `aws/agent-toolkit-for-aws@aws-deployment`, and `jeffallan/claude-skills@devops-engineer`. Recommended Clawic `docker` / `docker-compose` for container/Compose work and Skills.sh docker-compose-orchestration as an ecosystem alternative; did not install; kept `npx clawic add` vs `npx skills add` distinct.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need a skill for editing pdfs. Only check clawic.",
+    "expected": "Honor clawic-only source mode; search Clawic for pdf edit/generate intent; do not call skills find; recommend without installing.",
+    "actual": "Set sources to `clawic` in memory intent. Ran `npx clawic search \"pdf\"` only (no `npx skills find`). Top Clawic hits included `pdf-generator` (Markdown/HTML → PDF), `extract-pdf-text` (PyMuPDF extract/OCR), plus adjacent `anki`, `design`, `invoices`, `markdown`. Recommended `pdf-generator` when the need is creating/editing deliverable PDFs and `extract-pdf-text` when the need is parsing existing PDFs; noted true form-fill editors may be sparse in Clawic and should not invent Skills.sh results while mode is clawic-only. No install.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Search both catalogs for something that can extract text from PDFs, then tell me the exact install command for your top pick without installing it.",
+    "expected": "Dual-source search; attach exact install command to the winner; refuse to run install without consent.",
+    "actual": "Clawic search surfaced `extract-pdf-text` with clear extract/OCR positioning. Skills.sh `npx skills find pdf` / related queries returned ecosystem candidates with skills.sh URLs, but Clawic `extract-pdf-text` was the clearest extract-first fit. Stated winner install as `npx clawic add extract-pdf-text` and stopped for consent; did not pass `-y` or choose global scope.",
+    "pass": true
+  }
+]
