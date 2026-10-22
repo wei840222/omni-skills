@@ -4,7 +4,7 @@ Without a golden set, every change is an opinion and every improvement is a stor
 
 **Contents:** [Build the Set First](#build-the-set-first) · [Where Queries Come From](#where-queries-come-from) · [Retrieval Metrics](#retrieval-metrics) · [Generation Metrics](#generation-metrics) · [Calibrating a Score Floor](#calibrating-a-score-floor) · [Paired Comparison](#paired-comparison) · [Sample Size](#sample-size) · [LLM Judges](#llm-judges) · [Regression Gate in CI](#regression-gate-in-ci) · [Online Signals](#online-signals)
 
-**Before any comparison**, read `## Baseline` in `~/Clawic/data/rag/memory.md` and open the golden set its `## Boxes` line names. Comparing against a remembered number is how a regression ships.
+**Before any comparison**, read `## Baseline` in `<state_root>/memory.md` and open the golden set its `## Boxes` line names. Comparing against a remembered number is how a regression ships.
 
 ## Build the Set First
 
@@ -68,7 +68,7 @@ Never copy a similarity threshold. Derive it, once per index:
 1. Sample 200 random query-document pairs from this corpus — pairs known to be unrelated.
 2. Score them with the production embedding model and metric. That is the noise distribution.
 3. Take a high percentile of it (95th or 99th) as the floor: below that, a match is indistinguishable from a random pair.
-4. Validate against the golden set — the floor should reject the negatives and admit the answerable queries. Adjust, then record the floor and its calibration date in `## Index Registry` in `~/Clawic/data/rag/memory.md` (`memory-template.md`).
+4. Validate against the golden set — the floor should reject the negatives and admit the answerable queries. Adjust, then record the floor and its calibration date in `## Index Registry` in `<state_root>/memory.md` (`assets/memory-template.md`).
 
 Recalibrate whenever the model, the metric, or the corpus composition changes. A threshold with no calibration date is a number nobody dares touch and everybody works around.
 
@@ -122,4 +122,4 @@ Offline scores predict; production tells the truth.
 
 A/B testing a config change needs a metric that moves: task completion or reformulation rate, not a satisfaction survey, and enough traffic that the segment sizes support the claim.
 
-**After every eval run**, append a row to `~/Clawic/data/rag/evals/<year>.md` — date, set name and version, the one variable under test, each metric with its `@k`, p95 latency, cost per query, and the verdict — and when a run becomes the new reference, replace `## Baseline` in `memory.md` with its date. New queries go into a new golden-set version at `~/Clawic/data/rag/goldensets/<name>-v<n>.md`, never into a frozen file, with its `## Boxes` line added in the same turn (`memory-template.md`).
+**After every eval run**, append a row to `<state_root>/evals/<year>.md` — date, set name and version, the one variable under test, each metric with its `@k`, p95 latency, cost per query, and the verdict — and when a run becomes the new reference, replace `## Baseline` in `memory.md` with its date. New queries go into a new golden-set version at `<state_root>/goldensets/<name>-v<n>.md`, never into a frozen file, with its `## Boxes` line added in the same turn (`assets/memory-template.md`).

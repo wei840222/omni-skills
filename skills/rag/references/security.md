@@ -4,14 +4,14 @@ A RAG system is a machine for showing people documents. Every security question 
 
 **Contents:** [Access Control at Retrieval](#access-control-at-retrieval) · [Permission Sync](#permission-sync) · [Multi-Tenant Isolation](#multi-tenant-isolation) · [Prompt Injection From Indexed Documents](#prompt-injection-from-indexed-documents) · [PII](#pii) · [The Right to Erasure](#the-right-to-erasure) · [Data Residency and Third Parties](#data-residency-and-third-parties) · [Audit Trail](#audit-trail) · [Compliance Regimes](#compliance-regimes) · [Red Flags](#red-flags) · [Audit Checklist](#audit-checklist)
 
-**Before designing any permission model**, read `## Corpus` in `~/Clawic/data/rag/memory.md`: the `Access field` column names which metadata key carries permissions for each source, and a source with no access field in a permissioned system is a finding.
+**Before designing any permission model**, read `## Corpus` in `<state_root>/memory.md`: the `Access field` column names which metadata key carries permissions for each source, and a source with no access field in a permissioned system is a finding.
 
 ## Access Control at Retrieval
 
 Filter **during** the search, never after, and never in the prompt.
 
-- **Never post-filter for permissions.** Retrieving 30 chunks and dropping the ones the user cannot see means the user gets 4 results and the model was, for a moment, handed 30 (SKILL.md Rule 6). It also leaks through timing and result counts.
-- **Never delegate to the model.** "Only answer using documents the user is allowed to see" is a request, not a control.
+- **Apply permission filters during the search instead of after.** Retrieving 30 chunks and dropping the ones the user cannot see means the user gets 4 results and the model was, for a moment, handed 30 (SKILL.md Rule 6). It also leaks through timing and result counts.
+- **Enforce access controls system-side rather than delegating to the model.** "Only answer using documents the user is allowed to see" is a request, not a control.
 - **Derive the filter from the session**, server-side, on every query. Not from the conversation, not from the rewriter's output, not from anything the user can type (`conversation.md`).
 - **Fail closed.** A missing or unresolvable permission context returns nothing, never everything. The default value of an unset filter variable is the most dangerous line in a RAG codebase.
 - **Chunks inherit document permissions at ingestion**, and the field is mandatory. A chunk indexed before the field existed is invisible to the filter and therefore either always hidden or always visible — check which, because both are bugs (`indexing.md`).
@@ -54,11 +54,11 @@ Defenses, in order of effectiveness:
 
 What does not work: a blocklist of injection phrases. Paraphrase defeats it, and the false positives land on legitimate documents about prompt injection.
 
-**Exfiltration is the other half.** An injected instruction can try to make the model emit data from another retrieved chunk into a URL, an image reference, or a tool call. Never render model-supplied URLs or images without validating them against the indexed sources.
+**Exfiltration is the other half.** An injected instruction can try to make the model emit data from another retrieved chunk into a URL, an image reference, or a tool call. Validate model-supplied URLs or images against the indexed sources before rendering.
 
 ## PII
 
-Decide per corpus, at ingestion, and record the decision in `~/Clawic/data/rag/artifacts/decision-access-control.md`.
+Decide per corpus, at ingestion, and record the decision in `<state_root>/artifacts/decision-access-control.md`.
 
 | Option | Trade |
 |---|---|
@@ -67,7 +67,7 @@ Decide per corpus, at ingestion, and record the decision in `~/Clawic/data/rag/a
 | Separate index for sensitive content | Clean boundary, two pipelines to maintain |
 | Pseudonymize with a reversible map | Keeps searchability; the map is now the most sensitive asset in the system |
 
-Detection combines pattern matching for structured identifiers (card numbers, national ids, emails, phones) with an NER model for names and addresses. Neither is complete. Measure recall of the detector on a labeled sample before claiming the corpus is clean, and record the number rather than the claim in `~/Clawic/data/rag/artifacts/decision-access-control.md`.
+Detection combines pattern matching for structured identifiers (card numbers, national ids, emails, phones) with an NER model for names and addresses. Neither is complete. Measure recall of the detector on a labeled sample before claiming the corpus is clean, and record the number rather than the claim in `<state_root>/artifacts/decision-access-control.md`.
 
 Consequences that people miss: PII propagates into **logs, eval sets, caches and golden sets**. A golden set built from production queries is a personal-data store. Redact there too (`evaluation.md`).
 
@@ -128,7 +128,7 @@ Anything in this table suspends the design work and gets raised before anything 
 | A shared cache keyed without tenant or permission context | Cross-tenant leakage past a correct filter | Add the key components or disable the cache |
 | Indexed document containing role markers or invisible Unicode | Injection attempt | Quarantine the document, review the ingestion path |
 | No `doc_id`-based delete path | Erasure impossible | Blocks any personal-data corpus, regardless of regime |
-| Chunk text or credentials found under `~/Clawic/data/` | Confidential content written where it must never be | Remove it, replace with pointers, and check what else that session wrote |
+| Chunk text or credentials found under `<state_root>/` | Confidential content written where it must never be | Remove it, replace with pointers, and check what else that session wrote |
 
 ## Audit Checklist
 
@@ -143,6 +143,6 @@ Anything in this table suspends the design work and gets raised before anything 
 | Erasure path tested end to end | A dated run with the elapsed time recorded |
 | Provider inventory with region and retention terms | One row per processor, including the reranker |
 | Audit log with retrieved chunk ids | Immutable, retention set, its own access control |
-| Nothing secret or confidential written to local data files | Pointers only (`memory-template.md`) |
+| Nothing secret or confidential written to local data files | Pointers only (`assets/memory-template.md`) |
 
-**After a security decision or an audit pass**, record it in `~/Clawic/data/rag/artifacts/decision-access-control.md` — the permission model, the isolation approach, the PII handling option chosen per corpus with the measured detector recall, the erasure procedure with its tested elapsed time, and the provider inventory — with its `## Boxes` line in the same turn. Put the permission-resync cadence and the isolation-test cadence in `## Due`, and any gap found into `## Known Failures` with `Still open: yes` until it is closed (`memory-template.md`). Never write chunk text, personal data, or credentials into any of these files.
+**After a security decision or an audit pass**, record it in `<state_root>/artifacts/decision-access-control.md` — the permission model, the isolation approach, the PII handling option chosen per corpus with the measured detector recall, the erasure procedure with its tested elapsed time, and the provider inventory — with its `## Boxes` line in the same turn. Put the permission-resync cadence and the isolation-test cadence in `## Due`, and any gap found into `## Known Failures` with `Still open: yes` until it is closed (`assets/memory-template.md`). Never write chunk text, personal data, or credentials into any of these files.
