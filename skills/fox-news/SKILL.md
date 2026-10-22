@@ -55,7 +55,7 @@ Resolve `<state_root>` once per invocation:
 └── briefs/      # Saved briefings only when the user asks to archive them
 ```
 
-If older notes exist at `~/Clawic/data/fox-news/`, migrate them into the resolved `<state_root>/` on first write and say in one line that you moved them and from where. Seed new memory from `assets/memory-template.md`.
+If older notes exist at a legacy Clawic fox-news data directory, migrate them into the resolved `<state_root>/` on first write and say in one line that you moved them and from where. Seed new memory from `assets/memory-template.md`.
 
 ## Workflow
 
@@ -85,7 +85,7 @@ If older notes exist at `~/Clawic/data/fox-news/`, migrate them into the resolve
 3. **Timestamp freshness claims**; mark older items as recap/background instead of breaking.
 4. **Fox-owned sources first**; outside checks stay in a separate follow-up block.
 5. **Preview high-volume work** and require confirmation before opening multiple articles, clips, or rolling updates.
-6. **Stay on public surfaces** — if live TV / Fox Nation / provider login appears, state the boundary and fall back to public headlines, clips, or articles.
+6. **Stay on public surfaces** — when live TV / Fox Nation / provider login appears, state the boundary and continue with public headlines, clips, or articles.
 7. **Persist reusable preferences only** under the resolved `<state_root>/`.
 
 ## Security boundary
@@ -94,4 +94,4 @@ May leave the machine: HTTP requests to Fox News pages/RSS and optional on-site 
 
 Stays local: activation scope, preferred sections, briefing defaults, fetch history, and archived briefs under `<state_root>/`.
 
-Out of scope: collecting Fox/TV-provider/Fox Nation credentials, bypassing gates or paywalls, auto-posting to social platforms, and reading files outside `<state_root>/` (except host-owned paths the user explicitly names for migration).
+Stay on public Fox surfaces and the resolved `<state_root>/` (plus host-owned paths the user explicitly names for migration). Credential collection, gate/paywall bypass, and social auto-posting are outside this skill's task boundary.
