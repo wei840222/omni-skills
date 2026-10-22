@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a high school junior taking the SAT next month. I got a 1200 on my last practice test but I want to reach 1400. Can you help me create a study plan?",
+    "expected": "Load exam-format.md, strategies.md, tracking.md, and sources.md. Ask for RW/Math split and whether the 1200 was a timed Bluebook form. Build a ~4-week weakness-first plan with timed module practice, Module 1 accuracy focus, and a weekly full practice test; establish <state_root>/ logging before finalizing.",
+    "actual": "Loaded exam-format, strategies, tracking, and sources. Asked for the RW/Math split and whether the 1200 was timed in Bluebook. Drafted a 4-week plan: diagnostic domain triage first, daily high-ROI drills, timed RW/Math sections twice weekly, one full Bluebook practice each weekend, and mistake logging under <state_root>/ with Module 1 pacing called out explicitly.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the rules for commas and transitions? I always get those wrong.",
+    "expected": "Load techniques.md (and strategies.md if drilling). Explain Standard English Conventions boundaries/commas and Expression of Ideas transitions in Digital SAT RW terms with short examples; recommend logging misses to <state_root>/mistakes/ and timed RW module practice—not generic grammar lectures only.",
+    "actual": "Loaded techniques.md. Framed commas as boundary/form-structure problems and transitions as before/after discourse fit (addition, contrast, cause/effect, sequence). Gave one SAT-style example each, told the student to read the whole sentence, and routed misses into <state_root>/mistakes/ plus a timed RW module drill.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is the SAT still 3 hours with a no-calculator math section? Also should I superscore for every college?",
+    "expected": "Load exam-format.md, colleges.md, and sources.md. Correct to Digital SAT Bluebook MST: RW 64 min/54Q, Math 70 min/44Q with calculator (Desmos) on all Math; scored length 2h 14min. State superscore is school-specific and must be verified per target; cite College Board sources.",
+    "actual": "Loaded exam-format, colleges, and sources. Explained Digital SAT is Bluebook multistage adaptive: Reading and Writing 54 questions in 64 minutes, Math 44 in 70 with Desmos/calculator on all Math items, about 2 hours 14 minutes scored plus break—not the old 3-hour no-calculator split. Superscoring depends on each college's policy; do not assume universal superscore—check each target admissions page. Sources: https://satsuite.collegeboard.org/sat/whats-on-the-test and https://satsuite.collegeboard.org/media/pdf/understanding-sat-scores.pdf",
+    "pass": true
+  }
+]
