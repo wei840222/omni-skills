@@ -1,6 +1,6 @@
 # Memory Template — Self-Evolving
 
-Create `~/Clawic/data/self-evolving/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Self-Evolving Memory
@@ -29,7 +29,7 @@ integration: pending | done | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
@@ -38,7 +38,7 @@ integration: pending | done | paused | never_ask
 | `paused` | User said not now | Do not push for more setup detail |
 | `never_ask` | User opted out | Never request extra evolution context |
 
-## Key Principles
+## Key principles
 
 - Keep the memory short enough to load before non-trivial work
 - Promote only repeated winners; everything else stays tentative

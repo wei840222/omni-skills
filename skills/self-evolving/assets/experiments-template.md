@@ -1,8 +1,9 @@
 # Experiment Log Template
 
-Use `~/Clawic/data/self-evolving/experiments.md` to keep tentative ideas separate from stable memory.
+Use `<state_root>/experiments.md` to keep tentative ideas separate from stable
+memory.
 
-## Entry Format
+## Entry format
 
 ```markdown
 ## YYYY-MM-DD HH:MM - Short experiment name
@@ -14,18 +15,18 @@ Use `~/Clawic/data/self-evolving/experiments.md` to keep tentative ideas separat
 - Next move: promote | retest | discard
 ```
 
-## Promotion Rule
+## Promotion rule
 
 - Promote only after three comparable wins
 - If results are mixed, narrow the mutation and retest
 - If the change causes instability, discard it and keep the older baseline
 
-## Good Examples
+## Good examples
 
 - "Added a pre-flight checklist before file edits; reduced missed references in three reviews"
 - "Moved retrieval before drafting; improved consistency across repeated planning tasks"
 
-## Bad Examples
+## Weak examples
 
 - "Be more adaptive"
 - "Try harder next time"
