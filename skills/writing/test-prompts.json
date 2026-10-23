@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Tighten this email to Marta. It feels wordy and the ask is buried: 'Hi Marta, I hope you are having a good week. I am writing to you because we finally finished the draft for the Q3 report and I would really appreciate it if you could take a look and give us your thoughts by Friday.'",
+    "expected": "Returns rewritten email with the ask in the first screen, a Friday deadline, and no coaching list; keeps Marta’s name and Q3 report intact.",
+    "actual": "Hi Marta,\n\nCould you review the Q3 report draft and share your thoughts by Friday?\n\nThanks",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Draft a short blog post announcing Auto-Sync for existing users. Under 200 words, conversational, and avoid 'revolutionary' or 'seamless' because the Acme style sheet bans them.",
+    "expected": "Delivers finished post under 200 words, opens on the user-visible change, omits banned words, and does not ask style questions first.",
+    "actual": "We've added Auto-Sync.\n\nYou no longer need to hit refresh. Changes on your desktop now show up on your phone right away.\n\nIt's available today for all active accounts. Tell us what you notice.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "This quote from our CEO has to stay exact, but the surrounding paragraph is mush: 'We will ship Auto-Sync on Monday.' Please rewrite only the frame.",
+    "expected": "Keeps the CEO quotation byte-identical, rewrites only surrounding prose, and flags rather than silently altering the quote.",
+    "actual": "Monday is the date that matters.\n\n\"We will ship Auto-Sync on Monday.\"\n\nThat is the only commitment in this update; everything else can wait.",
+    "pass": true
+  }
+]
