@@ -1,6 +1,6 @@
 # Research sources (Gate 6)
 
-Verified public references used for growth-system guidance in this refactor. Re-open before restating time-sensitive benchmarks.
+Verified public references used for growth-system guidance in this refactor (HTTP 200 checked 2026-10-23). Re-open before restating time-sensitive benchmarks.
 
 ## Specification / format
 
