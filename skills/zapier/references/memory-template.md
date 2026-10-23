@@ -1,18 +1,18 @@
 # Memory Template — Zapier
 
-Create `~/Clawic/data/zapier/memory.md`:
+Create `<state_root>/memory.md`:
 
 ```markdown
 # Zapier Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending
 
 ## Account
-plan: free | starter | professional | team | company
+plan: free | professional | team | enterprise
 api_access: yes | no
 polling_speed: 15min | 2min | 1min
 
@@ -24,7 +24,7 @@ polling_speed: 15min | 2min | 1min
 - (add as discovered)
 
 ## Active Zaps
-<!-- Zaps they've mentioned or created -->
+<!-- Zaps they mentioned or created -->
 Format: Trigger App → Action App (purpose)
 
 ## Common Patterns
@@ -36,7 +36,7 @@ notifications: slack | email | both
 error_handling: alert | silent
 
 ## Notes
-<!-- Things to remember -->
+<!-- Things to remember; secret pointers only -->
 
 ---
 *Updated: YYYY-MM-DD*
@@ -48,7 +48,7 @@ error_handling: alert | silent
 |-------|---------|
 | `ongoing` | Still learning their stack |
 | `complete` | Know their main workflows |
-| `paused` | Don't ask more questions |
+| `paused` | Do not ask more onboarding questions |
 
 ## Key Principles
 
@@ -56,3 +56,4 @@ error_handling: alert | silent
 - Track successful patterns
 - Note failed attempts (avoid repeating)
 - Update `last` on each use
+- Never persist raw API tokens in this file

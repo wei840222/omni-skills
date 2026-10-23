@@ -2,15 +2,21 @@
 
 ## Authentication
 
-Get API key from: https://zapier.com/developer/platform
+Obtain credentials from the current Zapier developer/product docs for the API
+family you are calling (Platform / AI Actions / Tables). Product hostnames and
+paths change; verify against live docs before treating an example as normative.
 
 ```bash
 export ZAPIER_API_KEY="your_api_key_here"
 
-# Test connection
-curl -H "Authorization: Bearer $ZAPIER_API_KEY" \
-  https://api.zapier.com/v1/profile
+# Preferred smoke test for AI Actions-style credentials
+curl -H "Authorization: Bearer ***"   https://actions.zapier.com/api/v1/exposed/
 ```
+
+Availability note: examples under `https://api.zapier.com/v1/*` are retained as
+historical automation sketches. Confirm the exact path and auth scheme in
+current Zapier documentation before production use.
+
 
 ## Profile & Account
 
