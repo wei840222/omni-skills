@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our cohort retention curve slides to zero around month 3. Should we scale Facebook ads to make up for the loss?",
+    "expected": "Refuses to scale paid acquisition while retention slides to zero; cites retention-gates-spend; recommends product/churn interviews and absolute-lift diagnosis first.",
+    "actual": "No. Retention gates spend: buying traffic into a curve that never flattens amplifies the leak and stretches payback. Name the constrained stage with absolute lift, talk to churned users, and fix product/activation until cohorts flatten at the natural frequency\u2014then revisit paid scale with a kill number.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "growth retention curve zero scale facebook ads"
+  },
+  {
+    "id": 2,
+    "prompt": "We want to launch a referral program using PostHog and start discounting heavily. We haven't hit PMF yet.",
+    "expected": "Blocks pre-PMF referral + heavy discounting; requires retention/advocacy evidence; suggests instrumentation and loop definition first.",
+    "actual": "Pre-PMF referral incentives mostly buy low-intent signups and invite fraud before advocacy exists; heavy discounting also pollutes LTV in the cohorts you are measuring. Instrument retention, prove a flattening curve / advocacy signal, define the core loop, and only then design a double-sided referral with kill criteria.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "growth referral program pre-pmf discounting posthog"
+  },
+  {
+    "id": 3,
+    "prompt": "Paid CAC is 300 USD, ARPA 60 USD, gross margin 80%. Can we double Meta spend next month?",
+    "expected": "Computes payback \u22486.3 months; requires payback \u2264 target and survival after 2\u00d7 spend; asks retention flatten evidence.",
+    "actual": "Payback \u2248 300 \u00f7 (60 \u00d7 0.8) = 6.3 months. Doubling Meta is reasonable only if 6.3 months is within target_cac_payback_months AND payback still holds after the 2\u00d7 spend (CAC usually rises), and retention already flattens on recent cohorts. Otherwise keep the test small with a pre-committed kill number/date.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "growth payback CAC ARPA double meta spend"
+  }
+]
