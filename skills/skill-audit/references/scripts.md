@@ -23,7 +23,7 @@ Scripts are the most common payload location: scanners parse the markdown, human
 
 ## Python Red Flags
 
-`exec`/`eval`/`compile` on anything not a literal · `__import__`/importlib with computed names · `pickle.loads` on shipped data (arbitrary code on load) · `ctypes` in a "text helper" · `subprocess` with `shell=True` on built strings · `os.environ` harvesting beyond declared vars · requests/urllib to hosts missing from the egress ledger (`exfiltration.md`).
+`exec`/`eval`/`compile` on anything not a literal · `__import__`/importlib with computed names · `pickle.loads` on shipped data (arbitrary code on load) · `ctypes` in a "text helper" · `subprocess` with `shell=True` on built strings · `os.environ` harvesting beyond declared vars · requests/urllib to hosts missing from the egress ledger (`references/exfiltration.md`).
 
 ## Node Red Flags
 
@@ -31,11 +31,11 @@ Scripts are the most common payload location: scanners parse the markdown, human
 
 ## Constants Get Decoded
 
-Voodoo constants — long numbers, packed strings, byte arrays — are content, not data to skip: decode per `hidden-content.md`. An "IV", "salt", or "lookup table" that decodes to a URL or a shell fragment ends the audit at reject.
+Voodoo constants — long numbers, packed strings, byte arrays — are content, not data to skip: decode per `references/hidden-content.md`. An "IV", "salt", or "lookup table" that decodes to a URL or a shell fragment ends the audit at reject.
 
 ## Writes and Self-Modification
 
-- Legitimate write targets: the skill's own `~/Clawic/data/<slug>/` folder and files the user explicitly passes. Everything else — dotfiles, other skills' folders, agent config (settings, hooks, memory files), shell rc files, crontabs — is a persistence grab (`injection-patterns.md`): reject.
+- Legitimate write targets: the audited skill's own declared `<state_root>/` (or equivalent declared data folder) and files the user explicitly passes. Everything else — dotfiles, other skills' folders, agent config (settings, hooks, memory files), shell rc files, crontabs — is a persistence grab (`references/injection-patterns.md`): reject.
 - A script that edits files in its own skill folder is self-modifying: the audit of version N cannot vouch for what version N wrote. Reject.
 
 ## Procedure

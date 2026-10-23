@@ -4,8 +4,8 @@ The install moment is the hijack moment: every name a skill asks you (or the age
 
 ## Package-Name Verification (any install a skill requests)
 
-1. Exact string against the OFFICIAL registry (npmjs.com, pypi.org, crates.io, brew formulae, the skill registry itself) — never a search-engine result, never a link inside the skill under audit.
-2. Char-by-char: homoglyphs pass reading and fail comparison (`hidden-content.md`). Copy-paste the name into the registry search; retyping "corrects" what your eyes missed.
+1. Exact string against the OFFICIAL registry (npmjs.com, pypi.org, crates.io, brew formulae, the skill registry itself) — avoid search-engine results, avoid links inside the skill under audit.
+2. Char-by-char: homoglyphs pass reading and fail comparison (`references/hidden-content.md`). Copy-paste the name into the registry search; retyping "corrects" what your eyes missed.
 3. Lookalike families: hyphenation (`python-dateutil` vs `python-dateutils`), doubled letters, singular/plural (`request` vs `requests` is the canonical PyPI typosquat), prefix squats (`node-` / `py-` + famous name).
 4. Age + adoption: a package bearing a famous name, registered weeks ago, with negligible downloads = typosquat until proven otherwise.
 5. Dependency confusion: an internal-sounding name (`acme-corp-utils`) requested from a public registry — the attack class Birsan demonstrated against major vendors. Anything that smells internal gets source verification, not installation.
@@ -25,8 +25,8 @@ The install moment is the hijack moment: every name a skill asks you (or the age
 
 ## In-Skill Updaters
 
-"Check <url> for the newest version of this skill" bypasses both the registry's scanning and your diff-audit — the two controls `update-audit.md` exists to apply. Flag; reject if the fetched content is instructions or code.
+"Check <url> for the newest version of this skill" bypasses both the registry's scanning and your diff-audit — the two controls `references/update-audit.md` exists to apply. Flag; reject if the fetched content is instructions or code.
 
 ## When Verification Fails
 
-Name absent from the official registry, owner mismatch, or homoglyph found → REJECT and report to the registry (`incident.md` has the reporting outline). Never "install the probably-right one" on the user's behalf: name resolution is the user's call once shown the evidence.
+Name absent from the official registry, owner mismatch, or homoglyph found → REJECT and report to the registry (`references/incident.md` has the reporting outline). Leave name resolution to the user after showing the evidence; do not install a guessed replacement.
