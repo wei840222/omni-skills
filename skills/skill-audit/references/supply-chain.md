@@ -30,3 +30,9 @@ The install moment is the hijack moment: every name a skill asks you (or the age
 ## When Verification Fails
 
 Name absent from the official registry, owner mismatch, or homoglyph found → REJECT and report to the registry (`references/incident.md` has the reporting outline). Leave name resolution to the user after showing the evidence; do not install a guessed replacement.
+
+## Verified anchors (research)
+
+- Official PyPI package name for the common date helper is `python-dateutil` (verify on https://pypi.org/project/python-dateutil/ ); a trailing `s` (`python-dateutils`) is absent from PyPI and must fail verification.
+- Prompt-injection and supply-chain classes for LLM/agent artifacts remain first-line risks in OWASP GenAI LLM Top 10 (https://genai.owasp.org/llm-top-10/ — LLM01 Prompt Injection, LLM03 Supply Chain).
+- Agent Skills packaging constraints that this refactor targets: https://agentskills.io/specification
