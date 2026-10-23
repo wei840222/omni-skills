@@ -1,0 +1,23 @@
+[
+  {
+    "prompt": "Convert 1 cup of all-purpose flour to grams for a cake batter.",
+    "intent": "Use per-ingredient density, not a universal cup factor",
+    "expected": "Answer 120 g (King Arthur spoon-and-level), mention dip-and-sweep ~142 g as the common error, and keep the original cup measure in ## Original if saving.",
+    "actual": "1 US cup all-purpose flour = 120 g spoon-and-level (King Arthur). Dip-and-sweep can hit ~142 g (~18% high). Preserve the source cup in ## Original before normalizing.",
+    "score": 100
+  },
+  {
+    "prompt": "Scale an 8-inch square cake recipe into a 9-inch round pan.",
+    "intent": "Scale by pan area and fix non-linear bake time",
+    "expected": "Recompute pan areas, scale ingredient masses by area factor, keep depth guidance, and finish on internal temperature/visual cue instead of multiplying clock time.",
+    "actual": "8-in square area 64 in\u00b2 vs 9-in round \u224863.6 in\u00b2 (\u2248\u00d71.0). If depths match, masses stay near parity; still restate bake finish as temperature/visual cue and mark untested until baked.",
+    "score": 100
+  },
+  {
+    "prompt": "I am allergic to shellfish \u2014 adapt this paella recipe and save it.",
+    "intent": "Health-box first, no silent allergen swap",
+    "expected": "Read shared health profile, explicitly name shellfish as the allergen, offer a marked untested swap, and refuse silent substitution in the saved file.",
+    "actual": "Checked <state_root>/health/profile.md first, named shellfish as the allergen, proposed an untested land-protein/vegetable swap, and recorded the allergy-aware variant without silent substitution.",
+    "score": 100
+  }
+]
