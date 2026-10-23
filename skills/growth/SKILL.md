@@ -47,7 +47,7 @@ At session start, read `<state_root>/growth/config.yaml` and `<state_root>/growt
 | Memory destinations / shared boxes | Write protocol and templates | `references/memory-template.md` |
 | Cite or re-verify Gate 6 facts | Research anchors | `references/sources.md` |
 
-Load **at most one** deep `references/` file per step.
+Load **at most one** deep `references/` file per step (progressive disclosure).
 
 ## Core Rules
 
