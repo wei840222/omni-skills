@@ -74,4 +74,4 @@ Keep always-on rules here; load at most one deep `references/` file per step (pr
 | Address prefixes, deposit checks | `references/addresses.md` |
 | Fees, confirmations, stuck recovery | `references/fees-and-recovery.md` |
 | Network defaults, wallets, merged mining, scams | `references/domain.md` |
-| Official sources before restating facts | `references/sources.md` |
+| Official sources before restating Core facts | `references/sources.md` |
