@@ -2,15 +2,22 @@
   {
     "id": 1,
     "prompt": "Fix the undefined variable error in the UserProfile component based on this log.",
-    "expected": "Propose a PACT contract including an acceptance check, produce a minimal diff, and run the test to verify the fix.",
-    "actual": "Established PACT contract: define objective, write acceptance check (run component test). Applied surgical diff fixing the undefined variable. Reran test proving the fix. Delivered handoff summary.",
+    "expected": "Propose a PACT contract with an acceptance check, produce a minimal diff, rerun the failing check, and deliver a handoff with before/after evidence.",
+    "actual": "Drafted PACT contract (objective + acceptance: rerun component test). Applied a surgical undefined-variable fix. Reran the same test to prove the fix. Delivered handoff with commands and residual risk.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "Refactor the entire authentication module and also fix the layout issue on the login page.",
-    "expected": "Refuse to mix tasks. Propose separating into two focused contracts to keep diffs surgical.",
-    "actual": "Noted scope growth. Proposed splitting into two distinct contracts (one for auth module, one for layout fix) and asked user which to tackle first to maintain surgical diffs.",
+    "expected": "Refuse to mix tasks. Propose two focused contracts so diffs stay surgical, then ask which contract to run first.",
+    "actual": "Flagged scope growth. Proposed separate contracts (auth refactor vs login layout) with distinct acceptance checks and asked which to tackle first.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Ship this Swift bugfix tonight for the release branch. Use the iPhone 16 simulator.",
+    "expected": "Require a contract that names the Xcode target/scheme, iPhone 16 simulator, and exact test command before editing; prove fail-then-pass on that check.",
+    "actual": "Locked acceptance to the named scheme + iPhone 16 simulator test command, reproduced the failure, applied a minimal fix, reran the same simulator test, and recorded evidence under the resolved state root.",
     "pass": true
   }
 ]

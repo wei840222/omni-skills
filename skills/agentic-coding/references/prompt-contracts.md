@@ -1,6 +1,7 @@
 # Contract Prompt Templates
 
-Use these prompts to start high quality agentic coding cycles.
+Use these prompts to start high quality agentic coding cycles. Pair each
+template with a verifiable acceptance check before coding.
 
 ## Feature Contract Prompt
 
