@@ -1,57 +1,28 @@
 ---
 name: skill-publish
-slug: skill-publish
-version: 1.0.0
-description: Safely publish skills to your platform's registry. Sanitize, format, verify, and publish without modifying your local files.
-homepage: https://clawic.com/skills/skill-publish
+description: Safely publish skills to platform registries. Use when sharing local
+  knowledge to sanitize, format, and verify content before publishing.
 metadata:
-  clawdbot:
-    emoji: 📤
-    displayName: Skill Publish
+  version: 1.0.0
+  openclaw: '{"emoji": "📤"}'
 ---
-
 ## Publish Skills Safely
 
-Transform any knowledge into a publishable skill. Sanitize personal data, format correctly, verify before publishing.
+Transform local knowledge into a publishable skill. Create a clean, publish-ready version separately from the original files.
 
-**Key principle:** Never modify user's original files. Create clean publish-ready version separately.
+### 1. Transform Structure
+Convert raw knowledge into proper skill structure.
+Read `references/transform.md` to map content to SKILL.md and auxiliaries.
 
-**References:**
-- `sanitize.md` — Security checklist and personal data removal
-- `transform.md` — Convert any format to proper skill structure
-- `verify.md` — Pre-publish verification process
+### 2. Sanitize Data
+Remove personal data and sensitive content.
+Read `references/sanitize.md` and complete the security checklist.
 
----
+### 3. Verify and Publish
+Confirm the result and push to the registry.
+Read `references/verify.md` for explicit user approval and platform-specific commands.
 
-### When to Use
-
-- User wants to publish an existing skill/instructions to a registry
-- User wants to share knowledge they've developed locally
-- User has content in any format that should become a public skill
-
-### The Process
-
-1. **Understand** — What knowledge/skill exists? Where is it?
-2. **Transform** — Convert to proper skill format (see `transform.md`)
-3. **Sanitize** — Remove personal/dangerous content (see `sanitize.md`)
-4. **Verify** — Confirm with user before publishing (see `verify.md`)
-5. **Publish** — Only after explicit approval, using whichever publish command the target platform provides (each registry has its own CLI or web flow) — see `verify.md`
-
-### Critical Rules
-
-⚠️ **Never modify original files** — Create separate publish version
-⚠️ **Never publish without sanitization** — Check `sanitize.md`
-⚠️ **Never publish without user approval** — Always verify first
-⚠️ **When in doubt, include more** — User can remove, harder to add later
-
-### Asking the User
-
-Before transforming, clarify:
-- What should be PUBLIC vs kept private?
-- Any specific names/references to remove?
-- Target audience (beginners, experts, specific domain)?
-- Desired slug/name for the target registry? Check it doesn't collide with a slug you already own there — naming rules vary by platform.
-
----
-
-**Always run `sanitize.md` checklist before any publish.**
+### Triggers and Scope
+- Target: Publishing an existing skill, raw instructions, or documented workflows.
+- Boundary: Clarify public vs private scope, target audience, and desired slug before starting.
+- Safety: Verify naming collision rules on the target platform.

@@ -1,10 +1,10 @@
 # Pre-Publish Verification
 
-**Never publish without completing this process.**
+**Complete this process sequentially before publishing.**
 
 ## Create Publish Folder
 
-Work in a SEPARATE folder, never modify originals:
+Work in a SEPARATE folder, preserve the originals unmodified:
 ```
 /tmp/publish-[slug]/
 ├── SKILL.md
@@ -48,6 +48,10 @@ User should confirm:
 ## Publish Command
 
 Only after approval, publish using the target platform's own publish mechanism — the exact command or web flow depends on which registry the user is publishing to (several exist; use whichever one the user has an account/CLI for). Regardless of platform, this step is a **publisher-only, one-way push** from the local folder to the registry — it is not the command a consumer runs to install or update the skill later.
+
+Common registry examples:
+- **npm**: Run `npm publish` in the directory. Ensure `package.json` exists with correct name and version. The user must be authenticated (`npm login`). (Reference: https://docs.npmjs.com/cli/v10/commands/npm-publish)
+- **PyPI**: Build a distribution (e.g. `python -m build`) and use twine (`twine upload dist/*`). Requires PyPI account or token. (Reference: https://pypi.org/help/#publishing)
 
 Ask the user (or check the platform's own docs) for:
 - The CLI command or web upload flow the registry expects
