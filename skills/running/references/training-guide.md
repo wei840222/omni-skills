@@ -82,4 +82,4 @@ Exact race-nutrition products and medical diets are out of scope — keep advice
 
 - Sharp joint pain, chest pain, dizziness, syncope symptoms, or progressive limp → stop; seek clinical care.
 - Persistent night pain, swelling, or stress-fracture suspicion → clinician, not another hard session.
-- Do not diagnose injuries or promise finish times.
+- Stay in coaching scope: offer next safe training step; route diagnosis and time guarantees out.
