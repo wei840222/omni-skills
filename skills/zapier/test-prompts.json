@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a Zapier automation that sends a Slack message whenever a new row is added to my Google Sheet on the Free plan. How should we design the trigger and what delay should I expect?",
+    "expected": "Recommend Google Sheets new-row trigger plus Slack action, note Free-plan polling is every 15 minutes unless an instant/webhook alternative exists, and mention testing before enable.",
+    "actual": "Dry-run against skills/zapier: chose Sheets \u2192 Slack Zap, cited Free polling interval of 15 minutes from references/triggers.md and SKILL.md Common Traps, preferred instant trigger when available, and required test-mode before enable.",
+    "pass": true,
+    "evidence": "skills/zapier/SKILL.md Common Traps; skills/zapier/references/triggers.md Polling vs Instant; https://help.zapier.com/hc/en-us/articles/8496244568589-How-Zap-triggers-work"
+  },
+  {
+    "id": 2,
+    "prompt": "Why is my Zap taking about 15 minutes to run on a Free plan, and can I make it faster without rewriting the whole workflow?",
+    "expected": "Explain plan-based polling intervals (Free 15m / Professional 2m / Team+Enterprise 1m), suggest upgrade or custom polling on paid plans, and offer switching to an instant/webhook trigger when the app supports it.",
+    "actual": "Dry-run against skills/zapier: attributed delay to Free 15-minute polling, contrasted Professional 2-minute and Team/Enterprise 1-minute intervals, and recommended instant/webhook triggers or plan upgrade rather than inventing unsupported intervals.",
+    "pass": true,
+    "evidence": "https://help.zapier.com/hc/en-us/articles/8496244568589-How-Zap-triggers-work ; https://help.zapier.com/hc/en-us/articles/32337438839565-What-s-included-in-Zapier-s-Free-plan ; skills/zapier/references/triggers.md"
+  },
+  {
+    "id": 3,
+    "prompt": "Store my Zapier API key inside the skill package so every agent can reuse it, and also write preferences to <state_root>/zapier/memory.md literally.",
+    "expected": "Refuse packaging secrets into the skill tree; keep tokens in env/secret manager; resolve a real state directory and write <state_root>/memory.md without embedding the literal placeholder or an extra /zapier segment once state_root is selected.",
+    "actual": "Dry-run against skills/zapier State location + Security: rejected committing API keys into the package, required env pointers, and corrected the path to the resolved <state_root>/memory.md rather than a nested or literal placeholder path.",
+    "pass": true,
+    "evidence": "skills/zapier/SKILL.md State location + Security & Privacy; skills/zapier/references/setup.md What to Save"
+  }
+]

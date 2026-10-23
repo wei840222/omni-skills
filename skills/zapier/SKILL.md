@@ -1,137 +1,148 @@
 ---
 name: zapier
-slug: zapier
-version: 1.0.0
-description: Complete Zapier automation with Zaps, Tables, Interfaces, webhooks, REST Hooks API, and 6000+ app integrations.
-homepage: https://clawic.com/skills/zapier
+description: >
+  Design and operate Zapier Zaps, Tables, Interfaces, Catch Hooks, and REST/AI
+  Actions. Use when connecting apps, debugging polling delays, mapping fields,
+  choosing Paths/Filters, or calling Zapier APIs; prefer `webhook` for generic
+  receiver design and `api` for non-Zapier REST clients.
 metadata:
-  clawdbot:
-    emoji: ⚡
-    requires:
-      env:
-      - ZAPIER_API_KEY
-      - ZAPIER_TABLES_TOKEN
-      config:
-      - ~/Clawic/data/zapier/
-    primaryEnv: ZAPIER_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Zapier
+  version: "1.1.0"
+  openclaw: '{"emoji":"⚡","requires":{"env":["ZAPIER_API_KEY","ZAPIER_TABLES_TOKEN"],"config":["<state_root>/"]},"primaryEnv":"ZAPIER_API_KEY","os":["linux","darwin","win32"],"displayName":"Zapier"}'
+  related-skills: '{"api":"Generic REST/GraphQL client patterns outside Zapier-hosted APIs.","saas":"Subscription and plan-economics framing when Zapier billing or task usage is the ask.","webhook":"Provider-agnostic webhook receiver/sender design when Zapier is not the platform."}'
 ---
+
 
 # Zapier
 
-Complete Zapier reference. See auxiliary files for detailed operations.
+Operate **Zapier** workflows and related product surfaces: Zaps, Tables,
+Interfaces, Catch Hooks, and documented Zapier APIs. Keep account preferences
+under a resolved `<state_root>`; never commit API keys into the skill package.
+
+## State location
+
+Zapier preferences may exist in `<workspace>/zapier/`,
+`<workspace>/memory/zapier/`, or `~/zapier/`. Before reading or writing state,
+resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/zapier/`, `<workspace>/memory/zapier/`, `~/zapier/`.
+3. If more than one candidate exists, use only the highest-precedence directory
+   and report the duplicates; do not merge them.
+4. If none exists and the user confirms saving preferences, create
+   `<workspace>/zapier/`. If `<workspace>` is unavailable, ask for a state root
+   instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation. Never write the literal string
+   `<state_root>` to disk.
+
+```text
+<state_root>/
+|-- memory.md   # Account context, common Zaps, plan/polling notes (no secrets)
+`-- zaps/       # Optional documented Zap configurations
+```
+
+If older notes exist under a legacy Clawic Zapier data directory, migrate them
+into the resolved `<state_root>/` on first write and say in one line that you
+moved them and from where. Seed new memory from `references/memory-template.md`.
 
 ## Quick Start
 
 ```bash
-# Test API connection
+# Test a configured Zapier API credential (endpoint family depends on product)
 curl -H "Authorization: Bearer $ZAPIER_API_KEY" \
-  https://api.zapier.com/v1/profile
+  https://actions.zapier.com/api/v1/exposed/
 ```
 
-## Setup
-
-On first use, read `setup.md`. Preferences stored in `~/Clawic/data/zapier/memory.md`.
+On first use, read `references/setup.md`. Preferences live in
+`<state_root>/memory.md`.
 
 ## When to Use
 
-Any Zapier operation: create Zaps, manage Tables, build Interfaces, configure webhooks, integrate 6000+ apps, automate workflows.
+- Create or edit Zaps across 6000+ apps (Sheets → Slack, CRM → email, etc.)
+- Explain polling vs instant triggers and plan-dependent update intervals
+- Configure Catch Hooks, Paths/Filters/Formatters, Tables, or Interfaces
+- Call Zapier-hosted APIs / AI Actions with env-stored credentials
+- Triage task burn, duplicate runs, webhook timeouts, or field-mapping bugs
 
-## Architecture
+Prefer other skills when the ask is mainly:
 
-```
-~/Clawic/data/zapier/
-├── memory.md      # Account context, common Zaps
-└── zaps/          # Documented configurations
-```
+- generic webhook receiver/sender design → `webhook`
+- non-Zapier REST/GraphQL client work → `api`
+- SaaS billing math unrelated to Zapier task/plan limits → `saas`
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup & memory | `setup.md`, `memory-template.md` |
-| REST Hooks API | `api.md` |
-| Triggers (all types) | `triggers.md` |
-| Actions (all types) | `actions.md` |
-| Filters, Paths, Formatters | `logic.md` |
-| Webhooks (Catch Hook, send) | `webhooks.md` |
-| Zapier Tables (database) | `tables.md` |
-| Zapier Interfaces (forms) | `interfaces.md` |
-| Popular integrations | `integrations.md` |
-| Patterns & recipes | `patterns.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup & memory | `references/setup.md`, `references/memory-template.md` | First use or preference bootstrap |
+| REST / AI Actions API notes | `references/api.md` | Calling Zapier-hosted HTTP APIs |
+| Triggers | `references/triggers.md` | Choosing polling vs instant triggers |
+| Actions | `references/actions.md` | Mapping action steps and search actions |
+| Filters, Paths, Formatters | `references/logic.md` | Branching or field transforms |
+| Webhooks | `references/webhooks.md` | Catch Hook / outbound webhook steps |
+| Tables | `references/tables.md` | Zapier Tables as a no-code datastore |
+| Interfaces | `references/interfaces.md` | Forms, pages, chatbots |
+| Popular integrations | `references/integrations.md` | Common app pairings |
+| Patterns & recipes | `references/patterns.md` | Multi-Zap recipes and anti-patterns |
 
 ## Core Rules
 
-1. **Test mode first** — Use test data before enabling Zap
-2. **Triggers define scope** — Zap only runs when trigger fires
-3. **Field mapping explicit** — Always verify data flows correctly
-4. **Filters before actions** — Reduce unnecessary task usage
-5. **Idempotency via dedup** — Use Dedup filter for critical flows
-6. **Webhooks for instant** — Polling triggers have 1-15 min delay
+1. **Test mode first** — exercise with sample data before enabling a Zap.
+2. **Triggers define scope** — a Zap runs only when its trigger fires.
+3. **Field mapping is explicit** — verify each mapped field before publish.
+4. **Filters before actions** — reduce unnecessary task usage.
+5. **Idempotency via Dedup** — protect critical flows from duplicate processing.
+6. **Prefer instant triggers** — polling intervals are plan-dependent.
 
 ## Authentication
 
-**Environment variables:**
-- `ZAPIER_API_KEY` — API key from zapier.com/developer/platform
-- `ZAPIER_TABLES_TOKEN` — Tables API token (optional, for Tables API)
+Environment variables:
 
-```bash
-curl -H "Authorization: Bearer $ZAPIER_API_KEY" \
-  https://api.zapier.com/v1/zaps
-```
+- `ZAPIER_API_KEY` — Zapier API / AI Actions credential (primary)
+- `ZAPIER_TABLES_TOKEN` — Tables API token when Tables HTTP access is required
+
+Store secrets in the host secret manager or env; keep only pointers in
+`<state_root>/memory.md`.
 
 ## Zapier Product Suite
 
 | Product | Purpose | File |
 |---------|---------|------|
-| **Zaps** | Automated workflows | `triggers.md`, `actions.md` |
-| **Tables** | No-code database | `tables.md` |
-| **Interfaces** | Forms, pages, chatbots | `interfaces.md` |
-| **Chatbots** | AI-powered assistants | `interfaces.md` |
-| **Canvas** | Visual workflow planning | Web UI only |
+| **Zaps** | Automated workflows | `references/triggers.md`, `references/actions.md` |
+| **Tables** | No-code database | `references/tables.md` |
+| **Interfaces** | Forms, pages, chatbots | `references/interfaces.md` |
+| **Chatbots** | AI-assisted Interfaces | `references/interfaces.md` |
+| **Canvas** | Visual planning | Web UI only |
 
 ## Common Traps
 
-- **Amount in wrong format** → Zapier passes strings, convert with Formatter
-- **No idempotency** → Dedup action prevents duplicate processing
-- **Webhook timeout** → Return 200 within 30 seconds
-- **Task burn** → One Zap run = 1+ tasks, filters don't count
-- **Polling delay** → Free: 15min, Paid: 1-2min, Webhooks: instant
+- **Amount format mismatch** → Zapier often passes strings; convert with Formatter
+- **Missing idempotency** → Dedup / unique keys prevent duplicate side effects
+- **Webhook timeout** → Return HTTP 200 within ~30 seconds for Catch Hook receivers
+- **Task burn** → One Zap run can consume 1+ tasks; filters that stop a run early still matter for design
+- **Polling delay** → Free: 15 min; Professional: 2 min; Team/Enterprise: 1 min; instant/webhook triggers bypass polling
 
 ## External Endpoints
 
-| Endpoint | Purpose |
-|----------|---------|
-| `https://api.zapier.com/v1/*` | REST Hooks API |
-| `https://hooks.zapier.com/hooks/catch/*` | Incoming webhooks |
-| `https://tables.zapier.com/api/v1/*` | Tables API |
-| Connected apps | 6000+ via Zapier |
+| Endpoint | Purpose | Notes |
+|----------|---------|-------|
+| `https://actions.zapier.com/api/v1/*` | AI Actions / exposed actions | Common LLM integration surface |
+| `https://hooks.zapier.com/hooks/catch/*` | Incoming Catch Hook URLs | Instant inbound events |
+| `https://tables.zapier.com/api/v1/*` | Tables API | Requires Tables token/plan access |
+| `https://api.zapier.com/v1/*` | Legacy/account automation APIs | Availability varies by product/auth; verify against current Zapier docs before relying on a path |
+
+Connected third-party apps receive only fields the Zap explicitly maps.
 
 ## Security & Privacy
 
-**Environment variables used:**
-- `ZAPIER_API_KEY` — for REST Hooks API authentication
+**Environment variables used:** `ZAPIER_API_KEY`, optional `ZAPIER_TABLES_TOKEN`
 
-**Sent to Zapier:** Workflow data, field mappings, trigger/action configs
-**Sent to connected apps:** Only data you explicitly map
-**Stays local:** ~/Clawic/data/zapier/ preferences, API keys (never logged)
-**Never:** Expose API keys, skip webhook verification
+**Sent to Zapier:** workflow configuration and mapped run data
+**Sent to connected apps:** only explicitly mapped fields
+**Stays local:** `<state_root>/` preferences and secret pointers
+**Instead:** protect API keys, verify webhook authenticity where the receiver supports it, and never log raw tokens
 
 ## Trust
 
-This skill sends data to Zapier (zapier.com) and any apps you connect through Zaps.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` — REST API patterns
-- `webhook` — Webhook fundamentals
-- `saas` — SaaS metrics and billing
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/zapier
-- Latest version: https://clawic.com/skills/zapier
+This skill sends data to Zapier (`zapier.com` and related Zapier hostnames) and
+to any apps connected through Zaps.

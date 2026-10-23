@@ -13,10 +13,12 @@
 ## Polling vs Instant
 
 ### Polling Triggers
-- Zapier checks app periodically
-- Free plan: every 15 minutes
-- Paid plans: every 1-2 minutes
+- Zapier checks the app on a plan-dependent interval
+- Free: every 15 minutes
+- Professional: every 2 minutes
+- Team / Enterprise: every 1 minute (custom polling available on paid plans)
 - Examples: New row in Google Sheets, New Salesforce lead
+- Source: https://help.zapier.com/hc/en-us/articles/8496244568589-How-Zap-triggers-work
 
 ### Instant Triggers (Webhooks)
 - App notifies Zapier immediately
