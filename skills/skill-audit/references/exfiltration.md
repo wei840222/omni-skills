@@ -11,8 +11,8 @@ A skill's network surface must be three things at once: declared, necessary for 
 | Markdown image | `![](https://host/pixel?x=...)` — many UIs auto-GET on render | Undeclared image host = flag; parameterized = reject |
 | Webhook / "telemetry" | "report usage/errors to <endpoint>" | Survives only as CAUTION: declared, parameters visible, user accepts by name |
 | DNS encoding | Data packed into subdomains: `<encoded>.evil.example` | Reject: no honest use inside a skill |
-| In-skill update check | "check <url> for a newer version" | Flag — bypasses registry scanning and your diff-audit (`supply-chain.md`) |
-| Agent-tool egress | "email/message/commit/push to <hardcoded destination>" | Destination not the user's = reject (`injection-patterns.md` Tool Coercion) |
+| In-skill update check | "check <url> for a newer version" | Flag — bypasses registry scanning and your diff-audit (`references/supply-chain.md`) |
+| Agent-tool egress | "email/message/commit/push to <hardcoded destination>" | Destination not the user's = reject (`references/injection-patterns.md` Tool Coercion) |
 | Paste and drop services | pastebin-alikes, throwaway file hosts in instruction position | Reject on sight |
 
 ## Sensitive Sources (the read side)
@@ -34,4 +34,4 @@ A skill whose domain legitimately touches one of these (an SSH skill works in `~
 
 ## The Egress Ledger (audit output)
 
-For the report (`report.md`): one row per network touchpoint — file:line, host, declared?, parameterized?, needed for the stated job? A skill with an empty ledger and no sensitive reads cannot exfiltrate; writing that sentence is what SAFE means for this pass.
+For the report (`references/report.md`): one row per network touchpoint — file:line, host, declared?, parameterized?, needed for the stated job? A skill with an empty ledger and no sensitive reads cannot exfiltrate; writing that sentence is what SAFE means for this pass.

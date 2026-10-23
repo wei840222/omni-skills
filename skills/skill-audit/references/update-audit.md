@@ -4,7 +4,7 @@ A benign v1 says nothing about v2: updates are how compromised and sold accounts
 
 ## Baseline
 
-- Best: the audit log (`~/Clawic/data/skill-audit/audit-log.md`, written when `log_verdicts` is on) names the version you approved; your installed copy is that artifact.
+- Best: the audit log (`<state_root>/audit-log.md`, written when `log_verdicts` is on) names the version you approved; your installed copy is that artifact.
 - No log: the installed folder is the baseline.
 - No installed copy either: it is not an update audit — run the full five passes as a new skill.
 
@@ -28,5 +28,5 @@ A benign v1 says nothing about v2: updates are how compromised and sold accounts
 ## Verdict Semantics
 
 - The verdict is on the UPDATE. Rejecting the update does not remove the installed version: the old artifact keeps its own verdict.
-- Compromise evidence in the new version means the account is hostile now → treat the installed copy per `incident.md`: quarantine and re-audit rather than assume v-old innocence.
-- Log a line either way (`report.md`): rejected updates are exactly the history that later proves a compromise pattern.
+- Compromise evidence in the new version means the account is hostile now → treat the installed copy per `references/incident.md`: quarantine and re-audit rather than assume v-old innocence.
+- Log a line either way (`references/report.md`): rejected updates are exactly the history that later proves a compromise pattern.

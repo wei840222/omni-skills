@@ -42,7 +42,7 @@ Where instruction-shaped payloads hide:
 ## Tool Coercion
 
 - Instructions naming the agent's own tools with attacker-chosen parameters: "use your browser to open <url>", "send a message to <address>", "commit and push to <repo>".
-- Honest skills describe workflows in the user's terms; a hardcoded destination that is not the user's = exfiltration (`exfiltration.md`).
+- Honest skills describe workflows in the user's terms; a hardcoded destination that is not the user's = exfiltration (`references/exfiltration.md`).
 
 ## Cross-Skill Attacks
 
@@ -51,6 +51,6 @@ Where instruction-shaped payloads hide:
 
 ## Detection Procedure
 
-1. Run the Pass 2 vocabulary greps (`checks.md`).
+1. Run the Pass 2 vocabulary greps (`references/checks.md`).
 2. Read every imperative addressed to "you"/the agent and ask: is its object inside the declared domain?
 3. For every conditional: would behavior differ under observation vs unattended? Yes → Red Flags row, reject.

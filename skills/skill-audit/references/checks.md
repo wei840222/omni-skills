@@ -7,7 +7,7 @@ Run these before reading a line of prose. Grep narrows; reading decides: every h
 - `find <folder> -type f | sort` — the read list; count it, and compare against files actually opened at the Output Gates.
 - `find <folder> -name ".*" -type f` — hidden files are part of the skill.
 - `find <folder> -type l` — a symlink pointing outside the folder pulls external content into the audit surface; flag every one.
-- `find <folder> -type f -exec file {} +` — anything not text (binaries, archives, images that shouldn't be there) routes to `scripts.md` or `hidden-content.md`.
+- `find <folder> -type f -exec file {} +` — anything not text (binaries, archives, images that shouldn't be there) routes to `references/scripts.md` or `references/hidden-content.md`.
 
 ## Pass 1 — Declarations vs Reality
 
@@ -29,12 +29,12 @@ Context decides instruction vs warning — see Interpreting Hits below.
 ## Pass 3 — Execution and Egress
 
 - Remote execution: `grep -rnE "(curl|wget)[^|]*\|\s*(ba|z|da)?sh|base64\s+(-d|--decode)|\beval\b|exec\(|child_process|subprocess|os\.system|Function\(" <folder>`
-- Encoded blobs: `grep -rnoE "[A-Za-z0-9+/]{40,}={0,2}" <folder>` — 40+ base64 chars ≈ 30+ decoded bytes: long enough to hold a command, short enough that hashes and keys also match. Decode every hit (`hidden-content.md`); the verdict is on the decoded content, not on the match.
+- Encoded blobs: `grep -rnoE "[A-Za-z0-9+/]{40,}={0,2}" <folder>` — 40+ base64 chars ≈ 30+ decoded bytes: long enough to hold a command, short enough that hashes and keys also match. Decode every hit (`references/hidden-content.md`); the verdict is on the decoded content, not on the match.
 - Hex-packed strings: `grep -rnE "(\\\\x[0-9a-fA-F]{2}){8,}" <folder>`
 
 ## Hidden Characters (raw bytes, not the rendered view)
 
-- `rg -n "[^\x00-\x7F]" <folder>` — every non-ASCII character in an English-language skill gets a look. Em-dashes, curly quotes, emoji, accented names: benign. Zero-width, bidi controls, tag block: reject class — codepoint table in `hidden-content.md`.
+- `rg -n "[^\x00-\x7F]" <folder>` — every non-ASCII character in an English-language skill gets a look. Em-dashes, curly quotes, emoji, accented names: benign. Zero-width, bidi controls, tag block: reject class — codepoint table in `references/hidden-content.md`.
 - BSD grep has no `-P`; use `rg` (above) or: `perl -CSD -ne 'print "$ARGV:$.\n" if /[\x{200B}-\x{200F}\x{202A}-\x{202E}\x{2060}\x{FEFF}\x{00AD}]|[\x{2066}-\x{2069}]|[\x{E0000}-\x{E007F}]/' $(find <folder> -type f)`
 - No tooling at all: `cat -v <file>` makes control characters visible in any terminal.
 
@@ -52,4 +52,4 @@ Security skills legitimately CONTAIN these patterns as content — a skill about
 
 ## Custom Patterns
 
-If `~/Clawic/data/skill-audit/patterns.md` exists, run its greps alongside this battery — it holds patterns added after incidents (`incident.md` Close Out).
+If `<state_root>/patterns.md` exists, run its greps alongside this battery — it holds patterns added after incidents (`references/incident.md` Close Out).
