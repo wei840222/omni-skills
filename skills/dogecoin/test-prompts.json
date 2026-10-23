@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "prompt": "I sent 500 DOGE to a friend but they haven't received it yet. Can I use RBF to speed it up?",
+    "expected": "Explains Dogecoin does not offer Bitcoin BIP125 Replace-By-Fee as a user recovery path, advises checking a public explorer, waiting for ~1 minute blocks, and not inventing RBF steps.",
+    "actual": "Dogecoin does not expose Bitcoin-style Replace-By-Fee (BIP125) as a normal user recovery tool. Confirm the tx is still unconfirmed on a public Dogecoin explorer, then wait for the ~1 minute block target or ask the sender/venue for their policy. Do not invent RBF bump steps that Core does not document for ordinary DOGE sends.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "dogecoin rbf speed up unconfirmed transaction"
+  },
+  {
+    "id": 2,
+    "prompt": "I want to store my Dogecoin securely but I'm thinking of leaving it on Binance. What is recommended?",
+    "expected": "Recommends local or hardware wallets (Dogecoin Core, Ledger/Trezor-class devices) for custody, warns that exchanges retain keys, and refuses seed collection in chat.",
+    "actual": "Leaving DOGE on an exchange keeps custody with the venue. Prefer Dogecoin Core or a hardware wallet with on-device address verification for amounts you care about; download only from vendor-official channels. Never paste a seed phrase into chat—guide local UI or device confirmation instead.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "dogecoin secure storage binance wallet"
+  },
+  {
+    "id": 3,
+    "prompt": "My exchange deposit address for DOGE looks like it starts with D, but the form also asks for a memo like XRP. Do I need a tag?",
+    "expected": "States plain DOGE does not use XRPL destination tags; verify mainnet D-prefix address and re-check if the memo field belongs to another asset network.",
+    "actual": "Plain Dogecoin deposits do not use XRPL-style destination tags. Verify the full mainnet address (typical P2PKH starts with D) and that the venue selected Dogecoin mainnet—not a wrapped token. If a memo/tag field appears for “DOGE”, re-read the asset/network label before sending; wrong-network or mistyped addresses are irreversible.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "dogecoin exchange deposit memo tag D address"
+  }
+]
