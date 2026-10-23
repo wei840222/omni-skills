@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| running                      | 2026-10-23 | 88/100 (#977)                    |
 | self-evolving                | 2026-10-23 | 87/100 (#976)                    |
 | icloud                       | 2026-10-23 | 87/100 (#975)                    |
 | rag                          | 2026-10-23 | 85/100 (#974)                    |
