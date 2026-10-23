@@ -24,7 +24,7 @@ Declare goods, restricted items, and large amounts of cash when required. Border
 
 - Keep prescription medicines in original packaging when possible.
 - Carry a prescription copy or doctor note for anything unusual, high-volume, or controlled.
-- Do not assume medicines legal at home are frictionless at the UK border.
+- Verify medicines that are controlled or prescription-only at home against UK entry rules before packing them.
 
 ## Practical Border Hygiene
 

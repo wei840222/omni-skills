@@ -31,7 +31,7 @@
 
 ## Trap Prevention
 
-- Do not stay near a London airport unless the airport is the point of the trip.
-- Do not book remote cottages without a transport plan and grocery plan.
-- Do not choose lodging in scenic areas by postcard value alone; road access, parking, and dinner options shape the experience.
-- Do not underestimate stairs, uneven floors, and smaller rooms in historic UK properties.
+- Choose central or well-connected neighborhood bases unless the airport itself is the trip purpose.
+- Book remote cottages only with an explicit transport plan and grocery plan.
+- Choose scenic lodging by road access, parking, and dinner options as well as views.
+- Expect stairs, uneven floors, and smaller rooms in historic UK properties and confirm access needs early.

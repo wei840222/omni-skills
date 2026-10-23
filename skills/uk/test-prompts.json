@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to visit London, Edinburgh, and Wales in 5 days.",
+    "expected": "Reject packing London + Edinburgh + Wales into 5 days; recommend one macro-cluster such as London + South England or Edinburgh-focused Scotland, and cite transfer-time quality loss.",
+    "actual": "Five days is too short for London, Edinburgh, and Wales together. Keep one macro-cluster: either London plus a South England/Cotswolds add-on, or an Edinburgh-centred Scotland loop. Long rail transfers would erase most of the trip quality, so I would not sell a three-nation dash.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the entry rules for a US citizen traveling to the UK next month for tourism?",
+    "expected": "State that US visitors usually need an ETA rather than a visa for tourism, quote current £20 official fee and up-to-6-months visitor window from GOV.UK, note ETA is not admission guarantee, and point to check-uk-visa / eta pages for confirmation.",
+    "actual": "For tourism next month, a US citizen usually needs a UK ETA rather than a visitor visa. GOV.UK (checked 2026-10-24) says an ETA costs £20 via the official site/app, covers eligible visits for up to 6 months, lasts 2 years or until the passport expires, and does not guarantee entry. Confirm the exact nationality/purpose path on https://www.gov.uk/check-uk-visa and apply via https://www.gov.uk/eta before locking non-refundables; wait for the confirmation email before travel.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I rent a car for a 4-day London-only trip that also includes the British Museum and a West End show?",
+    "expected": "Recommend against a London-only car rental; prefer contactless TfL/rail, and reserve cars for rural loops instead.",
+    "actual": "Skip the rental for a London-only museum and West End plan. Use contactless on TfL, cluster days by zone, and keep Heathrow/rail links instead of city parking, ULEZ/congestion friction, and left-side urban driving. Save car-first mode for Cotswolds, Cornwall, Highlands, or similar rural loops.",
+    "pass": true
+  }
+]
