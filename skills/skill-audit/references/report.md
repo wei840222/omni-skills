@@ -5,7 +5,7 @@
 | Verdict | When to use |
 |---|---|
 | **SAFE** | All five passes completed (or the scoped path for update/sweep), no undeclared access that receives user data, no stealth/injection/execution reject-class hits, description matches body, companions consistent. Clean verdicts still state what was checked. |
-| **CAUTION** | Residual risk the user may accept by name: declared telemetry with visible parameters, excess-but-arguable scope, typosquat suspicion that cleared char-by-char registry verification but still looks young/low-adoption, or a known flag already logged under risk posture. Never use CAUTION for stealth language, `curl \| sh`, credential harvest + sink, or anti-audit instructions. |
+| **CAUTION** | Residual risk the user may accept by name: declared telemetry with visible parameters, excess-but-arguable scope, typosquat suspicion that cleared char-by-char registry verification but still looks young/low-adoption, or a known flag already logged under risk posture. Use REJECT—not CAUTION—for stealth language, `curl \| sh`, credential harvest + sink, or anti-audit instructions. |
 | **REJECT** | Any Red Flags reject-class hit, Rule 2/3/5 violation, hidden Unicode instruction channel, scope lie that touches data/execution, or update that introduces reject-class content. |
 
 `strictness: paranoid` collapses every CAUTION into REJECT and forces full audits on updates (`references/update-audit.md`).
