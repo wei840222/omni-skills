@@ -1,13 +1,19 @@
 # Memory Template - Agentic Coding
 
-Create `<state_root>/agentic-coding/memory.md` with this structure:
+Create files under the resolved `<state_root>/` only after State location
+resolution and user consent for durable writes. Never write the literal string
+`<state_root>` to disk.
+
+## memory.md Template
+
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Agentic Coding Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending
 
@@ -35,7 +41,7 @@ integration: pending
 
 ## contracts.md Template
 
-Create `<state_root>/agentic-coding/contracts.md`:
+Create `<state_root>/contracts.md`:
 
 ```markdown
 # Active Contracts
@@ -50,7 +56,7 @@ Status: drafted | active | verified | blocked
 
 ## evidence.md Template
 
-Create `<state_root>/agentic-coding/evidence.md`:
+Create `<state_root>/evidence.md`:
 
 ```markdown
 # Validation Evidence
@@ -63,7 +69,7 @@ Residual risk: [low/medium/high + why]
 
 ## handoffs.md Template
 
-Create `<state_root>/agentic-coding/handoffs.md`:
+Create `<state_root>/handoffs.md`:
 
 ```markdown
 # Handoffs

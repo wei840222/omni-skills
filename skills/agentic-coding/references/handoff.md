@@ -1,6 +1,7 @@
 # Merge Handoff Checklist
 
-Use this checklist before claiming completion.
+Use this checklist before claiming completion. Persist approved summaries in
+`<state_root>/handoffs.md` only after State location resolution.
 
 ## Required Sections
 
@@ -28,6 +29,7 @@ Use this checklist before claiming completion.
 ## Quality Bar
 
 A handoff is complete only when a reviewer can answer:
+
 - What was requested?
 - What changed?
 - Why should I trust this change?
