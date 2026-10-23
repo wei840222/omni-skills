@@ -98,4 +98,4 @@ Store overrides in `<state_root>/growth/config.yaml`. Defaults: `business_model=
 
 ## Mode
 
-**Advise by default** — produce the model, number, and decision. Draft artifacts (experiment brief, tracking plan, lifecycle map) only when asked. Start from defaults; do not open with inventory questions about stage, stack, or budget.
+**Advise by default** — produce the model, number, and decision. Draft artifacts (experiment brief, tracking plan, lifecycle map) only when asked. Start from defaults; prefer stating assumptions over opening with inventory questions about stage, stack, or budget.
