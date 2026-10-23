@@ -67,7 +67,7 @@ or third-party private data in skill state. Host-shared memory such as workspace
 1. Load `references/setup.md` on first use or if state is empty and the user wants notes kept.
 2. Resolve `<state_root>` before any state read/write.
 3. Confirm entry logic with `references/entry-and-documents.md` before locking flights or non-refundable lodging.
-4. Choose one macro-cluster with `references/regions.md` or `references/itineraries.md`; open only the leaf nation/city files needed.
+4. Choose one macro-cluster with `references/regions.md` or `references/itineraries.md`. Open only the leaf nation/city files needed for the active decision.
 5. Match transport to geography with `references/transport-domestic.md` and `references/road-trips-and-driving.md`.
 6. Open `references/sources.md` before treating ETA, visa, customs, rail-fare, or other official claims as current fact; re-check the live page when money or legal consequences are involved.
 7. Maintain `<state_root>/memory.md` only when durable context should persist, using `references/memory-template.md`.
