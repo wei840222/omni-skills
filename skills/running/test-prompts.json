@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to start running. How fast should my easy runs be?",
+    "expected": "Prescribes conversational / Zone 2 easy pace, warns against medium-effort every day, and points to 80/20 intensity balance.",
+    "actual": "Keep easy runs truly easy: conversational pace / Zone 2 so you can speak full sentences. Most of your weekly running time (~80%) should stay here; if easy days feel like tempo, slow down before adding mileage. Load references/training-guide.md for zone table and workout menu.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a half marathon in 2 weeks. Should I do a 15-mile long run this weekend?",
+    "expected": "Rejects a late peak long run; recommends taper volume cut, keep short sharpness, and nothing-new race-day rules.",
+    "actual": "No — two weeks out you should be tapering, not peaking. Cut weekly volume about 40–60%, keep a short sharp session if you already do quality work, and skip a 15-mile long run that close to race day. Rehearse only shoes/gels you already tested. See taper defaults in references/training-guide.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My knee hurts more the longer I run. Should I push through to finish the tempo?",
+    "expected": "Stops the session for pain that worsens mid-run and escalates to clinician rather than pushing through.",
+    "actual": "Stop the tempo. Pain that worsens during the run is a hard stop — do not push through for the workout. If pain persists, swelling appears, or gait changes, escalate to a clinician. We can replace quality work with easy movement only after symptoms settle; this skill does not diagnose injuries.",
+    "pass": true
+  }
+]
