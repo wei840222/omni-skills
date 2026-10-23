@@ -47,4 +47,4 @@ local training logs. Route quantified strength/concurrent-load math to
 
 Load [Training Guide](references/training-guide.md) for intensity math, workout menus, periodization, taper, form cues, injury prevention, and race-week defaults.
 
-Load [Sources](references/sources.md) when citing external endurance-training evidence.
+Load [Sources](references/sources.md) when citing external endurance-training evidence or re-checking mutable defaults.
