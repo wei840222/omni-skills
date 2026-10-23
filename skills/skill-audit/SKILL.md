@@ -81,6 +81,7 @@ Preference areas to record as the user reveals them:
 - The agent behaved oddly — unexplained network, file, or tool activity — and a skill may be why
 - A skill asks to install a package or binary and the name needs verifying
 - Not for auditing application source code (use a code security review) or judging whether a skill is useful (this audits safety and honesty, not quality)
+- After a SAFE/CAUTION verdict, prefer `skill-test` for usefulness trials and `skill-manager` / `skill-update` for install or upgrade mechanics
 
 ## Quick Reference
 
