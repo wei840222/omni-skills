@@ -1,97 +1,77 @@
 ---
 name: dogecoin
-slug: dogecoin
-version: 1.0.0
-description: Assist with Dogecoin DOGE transactions, wallet management, and network characteristics.
-homepage: https://clawic.com/skills/dogecoin
+description: >
+  Diagnose Dogecoin (DOGE) address formats, fees, confirmations, unconfirmed
+  sends without RBF, wallet sync, and Scrypt merged-mining context with Litecoin.
+  Use for D-prefix deposits, stuck txs, exchange compatibility, or scam checks.
+  Not for Bitcoin UTXO/Lightning (`bitcoin`), Litecoin/MWEB (`litecoin`), XRPL
+  tags (`xrp`), or portfolio/market tooling (`crypto-tools`).
 metadata:
-  clawdbot:
-    emoji: 🐕
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Dogecoin
+  version: "1.1.0"
+  openclaw: '{"emoji":"🐕"}'
+  related-skills: '{"bitcoin":"Bitcoin UTXO, fees, RBF/CPFP, and Lightning outside Dogecoin.","litecoin":"Litecoin address/MWEB flows and Scrypt merged-mining peer of Dogecoin.","xrp":"XRPL reserves and destination tags instead of Dogecoin simple addresses.","blockchain":"General ledger fundamentals beyond Dogecoin-specific payment guidance.","crypto-tools":"Market data and exchange tooling once Dogecoin transaction mechanics are settled."}'
 ---
 
-## Network Basics
-- Dogecoin is Bitcoin fork — similar UTXO model and transaction structure
-- Proof of Work with Scrypt — merged mining with Litecoin
-- 1 minute block time — faster than Bitcoin's 10 minutes
-- No supply cap — inflationary by design, ~5 billion new DOGE per year
-- Low transaction fees — typically less than 1 DOGE
+# Dogecoin (DOGE)
 
-## Address Format
-- Addresses start with "D" — legacy format, always verify first character
-- 34 characters total — standard length like Bitcoin
-- Case-sensitive — typos cause lost funds
-- No SegWit or Taproot — simpler than modern Bitcoin
+Stateless domain skill for **Dogecoin payments, address checks, fees, stuck-tx triage, exchange deposits, and merged-mining context**. It does not store keys, seeds, or transaction history in the package.
 
-## Transaction Characteristics
-- Transactions confirm in ~1 minute — one block for basic confirmation
-- 6 confirmations for high-value — ~6 minutes, same security practice as Bitcoin
-- Fees are minimal — 1 DOGE per KB is standard, most transactions under 1 DOGE
-- No RBF (Replace-By-Fee) — stuck transactions harder to fix than Bitcoin
-- UTXO model — balance is sum of unspent outputs
+## When to load
 
-## Wallet Options
-- Dogecoin Core full node — downloads entire blockchain, most secure
-- MultiDoge light wallet — faster sync, SPV verification
-- Ledger and Trezor support — hardware wallet integration
-- Trust Wallet, Exodus — multi-coin wallets with DOGE support
-- Avoid web wallets — custody risk, prefer local wallets
+- Send/receive DOGE; verify mainnet addresses that start with `D`
+- Unconfirmed or slow payments when the user expects Bitcoin-style RBF
+- Exchange deposit compatibility and confirmation policy
+- Wallet sync / dust / fee-by-size questions on Dogecoin Core or light wallets
+- Scrypt merged-mining context with Litecoin when it affects security narrative
 
-## Common Issues
-- Transaction unconfirmed — wait, DOGE doesn't have RBF to speed up
-- "Dust" outputs — very small UTXOs may cost more in fees than value
-- Wallet sync slow — Dogecoin Core needs full blockchain download
-- Balance not showing — wallet not fully synced, wait for sync completion
-- Sent to wrong address — transactions irreversible, triple-check addresses
+## Core defaults
 
-## Exchange Considerations
-- Most major exchanges support DOGE — high liquidity pairs
-- Withdrawals may have minimums — check exchange requirements
-- Network confirmations required — usually 6-20 depending on exchange
-- No memo/tag required — unlike XRP, simple address only
-- Some exchanges don't support all address types — verify compatibility
+Keep always-on rules here; load at most one deep `references/` file per step (progressive disclosure).
 
-## Fee Management
-- Fees based on transaction size in bytes — not DOGE amount
-- Consolidating many small UTXOs costs more — larger transaction
-- Most wallets calculate fees automatically — rarely need manual adjustment
-- Minimum relay fee exists — transactions below threshold rejected by nodes
-- During low activity, minimum fees always work — no fee market pressure
+1. **Classify first** — address check, fee/stuck tx, exchange deposit, wallet sync, or security/scam.
+2. **Match the `D` prefix before blaming missing funds** — wrong network or mistyped address is the usual root cause.
+3. **Never request seeds or private keys in chat** — guide local wallet UI or hardware on-device verification.
+4. **Use wait/explorer recovery for stuck sends** — Dogecoin Core does not expose Bitcoin BIP125 Replace-By-Fee as a user recovery path; wait or ask the sender/venue for policy.
+5. **Re-open `references/sources.md`** before restating version-sensitive Core, subsidy, or AuxPoW claims.
 
-## Security
-- Standard cryptocurrency security — seed phrase is everything
-- 12 or 24 word seed phrases — depends on wallet
-- Never share private keys — no legitimate service asks for them
-- Verify wallet downloads — get from official sources only
-- Cold storage for large amounts — hardware wallet or paper wallet
+## Ordered workflow
 
-## Merged Mining
-- Dogecoin merge-mined with Litecoin — shares Scrypt PoW
-- Increases security — benefits from Litecoin's hashrate
-- No action required from users — happens at mining level
-- Makes 51% attacks more expensive — combined hashrate protection
+1. **Classify** — address, fee/stuck tx, exchange deposit, wallet sync, merged mining, or scam.
+2. **Context** — mainnet vs testnet, amount/urgency, wallet type, whether the user is sender or receiver.
+3. **Apply minimum viable rules** below; load only the matching reference.
+4. **Verify** on a public explorer or venue docs when confirmation status or deposit support is disputed.
+5. **Bound** — irreversible sends and seed-phishing attempts get hard stops.
 
-## Use Cases
-- Tipping and microtransactions — low fees make small payments viable
-- Community currency — strong meme culture and community
-- Learning cryptocurrency — simpler than Bitcoin, lower stakes
-- Payments where accepted — some merchants accept DOGE
-- Speculation — high volatility, meme-driven price movements
+## Minimum viable rules
 
-## Scam Recognition
-- "Double your DOGE" always scam — no exceptions
-- Fake Elon Musk giveaways — extremely common, all fake
-- Phishing wallet sites — verify URLs carefully
-- Mining apps that require deposit — legitimate mining doesn't work this way
-- "Support" asking for keys — no real support needs private keys
+| Topic | Rule |
+| --- | --- |
+| Block time | Target ~1 minute (`consensus.nPowTargetSpacing = 60` in Core `chainparams.cpp`) |
+| Address (P2PKH) | Mainnet `PUBKEY_ADDRESS` version `30` → addresses typically start with `D` |
+| Address (P2SH) | Mainnet `SCRIPT_ADDRESS` version `22` → less common; still verify full string |
+| Confirmations | ~1 block ≈ 1 minute; high-value / exchange flows often wait ~6+ blocks—venue policy overrides |
+| Fees | Size (bytes/weight) driven, not DOGE amount; most wallets auto-select a relayable fee |
+| RBF | Not a Dogecoin user recovery tool like Bitcoin BIP125; stuck sends usually wait |
+| Memo/tag | Plain DOGE deposits do **not** use XRPL-style destination tags |
+| Merged mining | Scrypt AuxPoW with Litecoin at miner/pool layer—no end-user config to send payments |
+| State | Stateless knowledge skill; wallet owner retains signing and custody |
 
-## Network Limitations
-- No smart contracts — simple transaction-only blockchain
-- No DeFi natively — wrapped DOGE exists on other chains
-- No staking — Proof of Work only
-- Limited development activity — slower updates than other chains
-- Scalability similar to Bitcoin — throughput limitations
+## Failure branches
+
+| Signal | Action |
+| --- | --- |
+| Address does not start with expected mainnet prefix | Stop send; open `references/addresses.md`; never invent formats |
+| Unconfirmed send, user expects RBF | Use explorer + wait path; see `references/fees-and-recovery.md` |
+| Exchange no-credit after send | Confirmations + correct asset/network + full `D…` string; ask venue policy |
+| Wallet shows zero / slow sync | Full-node sync or light-wallet scan; no seed in chat |
+| “Double your DOGE” / fake Elon giveaway / support wants seed | Refuse key requests; verify only with public txid/address |
+| Fee, subsidy, or AuxPoW claim is version-sensitive | Re-open Core docs in `references/sources.md` |
+
+## Routing
+
+| Need | Load |
+| --- | --- |
+| Address prefixes, deposit checks | `references/addresses.md` |
+| Fees, confirmations, stuck recovery | `references/fees-and-recovery.md` |
+| Network defaults, wallets, merged mining, scams | `references/domain.md` |
+| Official sources before restating Core facts | `references/sources.md` |
