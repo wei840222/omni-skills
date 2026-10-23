@@ -13,6 +13,8 @@ First-time United Kingdom base with the strongest museum density, best long-dist
 
 ## Movement Rules
 
+- Quote live TfL caps/fares from `sources.md` rather than memorized prices.
+
 - Plan by zone clusters, not attraction lists spread across the whole city.
 - Use contactless payment on TfL; Oyster is rarely necessary for short visits.
 - Heathrow is operationally easier via Elizabeth line unless the hotel is directly on the Piccadilly line.

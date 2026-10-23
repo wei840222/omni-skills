@@ -1,14 +1,19 @@
 # Sources — United Kingdom Skill
 
-Last checked: 2026-03-09
+Last checked: 2026-10-24
+
+Re-open these live pages before stating fees, eligibility, fare caps, or other mutable official facts. Prefer the official GOV.UK / operator page over secondary blogs.
 
 ## Entry, ETA, and Border
 
-- UK ETA guidance: https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta
-- Check if you need a UK visa: https://www.gov.uk/check-uk-visa
+- Get an ETA overview: https://www.gov.uk/eta
+- Apply for an ETA: https://www.gov.uk/eta/apply
+- When you do not need an ETA: https://www.gov.uk/get-eta/when-not-need-eta
+- What you can and cannot do with an ETA: https://www.gov.uk/eta/what-you-can-cannot-do
+- Check if you need a UK visa or ETA: https://www.gov.uk/check-uk-visa
 - Standard Visitor visa and permitted activities: https://www.gov.uk/standard-visitor
 - UK border control and arrival flow: https://www.gov.uk/uk-border-control
-- Common Travel Area overview: https://www.gov.uk/government/publications/common-travel-area-guidance
+- Common Travel Area guidance: https://www.gov.uk/government/publications/common-travel-area-guidance
 
 ## Customs, Food, and Cash
 
@@ -21,10 +26,10 @@ Last checked: 2026-03-09
 - National Rail journey planning and service info: https://www.nationalrail.co.uk/
 - Passenger Assist: https://www.nationalrail.co.uk/help-and-assistance/passenger-assist/
 - Railcards overview: https://www.nationalrail.co.uk/tickets-railcards-and-offers/buying-a-ticket/ways-to-save/railcards/
-- TfL contactless and Oyster fare caps: https://tfl.gov.uk/fares/find-fares/tube-and-rail-fares/caps-and-travelcard-prices
+- TfL caps and Travelcard prices: https://tfl.gov.uk/fares/find-fares/tube-and-rail-fares/caps-and-travelcard-prices
 - TfL step-free guide: https://tfl.gov.uk/transport-accessibility/
 - Driving in Great Britain on a non-GB licence: https://www.gov.uk/driving-nongb-licence
-- Highway Code: https://www.gov.uk/guidance/the-highway-code
+- The Highway Code: https://www.gov.uk/guidance/the-highway-code
 
 ## Health, Emergencies, and Weather
 

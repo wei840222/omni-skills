@@ -22,7 +22,7 @@
 
 - Rail works best for London, Edinburgh, York, Bath, Oxford, Manchester, and Liverpool.
 - A car becomes more valuable in the Cotswolds, Lake District, Scottish Highlands, rural Wales, and Causeway Coast.
-- Do not combine too many scenic regions in one week; countryside travel is slower than map distance suggests.
+- Limit scenic regions in one week; countryside travel is slower than map distance suggests.
 - Keep the final night near the departure airport or rail hub when flying home.
 
 ## First-Time United Kingdom Suggestions

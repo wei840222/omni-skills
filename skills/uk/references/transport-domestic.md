@@ -28,7 +28,7 @@
 
 - In London, use contactless or mobile wallet on TfL by default.
 - In other major cities, verify whether tap-to-pay, app ticketing, or operator tickets are best.
-- Do not recommend renting a car for London-first trips.
+- Prefer rail and TfL for London-first trips; reserve car rentals for rural loops.
 
 ## Transfer Buffers to Add
 

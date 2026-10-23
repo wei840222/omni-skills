@@ -1,6 +1,6 @@
 # United Kingdom Trip Memory
 
-Create `~/Clawic/data/uk/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure when durable trip context should persist:
 
 ```markdown
 # United Kingdom Trip Memory
@@ -53,3 +53,5 @@ Create `~/Clawic/data/uk/memory.md` with this structure:
 ## Next Trip Improvements
 -
 ```
+
+Keep credentials, full passport numbers, and payment details out of this file.

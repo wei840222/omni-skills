@@ -18,7 +18,7 @@ Users wanting the strongest Britain-style contrast in one country: Edinburgh urb
 - Edinburgh is the best first base for most short Scotland trips.
 - Glasgow is a strong second-city add-on for food, music, and local atmosphere, not mandatory for every itinerary.
 - Highlands routes work best with 3 or more nights and realistic daily mileage.
-- Do not promise Isle of Skye as a quick add-on unless the trip is built around it.
+- Treat Isle of Skye as a trip focus rather than a quick add-on.
 
 ## Good 8-Day Pattern
 

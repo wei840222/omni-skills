@@ -14,7 +14,7 @@ Users wanting a softer-paced contrast to London: Bath, Oxford, Winchester, Salis
 ## Planning Rules
 
 - Bath and Oxford work well by rail; deep Cotswolds coverage is easier with a car.
-- Do not try to "see the whole Cotswolds" in one day.
+- Pick a short Cotswolds village cluster for one day instead of attempting the whole region.
 - Pick one or two village clusters rather than chasing every famous photo stop.
 - If combining Stonehenge with Bath or Salisbury, treat it as a logistics day, not a bonus errand.
 
