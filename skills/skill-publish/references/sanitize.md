@@ -16,7 +16,7 @@ Remove or genericize:
 
 ## Credentials & Secrets
 
-**NEVER include:**
+**Block these items from the publish folder (Fail if found):**
 - [ ] API keys, tokens, passwords
 - [ ] Environment variable VALUES (names are ok)
 - [ ] Private URLs with auth params
@@ -25,7 +25,7 @@ Remove or genericize:
 
 ## Model-Specific References
 
-Remove references to specific models that won't apply to all users:
+Remove references to specific models that do not apply to all users:
 - [ ] "Claude" → "the agent" or "the model"
 - [ ] "GPT" → generic term
 - [ ] Specific model versions
@@ -45,7 +45,7 @@ Remove:
 Check for:
 - [ ] Commands that could damage systems
 - [ ] Patterns that encourage unsafe behavior
-- [ ] Hardcoded paths that won't work elsewhere
+- [ ] Hardcoded paths that do not work elsewhere
 - [ ] Assumptions about user's environment
 
 ## Genericize Examples
