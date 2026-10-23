@@ -148,4 +148,4 @@ Every final output should include base strategy, day-by-day flow with realistic 
 
 **Data that stays local:** Trip preferences and optional notes under `<state_root>/`.
 
-**Out of scope for silent network use:** This skill does not require outbound API calls for core routing. When mutable official facts are needed, open the live pages listed in `references/sources.md` rather than inventing prices, fees, or eligibility.
+**Official facts:** Core routing needs no outbound API. When mutable official facts are needed, open the live pages listed in `references/sources.md` and quote from there.
