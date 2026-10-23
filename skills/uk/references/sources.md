@@ -2,6 +2,8 @@
 
 Last checked: 2026-10-24
 
+Gate 6 research refresh: ETA fee/duration/eligibility verified on live GOV.UK pages; TfL amounts deferred to live caps page.
+
 Re-open these live pages before stating fees, eligibility, fare caps, or other mutable official facts. Prefer the official GOV.UK / operator page over secondary blogs.
 
 ## Entry, ETA, and Border
