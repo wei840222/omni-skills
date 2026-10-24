@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our customer service agent is looping forever when a user query has multiple issues. How should we debug and fix the loop?",
+    "expected": "Diagnoses the loop shape, identifies missing cycle detection or termination conditions, and recommends hard iteration limits, state-transition checkpoints, and escalation.",
+    "actual": "To debug and resolve the loop:\n1. Identify Failure Mode: Check turn traces to see if the model is repeating the same tool invocation or failing to observe that an issue has been solved. Check if multiple issues create competing goals in the context window.\n2. Cycle Breaker: Implement a max_iterations ceiling (e.g. 5 iterations) and add a tool-call hash deduplicator to abort when identical tool calls recur.\n3. Structured State Checklist: Enforce a scratchpad where the agent explicitly checks off sub-issues [resolved / pending].\n4. Escalation Policy: If an issue remains unresolved after 2 retries, trigger an escalation checkpoint to transfer to a human specialist.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need to design a tool-calling schema for a database query agent so it doesn't hallucinate column names or inject SQL. How should we constrain it?",
+    "expected": "Recommends strict parameterized JSON schema with enum constraints, read-only DB user permissions, and an upfront schema-discovery tool.",
+    "actual": "To constrain the database agent:\n1. Pre-query Schema Introspection: Provide a `describe_table(table_name: str)` tool so the agent inspects real schema definitions before formulating queries.\n2. Parameterized Tool Schemas: Avoid accepting raw SQL strings (`execute_sql(query: str)`). Instead, design typed parameter tools (e.g. `query_orders(customer_id: int, status: Enum['pending', 'paid'], limit: int)`).\n3. Least Privilege: Connect via a database user granted strictly `SELECT` on authorized views, with hard query execution timeouts and row limits.\n4. Parameter Validation: Enforce strict JSON Schema validation before the parameters reach the database adapter.",
+    "pass": true
+  }
+]

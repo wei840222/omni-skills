@@ -27,6 +27,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| agents                       | 2026-10-25 | 88/100 (#62)                     |
 | agentic-coding               | 2026-10-24 | 88/100 (#987)                    |
 | writing                      | 2026-10-24 | 86/100 (#986)                    |
 | uk                           | 2026-10-24 | 88/100 (#985)                    |

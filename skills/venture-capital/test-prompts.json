@@ -1,10 +1,16 @@
 [
   {
+    "id": 1,
     "prompt": "We are looking at a pre-seed SaaS startup with a solo technical founder and no revenue. They are asking for a $2M safe at a $15M cap. What should we look out for?",
-    "actual": "Based on venture capital guidelines:\n\n1.  **Founder Dynamics**: A solo technical founder, especially for B2B sales, is a significant risk factor to investigate. You need to assess how they will handle go-to-market and sales without a dedicated co-founder.\n2.  **Valuation**: A $15M valuation cap at the pre-seed stage with no revenue is generally considered quite high. Standard pre-seed checks are $100K-$500K. You should examine the justification for this valuation.\n3.  **Deal Structure**: Evaluate if a SAFE is the best instrument here, and consider negotiating the cap down or ensuring appropriate pro-rata rights for future rounds.\n4.  **Market & Economics**: Even at pre-seed, ensure they have a bottoms-up TAM analysis and a clear path to early customer acquisition."
+    "expected": "Analyzes valuation cap vs pre-seed stage benchmarks ($15M cap is in the 90th percentile without traction), assesses solo founder execution risks, and outlines diligence checklist.",
+    "actual": "Based on venture capital guidelines:\n1. Founder Dynamics: Solo technical founders face high execution risk without a commercial/GTM counterpart. Assess past shipping speed, hiring ability, and customer discovery capabilities.\n2. Valuation & Dilution: A $15M cap for pre-revenue pre-seed is at the extreme upper percentile of market norms ($4M–$8M is typical). A high cap sets aggressive expectations for the subsequent priced Series Seed round.\n3. Diligence Priorities: Technical moat, customer problem validation, and pilot pipeline.",
+    "pass": true
   },
   {
+    "id": 2,
     "prompt": "Explain what 1x non-participating liquidation preference means.",
-    "actual": "A 1x non-participating liquidation preference is a standard VC term that dictates how proceeds are distributed in a liquidity event (like an acquisition or bankruptcy):\n\n*   **1x Preference**: This means the investor has the right to get their original investment amount (1x) back before any common shareholders (founders, employees) receive anything.\n*   **Non-participating**: After the investor receives their 1x preference, they do not 'participate' in sharing the remaining proceeds with common shareholders. Instead, they must choose between two options:\n    1.  Take their 1x preference payout.\n    2.  Convert their preferred shares to common shares and take a percentage of the total payout based on their ownership stake.\n\nThe investor will choose whichever option yields a higher return. This structure protects the investor's downside while aligning upside incentives with the founders."
+    "expected": "Defines 1x preference (investors receive 1x investment back before common stock) and non-participating (investors choose either 1x return OR common stock conversion, not both).",
+    "actual": "A 1x non-participating liquidation preference is standard market practice for venture financings:\n- '1x Preference': In a liquidity event (acquisition or dissolution), the preferred shareholder gets their original investment amount back before common shareholders receive proceeds.\n- 'Non-Participating': The investor must choose either their 1x investment return OR converting their preferred shares to common stock to share pro-rata in total proceeds. They do NOT get both ('double dipping').",
+    "pass": true
   }
 ]

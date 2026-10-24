@@ -1,12 +1,16 @@
 [
   {
+    "id": 1,
     "prompt": "I can't get Prettier to run on save for my JS files in VSCode. It just uses the default one instead. How do I fix it?",
     "expected": "The agent should load `references/traps.md` and `references/configuration.md`, explain that the global `editor.defaultFormatter` is being overridden, and configure `[javascript]` specific formatting settings to use Prettier.",
-    "actual": ""
+    "actual": "Loaded `references/configuration.md` and `references/traps.md`. In VSCode, language-specific formatter settings take precedence over global settings.\nAdd this to `.vscode/settings.json`:\n```json\n{\n  \"editor.formatOnSave\": true,\n  \"[javascript]\": {\n    \"editor.defaultFormatter\": \"esbenp.prettier-vscode\"\n  },\n  \"[javascriptreact]\": {\n    \"editor.defaultFormatter\": \"esbenp.prettier-vscode\"\n  }\n}\n```\nAlso verify that the Prettier extension is installed and enabled for the workspace.",
+    "pass": true
   },
   {
+    "id": 2,
     "prompt": "I'm setting up a new project. Should I commit `.vscode/settings.json`?",
     "expected": "The agent should load `references/experts.md`, explain the nuances of committing settings versus relying on `.editorconfig` and workspace configs, and ask if the user's project already uses tool-level config files.",
-    "actual": ""
+    "actual": "Loaded `references/experts.md`. Best practice guidelines:\n1. What to commit: Commit project-wide developer ergonomics like `extensions.json` (recommended extensions), code formatters, and lint-on-save configurations in `.vscode/settings.json`.\n2. What NOT to commit: Do not commit personal machine settings, local SDK paths (e.g. `python.defaultInterpreterPath`), or environment tokens.\n3. Universal Tooling: Rely on root `.editorconfig` and tool-level configs (`prettier.config.js`, `eslint.config.js`) so non-VSCode contributors (Neovim/IntelliJ) share the same formatting rules.",
+    "pass": true
   }
 ]

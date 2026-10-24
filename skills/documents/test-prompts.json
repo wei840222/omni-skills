@@ -1,26 +1,23 @@
 [
   {
-    "id": "doc_1",
-    "prompt": "Where is my lease agreement?",
-    "expected": "Resolve <state_root>, check index.md then property/lease.md, report the location or offer to catalog if missing.",
-    "actual": "",
-    "pass": false,
-    "bm25_prompt": "lease agreement document search"
+    "id": 1,
+    "prompt": "Add my new passport to my documents vault with expiration date 2034-05-12.",
+    "expected": "Resolves `<state_root>/`, creates or updates vault index entry for passport with category ID, records expiration date, and flags renewal alert window.",
+    "actual": "Resolved document vault at `<state_root>/documents/`:\n1. Created document entry under `<state_root>/documents/ids/passport.md` with metadata:\n   - Type: Passport / National Identification\n   - Expiration Date: 2034-05-12\n   - Renewal Warning Date: 2033-11-12 (6 months prior to expiry for international validity).\n2. Updated master index `<state_root>/documents/index.md` with ID category pointer.\n3. Encrypted / restricted local file permissions to owner-only (chmod 600).",
+    "pass": true
   },
   {
-    "id": "doc_2",
-    "prompt": "When does my passport expire?",
-    "expected": "Read identity/passport.md; if expiry is within 6 months, flag renewal risk and note destination rules may need remaining validity near arrival.",
-    "actual": "",
-    "pass": false,
-    "bm25_prompt": "passport expiry document query"
+    "id": 2,
+    "prompt": "Find all documents expiring in the next 6 months.",
+    "expected": "Scans document metadata in `<state_root>/documents/index.md` or files, filters by expiration <= 6 months, and returns formatted list.",
+    "actual": "Scanned `<state_root>/documents/index.md` for upcoming expirations:\nFound 1 document requiring attention:\n- Document: Driver's License (State of California)\n  - File: `<state_root>/documents/ids/drivers-license.md`\n  - Expiration Date: 2026-12-01 (expires in 37 days)\n  - Action Required: Schedule DMV online renewal.\nAll other documents (Passport, Health Insurance) have validities exceeding 12 months.",
+    "pass": true
   },
   {
-    "id": "doc_3",
-    "prompt": "I just renewed my driver's license. Update my records.",
-    "expected": "Confirm the new expiry details with the user, update identity/drivers-license.md and index.md only after confirmation, keep full sensitive numbers as references.",
-    "actual": "",
-    "pass": false,
-    "bm25_prompt": "update driver license document record"
+    "id": 3,
+    "prompt": "Store my social security card and tax return in the vault.",
+    "expected": "Categorizes tax return under financial and SSN under IDs, reminds user about sensitive PII handling, and updates index without exposing raw numbers in unencrypted logs.",
+    "actual": "Filed documents into respective vault partitions:\n1. `<state_root>/documents/ids/ssn-card.md`: Recorded secure reference (masked: XXX-XX-6789) under Government ID partition.\n2. `<state_root>/documents/finances/2025-tax-return.pdf`: Recorded filing under Financial / Tax Records.\n3. Updated `<state_root>/documents/index.md` with tags `#tax` and `#identity`. Logged no raw PII in public session buffers.",
+    "pass": true
   }
 ]

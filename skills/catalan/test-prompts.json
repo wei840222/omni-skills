@@ -1,12 +1,16 @@
 [
   {
-    "id": "casual-central",
-    "prompt": "Translate to casual Central Catalan: 'Hi! Are you coming to the party tonight? It will be great.'",
-    "expected": "Uses an informal greeting and tu-form phrasing while preserving a natural casual register."
+    "id": 1,
+    "prompt": "Translate this email to natural professional Catalan: 'Dear Mr. Garcia, thank you for sending the proposal. We will review it with the board on Tuesday and follow up by the end of the week.'",
+    "expected": "Translates into natural formal Catalan using proper salutation, honorifics, and vocabulary (benvolgut, consell d'administració, etc.).",
+    "actual": "Benvolgut senyor Garcia,\n\nMoltes gràcies per enviar-nos la proposta. Dimarts la revisarem amb el consell d'administració i ens tornarem a posar en contacte amb vostè abans de finals de setmana.\n\nAtentament,\n[Nom]",
+    "pass": true
   },
   {
-    "id": "valencian-decline",
-    "prompt": "Write a friendly Valencian reply declining coffee this afternoon because of too much work.",
-    "expected": "Uses a consistent Valencian choice such as vesprada and idiomatic Catalan vocabulary."
+    "id": 2,
+    "prompt": "Explain the difference between 'per' and 'per a' in standard Catalan grammar.",
+    "expected": "Explains standard IEC grammar rules: 'per' for cause, agent, transit, time, means; 'per a' for destination, purpose, or recipient.",
+    "actual": "In standard Catalan (IEC norm):\n- 'Per' denotes cause ('Ho faig per obligació'), agent in passive voice ('escrit per Mercè Rodoreda'), means/instrument ('enviar per correu'), time/location transit ('passar per Girona').\n- 'Per a' denotes recipient/destination ('un regal per a tu') or finality/purpose ('eines per a cuinar'). Note that before an infinitive expressing purpose, standard Central Catalan allows 'per' while Valencian and traditional registers often use 'per a'.",
+    "pass": true
   }
 ]

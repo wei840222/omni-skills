@@ -1,14 +1,16 @@
-{
-  "prompts": [
-    {
-      "prompt": "I need to upscale an old 720p video to 4K and color grade it for a cinematic look.",
-      "actual": "I will load the video-edit skill. First, I'll upscale the 720p video to 4K using a tool like Topaz Video AI or Real-ESRGAN as recommended in the upscaling reference. After upscaling, I'll move on to color grading using DaVinci Resolve or Runway to achieve the cinematic look you're aiming for. Let's start by checking your current tools and setup.",
-      "score": 100
-    },
-    {
-      "prompt": "Can you remove the background from this clip and replace it with a space scene?",
-      "actual": "I will load the video-edit skill. To replace the background, I'll use video matting techniques (like Runway or rotobrush) to export the subject with an alpha channel. Then, I'll place the subject over the space scene, match the lighting and color, and composite shadows if necessary. Please provide the clip to get started.",
-      "score": 100
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "prompt": "I need to upscale an old 720p video to 4K and color grade it for a cinematic look.",
+    "expected": "Recommends two-stage pipeline: AI upscaling to 4K first, followed by color grading in DaVinci Resolve or Runway.",
+    "actual": "Recommended two-stage editing pipeline:\n1. AI Upscaling (720p to 4K):\n   - Use Topaz Video AI (Proteus or Gaia model) or Real-ESRGAN to reconstruct high-frequency details and remove compression artifacts without over-sharpening.\n   - Export as ProRes 422 HQ or high-bitrate DNxHR to maintain color bit depth.\n2. Color Grading (Cinematic Aesthetic):\n   - Import the 4K intermediate into DaVinci Resolve (Color Page).\n   - Normalize color space using DaVinci YRGB Color Managed (DWG/Intermediate).\n   - Apply contrast curves, adjust white balance, and use a film emulation LUT (e.g. Kodak 2383) with split-toning (teal in shadows, warm in skin tones).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you remove the background from this clip and replace it with a clean studio background?",
+    "expected": "Suggests AI rotoscoping / green screen removal tools (Runway / DaVinci Magic Mask) and composites with studio backdrop.",
+    "actual": "Here is the background replacement workflow:\n1. Subject Isolation / Rotoscoping:\n   - Use DaVinci Resolve Magic Mask (or Runway Gen-2 Green Screen) to isolate the subject from the complex background.\n   - Refine mask edges with a 2-pixel feather and motion blur matching the camera shutter.\n2. Composite Background:\n   - Place the clean studio backdrop on Video Track 1 and the isolated subject on Video Track 2.\n   - Color match the subject's ambient lighting to the studio background by adding a subtle light wrap and adjusting color temperature.",
+    "pass": true
+  }
+]

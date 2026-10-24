@@ -1,9 +1,16 @@
 [
   {
     "id": 1,
-    "prompt": "I'm a 35-year-old male and I just got my blood test back. My ferritin is 40 ng/mL, but the lab range says 30-400 ng/mL so it's normal. I eat an omnivore diet. Am I getting enough iron?",
-    "expected": "Identify that ferritin 40 ng/mL is in-range but may be sub-optimal; do not start iron on the number alone; check symptoms (e.g. restless legs), inflammation confounders, dietary iron form, and absorption factors before any supplement.",
-    "actual": "Ferritin 40 ng/mL sits inside a common 30-400 lab range but is low-normal. I will not treat the number as proven iron deficiency. Next: ask about fatigue or restless legs, check CRP/inflammation context if available, review heme vs non-heme intake and inhibitors (tea/coffee/calcium with meals), and only then discuss food-first iron density or testing\u2014not a blind supplement.",
+    "prompt": "I'm a 35-year-old male and I just got my blood test back. My ferritin is 40 ng/mL, hemoglobin is 14.5 g/dL. Is this normal?",
+    "expected": "Identify that ferritin 40 ng/mL is in-range but may be suboptimal for high performers, hemoglobin is normal, and suggest dietary iron checks without unguided high-dose iron pills.",
+    "actual": "Ferritin 40 ng/mL sits inside standard reference ranges (typically 30–400 ng/mL), but represents lower storage iron that can contribute to fatigue during endurance exertion. Your hemoglobin at 14.5 g/dL indicates no active anemia. Rather than taking unguided high-dose iron supplements (which can cause GI irritation and oxidative stress), focus on dietary bioavailable heme iron (lean beef, poultry, sardines) paired with vitamin C, while avoiding coffee/tea within 1 hour of iron-rich meals.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm experiencing muscle cramps and fatigue after long runs. What should I check in my diet?",
+    "expected": "Assesses electrolyte intake (sodium, magnesium, potassium), hydration strategy, and recommends dietary sources over unguided mega-dosing.",
+    "actual": "For exercise-associated cramping and post-run fatigue, evaluate:\n1. Sodium & Fluid Balance: Weigh yourself before and after runs. Replace each lost pound with 16–24 oz of water containing 300–500 mg sodium if sweating heavily.\n2. Electrolytes (Potassium & Magnesium): Prioritize dietary potassium (potatoes, bananas, spinach, coconut water) and magnesium (pumpkin seeds, almonds, dark chocolate, black beans).\n3. Glycogen Replenishment: Consume 1–1.2 g/kg carbohydrates within 45 minutes post-run paired with 20–30 g protein to accelerate glycogen resynthesis and reduce muscle breakdown.",
     "pass": true
   }
 ]

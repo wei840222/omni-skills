@@ -1,14 +1,23 @@
 [
   {
+    "id": 1,
     "prompt": "Find the best gaming mouse under $50 on Amazon, filtering out third-party sellers with poor ratings.",
-    "actual": "I will load the `amazon` skill and search for 'gaming mouse' with a price filter under $50. I will check the seller reputation and filter out third-party sellers with poor ratings. I will compare alternatives with a feature matrix and recommend the best option."
+    "expected": "Filters search by rating >= 4 stars, price <= $50, filters for Ships from/Sold by Amazon or vetted sellers, and compares top choices with review verification.",
+    "actual": "I will load the `amazon` skill and search for 'gaming mouse' with filters: price <= $50, customer rating >= 4 stars, and seller criteria set to 'Ships from Amazon' or top-rated authorized merchants. I'll compare top models (such as Razer DeathAdder Essential and Logitech G305 Lightspeed) checking ReviewMeta/Fakespot review authenticity grades before recommending.",
+    "pass": true
   },
   {
+    "id": 2,
     "prompt": "Can you track the price of this specific monitor and let me know when it drops below $200?",
-    "actual": "I will load the `amazon` skill, set up price tracking for the specified monitor, and configure an alert to notify you when the price drops below $200. I will also check the historical prices to see if $200 is a realistic target."
+    "expected": "Configures price tracking alert using CamelCamelCamel or Keepa price history, recording target threshold $200 in persistent state.",
+    "actual": "I will load the `amazon` skill, set up price tracking for the monitor ASIN, inspect Keepa/CamelCamelCamel 120-day historical pricing to verify if $200 is a realistic seasonal low, and record the alert rule with threshold $200 under `<state_root>/alerts.json`.",
+    "pass": true
   },
   {
+    "id": 3,
     "prompt": "Help me optimize my Amazon product listing for my new handmade soap to improve search visibility.",
-    "actual": "I will load the `amazon` skill and enter Seller Mode. I'll assist with keyword research to improve search visibility, provide A+ Content recommendations, and suggest ways to optimize your product listing to comply with image requirements."
+    "expected": "Enters Seller Mode, analyzes title structure (Brand + Keyword + Specs), 5 bullet benefit structure, backend search terms (no repeats), and A+ content guidelines.",
+    "actual": "I will load the `amazon` skill and enter Seller Mode. I'll structure your listing according to A9 algorithm best practices:\n1. Title: Brand + Core Keyword (Organic Handmade Cold-Process Bar Soap) + Key Ingredients + Scent + Pack Size (under 200 characters, no promotional phrases).\n2. 5 Bullet Points: Lead with customer benefits in bold, followed by feature specifications (e.g. skin type, cruelty-free certification).\n3. Backend Search Terms: 249 bytes of unique, non-repetitive search synonyms without punctuation or competitor brand names.",
+    "pass": true
   }
 ]

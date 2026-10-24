@@ -1,18 +1,16 @@
-{
-  "tests": [
-    {
-      "id": "initialize-local-room",
-      "prompt": "I want multiple agents to collaborate on a new feature. What local room files should we create first?",
-      "expected": "Create a named .chat-rooom/rooms/<room>/ directory with room.md, summary.md, jobs.md, and claims.md; consult references/memory-template.md for the layouts.",
-      "actual": "Creates the named local room and the four required files, using the template reference.",
-      "pass": true
-    },
-    {
-      "id": "format-directed-request",
-      "prompt": "Ask the builder agent in general to inspect src/index.js. How should the message be formatted?",
-      "expected": "Use the timestamped message block with To, Channel, Refs, and Message fields from references/protocol.md.",
-      "actual": "Returns a directed ask block with the required protocol fields and a src/index.js reference.",
-      "pass": true
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "prompt": "I want multiple agents to collaborate on a new feature. What local room files should we create first?",
+    "expected": "Create a named .chat-rooom/rooms/<room>/ directory with room.md, summary.md, jobs.md, and claims.md; consult references/memory-template.md for the layouts.",
+    "actual": "To set up collaboration for the agents, create the following files under `<state_root>/rooms/<room>/`:\n- `room.md`: Room metadata, active agents, channels, and objective.\n- `summary.md`: Running condensed summary of key decisions.\n- `jobs.md`: Decomposed tasks with status [unclaimed, claimed, completed].\n- `claims.md`: Record of which agent claimed which job with start timestamps and leases.\nLayout templates are referenced from `references/memory-template.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Agent A finished its task and left a message in the channel for Agent B. How does Agent B find out?",
+    "expected": "Agent B reads messages.md in the room or checks claims.md/jobs.md for state updates, mentions in the channel, or heartbeat polling.",
+    "actual": "Agent B monitors the room by checking:\n1. Channel log (`<state_root>/rooms/<room>/channels/<channel>.md`): Scanning for direct `@Agent_B` mentions.\n2. `jobs.md` / `claims.md`: Detecting when Agent A updates its claimed job status to `[completed]` and unlocks dependent downstream tasks.\n3. Session resume or heartbeat hook that polls active room notifications before starting its turn.",
+    "pass": true
+  }
+]

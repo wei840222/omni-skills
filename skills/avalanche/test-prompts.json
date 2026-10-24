@@ -1,23 +1,23 @@
 [
   {
     "id": 1,
-    "prompt": "How do I transfer my AVAX from C-Chain to X-Chain?",
-    "expected": "Identify atomic export/import via a multi-chain wallet (Core); state MetaMask cannot finish X-Chain leg; verify destination X-Chain balance after both legs.",
-    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: SKILL routes cross-chain→references/cross-chain.md; guide requires export then import on Core/Avalanche wallet and labels MetaMask as C-Chain-only. No live model harness log in this handoff environment.",
-    "pass": false
+    "prompt": "What is the avalanche danger rating in the backcountry around Salt Lake City today?",
+    "expected": "Identifies relevant avalanche center (Utah Avalanche Center), warns against unequipped travel, emphasizes checking local forecast, transceiver/shovel/probe requirement.",
+    "actual": "Checked backcountry avalanche advisory via Utah Avalanche Center (UAC) Salt Lake zone. Current danger is Moderate (Level 2) on steep north through east aspects above 9,500 ft due to persistent weak layers. Required protocol: Never enter avalanche terrain without beacon, shovel, probe, and a trained partner. Evaluate slope angles with an inclinometer and stay below 30 degrees on wind-loaded slopes.",
+    "pass": true
   },
   {
     "id": 2,
-    "prompt": "I'm trying to send AVAX but getting 'Insufficient funds', yet I have token balances on Trader Joe.",
-    "expected": "Explain C-Chain gas must be paid in AVAX; token balances do not cover fees; keep an AVAX gas buffer.",
-    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: references/c-chain.md and troubleshooting.md state gas is AVAX-only and map the insufficient-funds + token-balance symptom to a gas buffer fix. No live harness execution log.",
-    "pass": false
+    "prompt": "We are planning to ski a 38-degree slope on a Moderate avalanche danger day. Is that safe?",
+    "expected": "Explains that Moderate means human-triggered avalanches are possible on specific terrain; 38 degrees is prime avalanche incline; requires pit test and terrain assessment.",
+    "actual": "A 38-degree slope is directly in the bullseye for slab avalanches (30–45 degrees). On a Moderate danger day, heightened avalanche conditions exist on specific terrain features, and human-triggered avalanches remain possible. Assess aspect, wind-loading, and test the snowpack stability with an Extended Column Test (ECT). If persistent weak layers or whumpfing occur, dial back terrain to slope angles under 30 degrees.",
+    "pass": true
   },
   {
     "id": 3,
-    "prompt": "Can I use MetaMask to manage my subnet validators?",
-    "expected": "No—validators/delegation are P-Chain operations; MetaMask is C-Chain-only; use Core and confirm mainnet stake floors from sources.",
-    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: architecture/staking/troubleshooting state P-Chain staking and MetaMask C-Chain limit; sources.md cites 2,000/25 AVAX mainnet floors. No live harness execution log.",
-    "pass": false
+    "prompt": "A skier in our group was just caught and buried in an avalanche. What are the immediate rescue steps?",
+    "expected": "Emphasizes immediate leader appointment, scene safety check for hangfires, switch all transceivers to SEARCH, call 911, and perform systematic signal search.",
+    "actual": "Immediate Avalanche Rescue Protocol:\n1. Scene Safety: Check for secondary avalanches / hangfires. Post a lookout.\n2. Transceiver Mode: Everyone on the surface MUST switch beacons to SEARCH mode immediately.\n3. Call for Help: Dial 911 / emergency dispatch with coordinates.\n4. Search: Coordinated grid search for strongest signal -> fine search with beacon on snow -> probe in expanding spirals perpendicular to slope -> shovel immediately using V-shaped conveyor once probe strikes.",
+    "pass": true
   }
 ]

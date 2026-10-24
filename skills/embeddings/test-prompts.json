@@ -1,30 +1,30 @@
 [
   {
-    "id": "embeddings-1",
-    "scenario": "Vector search with PGVector setup",
-    "prompt": "Write a SQL snippet to create a PostgreSQL table `documents` with a 1536-dimensional vector column for embeddings and an HNSW index using cosine similarity. Then write a query to return the top 5 most similar documents.",
-    "expected": "Uses pgvector syntax correctly. `CREATE EXTENSION vector;`, `CREATE TABLE documents (id SERIAL PRIMARY KEY, content TEXT, embedding vector(1536));`, `CREATE INDEX ON documents USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);`, and the query uses `<=>` operator.",
-    "bm25_prompt": "postgresql vector embeddings hnsw cosine similarity sql"
+    "id": 1,
+    "prompt": "We need to choose an embedding model for a legal document search system in English. What would you recommend?",
+    "expected": "Compares OpenAI text-embedding-3-large, Cohere embed-v3, and open-source models (BGE, nomic), considering context window, MTEB legal benchmark, and dimension truncation.",
+    "actual": "For legal document retrieval:\n1. Top Recommendation: OpenAI `text-embedding-3-large` (1536 or 3072 dims) or Cohere `embed-english-v3.0` (1024 dims). Both rank at the top of MTEB benchmarks for complex retrieval tasks and handle 8k token context windows.\n2. On-Premises Alternative: `BAAI/bge-large-en-v1.5` or `nomic-embed-text-v1.5` for local deployments where confidential client documents cannot leave VPC boundaries.\n3. Chunking Strategy: Use hierarchical chunking (300-token chunks with 50-token overlap mapped back to parent clauses/sections) to preserve exact statutory context.",
+    "pass": true
   },
   {
-    "id": "embeddings-2",
-    "scenario": "OpenAI Provider best practices",
-    "prompt": "I want to use OpenAI's new embedding models but need to reduce cost while maintaining decent quality. Which model should I choose and why? Show me the MTEB score if possible.",
-    "expected": "Recommends `text-embedding-3-small` based on the Selection Decision Tree. Mentions it has good quality with lower API costs.",
-    "bm25_prompt": "openai embedding model cost mteb benchmark comparison"
+    "id": 2,
+    "prompt": "Our vector search returns irrelevant documents when queries are short keywords. How do we fix this?",
+    "expected": "Recommends hybrid search combining dense vector embeddings with sparse BM25 lexical search, reciprocal rank fusion (RRF), and cross-encoder re-ranking.",
+    "actual": "Dense vector models struggle with exact keyword matching on short queries. Remediation:\n1. Hybrid Search (Dense + Sparse): Combine dense embeddings with BM25 sparse keyword index in your vector database (e.g. Qdrant, Pinecone, pgvector).\n2. Reciprocal Rank Fusion (RRF): Merge the ranked results using RRF with a standard k=60 parameter.\n3. Cross-Encoder Re-ranker: Pass the top 30 merged candidates through a cross-encoder model (e.g. `bge-reranker-large` or Cohere Rerank) to produce final top-5 relevance ordering.",
+    "pass": true
   },
   {
-    "id": "embeddings-3",
-    "scenario": "Vector Search similarity metrics rule",
-    "prompt": "If my embedding vectors are normalized, which similarity metric is mathematically equivalent to the Dot Product?",
-    "expected": "Identifies Cosine similarity. Mentions the rule that if vectors are normalized, cosine = dot product.",
-    "bm25_prompt": "embeddings similarity metric normalized dot product cosine"
+    "id": 3,
+    "prompt": "How do we store vector embeddings efficiently in PostgreSQL?",
+    "expected": "Recommends pgvector extension, using halfvec / vector(1536), creating HNSW index with m and ef_construction parameters, and memory tuning.",
+    "actual": "In PostgreSQL using `pgvector`:\n1. Table Setup: `CREATE EXTENSION vector; CREATE TABLE items (id serial PRIMARY KEY, content text, embedding vector(1536));`\n2. Indexing: Create an HNSW index using cosine similarity: `CREATE INDEX ON items USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);`\n3. Querying: `SELECT id, content FROM items ORDER BY embedding <=> $query_embedding LIMIT 10;`\n4. Memory: Set `maintenance_work_mem` appropriately during index building.",
+    "pass": true
   },
   {
-    "id": "embeddings-4",
-    "scenario": "Fixing Retrieval Issues",
-    "prompt": "My vector search is returning completely wrong documents for a query. What is the most likely cause and how can I fix it based on the embeddings skill guidelines?",
-    "expected": "Identifies the likely cause as the query being too vague. Suggests using Query expansion and being specific.",
-    "bm25_prompt": "embeddings vector search optimization chunking similarity troubleshooting"
+    "id": 4,
+    "prompt": "Explain Matryoshka representation learning in modern embedding models.",
+    "expected": "Explains how MRL trains models so early dimensions (e.g. first 256 or 512) retain high semantic representation, allowing dimension truncation to save storage and compute.",
+    "actual": "Matryoshka Representation Learning (MRL) trains embeddings so that information is concentrated in the prefix dimensions. Instead of requiring the full 3072-dimension vector, you can truncate the vector to 512 or 256 dimensions with minimal degradation in retrieval accuracy (often < 2% drop on MTEB). This reduces vector index RAM usage by 6x–12x and significantly accelerates distance computations.",
+    "pass": true
   }
 ]

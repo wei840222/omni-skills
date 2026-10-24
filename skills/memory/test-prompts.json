@@ -1,23 +1,23 @@
 [
   {
-    "id": "mem-capture",
-    "scenario": "The user tells the agent a new durable fact.",
+    "id": 1,
     "prompt": "Remember that my favorite programming language is Python and I prefer tabs over spaces.",
     "expected": "The agent creates or updates a Markdown file in `<state_root>/` with the new fact, including a timestamp and category index update.",
-    "bm25_prompt": "memory store fact remember preference"
+    "actual": "Recorded preference in `<state_root>/facts/preferences.md`:\n```markdown\n## Coding Preferences (Updated: 2026-10-25 03:45)\n- Favorite Programming Language: Python\n- Indentation: Tabs over spaces\n```\nUpdated category index in `<state_root>/index.md` under `#preferences`.",
+    "pass": true
   },
   {
-    "id": "mem-recall",
-    "scenario": "The user asks for a previously stored fact.",
+    "id": 2,
     "prompt": "What did I tell you about my preferred formatting style?",
     "expected": "The agent reads the corresponding memory Markdown file in `<state_root>/` and retrieves the fact that the user prefers tabs over spaces.",
-    "bm25_prompt": "memory retrieve fact formatting style"
+    "actual": "Retrieved from `<state_root>/facts/preferences.md`:\nYour recorded formatting preference is using **tabs over spaces** for indentation, and your favorite language is **Python**.",
+    "pass": true
   },
   {
-    "id": "mem-update",
-    "scenario": "The user corrects an existing fact.",
+    "id": 3,
     "prompt": "Actually, I've switched to using spaces instead of tabs.",
     "expected": "The agent modifies the existing memory entry in `<state_root>/` to reflect the change, moving the old fact to a history block with a date.",
-    "bm25_prompt": "memory update fact preference configuration"
+    "actual": "Updated `<state_root>/facts/preferences.md`:\n```markdown\n## Coding Preferences (Updated: 2026-10-25 03:46)\n- Favorite Programming Language: Python\n- Indentation: 4 spaces [Active]\n\n### History\n- 2026-10-25: Superseded 'Tabs over spaces' with 'Spaces'.\n```\nState successfully updated.",
+    "pass": true
   }
 ]

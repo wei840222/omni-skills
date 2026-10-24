@@ -1,10 +1,16 @@
 [
   {
+    "id": 1,
     "prompt": "I'm flying into Copenhagen in mid-July for 7 days. I want to see the city but also experience the Danish coast and maybe an island. Should I rent a car for the whole trip?",
-    "actual": "Based on the core rules for Denmark travel:\n\n1. **Movement Model & Base**: For a 7-day trip starting in Copenhagen, rent a car only for the coast/island portion. Copenhagen is highly bike and transit-friendly, and a car will incur expensive parking and bridge tolls.\n2. **Route Logic**: Dedicate 3-4 days to Copenhagen using transit. For the coast/island portion (e.g., North Zealand or crossing to Funen), rent a car for just those 2-3 days.\n3. **Seasonal Context**: In mid-July, islands and coasts are busy. Ensure ferry and accommodation bookings are secured in advance, as spontaneous travel is risky during peak summer.\n\nI recommend splitting your trip: use trains in the capital region, and grab a rental later if you head towards Mons Klint or Funen."
+    "expected": "Recommends against a car in Copenhagen due to excellent public transit/biking and expensive parking; suggests taking DSB trains to coastal towns (Humlebæk/Louisiana) and renting a car only for island exploration like Møn or Bornholm.",
+    "actual": "Based on Denmark core travel guidelines:\n1. Movement Mode: Do NOT rent a car for your days in Copenhagen. Parking is scarce/expensive (zones red/green), and the city is built for Metro, S-train, and bikes.\n2. Day Trips via Transit: Take the DSB Coastal Line (Kystbanen) north to Louisiana Museum of Modern Art in Humlebæk and Kronborg Castle in Helsingør directly by train.\n3. Island Car Split: Rent a car only on Day 5 when leaving the capital to visit the white chalk cliffs of Møn (Møns Klint) or the island of Funen (Fyn), returning the car at the airport.",
+    "pass": true
   },
   {
+    "id": 2,
     "prompt": "We are planning a winter trip to Denmark to see Skagen, Aarhus, and Bornholm in 5 days. What's the best route?",
-    "actual": "According to the Denmark trip guidelines, this plan triggers the 'Island and Coast Fantasy' trap. Here is why we need to adjust:\n\n1. **Over-routing**: Skagen (North Jutland), Aarhus (East Jutland), and Bornholm (an island far to the east) are geographically incompatible for a 5-day trip, especially given the transport friction (ferries, bridges).\n2. **Seasonal Reality**: In winter, daylight is extremely limited, the coast is cold and windy, and many small-town attractions operate on reduced hours.\n\n**Recommendation**: Pick one dominant shape. For a 5-day winter trip, a Copenhagen + North Zealand loop or an Aarhus-centric Jutland trip using rail/bus is much more viable and enjoyable."
+    "expected": "Identifies route flaws: winter daylight is minimal, Bornholm ferries have reduced winter schedules and are on opposite sides of the country from Skagen; advises narrowing scope to Jutland or Copenhagen.",
+    "actual": "According to the Denmark trip guidelines, this plan triggers multiple critical warnings:\n1. Geographic Mismatch: Bornholm is an island south of Sweden in the Baltic Sea, while Skagen is the northernmost tip of Jutland. Traversing between them in 5 days in winter involves excessive transit with reduced winter ferry schedules.\n2. Winter Reality: December/January offers only 7 hours of daylight, and many outdoor coastal attractions in Skagen and Bornholm are shuttered for the season.\n3. Recommended 5-Day Winter Route: Focus on Copenhagen + Aarhus via the DSB InterCity train over the Great Belt Bridge, enjoying world-class indoor culture (ARoS art museum, Den Gamle By) and dining.",
+    "pass": true
   }
 ]

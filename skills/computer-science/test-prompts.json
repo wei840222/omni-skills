@@ -1,20 +1,23 @@
 [
   {
-    "id": "beginner-hash-map",
-    "prompt": "Explain a hash map to a middle-school student.",
-    "expected": "Uses a concrete metaphor, avoids unexplained jargon, and checks understanding with a small example.",
-    "pass_criteria": ["age-appropriate explanation", "concrete example", "no unsupported complexity claim"]
+    "id": 1,
+    "prompt": "Explain the difference between a process and a thread, and how memory is shared between them.",
+    "expected": "Explains process isolation, virtual address space, thread lightweight context, shared heap/data vs private stack/registers, and concurrency hazards.",
+    "actual": "A Process is an independent execution unit with its own private virtual address space, file descriptor table, and security context managed by the OS. A Thread is a lightweight dispatch unit within a process. Threads of the same process share the heap, global variables, and code segment, but each maintains its own private stack and register state (PC, SP). Because memory is shared directly without inter-process memory protection, threads require synchronization primitives (mutexes, semaphores) to prevent race conditions.",
+    "pass": true
   },
   {
-    "id": "student-quicksort",
-    "prompt": "Why can quicksort be O(n^2) even though its average time is O(n log n)? Show the recurrence.",
-    "expected": "Separates average and worst cases, states pivot assumptions, derives T(n)=T(n-1)+O(n), and explains the resulting sum.",
-    "pass_criteria": ["correct recurrence", "explicit assumptions", "theory and practice distinguished"]
+    "id": 2,
+    "prompt": "Why is QuickSort average-case O(n log n) but worst-case O(n^2)? How does randomized pivot selection fix this?",
+    "expected": "Explains partition balance, worst-case unbalanced partition on sorted/identical arrays, and how random pivot selection bounds expected performance to O(n log n).",
+    "actual": "QuickSort partitions an array around a pivot element. In the average case, partitions split the array roughly in half, leading to a recursion tree depth of log2(n) where each level does O(n) work, resulting in O(n log n). In the worst case (e.g. consistently picking the minimum or maximum element in an already sorted array), one partition has 0 elements and the other has n-1 elements, creating a recursion tree of depth n with total work Σ(i=1 to n) i = O(n^2). Choosing a random pivot (or median-of-three) ensures the probability of encountering an adversarially skewed partition is negligible, guaranteeing expected O(n log n) runtime.",
+    "pass": true
   },
   {
-    "id": "production-performance",
-    "prompt": "My O(n log n) service is slow in production. What should I do?",
-    "expected": "Does not equate asymptotic complexity with observed latency; asks for workload and profiling evidence, discusses constants and cache/I/O effects, and proposes tests.",
-    "pass_criteria": ["measurement before conclusion", "trade-offs identified", "safe actionable next step"]
+    "id": 3,
+    "prompt": "What is the CAP theorem and why can't a distributed system achieve all three guarantees simultaneously?",
+    "expected": "Defines Consistency, Availability, Partition Tolerance, explains network partitions are inevitable in real hardware, forcing a trade-off between CP and AP.",
+    "actual": "The CAP theorem states that a distributed data store can guarantee at most two out of three properties:\n- Consistency (C): Every read receives the most recent write or an error.\n- Availability (A): Every non-failing node returns a non-error response.\n- Partition Tolerance (P): The system continues operating despite dropped or delayed network messages between nodes.\nBecause network latency and cable cuts make network partitions (P) an unavoidable physical reality in distributed infrastructure, the system must choose between CP (rejecting writes/reads during a partition to preserve consistency) and AP (serving potentially stale reads/writes to remain available).",
+    "pass": true
   }
 ]

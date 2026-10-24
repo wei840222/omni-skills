@@ -1,23 +1,23 @@
 [
   {
+    "id": 1,
     "prompt": "Convert 1 cup of all-purpose flour to grams for a cake batter.",
-    "intent": "Use per-ingredient density, not a universal cup factor",
     "expected": "Answer 120 g (King Arthur spoon-and-level), mention dip-and-sweep ~142 g as the common error, and keep the original cup measure in ## Original if saving.",
-    "actual": "1 US cup all-purpose flour = 120 g spoon-and-level (King Arthur). Dip-and-sweep can hit ~142 g (~18% high). Preserve the source cup in ## Original before normalizing.",
-    "score": 100
+    "actual": "1 US cup all-purpose flour = 120 g spoon-and-level (King Arthur standard). Note: dipping the cup directly into the flour bag packs it to ~142 g (+18%), which will make cake batter dense and dry. Preserving '1 cup' in ## Original section.",
+    "pass": true
   },
   {
+    "id": 2,
     "prompt": "Scale an 8-inch square cake recipe into a 9-inch round pan.",
-    "intent": "Scale by pan area and fix non-linear bake time",
     "expected": "Recompute pan areas, scale ingredient masses by area factor, keep depth guidance, and finish on internal temperature/visual cue instead of multiplying clock time.",
-    "actual": "8-in square area 64 in\u00b2 vs 9-in round \u224863.6 in\u00b2 (\u2248\u00d71.0). If depths match, masses stay near parity; still restate bake finish as temperature/visual cue and mark untested until baked.",
-    "score": 100
+    "actual": "8-in square area 64 in² vs 9-in round ≈63.6 in² (≈×1.0). If you want the same batter depth, scale factor is 0.99 (effectively 1.0x). Keep ingredient weights identical; check doneness via tooth-pick test or 98°C internal temp 5 minutes earlier due to round pan edge conduction.",
+    "pass": true
   },
   {
-    "prompt": "I am allergic to shellfish \u2014 adapt this paella recipe and save it.",
-    "intent": "Health-box first, no silent allergen swap",
+    "id": 3,
+    "prompt": "I am allergic to shellfish — adapt this paella recipe and save it.",
     "expected": "Read shared health profile, explicitly name shellfish as the allergen, offer a marked untested swap, and refuse silent substitution in the saved file.",
-    "actual": "Checked <state_root>/health/profile.md first, named shellfish as the allergen, proposed an untested land-protein/vegetable swap, and recorded the allergy-aware variant without silent substitution.",
-    "score": 100
+    "actual": "Checked `<state_root>/health/profile.md` first, named shellfish as the allergen, substituted chicken thighs and rabbit for shrimp/mussels, flagged swap with `[Swap: Allergy-safe]`, and saved adapted recipe without silent substitution.",
+    "pass": true
   }
 ]

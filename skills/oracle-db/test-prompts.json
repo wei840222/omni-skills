@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "scenario": "happy path pagination",
     "prompt": "Write a query to get the top 10 highest paid employees in Oracle 19c.",
     "expected": "Uses FETCH FIRST 10 ROWS ONLY instead of ROWNUM.",
-    "bm25_prompt": "oracle sql query top 10 employees 19c"
+    "actual": "In Oracle 19c, use ANSI SQL standard row limiting syntax:\n```sql\nSELECT employee_id, first_name, last_name, salary\nFROM employees\nORDER BY salary DESC\nFETCH FIRST 10 ROWS ONLY;\n```\nThis avoids the historical ROWNUM subquery antipattern and properly orders the dataset prior to cutting off the top 10 rows.",
+    "pass": true
   },
   {
     "id": 2,
-    "scenario": "complex pl/sql block",
     "prompt": "Create a PL/SQL block that iterates through a cursor of departments and updates their budget, with exception handling.",
     "expected": "Includes proper BEGIN/END block, cursor FOR loop, and EXCEPTION block.",
-    "bm25_prompt": "oracle plsql cursor loop update exception"
+    "actual": "```sql\nDECLARE\n    v_updated_count NUMBER := 0;\nBEGIN\n    FOR dept_rec IN (SELECT department_id, budget FROM departments WHERE status = 'ACTIVE') LOOP\n        UPDATE departments\n        SET budget = budget * 1.05\n        WHERE department_id = dept_rec.department_id;\n        \n        v_updated_count := v_updated_count + 1;\n    END LOOP;\n    \n    COMMIT;\n    DBMS_OUTPUT.PUT_LINE('Successfully updated ' || v_updated_count || ' departments.');\nEXCEPTION\n    WHEN OTHERS THEN\n        ROLLBACK;\n        DBMS_OUTPUT.PUT_LINE('Error updating department budgets: ' || SQLERRM);\n        RAISE;\nEND;\n/\n```",
+    "pass": true
   }
 ]

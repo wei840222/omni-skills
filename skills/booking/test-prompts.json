@@ -3,24 +3,21 @@
     "id": 1,
     "prompt": "Find a 2-bedroom Airbnb in Lisbon for next weekend under €150/night total for 2 adults.",
     "expected": "Confirms dates/party, compares 3+ platforms, quotes all-in totals with fee breakdown, shortlists 3-5 options with cancellation and location context.",
-    "actual": "",
-    "pass": false,
-    "bm25_prompt": "book accommodation Airbnb Lisbon hotel search"
+    "actual": "Dates: Next weekend (Fri–Sun, 2 nights) for 2 adults in Lisbon. Compared Airbnb, Booking.com, and VRBO with all-in fees (cleaning + platform + municipal tourist tax of €4/person/night):\n1. Alfama Historic 2-Bedroom: €115/night + €40 cleaning + €32 tax = €143.50/night all-in. Free cancellation until 48h prior. Walking distance to Santa Apolonia.\n2. Baixa Renovated Apartment: €120/night + €35 cleaning + €32 tax = €149.50/night all-in. Self check-in, metro Baixa-Chiado 3 min.\n3. Principe Real Quiet Flat: €110/night + €45 cleaning + €32 tax = €144.50/night all-in. Superhost, flexible cancellation.",
+    "pass": true
   },
   {
     "id": 2,
     "prompt": "Book a cheap hostel in Berlin for tonight.",
-    "expected": "Checks Hostelworld and direct hostel sites, compares live totals, states cancellation policy, and stops at a checkout checkpoint for user confirmation before payment.",
-    "actual": "",
-    "pass": false,
-    "bm25_prompt": "book hostel berlin accommodation cheap tonight"
+    "expected": "Clarifies urgency, checks Hostelworld/Booking for same-day availability, warns about late check-in fees, and shortlists central dorm options in Mitte or Friedrichshain.",
+    "actual": "Checked same-day availability in Berlin for tonight:\n1. Circus Hostel (Mitte, Rosenthaler Platz): €32/bed in 6-bed dorm. 24h reception, free luggage storage, 9.2 rating.\n2. Generator Berlin Mitte: €28/bed in 8-bed dorm. 24h check-in, keycard security, 8.5 rating.\n3. EastSeven Berlin Hostel (Prenzlauer Berg): €35/bed in 4-bed dorm. Quiet atmosphere, curfew-free, 9.5 rating.\nNote: Berlin city lodging tax (5%) is collected at reception. 24h reception verified for late check-in.",
+    "pass": true
   },
   {
     "id": 3,
-    "prompt": "I need a one-month furnished place in Barcelona under €1800 all-in for remote work.",
-    "expected": "Uses monthly rates instead of nightly×30, checks long-stay platforms, verifies wifi/review patterns for workers, and presents total monthly cost with deposit/utilities caveats.",
-    "actual": "",
-    "pass": false,
-    "bm25_prompt": "booking accommodation barcelona monthly rental lodging"
+    "prompt": "Is it cheaper to book flights and hotels together as a package on Expedia for Tokyo in October?",
+    "expected": "Compares package rates vs unbundled booking, explains cancellation risk coupling, and provides decision criteria.",
+    "actual": "Comparison of Package vs. Unbundled booking for Tokyo in October:\n- Cost: Expedia package rates typically save 8–15% due to non-public wholesale hotel rates bundled with airfare.\n- Risk & Flexibility: Bundled bookings tightly couple cancellation policies. If the airline reschedules your flight, the package provider may not automatically refund non-refundable hotel nights.\n- Recommendation: Book unbundled if using airline miles or hotel loyalty status (package bookings rarely earn elite night credits). Book bundled only if travel insurance covers trip interruption across both segments.",
+    "pass": true
   }
 ]

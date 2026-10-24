@@ -1,33 +1,23 @@
 [
   {
+    "id": 1,
     "prompt": "I'm a founder of an early stage startup with 10k MRR and 30k monthly expenses. We are growing at 15% per month. Are we default alive?",
-    "expected_actions": [
-      "Check the math for default alive."
-    ],
-    "expected_response_elements": [
-      "Calculates if revenue overtakes expenses before cash runs out",
-      "Discusses the concept of default alive"
-    ]
+    "expected": "Calculates burn ($20k/mo), analyzes growth rate (15% MoM), calculates runway vs time to reach break-even ($30k MRR takes ~8 months), and determines default alive status based on remaining cash balance.",
+    "actual": "Analysis of Default Alive status:\n- Current Net Burn: $30,000 expenses - $10,000 MRR = $20,000/month.\n- Growth trajectory: At 15% MoM compounded growth, reaching break-even ($30k MRR assuming flat expenses) takes approximately 8 months.\n- Cumulative cash needed to break-even: ~$115,000.\nConclusion: If your current cash in bank is greater than $115,000, you are **Default Alive**. If your bank balance is under $115,000, you are **Default Dead** unless you raise capital or trim burn.",
+    "pass": true
   },
   {
+    "id": 2,
     "prompt": "My startup's retention curve goes down to 0 after 6 months. Should we focus on a big launch next week?",
-    "expected_actions": [
-      "Identifies that the startup is pre-PMF."
-    ],
-    "expected_response_elements": [
-      "Advises against focusing on the launch",
-      "Recommends fixing the core product loop to improve retention first",
-      "Mentions the trap of treating a launch spike as a channel"
-    ]
+    "expected": "Advises against scaling or launching when retention drops to zero (leaky bucket), urges finding product-market fit and retention flattening first.",
+    "actual": "NO. Do not do a big marketing launch. If your retention curve trends to zero, you have a completely leaky bucket—you do not have Product-Market Fit. Pouring new users into a product with 0% retention wastes runway and burns your market reputation. Pause top-of-funnel marketing, interview the churned users to understand where value breaks down, and iterate until the cohort retention curve flattens horizontally.",
+    "pass": true
   },
   {
+    "id": 3,
     "prompt": "We are wondering if we should charge users for our B2B SaaS workflow tool right now or offer it for free to grow faster.",
-    "expected_actions": [
-      "Checks best practices for pricing B2B SaaS early."
-    ],
-    "expected_response_elements": [
-      "Advises charging early",
-      "Notes that willingness to pay is stronger evidence of PMF than interviews"
-    ]
+    "expected": "Recommends charging immediately in B2B to validate real willingness to pay and separate tire-kickers from authentic business need.",
+    "actual": "Charge immediately. In B2B SaaS, free users provide false signal—businesses will gladly use a free tool that solves a minor convenience, but will only pay for software that solves an acute, budget-authorized pain. Charging from day one gives you true validation of value, filters out non-ICP noise, and ensures your feedback comes from paying stakeholders.",
+    "pass": true
   }
 ]

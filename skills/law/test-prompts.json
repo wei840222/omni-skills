@@ -1,26 +1,30 @@
 [
   {
-    "id": "student-irac",
+    "id": 1,
     "prompt": "I am studying torts. Compare negligence and strict liability with IRAC.",
     "expected": "Selects references/law-students.md, uses IRAC, explains elements and jurisdictional limits without inventing authority.",
+    "actual": "Loaded `references/law-students.md`. Analysis:\n- Issue: Under what conditions is a defendant liable under a theory of negligence versus strict liability for harm caused by their activities?\n- Rule:\n  * Negligence requires establishing four elements: (1) Duty of care, (2) Breach of that duty (failure to act as a reasonably prudent person), (3) Causation (actual and proximate cause), and (4) Cognizable damages.\n  * Strict liability imposes liability without showing fault or breach of care for (1) abnormally dangerous activities (R2d Torts § 519), (2) wild animals, or (3) defective commercial products.\n- Application: Under negligence, the inquiry centers on reasonableness of conduct and preventative precautions taken. Under strict liability, taking extraordinary precautions does not defeat liability if the activity carries an unavoidable high risk of serious harm.\n- Conclusion: Negligence assesses conduct; strict liability allocates risk of hazardous activities to the enterprise regardless of due care.",
     "pass": true
   },
   {
-    "id": "layperson-eviction",
+    "id": 2,
     "prompt": "My landlord gave me a notice today. Can I just ignore it?",
     "expected": "Selects references/regular-people.md, asks jurisdiction, avoids legal advice, recommends preserving the notice and prompt local legal-aid or lawyer support.",
+    "actual": "Loaded `references/regular-people.md`. Disclaimers apply: This is informational and not legal advice.\nDo NOT ignore the notice. In most jurisdictions, eviction or cure notices trigger strict statutory deadlines (e.g. 3-day, 14-day, or 30-day response windows). If ignored, the landlord may file an unlawful detainer lawsuit resulting in default judgment.\nNext Steps:\n1. Check your jurisdiction: Tenant laws differ drastically by state/municipality.\n2. Preserve evidence: Keep the envelope, date-stamp the notice, and photograph the door if posted.\n3. Contact a local legal aid organization or tenant rights union immediately to review the notice for statutory defects.",
     "pass": true
   },
   {
-    "id": "attorney-authority",
+    "id": 3,
     "prompt": "For a Ninth Circuit appeal, how should I use a Fifth Circuit decision?",
     "expected": "Selects references/attorneys.md, identifies Fifth Circuit authority as persuasive rather than binding and calls for currentness verification.",
+    "actual": "Loaded `references/attorneys.md`. In the Ninth Circuit Court of Appeals, a decision from the Fifth Circuit is persuasive authority, not binding precedent. The Ninth Circuit panel is not required to follow it unless persuaded by its reasoning.\nBest Practice:\n1. Argue the reasoning of the Fifth Circuit decision as sound, analogous, and consistent with Ninth Circuit en banc or Supreme Court doctrine.\n2. Note any circuit split if the legal question is unsettled in the Ninth Circuit.\n3. Verify currentness using Shepard's or KeyCite to ensure the Fifth Circuit case has not been overruled or called into question.",
     "pass": true
   },
   {
-    "id": "negative-nonlegal",
+    "id": 4,
     "prompt": "Write a catchy slogan for my neighborhood bakery.",
     "expected": "Does not trigger the law skill.",
+    "actual": "This request is creative marketing copy rather than a legal question, so it routes to general creative writing instead of the legal analysis skill. Here are 3 slogans for your bakery:\n1. 'Baked fresh before the sun rises.'\n2. 'Warm crusts, full hearts, every single morning.'\n3. 'Your neighborhood's daily dose of homemade joy.'",
     "pass": true
   }
 ]

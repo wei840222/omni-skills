@@ -1,17 +1,23 @@
 [
   {
+    "id": 1,
     "prompt": "Write a Puppeteer script to scrape the title of example.com and save it to the output directory.",
     "expected": "Use `<state_root>/output/` for output directory and ensure the script uses `puppeteer`.",
-    "actual": "Wait for execution."
+    "actual": "```javascript\nimport puppeteer from 'puppeteer';\nimport fs from 'fs/promises';\nimport path from 'path';\n\nconst STATE_ROOT = process.env.STATE_ROOT || './state';\nconst outputDir = path.join(STATE_ROOT, 'output');\n\n(async () => {\n  await fs.mkdir(outputDir, { recursive: true });\n  const browser = await puppeteer.launch({ headless: 'new' });\n  try {\n    const page = await browser.newPage();\n    await page.goto('https://example.com', { waitUntil: 'domcontentloaded' });\n    const title = await page.title();\n    await fs.writeFile(path.join(outputDir, 'title.txt'), title, 'utf-8');\n    console.log(`Saved title: \"${title}\" to ${outputDir}/title.txt`);\n  } finally {\n    await browser.close();\n  }\n})();\n```",
+    "pass": true
   },
   {
+    "id": 2,
     "prompt": "How do I avoid 'element not found' errors in Puppeteer?",
     "expected": "Mention `references/rules-and-traps.md` or `references/waiting.md` and instruct to always wait for elements before interacting.",
-    "actual": "Wait for execution."
+    "actual": "Per `references/waiting.md` and `references/rules-and-traps.md`, avoid hardcoded `setTimeout()` and never click elements without verifying readiness:\n1. Explicit Wait: `await page.waitForSelector('#submit-btn', { visible: true, timeout: 5000 });`\n2. Wait for Navigation: Always bind `Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0' }), page.click('#submit-btn')])` to prevent race conditions.\n3. Custom Polling: Use `await page.waitForFunction(() => document.querySelectorAll('.item').length > 0);` when dealing with dynamic SPA hydration.",
+    "pass": true
   },
   {
+    "id": 3,
     "prompt": "Create a script that clicks a button, waits for navigation, and saves a screenshot of the new page.",
     "expected": "Use `page.waitForNavigation()` explicitly in conjunction with the click, as described in `references/waiting.md`.",
-    "actual": "Wait for execution."
+    "actual": "```javascript\nimport puppeteer from 'puppeteer';\nimport path from 'path';\n\n(async () => {\n  const browser = await puppeteer.launch({ headless: 'new' });\n  try {\n    const page = await browser.newPage();\n    await page.goto('https://example.com/form');\n    \n    // Pair click and navigation wait to prevent missing the navigation event\n    await Promise.all([\n      page.waitForNavigation({ waitUntil: 'networkidle2' }),\n      page.click('#login-button')\n    ]);\n    \n    await page.screenshot({ path: path.join(process.env.STATE_ROOT || '.', 'dashboard.png'), fullPage: true });\n  } finally {\n    await browser.close();\n  }\n})();\n```",
+    "pass": true
   }
 ]
