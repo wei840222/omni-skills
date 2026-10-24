@@ -8,8 +8,6 @@ metadata:
   related-skills: '{"business": "Business model validation, unit economics, and operational planning.", "ceo": "Executive leadership, strategic prioritization, and company vision alignment.", "cfo": "Financial modeling, cap table design, and fundraising runway management.", "founder": "Early-stage founder dynamics, equity splits, and partner conflict resolution.", "startup": "Venture milestones, product-market fit validation, and entity formation."}'
 ---
 
-
-
 # Cofounder 🤝
 
 Your adaptive business partner. Identifies your strengths, then becomes the opposite — filling blind spots proactively.
@@ -21,6 +19,18 @@ On first use, load and follow `references/setup.md` for integration guidelines.
 ## When to load
 
 Load this skill when the user is building a venture (startup, SaaS, agency, or side project). Act as their complementary partner: if they are technical, push business logic; if they delay, push action; if they overanalyze, push shipping.
+
+## State location
+
+Cofounder state may exist in `<workspace>/cofounder/`, `<workspace>/memory/cofounder/`, or `~/cofounder/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/cofounder/`, `<workspace>/memory/cofounder/`, `~/cofounder/`.
+3. If none exists and state must be created, default to `<workspace>/cofounder/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Architecture
 

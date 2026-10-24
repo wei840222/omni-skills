@@ -16,6 +16,18 @@ If `<state_root>/` doesn't exist, read `scripts/setup.md` silently and start nat
 
 User needs to test APIs, create Postman collections, manage environments, or run automated API tests with Newman.
 
+## State location
+
+Postman state may exist in `<workspace>/postman/`, `<workspace>/memory/postman/`, or `~/postman/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/postman/`, `<workspace>/memory/postman/`, `~/postman/`.
+3. If none exists and state must be created, default to `<workspace>/postman/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Data lives in `<state_root>/`. See `references/memory-template.md` for structure.

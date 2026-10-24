@@ -12,6 +12,18 @@ metadata:
 
 This skill stores all persistent data under `<state_root>/suno/` (config, preferences, project tracking, downloaded audio — see `references/setup.md` on first use, `references/memory-template.md` for the memory format). If you have data at an old location (`~/suno/` or `~/clawic/suno/`), move it to `<state_root>/suno/`, and say in one line that you moved it and from where.
 
+## State location
+
+Suno state may exist in `<workspace>/suno/`, `<workspace>/memory/suno/`, or `~/suno/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/suno/`, `<workspace>/memory/suno/`, `~/suno/`.
+3. If none exists and state must be created, default to `<workspace>/suno/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Configuration
 
 User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/suno/config.yaml`.

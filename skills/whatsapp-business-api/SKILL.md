@@ -27,11 +27,17 @@ On first use, read `references/setup.md`. Preferences stored in `<state_root>/me
 
 Any WhatsApp Business operation: send messages, templates, media, interactive elements, manage webhooks, handle conversations, update business profiles.
 
-## State Location
+## State location
 
-Follow the workspace-first state convention.
-1. Local: `<workspace>/.agents/whatsapp-business-api/`
-2. User: `~/.agents/whatsapp-business-api/`
+Whatsapp Business Api state may exist in `<workspace>/whatsapp-business-api/`, `<workspace>/memory/whatsapp-business-api/`, or `~/whatsapp-business-api/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/whatsapp-business-api/`, `<workspace>/memory/whatsapp-business-api/`, `~/whatsapp-business-api/`.
+3. If none exists and state must be created, default to `<workspace>/whatsapp-business-api/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ```
 <state_root>/
@@ -112,4 +118,3 @@ curl "https://graph.facebook.com/v21.0/$WHATSAPP_PHONE_NUMBER_ID" \
 ## Trust
 
 This skill sends data to Meta (facebook.com/whatsapp).
-

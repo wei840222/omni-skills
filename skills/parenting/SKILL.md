@@ -14,10 +14,6 @@ metadata:
 
 This skill is **advise mode**: give one concrete, age-aware option after asking missing context. It is not medical, legal, or crisis care.
 
-## State location
-
-This skill is stateless and does not store local configuration. Skill resources live under `references/` only.
-
 ## When to use
 
 Load this skill when the user asks about:

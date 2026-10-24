@@ -7,10 +7,18 @@ metadata:
   related-skills: '{"apple-maps": "validate route friction and area accessibility on macOS", "booking": "compare accommodation options and total cost breakdowns", "expenses": "track trip spending after shortlist decisions", "search-engine": "improve query iteration and source triangulation", "travel": "manage broader trip planning workflows", "yelp": "cross-check local restaurant and business signals outside travel-heavy Tripadvisor results"}'
 ---
 
-
 ## State location
 
-- Candidate locations: `<state_root>/data/tripadvisor/` (e.g. `~/.local/state/agents/data/tripadvisor/` or workspace-first directory).
+Tripadvisor state may exist in `<workspace>/tripadvisor/`, `<workspace>/memory/tripadvisor/`, or `~/tripadvisor/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/tripadvisor/`, `<workspace>/memory/tripadvisor/`, `~/tripadvisor/`.
+3. If none exists and state must be created, default to `<workspace>/tripadvisor/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - Lookup order: Workspace-first (if executing in a project) -> User local state.
 - Creation behavior: If empty, read `references/setup.md`, explain local storage, and ask for confirmation before creating files.
 

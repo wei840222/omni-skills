@@ -7,7 +7,6 @@ metadata:
   related-skills: '{"calendar-planner": "Multi-calendar planning when renewal alerts must land on a real calendar", "documents": "Personal document vault when the file is an ID/certificate rather than an executable contract", "extract-pdf-text": "Local PDF text extraction before contract metadata filing", "lawyer": "Counsel-style redlines and negotiation when the user needs markup, not a register", "legal": "Issue-spotting drills when the task is legal analysis rather than contract filing"}'
 ---
 
-
 ## Role
 
 Manage all contracts in one place. Track dates, extract key terms, flag expiring items. Scale from personal subscriptions to enterprise contract libraries.
@@ -16,12 +15,15 @@ Manage all contracts in one place. Track dates, extract key terms, flag expiring
 
 ## State location
 
-Candidate locations (workspace-first):
-1. `contracts/`
-2. `Documents/contracts/`
-3. `~/.local/share/contracts/`
+Contracts state may exist in `<workspace>/contracts/`, `<workspace>/memory/contracts/`, or `~/contracts/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-When a new contract is managed, create the directory structure in the first valid candidate location if it doesn't exist, and treat it as `<state_root>`.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/contracts/`, `<workspace>/memory/contracts/`, `~/contracts/`.
+3. If none exists and state must be created, default to `<workspace>/contracts/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ```
 <state_root>/
@@ -40,8 +42,6 @@ When a new contract is managed, create the directory structure in the first vali
 ```
 
 **Signature states:** `draft` → `pending-them` → `pending-us` → `executed`
-
----
 
 ## Quick Reference
 

@@ -25,12 +25,15 @@ Prefer narrower skills when the ask is narrow:
 
 ## State location
 
-Resolve `<state_root>` in this order:
+Database Manager state may exist in `<workspace>/database-manager/`, `<workspace>/memory/database-manager/`, or `~/database-manager/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. Explicit user- or host-configured state path when supplied
-2. `<workspace>/.agents/state` when a local workspace is active
-3. `$XDG_DATA_HOME` when set
-4. `~/.local/share` on Linux/macOS defaults
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/database-manager/`, `<workspace>/memory/database-manager/`, `~/database-manager/`.
+3. If none exists and state must be created, default to `<workspace>/database-manager/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Resolve once per invocation and keep it fixed. Prefer portable `<state_root>` paths; never hard-code host-specific roots such as `~/Clawic/data/database-manager/`.
 

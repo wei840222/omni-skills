@@ -6,11 +6,6 @@ metadata:
   openclaw: '{"emoji":"🛫"}'
   related-skills: '{"flutter": "cross-platform builds", "ios": "iOS development patterns", "xcode": "Xcode workflows"}'
 ---
-## State location
-
-This is a stateless skill. It does not store or require local configuration files on the host machine.
-
-
 ## When to Use
 
 User needs to distribute beta builds via TestFlight. Agent handles App Store Connect setup, tester groups, build uploads, and CI/CD integration.

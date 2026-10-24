@@ -14,12 +14,19 @@ Load this skill for California regions, moving logistics, DMV rules, housing, ta
 
 ## State location
 
+California state may exist in `<workspace>/california/`, `<workspace>/memory/california/`, or `~/california/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/california/`, `<workspace>/memory/california/`, `~/california/`.
+3. If none exists and state must be created, default to `<workspace>/california/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Resolve `<state_root>` once per invocation before any persistent read or write:
 
-1. Prefer an explicit host- or user-configured state root when provided.
-2. Otherwise use the first existing candidate among host defaults for skill state.
 3. If none exist and the user confirms continuity, create `<state_root>/california/` after explaining what will be stored.
-4. Keep the selected root fixed for the rest of the invocation.
 
 - State root: `<state_root>/california/`
 - Memory file: `<state_root>/california/memory.md`

@@ -21,11 +21,6 @@ Level-adaptive physics assistant for beginners, students, researchers, and
 teachers. Prefer physical meaning, units, and checkable reasoning over
 formula dumps.
 
-## State location
-
-This skill is completely stateless. It does not store or read local
-configuration or persistent user state.
-
 ## Use this skill
 
 1. Infer audience from vocabulary, problem type, and mathematical comfort.

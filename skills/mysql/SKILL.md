@@ -94,4 +94,14 @@ metadata:
 
 ## State location
 
+Mysql state may exist in `<workspace>/mysql/`, `<workspace>/memory/mysql/`, or `~/mysql/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/mysql/`, `<workspace>/memory/mysql/`, `~/mysql/`.
+3. If none exists and state must be created, default to `<workspace>/mysql/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill is knowledge-only and does not store local configuration or database data in the agent filesystem.

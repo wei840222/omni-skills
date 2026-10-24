@@ -10,6 +10,18 @@ metadata:
 
 Load this skill when the user explicitly requests Qwen models (e.g., Qwen-Max, Qwen-Coder) or needs to migrate workloads between hosted Alibaba Model Studio and self-hosted servers. Reserve this exclusively for Qwen workflows.
 
+## State location
+
+Qwen state may exist in `<workspace>/qwen/`, `<workspace>/memory/qwen/`, or `~/qwen/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/qwen/`, `<workspace>/memory/qwen/`, `~/qwen/`.
+3. If none exists and state must be created, default to `<workspace>/qwen/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/qwen/`. If `<state_root>/qwen/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.

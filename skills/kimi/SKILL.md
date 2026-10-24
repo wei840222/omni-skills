@@ -15,6 +15,16 @@ User needs Kimi to work reliably for chat, coding, long-context research, struct
 
 ## State location
 
+Kimi state may exist in `<workspace>/kimi/`, `<workspace>/memory/kimi/`, or `~/kimi/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/kimi/`, `<workspace>/memory/kimi/`, `~/kimi/`.
+3. If none exists and state must be created, default to `<workspace>/kimi/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Memory lives in `<state_root>/kimi/`. Look for configuration in the workspace first, falling back to the global state root. If `<state_root>/kimi/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text

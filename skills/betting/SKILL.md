@@ -12,6 +12,16 @@ Betting questions involving sports, props, parlays, exchanges, or prediction-sty
 
 ## State location
 
+Betting state may exist in `<workspace>/betting/`, `<workspace>/memory/betting/`, or `~/betting/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/betting/`, `<workspace>/memory/betting/`, `~/betting/`.
+3. If none exists and state must be created, default to `<workspace>/betting/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill uses stateful configuration to store user preferences and ticket tracking:
 - Candidate location: `<state_root>/betting/` (e.g., `workspace/.state/betting/`).
 - Lookup order: Follows standard workspace-first state convention.
@@ -70,14 +80,6 @@ Use the full workflow in `references/workflow.md`. Every ticket should pass this
 4. Run the fast rejection list in `references/red-flags.md`
 5. Return an analysis memo using `references/ticket-template.md`: positive edge, reduce size, wait, or pass
 
-
-
-
-
-
-
-
-
 ## Scope
 
 This skill ONLY:
@@ -106,4 +108,3 @@ Out of scope capabilities:
 - Store login details
 - Read unrelated files
 - Make undeclared network requests
-

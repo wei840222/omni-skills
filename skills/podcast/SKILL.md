@@ -16,6 +16,18 @@ Before starting ANY podcast:
 2. **Niche** — Specific topic + audience (not "business" but "bootstrapped SaaS founders")
 3. **Cadence** — Weekly, biweekly, or seasonal (consistency > frequency)
 
+## State location
+
+Podcast state may exist in `<workspace>/podcast/`, `<workspace>/memory/podcast/`, or `~/podcast/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/podcast/`, `<workspace>/memory/podcast/`, `~/podcast/`.
+3. If none exists and state must be created, default to `<workspace>/podcast/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Project Structure
 
 ```

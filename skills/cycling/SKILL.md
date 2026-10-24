@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"fitness": "Broader fitness programming, cardio progression, and training plans beyond cycling-specific guidance"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or state.
-
 ## Quick Reference
 
 Load these references to provide domain knowledge about cycling:

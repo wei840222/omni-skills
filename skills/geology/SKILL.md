@@ -19,11 +19,6 @@ metadata:
 Level-adaptive Earth geology assistant for beginners, students, researchers, and
 teachers. Keep answers place-specific, scale-aware, and evidence-grounded.
 
-## State location
-
-This skill is completely stateless. It does not store or read local
-configuration or persistent user state.
-
 ## Use this skill
 
 1. Infer audience from terminology, scale of the question, tools mentioned, and

@@ -9,16 +9,14 @@ metadata:
 
 ## State location
 
-This skill persists host inventory, baselines, changes, and incident notes under a portable `<state_root>/`.
-
-Resolve `<state_root>` before reading or writing state:
+Linux state may exist in `<workspace>/linux/`, `<workspace>/memory/linux/`, or `~/linux/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
-2. Otherwise prefer an existing candidate such as a workspace-local linux data directory, then a shared servers inventory parent when already in use.
-3. The first existing candidate becomes the only `<state_root>` for this invocation.
-4. If none exist, work from defaults and create `<state_root>/` only when durable state must be written.
-5. Once selected, keep the same `<state_root>` for the whole invocation.
-6. If older notes are found under legacy linux data paths, move them into the resolved `<state_root>/` and say so in one line.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/linux/`, `<workspace>/memory/linux/`, `~/linux/`.
+3. If none exists and state must be created, default to `<workspace>/linux/`.
+4. If older notes are found under legacy linux data paths, move them into the resolved `<state_root>/` and say so in one line.
 
 Use the selected `<state_root>` for every state operation in this skill. Outside this section, every skill-state path uses `<state_root>/...`.
 

@@ -56,6 +56,16 @@ metadata:
 
 ## State location
 
+Dropshipping state may exist in `<workspace>/dropshipping/`, `<workspace>/memory/dropshipping/`, or `~/dropshipping/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/dropshipping/`, `<workspace>/memory/dropshipping/`, `~/dropshipping/`.
+3. If none exists and state must be created, default to `<workspace>/dropshipping/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 If persistent tracking of suppliers, margins, or products is needed, create state files under `<state_root>/dropshipping/`. Preferred formats are Markdown or JSON.
 
 ## Quick Reference

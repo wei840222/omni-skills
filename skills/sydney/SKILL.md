@@ -55,11 +55,6 @@ For fares, visa conditions, regulated costs, or service eligibility, load the ma
 | Expat lifestyle & social | `references/lifestyle.md` | When user asks about expat life |
 | Driving & car ownership | `references/driving.md` | When user asks about driving |
 
-
-## State location
-
-This skill is stateless and does not store or manage any local configuration or runtime state.
-
 ## Core Rules
 
 ### 1. Identify User Context First

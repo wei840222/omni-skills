@@ -8,10 +8,6 @@ metadata:
 
 # Recruiting Assistance
 
-## State location
-
-This skill is stateless and does not persist any local configuration or data.
-
 ## Reference Materials
 
 Load the following reference materials as needed:

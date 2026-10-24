@@ -26,7 +26,3 @@ Identify whether the request is about classifying, prioritizing, recording, or r
 | `references/situations.md` | Situations | To apply specific plays for common debt scenarios |
 | `references/where-camps-disagree.md` | Controversies | To navigate conflicting opinions on debt management |
 | `references/industry-research.md` | Domain research | To reference established practices and definitions |
-
-## State location
-
-This skill is completely stateless. It provides conceptual guidelines on identifying and managing technical debt and does not read, write, or maintain any local configuration or state files.

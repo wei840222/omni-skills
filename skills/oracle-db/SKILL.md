@@ -8,10 +8,6 @@ metadata:
 
 # Oracle DB
 
-## State Location
-
-This skill is completely stateless and does not require persistent state storage.
-
 ## Execution Workflow
 
 1.  **Understand Database Target**: Identify the target Oracle Database version (e.g., 12c, 19c, 23ai).

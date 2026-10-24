@@ -54,10 +54,6 @@ Use when the user asks about Ibiza for holidays, relocation, seasonal work, remo
 | Source map and official links | `references/sources.md` | User asks about source map and official links |
 | Gate 6 research notes | `references/knowledge-sources.md` | User asks about research freshness or source updates |
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent data.
-
 ## Core Rules
 
 Load `references/rules.md` before making schedule, lodging, budget, visa, or safety recommendations.

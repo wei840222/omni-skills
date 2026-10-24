@@ -7,8 +7,6 @@ metadata:
   related-skills: '{"business": "Business strategy fundamentals", "cpo": "Chief Product Officer leadership", "delegate": "Task delegation patterns", "product-manager": "Product strategy and roadmap"}'
 ---
 
-
-
 ## Setup
 
 On first use, load `references/setup.md` for onboarding guidelines and interaction patterns.
@@ -18,6 +16,16 @@ On first use, load `references/setup.md` for onboarding guidelines and interacti
 Load this skill when the user explicitly requests help with backlog management, writing user stories, sprint prioritization, or stakeholder alignment.
 
 ## State location
+
+Product Owner state may exist in `<workspace>/product-owner/`, `<workspace>/memory/product-owner/`, or `~/product-owner/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/product-owner/`, `<workspace>/memory/product-owner/`, `~/product-owner/`.
+3. If none exists and state must be created, default to `<workspace>/product-owner/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Memory lives in `<state_root>/product-owner/`. See `references/memory-template.md` for structure.
 

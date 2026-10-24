@@ -7,7 +7,7 @@ metadata:
   related-skills: '{"daily-planner": "Places garden work into daily priorities and time blocks.", "habits": "Turns recurring garden care into trackable routines.", "journal": "Captures free-form garden observations outside structured records.", "plants": "Extends garden with plant-specific care and identification.", "remind": "Schedules watering and seasonal task reminders."}'
 ---
 
-## State Location
+## State location
 
 Garden state may exist in `<workspace>/garden/`, `<workspace>/memory/garden/`, or `~/garden/`. `<workspace>` is the workspace root supplied by the host/runtime.
 

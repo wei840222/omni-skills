@@ -8,6 +8,18 @@ metadata:
 
 All data lives in `<state_root>/` on the user's machine — plain markdown, no external services, no network requests. Configuration in `<state_root>/config.yaml` (`references/setup.md` on first use, `references/memory-template.md` for file formats). If you have data at an old location (like `~/memory/` or `~/clawic/memory/`), move it to `<state_root>/`, and say in one line that you moved it and from where.
 
+## State location
+
+Memory state may exist in `<workspace>/memory/`, `<workspace>/memory/memory/`, or `~/memory/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/memory/`, `<workspace>/memory/memory/`, `~/memory/`.
+3. If none exists and state must be created, default to `<workspace>/memory/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When To Use
 
 - User says "remember this", "save this", "don't forget" about anything with lasting value

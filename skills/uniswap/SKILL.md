@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"crypto-tools": "Use for broader crypto management beyond trading on Uniswap.", "ethereum": "Provides deep context for Ethereum transactions and token standard specifics."}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## Core Workflows
 
 Load the corresponding reference file immediately when a task matches its trigger condition:

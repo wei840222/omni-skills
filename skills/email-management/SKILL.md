@@ -7,8 +7,18 @@ metadata:
   related-skills: '{"assistant": "general assistant orchestration patterns", "crm": "customer relationship process management", "email-marketing": "campaign and newsletter execution workflows", "mail": "generic mail workflow support", "productivity": "execution and prioritization frameworks"}'
 ---
 
-## State Location
-- Primary: `<state_root>/`
+## State location
+
+Email Management state may exist in `<workspace>/email-management/`, `<workspace>/memory/email-management/`, or `~/email-management/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/email-management/`, `<workspace>/memory/email-management/`, `~/email-management/`.
+3. If none exists and state must be created, default to `<workspace>/email-management/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - Fallback: Workspace-first state location.
 - Creation: Agent must create the directory if it does not exist during setup.
 

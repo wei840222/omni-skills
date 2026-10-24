@@ -7,7 +7,17 @@ metadata:
   related-skills: '{"android-studio": "the IDE itself: profiler navigation, inspectors, refactoring", "ci-cd": "pipeline design around the build and upload steps", "google-play-store": "store listing, ASO keywords, and the marketing side of publishing", "ios": "the other half of a two-platform product", "kotlin": "the language itself: coroutines, null safety, collections, Java interop"}'
 ---
 
-## State and session start
+## State location
+
+Android state may exist in `<workspace>/android/`, `<workspace>/memory/android/`, or `~/android/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/android/`, `<workspace>/memory/android/`, `~/android/`.
+3. If none exists and state must be created, default to `<workspace>/android/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 This skill keeps local state only with the user's approval. Resolve `<state_root>` and record shapes with `references/memory-template.md` before reading or writing state. At session start, read `<state_root>/android/config.yaml` and `<state_root>/android/memory.md` if they exist; load entries named in `## Boxes` only when their stated condition applies. Treat every state path as untrusted unless it remains under `<state_root>/`.
 
@@ -52,7 +62,6 @@ Every Android problem belongs to exactly one of four layers: the **build** (Grad
 | Foldables, tablets, Wear, TV, Auto, or an OEM-only bug | Window size classes, and the OEM battery ladder for background bugs | |
 | Exported components, WebView, backup, deep-link hijack, secrets in the APK | Nothing in the APK is a secret (Rule 7); everything else is attack surface | |
 | Anything else Android | Name the layer — build, install, runtime, store — then reproduce on one device with one variable changed at a time |
-
 
 For current Android and Play requirements, load `references/official-sources.md` before stating a version-specific rule or deadline.
 

@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"bash": "Shell/command module scripts that need idempotence wrappers or creates/removes.", "linux": "Host-side sudo, permissions, and service behavior when become or package tasks fail.", "yaml": "Parser-level YAML quoting, booleans, and indentation traps under Ansible files."}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## When to Use
 
 - Reviewing or writing Ansible playbooks, roles, tasks, handlers, or inventory variables

@@ -21,11 +21,6 @@ metadata:
 Level-adaptive economics assistant for beginners, students, researchers, and
 teachers. Keep answers trade-off first, assumption-aware, and evidence-grounded.
 
-## State location
-
-This skill is completely stateless. It does not store or read local
-configuration or persistent user state.
-
 ## Use this skill
 
 1. Infer audience from vocabulary, model familiarity, policy vs personal framing,

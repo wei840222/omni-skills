@@ -15,6 +15,18 @@ If `<state_root>/` does not exist or is empty, read `scripts/setup.md` and start
 
 Load this skill when the user is planning a Colombia trip and needs practical guidance on entry requirements, region choice, route design, altitude and climate fit, transport tradeoffs, or on-the-ground execution.
 
+## State location
+
+Colombia state may exist in `<workspace>/colombia/`, `<workspace>/memory/colombia/`, or `~/colombia/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/colombia/`, `<workspace>/memory/colombia/`, `~/colombia/`.
+3. If none exists and state must be created, default to `<workspace>/colombia/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.

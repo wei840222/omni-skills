@@ -15,6 +15,18 @@ If `<state_root>/second-order-effects/` doesn't exist, or user's memory file sho
 
 User faces a decision with non-obvious downstream effects. Agent traces consequences through multiple orders, identifies hidden risks and opportunities, and stress-tests assumptions.
 
+## State location
+
+Second Order Effects state may exist in `<workspace>/second-order-effects/`, `<workspace>/memory/second-order-effects/`, or `~/second-order-effects/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/second-order-effects/`, `<workspace>/memory/second-order-effects/`, `~/second-order-effects/`.
+3. If none exists and state must be created, default to `<workspace>/second-order-effects/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/second-order-effects/`. See `references/memory-template.md` for structure.

@@ -14,6 +14,16 @@ Learned humor state lives in `<state_root>/humor/` (see `references/setup.md` on
 
 ## State location
 
+Humor state may exist in `<workspace>/humor/`, `<workspace>/memory/humor/`, or `~/humor/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/humor/`, `<workspace>/memory/humor/`, `~/humor/`.
+3. If none exists and state must be created, default to `<workspace>/humor/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 The skill stores configuration and learned profiles under portable `<state_root>/humor/`.
 
 - Resolve `<state_root>` from the active agent/workspace convention; never hard-code a machine-specific home path in instructions.

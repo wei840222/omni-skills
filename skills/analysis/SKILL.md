@@ -22,6 +22,18 @@ metadata:
 
 An audit is worth its tokens only if it changes what happens next. Every finding carries the evidence that produced it, a severity from the rubric, and exactly one action; a finding with no action is dropped, not downgraded. Report before repairing, report all fixes visibly, and ensure all deletions are preceded by recording the state. Work from defaults immediately: open directly with default actions about their setup, their thresholds, or how aggressive to be. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: locale, timezone, currency) → the Configuration table default.
 
+## State location
+
+Analysis state may exist in `<workspace>/analysis/`, `<workspace>/memory/analysis/`, or `~/analysis/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/analysis/`, `<workspace>/memory/analysis/`, `~/analysis/`.
+3. If none exists and state must be created, default to `<workspace>/analysis/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When To Use
 
 - Someone asks for a health check, a system check, an audit, or says something feels off and cannot name it

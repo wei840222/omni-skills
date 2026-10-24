@@ -12,6 +12,18 @@ Trigger this skill when transitioning vague ideas into system requirements, cons
 **Scope Limitations:**
 Route requests for direct code implementation, debugging scripts, or pure business strategy to specialized skills like `software-engineer` or `cto`.
 
+## State location
+
+Engineer state may exist in `<workspace>/engineer/`, `<workspace>/memory/engineer/`, or `~/engineer/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/engineer/`, `<workspace>/memory/engineer/`, `~/engineer/`.
+3. If none exists and state must be created, default to `<workspace>/engineer/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/engineer/`. See `references/setup.md` for initialization and `references/memory-template.md` for schema details.

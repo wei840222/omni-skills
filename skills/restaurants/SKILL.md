@@ -13,6 +13,17 @@ metadata:
 - Create `<state_root>/restaurants/` as workspace
 
 ## State location
+
+Restaurants state may exist in `<workspace>/restaurants/`, `<workspace>/memory/restaurants/`, or `~/restaurants/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/restaurants/`, `<workspace>/memory/restaurants/`, `~/restaurants/`.
+3. If none exists and state must be created, default to `<workspace>/restaurants/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill stores state at `<state_root>/restaurants/`. Use this path for storing restaurant entries. Examples: `~/.local/state/restaurants/`, `C:\Users\User\AppData\Local\restaurants\`.
 
 ## File Structure

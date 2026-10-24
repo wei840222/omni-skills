@@ -7,15 +7,17 @@ metadata:
   related-skills: '{"booking": "Reservation workflows and confirmation hygiene", "car-rental": "Better self-drive strategy and handoff logistics", "europe": "Better wider-Europe context when Switzerland is part of a longer route", "food": "Deeper restaurant and cuisine planning", "travel": "General trip planning and itinerary structure"}'
 ---
 
-
-
 ## State location
 
-**State root resolution:**
-1. Explicitly provided `<state_root>` in user parameters.
-2. Default fallback: `~/.skills/switzerland/`
+Switzerland state may exist in `<workspace>/switzerland/`, `<workspace>/memory/switzerland/`, or `~/switzerland/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Data stored: Trip preferences, route decisions, and deadlines.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/switzerland/`, `<workspace>/memory/switzerland/`, `~/switzerland/`.
+3. If none exists and state must be created, default to `<workspace>/switzerland/`.
+
+Use the selected `<state_root>` for every state operation in this skill. Data stored: Trip preferences, route decisions, and deadlines.
 
 ## Setup
 

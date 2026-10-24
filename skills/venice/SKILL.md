@@ -7,7 +7,7 @@ metadata:
   related-skills: '{"dubai": "Compare luxury city destination", "toronto": "Compare with another major city skill", "travel": "General travel planning and logistics"}'
 ---
 
-## State Location
+## State location
 
 Venice trip state may exist in `<workspace>/venice/`, `<workspace>/memory/venice/`, or `~/venice/`.
 

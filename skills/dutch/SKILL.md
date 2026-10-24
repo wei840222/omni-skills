@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🇳🇱"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## The Real Problem
 
 AI Dutch is technically correct but sounds off. Too formal. Too stiff. Natives write more directly, with particles and casual flow. Match that.

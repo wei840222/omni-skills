@@ -5,15 +5,21 @@ metadata:
   openclaw: '{"requires": {"config": ["<state_root>/"]}, "emoji": "🎨"}'
 ---
 
-
 ## State location
+
+Css state may exist in `<workspace>/css/`, `<workspace>/memory/css/`, or `~/css/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/css/`, `<workspace>/memory/css/`, `~/css/`.
+3. If none exists and state must be created, default to `<workspace>/css/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Configuration and memory are stored in a local workspace directory. The skill looks for state in the following candidate locations, prioritizing the first one found:
 
-1. `<state_root>/`
-
 If no directory exists, it will create `<state_root>/` and use it.
-
 
 ## References
 All deep knowledge, patterns, and configuration templates are stored in `references/`. Load the specific files below when you encounter these scenarios:

@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"api": "Use for general third-party API client patterns (auth, pagination, retries) outside HN-specific endpoints.", "http": "Use for HTTP caching, redirects, and status-code behavior that is not HN-specific.", "news": "Use for personalized multi-source news briefings rather than live Hacker News API access."}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration. Prefer in-memory results for the current turn; do not write HN caches unless the user explicitly requests a separate host-owned path.
-
 ## Quick Reference
 
 | Topic | File | When to load |

@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🇭🇷"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## Instructions
 
 For detailed guidance on writing natural, casual Croatian, refer to [Language Style](references/language-style.md).

@@ -11,6 +11,16 @@ Load this skill when the user provides biological sequence data (FASTQ, FASTA, B
 
 ## State location
 
+Bioinformatics state may exist in `<workspace>/bioinformatics/`, `<workspace>/memory/bioinformatics/`, or `~/bioinformatics/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/bioinformatics/`, `<workspace>/memory/bioinformatics/`, `~/bioinformatics/`.
+3. If none exists and state must be created, default to `<workspace>/bioinformatics/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - State root: `<state_root>/bioinformatics/`
 - Memory schema: `assets/memory-template.md`
 

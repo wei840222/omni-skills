@@ -14,7 +14,3 @@ When asked to choose, architect, or evaluate storage systems for applications, u
 | Reference File | Description | When to load |
 |---|---|---|
 | `references/storage-knowledge.md` | Core storage system knowledge, tradeoffs, and patterns | Always load when making storage architecture decisions |
-
-## State location
-
-This skill is stateless.

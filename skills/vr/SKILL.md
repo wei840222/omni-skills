@@ -10,10 +10,6 @@ metadata:
 
 This skill helps set up VR headsets, troubleshoot common issues, optimize comfort, and recommend experiences by use case. Trigger this skill when users ask about purchasing a VR headset, setting up a play space, fixing PC VR or standalone headset issues, overcoming motion sickness, or finding specific types of VR content.
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## Before Recommending Headsets
 
 - Ask primary use case: gaming, fitness, social, productivity, development

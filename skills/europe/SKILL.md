@@ -15,6 +15,16 @@ This skill should activate for seven modes: visiting Europe, choosing a base in 
 
 ## State location
 
+Europe state may exist in `<workspace>/europe/`, `<workspace>/memory/europe/`, or `~/europe/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/europe/`, `<workspace>/memory/europe/`, `~/europe/`.
+3. If none exists and state must be created, default to `<workspace>/europe/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill works statelessly for one-off Europe questions. If the user wants continuity across sessions, memory lives in `<state_root>/`. If `<state_root>/` does not exist, read `references/setup.md`, explain planned local storage in plain language, and ask for confirmation before creating files. See `references/memory-template.md` for structure.
 
 ```text

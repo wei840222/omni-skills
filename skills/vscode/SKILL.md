@@ -18,10 +18,18 @@ metadata:
 
 Almost every VS Code problem is one of five things: a setting resolved at the wrong scope, an extension doing something you did not attribute to it, a path that means something different to the debugger than to you, a process boundary (extension host, remote server, shell), or trust. Name which one before proposing a fix, and give the file, the key, and the value that changes. Work from defaults immediately: begin by using defaults instead of asking about their OS, their extensions, or how proactive to be. The one exception to silence is `os_family` — while it is unset, give shortcuts in both `Cmd` and `Ctrl` form rather than asking. That is a statement, not a question. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals) → the Configuration table default.
 
-
 ## State location
 
-- **Candidate locations:** `<state_root>/vscode/`, `<state_root>/servers/`, `<state_root>/projects/`, `<state_root>/profile.yaml`
+Vscode state may exist in `<workspace>/vscode/`, `<workspace>/memory/vscode/`, or `~/vscode/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/vscode/`, `<workspace>/memory/vscode/`, `~/vscode/`.
+3. If none exists and state must be created, default to `<workspace>/vscode/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - **Lookup order:**
   1. `<state_root>/vscode/config.yaml`
   2. `<state_root>/profile.yaml`
@@ -156,7 +164,6 @@ Before emitting a settings block, a debug or task config, or an extension recomm
 - For a remote or container window: is each extension named on the side that will actually run it (Rule 8)?
 - Is the answer emitted in the shape `config_output` asks for — the changed keys only, or the whole file?
 - Did anything durable come out of this — a config that worked, an extension verdict, a profile, a remote host, an environment fact, a root cause? Then it is written to its box in `memory-template.md`, with its `## Boxes` line, in this same turn.
-
 
 ## Quick Reference
 

@@ -29,10 +29,6 @@ Use this skill for C source that needs memory, pointer, string, type, preprocess
 | Multi-step feature plan with approval gates | `code` |
 | Secure-code patching across languages | `security-best-practices` |
 
-## State location
-
-This skill is **stateless**. It does not read or write `<state_root>` files. Capture durable project coding preferences with `code` / `coding` instead.
-
 ## Quick Reference
 
 | Topic | File |

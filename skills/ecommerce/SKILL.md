@@ -8,9 +8,18 @@ metadata:
 
 ## State location
 
+Ecommerce state may exist in `<workspace>/ecommerce/`, `<workspace>/memory/ecommerce/`, or `~/ecommerce/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/ecommerce/`, `<workspace>/memory/ecommerce/`, `~/ecommerce/`.
+3. If none exists and state must be created, default to `<workspace>/ecommerce/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - **Current Workspace State**: Config and local files are stored at `<state_root>/ecommerce/`. Shared contacts, finances, projects, domains, servers are in their respective `<state_root>` locations.
 - **Legacy Migration**: If data sits at an old location (`<state_root>/ecommerce_old/` or `<state_root>/ecommerce_old2/`), move it to `<state_root>/ecommerce/`, and state in one line that you moved it and from where.
-
 
 **Data.** At the start of every session, read `<state_root>/ecommerce/config.yaml` (what the user declared) and `<state_root>/ecommerce/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, always verify the current list. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved in its original state, and every write and deletion is named in one line as it happens. Read `<state_root>/contacts/contacts.md` before naming a supplier, 3PL, agency, or wholesale account; `<state_root>/finances/subscriptions.md` before any app-stack or platform cost decision; `<state_root>/domains/domains.md` before DNS, renewal, or migration work; and `<state_root>/servers/servers.md` when the store is self-hosted. If none of it exists, work from defaults and say nothing about it.
 
@@ -21,7 +30,6 @@ metadata:
 **No credential and no customer identity is ever written anywhere under `<state_root>/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Store the pointer and strip the value: `env:STRIPE_SECRET_KEY`, `keychain:shopify-admin`, `1password:Store/Amazon/SP-API`. Card numbers, CVV and expiry dates have no pointer form: they must be immediately removed and explicitly ignored (Rule 9). If data sits at an old location (`<state_root>/ecommerce_old/` or `<state_root>/ecommerce_old2/`), move it to `<state_root>/ecommerce/`, and say in one line that you moved it and from where.
 
 A store is one pipe: traffic → cart → paid order → shipped parcel → kept revenue. Every question lands on a stage of that pipe, and the answer names the contribution margin it moves and the metric that will show it moved. Work from defaults immediately: start immediately with defaults about their platform, their revenue, or how proactive to be. Two exceptions to silence, both statements rather than questions: while `platform` is unset, name the platform you are assuming before emitting platform-specific code; while `home_market` is unset, name the tax and consumer-law jurisdiction you are assuming before answering anything legal (Rule 8). Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: currency, locale, country) → the Configuration table default.
-
 
 ## Quick Reference & When to Load
 

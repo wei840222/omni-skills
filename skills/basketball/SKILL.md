@@ -14,10 +14,18 @@ Restrict usage exclusively to actionable basketball decisions. Refuse requests f
 
 ## State location
 
+Basketball state may exist in `<workspace>/basketball/`, `<workspace>/memory/basketball/`, or `~/basketball/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/basketball/`, `<workspace>/memory/basketball/`, `~/basketball/`.
+3. If none exists and state must be created, default to `<workspace>/basketball/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Memory and state files are located at `<state_root>/basketball/`.
 
-- **Primary resolution**: Look in `<workspace>/.agents/state/basketball/` first.
-- **Fallback resolution**: If the workspace state does not exist, use `~/.agents/state/basketball/`.
 - **Creation behavior**: If neither exists and the user approves memory storage, create the directory at `<workspace>/.agents/state/basketball/`.
 
 ## Architecture

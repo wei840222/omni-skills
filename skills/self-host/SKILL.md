@@ -26,12 +26,15 @@ Prefer more specific skills when the ask is narrow:
 
 ## State location
 
-Resolve `<state_root>` in this order:
+Self Host state may exist in `<workspace>/self-host/`, `<workspace>/memory/self-host/`, or `~/self-host/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. Explicit user- or host-configured state path when supplied
-2. `<workspace>/.agents/state` when a local workspace is active
-3. `$XDG_DATA_HOME` when set
-4. `~/.local/share` on Linux/macOS defaults
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/self-host/`, `<workspace>/memory/self-host/`, `~/self-host/`.
+3. If none exists and state must be created, default to `<workspace>/self-host/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Resolve once per invocation and keep it fixed. Prefer portable `<state_root>` paths; never hard-code host-specific roots such as `~/Clawic/data/self-host/`.
 

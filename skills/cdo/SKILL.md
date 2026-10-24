@@ -24,8 +24,3 @@ metadata:
 | Stage Focus | `references/stage_focus.md` | When determining which data initiatives to prioritize based on company maturity |
 | Common Traps | `references/traps.md` | When reviewing data project proposals for common failure modes |
 | Human-in-the-Loop | `references/human_in_the_loop.md` | When decisions involve major vendor selections, privacy incidents, or restructuring |
-
-
-## State location
-
-This skill is stateless and does not store local configuration.

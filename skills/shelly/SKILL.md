@@ -20,11 +20,15 @@ Use this instead of generic IoT advice when outcomes depend on Shelly-specific R
 
 ## State location
 
-Resolve `<state_root>` in this order:
+Shelly state may exist in `<workspace>/shelly/`, `<workspace>/memory/shelly/`, or `~/shelly/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. `<workspace>/.agents/state` when a local workspace is active
-2. `$XDG_DATA_HOME` when set
-3. `~/.local/share` on Linux/macOS defaults
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/shelly/`, `<workspace>/memory/shelly/`, `~/shelly/`.
+3. If none exists and state must be created, default to `<workspace>/shelly/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Skill state lives under `<state_root>/shelly/`. If the directory does not exist, initialize it from `references/setup.md` and `references/memory-template.md`.
 

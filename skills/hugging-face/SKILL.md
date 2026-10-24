@@ -12,6 +12,16 @@ metadata:
 
 ## State location
 
+Hugging Face state may exist in `<workspace>/hugging-face/`, `<workspace>/memory/hugging-face/`, or `~/hugging-face/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/hugging-face/`, `<workspace>/memory/hugging-face/`, `~/hugging-face/`.
+3. If none exists and state must be created, default to `<workspace>/hugging-face/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Memory and reusable artifacts live in `<state_root>/`.
 - Candidate locations: `.hugging-face/`, `~/.hugging-face/`
 - Lookup order: workspace-first, then global fallback.

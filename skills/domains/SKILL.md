@@ -9,10 +9,6 @@ metadata:
 
 This skill provides practical DNS, registration, and security guidance for managing domain names.
 
-## State location
-
-This skill is stateless and does not store local configuration or manage stateful resources in the workspace.
-
 ## Reference Materials
 
 | Reference File | Description | When to load |

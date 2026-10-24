@@ -15,6 +15,18 @@ metadata:
 - `references/progress.md`: Load before logging practice, updating repertoire, technique notes, or goals.
 - `references/sources.md`: Load for pedagogy and groove-source notes behind practice defaults.
 
+## State location
+
+Bass state may exist in `<workspace>/bass/`, `<workspace>/memory/bass/`, or `~/bass/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/bass/`, `<workspace>/memory/bass/`, `~/bass/`.
+3. If none exists and state must be created, default to `<workspace>/bass/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Core Behavior
 
 - Create `<state_root>/bass/` as workspace on first interaction.

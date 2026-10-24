@@ -8,6 +8,17 @@ metadata:
 ---
 
 ## State location
+
+Games state may exist in `<workspace>/games/`, `<workspace>/memory/games/`, or `~/games/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/games/`, `<workspace>/memory/games/`, `~/games/`.
+3. If none exists and state must be created, default to `<workspace>/games/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Workspace directory: `<state_root>/` (e.g. `~/Workspace/games/` or similar based on environment).
 Create this directory if it doesn't exist to store tracking files.
 

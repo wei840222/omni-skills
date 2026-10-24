@@ -11,6 +11,18 @@ metadata:
 
 User is planning a Denmark trip and needs operational guidance beyond generic city lists: Schengen entry checks, Copenhagen vs Jutland vs island routing, rail and ferry choices, weather-fit timing, budget reality, and on-the-ground execution.
 
+## State location
+
+Denmark state may exist in `<workspace>/denmark/`, `<workspace>/memory/denmark/`, or `~/denmark/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/denmark/`, `<workspace>/memory/denmark/`, `~/denmark/`.
+3. If none exists and state must be created, default to `<workspace>/denmark/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/denmark/`. If `<state_root>/denmark/` does not exist, run `scripts/setup.md`. See `assets/memory-template.md` for structure.

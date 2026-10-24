@@ -8,9 +8,6 @@ metadata:
   related-skills: '{"applescript": "Script app automation with robust quoting and pre-read checks.", "automate": "Design reliable multi-step automation workflows.", "macos": "Use macOS command-line and system operation patterns.", "workflow": "Structure repeatable workflows and handoff states."}'
 ---
 
-
-
-
 ## Setup
 
 Load `references/setup.md` on first use to establish activation behavior and safety preferences.
@@ -24,6 +21,18 @@ Load this skill when the user explicitly requests to run, create, or modify an A
 - macOS with `automator` and `osascript` available.
 - Automator app installed at `/System/Applications/Automator.app`.
 - Explicit user confirmation before destructive or bulk operations.
+
+## State location
+
+Automator state may exist in `<workspace>/automator/`, `<workspace>/memory/automator/`, or `~/automator/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/automator/`, `<workspace>/memory/automator/`, `~/automator/`.
+3. If none exists and state must be created, default to `<workspace>/automator/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Architecture
 

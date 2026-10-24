@@ -10,10 +10,6 @@ metadata:
 
 Create performant web animations with proper accessibility and timing. Triggers when asked to animate UI components, write CSS transitions/keyframes, or use animation libraries in React or JavaScript.
 
-## State location
-
-This skill is stateless and does not persist any files across sessions.
-
 ## Quick Reference
 
 | Reference File | When to Load |

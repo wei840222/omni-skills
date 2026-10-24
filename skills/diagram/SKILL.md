@@ -29,7 +29,3 @@ Load [Mermaid Reference](references/mermaid-reference.md) for quick examples of 
 ## Common Requests & Required Practices
 
 Load [Common Requests](references/common-requests.md) to understand how to interpret user requests and required practices for clarity.
-
-## State location
-
-This skill is stateless and does not store local configuration.

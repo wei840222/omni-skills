@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🔳"}'
 ---
 
-## State location
-
-This skill is stateless and stores no local configuration.
-
 ## Generate and deploy a QR code
 
 1. Choose the payload type. Load `references/types.md` for Wi-Fi, vCard, email, SMS, and geo payload syntax.

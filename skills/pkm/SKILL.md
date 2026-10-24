@@ -12,11 +12,19 @@ Use this skill to turn incoming material into retrievable, connected notes witho
 
 ## State location
 
+Pkm state may exist in `<workspace>/pkm/`, `<workspace>/memory/pkm/`, or `~/pkm/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/pkm/`, `<workspace>/memory/pkm/`, `~/pkm/`.
+3. If none exists and state must be created, default to `<workspace>/pkm/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Store persistent notes outside the skill package:
 
-1. Use the runtime-provided `<state_root>` when available.
 2. Otherwise, ask the user for a knowledge-base directory before creating files; if they choose not to specify one, use a `workspace` or `state` directory relative to the current execution path.
-3. Create the selected state directory before writing. Preserve existing notes and conventions rather than replacing them.
 
 ## Default workflow
 

@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"fitness": "Can create complementary workouts and manage overall health."}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## Core Operations
 
 To provide diet advice, read the following references when needed:

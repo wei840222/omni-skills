@@ -8,11 +8,15 @@ metadata:
 
 ## State location
 
-**Workspace-First Priority Lookup:**
-1. `<state_root>/secretary/` (Default data directory)
+Secretary state may exist in `<workspace>/secretary/`, `<workspace>/memory/secretary/`, or `~/secretary/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-The agent must store all preferences, notes, and history files inside `<state_root>/secretary/`.
-Create this directory if it does not exist using `mkdir -p <state_root>/secretary`.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/secretary/`, `<workspace>/memory/secretary/`, `~/secretary/`.
+3. If none exists and state must be created, default to `<workspace>/secretary/`.
+
+Use the selected `<state_root>` for every state operation in this skill. The agent must store all preferences, notes, and history files inside `<state_root>/secretary/`. Create this directory if it does not exist.
 
 ## Scope
 

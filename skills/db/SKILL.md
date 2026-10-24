@@ -40,6 +40,16 @@ Prefer other skills when the ask is mainly:
 
 ## State location
 
+Db state may exist in `<workspace>/db/`, `<workspace>/memory/db/`, or `~/db/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/db/`, `<workspace>/memory/db/`, `~/db/`.
+3. If none exists and state must be created, default to `<workspace>/db/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Optional audit notes, migration runbooks, and restore drill logs may live under `<workspace>/db/`, `<workspace>/memory/db/`, or `~/db/`. Resolve `<workspace>` as the host/runtime workspace root, never the shell cwd. Do not store production credentials in the skill tree.
 
 ## Progressive disclosure

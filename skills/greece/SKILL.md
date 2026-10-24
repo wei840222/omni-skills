@@ -7,6 +7,17 @@ metadata:
 ---
 
 ## State location
+
+Greece state may exist in `<workspace>/greece/`, `<workspace>/memory/greece/`, or `~/greece/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/greece/`, `<workspace>/memory/greece/`, `~/greece/`.
+3. If none exists and state must be created, default to `<workspace>/greece/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 State follows a workspace-first convention. Use `<state_root>/` for configuration and active execution state.
 
 ## Setup

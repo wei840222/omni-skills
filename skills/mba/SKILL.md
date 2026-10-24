@@ -35,10 +35,17 @@ When evidence is incomplete, label the uncertainty, request the smallest decisio
 
 ## State location
 
-When the user asks to track progress, exercises, or cases across sessions, first resolve `<state_root>` as follows:
+Mba state may exist in `<workspace>/mba/`, `<workspace>/memory/mba/`, or `~/mba/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. In a workspace, use its `.agents/state/` directory.
-2. Otherwise, use `~/.local/state/agents/`.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/mba/`, `<workspace>/memory/mba/`, `~/mba/`.
+3. If none exists and state must be created, default to `<workspace>/mba/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+When the user asks to track progress, exercises, or cases across sessions, first resolve `<state_root>` as follows:
 
 Keep optional MBA data in `<state_root>/mba/`: `progress.md`, `cases/`, `exercises/`, and `notes.md`. Ask before creating or changing persistent user data.
 

@@ -11,10 +11,21 @@ metadata:
   related-skills: '{"memory": "structure durable local memory for agent continuity", "self-improving": "capture corrections and recurring lessons so execution quality compounds", "skill-builder": "turn a proven repeated workflow into a dedicated skill package", "workflow": "formalize repeated operating patterns into stable execution sequences"}'
 ---
 
-
 ## When to load
 
 Load this skill when initializing an agent environment for the first time, when diagnosing memory-retention failures across sessions, or when explicit instructions ask for continuous self-improvement or reflective loop setup.
+
+## State location
+
+Hermes Agent state may exist in `<workspace>/hermes-agent/`, `<workspace>/memory/hermes-agent/`, or `~/hermes-agent/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/hermes-agent/`, `<workspace>/memory/hermes-agent/`, `~/hermes-agent/`.
+3. If none exists and state must be created, default to `<workspace>/hermes-agent/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Architecture
 

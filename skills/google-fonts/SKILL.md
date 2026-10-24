@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"branding": "Brand voice and visual identity that constrain font choice.", "css": "@font-face, font-display, and CSS delivery details around the selected fonts.", "typography": "Measure, leading, tracking, and optical scale once the font files are chosen."}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## When to Use
 
 - Loading Google Fonts with performance-safe HTML/CSS snippets

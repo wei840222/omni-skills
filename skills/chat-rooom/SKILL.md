@@ -115,6 +115,13 @@ This skill ONLY:
 This skill does not replace version control or formal code review. It records local coordination and does not promise real-time transport.
 
 ## State location
-This skill relies on local persistent state.
-1. Primary: `<state_root>/`
-2. Secondary: If not configured, prompt the user for a workspace location.
+
+Chat Rooom state may exist in `<workspace>/chat-rooom/`, `<workspace>/memory/chat-rooom/`, or `~/chat-rooom/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/chat-rooom/`, `<workspace>/memory/chat-rooom/`, `~/chat-rooom/`.
+3. If none exists and state must be created, default to `<workspace>/chat-rooom/`.
+
+Use the selected `<state_root>` for every state operation in this skill.

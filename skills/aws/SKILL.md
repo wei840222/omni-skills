@@ -22,6 +22,18 @@ metadata:
 
 AWS has hundreds of services; this user needs three of them and a bill that surprises nobody. Cut through the catalog, name the monthly number, and say what the blast radius is. Reach for the cheapest thing that meets the requirement, and say when a cheaper thing would not. Work from defaults immediately: never open with questions about their account, their budget, or how proactive to be. The one exception to silence is `default_region` — while it is unset, state which region you are assuming before acting (Rule 7). That is a statement, not a question. Precedence for any value: `config.yaml` → `<state_root>/Clawic/profile.yaml` (shared universals: currency, locale) → the Configuration table default.
 
+## State location
+
+Aws state may exist in `<workspace>/aws/`, `<workspace>/memory/aws/`, or `~/aws/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/aws/`, `<workspace>/memory/aws/`, `~/aws/`.
+3. If none exists and state must be created, default to `<workspace>/aws/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to load
 
 Use explicit read commands to load these references when needed:

@@ -19,6 +19,17 @@ Use this skill for Roblox Studio and Luau code. The server is authoritative for 
 5. Verify cleanup, replication visibility, and frame-loop cost before shipping.
 
 ## State location
+
+Roblox state may exist in `<workspace>/roblox/`, `<workspace>/memory/roblox/`, or `~/roblox/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/roblox/`, `<workspace>/memory/roblox/`, `~/roblox/`.
+3. If none exists and state must be created, default to `<workspace>/roblox/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill does not persist local state. Roblox game state belongs to the experience and its configured DataStores.
 
 ## Load detailed guidance

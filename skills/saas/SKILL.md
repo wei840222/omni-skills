@@ -24,6 +24,18 @@ metadata:
 
 Every SaaS question resolves to one of five things: the **revenue movement**, the **plan** the customer sits on, the **cost to serve** them, the **renewal** that arrives whether or not anyone prepared, or what **procurement** demands before it signs. Name which one before answering, then give the number, the formula behind it, and the date it is measured as of. Work from defaults immediately: open with the default configurations rather than questions about their stage, their billing provider, or how proactive to be. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: currency, locale) → the Configuration table default.
 
+## State location
+
+Saas state may exist in `<workspace>/saas/`, `<workspace>/memory/saas/`, or `~/saas/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/saas/`, `<workspace>/memory/saas/`, `~/saas/`.
+3. If none exists and state must be created, default to `<workspace>/saas/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to load
 
 Load this skill when you need to:

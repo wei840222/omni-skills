@@ -27,6 +27,18 @@ This skill supports deep expertise in Vue 3. When encountering specific issues, 
 - **Setup & Plugins**: Load `references/setup.md` and `references/plugins.md`.
 - **Templates & Slots**: Load `references/templates.md`.
 
+## State location
+
+Vue state may exist in `<workspace>/vue/`, `<workspace>/memory/vue/`, or `~/vue/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/vue/`, `<workspace>/memory/vue/`, `~/vue/`.
+3. If none exists and state must be created, default to `<workspace>/vue/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Output Gates
 
 Before emitting a component, composable, or store, verify:

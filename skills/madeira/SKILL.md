@@ -55,10 +55,6 @@ Use when the user asks about Madeira as a visitor, digital nomad, retiree, or re
 | Non-EU & digital nomad visa | Load when discussing non-eu & digital nomad visa | `references/visas-non-eu.md` |
 | NHR tax regime | Load when discussing nhr tax regime | `references/visas-tax.md` |
 
-## State location
-
-This is a stateless skill. It does not store or read local configuration state.
-
 ## Core Rules
 
 ### 1. Identify User Context First

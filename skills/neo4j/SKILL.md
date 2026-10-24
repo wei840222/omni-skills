@@ -12,7 +12,3 @@ metadata:
 2. Load [Cypher guidelines](references/cypher-guidelines.md) before drafting or reviewing Cypher.
 3. Use parameters and a bounded read or `EXPLAIN` to validate the query shape. For a high-volume or destructive mutation, obtain explicit confirmation before execution.
 4. Return the query with its assumptions, expected effect, and any plan or recovery checks the caller should perform.
-
-## State location
-
-This skill is stateless. It does not store local configuration or persistent user state.

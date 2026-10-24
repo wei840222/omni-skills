@@ -11,8 +11,17 @@ metadata:
   related-skills: '{"ci-cd": "Automating build hooks, pull request preview environments, and deploy triggers.", "deploy": "Multi-cloud hosting evaluation and production zero-downtime cutover.", "devops": "Infrastructure configuration, health check monitoring, and rollbacks.", "docker": "Containerizing web services and background workers for Render deployment.", "nodejs": "Node.js service build commands, environment variables, and memory tuning."}'
 ---
 
-
 ## State location
+
+Render Deploy state may exist in `<workspace>/render-deploy/`, `<workspace>/memory/render-deploy/`, or `~/render-deploy/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/render-deploy/`, `<workspace>/memory/render-deploy/`, `~/render-deploy/`.
+3. If none exists and state must be created, default to `<workspace>/render-deploy/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 - **Primary**: `<state_root>/render-deploy/` (workspace-specific state)
 - **Global**: `<global_state_root>/render-deploy/` (user preferences)

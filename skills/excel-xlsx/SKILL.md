@@ -9,13 +9,19 @@ metadata:
 
 ## State location
 
+Excel Xlsx state may exist in `<workspace>/excel-xlsx/`, `<workspace>/memory/excel-xlsx/`, or `~/excel-xlsx/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/excel-xlsx/`, `<workspace>/memory/excel-xlsx/`, `~/excel-xlsx/`.
+3. If none exists and state must be created, default to `<workspace>/excel-xlsx/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Optional preferences live under `<state_root>/excel-xlsx/`.
 
 Resolve `<state_root>` once per invocation:
-
-1. Prefer an existing host-provided skill state root when the runtime already defines one.
-2. Else use `<workspace>/` when a workspace is available.
-3. Else, only after the user authorizes durable preferences, create and use a local workspace-owned root.
 
 If no durable preferences are authorized, stay fully in-session and do not invent a memory file.
 

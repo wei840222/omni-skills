@@ -12,6 +12,18 @@ metadata:
 Load this skill when the user is planning a trip to Norway.
 Load only the specific references needed for the current prompt. Load specific `references/*.md` files based on the requested phase of planning (e.g. entry rules, routing, transport, or regional focus).
 
+## State location
+
+Norway state may exist in `<workspace>/norway/`, `<workspace>/memory/norway/`, or `~/norway/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/norway/`, `<workspace>/memory/norway/`, `~/norway/`.
+3. If none exists and state must be created, default to `<workspace>/norway/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/data/norway/`. If `<state_root>/data/norway/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.

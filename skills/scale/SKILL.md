@@ -18,6 +18,18 @@ Load this skill when asked to plan or evaluate scaling strategies for technical 
 
 Load `references/domain-knowledge.md` when verifying bottleneck, architecture-split, or delivery-throughput guidance against primary sources.
 
+## State location
+
+Scale state may exist in `<workspace>/scale/`, `<workspace>/memory/scale/`, or `~/scale/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/scale/`, `<workspace>/memory/scale/`, `~/scale/`.
+3. If none exists and state must be created, default to `<workspace>/scale/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/scale/`. See `assets/memory-template.md` for structure and status fields.

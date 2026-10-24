@@ -51,6 +51,16 @@ metadata:
 
 ## State location
 
+Typography state may exist in `<workspace>/typography/`, `<workspace>/memory/typography/`, or `~/typography/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/typography/`, `<workspace>/memory/typography/`, `~/typography/`.
+3. If none exists and state must be created, default to `<workspace>/typography/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 No persistent state is required. This skill is advisory and knowledge-based; do not invent a state directory for it.
 
 ## Quick Reference

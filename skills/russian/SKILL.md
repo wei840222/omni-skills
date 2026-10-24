@@ -39,7 +39,3 @@ Russian punctuation:
 ## The "Native Test"
 
 Before sending: ask whether a Russian reader would screenshot this as AI-generated. Prefer casual register, include particles where natural, and use `)` smile punctuation when the tone is warm.
-
-## State location
-
-This is a stateless skill. It does not store local configuration or maintain persistent state across sessions.

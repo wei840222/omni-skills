@@ -8,6 +8,18 @@ metadata:
 
 User preferences and memory live in `<state_root>/typescript/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/typescript/` or `~/clawic/typescript/`), move it to `<state_root>/typescript/`, and say in one line that you moved it and from where.
 
+## State location
+
+Typescript state may exist in `<workspace>/typescript/`, `<workspace>/memory/typescript/`, or `~/typescript/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/typescript/`, `<workspace>/memory/typescript/`, `~/typescript/`.
+3. If none exists and state must be created, default to `<workspace>/typescript/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When To Use
 
 - Decoding type errors: "not assignable" walls, narrowing failures, inference surprises, errors that appear only in CI

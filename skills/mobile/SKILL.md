@@ -6,10 +6,6 @@ metadata:
   related-skills: '{"android": "Android platform specific guidance", "app-store-connect": "App Store deployment and survival guidelines", "flutter": "Cross-platform development guidance", "iphone": "iOS platform specific guidance"}'
 ---
 
-## State location
-
-This skill is stateless and does not store any local configuration or runtime data in the workspace.
-
 ## Quick Reference
 
 | File | Description | When to load |

@@ -32,6 +32,18 @@ Use this JSON shape:
 
 For a "where is" or "find my project" request, read the index first and validate that a matching path still exists. Propose exact additions, edits, or removals and apply them only after confirmation.
 
+## State location
+
+Folders state may exist in `<workspace>/folders/`, `<workspace>/memory/folders/`, or `~/folders/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/folders/`, `<workspace>/memory/folders/`, `~/folders/`.
+3. If none exists and state must be created, default to `<workspace>/folders/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Discovery
 
 For an index miss or an explicit inventory request, search only user-relevant roots such as `~/projects`, `~/Documents`, `~/code`, `~/dev`, and `~/work`, plus any roots the user names. Detect projects from `.git`, `package.json`, `pubspec.yaml`, `Cargo.toml`, `go.mod`, `pyproject.toml`, or `*.sln`.

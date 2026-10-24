@@ -12,6 +12,16 @@ Load this skill when the user explicitly requests food delivery, asks for restau
 
 ## State location
 
+Food Delivery state may exist in `<workspace>/food-delivery/`, `<workspace>/memory/food-delivery/`, or `~/food-delivery/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/food-delivery/`, `<workspace>/memory/food-delivery/`, `~/food-delivery/`.
+3. If none exists and state must be created, default to `<workspace>/food-delivery/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Memory lives in `<state_root>/food-delivery/`.
 
 ```

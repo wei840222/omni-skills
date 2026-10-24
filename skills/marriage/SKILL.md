@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"couple": "Handles relationship milestones, celebrations, and shared memory rather than conflict frameworks.", "family": "Coordinates household logistics and multi-member family systems around the marriage.", "parenting": "Covers age-specific child guidance that intersects with marital conflict or divorce planning.", "therapist": "Hands off to clinical CBT/ACT techniques when individual mental-health work is the primary need."}'
 ---
 
-## State location
-
-This skill is stateless. It does not read or write persistent state.
-
 ## Approach
 
 Marriage support spans decades. Detect their stage, load relevant guidance, and always refer to professionals when appropriate.

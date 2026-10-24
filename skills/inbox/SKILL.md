@@ -7,11 +7,6 @@ metadata:
   related-skills: '{"brief": "Use when synthesizing inbox items into concise status briefs.", "email-management": "Use for email-specific triage, reply drafting, and follow-up tracking.", "productivity": "Use for broader prioritization and execution frameworks beyond inbox triage.", "secretary": "Use for executive assistant orchestration around communications and scheduling."}'
 ---
 
-
-## State location
-
-This skill is stateless and does not store any local configuration or user data. All operations are performed on the data presented by the user in the current session.
-
 ## When to Use
 
 User needs help managing incoming streams across email, chat, social, and project tools. Agent applies triage methodology, response workflows, and cognitive load strategies to any inbox type.

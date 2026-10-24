@@ -16,10 +16,17 @@ Trigger this skill when the user asks for guidance on customer success operation
 
 ## State location
 
-Use `<state_root>` as the persistent storage directory for this skill:
+Cco state may exist in `<workspace>/cco/`, `<workspace>/memory/cco/`, or `~/cco/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. Workspace-local: `<workspace>/.agents/state/cco/`
-2. Global fallback: `~/.local/state/cco/`
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/cco/`, `<workspace>/memory/cco/`, `~/cco/`.
+3. If none exists and state must be created, default to `<workspace>/cco/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+Use `<state_root>` as the persistent storage directory for this skill:
 
 Create `memory.md` in the first available path using `references/memory-template.md` as the template.
 

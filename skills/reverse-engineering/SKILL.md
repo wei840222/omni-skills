@@ -12,6 +12,18 @@ metadata:
 
 Load this skill when asked to analyze opaque, undocumented, legacy, or broken systems (binaries, APIs, file formats, protocols). Use progressive disclosure to load specific `references/` guides on demand rather than loading all documentation upfront.
 
+## State location
+
+Reverse Engineering state may exist in `<workspace>/reverse-engineering/`, `<workspace>/memory/reverse-engineering/`, or `~/reverse-engineering/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/reverse-engineering/`, `<workspace>/memory/reverse-engineering/`, `~/reverse-engineering/`.
+3. If none exists and state must be created, default to `<workspace>/reverse-engineering/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/reverse-engineering/`. If `<state_root>/reverse-engineering/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.

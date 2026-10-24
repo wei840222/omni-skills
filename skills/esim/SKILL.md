@@ -24,6 +24,16 @@ Leave this skill unloaded for physical SIM logistics, generic mobile UI, or bill
 
 ## State location
 
+Esim state may exist in `<workspace>/esim/`, `<workspace>/memory/esim/`, or `~/esim/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/esim/`, `<workspace>/memory/esim/`, `~/esim/`.
+3. If none exists and state must be created, default to `<workspace>/esim/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill does not persist state. Keep activation codes, EID values, and MatchingIDs in the caller's secret store; do not write them into the skill directory.
 
 ## Load path

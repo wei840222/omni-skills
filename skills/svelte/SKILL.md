@@ -13,6 +13,18 @@ metadata:
 
 User preferences and memory live in `<state_root>/svelte/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/svelte/`, `~/clawic/svelte/`, or `~/Clawic/data/svelte/`), move it to `<state_root>/svelte/`, and say in one line that you moved it and from where.
 
+## State location
+
+Svelte state may exist in `<workspace>/svelte/`, `<workspace>/memory/svelte/`, or `~/svelte/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/svelte/`, `<workspace>/memory/svelte/`, `~/svelte/`.
+3. If none exists and state must be created, default to `<workspace>/svelte/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When To Use
 
 - Writing or reviewing Svelte components, `.svelte.js` state modules, or SvelteKit routes

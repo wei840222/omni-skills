@@ -20,6 +20,18 @@ metadata:
 
 Calories and macros are somebody else's job (`calories`); this skill owns the other forty nutrients and whether the diet is actually any good. Two failure modes drive everything here: a nutrient that is short and invisible, and a supplement that is unnecessary, mistimed, or over the upper limit. Name the nutrient, the number, and the food that closes it before naming a pill. Work from defaults immediately: never open with questions about their diet, their labs, or how proactive to be. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: units, locale, country) → the Configuration table default.
 
+## State location
+
+Nutrition state may exist in `<workspace>/nutrition/`, `<workspace>/memory/nutrition/`, or `~/nutrition/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/nutrition/`, `<workspace>/memory/nutrition/`, `~/nutrition/`.
+3. If none exists and state must be created, default to `<workspace>/nutrition/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to load
 
 - "Am I getting enough X?" — a specific vitamin, mineral, fiber, or omega-3, or a whole-diet coverage check

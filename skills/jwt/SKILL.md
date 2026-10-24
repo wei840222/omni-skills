@@ -33,7 +33,3 @@ metadata:
 4. Keep access tokens short-lived; pair them with refresh-token rotation when sessions must survive.
 5. Prefer httpOnly Secure cookies with CSRF defenses over localStorage when the browser is the client.
 6. Load only the reference file needed for the current trap (algorithm, lifecycle, storage, JWKS, or attacks).
-
-## State location
-
-This skill is stateless and does not store local configuration.

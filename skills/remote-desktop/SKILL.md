@@ -13,7 +13,7 @@ metadata:
   related-skills: '{"firewall": "Host or edge packet filters that must allow SSH or the chosen desktop transport.", "linux": "Broader Linux administration once the session is up.", "network": "Layer-3 reachability, DNS, and routing when the desktop hop is only one path among many.", "server": "Server bootstrap and service layout beyond remote display access.", "sysadmin": "General sysadmin workflows that include remote desktop as one tool.", "vpn": "Full-tunnel or commercial VPN when path privacy is the goal rather than a single desktop session."}'
 ---
 
-## State Location
+## State location
 
 Remote-desktop state may exist in `<workspace>/remote-desktop/`, `<workspace>/memory/remote-desktop/`, or `~/remote-desktop/`. `<workspace>` is the workspace root supplied by the host/runtime.
 

@@ -16,6 +16,18 @@ metadata:
 | `references/tracking.md` | Commitment tracking, follow-up reminders | Load when the user makes a commitment, or when checking for overdue promises. |
 | `references/research.md` | Background domain knowledge | Load when explaining the rationale behind time management practices. |
 
+## State location
+
+Daily Planner state may exist in `<workspace>/daily-planner/`, `<workspace>/memory/daily-planner/`, or `~/daily-planner/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/daily-planner/`, `<workspace>/memory/daily-planner/`, `~/daily-planner/`.
+3. If none exists and state must be created, default to `<workspace>/daily-planner/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Storage
 
 Resolve `<state_root>` from the runtime-approved writable state location; if no state location is available, ask the user before creating persistent planner data. Store planner state in `<state_root>/planner/`:

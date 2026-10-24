@@ -15,6 +15,18 @@ metadata:
 Load this skill when the user asks to track pregnancy symptoms, log daily prenatal routines, or prepare summaries for doctor visits.
 
 Read `references/setup.md` on first initialization.
+## State location
+
+Pregnancy state may exist in `<workspace>/pregnancy/`, `<workspace>/memory/pregnancy/`, or `~/pregnancy/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/pregnancy/`, `<workspace>/memory/pregnancy/`, `~/pregnancy/`.
+3. If none exists and state must be created, default to `<workspace>/pregnancy/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/pregnancy/`. See `assets/memory-template.md` for structure and starter templates.
@@ -99,7 +111,6 @@ Only track data explicitly approved by the user.
 - Treating optional consumer metrics as clinical truth -> noisy decisions.
 - Summaries with raw dumps only -> poor usability during appointments.
 - Giving treatment advice beyond scope -> safety and trust risk.
-
 
 ## Sources
 

@@ -17,7 +17,3 @@ User is designing or debugging Arduino hardware/software: wiring, power, pin con
 |---|---|---|
 | `references/research.md` | Need background facts or source-backed domain notes | Arduino ecosystem overview and Gate 6 sources |
 | `references/pitfalls.md` | Troubleshooting a board, sketch, wiring, or upload issue | Common hardware and software traps |
-
-## State location
-
-This skill is stateless and does not store local configuration.

@@ -19,6 +19,18 @@ On first use, or when `<state_root>/smoking/` is missing/empty, read `references
 
 Load this skill when the user wants to log tobacco or nicotine use, reduce consumption, quit smoking, manage cravings, or keep structured records without judgment. Apply the right mode (`logger`, `reduce`, or `quit`) and keep progress measurable with practical next steps.
 
+## State location
+
+Smoking state may exist in `<workspace>/smoking/`, `<workspace>/memory/smoking/`, or `~/smoking/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/smoking/`, `<workspace>/memory/smoking/`, `~/smoking/`.
+3. If none exists and state must be created, default to `<workspace>/smoking/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/smoking/`. See `assets/memory-template.md` for structure and starter templates.

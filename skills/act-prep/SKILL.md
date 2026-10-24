@@ -13,14 +13,16 @@ Load this skill when the user explicitly requests ACT (American College Testing)
 
 ## State location
 
-ACT prep state may exist under portable roots. Resolve `<state_root>` once per invocation before any read/write:
+Act Prep state may exist in `<workspace>/act-prep/`, `<workspace>/memory/act-prep/`, or `~/act-prep/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
-2. Otherwise use the first existing directory in this order: `<workspace>/act/`, `<workspace>/memory/act/`, `~/act/`.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/act-prep/`, `<workspace>/memory/act-prep/`, `~/act-prep/`.
 3. If more than one exists, use only the highest-precedence directory and report the duplicates; do not merge them.
-4. If none exists and the user asks to persist prep data, create `<workspace>/act/`.
+4. If none exists and state must be created, default to `<workspace>/act-prep/`.
 
-Use the selected `<state_root>` for every state operation. Never write runtime state into this skill package. Do not store credentials, portal passwords, or payment details under `<state_root>/`.
+Use the selected `<state_root>` for every state operation in this skill. Never write runtime state into this skill package. Do not store credentials, portal passwords, or payment details under `<state_root>/`.
 
 ```text
 <state_root>/

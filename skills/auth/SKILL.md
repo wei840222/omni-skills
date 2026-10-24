@@ -6,7 +6,6 @@ metadata:
   openclaw: '{"emoji": "🔐", "requires": null, "os": ["linux", "darwin", "win32"], "displayName": "Auth"}'
 ---
 
-
 ## Documentation-Only Skill
 
 This skill is a **reference guide**. It contains code examples that demonstrate authentication patterns.
@@ -18,11 +17,6 @@ This skill is a **reference guide**. It contains code examples that demonstrate 
 - Are NOT executed by the agent
 
 The agent provides guidance. The developer implements in their own project.
-
-
-## State location
-
-This skill is completely stateless and does not store any local configuration or data.
 
 ## When to Use
 

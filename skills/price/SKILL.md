@@ -28,15 +28,16 @@ For setting prices as a seller, use `pricing` instead. For the general buying pr
 
 ## State location
 
-Price tracking state may live under `<workspace>/price/`, `<workspace>/memory/price/`, or `~/price/`. Resolve `<state_root>` once per invocation, then use only that root for every read/write:
+Price state may exist in `<workspace>/price/`, `<workspace>/memory/price/`, or `~/price/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-```text
-1. <workspace>/price/     (highest precedence if present)
-2. <workspace>/memory/price/
-3. ~/price/
-```
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/price/`, `<workspace>/memory/price/`, `~/price/`.
+3. If more than one exists, use the highest-precedence directory and report the conflict; never merge state automatically.
+4. If none exists and state must be created, default to `<workspace>/price/`.
 
-If more than one candidate exists, use the highest-precedence directory and report the conflict; never merge state automatically. Do not write credentials, payment tokens, or account passwords under `<state_root>/`.
+Use the selected `<state_root>` for every state operation in this skill. Do not write credentials, payment tokens, or account passwords under `<state_root>/`.
 
 ## Workspace Structure
 

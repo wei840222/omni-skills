@@ -9,6 +9,18 @@ metadata:
 ---
 User preferences and prior context live in `<state_root>/cfo/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/cfo/` or `~/clawic/cfo/`), move it to `<state_root>/cfo/`, and say in one line that you moved it and from where. Store settings and context only — avoid account numbers, credentials, or raw statements (→ Security & Privacy).
 
+## State location
+
+Cfo state may exist in `<workspace>/cfo/`, `<workspace>/memory/cfo/`, or `~/cfo/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/cfo/`, `<workspace>/memory/cfo/`, `~/cfo/`.
+3. If none exists and state must be created, default to `<workspace>/cfo/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When To Use
 
 - Acting as CFO: forecasts, runway, board packs, capital allocation, spend decisions

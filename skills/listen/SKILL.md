@@ -11,6 +11,18 @@ metadata:
 
 Voice input reaches the agent as text that already passed through a speech-to-text engine. Good engines hold 5-10% word error rate on clean conversational English, but the errors concentrate exactly where meaning lives: proper nouns, domain jargon, and numbers. This skill is the repair layer between the raw transcript and your response. Learned corrections and preferences persist in `<state_root>/` (see `references/setup.md` on first use, `references/lexicon.md` for the file formats). If you have data at an old location (`~/listen/` or `~/clawic/listen/`), move it to `<state_root>/`, and say in one line that you moved it and from where.
 
+## State location
+
+Listen state may exist in `<workspace>/listen/`, `<workspace>/memory/listen/`, or `~/listen/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/listen/`, `<workspace>/memory/listen/`, `~/listen/`.
+3. If none exists and state must be created, default to `<workspace>/listen/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When To Use
 
 - A message arrived via voice and one token breaks the sentence ("deploy the communities cluster")

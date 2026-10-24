@@ -12,10 +12,6 @@ When generating Hindi text, default to a casual, human-sounding tone rather than
 
 **Trigger:** Activate this skill whenever asked to draft, translate, or communicate in Hindi, especially for informal or conversational contexts (e.g., social media, chat, emails to peers).
 
-## State location
-
-This skill is stateless and does not store any local configuration or data.
-
 ## Instructions
 
 - When requested to write in Hindi, load `references/formality.md` to understand default registers and pronouns.

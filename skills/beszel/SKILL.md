@@ -31,6 +31,18 @@ Prefer more specific skills when the ask is narrow:
 - `docker` / `docker-compose` — container runtime or Compose debugging
 - `home-server` — household/homelab design beyond one monitoring product
 
+## State location
+
+Beszel state may exist in `<workspace>/beszel/`, `<workspace>/memory/beszel/`, or `~/beszel/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/beszel/`, `<workspace>/memory/beszel/`, `~/beszel/`.
+3. If none exists and state must be created, default to `<workspace>/beszel/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Beszel has two runtime components: a **hub** (PocketBase-based dashboard) and an **agent** on each monitored system. Skill memory lives in `<state_root>/`. See `assets/data-templates.md` for templates and `references/sources.md` for official docs.

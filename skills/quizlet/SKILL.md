@@ -16,11 +16,17 @@ Use this skill when the user is studying with Quizlet and needs better set desig
 
 ## State location
 
-State is persisted to the local workspace.
+Quizlet state may exist in `<workspace>/quizlet/`, `<workspace>/memory/quizlet/`, or `~/quizlet/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Lookup order and creation logic:
-1. `<state_root>/quizlet/` (Primary)
-2. If not found, create `<state_root>/quizlet/` upon first study setup.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/quizlet/`, `<workspace>/memory/quizlet/`, `~/quizlet/`.
+3. If none exists and state must be created, default to `<workspace>/quizlet/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+State is persisted to the local workspace.
 
 Structure:
 ```text

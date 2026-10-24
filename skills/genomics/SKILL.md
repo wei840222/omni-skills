@@ -27,16 +27,17 @@ outside this package. Never write runtime state into the skill tree.
 
 ## State location
 
+Genomics state may exist in `<workspace>/genomics/`, `<workspace>/memory/genomics/`, or `~/genomics/`.
 Before reading or writing state, resolve `<state_root>` as follows:
 
-1. If the host or user explicitly configures a genomics state root, use that path.
-2. Otherwise choose the first existing candidate:
-   - `$OPENCLAW_STATE_DIR/genomics`
-   - `$HOME/.openclaw/state/genomics`
-   - `$HOME/.local/share/genomics`
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/genomics/`, `<workspace>/memory/genomics/`, `~/genomics/`.
+3. If none exists and state must be created, default to `<workspace>/genomics/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 3. If none exist and the user consents to persistence, create the preferred
-   host-appropriate candidate and use it as `<state_root>`.
-4. Keep the selected `<state_root>` fixed for the rest of the invocation.
 
 Use the selected `<state_root>` for every state operation in this skill.
 

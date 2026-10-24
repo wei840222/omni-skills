@@ -13,6 +13,18 @@ metadata:
 - `references/progress.md`: Load before logging practice, updating repertoire, or structuring the piano workspace.
 - `references/sources.md`: Load for pedagogy and injury-prevention source notes behind practice defaults.
 
+## State location
+
+Piano state may exist in `<workspace>/piano/`, `<workspace>/memory/piano/`, or `~/piano/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/piano/`, `<workspace>/memory/piano/`, `~/piano/`.
+3. If none exists and state must be created, default to `<workspace>/piano/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Core Behavior
 
 - Create `<state_root>/piano/` as workspace on first interaction

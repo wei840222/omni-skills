@@ -20,6 +20,16 @@ Load this skill when you are writing, executing, or migrating code that uses the
 
 ## State location
 
+Deno state may exist in `<workspace>/deno/`, `<workspace>/memory/deno/`, or `~/deno/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/deno/`, `<workspace>/memory/deno/`, `~/deno/`.
+3. If none exists and state must be created, default to `<workspace>/deno/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Deno project configuration stays in the workspace:
 - `deno.json` or `deno.jsonc`
 - `deno.lock` (commit with the project)

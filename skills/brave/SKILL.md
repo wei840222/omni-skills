@@ -12,6 +12,18 @@ metadata:
 
 Load this skill to resolve operational blocks involving Brave Browser, such as profile path management, Shields site compatibility overrides, extension state, or Chromium remote-debugging configuration.
 
+## State location
+
+Brave state may exist in `<workspace>/brave/`, `<workspace>/memory/brave/`, or `~/brave/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/brave/`, `<workspace>/memory/brave/`, `~/brave/`.
+3. If none exists and state must be created, default to `<workspace>/brave/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/brave/`. If `<state_root>/brave/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.

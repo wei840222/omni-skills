@@ -10,10 +10,6 @@ metadata:
 
 Trigger this skill when the user explicitly requests captions, subtitles, or text burn-in for video content. Only trigger when captions are explicitly requested (route general video editing tasks to other skills).
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## Quick Reference
 
 | Topic | File | When to load |

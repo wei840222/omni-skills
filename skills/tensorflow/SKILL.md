@@ -21,10 +21,6 @@ Do not load as the primary skill for pure PyTorch work, generic NumPy-only numer
 - Set `model.trainable` / BatchNorm `training=` **before** compile or the step that must observe the mode; post-compile toggles are a common silent miss.
 - Prefer SavedModel for serving and custom objects; treat H5 as weights-oriented and limited for full object graphs.
 
-## State location
-
-This skill is stateless guidance. It does not own a mutable `<state_root>` package path. Project artifacts (checkpoints, SavedModel directories, logs) stay in the user workspace or an explicitly configured training output path.
-
 ## Progressive disclosure
 
 For implementation detail, load the matching file under `references/`:

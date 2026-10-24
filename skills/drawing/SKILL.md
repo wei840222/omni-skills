@@ -14,12 +14,15 @@ Use this when the real problem is not "pick the best model" but "get a clean res
 
 ## State location
 
-Memory lives in `<state_root>/drawing/` by default. Use workspace-first resolution:
-1. `$CLAWIC_STATE_ROOT/drawing/` if defined
-2. `~/.clawic/drawing/` if `~/.clawic` exists
-3. `<state_root>/drawing/`
+Drawing state may exist in `<workspace>/drawing/`, `<workspace>/memory/drawing/`, or `~/drawing/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-If the directory does not exist, run `references/setup.md`. See `references/memory-template.md` for structure and status fields.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/drawing/`, `<workspace>/memory/drawing/`, `~/drawing/`.
+3. If none exists and state must be created, default to `<workspace>/drawing/`.
+
+Use the selected `<state_root>` for every state operation in this skill. If data sits at legacy `~/.clawic/drawing/`, migrate it into the resolved `<state_root>/drawing/`. If the directory does not exist, run `references/setup.md`. See `references/memory-template.md` for structure and status fields.
 
 ## Quick Reference
 

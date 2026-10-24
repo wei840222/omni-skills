@@ -37,9 +37,19 @@ Load specific files from `references/` when you need domain-specific guidance:
 - `references/types.md`: Type declarations and coercions
 - `references/versions.md`: Version-specific features and upgrades
 
-
-
 User preferences live in `<state_root>/php/config.yaml` (see Configuration); nothing else is stored on the user's machine. If you have data at an old location (`~/php/` or `~/clawic/php/`), move it to `<state_root>/php/`, and say in one line that you moved it and from where.
+
+## State location
+
+Php state may exist in `<workspace>/php/`, `<workspace>/memory/php/`, or `~/php/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/php/`, `<workspace>/memory/php/`, `~/php/`.
+3. If none exists and state must be created, default to `<workspace>/php/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## When To Use
 

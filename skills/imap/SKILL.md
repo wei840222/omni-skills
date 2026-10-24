@@ -15,12 +15,17 @@ Activate it for inbox search, unread triage, header and body fetches, attachment
 
 ## State location
 
-Store non-secret operational state under `<state_root>`. Resolve it in this order before reading or writing:
+Imap state may exist in `<workspace>/imap/`, `<workspace>/memory/imap/`, or `~/imap/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. Use a path the user or runtime explicitly configured for this mailbox.
-2. Otherwise reuse an existing `./.imap` in the current workspace.
-3. Otherwise reuse `~/.config/agent-skills/imap` when it already exists.
-4. If durable state is needed and no directory exists, ask before creating `./.imap`; keep one account label per file set.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/imap/`, `<workspace>/memory/imap/`, `~/imap/`.
+3. If none exists and state must be created, default to `<workspace>/imap/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+Store non-secret operational state under `<state_root>`. Resolve it in this order before reading or writing:
 
 Use `<state_root>` consistently for `memory.md`, `accounts.md`, `folder-map.md`, `sync-state.md`, and `playbooks.md`. Read `references/setup.md` on first use and `references/memory-template.md` only when creating or revising those files.
 

@@ -8,6 +8,16 @@ metadata:
 
 ## State location
 
+Write state may exist in `<workspace>/write/`, `<workspace>/memory/write/`, or `~/write/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/write/`, `<workspace>/memory/write/`, `~/write/`.
+3. If none exists and state must be created, default to `<workspace>/write/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - Resolve `<state_root>` to a user-approved local writing workspace, such as `./workspace`; keep pieces, version snapshots, audits, research, `config.json`, and `index.json` there rather than in the skill package.
 - If `<state_root>/index.json` already exists, load the workspace. Otherwise initialize it with `./scripts/init-workspace.sh <state_root>`; the initializer preserves existing `config.json` and `index.json` files.
 - Supply the same `<state_root>` to every script. Treat the workspace as the source of truth for drafts and version history.

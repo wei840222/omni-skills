@@ -6,10 +6,6 @@ metadata:
   related-skills: '{"documents": "Post-scan document handling after the page is cleaned.", "files": "File organization, renaming, and export handling after scans are generated.", "image": "Extra image cleanup beyond edge detection and perspective correction."}'
 ---
 
-## State location
-
-This is a stateless skill. It does not create or require a local state tree. Keep original input images and corrected exports as ordinary user files outside the skill package.
-
 ## When to load
 
 Load this skill when the user wants to scan a document from a photo, crop page edges, fix perspective, deskew paper, or make an image look like it came from a flatbed scanner.

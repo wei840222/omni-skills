@@ -20,6 +20,17 @@ Use this skill when the user asks to download a video or extract audio from a vi
 It is optimized for one-off downloads with explicit quality and format requirements.
 
 ## State location
+
+Video Downloader state may exist in `<workspace>/video-downloader/`, `<workspace>/memory/video-downloader/`, or `~/video-downloader/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/video-downloader/`, `<workspace>/memory/video-downloader/`, `~/video-downloader/`.
+3. If none exists and state must be created, default to `<workspace>/video-downloader/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Memory lives in `<state_root>/`. See `references/memory-template.md` for structure.
 
 ```text

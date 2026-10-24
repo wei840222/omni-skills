@@ -8,6 +8,17 @@ metadata:
 ---
 
 ## State location
+
+Nginx state may exist in `<workspace>/nginx/`, `<workspace>/memory/nginx/`, or `~/nginx/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/nginx/`, `<workspace>/memory/nginx/`, `~/nginx/`.
+3. If none exists and state must be created, default to `<workspace>/nginx/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 User preferences and memory live in `<state_root>/nginx/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location, move it to `<state_root>/nginx/`, and say in one line that you moved it and from where.
 
 ## Configuration

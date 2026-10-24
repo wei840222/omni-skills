@@ -166,15 +166,19 @@ Load reference files on-demand based on context:
 
 **Guardrails:** calls are read-only by default. Anything that moves or destroys money — charge, refund, transfer, payout, subscription cancellation, object deletion — is presented with its blast radius and requires explicit user confirmation. Under the default `live_mode_policy: confirm-each`, live-key writes appear only after that confirmation step, separate from read-only examples.
 
-
 ## State location
 
-Resolve `<state_root>` as:
+Stripe Api Integration state may exist in `<workspace>/stripe-api-integration/`, `<workspace>/memory/stripe-api-integration/`, or `~/stripe-api-integration/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
-   `<workspace>/.skills/stripe-api-integration/`, `<workspace>/stripe-api-integration/`, `~/stripe-api-integration/`.
-3. If none exists and state must be created, default to `<workspace>/.skills/stripe-api-integration/`.
+   `<workspace>/stripe-api-integration/`, `<workspace>/memory/stripe-api-integration/`, `~/stripe-api-integration/`.
+3. If none exists and state must be created, default to `<workspace>/stripe-api-integration/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+Resolve `<state_root>` as:
 
 Shared boxes live beside that root:
 

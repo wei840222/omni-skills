@@ -9,6 +9,16 @@ metadata:
 
 ## State location
 
+Crm state may exist in `<workspace>/crm/`, `<workspace>/memory/crm/`, or `~/crm/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/crm/`, `<workspace>/memory/crm/`, `~/crm/`.
+3. If none exists and state must be created, default to `<workspace>/crm/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - Keep CRM config and local databases under `<state_root>/crm/`.
 - Keep the shared contacts box under `<state_root>/contacts/`.
 - Preserve trailing slashes when resolving paths (for example `<state_root>/crm/config.yaml`).

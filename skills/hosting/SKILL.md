@@ -52,7 +52,3 @@ Confirm all of the following before moving traffic:
 - Do not direct email through a web host by default; use a dedicated mail provider when reliability matters.
 - Do not assume a provider backup is recoverable; verify scope, retention, and restoration first.
 - Do not add orchestration complexity to a small site without a concrete operational need.
-
-## State Location
-
-This skill is stateless and does not persist local configuration or data.

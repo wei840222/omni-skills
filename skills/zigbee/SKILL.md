@@ -8,10 +8,6 @@ metadata:
   related-skills: '{"home": "General home maintenance framing outside mesh-network operations.", "iot": "Cross-protocol device planning when Zigbee must coexist with Wi-Fi, Thread, or other transports.", "mqtt": "Broker, topic, and QoS design when Zigbee is bridged through MQTT or Zigbee2MQTT.", "smart-home": "Broader hub, automation, and protocol selection when Zigbee is only one layer.", "thermostat": "HVAC comfort and schedule work once Zigbee climate devices are reachable."}'
 ---
 
-## State location
-
-This is a stateless skill. It does not create or require a local state tree. Keep network maps, device inventories, and recovery notes as ordinary user files outside the skill package.
-
 ## When to load
 
 Load this skill when the user is designing, expanding, migrating, or repairing a Zigbee mesh for home automation.

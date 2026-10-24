@@ -13,6 +13,18 @@ metadata:
 
 Load this skill when the user is planning travel to Brazil. Use it for nationality-specific entry checks, realistic routing across long distances, neighborhood-aware stays, money and payment strategies (including PIX/CPF friction), and on-the-ground execution rules.
 
+## State location
+
+Brazil state may exist in `<workspace>/brazil/`, `<workspace>/memory/brazil/`, or `~/brazil/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/brazil/`, `<workspace>/memory/brazil/`, `~/brazil/`.
+3. If none exists and state must be created, default to `<workspace>/brazil/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/brazil/`. If `<state_root>/brazil/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.

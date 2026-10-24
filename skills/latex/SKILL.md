@@ -31,7 +31,3 @@ Use this skill for `.tex` source and its compilation path. Route Markdown syntax
 - Keep the project’s selected engine unless the document requirements require a change; verify package compatibility before changing engines.
 - For a missing citation or reference, run the appropriate complete build cycle and inspect the first relevant `.log` message before editing source.
 - For a float or line-break problem, confirm the PDF result after a focused source change; preserve global layout settings unless the document-wide result has been checked.
-
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.

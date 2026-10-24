@@ -5,10 +5,6 @@ metadata:
   openclaw: '{"emoji":"🖥️","displayName":"Landing Page"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## When to use
 
 Use this skill for a page built around one measurable conversion event: a purchase, trial, demo request, lead form, registration, or waitlist signup. Start by confirming the audience, offer, traffic source, conversion event, and the evidence available for product claims.

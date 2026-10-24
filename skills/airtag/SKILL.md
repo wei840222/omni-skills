@@ -11,6 +11,17 @@ metadata:
 Load this skill when the user asks to manage, locate, or troubleshoot Apple AirTags, configure Find My connectivity, or respond to an unknown AirTag alert.
 
 ## State location
+
+Airtag state may exist in `<workspace>/airtag/`, `<workspace>/memory/airtag/`, or `~/airtag/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/airtag/`, `<workspace>/memory/airtag/`, `~/airtag/`.
+3. If none exists and state must be created, default to `<workspace>/airtag/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Persistent state and logs are maintained in `<state_root>/`.
 
 ## Loading instructions

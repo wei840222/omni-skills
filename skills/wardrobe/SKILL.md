@@ -20,6 +20,17 @@ Load `references/wardrobe-strategies.md` when the user asks about categorizing c
 - Support mindful shopping by questioning necessity.
 
 ## State location
+
+Wardrobe state may exist in `<workspace>/wardrobe/`, `<workspace>/memory/wardrobe/`, or `~/wardrobe/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/wardrobe/`, `<workspace>/memory/wardrobe/`, `~/wardrobe/`.
+3. If none exists and state must be created, default to `<workspace>/wardrobe/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Create `<state_root>/wardrobe/` as the workspace.
 
 ## File Structure

@@ -8,7 +8,6 @@ metadata:
   related-skills: '{"analytics": "Core web traffic metrics, conversion goals, and event funnel tracking.", "mixpanel": "User journey tracking and product analytics beyond aggregate web traffic.", "umami": "Privacy-focused self-hosted analytics comparison and migration."}'
 ---
 
-
 ## Setup
 
 On first use, read `references/setup.md` for integration guidelines.
@@ -19,17 +18,16 @@ User needs website traffic data from Plausible. Agent queries visitors, pageview
 
 ## State location
 
-This skill uses a `<state_root>` convention for persistent storage.
+Plausible state may exist in `<workspace>/plausible/`, `<workspace>/memory/plausible/`, or `~/plausible/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-- Directory: `<state_root>/plausible/`
-- Primary state file: `<state_root>/plausible/memory.md`
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/plausible/`, `<workspace>/memory/plausible/`, `~/plausible/`.
+3. If none exists and state must be created, default to `<workspace>/plausible/`.
 
-Candidate `<state_root>` locations (use the first available):
-1. `$XDG_STATE_HOME/agentskills`
-2. `~/.local/state/agentskills`
-3. `~/.agentskills/state`
+Use the selected `<state_root>` for every state operation in this skill. All persistent state, configuration, and logs for Plausible are stored under `<state_root>/plausible/`.
 
-If `<state_root>/plausible/` does not exist, initialize it according to `references/setup.md`.
 ## Quick Reference
 
 | Topic | File |

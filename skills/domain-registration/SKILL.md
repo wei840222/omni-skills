@@ -16,6 +16,18 @@ On first use, read `references/setup.md` to align activation boundaries, provide
 
 Load this skill when executing domain registrations, transfers, renewals, or registrar security hardening.
 
+## State location
+
+Domain Registration state may exist in `<workspace>/domain-registration/`, `<workspace>/memory/domain-registration/`, or `~/domain-registration/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/domain-registration/`, `<workspace>/memory/domain-registration/`, `~/domain-registration/`.
+3. If none exists and state must be created, default to `<workspace>/domain-registration/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/domain-registration/`. See `assets/memory-template.md` for structure and status values.

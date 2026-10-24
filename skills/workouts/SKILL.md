@@ -12,6 +12,18 @@ metadata:
 
 Load this skill when the user wants to log a workout, track exercises, check progression, create routines, or build a personal fitness tracking system.
 
+## State location
+
+Workouts state may exist in `<workspace>/workouts/`, `<workspace>/memory/workouts/`, or `~/workouts/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/workouts/`, `<workspace>/memory/workouts/`, `~/workouts/`.
+3. If none exists and state must be created, default to `<workspace>/workouts/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Core Behavior
 
 - User logs a workout → record exercises, sets, reps, weight

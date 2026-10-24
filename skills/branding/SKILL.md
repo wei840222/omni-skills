@@ -9,6 +9,16 @@ metadata:
 
 ## State location
 
+Branding state may exist in `<workspace>/branding/`, `<workspace>/memory/branding/`, or `~/branding/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/branding/`, `<workspace>/memory/branding/`, `~/branding/`.
+3. If none exists and state must be created, default to `<workspace>/branding/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 If the user authorizes saving brand guidelines or related materials, store them in the workspace at `<state_root>/branding/`.
 
 ## Working with Branding

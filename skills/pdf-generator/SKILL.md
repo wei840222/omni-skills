@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"extract-pdf-text": "Read or OCR text from existing PDFs rather than generating new ones.", "latex": "TeX authoring and build recovery when pandoc/LaTeX is the chosen engine.", "markdown": "Source drafting and Markdown structure before PDF export.", "office": "Broader Office document workflows beyond PDF-specific generation.", "word-docx": "Editable Word documents when PDF is not the delivery format."}'
 ---
 
-## State location
-
-This skill is **stateless**. It does not store local configuration, caches, or persistent project data. Skill resources live under `references/`; never invent a filesystem state root for this package.
-
 ## When to use
 
 - User wants to create, export, or batch-produce PDF documents from Markdown, HTML, JSON/data, or templates

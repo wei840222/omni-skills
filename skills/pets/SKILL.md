@@ -12,6 +12,16 @@ Load this skill when the user mentions their pets, asks about pet care, wants to
 
 ## State location
 
+Pets state may exist in `<workspace>/pets/`, `<workspace>/memory/pets/`, or `~/pets/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/pets/`, `<workspace>/memory/pets/`, `~/pets/`.
+3. If none exists and state must be created, default to `<workspace>/pets/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Memory lives in `<state_root>/pets/`.
 
 ```

@@ -14,6 +14,18 @@ metadata:
 User needs help running Skool as a real operating system, not just writing generic community advice.
 Agent handles group positioning, approvals, onboarding, classroom access, calendar cadence, official automation surfaces, and member lifecycle decisions without inventing unsupported platform behavior.
 
+## State location
+
+Skool state may exist in `<workspace>/skool/`, `<workspace>/memory/skool/`, or `~/skool/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/skool/`, `<workspace>/memory/skool/`, `~/skool/`.
+3. If none exists and state must be created, default to `<workspace>/skool/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/skool/`. If `<state_root>/skool/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.

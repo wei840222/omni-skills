@@ -26,6 +26,16 @@ Resolve `<state_root>` before reading or writing memory: use `STATE_ROOT` when s
 
 ## State location
 
+Coin Identifier state may exist in `<workspace>/coin-identifier/`, `<workspace>/memory/coin-identifier/`, or `~/coin-identifier/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/coin-identifier/`, `<workspace>/memory/coin-identifier/`, `~/coin-identifier/`.
+3. If none exists and state must be created, default to `<workspace>/coin-identifier/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Use the resolved `<state_root>` in every path below. Do not create or write it until the user has approved local storage.
 
 ## Quick Reference

@@ -13,6 +13,18 @@ metadata:
 
 Trigger on user queries regarding Las Vegas travel, relocation, remote work, business setup, tax benefits, or local living conditions.
 
+## State location
+
+Las Vegas state may exist in `<workspace>/las-vegas/`, `<workspace>/memory/las-vegas/`, or `~/las-vegas/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/las-vegas/`, `<workspace>/memory/las-vegas/`, `~/las-vegas/`.
+3. If none exists and state must be created, default to `<workspace>/las-vegas/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 State is managed in `<state_root>/`. If uninitialized, read `references/setup.md`. Reference `assets/memory-template.md` for structure.

@@ -16,6 +16,18 @@ metadata:
 
 User preferences, learned signals, and the sent-item log live in `<state_root>/digest/` (see the setup instructions on first use, `assets/preferences-template.md` for file formats). If you have data at an old location (`~/digest/` or `~/clawic/digest/`), move it to `<state_root>/digest/`, and say in one line that you moved it and from where.
 
+## State location
+
+Digest state may exist in `<workspace>/digest/`, `<workspace>/memory/digest/`, or `~/digest/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/digest/`, `<workspace>/memory/digest/`, `~/digest/`.
+3. If none exists and state must be created, default to `<workspace>/digest/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Configuration
 
 User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/digest/config.yaml`.

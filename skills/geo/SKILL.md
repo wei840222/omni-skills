@@ -6,10 +6,6 @@ metadata:
   related-skills: '{"ads": "For paid advertising campaigns", "seo": "For traditional Google search ranking"}'
 ---
 
-## State location
-
-This skill is completely stateless. It does not store any local configuration, credentials, or audit logs on the file system. Output artifacts should be presented to the user or saved in the current working directory based on instructions.
-
 ## Quick Reference
 
 | Reference File | When to load | Purpose |

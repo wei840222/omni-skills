@@ -7,6 +7,16 @@ metadata:
 ---
 ## State location
 
+Json state may exist in `<workspace>/json/`, `<workspace>/memory/json/`, or `~/json/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/json/`, `<workspace>/memory/json/`, `~/json/`.
+3. If none exists and state must be created, default to `<workspace>/json/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - **Candidate locations**:
   1. `$WORKSPACE_ROOT/.json_state` (if in a project workspace)
   2. `~/.config/json_state` (global fallback)

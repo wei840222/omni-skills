@@ -33,7 +33,3 @@ When working with WebSocket connections, load the relevant reference file:
 3. Enable application-level heartbeats (ping every ~30s, pong within ~10s) so proxies and dead peers are detected.
 4. On loss of heartbeat or abnormal close (`1006`), reconnect with exponential backoff plus jitter and replay queued messages.
 5. For multi-instance deployments, plan sticky sessions or a pub/sub fan-out before scaling connection count.
-
-## State location
-
-This skill is stateless and does not store local configuration or state.

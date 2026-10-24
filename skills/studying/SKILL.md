@@ -10,6 +10,18 @@ compatibility: "Any Agent Skills-compatible runtime; state uses the runtime-prov
 
 User preferences and session history persist in `<state_root>/studying/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If legacy state exists under `~/studying/`, `~/clawic/studying/`, or `~/Clawic/data/studying/`, ask for confirmation before migrating it to `<state_root>/studying/`, then report the completed migration in one line.
 
+## State location
+
+Studying state may exist in `<workspace>/studying/`, `<workspace>/memory/studying/`, or `~/studying/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/studying/`, `<workspace>/memory/studying/`, `~/studying/`.
+3. If none exists and state must be created, default to `<workspace>/studying/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Configuration
 
 User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/studying/config.yaml`.

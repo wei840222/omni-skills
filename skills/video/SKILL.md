@@ -31,10 +31,6 @@ Load this skill when the user asks to process an existing video file for platfor
 - Verify duration, file size, and playability before delivery.
 - Process only files the user explicitly provides; do not upload to external services unless asked.
 
-## State location
-
-This skill is stateless. Working media and outputs stay in the user workspace; the package does not own a mutable `<state_root>`.
-
 ## Progressive disclosure
 
 Load topic files under `references/` only when needed:

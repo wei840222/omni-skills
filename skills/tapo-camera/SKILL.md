@@ -18,6 +18,18 @@ Load `references/snapshot-workflows.md` to capture and verify RTSP frames.
 Load `references/discovery-and-auth.md` to troubleshoot network connectivity and authentication.
 Load `references/api-fallback.md` if RTSP is unsupported and an alternative API approach is needed.
 
+## State location
+
+Tapo Camera state may exist in `<workspace>/tapo-camera/`, `<workspace>/memory/tapo-camera/`, or `~/tapo-camera/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/tapo-camera/`, `<workspace>/memory/tapo-camera/`, `~/tapo-camera/`.
+3. If none exists and state must be created, default to `<workspace>/tapo-camera/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/`. If `<state_root>/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.

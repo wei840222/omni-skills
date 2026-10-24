@@ -53,11 +53,6 @@ User asks about Berlin for any purpose: visiting, moving, working, studying, or 
 | Expat lifestyle & social | `references/lifestyle.md` | When discussing expat lifestyle & social |
 | Cycling & mobility | `references/cycling.md` | When discussing cycling & mobility |
 
-
-## State location
-
-This skill is stateless and does not store any local configuration or user data.
-
 ## Core Rules
 
 ### Current-information check

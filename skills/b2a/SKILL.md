@@ -10,10 +10,6 @@ metadata:
   related-skills: '{"api": "Consume or debug third-party REST/GraphQL APIs once the agent-facing contract exists.", "ecommerce": "Operate the human storefront, checkout, inventory, and tax paths around agent-facing APIs.", "payments": "Implement provider checkout, webhooks, and subscription rails for autonomous agent spend.", "pricing": "Set B2B/SaaS list prices, packaging, and willingness-to-pay research beyond agent-readable exposure.", "product": "Broader product strategy and launch craft when the question is not agent-buyer mechanics."}'
 ---
 
-## State location
-
-This skill is stateless. It teaches agent-buyer design rules and does not store local configuration, caches, or runtime state under `<state_root>`.
-
 ## When to Use
 
 Use when the user is building or adapting products/services so **AI agents** can discover, compare, trial, purchase, or reorder without a human UI:

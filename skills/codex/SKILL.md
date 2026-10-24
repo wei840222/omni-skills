@@ -12,6 +12,18 @@ metadata:
 
 Load this skill to operate Codex coding agents, manage sandbox boundaries, configure MCP servers, or troubleshoot Codex CLI and execution workflows.
 
+## State location
+
+Codex state may exist in `<workspace>/codex/`, `<workspace>/memory/codex/`, or `~/codex/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/codex/`, `<workspace>/memory/codex/`, `~/codex/`.
+3. If none exists and state must be created, default to `<workspace>/codex/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/codex/`. If `<state_root>/codex/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.

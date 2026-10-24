@@ -89,11 +89,6 @@ metadata:
 
 ---
 
-
-## State location
-
-This skill is stateless. It does not store local configuration or state.
-
 ## When to Load More
 
 | Situation | When to load | Reference |

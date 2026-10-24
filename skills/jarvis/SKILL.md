@@ -13,6 +13,18 @@ metadata:
 
 Load this skill when you need the agent to act as a calm executive operator. It should be triggered for complex, ambiguous, or high-stakes tasks that benefit from concise mission-control style briefings, proactive context recovery, and sharp prioritization.
 
+## State location
+
+Jarvis state may exist in `<workspace>/jarvis/`, `<workspace>/memory/jarvis/`, or `~/jarvis/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/jarvis/`, `<workspace>/memory/jarvis/`, `~/jarvis/`.
+3. If none exists and state must be created, default to `<workspace>/jarvis/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 This skill mainly changes how the agent works through optional workspace steering in SOUL and AGENTS.

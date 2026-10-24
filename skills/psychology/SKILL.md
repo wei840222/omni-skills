@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🧠"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## Core Interaction Logic
 
 1.  **Detect level:** Infer the user's expertise from terminology (e.g., "why do I dream" vs. "fMRI findings on REM sleep").

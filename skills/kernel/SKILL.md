@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🐧"}'
 ---
 
-## State location
-
-This skill is stateless. Keep diagnosis artifacts in the host project's approved issue tracker or notes rather than in the skill package.
-
 ## Core triage
 
 Choose the reference by task: use `kernel-basics.md` to establish a rule; use `kernel-traps.md` to turn an observed failure into a repair and verification plan.

@@ -13,10 +13,6 @@ metadata:
   related-skills: '{"ci-cd": "Cross-platform CI product choice and generic pipeline pitfalls.", "docker": "Host Docker/daemon issues outside GitLab runner DinD.", "git": "Git branching and merge mechanics outside pipeline YAML.", "github-actions": "GitHub Actions workflow semantics instead of GitLab CI.", "yaml": "Parser-level YAML quoting and indentation without CI keywords."}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state. Keep pipeline drafts, incident notes, and project-specific runner inventories in ordinary user files outside the skill package.
-
 ## When to Use
 
 - Job never runs, always runs, or runs on the wrong branch/tag/MR

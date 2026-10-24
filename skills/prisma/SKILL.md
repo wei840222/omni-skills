@@ -105,13 +105,17 @@ must satisfy: total ≤ max_connections − reserved − other consumers
 - Serverless without a pooler is the classic outage: every cold start opens its own pool and nothing gives them back. Use PgBouncer, a provider pooler, or Prisma Accelerate, and keep `connection_limit` at 1-2 (→ `references/connections.md`).
 - Transaction-mode poolers require `?pgbouncer=true` (Prisma stops using named prepared statements) and a separate `directUrl` for migrations, which need a real session.
 
-
 ## State location
-The persistent state for this skill is located at `<state_root>/prisma/`. Look for `<state_root>` in the following order:
-1. `CLAWIC_STATE_ROOT` environment variable
-2. Workspace root `.clawic/state/`
-3. Fallback to `~/.clawic/state/`
-Create the directory if it does not exist.
+
+Prisma state may exist in `<workspace>/prisma/`, `<workspace>/memory/prisma/`, or `~/prisma/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/prisma/`, `<workspace>/memory/prisma/`, `~/prisma/`.
+3. If none exists and state must be created, default to `<workspace>/prisma/`.
+
+Use the selected `<state_root>` for every state operation in this skill. Treat former `.clawic/state/` paths as legacy migration sources only; create the directory if it does not exist.
 
 ## Configuration
 
@@ -141,7 +145,6 @@ Preference areas — customizable dimensions; a stated preference is recorded in
 - **Integrations** — pooler and database host (Neon, Supabase, PlanetScale, RDS, Turso), Accelerate or a self-managed cache, observability stack for query logs
 - **Restrictions** — tables Prisma must not manage (`@@ignore`), compliance rules that forbid raw SQL or require audit logging, columns that must never be selected by default
 - **Cadence** — how often to re-run introspection against production, when to prune old migrations, review cycle for unused indexes
-
 
 ## Reference Files
 

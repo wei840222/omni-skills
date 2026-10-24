@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🇨🇿"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## The Real Problem
 
 AI Czech is technically correct but sounds off. Too formal. Too spisovná čeština (literary). Natives write more casually in obecná čeština (common). Match that.

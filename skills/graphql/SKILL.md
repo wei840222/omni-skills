@@ -9,13 +9,15 @@ metadata:
 
 ## State location
 
-Candidate locations:
-1. `<state_root>` (Workspace-relative persistent state)
+Graphql state may exist in `<workspace>/graphql/`, `<workspace>/memory/graphql/`, or `~/graphql/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-| Path | Role | Creation condition |
-| --- | --- | --- |
-| `<state_root>/config.yaml` | User-dependent configuration | Create when a user sets a preference |
-| `<state_root>/memory.md` | Context | Create when the user needs context across sessions (see `references/memory-template.md`) |
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/graphql/`, `<workspace>/memory/graphql/`, `~/graphql/`.
+3. If none exists and state must be created, default to `<workspace>/graphql/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## When To Use
 
@@ -189,4 +191,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Cost analysis versus trusted documents.** Allowlisting registered operations makes arbitrary-query DoS structurally impossible, and is available whenever you control every client. Cost limits are the only option for a public or partner API. Running both is normal; running neither on a public endpoint is not defensible.
 - **Federation versus a single schema.** Federation buys team autonomy and pays in query planning, cross-subgraph batching and a composition step that can fail your deploy. The trigger is organizational — separately deployed teams owning disjoint entities — not graph size (`references/federation.md`).
 - **Code-first versus schema-first.** Code-first keeps types and resolvers together and cannot drift; schema-first keeps the contract reviewable by people who do not read your server language, which is what makes design review real. Pick per service, record it in `schema_style`, maintain consistency within a single service.
-

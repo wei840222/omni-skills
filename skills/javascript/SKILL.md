@@ -15,10 +15,17 @@ metadata:
 
 ## State location
 
-User preferences and memory live in `<state_root>/javascript/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). Candidate lookup order:
+Javascript state may exist in `<workspace>/javascript/`, `<workspace>/memory/javascript/`, or `~/javascript/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-- `<workspace>/.agents/state/javascript/` (workspace-specific)
-- `~/.agents/state/javascript/` (global fallback)
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/javascript/`, `<workspace>/memory/javascript/`, `~/javascript/`.
+3. If none exists and state must be created, default to `<workspace>/javascript/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+User preferences and memory live in `<state_root>/javascript/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). Candidate lookup order:
 
 If you have data at an old location (`~/javascript/`, `~/clawic/javascript/`, or `~/Clawic/data/javascript/`), move it to `<state_root>/javascript/`, and say in one line that you moved it and from where.
 

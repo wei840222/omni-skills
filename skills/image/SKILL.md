@@ -9,10 +9,6 @@ metadata:
   related-skills: '{"ecommerce": "Marketplace and product-listing requirements that often constrain image delivery.", "image-edit": "Masking, cleanup, inpainting, and targeted visual edits.", "image-generation": "AI image generation and editing across current model providers.", "photography": "Capture, color, and print-oriented photo workflows.", "svg": "Vector graphics workflows when raster files are the wrong output."}'
 ---
 
-
-## State location
-This is a stateless skill. It provides rules, recommendations, and workflows for image processing, but does not store local configuration, caches, or state files in the workspace.
-
 ## When to Use
 
 Use when the main artifact is an image file or visual asset, especially when format choice, resizing, cropping, compression, metadata, transparency, color profile, responsive delivery, social specs, marketplace requirements, or print readiness matter.

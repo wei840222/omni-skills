@@ -18,6 +18,16 @@ User is planning a Romania trip and needs help that goes beyond generic Europe a
 
 ## State location
 
+Romania state may exist in `<workspace>/romania/`, `<workspace>/memory/romania/`, or `~/romania/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/romania/`, `<workspace>/memory/romania/`, `~/romania/`.
+3. If none exists and state must be created, default to `<workspace>/romania/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Stateful skill. Memory lives in `<state_root>/romania/`. If `<state_root>/romania/` does not exist or is empty, run `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text
@@ -121,4 +131,3 @@ Always cover the execution details that break Romania trips:
 **This skill does NOT:** Access files outside `<state_root>/romania/` or make network requests.
 
 **Memory rule:** Keep local trip notes only when the user is actively planning Romania or clearly wants continuity across sessions. For one-off answers, help without creating extra trip memory.
-

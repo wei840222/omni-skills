@@ -11,12 +11,19 @@ metadata:
 
 Use this skill for grocery-shopping logistics: creating or maintaining lists, tracking user-reported pantry inventory, remembering household quantities, and checking items against known dietary restrictions. For deciding what to eat or building a weekly meal plan, route to `meals`.
 
-## State Location
+## State location
+
+Grocery state may exist in `<workspace>/grocery/`, `<workspace>/memory/grocery/`, or `~/grocery/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/grocery/`, `<workspace>/memory/grocery/`, `~/grocery/`.
+3. If none exists and state must be created, default to `<workspace>/grocery/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Store persistent grocery data outside this skill package in `<state_root>/`. Resolve `<state_root>` in this order:
-
-1. `${WORKSPACE_DIR}/.grocery` when `WORKSPACE_DIR` is set, otherwise `${CLAWIC_WORKSPACE}/.grocery` when `CLAWIC_WORKSPACE` is set.
-2. `~/.local/share/grocery` on Linux or `~/Library/Application Support/grocery` on macOS.
 
 Create the selected directory before writing. Keep all household data within this resolved directory.
 
@@ -27,6 +34,8 @@ Create the selected directory before writing. Keep all household data within thi
 ├── history.md         # Past purchases and patterns
 └── stores.md          # Preferred stores and aisle layouts
 ```
+
+If older grocery notes live under legacy `${CLAWIC_WORKSPACE}/.grocery` paths, treat them as migration sources only.
 
 ## Quick Reference
 

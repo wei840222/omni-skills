@@ -147,10 +147,18 @@ Before delivering a recipe, a plan, or a fix:
 - If several dishes must land together, did I write the order backwards from serving time, with only one item needing the last five minutes?
 - Did this session produce something durable — a dish and its result, a swap, a kitchen fact, an allergy, a ferment date, a recipe worth keeping? Then it is written to its box in `references/memory-template.md`, with its `## Boxes` line, in this same turn.
 
-
 ## State location
 
-- **Candidate roots (lookup order):** workspace `/` → workspace `/state` → `~/.openclaw` → `~/.local/state` → `%LOCALAPPDATA%` / `%APPDATA%` (Windows) → `$XDG_STATE_HOME` → `/var/lib`
+Cooking state may exist in `<workspace>/cooking/`, `<workspace>/memory/cooking/`, or `~/cooking/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/cooking/`, `<workspace>/memory/cooking/`, `~/cooking/`.
+3. If none exists and state must be created, default to `<workspace>/cooking/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - **Selected root token:** once chosen, every skill-state path uses `<state_root>/…` (never a hardcoded home path).
 - **This skill owns:** `<state_root>/cooking/` (`config.yaml`, `memory.md`, optional `artifacts/`).
 - **Shared boxes read/updated only as specified:** `<state_root>/health/profile.md`, `<state_root>/contacts/contacts.md`, `<state_root>/profile.yaml`.

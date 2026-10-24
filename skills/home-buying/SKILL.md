@@ -14,6 +14,18 @@ If `<state_root>/` does not exist or is empty, read `references/setup.md`, expla
 
 Load this skill when a user explicitly asks for help buying a home, organizing real estate budgets, evaluating property listings, or preparing to close on a house. Load this only when a purchase intent exists (exclude general market trends).
 
+## State location
+
+Home Buying state may exist in `<workspace>/home-buying/`, `<workspace>/memory/home-buying/`, or `~/home-buying/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/home-buying/`, `<workspace>/memory/home-buying/`, `~/home-buying/`.
+3. If none exists and state must be created, default to `<workspace>/home-buying/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/`. See `references/memory-template.md` for structure and status fields.
@@ -25,7 +37,6 @@ Memory lives in `<state_root>/`. See `references/memory-template.md` for structu
 |-- offer-log.md          # Offer ladder history and outcomes
 `-- closing-checks.md     # Lender, title, insurance, and final walkthrough status
 ```
-
 
 ## Reference Loading
 

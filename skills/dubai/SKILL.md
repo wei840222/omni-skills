@@ -5,10 +5,6 @@ metadata:
   openclaw: '{"emoji": "\ud83c\udfd9\ufe0f", "requires": {"bins": null}, "os": ["linux", "darwin", "win32"], "displayName": "Dubai"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or state.
-
 ## When to Use
 
 User asks about Dubai for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.

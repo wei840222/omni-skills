@@ -33,7 +33,3 @@ metadata:
 - Prefer `has_many through:` over `has_and_belongs_to_many` to gain a distinct join model for tracking attributes.
 - Keep `before_action` flat in controllers to maintain a readable execution flow instead of nesting them.
 - `render` continues execution. Ensure only a single render or redirect occurs per action to prevent crashes.
-
-## State location
-
-This skill is stateless and does not store local configuration or state.

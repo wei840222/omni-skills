@@ -8,6 +8,17 @@ metadata:
 ---
 
 ## State location
+
+Germany state may exist in `<workspace>/germany/`, `<workspace>/memory/germany/`, or `~/germany/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/germany/`, `<workspace>/memory/germany/`, `~/germany/`.
+3. If none exists and state must be created, default to `<workspace>/germany/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Stateful skill. Files are managed in `<state_root>/` following workspace-first convention.
 
 ## Setup

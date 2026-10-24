@@ -9,10 +9,6 @@ metadata:
 
 Use this skill to design DynamoDB data models, pick efficient access patterns, and prevent cost or latency failures before they reach production.
 
-## State location
-
-This skill is stateless. It does not create or require a local `<state_root>`. Keep skill resources under `references/`. Any AWS credentials, profiles, or temporary CLI output belong to the host environment or caller workspace—never hardcode absolute paths inside the skill package.
-
 ## When to Use
 
 - Designing a new table or rewriting keys around real access patterns

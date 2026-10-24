@@ -14,6 +14,18 @@ metadata:
 - Load `references/integrations.md` for forms, webhooks, or third-party embeds.
 - Load `references/optimization.md` for SEO, accessibility, and performance checklists.
 
+## State location
+
+Webflow state may exist in `<workspace>/webflow/`, `<workspace>/memory/webflow/`, or `~/webflow/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/webflow/`, `<workspace>/memory/webflow/`, `~/webflow/`.
+3. If none exists and state must be created, default to `<workspace>/webflow/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Memory Storage
 
 User preferences stored at `<state_root>/webflow/memory.md`. Read on activation.

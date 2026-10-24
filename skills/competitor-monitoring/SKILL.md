@@ -16,6 +16,16 @@ User needs competitive intelligence. Agent tracks competitors, monitors changes,
 
 ## State location
 
+Competitor Monitoring state may exist in `<workspace>/competitor-monitoring/`, `<workspace>/memory/competitor-monitoring/`, or `~/competitor-monitoring/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/competitor-monitoring/`, `<workspace>/memory/competitor-monitoring/`, `~/competitor-monitoring/`.
+3. If none exists and state must be created, default to `<workspace>/competitor-monitoring/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - **Target Directory**: `<state_root>/` (workspace-first convention)
 - **Creation**: On first run, create this directory and initialize `memory.md` following `references/memory-template.md`.
 
@@ -42,7 +52,6 @@ See `references/memory-template.md` for structure.
 | Setup process | `references/setup.md` | On first use |
 | Memory template | `references/memory-template.md` | When initializing or updating state |
 | Domain knowledge | `references/domain-knowledge.md` | When performing competitive analysis or structuring dossiers |
-
 
 ## Core Rules
 

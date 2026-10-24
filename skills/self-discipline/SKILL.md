@@ -77,6 +77,18 @@ Load this skill when:
 
 On first use, read `references/setup.md` for integration guidelines. Creates `<state_root>/` for rules, validators, and enforcement logs.
 
+## State location
+
+Self Discipline state may exist in `<workspace>/self-discipline/`, `<workspace>/memory/self-discipline/`, or `~/self-discipline/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/self-discipline/`, `<workspace>/memory/self-discipline/`, `~/self-discipline/`.
+3. If none exists and state must be created, default to `<workspace>/self-discipline/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/`. See `references/memory-template.md` for structure.

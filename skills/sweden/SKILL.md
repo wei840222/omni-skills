@@ -8,11 +8,15 @@ metadata:
 
 ## State location
 
-- **Working Directory:** `<state_root>/`
-- **Location precedence:**
-  1. `<workspace>/sweden/`
-  2. `<workspace>/data/sweden/`
-- **Behavior:** If neither path exists, use standard file tools to create `<workspace>/sweden/` as `<state_root>/`. All memory updates and artifacts must be confined to this local state directory.
+Sweden state may exist in `<workspace>/sweden/`, `<workspace>/memory/sweden/`, or `~/sweden/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/sweden/`, `<workspace>/memory/sweden/`, `~/sweden/`.
+3. If none exists and state must be created, default to `<workspace>/sweden/`.
+
+Use the selected `<state_root>` for every state operation in this skill. All memory updates and artifacts must be confined to this local state directory.
 
 ## Setup
 

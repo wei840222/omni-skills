@@ -19,6 +19,16 @@ Route a logged symptom to `symptoms`, a medical explanation to `medicine`, meal 
 
 ## State location
 
+Health state may exist in `<workspace>/health/`, `<workspace>/memory/health/`, or `~/health/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/health/`, `<workspace>/memory/health/`, `~/health/`.
+3. If none exists and state must be created, default to `<workspace>/health/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 The host supplies `<state_root>`. Do not write outside it.
 
 | Path | Role | Creation condition |

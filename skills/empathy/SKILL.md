@@ -63,7 +63,3 @@ When you miss the mark (and you will):
 | Contexts | `references/contexts.md` | When integrating with support, therapy, or coaching environments. |
 | Feedback | `references/feedback.md` | When working on self-improvement and tracking effective empathy responses. |
 | Knowledge | `references/domain_knowledge.md` | When general psychological concepts regarding empathy are needed. |
-
-## State location
-
-This skill is stateless and does not store local configuration.

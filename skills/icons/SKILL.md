@@ -8,10 +8,6 @@ metadata:
 
 # Icons
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## Core guidance
 
 SVG is the modern standard over icon fonts:

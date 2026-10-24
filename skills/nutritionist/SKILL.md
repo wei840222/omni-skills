@@ -5,10 +5,6 @@ metadata:
   openclaw: '{"emoji":"🥗","displayName":"Nutritionist","category":"role","skills":["nutrition","health","food","wellness","eating"]}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or persistent user state.
-
 ## Documentation
 
 - To understand fundamental principles and nutrition facts, read `references/domain-knowledge.md`.

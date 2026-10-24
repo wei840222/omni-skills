@@ -6,6 +6,18 @@ metadata:
   openclaw: '{"requires":{"config":["<state_root>/escalate/"]}}'
 ---
 
+## State location
+
+Escalate state may exist in `<workspace>/escalate/`, `<workspace>/memory/escalate/`, or `~/escalate/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/escalate/`, `<workspace>/memory/escalate/`, `~/escalate/`.
+3. If none exists and state must be created, default to `<workspace>/escalate/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Escalation state lives in `<state_root>/escalate/`. If that folder is missing or empty, run `references/setup.md`.

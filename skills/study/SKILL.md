@@ -9,12 +9,21 @@ metadata:
 
 ## State location
 
+Study state may exist in `<workspace>/study/`, `<workspace>/memory/study/`, or `~/study/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/study/`, `<workspace>/memory/study/`, `~/study/`.
+3. If none exists and state must be created, default to `<workspace>/study/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - **<state_root>/study/**: Primary location for study-related state (courses, terms, exams).
 - **<state_root>/contacts/**: Used for resolving study groups or tutors.
 - **<state_root>/projects/**: Used for tracking major assignments and thesis progress.
 - **<state_root>/bookings/**: Used for study sessions and exam scheduling.
 - **<state_root>/profile.yaml**: Used for user preferences and term configuration.
-
 
 **Data.** At the start of every session, read `<state_root>/study/config.yaml` (what the user declared) and `<state_root>/study/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `<state_root>/study/errors.md` before planning any session, review, or exam sprint: what this student got wrong is the curriculum (Rule 6). If none of it exists, work from defaults and say nothing about it.
 

@@ -16,6 +16,18 @@ On first use, explicitly load and read `references/setup.md` for Cypress integra
 
 Load this skill when the user asks to write Cypress tests, debug flaky test specs, configure Cypress CI/CD pipelines, or write Cypress custom commands.
 
+## State location
+
+Cypress state may exist in `<workspace>/cypress/`, `<workspace>/memory/cypress/`, or `~/cypress/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/cypress/`, `<workspace>/memory/cypress/`, `~/cypress/`.
+3. If none exists and state must be created, default to `<workspace>/cypress/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Project tests live in the standard Cypress structure:

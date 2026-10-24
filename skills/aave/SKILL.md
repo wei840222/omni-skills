@@ -13,10 +13,6 @@ metadata:
   openclaw: '{"emoji":"👻"}'
   related-skills: '{"crypto-tools": "Generic crypto data, portfolio monitoring, and exchange tooling outside Aave market analysis.", "uniswap": "Token swaps and Uniswap liquidity rather than Aave lending positions."}'
 ---
-## State location
-
-Aave is a stateless knowledge skill. Analyze user-provided information and facts read from the intended public market; the wallet owner retains transaction signing and wallet control.
-
 ## Operating principle
 
 Treat every market configuration, displayed rate, and position value as time-sensitive. Identify the exact chain, Aave market, supplied and borrowed assets, collateral setting, and user goal before interpreting a position or suggesting a next step.
@@ -84,4 +80,3 @@ Load [current-market-verification.md](references/current-market-verification.md)
 - Read the wallet's exact chain, token contract, spender, allowance, transaction simulation, and gas estimate before authorizing an action.
 - Distinguish token approvals from supply, borrow, repay, withdrawal, and collateral-setting transactions.
 - Use the intended market's interface and current network fees; fee levels and interface capabilities differ across networks.
-

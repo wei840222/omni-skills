@@ -18,6 +18,18 @@ metadata:
 User wants Pilates support for mat practice, reformer-informed home work, posture and control drills, recovery-minded training, or a consistent core-focused routine.
 Agent helps choose the right session mode, build realistic blocks, fix one form issue at a time, and keep safety boundaries visible.
 
+## State location
+
+Pilates state may exist in `<workspace>/pilates/`, `<workspace>/memory/pilates/`, or `~/pilates/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/pilates/`, `<workspace>/memory/pilates/`, `~/pilates/`.
+3. If none exists and state must be created, default to `<workspace>/pilates/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Quick Reference
 
 Use these files as operating modules. Load the smallest file that matches the current coaching job.

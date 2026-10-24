@@ -5,8 +5,6 @@ metadata:
   openclaw: '{"emoji":"🍁"}'
 ---
 
-
-
 ## When to Use
 
 User asks about Toronto for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
@@ -58,7 +56,3 @@ User asks about Toronto for any purpose: visiting, moving, working, studying, or
 | Education | `references/education.md` | Schools and universities |
 | Expat social | `references/lifestyle.md` | Meeting people |
 | Driving | `references/driving.md` | Car ownership |
-
-## State location
-
-This skill is stateless and does not store local configuration.

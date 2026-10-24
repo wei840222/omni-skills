@@ -12,6 +12,18 @@ metadata:
 
 Load this skill when the user requests help tracking a baby's feeds, sleep, diapers, growth, or medical symptoms, or when managing a caregiver handoff or pediatric appointment.
 
+## State location
+
+Baby state may exist in `<workspace>/baby/`, `<workspace>/memory/baby/`, or `~/baby/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/baby/`, `<workspace>/memory/baby/`, `~/baby/`.
+3. If none exists and state must be created, default to `<workspace>/baby/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/baby/`. If `<state_root>/baby/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.

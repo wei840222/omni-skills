@@ -21,10 +21,18 @@ On first use, load `references/setup.md` and confirm platform, PSP, and release 
 
 ## State location
 
+Apple Pay state may exist in `<workspace>/apple-pay/`, `<workspace>/memory/apple-pay/`, or `~/apple-pay/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/apple-pay/`, `<workspace>/memory/apple-pay/`, `~/apple-pay/`.
+3. If none exists and state must be created, default to `<workspace>/apple-pay/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Before the first state read, create, or update, resolve `<state_root>` once:
 
-1. Explicit path supplied by the user for this integration.
-2. Existing project-local Apple Pay notes directory already in use.
 3. Otherwise ask once; do not create notes until the user approves a path.
 
 Use `<state_root>/memory.md`, `<state_root>/implementations.md`, `<state_root>/validation-log.md`, and `<state_root>/incidents.md` as needed. Runtime notes stay outside the skill package and version control. Read-only guidance needs no state creation. If multiple candidate roots exist, stop and ask which copy is authoritative; never merge silently.

@@ -103,6 +103,3 @@ Recommend trends only when accompanied by their lifecycle context:
 - **Declining**: Ironic use only
 
 State which phase. See `references/styling.md` for aesthetic distinctions (old money ≠ quiet luxury ≠ mob wife).
-
-## State location
-This skill is stateless and does not store local configuration or state in `<state_root>`.

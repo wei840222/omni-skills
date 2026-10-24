@@ -19,6 +19,16 @@ Draft contracts through a structured process. Gather requirements, anticipate pr
 
 ## State location
 
+Contract state may exist in `<workspace>/contract/`, `<workspace>/memory/contract/`, or `~/contract/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/contract/`, `<workspace>/memory/contract/`, `~/contract/`.
+3. If none exists and state must be created, default to `<workspace>/contract/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ```
 <state_root>/contracts/
 ├── drafting/                   # Active contract drafts

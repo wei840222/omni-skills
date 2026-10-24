@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"css": "Cascade, layout bugs, container queries, and stylesheet architecture.", "frontend": "React/Next/Tailwind UI systems and component polish.", "html": "Deep semantic markup, forms, dialogs, and sanitization details.", "icons": "Accessible SVG icon patterns and touch targets.", "image": "Format choice, compression, and responsive image delivery.", "seo": "Organic ranking strategy, Search Console recovery, keyword research, and schema beyond basic launch tags.", "typography": "Measure, leading, and type-scale decisions that feed site readability."}'
 ---
 
-## State location
-
-This skill is **stateless**. It does not store local configuration, caches, or persistent project data. Skill resources live under `references/`; never invent a filesystem state root for this package.
-
 ## When to use
 
 - User wants to build or restructure a marketing, brochure, or content website

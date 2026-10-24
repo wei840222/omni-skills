@@ -16,12 +16,20 @@ metadata:
 
 Price is the fastest lever a business has and the one most often set by feeling. Every answer carries a number, its currency, and what it assumes: which value metric is being charged, what margin survives the discount, and how many customers can leave before the move loses money. Work from defaults immediately: provide a default assessment immediately before asking about their model, their margin, or how aggressive to be. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: currency, locale, country) → the Configuration table default.
 
-
 ## State location
+
+Pricing state may exist in `<workspace>/pricing/`, `<workspace>/memory/pricing/`, or `~/pricing/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/pricing/`, `<workspace>/memory/pricing/`, `~/pricing/`.
+3. If none exists and state must be created, default to `<workspace>/pricing/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 This skill is stateful. It stores user preferences, price books, and deal history.
 
-- Candidate locations: `<state_root>/pricing/`
 - Lookup order: `<state_root>/pricing/config.yaml`, `<state_root>/pricing/memory.md`, `<state_root>/pricing/price-book.md`, `<state_root>/contacts/contacts.md`, `<state_root>/projects/<project>.md`
 - Creation behavior: Automatically creates files in `<state_root>/pricing/` and related shared directories if they are missing.
 

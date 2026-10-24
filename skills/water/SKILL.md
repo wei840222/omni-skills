@@ -11,6 +11,18 @@ metadata:
 ---
 Hydration tracking and advice from conversational mentions. All persistent data lives in `<state_root>/water/` — `log.md` (daily entries), `memory.md` (learned containers, baseline, patterns), `config.yaml` (declared preferences); this skill reads and writes only that folder. Health context stays local under `<state_root>/water/`: this skill reads and writes only that folder and stores no credentials or identifiers. If you have data at an old location (legacy locations), move it to `<state_root>/water/`, and say in one line that you moved it and from where. When loaded, first read `references/setup.md` to establish baseline context.
 
+## State location
+
+Water state may exist in `<workspace>/water/`, `<workspace>/memory/water/`, or `~/water/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/water/`, `<workspace>/memory/water/`, `~/water/`.
+3. If none exists and state must be created, default to `<workspace>/water/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to load
 
 - User mentions drinking anything ("had water with lunch", "finished my bottle") and wants intake tracked

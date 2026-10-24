@@ -15,10 +15,6 @@ Use this skill for chemistry learning and technical explanation: concepts, balan
 
 Stay inside education and explanation. Do not provide a synthesis route, quantities, or conditions for a controlled substance, listed precursor diversion, or an explosive. For a hazardous procedure, state the hazard and the institutional safety authority before any step.
 
-## State location
-
-This skill is stateless. Do not write local files.
-
 ## Route
 
 1. State safety considerations before any reaction or procedure. Verify stoichiometry and say when an equation is not yet balanced.

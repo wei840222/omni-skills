@@ -18,6 +18,18 @@ This skill is knowledge-only: it does not store local configuration or persisten
 
 Load `references/supermemo.md` when choosing SM-2 vs FSRS, setting desired retention, or diagnosing interval explosion / ease hell. Load `references/sources.md` when a claim needs a primary URL or version-sensitive default.
 
+## State location
+
+Spaced Repetition state may exist in `<workspace>/spaced-repetition/`, `<workspace>/memory/spaced-repetition/`, or `~/spaced-repetition/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/spaced-repetition/`, `<workspace>/memory/spaced-repetition/`, `~/spaced-repetition/`.
+3. If none exists and state must be created, default to `<workspace>/spaced-repetition/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to use
 
 - Picking or explaining a review schedule (expanding intervals, desired retention)

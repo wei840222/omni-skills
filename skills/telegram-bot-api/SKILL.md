@@ -17,6 +17,18 @@ On first use, read `references/setup.md` for integration guidelines.
 
 Load this skill when you need to construct Telegram Bot API HTTP requests, handle bot webhook updates, format Telegram messages, or configure Telegram bot reply/inline keyboards.
 
+## State location
+
+Telegram Bot Api state may exist in `<workspace>/telegram-bot-api/`, `<workspace>/memory/telegram-bot-api/`, or `~/telegram-bot-api/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/telegram-bot-api/`, `<workspace>/memory/telegram-bot-api/`, `~/telegram-bot-api/`.
+3. If none exists and state must be created, default to `<workspace>/telegram-bot-api/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/telegram-bot-api/`. See `assets/memory-template.md` for structure.

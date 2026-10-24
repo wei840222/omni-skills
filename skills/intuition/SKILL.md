@@ -74,7 +74,3 @@ If low-validity domain: state "I lack a strong read" to maintain accuracy.
 | Domain-specific intuition (code, design, writing, conversation) | `references/domains.md` |
 | Bias detection, when to override intuition, safeguards | `references/safeguards.md` |
 | Self-improvement, tracking accuracy | `references/feedback.md` |
-
-## State location
-
-This skill is stateless and does not persist any local configuration or data.

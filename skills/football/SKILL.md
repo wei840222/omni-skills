@@ -13,8 +13,17 @@ Use this for association football or soccer work: match previews, post-match rev
 
 Restrict usage to association football tactical, scouting, and training analysis. Redirect requests for American football, gambling picks, or medical diagnoses. This skill is for football decisions that need structure, not hype.
 
-
 ## State location
+
+Football state may exist in `<workspace>/football/`, `<workspace>/memory/football/`, or `~/football/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/football/`, `<workspace>/memory/football/`, `~/football/`.
+3. If none exists and state must be created, default to `<workspace>/football/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Memory and configuration files are located at `<state_root>/`.
 If `<state_root>/` does not exist, run `references/setup.md`.
@@ -28,7 +37,6 @@ See `references/memory-template.md` for structure.
 ├── training-log.md   # Weekly rhythms, constraints, and recurring drill notes
 └── archive/          # Retired reports and old cycles
 ```
-
 
 ## Quick Reference
 
@@ -44,7 +52,6 @@ Use the smallest file that resolves the blocker.
 | Training week | `references/training-week.md` | When planning training sessions and microcycles. |
 | Role cards | `references/role-cards.md` | When designing squad balance, assessing positions, or recruiting. |
 | Domain knowledge | `references/domain-knowledge.md` | When needing foundational concepts on football tactics and scouting. |
-
 
 ## Requirements
 

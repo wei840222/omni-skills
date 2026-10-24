@@ -17,11 +17,17 @@ metadata:
 
 ## State location
 
-Resolve `<state_root>` once per invocation before any read/write:
+Seo state may exist in `<workspace>/seo/`, `<workspace>/memory/seo/`, or `~/seo/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. Explicit user/host state path for this skill, if provided.
-2. Existing candidates, first hit wins: `<workspace>/seo/`, `<workspace>/memory/seo/`, `~/seo/`.
-3. If none exist, create `<workspace>/seo/` when the host provides a workspace; otherwise create `~/seo/`.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/seo/`, `<workspace>/memory/seo/`, `~/seo/`.
+3. If none exists and state must be created, default to `<workspace>/seo/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+Resolve `<state_root>` once per invocation before any read/write:
 
 Use that single `<state_root>` for config, memory, audits, and drafts. If older data exists only under legacy paths such as a prior vendor data folder, move it into `<state_root>/` and state the move in one line. Skill resources stay under `references/` and `assets/` — never mix them with `<state_root>`.
 

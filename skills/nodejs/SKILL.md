@@ -12,6 +12,18 @@ metadata:
 
 User preferences and memory live in `<state_root>/nodejs/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/nodejs/` or `~/clawic/nodejs/`), move it to `<state_root>/nodejs/`, and say in one line that you moved it and from where.
 
+## State location
+
+Nodejs state may exist in `<workspace>/nodejs/`, `<workspace>/memory/nodejs/`, or `~/nodejs/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/nodejs/`, `<workspace>/memory/nodejs/`, `~/nodejs/`.
+3. If none exists and state must be created, default to `<workspace>/nodejs/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to load
 
 | Scenario | Action |

@@ -24,10 +24,6 @@ Use this skill when the work is inside Blender or preparing a Blender asset for 
 
 Prefer `unity` or `unreal-engine` once the asset has left Blender and the problem is engine-side. Prefer `drawing` / `art` / `design` for 2D illustration or art direction without mesh authoring.
 
-## State location
-
-This skill is stateless. It does not create local configuration, caches, or memory files. Do not invent a Blender state directory unless the user explicitly asks to persist project notes outside this skill.
-
 ## Core workflow
 
 1. Confirm Object vs Edit mode before transforming or selecting.

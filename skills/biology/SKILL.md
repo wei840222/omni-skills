@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🧬"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## Use this skill
 
 1. Identify the audience from the question; when it is unclear, start with a short accessible explanation and offer a deeper layer.

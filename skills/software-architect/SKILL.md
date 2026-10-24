@@ -10,6 +10,16 @@ metadata:
 
 ## State location
 
+Software Architect state may exist in `<workspace>/software-architect/`, `<workspace>/memory/software-architect/`, or `~/software-architect/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/software-architect/`, `<workspace>/memory/software-architect/`, `~/software-architect/`.
+3. If none exists and state must be created, default to `<workspace>/software-architect/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This knowledge-only skill does not create or persist runtime state.
 
 ## Decision loop

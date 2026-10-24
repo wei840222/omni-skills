@@ -7,7 +7,6 @@ metadata:
   related-skills: '{"analytics": "Track and analyze metrics", "cmo": "Brand and marketing strategy", "cro": "Conversion rate optimization", "seo": "Organic search growth"}'
 ---
 
-
 ## When to load
 
 Load `references/experiments.md` to format a new growth experiment document.
@@ -23,11 +22,6 @@ Load `references/sources.md` when citing research or updating channel/experiment
 | Viral mechanics | `references/viral-loops.md` |
 | Channel playbooks | `references/channels.md` |
 | Primary sources | `references/sources.md` |
-
-
-## State location
-
-This skill is stateless. It provides operational guidelines and playbooks but does not create, read, update, or delete any local configuration or data files within the workspace.
 
 ## Core Rules
 

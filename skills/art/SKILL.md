@@ -22,6 +22,18 @@ This skill is **stateless**. Optional preference notes live under portable
 `<state_root>/art/` only when the user wants continuity across sessions — never
 inside the skill package.
 
+## State location
+
+Art state may exist in `<workspace>/art/`, `<workspace>/memory/art/`, or `~/art/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/art/`, `<workspace>/memory/art/`, `~/art/`.
+3. If none exists and state must be created, default to `<workspace>/art/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to use
 
 - Traditional or digital technique advice (drawing, painting, sculpture basics)

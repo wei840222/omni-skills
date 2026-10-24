@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"✨"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration or state.
-
 ## Start here
 
 1. Identify the exact chip variant, board, framework (ESP-IDF, Arduino-ESP32, or another supported runtime), ESP-IDF/Arduino version, and requested behavior.

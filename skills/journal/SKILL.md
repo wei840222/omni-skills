@@ -8,6 +8,16 @@ metadata:
 
 ## State location
 
+Journal state may exist in `<workspace>/journal/`, `<workspace>/memory/journal/`, or `~/journal/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/journal/`, `<workspace>/memory/journal/`, `~/journal/`.
+3. If none exists and state must be created, default to `<workspace>/journal/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - `<workspace>/journal/`
 - `<workspace>/memory/journal/`
 - `~/journal/`
@@ -47,7 +57,6 @@ Journaling fails for one of three reasons: the page is blank, the practice lapse
 
 ### Reference Files
 - **`references/domain-knowledge.md`**: Load when users ask about the psychological benefits of journaling, need help shifting out of negative rumination, or want to understand different journaling habits.
-
 
 | Situation | Play | Depth |
 |---|---|---|

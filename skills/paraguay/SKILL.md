@@ -15,6 +15,18 @@ If `<state_root>/` does not exist or is empty, read `references/setup.md` and st
 
 Load this skill when the user is planning a Paraguay trip and needs more than generic inspiration: how to split time between Asuncion, the south, the border, and the Chaco, plus food, payments, heat, and day-to-day logistics.
 
+## State location
+
+Paraguay state may exist in `<workspace>/paraguay/`, `<workspace>/memory/paraguay/`, or `~/paraguay/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/paraguay/`, `<workspace>/memory/paraguay/`, `~/paraguay/`.
+3. If none exists and state must be created, default to `<workspace>/paraguay/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.

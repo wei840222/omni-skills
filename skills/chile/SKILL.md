@@ -22,6 +22,18 @@ If `<state_root>/` doesn't exist or is empty, read `references/setup.md` and sta
 
 User is planning a Chile trip and needs more than generic sightseeing advice: which macro-region to choose, how to route huge distances, what to reserve early, and how to handle entry, SAG declaration, weather, transport, and safety on the ground.
 
+## State location
+
+Chile state may exist in `<workspace>/chile/`, `<workspace>/memory/chile/`, or `~/chile/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/chile/`, `<workspace>/memory/chile/`, `~/chile/`.
+3. If none exists and state must be created, default to `<workspace>/chile/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.

@@ -12,6 +12,18 @@ metadata:
 - User plans for event → suggest options with reasoning
 - Create `<state_root>/outfits/` as workspace
 
+## State location
+
+Outfits state may exist in `<workspace>/outfits/`, `<workspace>/memory/outfits/`, or `~/outfits/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/outfits/`, `<workspace>/memory/outfits/`, `~/outfits/`.
+3. If none exists and state must be created, default to `<workspace>/outfits/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Use Cases
 - Save looks you love: Instagram, Pinterest, street style
 - Build go-to combinations from clothes you own

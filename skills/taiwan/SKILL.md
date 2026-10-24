@@ -12,10 +12,21 @@ metadata:
   related-skills: '{"chinese": "language and phrase help beyond Taiwan trip planning", "food": "dish-level cuisine guidance when the ask is food, not itinerary routing", "photography": "shot planning and gear when the trip goal is photo-first", "travel": "general multi-country trip structure beyond Taiwan-specific logistics"}'
 ---
 
-
 ## When to load
 
 Load this skill when the user asks to plan a trip to Taiwan, requests advice on Taiwanese cities (Taipei, Taichung, Tainan, Kaohsiung), needs HSR/TRA transit routing, or wants specific local food recommendations (night markets, regional specialties).
+
+## State location
+
+Taiwan state may exist in `<workspace>/taiwan/`, `<workspace>/memory/taiwan/`, or `~/taiwan/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/taiwan/`, `<workspace>/memory/taiwan/`, `~/taiwan/`.
+3. If none exists and state must be created, default to `<workspace>/taiwan/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Architecture
 

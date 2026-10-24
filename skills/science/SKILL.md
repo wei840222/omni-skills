@@ -7,10 +7,6 @@ metadata:
   related-skills: '{"biology": "Organism-level life science, physiology, genetics, ecology, and biology education.", "chemistry": "Matter, reactions, stoichiometry, and lab chemistry depth.", "computer-science": "Algorithms, computation, and programming reasoning adjacent to scientific computing.", "math": "Mathematical methods, proofs, and quantitative checks that science explanations depend on.", "physics": "Mechanics, energy, waves, fields, and quantitative physics derivations."}'
 ---
 
-## State location
-
-This skill is completely stateless. It does not store or read local configuration or state.
-
 ## Use this skill
 
 1. Identify the audience from vocabulary, goals, and question complexity; when unclear, start with a short accessible explanation and offer a deeper layer.

@@ -11,6 +11,18 @@ metadata:
 - Track practice and what resonates
 - Create `<state_root>/data/affirmations/` as workspace
 
+## State location
+
+Affirmations state may exist in `<workspace>/affirmations/`, `<workspace>/memory/affirmations/`, or `~/affirmations/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/affirmations/`, `<workspace>/memory/affirmations/`, `~/affirmations/`.
+3. If none exists and state must be created, default to `<workspace>/affirmations/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## File Structure
 ```
 <state_root>/data/affirmations/

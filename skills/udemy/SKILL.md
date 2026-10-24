@@ -17,11 +17,17 @@ metadata:
 | Workspace | Organizing the course files and tracking status | When managing local course files and tracking states | `references/workspace.md` |
 | Compliance | General legal and terms of service guidelines | When handling sensitive topics or platform policies | `references/legal.md` |
 
-## State Location
-This skill maintains state for course workspaces.
-1. The canonical state directory is `<state_root>/udemy/`.
-2. Rely exclusively on the `<state_root>` convention for all path resolutions.
-3. If the directory does not exist, create it.
+## State location
+
+Udemy state may exist in `<workspace>/udemy/`, `<workspace>/memory/udemy/`, or `~/udemy/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/udemy/`, `<workspace>/memory/udemy/`, `~/udemy/`.
+3. If none exists and state must be created, default to `<workspace>/udemy/`.
+
+Use the selected `<state_root>` for every state operation in this skill. Rely exclusively on the `<state_root>` convention for all path resolutions; if the directory does not exist, create it.
 
 ## Critical Rules
 

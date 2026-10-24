@@ -41,12 +41,20 @@ To reduce working memory load, read specific reference documents only when their
 
 ## State location
 
-This skill manages persistent operational state.
+Apple Calendar Macos state may exist in `<workspace>/apple-calendar-macos/`, `<workspace>/memory/apple-calendar-macos/`, or `~/apple-calendar-macos/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-**Candidate locations (in order of preference):**
-1. `<state_root>/memory.md` (Status, defaults, and confirmation behavior)
-2. `<state_root>/command-paths.md` (Detected CLI path and fallback status)
-3. `<state_root>/timezone-defaults.md` (Preferred timezone and date style)
-4. `<state_root>/safety-log.md` (Deletions, bulk edits, and rollback notes)
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/apple-calendar-macos/`, `<workspace>/memory/apple-calendar-macos/`, `~/apple-calendar-macos/`.
+3. If none exists and state must be created, default to `<workspace>/apple-calendar-macos/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+State files managed:
+- `<state_root>/memory.md` (Status, defaults, and confirmation behavior)
+- `<state_root>/command-paths.md` (Detected CLI path and fallback status)
+- `<state_root>/timezone-defaults.md` (Preferred timezone and date style)
+- `<state_root>/safety-log.md` (Deletions, bulk edits, and rollback notes)
 
 Before modifying state, ask for explicit confirmation and verify the target path exists.

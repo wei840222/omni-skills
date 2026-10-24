@@ -16,6 +16,18 @@ Upon loading for the first time, immediately read `references/setup.md` to estab
 
 Load this skill when the user explicitly requests music generation, extension, or prompt crafting using Udio. Maintain focus exclusively on Udio interactions; route general music playback or Suno requests to appropriate alternative skills.
 
+## State location
+
+Udio state may exist in `<workspace>/udio/`, `<workspace>/memory/udio/`, or `~/udio/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/udio/`, `<workspace>/memory/udio/`, `~/udio/`.
+3. If none exists and state must be created, default to `<workspace>/udio/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory at `<state_root>/udio/`. See `references/memory-template.md` for structure.

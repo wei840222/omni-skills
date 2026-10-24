@@ -62,6 +62,16 @@ User wants trading analysis or education. Technical analysis, chart patterns, in
 
 ## State location
 
+Trading state may exist in `<workspace>/trading/`, `<workspace>/memory/trading/`, or `~/trading/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/trading/`, `<workspace>/memory/trading/`, `~/trading/`.
+3. If none exists and state must be created, default to `<workspace>/trading/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Memory lives in `<state_root>/trading/` with learning progress tracking.
 
 ```

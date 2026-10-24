@@ -8,7 +8,7 @@ metadata:
 ---
 
 
-## State Location
+## State location
 
 Archive state may exist in `<workspace>/archive/`, `<workspace>/memory/archive/`, or `~/archive/`. `<workspace>` is the workspace root supplied by the host/runtime.
 

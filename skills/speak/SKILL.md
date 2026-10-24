@@ -17,6 +17,18 @@ Convert written replies into speech-ready text and adapt voice, rate, and phrasi
 - Load `references/normalization.md` for text preprocessing.
 - Load `references/ssml.md` for prosody markup.
 
+## State location
+
+Speak state may exist in `<workspace>/speak/`, `<workspace>/memory/speak/`, or `~/speak/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/speak/`, `<workspace>/memory/speak/`, `~/speak/`.
+3. If none exists and state must be created, default to `<workspace>/speak/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Configuration
 
 User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/speak/config.yaml`.

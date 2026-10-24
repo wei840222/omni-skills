@@ -17,12 +17,17 @@ User needs to interact with Zendesk: create or update tickets, search support hi
 
 ## State location
 
-Resolve `<state_root>` as:
+Zendesk state may exist in `<workspace>/zendesk/`, `<workspace>/memory/zendesk/`, or `~/zendesk/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
-   `<workspace>/.skills/zendesk/`, `<workspace>/zendesk/`, `~/zendesk/`.
-3. If none exists and state must be created, default to `<workspace>/.skills/zendesk/`.
+   `<workspace>/zendesk/`, `<workspace>/memory/zendesk/`, `~/zendesk/`.
+3. If none exists and state must be created, default to `<workspace>/zendesk/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+Resolve `<state_root>` as:
 
 ```
 <state_root>/
@@ -44,11 +49,6 @@ Resolve `<state_root>` as:
 | Priorities | `references/priorities.md` | When assigning or interpreting ticket urgency |
 | Common Traps | `references/common-traps.md` | When encountering errors or designing a robust automation |
 | Domain Knowledge | `references/zendesk-knowledge.md` | When needing a conceptual understanding of Zendesk entities |
-
-
-
-
-
 
 ## External Endpoints
 

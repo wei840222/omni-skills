@@ -16,7 +16,7 @@ metadata:
 - Store sensitive values in secret variables; ordinary variables remain readable to principals with the required workspace permissions
 - Path format matters — `u/username/secret` for user, `f/folder/secret` for shared
 
-## State Location
+## State location
 
 Optional local planning state may exist in `<workspace>/windmill/`, `<workspace>/memory/windmill/`, or `~/windmill/`.
 

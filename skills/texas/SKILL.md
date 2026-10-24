@@ -18,6 +18,16 @@ Activate for four modes: visiting, moving to Texas, living in Texas, and operati
 
 ## State location
 
+Texas state may exist in `<workspace>/texas/`, `<workspace>/memory/texas/`, or `~/texas/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/texas/`, `<workspace>/memory/texas/`, `~/texas/`.
+3. If none exists and state must be created, default to `<workspace>/texas/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Optional continuity lives in portable `<state_root>/texas/`. One-off Texas questions stay stateless.
 
 ```text

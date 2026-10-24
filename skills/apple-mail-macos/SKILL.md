@@ -53,6 +53,16 @@ Memory lives in `<state_root>/`. See `references/memory-template.md` for structu
 
 ## State location
 
+Apple Mail Macos state may exist in `<workspace>/apple-mail-macos/`, `<workspace>/memory/apple-mail-macos/`, or `~/apple-mail-macos/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/apple-mail-macos/`, `<workspace>/memory/apple-mail-macos/`, `~/apple-mail-macos/`.
+3. If none exists and state must be created, default to `<workspace>/apple-mail-macos/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 - **Type**: Stateful
 - **Default Location**: `<state_root>/`
 - **Fallback Location**: `~/.apple-mail-macos/`

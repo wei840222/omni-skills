@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🇮🇹"}'
 ---
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## The Real Problem
 
 AI Italian is technically correct but sounds off. Too formal. Too complete. Too textbook. Natives write with more warmth, expressiveness, and personality. Match that.

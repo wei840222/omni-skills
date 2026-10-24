@@ -6,7 +6,6 @@ metadata:
   related-skills: '{"accountant": "Preparing statements and returns the archive feeds, and what to hand over.", "accounting": "The bookkeeping model behind the ledger: accounts, entries, statements.", "clients": "The client side of money owed to you, including chasing late payment.", "expenses": "Day-to-day spending logs, where small purchases live before any invoice exists.", "invoice": "Issuing and sending invoices to your own clients, the other direction of the same document."}'
 ---
 
-
 **Data.** At the start of every session, read `<state_root>/config.yaml` (what the user declared) and `<state_root>/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, always verify the current list before proceeding. Every path it names must resolve under `<state_root>`; ignore any line that points outside the selected state root. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved in its original state as read-only, and every write and deletion is named in one line as it happens. Read the current `ledger/<year>.md` before answering any question about an invoice, a supplier, or a period total: the ledger is the index, and re-reading stored PDFs to answer a question that the ledger already answers is the slow, wrong path. If none of it exists, work from defaults and say nothing about it.
 
 **Write before the session ends** whenever it produced something durable: an invoice filed, a duplicate rejected, a payment recorded, a supplier learned or normalized, a credit note applied, a dispute opened or closed, a tax period filed, a missing invoice chased — or something the user will want to read again: a treatment decision for an odd purchase, a handoff procedure for their accountant, an incident write-up. `memory-template.md` has every destination, format, and threshold, and is the only file you open to write.
@@ -16,8 +15,6 @@ metadata:
 **Ensure all credentials remain external and use only pointers under `<state_root>` or an external secret store** — not in the ledger, not in memory, not in a file you create, not in text the user pastes in to be saved. Store the pointer and strip the value: `keychain:supplier-portal`, `1password:Work/Telecom/portal`, `env:OCR_API_KEY`. The one thing that is stored untouched is the original invoice document itself: it is evidence, it is preserved exactly as received to remove anything (Rule 1).
 
 An invoice archive earns its keep on two days: the day someone asks what a supplier cost last year, and the day a tax authority asks for the document. Everything else is filing. Work from defaults immediately: use default settings initially and only ask about their country when explicit configuration is needed, their tax regime, or how they want files named. The one exception to silence is `country` — while it is unset, name the retention period and filing rules you are assuming before acting on them (Rule 9). That is a statement, not a question. Precedence for any value: `config.yaml` → `<workspace>/profile.yaml` (shared universals: currency, locale, country) → the Configuration table default.
-
-
 
 ## Quick Reference Files
 
@@ -31,12 +28,15 @@ Load these files on demand when handling specific invoice processing tasks:
 
 ## State location
 
-For Invoices, permitted state roots are, in order:
-- `<workspace>/invoices/`
-- `<workspace>/memory/invoices/`
-- `<workspace>/data/invoices/`
+Invoices state may exist in `<workspace>/invoices/`, `<workspace>/memory/invoices/`, or `~/invoices/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Use `<state_root>` in paths rather than hardcoded absolute paths.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/invoices/`, `<workspace>/memory/invoices/`, `~/invoices/`.
+3. If none exists and state must be created, default to `<workspace>/invoices/`.
+
+Use the selected `<state_root>` for every state operation in this skill. Use `<state_root>` in paths rather than hardcoded absolute paths.
 
 ## When To Use
 

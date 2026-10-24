@@ -12,7 +12,7 @@ metadata:
 Before reading or writing routing state, resolve `<state_root>` once for this invocation:
 
 1. Use an explicitly configured state path when the user or host provides one.
-2. Otherwise use the first existing directory in this order: `<workspace>/open-router/`, `<workspace>/memory/open-router/`, then `~/.open-router/`.
+2. Otherwise use the first existing directory in this order: `<workspace>/open-router/`, `<workspace>/memory/open-router/`, `~/open-router/`.
 3. If none exists and the user authorizes persistent routing state, create `<workspace>/open-router/` and use it as `<state_root>`.
 
 Use only the selected `<state_root>` for this invocation. When more than one candidate exists, choose the first, report the conflict, and leave the other copies unchanged until the user selects a migration path.

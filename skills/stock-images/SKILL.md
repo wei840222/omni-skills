@@ -15,13 +15,19 @@ metadata:
 
 ## State location
 
+Stock Images state may exist in `<workspace>/stock-images/`, `<workspace>/memory/stock-images/`, or `~/stock-images/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/stock-images/`, `<workspace>/memory/stock-images/`, `~/stock-images/`.
+3. If none exists and state must be created, default to `<workspace>/stock-images/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill is **stateless by default**. Prefer returning ready-to-use URLs with no disk writes.
 
 If the user asks to remember preferred providers, sizes, style, or saved URLs, resolve `<state_root>` once per invocation before any read/write:
-
-1. Explicit user/host state path for this skill, if provided.
-2. Existing candidates, first hit wins: `<workspace>/stock-images/`, `<workspace>/memory/stock-images/`, `~/stock-images/`.
-3. If none exist, create `<workspace>/stock-images/` when the host provides a workspace; otherwise create `~/stock-images/`.
 
 Use that single `<state_root>` for optional preference memory only. Skill resources stay under `references/` and `assets/` — never mix them with `<state_root>`. Template: `assets/memory-template.md`.
 

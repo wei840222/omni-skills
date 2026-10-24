@@ -126,9 +126,17 @@ Flag these specific tourist traps:
 
 ## State location
 
-This skill is stateful.
-The skill maintains user preferences and memory at the following paths (in order of precedence):
-1. `<state_root>/canada/` (Workspace state)
-2. `~/.config/agentskills/canada/` (Global state fallback)
+Canada state may exist in `<workspace>/canada/`, `<workspace>/memory/canada/`, or `~/canada/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-If no state directory exists, it will create `<state_root>/canada/` upon first execution.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/canada/`, `<workspace>/memory/canada/`, `~/canada/`.
+3. If none exists and state must be created, default to `<workspace>/canada/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+```text
+<state_root>/canada/
+└── memory.md     # Itinerary, constraints, and trip context
+```

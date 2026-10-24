@@ -101,7 +101,17 @@ The domain's tell is that every disaster announces itself weeks early in a way t
 | They want set hours, their equipment, and exclusivity | Employment dressed as contracting; classification exposure for both sides | Push back on control terms, not on the fee (`pipeline.md`) |
 | Anything else that feels off | Write down the observable behaviour and its date in the contact log | Two entries of the same behaviour is a pattern; act on the second, not the fifth |
 
-## State Location
+## State location
+
+Clients state may exist in `<workspace>/clients/`, `<workspace>/memory/clients/`, or `~/clients/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/clients/`, `<workspace>/memory/clients/`, `~/clients/`.
+3. If none exists and state must be created, default to `<workspace>/clients/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 **Stateful Skill**: This skill manages local state for clients, configs, and projects.
 

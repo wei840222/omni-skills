@@ -9,8 +9,17 @@ metadata:
   related-skills: '{"barcelona": "Provide practical Barcelona guidance for visitors, relocators, tech workers, students, and founders—neighborhoods, transport, costs, safety, Catalan/Spanish context, food, and lifestyle", "europe": "Expertly manage cross-border trip planning, mobility rights, choosing a base, moving, studying, and working remotely across Europe by understanding how the EU, Schengen, eurozone, and national systems intersect", "madrid": "Provide practical Madrid guidance for visitors, relocators, tech workers, students, and founders—neighborhoods, transport, costs, safety, food, and lifestyle", "spanish": "Draft, translate, and revise natural Spanish for messages, posts, emails, and everyday copy", "travel": "Maintain a traveler standing system for wishlist destinations, passport and visa readiness, Schengen-style day counts, shared bookings, points expiry, trip budgets, disruption claims, and post-trip debriefs"}'
 ---
 
-
 ## State location
+
+Spain state may exist in `<workspace>/spain/`, `<workspace>/memory/spain/`, or `~/spain/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/spain/`, `<workspace>/memory/spain/`, `~/spain/`.
+3. If none exists and state must be created, default to `<workspace>/spain/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 User preferences and memory live in `<state_root>/`.
 - `<state_root>/config.yaml` for structured preferences.

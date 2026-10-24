@@ -102,4 +102,14 @@ Help users create AI-generated music and audio.
 
 ## State location
 
+Music Generation state may exist in `<workspace>/music-generation/`, `<workspace>/memory/music-generation/`, or `~/music-generation/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/music-generation/`, `<workspace>/memory/music-generation/`, `~/music-generation/`.
+3. If none exists and state must be created, default to `<workspace>/music-generation/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill is knowledge-only and does not store local configuration or session state.

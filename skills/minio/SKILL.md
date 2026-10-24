@@ -14,6 +14,18 @@ On first use, read `references/setup.md` to align activation boundaries, environ
 
 Load this skill when the user asks to install MinIO, configure MinIO buckets, write IAM policies for MinIO, or execute `mc` commands against an object storage cluster.
 
+## State location
+
+Minio state may exist in `<workspace>/minio/`, `<workspace>/memory/minio/`, or `~/minio/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/minio/`, `<workspace>/memory/minio/`, `~/minio/`.
+3. If none exists and state must be created, default to `<workspace>/minio/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/minio/`. See `references/memory-template.md` for structure and status values.

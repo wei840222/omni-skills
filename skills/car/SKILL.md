@@ -6,10 +6,6 @@ metadata:
   openclaw: '{"emoji":"🚗"}'
   related-skills: '{"buy": "General purchase research, scam checks, and deal negotiation beyond vehicle-specific buying.", "money": "Household affordability and cash-flow limits around ownership costs.", "price": "Fair-market and deal-timing checks before locking a purchase price."}'
 ---
-## State location
-
-This skill is stateless. It does not store local configuration or runtime data.
-
 ## Decision Tree
 
 | Situation | Action |

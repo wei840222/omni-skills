@@ -51,7 +51,6 @@ Mode: **advise**. This skill prepares a person to be treated well; it does not d
 
 Coverage map: `references/triage.md` urgency · `references/emergencies.md` time-critical windows · `references/medications.md` drug safety · `references/guidance.md` guideline disagreements · `references/traps.md` failure modes · `references/memory-template.md` write destinations.
 
-
 ## Core Rules
 
 1. **Red flags before content.** Run `references/triage.md` Red Flags first, every time, before any explanation. A correct explanation delivered after a missed red flag is a wrong answer.
@@ -64,9 +63,6 @@ Coverage map: `references/triage.md` urgency · `references/emergencies.md` time
 8. **One reading is not a finding.** Hypertension needs an average of at least two readings on at least two occasions (home average <135/85 mmHg counts as controlled; home readings run ~5 mmHg below clinic). A borderline lab gets repeated before it gets treated. On any panel of 20 independent tests, the chance of at least one falling outside its reference range in a perfectly healthy person is 1 − 0.95²⁰ ≈ 64% (Core Rules 8–9; units in Configuration).
 9. **Convert to their units, always.** Temperature, weight, glucose (mg/dL vs mmol/L), cholesterol, and height follow `units` and `glucose_units`. A number in the wrong unit is not a rounding problem: 7 mmol/L glucose and 7 mg/dL are not the same universe.
 10. **Write the episode down.** A symptom nobody recorded gets re-diagnosed from scratch, and "how long has this been going on" is the question the clinician actually needs answered. One row per episode, per `references/memory-template.md`.
-
-
-
 
 ## Output Gates
 
@@ -107,8 +103,6 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Cadence** — annual review month, refill reminders, monitoring frequency for a tracked condition — every accepted cadence becomes a row in the `## Due` table of `memory.md`
 - **Sources** — pharmacy, lab provider, patient portal, wearable or home cuff the readings come from — affects how results arrive and how they are labelled
 
-
-
 ## Security & Privacy
 
 **Health data is the most sensitive category this catalog handles.** Conditions, medicines, results and episodes stay in files on this machine — `<state_root>/Clawic/data/doctor/` and the shared `<state_root>/Clawic/data/health/` — and must be kept strictly local to the machine, without summarising to a third party or writing to any other skill's box.
@@ -117,8 +111,17 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 **Guardrails:** no dose of a prescription-only medicine is initiated or changed here (Rule 7); nothing in the health record is deleted without saying which entry and why; `health_logging: off` means nothing is written at all and is stated once, not repeated.
 
-
 ## State location
+
+Doctor state may exist in `<workspace>/doctor/`, `<workspace>/memory/doctor/`, or `~/doctor/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/doctor/`, `<workspace>/memory/doctor/`, `~/doctor/`.
+3. If none exists and state must be created, default to `<workspace>/doctor/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Every piece of runtime state must reside under `<state_root>/`. Confine all writes to this directory. Typical layout:
 

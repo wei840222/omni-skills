@@ -10,9 +10,6 @@ metadata:
 
 This skill configures and optimizes Vite for development, production builds, and library bundling.
 
-## State location
-This skill is stateless and does not store any local configuration or state on the disk.
-
 ## Quick Reference
 | Category | File | Description | When to load |
 |---|---|---|---|

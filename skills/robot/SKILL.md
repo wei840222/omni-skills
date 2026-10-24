@@ -9,11 +9,15 @@ metadata:
 
 ## State location
 
-Use `<state_root>` as the persistent storage directory for this skill following these lookup rules:
-1. Workspace-local: `./.robot/` (Preferred for project-specific context)
-2. Global fallback: `~/.local/state/robot/`
+Robot state may exist in `<workspace>/robot/`, `<workspace>/memory/robot/`, or `~/robot/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Create this directory structure if it does not exist.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/robot/`, `<workspace>/memory/robot/`, `~/robot/`.
+3. If none exists and state must be created, default to `<workspace>/robot/`.
+
+Use the selected `<state_root>` for every state operation in this skill. Create this directory structure if it does not exist.
 
 ## Architecture
 
@@ -42,7 +46,6 @@ Memory lives in `<state_root>/` with tiered structure. See `references/memory-te
 | Industrial arms (ABB, KUKA, UR) | `references/industrial.md` | When writing robotic arm paths or safety-critical industrial logic. |
 | Systematic troubleshooting | `references/debugging.md` | When diagnosing hardware failures, compilation issues, or unexpected behavior. |
 | Common project templates | `references/projects.md` | When planning standard project architectures. |
-
 
 ## Core Rules
 

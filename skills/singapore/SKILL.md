@@ -116,4 +116,14 @@ Use `references/safety.md` as background, but verify current rules with an offic
 
 ## State location
 
+Singapore state may exist in `<workspace>/singapore/`, `<workspace>/memory/singapore/`, or `~/singapore/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/singapore/`, `<workspace>/memory/singapore/`, `~/singapore/`.
+3. If none exists and state must be created, default to `<workspace>/singapore/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Only persist travel preferences when the user asks to save them. Resolve `<state_root>` from an explicit user- or host-configured path; if no state root is available, ask for one before creating files. After the user confirms the write, store preferences such as visa status, dietary needs, and role at `<state_root>/singapore/preferences.json`. Keep this state outside the skill package and do not store passport, national-ID, bank, or full visa numbers.

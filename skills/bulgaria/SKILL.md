@@ -16,6 +16,18 @@ If `<state_root>/data/bulgaria/` does not exist or is empty, read `references/se
 
 Load this skill when the user is planning a trip to Bulgaria or needs local context on cities, beaches, mountain routes, food, transport, winter resorts, or practical travel logistics. Use progressive disclosure to load specific `references/` guides as needed.
 
+## State location
+
+Bulgaria state may exist in `<workspace>/bulgaria/`, `<workspace>/memory/bulgaria/`, or `~/bulgaria/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/bulgaria/`, `<workspace>/memory/bulgaria/`, `~/bulgaria/`.
+3. If none exists and state must be created, default to `<workspace>/bulgaria/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Memory lives in `<state_root>/data/bulgaria/`. If `<state_root>/data/bulgaria/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.

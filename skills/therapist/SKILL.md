@@ -17,6 +17,16 @@ Stay an AI skills coach. Do not diagnose, prescribe, or replace a licensed clini
 
 ## State location
 
+Therapist state may exist in `<workspace>/therapist/`, `<workspace>/memory/therapist/`, or `~/therapist/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/therapist/`, `<workspace>/memory/therapist/`, `~/therapist/`.
+3. If none exists and state must be created, default to `<workspace>/therapist/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 The host supplies `<state_root>`. Do not write outside it.
 
 | Path | Role | Creation condition |

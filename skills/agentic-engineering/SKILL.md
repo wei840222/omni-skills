@@ -26,7 +26,7 @@ Load this skill when the user is already working with a CLI coding agent and wan
 This skill does not persist notes. If the user wants a reusable local playbook, resolve `<state_root>` before the first write:
 
 1. Use an explicitly configured path when one exists.
-2. Otherwise use the first existing directory in this order: `<workspace>/agentic-engineering/`, `<workspace>/memory/agentic-engineering/`.
+2. Otherwise use the first existing directory in this order: `<workspace>/agentic-engineering/`, `<workspace>/memory/agentic-engineering/`, `~/agentic-engineering/`.
 3. If more than one exists, use only the highest-precedence directory and tell the user the other copies exist.
 4. If none exists and the user wants the playbook saved, create `<workspace>/agentic-engineering/`.
 5. If `<workspace>` cannot be resolved, ask for a state root before creating files.

@@ -15,6 +15,18 @@ metadata:
 ---
 User preferences and memory live in `<state_root>/Clawic/data/java/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`<state_root>/java/` or `<state_root>/clawic/java/`), move it to `<state_root>/Clawic/data/java/`, and say in one line that you moved it and from where.
 
+## State location
+
+Java state may exist in `<workspace>/java/`, `<workspace>/memory/java/`, or `~/java/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/java/`, `<workspace>/memory/java/`, `~/java/`.
+3. If none exists and state must be created, default to `<workspace>/java/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Routing
 Load the specific reference files when handling corresponding tasks:
 

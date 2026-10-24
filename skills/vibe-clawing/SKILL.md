@@ -23,7 +23,7 @@ Load the relevant reference when triggered by these situations:
 | Understanding where human value moves | `references/direction.md` |
 | Learning the full transition framework | `references/evolution.md` |
 
-## State Management
+## State location
 
 Before reading or writing state, resolve `<state_root>` as follows:
 

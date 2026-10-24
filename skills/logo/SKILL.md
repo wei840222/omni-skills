@@ -114,8 +114,3 @@ If 5-7 attempts fail, change model or strategy entirely.
 | Working with designers, brief templates | `references/process.md` |
 | SVG, PNG, favicon, size requirements | `references/formats.md` |
 | Track what works, learn from iterations | `references/feedback.md` |
-
-
-## State location
-
-This skill is stateless and does not persist local configuration or state.

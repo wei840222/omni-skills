@@ -84,6 +84,3 @@ Factors: artist experience, style complexity, size, location (city), shop overhe
 - Full sleeve: €2000-8000+ (multiple sessions)
 
 Always clarify: deposit policy, touch-up inclusion, hourly vs. flat rate
-
-## State location
-This skill is stateless and does not store local configuration or state.

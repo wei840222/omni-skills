@@ -31,8 +31,17 @@ Maintain objectivity. Focus on internal choices and extract the actionable insig
 
 ---
 
-
 ## State location
+
+Competing state may exist in `<workspace>/competing/`, `<workspace>/memory/competing/`, or `~/competing/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/competing/`, `<workspace>/memory/competing/`, `~/competing/`.
+3. If none exists and state must be created, default to `<workspace>/competing/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 This skill uses the following paths for persistent state tracking:
 

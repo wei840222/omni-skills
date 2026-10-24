@@ -16,6 +16,16 @@ Load `assets/memory-template.md` to view the required format for memory files.
 
 ## State location
 
+Coding state may exist in `<workspace>/coding/`, `<workspace>/memory/coding/`, or `~/coding/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/coding/`, `<workspace>/memory/coding/`, `~/coding/`.
+3. If none exists and state must be created, default to `<workspace>/coding/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ```text
 <workspace>/coding/
 <workspace>/memory/coding/

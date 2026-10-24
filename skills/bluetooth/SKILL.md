@@ -17,11 +17,15 @@ Prefer ecosystem-specific skills (`alexa`, `shelly`, `smart-home`) when the outc
 
 ## State location
 
-Resolve `<state_root>` in this order:
+Bluetooth state may exist in `<workspace>/bluetooth/`, `<workspace>/memory/bluetooth/`, or `~/bluetooth/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-1. `<workspace>/.agents/state` when a local workspace is active
-2. `$XDG_DATA_HOME` when set
-3. `~/.local/share` on Linux/macOS defaults
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/bluetooth/`, `<workspace>/memory/bluetooth/`, `~/bluetooth/`.
+3. If none exists and state must be created, default to `<workspace>/bluetooth/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 If the user or host configuration explicitly defines a state root, that path takes precedence. Resolve once per invocation and keep it fixed.
 

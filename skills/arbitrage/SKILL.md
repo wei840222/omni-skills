@@ -17,6 +17,18 @@ metadata:
 
 Load this skill when the user evaluates an apparent price gap, hedge, surebet, basis trade, multi-leg basket, or cross-venue spread and needs fee-aware math plus settlement discipline.
 
+## State location
+
+Arbitrage state may exist in `<workspace>/arbitrage/`, `<workspace>/memory/arbitrage/`, or `~/arbitrage/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/arbitrage/`, `<workspace>/memory/arbitrage/`, `~/arbitrage/`.
+3. If none exists and state must be created, default to `<workspace>/arbitrage/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 State and configuration live in `<state_root>/`.

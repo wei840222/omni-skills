@@ -8,6 +8,16 @@ metadata:
 
 ## State location
 
+Deploy state may exist in `<workspace>/deploy/`, `<workspace>/memory/deploy/`, or `~/deploy/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/deploy/`, `<workspace>/memory/deploy/`, `~/deploy/`.
+3. If none exists and state must be created, default to `<workspace>/deploy/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 Deploy is a knowledge skill that does not persist state across sessions. All deployment commands execute in the current workspace or target environment context.
 
 ## Deployment Strategies

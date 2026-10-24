@@ -10,8 +10,6 @@ metadata:
   related-skills: '{"calendar-planner": "planning across calendars, above the level of individual event writes", "dns": "SPF, DKIM, and DMARC records behind a custom sending domain", "email-management": "how a human should triage and reply, once the automation exists", "imap": "reading and syncing mailboxes over IMAP, for servers or clients without JMAP", "smtp": "transport-level sending, auth diagnostics, and deliverability testing"}'
 ---
 
-
-
 **Data.** At the start of every session, read `<state_root>/data/fastmail-api/config.yaml` (what the user declared) and `<state_root>/data/fastmail-api/memory.md` (what you observed — its `## Boxes` index, its `## Due` table, the account, mailbox and identity maps, and the stored sync state). Open any file `## Boxes` names when the condition on its line applies; the index is the list of files, derive the set from the actual content dynamically. Read it before the first JMAP call: the ids it holds are what keeps a write off the wrong account. If none of it exists, work from defaults and say nothing about it. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserve existing rows intact, and every write and deletion is named in one line as it happens.
 
 **Write before the session ends** whenever it produced something durable: an account, mailbox, identity, addressbook or calendar id resolved; a filter that took iterating to get right; a bulk write and what it touched; a masked address issued or disabled; a sync state string; a person, sending domain, reservation or paid service that belongs in a shared box; or something the user will want to read again — a working procedure, a migration plan, a rollback note. `assets/memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
@@ -22,8 +20,18 @@ metadata:
 
 JMAP hands you the entire mailbox in one authenticated call, which is both the point and the hazard: the request that archives 12 messages archives 12,000 with one filter changed. Work from defaults immediately — use default settings immediately instead of opening with questions about their account, their mailboxes, or how proactive to be. State the affected count before a write, and state which account and identity you resolved whenever the session exposes more than one; that is a statement, not a question. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: timezone, locale) → the Configuration table default.
 
-
 ## State location
+
+Fastmail Api state may exist in `<workspace>/fastmail-api/`, `<workspace>/memory/fastmail-api/`, or `~/fastmail-api/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/fastmail-api/`, `<workspace>/memory/fastmail-api/`, `~/fastmail-api/`.
+3. If none exists and state must be created, default to `<workspace>/fastmail-api/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 This skill stores persistent state and configuration in `<state_root>/data/fastmail-api/`.
 Shared boxes are stored in `<state_root>/data/contacts/`, `<state_root>/data/domains/`, `<state_root>/data/bookings/`, and `<state_root>/data/finances/`.
 

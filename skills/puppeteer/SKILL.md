@@ -36,16 +36,17 @@ Scripts and outputs in `<state_root>/`. See `references/memory-template.md` for 
 | Selectors guide | `references/selectors.md` | When needing to find or interact with DOM elements. |
 | Waiting patterns | `references/waiting.md` | When handling navigation or waiting for elements. |
 
-
 ## State location
 
-This skill uses a `<state_root>` directory to store user-specific configuration and output.
-When running, resolve `<state_root>` in this order:
-1. `$OMNI_SKILLS_STATE_ROOT/puppeteer` (if environment variable is set)
-2. `./.state/puppeteer` (if running in a local workspace)
-3. `~/.omni-skills/puppeteer` (default fallback)
+Puppeteer state may exist in `<workspace>/puppeteer/`, `<workspace>/memory/puppeteer/`, or `~/puppeteer/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Ensure this directory exists before executing operations that write state.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/puppeteer/`, `<workspace>/memory/puppeteer/`, `~/puppeteer/`.
+3. If none exists and state must be created, default to `<workspace>/puppeteer/`.
+
+Use the selected `<state_root>` for every state operation in this skill. Ensure this directory exists before executing operations that write state.
 
 ## Security & Privacy
 

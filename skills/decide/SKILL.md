@@ -8,6 +8,18 @@ metadata:
   related-skills: '{"escalate": "Threshold criteria for deciding autonomously versus requesting user input.", "memory": "Persistent logging of architectural decisions and branching rationale.", "proactivity": "Autonomous action boundaries once a decision branch is confirmed.", "self-improving": "Review past decision outcomes to refine future judgment heuristics."}'
 ---
 
+## State location
+
+Decide state may exist in `<workspace>/decide/`, `<workspace>/memory/decide/`, or `~/decide/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/decide/`, `<workspace>/memory/decide/`, `~/decide/`.
+3. If none exists and state must be created, default to `<workspace>/decide/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
 Decision state lives in `<state_root>/`. If that folder is missing or empty, run `references/setup.md`.

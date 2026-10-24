@@ -70,7 +70,3 @@ User needs vector similarity search, semantic search, or recommendation systems.
 - Set explicit limits when using scroll to prevent memory exhaustion on large collections
 - Index payload fields used in filters to avoid full collection scans
 - Place embeddings in the designated vector field rather than the payload
-
-## State location
-
-This skill is stateless locally. It connects to an external Qdrant instance (remote cluster or local Docker container) and does not store local configuration or state files within the repository.

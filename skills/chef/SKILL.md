@@ -27,7 +27,3 @@ When working with culinary assistance, load the relevant reference file:
 | **Skill Building** | When skill building is needed | `references/skill-building.md` |
 
 | **Sources** | When verifying food safety and guidelines | `references/sources.md` |
-
-## State location
-
-This skill is stateless and does not store local configuration or state.

@@ -36,11 +36,6 @@ This skill:
 | Backup strategies | `references/backups.md` | When setting up or verifying backups |
 | Cloud architecture principles | `references/cloud-architecture.md` | When evaluating high-level design, security, and scalability |
 
-
-## State location
-
-This skill is stateless and does not store local configuration or state.
-
 ## Core Rules
 
 ### 1. User Runs Commands

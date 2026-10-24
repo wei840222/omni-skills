@@ -15,6 +15,18 @@ metadata:
 
 Load this skill when tasked with designing, reviewing, or optimizing a paywall, subscription screen, pricing page, or free trial flow. Skip loading this for general UI design unrelated to monetization.
 
+## State location
+
+Paywall state may exist in `<workspace>/paywall/`, `<workspace>/memory/paywall/`, or `~/paywall/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/paywall/`, `<workspace>/memory/paywall/`, `~/paywall/`.
+3. If none exists and state must be created, default to `<workspace>/paywall/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Platform Differences
 
 | Aspect | Mobile (iOS/Android) | Web (SaaS) |

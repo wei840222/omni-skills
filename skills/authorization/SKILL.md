@@ -20,10 +20,6 @@ User needs to control what actions users can perform. Agent handles permission d
 | Framework middleware | `references/middleware.md` | When implementing authorization middleware in a web framework |
 | Decision framework and sources | `references/knowledge.md` | When selecting a model, evaluating policy-as-code, or checking enforcement guidance |
 
-## State location
-
-This skill is stateless and does not store local configuration.
-
 ## Security & Privacy
 
 **Data that stays local:**

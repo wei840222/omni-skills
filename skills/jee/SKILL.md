@@ -24,6 +24,16 @@ User is preparing for JEE (Main or Advanced), India's engineering entrance exam.
 
 ## State location
 
+Jee state may exist in `<workspace>/jee/`, `<workspace>/memory/jee/`, or `~/jee/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/jee/`, `<workspace>/memory/jee/`, `~/jee/`.
+3. If none exists and state must be created, default to `<workspace>/jee/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 User data lives in `<state_root>/jee/`:
 ```
 <state_root>/jee/

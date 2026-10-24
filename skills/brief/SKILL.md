@@ -37,7 +37,6 @@ Not for: compressing content when there is no decision or action to serve — us
 | `references/expert-disagreement.md` | When dealing with conflicting advice | Industry perspectives on memos vs bullets |
 | `references/domain-knowledge.md` | When verifying briefing conventions or Gate 6 sources | Verified URLs for BLUF, executive summaries, memo culture |
 
-
 | Situation | Play |
 |-----------|------|
 | Reader must choose between options | Decision brief: recommendation first, 2-3 options including do-nothing (`references/templates.md`) |
@@ -57,14 +56,19 @@ Not for: compressing content when there is no decision or action to serve — us
 
 Depth on demand: `references/templates.md` section-by-section structures per type · `references/sources.md` raw-material triage, conflicts, gaps · `references/audiences.md` reader calibration · `references/delivery.md` channels, register, timing · `references/writing.md` line-level compression · `references/recurring.md` running a brief series · `references/dimensions.md` preference taxonomy · `references/setup.md` first-use loading.
 
-## State Location
+## State location
+
+Brief state may exist in `<workspace>/brief/`, `<workspace>/memory/brief/`, or `~/brief/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/brief/`, `<workspace>/memory/brief/`, `~/brief/`.
+3. If none exists and state must be created, default to `<workspace>/brief/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 The brief skill is stateful and relies on explicit user configurations and learned preferences to operate effectively. All state files reside within the `<state_root>/` directory. The `<state_root>/profile.yaml` file holds cross-skill preferences.
-
-1. `<state_root>/config.yaml`: Contains explicitly stated preferences and configurations.
-2. `<state_root>/preferences.md`: Stores inferred, learned preferences based on user feedback.
-3. `<state_root>/templates/`: A directory for user-supplied custom brief templates.
-4. `<state_root>/profile.yaml`: Cross-skill global preferences (e.g., locale, timezone).
 
 The skill will create `preferences.md` from the `references/preferences-template.md` upon the first explicit feedback signal if the file doesn't exist. Do not interview the user to setup config; rely on defaults and organic updates.
 

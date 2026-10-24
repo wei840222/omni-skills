@@ -17,6 +17,18 @@ metadata:
 
 Advise-mode skill for **systemic growth diagnosis and planning**: find the constrained stage, prove lift in absolute units, gate paid spend on retention, and pick loops/channels with kill numbers. It reads and writes plain local notes under `<state_root>/` only.
 
+## State location
+
+Growth state may exist in `<workspace>/growth/`, `<workspace>/memory/growth/`, or `~/growth/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/growth/`, `<workspace>/memory/growth/`, `~/growth/`.
+3. If none exists and state must be created, default to `<workspace>/growth/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## When to load
 
 - Growth is flat, decelerating, or a target was missed and nobody can name the broken stage

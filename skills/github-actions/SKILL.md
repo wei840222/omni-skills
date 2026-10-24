@@ -69,11 +69,15 @@ This skill covers GitHub Actions as an operating system for delivery:
 
 ## State location
 
-Memory is stored in `<state_root>/`.
+Github Actions state may exist in `<workspace>/github-actions/`, `<workspace>/memory/github-actions/`, or `~/github-actions/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Lookup Order:
-1. Workspace-local directory (`.agents/state/github-actions/`)
-2. Global fallback (`~/.agents/state/github-actions/`)
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/github-actions/`, `<workspace>/memory/github-actions/`, `~/github-actions/`.
+3. If none exists and state must be created, default to `<workspace>/github-actions/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 Local notes in `<state_root>/` may include:
 - repo topology, protected branches, and environment names
