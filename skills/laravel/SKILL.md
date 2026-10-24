@@ -39,6 +39,7 @@ Load only the reference that matches the current task:
 | Guards, policies, gates, Sanctum tokens | `references/auth.md` |
 | XSS escaping, components, slots | `references/blade.md` |
 | Commands, scheduling, tinker | `references/artisan.md` |
+| Official docs & architecture references | `references/sources.md` |
 
 ## Requirements
 

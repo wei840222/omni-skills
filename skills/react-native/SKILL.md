@@ -7,3 +7,4 @@ metadata:
 # React Native Development
 
 Load `references/best-practices.md` when writing or reviewing React Native code to ensure correct component performance, state management, navigation, and cross-platform styling practices are followed.
+Load `references/sources.md` to consult official React Native New Architecture and Expo documentation.

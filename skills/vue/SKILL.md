@@ -23,6 +23,7 @@ This skill supports deep expertise in Vue 3. When encountering specific issues, 
 - **Debugging & Error Handling**: Load `references/debug.md` and `references/errors.md`.
 - **Setup & Plugins**: Load `references/setup.md` and `references/plugins.md`.
 - **Templates & Slots**: Load `references/templates.md`.
+- **Official Sources & Specs**: Load `references/sources.md`.
 
 ## State location
 

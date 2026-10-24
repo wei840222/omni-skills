@@ -43,3 +43,4 @@ For implementation detail, load the matching file under `references/`:
 - Read `references/permissions.md` to configure runtime boundaries and prevent missing-permission hangs in CI.
 - Read `references/imports.md` to resolve dependencies securely and manage import maps / lockfiles.
 - Read `references/node-compat.md` to migrate Node.js patterns (`fs`, `process.env`, npm packages) safely.
+- Read `references/sources.md` to review official Deno 2 runtime documentation and JSR package specifications.

@@ -18,6 +18,7 @@ metadata:
 | ActiveJob, Sidekiq, retries | `references/jobs.md` | Creating or modifying background jobs |
 | Mass assignment, CSRF, SQL injection | `references/security.md` | Reviewing authentication or data security |
 | Tech stack & Best practices | `references/tech.md` | Seeking advice on the Rails ecosystem |
+| Official guides & architecture | `references/sources.md` | Consulting official Rails guides and security standards |
 
 ## Critical Rules
 

@@ -16,6 +16,7 @@ Load this skill when the user explicitly requests assistance with the Bun runtim
 | Node.js API differences | `references/node-compat.md` |
 | Bundler configuration | `references/bundler.md` |
 | Package management | `references/packages.md` |
+| Official docs & runtime specifications | `references/sources.md` |
 
 ## Runtime Compatibility Traps
 

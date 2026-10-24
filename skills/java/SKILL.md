@@ -31,6 +31,7 @@ Load the specific reference files when handling corresponding tasks:
 - **Testing:** Load `references/testing.md`.
 - **Web & Databases:** Load `references/http.md`, `references/jdbc.md`, `references/spring.md`.
 - **Serialization & Security:** Load `references/serialization.md`, `references/security.md`.
+- **Language Specs & Standards:** Load `references/sources.md`.
 
 ## Quick Reference
 
@@ -62,6 +63,7 @@ Load the specific reference files when handling corresponding tasks:
 | Deserialization gadgets, XXE, path traversal, SQL injection, TLS, secrets, crypto choices | `references/security.md` |
 | JUnit 5, Mockito, AssertJ, Testcontainers, flaky tests, tests that stalled | `references/testing.md` |
 | Spring Boot: `@Transactional`, proxies, JPA lazy loading, N+1, bean wiring, config precedence | `references/spring.md` |
+| Official JLS, JVMS, and OpenJDK specifications | `references/sources.md` |
 | Anything else | Exception Triage and Core Rules below; then reproduce it in a single `main` with no framework |
 
 ## Core Rules
