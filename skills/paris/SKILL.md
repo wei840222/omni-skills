@@ -13,6 +13,8 @@ Use for Paris-specific travel, relocation, study, work, startup, neighbourhood, 
 
 | Topic | File | When to load |
 |-------|------|--------------|
+| **Domain Knowledge** | | |
+| Official sources & administrative portals | `references/sources.md` | Authoritative municipal, housing aid, rail, and visitor portals |
 | **Visitors** | | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` | When user asks about attractions (must-see vs skip). |
 | Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | When user asks about itineraries (1/3/7 days). |

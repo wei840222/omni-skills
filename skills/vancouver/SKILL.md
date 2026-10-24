@@ -16,6 +16,8 @@ User asks about Vancouver for any purpose: visiting, moving, working, studying, 
 
 | Topic | File |
 |-------|------|
+| **Domain Knowledge** | |
+| Official sources & transit references | `references/sources.md` |
 | **Visitors** | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` |
 | Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |

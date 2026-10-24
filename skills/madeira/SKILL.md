@@ -14,6 +14,8 @@ Use when the user asks about Madeira as a visitor, digital nomad, retiree, or re
 
 | Topic | When to load | File |
 |-------|--------------|------|
+| **Domain Knowledge** | | |
+| Official sources & regional references | Load when checking official regional government, levada safety, or nomad hubs | `references/sources.md` |
 | **Visitors** | | |
 | Specific Traps | Load when planning trips or identifying issues | `references/traps.md` |
 | Attractions (must-see vs skip) | Load when discussing attractions (must-see vs skip) | `references/visitor-attractions.md` |

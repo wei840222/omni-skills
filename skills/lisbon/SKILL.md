@@ -14,6 +14,8 @@ User asks about Lisbon or Portugal for any purpose: visiting, moving, working re
 
 | Topic | File |
 |-------|------|
+| **Domain Knowledge** | |
+| Official sources & transport references | `references/sources.md` |
 | **Visitors** | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` |
 | Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |

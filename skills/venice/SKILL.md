@@ -27,6 +27,8 @@ User asks about Venice for any purpose: visiting, understanding the city, planni
 
 | Topic | File |
 |-------|------|
+| **Domain Knowledge** | |
+| Official sources & access fee | `references/sources.md` |
 | **Visitors** | |
 | Must-see vs skip | `references/visitor-attractions.md` |
 | Itineraries (1/3/5 days) | `references/visitor-itineraries.md` |

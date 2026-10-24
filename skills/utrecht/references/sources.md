@@ -1,44 +1,31 @@
-# Sources — Utrecht Skill
+# Sources — Utrecht
 
-Official and primary references used to ground Utrecht guidance. Prefer these over secondary blogs when facts change.
+Back to [Utrecht Skill Overview](../SKILL.md).
 
-## City and government
+Use these verified primary sources when cycling infrastructure, Dutch residency, tax facilities, or rail transit apply in Utrecht.
 
-- Municipality of Utrecht (Gemeente Utrecht): https://www.utrecht.nl/en/
-- Dutch government portal (Government.nl): https://www.government.nl/
-- Immigration and Naturalisation Service (IND): https://ind.nl/en
-- Belastingdienst (tax / 30% ruling overview): https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/the-30-percent-facility-for-incoming-employees
-- Kadaster (property ownership verification): https://www.kadaster.nl/en
+## Municipal Governance & City Administration
 
-## Transport
+- **Gemeente Utrecht (Municipality of Utrecht)** — https://www.utrecht.nl/
+  - Primary municipal administration portal covering city registration, Citizen Service Number (BSN - Burgerservicenummer) appointments, local cycling infrastructure bylaws, and housing permits.
 
-- NS Dutch Railways: https://www.ns.nl/en
-- 9292 journey planner: https://9292.nl/en
-- U-OV (Utrecht regional tram/bus): https://www.u-ov.info/
-- OV-fiets / NS shared bikes: https://www.ns.nl/en/door-to-door/ov-fiets
-- Fietsersbond cycling guidance: https://www.fietsersbond.nl/
+## National Government & Immigration
 
-## Housing, work, study
+- **Government of the Netherlands (Government.nl)** — https://www.government.nl/
+  - Central government hub covering Dutch residence regulations, identification rules, labor laws, and rental tenant protections.
+- **Immigration and Naturalisation Service (IND)** — https://ind.nl/en
+  - Official Dutch immigration authority handling residence permits, highly skilled migrant visas, search year (Zoekjaar) visas, and partner sponsorship.
 
-- Housing Europe / Dutch housing market context via government housing pages: https://www.government.nl/topics/housing
-- Utrecht University: https://www.uu.nl/en
-- Utrecht Science Park: https://www.utrechtsciencepark.nl/en/
-- Chamber of Commerce KVK business registration: https://www.kvk.nl/en/
+## Taxation & Property Register
 
-## Culture, visitor, safety
+- **Belastingdienst (Dutch Tax Administration)** — https://www.belastingdienst.nl/
+  - Official tax portal covering Dutch income tax brackets, municipal waste charges, and the 30% ruling facility for qualifying expatriate employees.
+- **Kadaster (Netherlands Cadastre and Land Registry)** — https://www.kadaster.nl/
+  - Official land registry and mapping agency verifying property title deeds, ownership boundaries, and cadastral values.
 
-- Visit Utrecht: https://www.visit-utrecht.com/
-- Centraal Museum Utrecht: https://www.centraalmuseum.nl/en
-- Rietveld Schröder House (Centraal Museum): https://www.centraalmuseum.nl/en/visit/locations/rietveld-schroder-house
-- Police Netherlands non-emergency guidance: https://www.politie.nl/en
-- Government.nl ID obligation overview: https://www.government.nl/topics/identification-documents/showing-identification
+## Public Transit & Travel
 
-## Healthcare
-
-- Dutch healthcare system overview (Government.nl): https://www.government.nl/topics/health-insurance
-- Zorgverzekeringslijn / basic insurance context: https://www.zorgverzekeringslijn.nl/english/
-
-## Notes
-
-- Fine amounts, subscription prices, museum tickets, and insurance deductibles drift; re-check the official page before giving a hard number.
-- Housing availability and rent bands are directional for planning, not a live listing feed.
+- **Nederlandse Spoorwegen (NS Dutch Railways)** — https://www.ns.nl/en
+  - National passenger railway connecting Utrecht Centraal (the Netherlands' largest rail interchange) with Amsterdam, Schiphol Airport, Rotterdam, and nationwide destinations via OV-chipkaart and OVpay contactless payment.
+- **Holland.com — Utrecht Destination Guide** — https://www.holland.com/global/tourism/destinations/utrecht.htm
+  - Official Netherlands tourism portal detailing Utrecht's historic canals (Oudegracht with wharf cellars), Dom Tower, and cycling culture.

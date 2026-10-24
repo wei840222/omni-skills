@@ -17,6 +17,8 @@ For fares, visa conditions, regulated costs, or service eligibility, load the ma
 
 | Topic | File | When to load |
 |-------|------|--------------|
+| **Domain Knowledge** | | |
+| Official sources & transit passes | `references/sources.md` | When user needs authoritative Opal caps, tenancy bond escrow, or Medicare facts |
 | **Visitors** | | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` | When user asks for sights or attractions |
 | Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | When user needs day-by-day plans |
