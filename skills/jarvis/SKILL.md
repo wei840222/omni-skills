@@ -104,8 +104,3 @@ If `<state_root>/jarvis/` does not exist or is empty, run `references/setup.md`.
 - edit files outside `<state_root>/jarvis/` without explicit approval
 - replace the full contents of AGENTS.md, SOUL.md, or HEARTBEAT.md
 - claim persistent monitoring, system control, or hidden execution powers
-
-## Feedback
-
-- If useful, star it: https://github.com/wei840222/omni-skills/tree/main/skills/jarvis
-- Latest version: https://github.com/wei840222/omni-skills/tree/main/skills/jarvis

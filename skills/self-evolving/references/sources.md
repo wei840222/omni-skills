@@ -34,7 +34,7 @@ current vendor docs over blog summaries.
 
 ## Obsolete knowledge corrected
 
-- Removed `clawic.com` homepage / promotional packaging and `_meta.json`
+- Removed legacy homepage / promotional packaging and `_meta.json`
   catalog residue.
 - Replaced hard-coded `~/Clawic/data/self-evolving/` paths with portable
   `<state_root>` resolution plus an explicit one-line migration note.

@@ -52,6 +52,6 @@ Gate 6 anchors for Node.js runtime behavior, HTTP timeouts, modules, packaging, 
 
 ## Obsolete / removed coupling
 
-- Removed clawic.com homepage/promotional Related Skills blurb and deleted `_meta.json` (Gate 5).
+- Removed legacy homepage/promotional Related Skills blurb and deleted `_meta.json` (Gate 5).
 - Replaced hardcoded `~/Clawic/data/nodejs/` and related configPaths with portable `<state_root>/...` (Gate 3).
 - Moved flat topic files into `references/` and rewrote progressive-disclosure routing in `SKILL.md` (Gate 2 / Gate 7).

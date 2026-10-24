@@ -18,6 +18,6 @@ Verified public anchors used for Gate 6 domain refresh. Prefer live CLI inspecti
 
 ## Obsolete knowledge corrected in this refactor
 
-- Removed clawic.com homepage, feedback, and install promo loops.
+- Removed legacy homepage, feedback, and install promo loops.
 - Replaced hard-coded `~/Clawic/data/ollama/` with portable `<state_root>` resolution.
 - Deleted `_meta.json` package registry metadata.

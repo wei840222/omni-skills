@@ -80,7 +80,7 @@ Initialize missing directories or starter files inside the selected `<state_root
 ## Operating Rules
 
 1. **Disclose transcript quality** — official transcripts first; label auto-captions/Whisper as error-prone.
-2. **Portable state only** — all durable data under resolved `<state_root>`; never `~/Clawic/...` or clawic.com paths.
+2. **Portable state only** — all durable data under resolved `<state_root>`; never legacy vendor paths.
 3. **Progressive disclosure** — keep this entry thin; load one reference file per task.
 4. **One best appearance** — on guest tours, prefer the deepest unique angle over every rehash.
 5. **No invented episodes** — if feed/title/date is unknown, say so and ask one clarifying question.

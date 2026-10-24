@@ -48,6 +48,6 @@ Primary URLs used while refactoring `web`. Prefer these over memory when citing 
 ## Obsolete knowledge corrected
 
 - **FID as a current Core Web Vital** — replaced with **INP** per web.dev vitals guidance.
-- **Clawic packaging** — removed `homepage: clawic.com`, `_meta.json`, nested `metadata.clawdbot`, top-level `slug`/`version`.
+- **Legacy packaging** — removed legacy homepage, `_meta.json`, nested `metadata.clawdbot`, top-level `slug`/`version`.
 - **Hard-coded host timeouts as eternal facts** — kept comparative gotchas; instruct agents to verify live vendor docs before citing exact seconds.
 - **Root-level reference files** — moved under `references/` per progressive disclosure.

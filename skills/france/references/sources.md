@@ -56,7 +56,7 @@ Gate 6 research anchors. Prefer these official pages over memory when facts may 
 ## Domain corrections applied in this refactor
 
 - Replaced hard-coded `~/Clawic/data/france/` with portable `<state_root>` resolution.
-- Removed clawic.com homepage / star / feedback CTAs and `_meta.json`.
+- Removed legacy homepage / star / feedback CTAs and `_meta.json`.
 - Moved guides under `references/` and memory template under `assets/`.
 - Freud pass: renamed residual “Mistakes to Avoid” style lists toward actionable Best Practices / Important Considerations; keep anti-patterns as positive guidance.
 - Kept restaurant and fare anecdotes as experiential priors; user should re-check hours/prices at booking time.

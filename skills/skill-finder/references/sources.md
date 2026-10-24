@@ -10,10 +10,8 @@ versions, or catalog behavior.
 - Agent Skills document index — https://agentskills.io/llms.txt
 - skills-ref / agentskills validator — https://github.com/agentskills/agentskills/tree/main/skills-ref
 
-## Clawic catalog / CLI
+## Clawic ecosystem CLI & repository
 
-- Clawic homepage — https://clawic.com
-- Clawic skills catalog (example slug page) — https://clawic.com/skills/docker
 - clawic npm package — https://registry.npmjs.org/clawic
 - clawic upstream monorepo — https://github.com/clawic/skills
 

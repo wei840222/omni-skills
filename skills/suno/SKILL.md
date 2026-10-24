@@ -161,5 +161,3 @@ All data stays local. API keys live in environment variables, keep them strictly
 API keys authenticate requests; prompts and lyrics are sent for processing.
 
 **Guardrails.** By using this skill with APIs, prompts and lyrics are sent to third-party services for music generation. Only use services you trust with your creative content.
-
-## Feedback

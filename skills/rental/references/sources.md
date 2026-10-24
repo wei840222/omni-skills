@@ -35,5 +35,5 @@ Keep skill guidance jurisdiction-aware: entry notice, deposit caps, late-fee lim
 
 ## Obsolete / removed coupling
 
-- Removed clawic.com homepage and `_meta.json` package registry metadata (Gate 5).
+- Removed legacy homepage and `_meta.json` package registry metadata (Gate 5).
 - Role guides relocated under `references/` with explicit when-to-load routing (Gate 2 / Gate 7).

@@ -22,6 +22,6 @@ current vendor docs over blog summaries.
 
 ## Obsolete knowledge corrected
 
-- Removed `clawic.com` homepage / promotional packaging and `_meta.json` catalog residue.
+- Removed legacy homepage / promotional packaging and `_meta.json` catalog residue.
 - Replaced hard-coded `~/Clawic/data/self-improving/` paths with portable `<state_root>` resolution plus an explicit one-line migration note.
 - Moved operational detail out of package root into `references/` and `assets/` so SKILL.md stays a loader, not a full manual.

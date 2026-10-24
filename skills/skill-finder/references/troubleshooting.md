@@ -44,7 +44,7 @@ Reference for handling edge cases and common problems.
    ```bash
    npx clawic show <slug>
    ```
-   Or open the catalog page for the full file listing: `https://clawic.com/skills/<slug>`
+   Or inspect package details via `npx clawic show <slug>`
 
 3. **Default to safer alternatives**
    > "I can recommend similar skills that are not flagged, then we pick the best match."
@@ -74,7 +74,7 @@ Reference for handling edge cases and common problems.
 **How to handle:**
 
 1. **Search again to confirm the exact slug** — `npx clawic search "<slug>"` and read the exact identifier from the result list
-2. **Cross-check against the catalog page** — `https://clawic.com/skills/<slug>` confirms the skill exists and shows the canonical slug
+2. **Cross-check with show command** — `npx clawic show <slug>` confirms the skill exists and shows the canonical slug
 3. **Use the exact slug returned by search**, not a guessed or shortened version, for `show`/`add`/`update`
 
 ## Conflicting Skills

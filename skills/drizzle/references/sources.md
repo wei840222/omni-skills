@@ -44,7 +44,7 @@ Gate 6 research anchors. Prefer these official pages over model memory when APIs
 
 ## Domain corrections applied in this refactor
 
-- Removed clawic.com homepage / `_meta.json` catalog metadata.
+- Removed legacy homepage / `_meta.json` catalog metadata.
 - Replaced object-style filter guidance risk with explicit operator-function rules.
 - Split push (dev) from generate+migrate (shared/prod) as a hard routing rule.
 - Documented engine-specific JSON helpers (`jsonb` vs `json`) and table helper packages.

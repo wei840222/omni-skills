@@ -32,6 +32,6 @@ All URLs below were used to verify domain guidance retained or strengthened in t
 ## Obsolete / removed
 
 - Hard-coded `~/Clawic/data/fasting/` as the only path; replaced with portable `<state_root>/` resolution (Gate 3)
-- clawic.com homepage, feedback stars, and promotional Related Skills chrome (Gate 5)
+- Legacy homepage, feedback stars, and promotional Related Skills chrome (Gate 5)
 - `_meta.json` packaging residue and non-standard top-level reference dumps (Gate 2)
 - Invalid `metadata.clawdbot` / non-JSON `metadata.openclaw` shapes (Gate 1)

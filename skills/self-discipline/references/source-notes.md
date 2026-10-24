@@ -22,6 +22,6 @@ All URLs below were used to verify domain guidance retained or strengthened in t
 
 ## Obsolete / removed
 
-- Hard-coded `~/Clawic/data/self-discipline/` and clawic.com homepage / changelog promo paths (Gate 3 + Gate 5)
+- Hard-coded `~/Clawic/data/self-discipline/` and legacy homepage / changelog promo paths (Gate 3 + Gate 5)
 - Root-level reference dumps and `_meta.json` packaging residue (Gate 2)
 - Non-portable absolute validator paths; replaced with portable `<state_root>/` placeholders

@@ -150,5 +150,3 @@ Boundary Enforcement:
 - Route injury and return-to-play questions to qualified medical staff; provide non-medical lineup contingencies when useful.
 - Base conclusions on a meaningful evidence set rather than a single stat line.
 - Keep the installed skill package intact while serving basketball requests.
-
-## Feedback

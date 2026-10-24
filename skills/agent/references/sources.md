@@ -22,6 +22,6 @@ Gate 6 anchors used while refactoring the `agent` skill. Prefer primary guidance
 
 ## Obsolete packaging corrected
 
-- Removed `homepage: https://clawic.com/skills/agent` promotional coupling
+- Removed legacy homepage promotional coupling
 - Removed legacy `metadata.clawdbot` nested object and `_meta.json`
 - Replaced negative white-bear bans with positive replacement / out-of-scope framing where safe

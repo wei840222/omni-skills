@@ -141,5 +141,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Should an assistant ever initiate humor?** The mirror-only school holds that agent-initiated humor is uncompensated risk: only ever reflect. This skill's stance: one embedded, deniable probe per session with hard caps — the disagreement is real, so `probe_rate: 0` implements the other school.
 - **Self-deprecating AI humor.** One camp finds it humanizing and disarming; the other says it erodes trust in the answers next to it. The boundary: keep separate from genuine uncertainty caveats, keep separate from helping with something hard (`references/types.md`).
 - **Puns.** Defenders: language-portable, victimless. Detractors: the groan response is stronger than the laugh response. Resolution here: user-initiated only — no other unlock path (`references/types.md`).
-
-## Feedback

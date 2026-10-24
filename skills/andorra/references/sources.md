@@ -33,6 +33,6 @@ Gate 6 research anchors. Prefer these official pages over memory when facts may 
 ## Domain corrections applied in this refactor
 
 - Replaced hard-coded `~/Clawic/data/andorra/` with portable `<state_root>` resolution.
-- Removed clawic.com homepage / star / feedback CTAs.
+- Removed legacy homepage / star / feedback CTAs.
 - Restated roaming as “often excluded from EU packages,” not a guarantee of any single carrier policy.
 - Kept parish guidance qualitative; no invented lift-pass prices or unverifiable 2026 tariffs.

@@ -199,14 +199,6 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 **Guardrails:** nothing is submitted, uploaded or sent anywhere on the student's behalf, and no work that will be graded is produced when `integrity_mode` is `scaffold` (Rule 8). Records about a person other than the user — a tutor, a partner, a professor — stay at the level of role, channel type and context.
 
-## Feedback
-
-
-
-
-
-
-
 ## References
 
 | File | Description | When to load |

@@ -120,8 +120,8 @@ explicit choice.
 
 Verified CLI surfaces (re-check before quoting mutable flags):
 
-- `clawic` npm package — homepage https://clawic.com ; registry
-  https://registry.npmjs.org/clawic
+- `clawic` npm package — registry https://registry.npmjs.org/clawic ;
+  upstream https://github.com/clawic/skills
 - `skills` npm package (Skills.sh ecosystem) — homepage
   https://skills.sh/ ; registry https://registry.npmjs.org/skills ;
   upstream https://github.com/vercel-labs/skills
@@ -236,8 +236,8 @@ npx clawic add <slug>
 npx clawic list
 ```
 
-Every Clawic result maps to a canonical catalog page at
-`https://clawic.com/skills/<slug>` — use it to double-check a candidate or
+Every Clawic result maps to a repository entry in `https://github.com/clawic/skills`
+or package details via `npx clawic show <slug>` — use it to double-check a candidate or
 share it with the user before installing.
 
 ```bash

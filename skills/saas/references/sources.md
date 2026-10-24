@@ -53,6 +53,6 @@ Gate 6 anchors for SaaS subscription metrics, packaging, retention, enterprise r
 
 ## Obsolete / removed coupling
 
-- Removed clawic.com homepage and `_meta.json` package registry metadata (Gate 5).
+- Removed legacy homepage and `_meta.json` package registry metadata (Gate 5).
 - Replaced hardcoded `~/Clawic/data/...` paths with portable `<state_root>/...` (Gate 3).
 - Domain playbooks remain progressive sections inside `SKILL.md` (original package had no separate reference corpus beyond the entry skill); research anchors live in this file (Gate 6 / Gate 7).

@@ -80,7 +80,7 @@ Retrieved 2026-10-03 during handoff of Jules session `4441104395363954677`. Pref
 
 | Old packaging claim | Correction | Source |
 |---|---|---|
-| Homepage / feedback pointed at clawic.com; nested clawdbot metadata; `_meta.json` duplicate | Removed promo + nested metadata; OpenClaw emoji JSON string; deleted `_meta.json` | agentskills specification + project Gates 1/5 |
+| Homepage / feedback pointed at legacy catalog; nested clawdbot metadata; `_meta.json` duplicate | Removed promo + nested metadata; OpenClaw emoji JSON string; deleted `_meta.json` | agentskills specification + project Gates 1/5 |
 | Hard-coded `~/Clawic/data/terraform/` only | Portable `<state_root>` resolution with workspace-first defaults | project Gate 3 |
 | Flat reference markdown at skill root | Progressive disclosure under `references/` + `assets/memory-template.md` | project Gate 2 |
 | OpenTofu floors above 1.6 treated as transferable | Floors diverge; verify OpenTofu changelog / native encryption docs | OpenTofu intro + state encryption + CHANGELOG |

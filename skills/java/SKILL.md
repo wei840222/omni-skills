@@ -175,5 +175,3 @@ Preference areas to record as the user reveals them:
 - **Lombok.** Removes real boilerplate vs it is an annotation processor that breaks on JDK upgrades and hides behavior from readers and tools. Since records (16) cover immutable carriers, its honest remaining use is `@Slf4j` and `@Builder` on mutable entities.
 - **Mocks vs real dependencies in tests.** Mock what you own and what is slow or non-deterministic; run repositories and SQL against a real engine (Testcontainers). A mocked JDBC layer verifies the mock, not the query.
 - **Virtual threads vs reactive.** Since 21, virtual threads deliver most of the throughput of reactive code with straight-line control flow and readable stack traces. Reactive still wins where you genuinely need backpressure across a streaming pipeline — that need, not fashion, is the criterion.
-
-## Feedback
