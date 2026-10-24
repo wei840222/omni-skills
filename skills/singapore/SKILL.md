@@ -52,6 +52,7 @@ metadata:
 | Schools & education | `references/education.md` | Finding schools |
 | Expat lifestyle & social | `references/lifestyle.md` | Social life for expats |
 | Driving & COE system | `references/driving.md` | Car ownership queries |
+| Official government & immigration sources | `references/sources.md` | When verifying MOM pass requirements, COMPASS rules, or entry policies |
 
 ## Core Rules
 

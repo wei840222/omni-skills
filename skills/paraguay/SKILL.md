@@ -67,6 +67,7 @@ Use this map to load the module that changes the next travel decision.
 | Flights, buses, driving, and transfers | `references/transport.md` |
 | SIMs, coverage, plugs, and Wi-Fi | `references/telecoms.md` |
 | Emergencies and safety basics | `references/emergencies.md` |
+| Official government & migration sources | `references/sources.md` |
 
 ## Core Rules
 

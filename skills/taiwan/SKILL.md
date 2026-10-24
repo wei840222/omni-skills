@@ -61,6 +61,7 @@ Memory lives in `<state_root>/taiwan/`. If `<state_root>/taiwan/` doesn't exist 
 | HSR, TRA, airport access, buses, driving | `references/transport.md` |
 | SIMs, eSIMs, LINE, payment and data habits | `references/telecoms.md` |
 | Emergency numbers, typhoon, earthquake, clinics | `references/emergencies.md` |
+| Primary sources & Gate 6 anchors | `references/sources.md` |
 
 ## Core Rules
 

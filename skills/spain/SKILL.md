@@ -100,4 +100,5 @@ To effectively advise the user, load these files based on the context of their q
 | Trains, flights, driving, city transit | `references/transport.md` | For transit advice. |
 | SIM, eSIM, coverage | `references/telecoms.md` | For mobile phone connectivity. |
 | Theft, health, 112, heat | `references/emergencies.md` | In case of emergencies or safety questions. |
+| Official government & tourism sources | `references/sources.md` | When verifying entry rules, visa requirements, or official public administration procedures. |
 | Anything else (visas, weather, currency) | Answer inline; log the gap in `<state_root>/memory.md` | If topic is missing. |

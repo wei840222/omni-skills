@@ -63,6 +63,7 @@ Use this map to load only the Romania subtopic that changes the decision in fron
 | Trains, buses, driving, and route tradeoffs | `references/transport.md` | User asks about trains, buses, driving, and route tradeoffs |
 | SIMs, data, and roaming | `references/telecoms.md` | User asks about sims, data, and roaming |
 | Safety, health, and emergency response | `references/emergencies.md` | User asks about safety, health, and emergency response |
+| Official government & immigration sources | `references/sources.md` | User asks about immigration rules, Schengen status, or official sources |
 | Setup process | `references/setup.md` | User asks about setup process |
 | Memory structure | `references/memory-template.md` | User asks about memory structure |
 

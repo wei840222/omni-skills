@@ -55,3 +55,4 @@ User asks about Dubai for any purpose: visiting, moving, working, studying, or s
 | Traps | `references/traps.md` | Always load when advising tourists or new expats to prevent major issues |
 | Legal Awareness | `references/legal.md` | Always load when discussing safety, alcohol, cohabitation, or online behavior |
 | Domain Research | `references/domain-research.md` | User asks for general facts, population, or economic status of Dubai |
+| Official government & visa sources | `references/sources.md` | When verifying UAE entry requirements, Golden Visa rules, or residency procedures |

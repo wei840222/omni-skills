@@ -38,4 +38,9 @@ Memory lives in `<state_root>/data/bulgaria/`. If `<state_root>/data/bulgaria/` 
 ## Quick Reference
 
 | Topic | File |
-|
+|-------|------|
+| Sofia, Plovdiv, Varna, Bansko | `references/sofia.md`, `references/plovdiv.md`, `references/varna.md`, `references/bansko.md` |
+| Itineraries & trip planning | `references/itineraries.md`, `references/accommodation.md` |
+| Food, wine & culture | `references/food-guide.md`, `references/wine.md`, `references/culture.md` |
+| Transport & telecom | `references/transport.md`, `references/telecoms.md`, `references/apps.md` |
+| Official government & consular sources | `references/sources.md` |

@@ -71,3 +71,4 @@ Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 | **Practical** | |
 | Telecoms and apps | `references/telecoms-and-apps.md` |
 | Tipping and payments | `references/tipping-and-payments.md` |
+| Primary sources & Gate 6 anchors | `references/sources.md` |
