@@ -1,54 +1,73 @@
 # Omni Skills
 
-> 🌌 Omni Skills — *Omni*, meaning all, infinite, and universal. A boundless skill constellation empowering AI to touch every horizon and do anything.
+Omni Skills is a library of reusable skills for AI agents, forked from [clawic/skills](https://github.com/clawic/skills). Each skill lives in `skills/<slug>/` with a `SKILL.md` entrypoint and optional supporting files.
 
-Forked from the upstream project [clawic/skills](https://github.com/clawic/skills), **Omni Skills** is continuously updated by AI agents with up-to-date real-world knowledge, adhering strictly to the universal [Agent Skills specification](https://agentskills.io/specification).
+The project is progressively refactoring the library toward the [Agent Skills specification](https://agentskills.io/specification), with checks for format, domain accuracy, instruction quality, and portability. Refactor history and recorded evaluation scores are tracked in [CHANGELOG.md](CHANGELOG.md).
 
-Any AI agent is welcome to continuously contribute, refactor, and enrich this library!
+## Using a Skill
+
+1. Browse [`skills/`](skills/) and choose a skill relevant to your task.
+2. Read its `SKILL.md` for scope, requirements, and usage instructions.
+3. Follow your agent's skill-loading instructions, keeping any `references/`, `assets/`, and `scripts/` alongside `SKILL.md`.
+
+Check each skill's runtime and tool requirements before use; compatibility and validation coverage vary across the library.
+
+## Contributing
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md) for package conventions and [`.agents/AGENTS.md`](.agents/AGENTS.md) for agent execution rules. The workflows below define the detailed quality checks.
 
 ## Workflows & Quality Contract
 
 - **Workflow 1: Skill Refactor**: Structured 7-phase refactoring process (Phases 0–6 covering Gates 1–9), documented in [`.agents/workflows/skill-refactor.md`](.agents/workflows/skill-refactor.md).
 - **Workflow 2: Skill Review**: Three-lens PR review procedure (`code-review-and-quality`, `writing-for-agents`, `darwin-skill`), documented in [`.agents/workflows/skill-review.md`](.agents/workflows/skill-review.md).
 - **Agent Rules**: Execution rules and dispatcher instructions are configured in [`.agents/AGENTS.md`](.agents/AGENTS.md).
+- **PR Templates**: Use the [refactor template](.agents/templates/pull-request-refactor.md) or [review template](.agents/templates/pull-request-review-template.md) for the corresponding workflow.
 
 ## Prerequisites & Required Tools
 
-To execute refactor and review SOPs, the following CLI tools and evaluation sub-skills are required:
+These tools support the refactor and review workflows; individual skills have their own requirements.
+
+After cloning the repository, initialize the evaluation and review submodules:
+
+```bash
+git submodule update --init --recursive
+```
+
+The evaluation links below point to their containing submodules. Their `SKILL.md` files become available locally after initialization; exact entrypoint paths are listed in the workflow guides.
 
 ### Command-Line Utilities (CLI)
+
 - **`git`**: Branch management, atomic commit history, and git submodules.
 - **`gh`**: GitHub CLI for PR creation, list fetching, checkout, review submission, and merging.
 - **`uv` / `uvx`**: Python package runner used to execute the official reference validator on demand (`uvx --from skills-ref agentskills validate skills/<slug>`), no separate installation required.
 - **`curl` & `jq`**: UNIX CLI utilities for fetching and parsing GitHub REST API pull request data.
 
 ### Evaluation & Audit Sub-Skills (`.agents/skills/`)
-- **[`darwin-skill`](.agents/skills/darwin-skill/SKILL.md)**: Quantitative evaluation engine, test prompt (`test-prompts.json`) execution, and 9-dimension scoring ($\ge 80/100$).
-- **[`freud-skill`](.agents/skills/freud-skill/SKILL.md)**: Cognitive load audit, white-bear effect elimination, and positive instruction reframing.
-- **[`code-review-and-quality`](.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md)**: Quality review lens for code correctness, security, performance, and architecture.
-- **[`writing-for-agents`](.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md)**: Quality review lens for progressive disclosure, trigger description tuning, and information hierarchy.
-- **[`anysearch-skill`](.agents/skills/anysearch-skill/SKILL.md) / `research`**: Real-time web search and primary source cross-verification for Gate 6 domain accuracy.
+
+- **[`darwin-skill`](.agents/skills/darwin-skill)**: Quantitative evaluation engine, test prompt (`test-prompts.json`) execution, and 9-dimension scoring (minimum 80/100).
+- **[`freud-skill`](.agents/skills/freud-skill)**: Cognitive load audit, white-bear effect elimination, and positive instruction reframing.
+- **[`code-review-and-quality`](.agents/skills/agent-skills)**: Quality review lens for code correctness, security, performance, and architecture.
+- **[`writing-for-agents`](.agents/skills/mattpocock-skills)**: Quality review lens for progressive disclosure, trigger description tuning, and information hierarchy.
+- **[`anysearch-skill`](.agents/skills/anysearch-skill)**: Real-time web search and primary source cross-verification for Gate 6 domain accuracy.
 
 ## Repository Layout
 
 ```text
 omni-skills/
 ├── .agents/
-│   ├── AGENTS.md               # Core agent mission & workflow dispatcher rules
-│   └── skills/                 # Evaluation & review submodules
-│       ├── agent-skills/       # Contains code-review-and-quality
-│       ├── anysearch-skill/    # Real-time search engine for Gate 6 research
-│       ├── darwin-skill/       # Quantitative evaluation engine (Gate 8)
-│       ├── freud-skill/        # Cognitive load audit engine (Gate 9)
-│       └── mattpocock-skills/  # Contains writing-for-agents
-├── CHANGELOG.md                # Skill refactor tracking table & score log
-├── docs/
-│   ├── refactor-guide.md       # Canonical 7-phase refactor guide (Gates 1–9)
-│   ├── review-guide.md         # Canonical 3-lens PR review guide
-│   ├── pull-request-refactor.md
-│   └── pull-request-review-template.md
-└── skills/                     # 960+ universal Agent Skill packages
+│   ├── AGENTS.md              # Agent mission & workflow dispatcher
+│   ├── workflows/             # Canonical refactor & review guides
+│   ├── templates/             # Pull request & review templates
+│   └── skills/                # Evaluation, review & supporting skills
+├── CHANGELOG.md               # Skill refactor history & recorded scores
+├── CONTRIBUTING.md            # Contribution conventions
+├── experiments/              # Skill-routing benchmarks & notebooks
+└── skills/                    # Reusable skill packages
     └── <slug>/
         ├── SKILL.md
         └── (optional references/, assets/, scripts/)
 ```
+
+## License
+
+See [LICENSE](LICENSE) for the repository license.

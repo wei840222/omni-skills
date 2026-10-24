@@ -1,13 +1,25 @@
 # Changelog
 
+This file tracks skill refactors and their recorded evaluation results. For the project overview and workflow entry points, see [README.md](README.md).
+
 ## Updating This Changelog
 
-For every skill-refactor pull request:
+Follow the [skill-refactor workflow](.agents/workflows/skill-refactor.md). For every skill-refactor pull request:
 
 1. Complete and validate all refactor phases.
 2. Create the pull request targeting `main`.
 3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
+
+Add new entries at the top of the table. Keep the existing three-column format so skill-selection automation can continue reading it.
+
+## Reading the Records
+
+- **Skill**: The package slug under `skills/`.
+- **Date**: The recorded refactor date, in `YYYY-MM-DD` format.
+- **Darwin Score**: The recorded evaluation result, usually `NN/100`, with a PR number and any qualification when available.
+
+Historical entries include bare or approximate scores, provisional results, and `Gates 1-5 compliance only` records. A compliance-only record does not report a full Darwin evaluation. Repeated skill names retain separate refactor events; existing dates, scores, and notes are preserved as recorded.
 
 ## Merged Skill Refactors
 
