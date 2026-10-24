@@ -14,6 +14,7 @@ User asks about Berlin for any purpose: visiting, moving, working, studying, or 
 | Topic | File | When to load |
 |---|---|---|
 | **Domain Knowledge** | | |
+| Official sources & statutory references | `references/sources.md` | Authoritative municipal, transit, tenancy, and immigration sources |
 | Current facts, Blue Card, fares, CanG | `references/research-sources.md` | Before quoting time-sensitive legal, visa, registration, or fare facts |
 | **Visitors** | | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` | When discussing attractions (must-see vs skip) |

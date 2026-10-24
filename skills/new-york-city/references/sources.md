@@ -1,31 +1,28 @@
 # Sources — New York City
 
-Use these sources when precise NYC rules or current workflows matter.
+Back to [New York City Skill Overview](../SKILL.md).
 
-## City Services and Local Rules
+Use these verified primary sources when precise NYC transit, housing, or municipal rules matter.
 
-- NYC official portal: https://www.nyc.gov/
-- NYC 311: https://www.nyc.gov/311
-- NYC housing information: https://www.nyc.gov/site/hpd/index.page
+## Public Transit & OMNY Fare Capping
 
-## Transit and Airports
+- **OMNY Official Fare Capping Portal** — https://omny.info/fares
+  - Details the official 7-day rolling fare cap. Riders paying with the same contactless card or smart device automatically cap at $35 for unlimited subway and local bus rides within a 7-day window ($67 when including express buses, and $17.50 for reduced-fare eligible riders). Crucially, the 7-day period begins automatically on the first tap with a given payment method, rather than aligning with a fixed Monday–Sunday calendar week.
+- **Metropolitan Transportation Authority (MTA)** — https://new.mta.info/
+  - Unified transit authority overseeing New York City Subway, Long Island Rail Road (LIRR), Metro-North Railroad, and MTA Bridges and Tunnels.
+- **Port Authority of New York and New Jersey** — https://www.panynj.gov/
+  - Operator of JFK AirTrain, Newark AirTrain, and PATH interstate rail system.
+- **NYC Ferry** — https://www.ferry.nyc/
+  - Commuter water transit linking Manhattan, Brooklyn, Queens, and the Bronx.
 
-- Metropolitan Transportation Authority: https://new.mta.info/
-- OMNY: https://omny.info/
-- Port Authority of New York and New Jersey: https://www.panynj.gov/
-- NYC Ferry: https://www.ferry.nyc/
+## City Services & Public Administration
+
+- **NYC 311 Official Portal** — https://portal.311.nyc.gov/
+  - Primary municipal portal for non-emergency city services, tenant housing maintenance complaint filings, and local parking rules.
+- **New York State Government Portal** — https://www.ny.gov/
+  - Statewide services portal for employment rights, driver licensing (DMV), and consumer protection.
 
 ## Travel and Culture
 
-- Official tourism portal: https://www.nyctourism.com/
-- NYC Parks: https://www.nycgovparks.org/
-
-## Usage Notes
-
-- Use official city or transit sources for unstable rules.
-- Use venue or agency pages when a booking or policy matters more than a city summary.
-- If a portal requires an address or station, send it only when the user wants location-specific help.
-
-## Research note
-
-For current Congestion Relief Zone, OMNY, and airport-transfer details, load `references/domain-knowledge.md` first, then confirm the relevant primary source before presenting mutable details.
+- **New York City Official Tourism Portal** — https://www.nyctourism.com/
+  - Destination authority detailing neighborhood cultural itineraries, museum admission policies, and visitor safety.

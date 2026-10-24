@@ -16,6 +16,7 @@ User asks about Mumbai for any purpose: visiting, moving, working, studying, or 
 
 | Topic | File | When to load |
 |-------|------|--------------|
+| Official sources & transport references | `references/sources.md` | Authoritative civic, railway, metro, and meteorological portals |
 | Domain knowledge | `references/domain-knowledge.md` | General background on Mumbai's economy and geography |
 | **Visitors** | | |
 | Attractions | `references/visitor-attractions.md` | User asks for places to visit |

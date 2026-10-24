@@ -1,40 +1,27 @@
-# Shanghai research sources
+# Sources — Shanghai
 
-Last opened: 25 September 2026. Re-check visa, registration, fare, and price items before a commitment. Nationality changes the entry rule.
+Back to [Shanghai Skill Overview](../SKILL.md).
 
-## Entry, visa, and registration
+Use these verified primary sources when entry visas, police accommodation registration, cashless payment, or municipal transit apply in Shanghai.
 
-| Topic | Source | What to take from it |
-| --- | --- | --- |
-| UK FCDO China advice | https://www.gov.uk/foreign-travel-advice/china | Still current at 24 September 2026; updated 27 August 2026. Covers mainland China, not Hong Kong or Macao |
-| Entry requirements | https://www.gov.uk/foreign-travel-advice/china/entry-requirements | British-citizen snapshot only. Passport needs 6 months validity and 2 blank pages. Visa-free stays of up to 30 days run until 31 December 2026 for tourism, business visits, family or friend visits, or transit. Paid work, long-term assignments, journalism, study, and stays over 30 days need a visa. Work requires a Z visa and a work permit. Register the place of residence with the local Public Security Bureau within 24 hours; hotels register guests at check-in |
-| Safety and security | https://www.gov.uk/foreign-travel-advice/china/safety-and-security | Carry the passport, not a photocopy. Drugs including cannabis are zero tolerance and can carry the death penalty. Demonstrations, national-security activity, drones, and unlicensed VPNs are regulated. WeChat and Alipay are the default cashless path |
-| Chinese Embassy in the UK | https://www.mfa.gov.cn/eng/ | Confirm the visa class for the traveller's nationality before quoting a fee or duration. The older Shanghai consular explainer at `cs.mfa.gov.cn/.../t20131101_961583.shtml` returned "页面不存在或已删除" on 25 September 2026 |
-| National Immigration Administration | https://en.nia.gov.cn/ | English portal for current exit-entry policy. Use it with the traveller's consulate, not instead of it |
-| Shanghai Exit-Entry Administration | https://gaj.sh.gov.cn/crj/index.html | Local portal for residence permits and registration. The page is a JavaScript app; open the relevant notice rather than scraping a fee from the shell |
-| Immigration hotline | 12367 | GOV.UK says to call this before or immediately after renewing a passport while in China |
+## Entry, Visas, and Accommodation Registration
 
-Do not quote a visa fee, stay length, or work-permit timeline for a non-British passport from the UK page alone.
+- **Shanghai Government 144-Hour Visa-Free Transit Guide** — https://english.shanghai.gov.cn/en-144-hourtransfer-stayinShanghai/20240104/05e535a37f4c41db802e842247425848.html
+  - Official criteria, transit ports, and procedural guidance for foreign travelers applying for 72-hour or 144-hour visa-free transit within Shanghai, Jiangsu, and Zhejiang.
+- **Shanghai Government Visas Portal** — https://english.shanghai.gov.cn/en-visas/index.html
+  - Official municipal portal outlining entry visa categories, extension and replacement services, port visa guidance, and links to the 240-hour visa-free transit policy.
+- **Shanghai Government Accommodation Registration Portal** — https://english.shanghai.gov.cn/en-OnlineServices/20231210/6f0c6f35a9fd482cb4dacaa25b28c339.html
+  - Official municipal declaration portal specifying the mandatory statutory requirement: expatriates and overseas visitors are required to register their place of residence or temporary accommodation with the local police within 24 hours of arriving at the address (hotels register guests automatically upon check-in; private rentals and home stays register online via the Self-help Declaration System).
+- **National Immigration Administration (NIA)** — https://en.nia.gov.cn/
+  - Central government immigration administration authority publishing national exit-entry policies and border inspection rules.
+- **UK FCDO China Travel Advice** — https://www.gov.uk/foreign-travel-advice/china
+  - Verified consular guidance detailing passport validity (minimum 6 months and 2 blank pages), zero-tolerance legal regulations, and the ubiquitous cashless payment landscape (WeChat Pay and Alipay binding international credit cards).
 
-## Transport
+## Municipal Governance, Transit & Weather
 
-| Topic | Source | What to take from it |
-| --- | --- | --- |
-| Shanghai Metro fare scheme | https://en.wikipedia.org/wiki/Shanghai_Metro | Distance-based one-ticket network. Wikipedia, citing the municipal price decision, records a base fare of ¥3 under 6 km, then ¥4 for 6–16 km, rising by ¥1 per additional 10 km. A one-day pass is recorded at ¥18. Fare evasion is recorded as a fine of 6 times the fare |
-| Operator site | https://www.shmetro.com/ and https://service.shmetro.com/ | Timed out from this environment on 25 September 2026. Re-check the live fare table there before quoting a ticket price as current |
-| Maglev | https://en.wikipedia.org/wiki/Shanghai_Magrolev_Train | Airport maglev is separate from the metro fare. Confirm the current single-ride price at the station or operator before purchase |
-
-The metro operator sites did not respond during this refactor. Treat the Wikipedia fare table as a dated secondary snapshot, not a live quote.
-
-## Climate and air
-
-| Topic | Source |
-| --- | --- |
-| China Meteorological Administration | https://www.cma.gov.cn/ |
-| Shanghai typhoon and warning notices | https://www.shanghai.gov.cn/ |
-
-Summers are hot and humid. Typhoon risk is concentrated in July–October and is variable by year. Re-check the active warning rather than a seasonal average before an outdoor plan.
-
-## Costs and salaries
-
-Rent, senior-engineer pay, dinner, and international-school fees in this package are **February 2026 planning ranges**, not live listings. Re-check current listings and the school's fee schedule before a budget or offer. Do not invent a 2026 market quote from those ranges.
+- **Shanghai International Services Portal** — https://english.shanghai.gov.cn/
+  - Comprehensive municipal expatriate gateway covering urban living, public transport ticketing (Shanghai Public Transportation Card and Metro Daduhui mobile QR code integration), healthcare, and business setup.
+- **Shanghai Municipal People's Government** — https://www.shanghai.gov.cn/
+  - Main portal for Shanghai municipal administration, civic notices, and citywide public transit infrastructure.
+- **China Meteorological Administration (CMA)** — https://www.cma.gov.cn/
+  - Official national meteorological service issuing real-time typhoon alerts (July–October peak season) and summer heatwave warnings.

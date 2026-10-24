@@ -15,6 +15,8 @@ Load this skill when the user asks about traveling to, living in, or working in 
 
 | Topic | File |
 |-------|------|
+| **Domain Knowledge** | |
+| Official sources & transit passes | `references/sources.md` |
 | **Visitors** | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` |
 | Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |

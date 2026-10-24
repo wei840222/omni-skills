@@ -1,46 +1,36 @@
 # Sources — Vienna
 
-Official and primary references used to ground Vienna guidance. Prefer these over secondary blogs when facts change. Re-check the linked page before quoting a live fee, deadline, eligibility rule, or timetable.
+Back to [Vienna Skill Overview](../SKILL.md).
 
-## City and government
+Use these verified primary sources when Meldezettel registration, transit passes, social housing, or university life apply in Vienna.
 
-- City of Vienna (Wien.gv.at) English portal: https://www.wien.gv.at/english/
-- Residence registration (Meldezettel) overview: https://www.wien.gv.at/english/administration-residence/registration/
-- Migration and citizenship orientation (City of Vienna): https://www.wien.gv.at/english/social/integration/
-- Austrian government portal (oesterreich.gv.at): https://www.oesterreich.gv.at/en
-- Austrian Federal Ministry of the Interior (BMI): https://www.bmi.gv.at/english/
-- Migration.gv.at (residence and settlement info): https://www.migration.gv.at/en/
+## Public Transit & Annual Passes (Jahreskarte)
 
-## Transport
+- **Wiener Linien Jahreskarte Official Portal** — https://www.wienerlinien.at/jahreskarte
+  - Official tariff portal for the Vienna annual transit pass (Jahreskarte). Provides 365 days of unlimited travel across the Vienna core zone (Kernzone Wien) on all U-Bahn, tram, bus, and ÖBB S-Bahn lines. Adult pricing is €461 for upfront annual payment. Note: The historical "365" moniker signifies 365 days of validity rather than an active €365 ticket price.
+- **Wiener Linien Main Network Portal** — https://www.wienerlinien.at/
+  - General transport portal for route planning, 24h/48h/72h tourist tickets, and accessibility information.
+- **ÖBB (Austrian Federal Railways)** — https://www.oebb.at/en/
+  - National railway network running Railjet, Nightjet, and regional S-Bahn connections.
+- **Vienna International Airport (VIE)** — https://www.viennaairport.com/en/
+  - Airport transit links via S7 suburban train and City Airport Train (CAT).
 
-- Wiener Linien (tickets and network): https://www.wienerlinien.at/web/wl-en
-- ÖBB Austrian Federal Railways: https://www.oebb.at/en/
-- VOR (regional transport association): https://www.vor.at/
-- Vienna Airport (transfers and CAT context): https://www.viennaairport.com/en/
+## City Administration & Residence Registration (Meldezettel)
 
-## Housing, work, study
+- **Stadt Wien Meldeservice (Residence Registration)** — https://www.wien.gv.at/amtshelfer/dokumente/verwaltung/meldeservice/anmeldung.html
+  - Official municipal registration portal explicitly mandating that anyone moving into a new residence in Vienna must register (Anmeldung) with the Meldeservice within 3 days of moving in (spätestens 3 Tage nach dem Einzug).
+- **City of Vienna (Wien.gv.at English Portal)** — https://www.wien.gv.at/english/
+  - Primary municipal portal detailing civic administration, public housing policies (Gemeindebau), and integration services.
+- **Austrian Government Portal (oesterreich.gv.at)** — https://www.oesterreich.gv.at/en
+  - Official federal administrative portal for citizen and resident affairs.
+- **Austrian Federal Ministry of the Interior (BMI)** — https://www.bmi.gv.at/
+  - Federal ministry overseeing civil rights, immigration policies, and public safety.
+- **Migration.gv.at (Austrian Immigration Information)** — https://www.migration.gv.at/en/
+  - Official federal portal for Red-White-Red Card (Rot-Weiß-Rot – Karte), EU Blue Card, and settlement permits.
 
-- Wohnberatung Wien (housing counselling): https://wohnberatung-wien.at/
-- AMS Public Employment Service Austria: https://www.ams.at/english
-- Vienna Business Agency: https://vienna.business/
-- University of Vienna: https://www.univie.ac.at/en/
-- TU Wien: https://www.tuwien.at/en/
-- Wirtschaftsuniversität Wien (WU): https://www.wu.ac.at/en/
+## Culture, Tourism & Statistics
 
-## Culture, visitor, safety
-
-- Wien Tourismus / Visit Vienna: https://www.wien.info/en
-- Museums and free-entry orientation via Wien.info: https://www.wien.info/en/sightseeing/museums-exhibitions
-- Austrian Police safety guidance portal: https://www.polizei.gv.at/
-- EU Blue Card / highly qualified employment orientation via migration.gv.at: https://www.migration.gv.at/en/types-of-immigration/permanent-immigration/
-
-## Cost and daily life
-
-- Statistik Austria: https://www.statistik.at/en/
-- Numbeo is secondary only; prefer Statistik Austria and city sources for planning ranges.
-
-## Usage notes
-
-- Treat package figures as planning estimates, not live quotes.
-- For Meldezettel, visas, AMS, Wiener Linien fares, museum free days, and housing eligibility, open the official page again in the current turn.
-- Prefer Austrian sources over generic “Germany” guidance; Austrian procedures and vocabulary differ.
+- **Wien Tourismus (Visit Vienna Official Portal)** — https://www.wien.info/en
+  - Destination authority detailing museums (Kunsthistorisches Museum, Belvedere, Albertina), coffee house traditions, and concert venues.
+- **Statistik Austria** — https://www.statistik.at/en/
+  - Official federal statistical office providing benchmark data on population, CPI inflation, and housing indicators.

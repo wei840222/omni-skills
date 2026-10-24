@@ -14,6 +14,7 @@ User asks about Toronto for any purpose: visiting, moving, working, studying, or
 | Topic | File | When to load |
 |-------|------|--------------|
 | **Core Information** | | |
+| Official sources & transit references | `references/sources.md` | Authoritative municipal, TTC, PRESTO, and Ontario LTB portals |
 | General knowledge | `references/research.md` | General background on Toronto |
 | Core rules | `references/core-rules.md` | Foundational context and costs |
 | Traps | `references/traps.md` | Common mistakes and surprises |

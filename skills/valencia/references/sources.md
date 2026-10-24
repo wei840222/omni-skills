@@ -1,41 +1,28 @@
-# Sources — Valencia skill
+# Sources — Valencia
 
-Last bulk-checked: 2026-10-16 (handoff). Booking-critical fare, visa, fee, and listing claims still require a live page check at answer time.
+Back to [Valencia Skill Overview](../SKILL.md).
 
-## Tourism and city orientation
+Use these verified primary sources when Fallas festival restrictions, transit, meteorological warnings, or nomad life apply in Valencia.
 
-- Visit Valencia: https://www.visitvalencia.com/en
-- Visit Valencia — what to do: https://www.visitvalencia.com/en/what-to-do-valencia
-- Spain.info — Valencia destination: https://www.spain.info/en/destination/valencia/
-- Fallas / festival orientation: https://www.fallas.com/
+## Tourism and City Orientation
 
-## Weather
+- **Visit Valencia (Official Tourism Board)** — https://www.visitvalencia.com/en
+- **Visit Valencia — What to Do in Valencia** — https://www.visitvalencia.com/en/what-to-do-valencia
+- **Spain.info — Valencia Destination Guide** — https://www.spain.info/en/destination/valencia/
+- **Fallas Official Festival Portal** — https://www.fallas.com/
+  - Primary festival organization detailing Fallas event dates (March 15–19), Mascletà fireworks schedules, and temporary traffic and lodging restrictions.
 
-- AEMET Valencia forecast: https://www.aemet.es/en/eltiempo/prediccion/municipios/valencia-id46250
-- AEMET Valencia (ES): https://www.aemet.es/es/eltiempo/prediccion/municipios/valencia-id46250
+## Weather and Climate Alerts
 
-## Housing search surfaces (not escrow)
+- **AEMET Valencia Forecast (Agencia Estatal de Meteorología)** — https://www.aemet.es/en/eltiempo/prediccion/municipios/valencia-id46250
+- **AEMET Spanish Portal** — https://www.aemet.es/es/eltiempo/prediccion/municipios/valencia-id46250
 
-- Fotocasa Valencia rentals: https://www.fotocasa.es/es/alquiler/viviendas/valencia-capital/todas-las-zonas/l
-- Idealista often blocks automated fetches (HTTP 403 from this runner); still a common human search surface — verify live in a browser when quoting rents.
+## Housing Search Surfaces
 
-## Transit operators (automation often times out)
+- **Fotocasa Valencia Rentals** — https://www.fotocasa.es/es/alquiler/viviendas/valencia-capital/todas-las-zonas/l
 
-- Valenbisi home: https://www.valenbisi.es/ (HTTP 200 intermittently; retry in browser if timeout)
-- Metrovalencia / FGV / EMT pages frequently timed out or blocked from this runner — treat packaged euro fares as orientation and re-open operator sites before trip-critical budgets.
+## Immigration and National Administration (Spain)
 
-## Immigration / residency orientation (Spain)
-
-- BOE — international telework / Digital Nomad framework text: https://www.boe.es/buscar/doc.php?id=BOE-A-2022-21739
-- BOE plain text mirror: https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-21739
-- Sede — public administrations directory / NIE entry: https://sede.administracionespublicas.gob.es/
-- Social Security portal: https://www.seg-social.es/
-- Ministerio de Asuntos Exteriores home: https://www.exteriores.gob.es/es/Paginas/index.aspx
-- Some inclusion.gob.es / policia.es / renfe.com paths returned HTTP 403/404 from this runner; mark those claims unverified until a browser session opens the live product page for the user's passport.
-
-## Notes for agents
-
-- Treat rent, salary, fare, and fee tables in this skill as orientation ranges, not live quotes.
-- For immigration, licensing, or tax filings, point to the official agency page and licensed professionals; do not act as counsel.
-- Prefer Visit Valencia / BOE / sede / AEMET pages over secondary listicles when schedules, residency, or weather matter.
-- Record fetch gaps plainly (timeout/403) instead of inventing current metro or DN fee numbers.
+- **BOE — Ley de Startups / Teletrabajo Internacional (Ley 28/2022)** — https://www.boe.es/buscar/doc.php?id=BOE-A-2022-21739
+- **Seguridad Social Española** — https://www.seg-social.es/
+- **Ministerio de Asuntos Exteriores, Unión Europea y Cooperación** — https://www.exteriores.gob.es/

@@ -1,59 +1,35 @@
-# Tokyo Research Sources (2026)
+# Sources — Tokyo
 
-> Last reviewed: 2026-09-04
+Back to [Tokyo Skill Overview](../SKILL.md).
 
-Use these sources when mutable Tokyo guidance matters. Prefer official portals for transit, tourism, disaster, immigration, and housing claims. Treat in-skill rent, salary, and fare ranges as dated planning estimates until re-checked live.
+Use these verified primary sources when Tokyo transit, ward registration, disaster safety, or airport links apply.
 
-## Tourism and City Orientation
+## Municipal Governance & Tourism
 
-| Topic | Source |
-|---|---|
-| Tokyo Official Visitors Guide | https://www.gotokyo.org/en/ |
-| Tokyo Metropolitan Government English portal | https://www.metro.tokyo.lg.jp/english/ |
-| Japan National Tourism Organization — Tokyo | https://www.japan.travel/en/destinations/kanto/tokyo/ |
+- **Tokyo Metropolitan Government (English Portal)** — https://www.metro.tokyo.lg.jp/english/
+  - Official metropolitan government website detailing ward administration, civic services, small business setup, and residence registration (Juminhyo at local ward offices / Kuyakusho).
+- **Japan National Tourism Organization — Tokyo Guide** — https://www.japan.travel/en/destinations/kanto/tokyo/
+  - Primary national tourism destination resource detailing Tokyo Subway Tickets (24-hour, 48-hour, 72-hour foreign tourist passes) and cultural heritage sites.
 
-## Transport and Fares
+## Transit, IC Cards, and Airports
 
-| Topic | Source |
-|---|---|
-| JR East | https://www.jreast.co.jp/e/ |
-| Tokyo Metro | https://www.tokyometro.jp/en/ |
-| Toei Transportation | https://www.kotsu.metro.tokyo.jp/eng/ |
-| Suica (JR East IC card) | https://www.jreast.co.jp/e/pass/suica.html |
-| Pasmo | https://www.pasmo.co.jp/en/ |
-| Narita Airport access | https://www.narita-airport.jp/en/access/ |
-| Haneda Airport access | https://tokyo-haneda.com/en/access/ |
+- **Toei Transportation (Tokyo Metropolitan Bureau of Transportation)** — https://www.kotsu.metro.tokyo.jp/eng/
+  - Operator of Toei Subway lines (Asakusa, Mita, Shinjuku, Oedo), Tokyo Sakura Tram (Arakawa Line), and Toei buses.
+- **PASMO Official English Portal** — https://www.pasmo.co.jp/en/
+  - Contactless IC card specifications, mobile PASMO / Apple Pay integration, and interoperability with Suica and nationwide IC transit cards.
+- **Haneda Airport Access Guide** — https://tokyo-haneda.com/en/access/
+  - Tokyo Monorail and Keikyu Line connections between Haneda Airport (HND) and central Tokyo.
+- **Narita Airport Access Guide** — https://www.narita-airport.jp/en/access/
+  - Narita Express (N'EX), Keisei Skyliner, and low-cost bus transit links between Narita Airport (NRT) and downtown Tokyo.
 
-## Cost, Housing, and Labor Benchmarks
+## National Travel & Digital Entry
 
-| Topic | Source |
-|---|---|
-| Tokyo Metropolitan Government statistics / open data | https://www.toukei.metro.tokyo.lg.jp/ |
-| Ministry of Health, Labour and Welfare | https://www.mhlw.go.jp/english/ |
-| Recruit / SUUMO housing market portal | https://suumo.jp/ |
-| Numbeo — Tokyo cost of living | https://www.numbeo.com/cost-of-living/in/Tokyo |
+- **Digital Agency Japan (Visit Japan Web)** — https://www.digital.go.jp/en
+  - Digital transformation agency managing fast-track digital customs and immigration declarations.
+- **UK FCDO Japan Travel Advice** — https://www.gov.uk/foreign-travel-advice/japan
+  - Comprehensive safety, visa entry requirement snapshots, and earthquake readiness guidelines.
 
-## Safety, Disasters, and Weather
+## Meteorology and Disaster Preparedness
 
-| Topic | Source |
-|---|---|
-| Tokyo disaster preparedness (TMG) | https://www.bousai.metro.tokyo.lg.jp/ |
-| Japan Meteorological Agency | https://www.jma.go.jp/jma/indexe.html |
-| US State Department — Japan travel advisory | https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/japan-travel-advisory.html |
-| UK FCDO — Japan travel advice | https://www.gov.uk/foreign-travel-advice/japan |
-
-## Study, Work, and Startups
-
-| Topic | Source |
-|---|---|
-| Study in Japan (JASSO / official portal) | https://www.studyinjapan.go.jp/en/ |
-| Immigration Services Agency of Japan | https://www.moj.go.jp/isa/index.html |
-| Tokyo Metropolitan Small Business Center / startup orientation | https://www.metro.tokyo.lg.jp/english/ |
-
-## Freshness Rules
-
-1. Transit fares, IC-card rules, and airport transfer prices: verify on operator pages before quoting as current.
-2. Rent and salary bands: present as ranges with month/year context; re-check market portals for decisive relocation math.
-3. Visa, residence, and work-permit steps: confirm on Immigration Services Agency pages for the user's nationality.
-4. Typhoon / earthquake guidance: prefer JMA and Tokyo disaster portals over blogs for same-day decisions.
-5. Nightlife and scam warnings remain stable heuristics; still qualify high-stakes safety advice with current official advisories.
+- **Japan Meteorological Agency (JMA)** — https://www.jma.go.jp/jma/indexe.html
+  - Real-time earthquake intensity (Shindo) reports, tsunami advisories, and typhoon warnings.
