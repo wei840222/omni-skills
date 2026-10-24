@@ -13,7 +13,7 @@ Official Meta Cloud API integration. See auxiliary files for detailed operations
 ## Quick Start
 
 ```bash
-curl -X POST "https://graph.facebook.com/v21.0/$WHATSAPP_PHONE_NUMBER_ID/messages" \
+curl -X POST "https://graph.facebook.com/v24.0/$WHATSAPP_PHONE_NUMBER_ID/messages" \
   -H "Authorization: Bearer $WHATSAPP_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"messaging_product":"whatsapp","to":"1234567890","type":"text","text":{"body":"Hello!"}}'
@@ -59,6 +59,7 @@ Use the selected `<state_root>` for every state operation in this skill.
 | Flows (interactive forms) | `references/flows.md` | When building interactive forms or advanced conversational flows. |
 | Best practices & limits | `references/best-practices.md` | When optimizing message throughput or avoiding rate limits. |
 | Meta API Knowledge | `references/meta-api-knowledge.md` | When verifying Cloud API requirements, URLs, or endpoint behaviors. |
+| Official sources & API specifications | `references/sources.md` | When verifying official Cloud API endpoints, webhook payloads, or pricing rules. |
 
 ## Core Rules
 

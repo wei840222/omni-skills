@@ -50,6 +50,7 @@ Memory lives in `<state_root>/telegram-bot-api/`. See `assets/memory-template.md
 | Webhooks & polling | `references/webhooks.md` |
 | Media handling | `references/media.md` |
 | Error codes | `references/errors.md` |
+| Official sources & API specifications | `references/sources.md` |
 
 ## Core Rules
 

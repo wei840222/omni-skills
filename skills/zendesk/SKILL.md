@@ -49,6 +49,7 @@ Resolve `<state_root>` as:
 | Priorities | `references/priorities.md` | When assigning or interpreting ticket urgency |
 | Common Traps | `references/common-traps.md` | When encountering errors or designing a robust automation |
 | Domain Knowledge | `references/zendesk-knowledge.md` | When needing a conceptual understanding of Zendesk entities |
+| Official sources & API specifications | `references/sources.md` | When verifying official Support REST API endpoints, ticket schemas, or rate limits. |
 
 ## External Endpoints
 

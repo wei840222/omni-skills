@@ -53,8 +53,9 @@ Load this skill and `references/troubleshooting.md` when interacting with Fastma
 | Moving a mailbox in or out, or taking a backup | `Email/import`, blob download, `Email/copy`, order of operations, verification counts | `migration.md` |
 | Any error string, partial failure, or timeout | Error taxonomy: request level vs method level vs `notUpdated` entry | `references/troubleshooting.md` |
 | Anything else Fastmail or JMAP | Answer directly, then state the account it applies to and whether the operation is reversible | — |
+| Official sources and JMAP RFC specifications | `references/sources.md` | RFC 8620 / RFC 8621 and Fastmail developer portal |
 
-Coverage map: `session.md` discovery and scope · `requests.md` envelope and batching · `search.md` finding messages · `triage.md` bulk writes and mailbox structure · `sending.md` drafts, identities, submission · `masked-email.md` per-service addresses · `contacts.md` address book · `calendar.md` events and scheduling · `sync.md` deltas and push · `migration.md` import, export, backup · `references/troubleshooting.md` symptom to cause.
+Coverage map: `session.md` discovery and scope · `requests.md` envelope and batching · `search.md` finding messages · `triage.md` bulk writes and mailbox structure · `sending.md` drafts, identities, submission · `masked-email.md` per-service addresses · `contacts.md` address book · `calendar.md` events and scheduling · `sync.md` deltas and push · `migration.md` import, export, backup · `references/troubleshooting.md` symptom to cause · `references/sources.md` RFC standards and developer portal.
 
 ## Core Rules
 

@@ -45,6 +45,7 @@ Data lives in `<state_root>/`. See `references/memory-template.md` for structure
 | Memory template | `references/memory-template.md` |
 | Collection format | `references/collections.md` |
 | Newman automation | `references/newman.md` |
+| Official schemas and documentation | `references/sources.md` |
 
 ## Core Rules
 
