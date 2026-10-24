@@ -59,9 +59,9 @@ Load only what improves the current planning decision. Start with protocol and c
 | Common traps | `references/common-traps.md` | Final review of a proposed plan |
 | Domain knowledge | `references/domain-knowledge.md` | Time-management framing and buffer rationale |
 | CLI adapter recipes | `references/commands.md` | Dry-run or execute through a chosen adapter |
-| Merge normalized event exports | `calendar_merge.py` | Multiple calendar exports need one timeline |
-| Audit overlaps and buffer failures | `calendar_guard.py` | Overlap, short-gap, or overloaded-day checks |
-| Generate weekly planning summary | `week_plan.py` | Weekly repair or review summary |
+| Merge normalized event exports | `scripts/calendar_merge.py` | Multiple calendar exports need one timeline |
+| Audit overlaps and buffer failures | `scripts/calendar_guard.py` | Overlap, short-gap, or overloaded-day checks |
+| Generate weekly planning summary | `scripts/week_plan.py` | Weekly repair or review summary |
 
 ## Requirements
 
@@ -109,7 +109,7 @@ All other data must remain strictly on the local machine.
 
 **Data that stays local:**
 - Optional planning memory in `<state_root>/`
-- Normalized event exports and review outputs produced by `calendar_merge.py`, `calendar_guard.py`, and `week_plan.py`
+- Normalized event exports and review outputs produced by `scripts/calendar_merge.py`, `scripts/calendar_guard.py`, and `scripts/week_plan.py`
 - Apple Calendar automation through Calendar.app on macOS
 
 **Data that may leave your machine:**

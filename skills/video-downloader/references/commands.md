@@ -6,27 +6,27 @@ Use these commands when the user asks for explicit download settings.
 
 ```bash
 # Best quality MP4 to Downloads
-python3 download_video.py "https://example.com/video"
+python3 scripts/download_video.py "https://example.com/video"
 ```
 
 ```bash
 # Cap at 1080p
-python3 download_video.py "https://example.com/video" -q 1080p
+python3 scripts/download_video.py "https://example.com/video" -q 1080p
 ```
 
 ```bash
 # Audio only as MP3
-python3 download_video.py "https://example.com/video" --audio-only
+python3 scripts/download_video.py "https://example.com/video" --audio-only
 ```
 
 ```bash
 # Custom format and output directory
-python3 download_video.py "https://example.com/video" -q 720p -f webm -o ~/Desktop/media
+python3 scripts/download_video.py "https://example.com/video" -q 720p -f webm -o ~/Desktop/media
 ```
 
 ```bash
 # Metadata only (no download)
-python3 download_video.py "https://example.com/video" --print-info
+python3 scripts/download_video.py "https://example.com/video" --print-info
 ```
 
 ## Raw yt-dlp Fallback

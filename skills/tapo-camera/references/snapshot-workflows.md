@@ -14,7 +14,7 @@ Use this file when the user wants a real still image from a Tapo camera and the 
 The included helper wraps the discovery and RTSP capture flow:
 
 ```bash
-python3 tapo-capture.py \
+python3 scripts/tapo-capture.py \
   --host 192.168.1.50 \
   --output <state_root>/captures/front-door-2026-03-16T2350.jpg
 ```

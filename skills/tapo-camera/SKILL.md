@@ -47,7 +47,7 @@ Only create `cameras.md`, `sessions/`, `captures/`, or `incidents.md` if the use
 | Local still-capture and review flows | `references/snapshot-workflows.md` |
 | Unofficial API fallback boundary | `references/api-fallback.md` |
 | Failure diagnosis and recovery order | `references/troubleshooting.md` |
-| Local capture helper | `tapo-capture.py` |
+| Local capture helper | `scripts/tapo-capture.py` |
 
 ## Requirements
 

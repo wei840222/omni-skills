@@ -88,9 +88,9 @@ The local scripts expect one or more JSON files in a simple normalized shape:
 Then run:
 
 ```bash
-python3 calendar_merge.py work.json family.json > merged.json
-python3 calendar_guard.py merged.json
-python3 week_plan.py merged.json --start 2026-03-09
+python3 scripts/calendar_merge.py work.json family.json > merged.json
+python3 scripts/calendar_guard.py merged.json
+python3 scripts/week_plan.py merged.json --start 2026-03-09
 ```
 
 Use these scripts to defend buffers, spot overload, and generate a weekly repair summary before touching live calendars.

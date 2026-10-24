@@ -31,7 +31,7 @@ Use the selected `<state_root>` for every state operation in this skill. If mult
 
 ## Shared workspace writes
 
-Workspace `AGENTS.md` and `HEARTBEAT.md` are host-owned paths outside `<state_root>`. Propose the exact blocks from package `AGENTS.md` / `HEARTBEAT.md` and wait for explicit approval before writing them. Keep those edits minimal and discovery-scoped.
+Workspace `AGENTS.md` and `HEARTBEAT.md` are host-owned paths outside `<state_root>`. Propose the exact blocks from `references/AGENTS.md` / `references/HEARTBEAT.md` and wait for explicit approval before writing them. Keep those edits minimal and discovery-scoped.
 
 ## When to use
 

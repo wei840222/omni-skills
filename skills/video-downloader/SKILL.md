@@ -42,7 +42,7 @@ Load only what you need to keep context small during execution.
 | Common traps | `references/common-traps.md` | When a download fails or behaves unexpectedly |
 | Security | `references/security.md` | When handling user privacy concerns or permissions |
 | Domain knowledge | `references/domain-knowledge.md` | When you need context on formats or rate limits |
-| Download script | `download_video.py` | To execute the download |
+| Download script | `scripts/download_video.py` | To execute the download |
 
 ## External Endpoints
 

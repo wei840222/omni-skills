@@ -18,7 +18,7 @@
 - Keep downloads in a user-approved directory and limit all writes exclusively to it.
 
 ## 5. Prefer the Local Wrapper Script
-- Use `python3 download_video.py "<url>" ...` for consistent behavior.
+- Use `python3 scripts/download_video.py "<url>" ...` for consistent behavior.
 - Fall back to raw `yt-dlp` commands only if the user asks for custom flags not covered by the script.
 
 ## 6. Verify Output Before Declaring Success

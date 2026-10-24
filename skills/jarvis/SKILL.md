@@ -35,7 +35,7 @@ If `<state_root>/jarvis/` does not exist or is empty, run `references/setup.md`.
 |-------|------|
 | Setup guide | `references/setup.md` |
 | Memory template | `references/memory-template.md` |
-| Workspace heartbeat snippet | `HEARTBEAT.md` |
+| Workspace heartbeat snippet | `references/HEARTBEAT.md` |
 | Voice and response style | `references/voice.md` |
 | Operating modes | `references/operating-modes.md` |
 | Safety boundaries | `references/boundaries.md` |

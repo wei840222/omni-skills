@@ -58,51 +58,51 @@ Prefer `references/domain.md` + one leaf file over loading the whole package. Re
 | Preference schema | `references/state.md` |
 | Official / research links | `references/sources.md` |
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Sukhumvit (Asok, Thonglor, Ekkamai) | `neighborhoods-sukhumvit.md` |
-| Silom, Sathorn, Riverside | `neighborhoods-silom.md` |
-| Ratchathewi, Ari, Phaya Thai | `neighborhoods-ari.md` |
-| Old Town, Chinatown, Rattanakosin | `neighborhoods-oldtown.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Sukhumvit (Asok, Thonglor, Ekkamai) | `references/neighborhoods-sukhumvit.md` |
+| Silom, Sathorn, Riverside | `references/neighborhoods-silom.md` |
+| Ratchathewi, Ari, Phaya Thai | `references/neighborhoods-ari.md` |
+| Old Town, Chinatown, Rattanakosin | `references/neighborhoods-oldtown.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & street food culture | `food-overview.md` |
-| Street food guide | `food-street.md` |
-| Thai cuisine essentials | `food-thai.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary & practical | `food-practical.md` |
+| Overview & street food culture | `references/food-overview.md` |
+| Street food guide | `references/food-street.md` |
+| Thai cuisine essentials | `references/food-thai.md` |
+| International & fine dining | `references/food-international.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Dietary & practical | `references/food-practical.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (BTS, MRT, taxis, Grab) | `transport.md` |
-| Driving, licenses, buying vehicles | `driving.md` |
-| Cost of living | `cost.md` |
-| Thai taxes (180-day rule, remittance) | `taxes.md` |
-| Safety & scams | `safety.md` |
-| Weather & seasons | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
-| Shopping, malls, tailors, VAT refund | `shopping.md` |
+| Moving & settling | `references/resident.md` |
+| Transport (BTS, MRT, taxis, Grab) | `references/transport.md` |
+| Driving, licenses, buying vehicles | `references/driving.md` |
+| Cost of living | `references/cost.md` |
+| Thai taxes (180-day rule, remittance) | `references/taxes.md` |
+| Safety & scams | `references/safety.md` |
+| Weather & seasons | `references/climate.md` |
+| Local services (banking, SIM) | `references/local.md` |
+| Shopping, malls, tailors, VAT refund | `references/shopping.md` |
 | **Career & life stages** | |
-| Digital nomad guide | `nomad.md` |
-| Teaching English | `teaching.md` |
-| Tech industry & startups | `tech.md` |
-| Business setup | `business.md` |
-| Retiring in Bangkok | `retirement.md` |
-| Buying property (condo quota, FET) | `property.md` |
-| Visas (exemption, DTV, retirement, LTR) | `visas.md` |
+| Digital nomad guide | `references/nomad.md` |
+| Teaching English | `references/teaching.md` |
+| Tech industry & startups | `references/tech.md` |
+| Business setup | `references/business.md` |
+| Retiring in Bangkok | `references/retirement.md` |
+| Buying property (condo quota, FET) | `references/property.md` |
+| Visas (exemption, DTV, retirement, LTR) | `references/visas.md` |
 | **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Festivals & annual calendar (Songkran) | `festivals.md` |
-| Kids, schools & family life | `families.md` |
-| Healthcare & hospitals | `healthcare.md` |
-| Nightlife & entertainment | `nightlife.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Thai language basics | `language.md` |
-| **Anything else** | Ask role + timeline first (`references/domain.md` Rule 1), then route to nearest file; short visit defaults to `visitor-tips.md`, staying defaults to `resident.md` |
+| Culture & customs | `references/culture.md` |
+| Festivals & annual calendar (Songkran) | `references/festivals.md` |
+| Kids, schools & family life | `references/families.md` |
+| Healthcare & hospitals | `references/healthcare.md` |
+| Nightlife & entertainment | `references/nightlife.md` |
+| Expat lifestyle & social | `references/lifestyle.md` |
+| Thai language basics | `references/language.md` |
+| **Anything else** | Ask role + timeline first (`references/domain.md` Rule 1), then route to nearest file; short visit defaults to `references/visitor-tips.md`, staying defaults to `references/resident.md` |
 
 ## Core path
 

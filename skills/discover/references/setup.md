@@ -44,14 +44,14 @@ Default to conservative behavior:
 
 ### 4. Prepare the AGENTS routing early
 
-If a workspace `AGENTS.md` exists, show the exact block from package `AGENTS.md` and wait for explicit approval before writing it.
+If a workspace `AGENTS.md` exists, show the exact block from `references/AGENTS.md` and wait for explicit approval before writing it.
 
 Keep the change small.
 The goal is only to make discovery activate when the user wants new things, not to rewrite the workspace personality.
 
 ### 5. Prepare the HEARTBEAT contract early
 
-If a workspace `HEARTBEAT.md` exists, show the exact block from package `HEARTBEAT.md` and wait for explicit approval before writing it.
+If a workspace `HEARTBEAT.md` exists, show the exact block from `references/HEARTBEAT.md` and wait for explicit approval before writing it.
 
 Heartbeat should stay quiet by default.
 No novelty means `HEARTBEAT_OK`.

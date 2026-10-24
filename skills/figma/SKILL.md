@@ -29,7 +29,7 @@ Before reading or writing state, resolve `<state_root>` as follows:
 
 Use the selected `<state_root>` for every state operation in this skill.
 Do not treat the literal string `<state_root>` as a filesystem path.
-See `setup.md` on first use and `assets/memory-template.md` for the file format.
+See `references/setup.md` on first use and `assets/memory-template.md` for the file format.
 If older absolute paths still hold data, move them into the resolved `<state_root>/` and state the move in one line.
 
 ## When To Use

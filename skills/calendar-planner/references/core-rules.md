@@ -13,12 +13,12 @@
 ### 3. Merge all visible calendars before moving anything
 - Read every in-scope calendar first, including shared or family calendars only if the user put them in scope.
 - Treat hidden calendars as risk, not as empty time.
-- Use `calendar_merge.py` when you have multiple normalized exports and need one timeline.
+- Use `scripts/calendar_merge.py` when you have multiple normalized exports and need one timeline.
 
 ### 4. Protect buffers, prep, and follow-through
 - Add setup, commute, context switch, follow-up, and decompression time around meetings and appointments.
 - A schedule with no buffers is fake capacity.
-- Use `calendar_guard.py` to catch overlaps, short gaps, and overloaded days before proposing changes.
+- Use `scripts/calendar_guard.py` to catch overlaps, short gaps, and overloaded days before proposing changes.
 
 ### 5. Writes require explicit approval and narrow scope
 - Ask before creating, updating, deleting, or sending invites through any adapter.
@@ -33,4 +33,4 @@
 ### 7. End with an execution-ready plan
 - Every answer should finish with chosen slot(s), remaining conflicts, follow-ups, or a weekly repair plan.
 - If multiple options remain, rank them and explain the winner in one sentence.
-- Use `week_plan.py` or the adapter recipes in `references/commands.md` when a terminal workflow makes the answer more reliable.
+- Use `scripts/week_plan.py` or the adapter recipes in `references/commands.md` when a terminal workflow makes the answer more reliable.

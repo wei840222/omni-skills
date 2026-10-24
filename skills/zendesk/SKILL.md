@@ -9,7 +9,7 @@ metadata:
 
 ## Setup
 
-On first use, read `setup.md` for API credentials and workspace integration.
+On first use, read `references/setup.md` for API credentials and workspace integration.
 
 ## When to Use
 
@@ -34,10 +34,10 @@ Resolve `<state_root>` as:
 
 | Topic | File | When to load |
 |-------|------|--------------|
-| Setup process | `setup.md` | When initializing credentials for the first time |
-| Memory template | `memory-template.md` | When structuring or reading local memory |
-| API operations | `api-reference.md` | When making specific Zendesk API calls |
-| Common issues | `troubleshooting.md` | When API calls fail or return unexpected results |
+| Setup process | `references/setup.md` | When initializing credentials for the first time |
+| Memory template | `references/memory-template.md` | When structuring or reading local memory |
+| API operations | `references/api-reference.md` | When making specific Zendesk API calls |
+| Common issues | `references/troubleshooting.md` | When API calls fail or return unexpected results |
 | Core Rules | `references/core-rules.md` | Before performing any state-changing API operations |
 | Common Operations | `references/common-operations.md` | When needing examples of standard ticket and user operations |
 | Ticket Statuses | `references/ticket-statuses.md` | When interpreting or updating ticket states |
