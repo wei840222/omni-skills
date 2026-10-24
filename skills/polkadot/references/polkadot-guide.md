@@ -36,11 +36,11 @@
 - Any DOT holder can participate within track rules
 - Treasury spends are community-controlled via referenda
 
-## Parachains and Crowdloans
-- Parachain slots are won via auctions — projects lock DOT for lease duration
-- Crowdloans let users contribute DOT for the lease (historically multi-year leases)
-- Contributed DOT is returned after the lease — project tokens may be granted as reward
-- System chains hold permanent slots — Asset Hub (formerly Statemint), Bridge Hub, and related system parachains
+## Parachains and Agile Coretime
+- Polkadot transitioned from legacy 2-year lease auctions to Agile Coretime (RFC 0001)
+- Coretime can be purchased in bulk (28-day / 4-week sales cycles) or on-demand (per-block execution)
+- System parachains hold permanent cores — Asset Hub (native token management, USDT/USDC), Bridge Hub (Snowbridge to Ethereum), and People Chain
+- Historical crowdloans: contributed DOT is returned at lease expiration according to the original loan schedule
 
 ## Cross-Consensus Messaging (XCM)
 - XCM moves assets and instructions across consensus systems

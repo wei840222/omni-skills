@@ -10,7 +10,7 @@ metadata:
 
 Treat every market configuration, displayed rate, and position value as time-sensitive. Identify the exact chain, Aave market, supplied and borrowed assets, collateral setting, and user goal before interpreting a position or suggesting a next step.
 
-Load [current-market-verification.md](references/current-market-verification.md) when the request needs a live market, contract address, protocol-version detail, GHO, E-Mode, liquidation, permit, or Umbrella fact.
+Load [current-market-verification.md](references/current-market-verification.md) when the request needs a live market, contract address, protocol-version detail, GHO, E-Mode, liquidation, permit, or Umbrella fact. Load [sources.md](references/sources.md) to inspect primary technical documentation, developer contracts, and official endpoints.
 
 ## Evidence foundation
 

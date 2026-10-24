@@ -46,3 +46,4 @@ Use the concise entry point above first; then load exactly one or more reference
 | `references/dev.md` | Reading or writing contracts, selecting libraries, or checking gas and transaction patterns. |
 | `references/evaluation.md` | Deciding whether a workload needs blockchain rather than conventional infrastructure. |
 | `references/security.md` | Reviewing wallet, seed phrase, approval, phishing, or smart-contract safety. |
+| `references/sources.md` | Verifying primary documentation, viem APIs, or EIP standards. |

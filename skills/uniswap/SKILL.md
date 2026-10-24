@@ -16,3 +16,4 @@ Load the corresponding reference file immediately when a task matches its trigge
 | `references/swap-execution.md` | When executing a swap, configuring slippage, optimizing gas, handling failed swaps, or using limit orders/UniswapX. |
 | `references/security.md` | When evaluating risks, handling token approvals, protecting against MEV/frontrunning, verifying tokens, or checking safety before a large swap. |
 | `references/liquidity.md` | When adding/removing liquidity, managing Uniswap V3 positions, or evaluating impermanent loss. |
+| `references/sources.md` | When checking official protocol documentation, contract interfaces, or primary sources for fee tiers and routing. |

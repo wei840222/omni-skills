@@ -6,3 +6,4 @@ metadata:
 ---
 When handling TRON network operations (TRX, TRC-20, bandwidth, energy, transactions), you MUST load the reference guide:
 - `references/tron-guide.md`: Contains TRON's resource model, bandwidth/energy mechanics, TRC-20 token guidelines, address format, and common transaction issues.
+- `references/sources.md`: Contains primary documentation, Stake 2.0 specifications, and TIP-491 energy model references.

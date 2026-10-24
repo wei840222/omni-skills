@@ -13,11 +13,12 @@
 - Check bandwidth before batch transfers — running out mid-batch wastes TRX
 
 ## Energy
-- Required for TRC-20 transfers (USDT, etc.) — simple TRX doesn't need energy
-- USDT transfer costs ~65,000 energy — significant amount
-- No free energy allocation — must freeze TRX or pay
-- Energy regenerates slowly after use — 24 hours for full recovery
-- Without energy, TRX burned at high rate — can cost several TRX per transfer
+- Required for TRC-20 transfers (USDT, etc.) — simple TRX transfers consume bandwidth only
+- Energy cost is contract-dependent: transferring USDT typically consumes tens of thousands of energy (and varies depending on whether the recipient account already holds the token)
+- Current energy unit price is 100 sun (0.0001 TRX per energy unit); burning TRX pays when staked energy is insufficient
+- Under TIP-491 (Dynamic Energy Model), popular/congested smart contracts dynamically scale energy consumption
+- No free energy allocation — users must freeze TRX (Stake 2.0) or burn TRX to cover energy costs
+- Staked energy regenerates linearly over 24 hours after consumption
 
 ## Freezing TRX
 - Freeze TRX 2.0: stake TRX to get bandwidth or energy — choose one per stake
