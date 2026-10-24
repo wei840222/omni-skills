@@ -154,6 +154,7 @@ Load reference files on-demand based on context:
 - `references/traps.md`: logical API failures and architectural traps
 - `references/experts.md`: Checkout vs Elements and other expert trade-offs
 - `references/domain-knowledge.md`: source-backed Stripe platform facts
+- `references/sources.md`: primary documentation, API reference, versioning, and webhook security
 - `references/memory-template.md`: local write destinations and formats
 
 ## Security & Privacy

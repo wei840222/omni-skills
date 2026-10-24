@@ -77,6 +77,7 @@ Load only what improves the current answer.
 | Continuity memory template | `assets/memory-template.md` |
 | Cashflow rollup script | `scripts/cashflow_rollup.py` |
 | Recurring charge scanner | `scripts/recurring_scan.py` |
+| Official standards & frameworks | `references/sources.md` |
 
 ## Security and privacy
 

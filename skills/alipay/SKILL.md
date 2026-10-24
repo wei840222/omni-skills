@@ -48,6 +48,7 @@ Use the smallest relevant file for the current task.
 | Failure recovery | `references/failure-handling.md` | When debugging payment failures |
 | Release and operations | `references/launch-playbook.md` | Before deploying to production |
 | Recurring and subscription flows | `references/recurring-payments.md` | When implementing subscriptions |
+| Research sources | `references/sources.md` | When verifying official Alipay open platform documentation, gateway URLs, or signature verification rules |
 
 ## Requirements
 

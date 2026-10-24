@@ -100,3 +100,7 @@ Load `references/traps.md` for traps.
 ## Where Experts Disagree
 
 Load `references/where-experts-disagree.md` for where experts disagree.
+
+## Research Sources
+
+Load `references/sources.md` for foundational pricing methodologies and industry benchmarks.

@@ -85,4 +85,6 @@ Markets have historically experienced:
 | High-fee investments | Fees compound over time |
 | Lack of diversification | Concentration risk |
 
+To inspect official regulatory references, tax rules, and primary financial education resources, load `references/sources.md`.
+
 *General education only. Consult a professional before acting.*

@@ -62,6 +62,7 @@ Memory lives in `<state_root>/betting/`. If `<state_root>/betting/` does not exi
 | Market Lens | `references/market-lens.md` | When analyzing specific market types |
 | Common Traps | `references/common-traps.md` | When reviewing potential analytical errors |
 | Legal and responsible use | `references/legal.md` | When dealing with legal, terms, or compliance |
+| Math literature & responsible gaming | `references/sources.md` | When reviewing probability models, formulas, or official helpline resources |
 
 ## Requirements
 
