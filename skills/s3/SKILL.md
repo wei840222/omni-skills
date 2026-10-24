@@ -1,6 +1,6 @@
 ---
 name: s3
-description: Trigger to configure or interact with S3-compatible object storage, manage lifecycle policies, CORS, presigned URLs, and multipart uploads.
+description: "Configure and operate S3-compatible cloud object storage. Use when managing bucket policies, configuring lifecycle rules, setting up CORS, generating presigned upload/download URLs, or executing multipart transfers."
 metadata:
   openclaw: '{"emoji":"🪣","os":["linux","darwin","win32"],"displayName":"S3"}'
 ---

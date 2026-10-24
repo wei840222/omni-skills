@@ -1,8 +1,6 @@
 ---
 name: shelly
-description: Control Shelly devices via local RPC and cloud APIs. Use for device
-  discovery, telemetry reads, relay/switch commands, multi-device orchestration,
-  and safe staged rollouts.
+description: "Control Shelly devices via local RPC and cloud APIs. Use when working with device discovery, telemetry reads, relay/switch commands, multi-device orchestration, and safe staged rollouts."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔌","requires":{"bins":["curl","jq"],"env":["SHELLY_CLOUD_TOKEN"]}}'

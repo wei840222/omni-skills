@@ -1,6 +1,6 @@
 ---
 name: apps
-description: Recommend, compare, and track iOS or Android apps around a user's platform, budget, privacy, and workflow preferences. Use for mobile app recommendations, app comparisons, or an approved personal app tracker; use mobile-app-analytics for product performance metrics.
+description: "Recommend, compare, and track iOS or Android apps around a user's platform, budget, privacy, and workflow preferences. Use when working with mobile app recommendations, app comparisons, or an approved personal app tracker; use mobile-app-analytics for product performance metrics."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📱"}'

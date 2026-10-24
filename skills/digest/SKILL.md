@@ -1,14 +1,6 @@
 ---
 name: digest
-description: >
-  Curate personalized recurring news digests by sourcing, filtering, ranking,
-  and delivering updates based on user preferences. Trigger when the user
-  requests a daily briefing, morning/evening news roundup, competitor tracking
-  update, or asks to check rumors before shipping. Load this skill to
-  establish and tune source lists, deduplicate content, prioritize independent
-  corroboration over single-source claims, and handle slow news days. Use only
-  for news curation, forwarding summarization tasks to `synthesize`
-  user-provided documents or internal business reporting.
+description: "Curate personalized recurring news digests by sourcing, filtering, ranking, and delivering updates based on user preferences. Use when the user requests a daily briefing, morning/evening news roundup, competitor tracking update, or asks to check rumors before shipping. Load this skill to establish and tune source lists, deduplicate content, prioritize independent corroboration over single-source claims, and handle slow news days. Use only for news curation, forwarding summarization tasks to `synthesize` user-provided documents or internal business reporting."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/digest/", "<state_root>/profile.yaml"]}}'
   related-skills: '{"brief": "internal business information summarized rather than external news curated", "competitor-monitoring": "full competitor dossiers, pricing alerts, and positioning analysis beyond digest items", "newsletter": "the user wants to publish to an audience, not receive a personal digest", "synthesize": "the user provides the documents; you distill instead of sourcing the outside world"}'

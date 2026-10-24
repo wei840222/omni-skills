@@ -1,10 +1,6 @@
 ---
 name: shanghai
-description: >
-  Plan a Shanghai trip, relocation, study stay, remote base, or business setup.
-  Use for neighborhoods, metro and DiDi, costs, food, climate, visas, residence
-  registration, and local apps. Not for booking travel, filing a visa, or giving
-  nationality-specific legal advice without an official source check.
+description: "Plan a Shanghai trip, relocation, study stay, remote base, or business setup. Use when working with neighborhoods, metro and DiDi, costs, food, climate, visas, residence registration, and local apps. Not for booking travel, filing a visa, or giving nationality-specific legal advice without an official source check."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌆"}'

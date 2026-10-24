@@ -1,10 +1,6 @@
 ---
 name: fastmail-api
-description: >
-  Drives the Fastmail JMAP API for mail, search, triage, sending, masked
-  email, contacts, and calendars. Trigger when handling Fastmail or JMAP API
-  calls, resolving JMAP errors (401, 403, stateMismatch), or managing masked
-  emails. Do not trigger for IMAP, SMTP, general inbox triage, or Apple Mail.
+description: "Drives the Fastmail JMAP API for mail, search, triage, sending, masked email, contacts, and calendars. Use when handling Fastmail or JMAP API calls, resolving JMAP errors (401, 403, stateMismatch), or managing masked emails. Do not trigger for IMAP, SMTP, general inbox triage, or Apple Mail."
 metadata:
   openclaw: '{"emoji":"📬","owner":"clawic","latest":{"version":"1.0.2","publishedAt":1785140325484},"history":[{"version":"1.0.1","publishedAt":1785080500500},{"version":"1.0.0","publishedAt":1772618740606}]}'
   related-skills: '{"calendar-planner": "planning across calendars, above the level of individual event writes", "dns": "SPF, DKIM, and DMARC records behind a custom sending domain", "email-management": "how a human should triage and reply, once the automation exists", "imap": "reading and syncing mailboxes over IMAP, for servers or clients without JMAP", "smtp": "transport-level sending, auth diagnostics, and deliverability testing"}'

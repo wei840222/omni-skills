@@ -1,6 +1,6 @@
 ---
 name: intuition
-description: Apply Recognition-Primed Decision techniques to make rapid, pattern-based judgments without explicit reasoning. Triggers automatically on ambiguous questions or explicitly on requests for 'gut feelings' or 'first instincts'.
+description: "Apply Recognition-Primed Decision (RPD) models for rapid assessment. Use when evaluating ambiguous scenarios, providing rapid preliminary instincts, or breaking decision paralysis under uncertainty."
 metadata:
   openclaw: '{"emoji":"🔮"}'
 ---

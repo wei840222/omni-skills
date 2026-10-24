@@ -1,6 +1,6 @@
 ---
 name: zillow
-description: Interpret Zillow listings and Zestimates, compare US home prices, estimate ownership costs, and model rental returns. Use for Zillow property searches, listing comparisons, seller pricing, buyer offers, or rental underwriting from Zillow data; general home repairs and non-US property searches are outside this scope.
+description: "Interpret Zillow listings and Zestimates, compare US home prices, estimate ownership costs, and model rental returns. Use when working with Zillow property searches, listing comparisons, seller pricing, buyer offers, or rental underwriting from Zillow data; general home repairs and non-US property searches are outside this scope."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'

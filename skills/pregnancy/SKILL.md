@@ -1,10 +1,6 @@
 ---
 name: pregnancy
-description: >
-  Track pregnancy metrics, symptoms, and prenatal routines. Load when the user wants
-  flexible daily logs, weekly clinician-ready summaries, visit-prep questions, or
-  safety-first red/amber triage for maternity follow-up. Supports organization and
-  escalation cues only — not diagnosis, prescribing, or replacing clinician care.
+description: "Track pregnancy metrics, symptoms, and prenatal routines. Use when the user wants flexible daily logs, weekly clinician-ready summaries, visit-prep questions, or safety-first red/amber triage for maternity follow-up. Supports organization and escalation cues only — not diagnosis, prescribing, or replacing clinician care."
 metadata:
   openclaw: '{"emoji":"🤰","requires":{"bins":[]},"config":["<state_root>/pregnancy/"],"os":["darwin","linux","win32"],"displayName":"Pregnancy (Tracker, Journal, Triage, Visit Prep)"}'
   related-skills: '{"baby": "Postpartum/infant day-to-day tracking after delivery handoff.", "dietitian": "Therapeutic meal construction after clinician guidance.", "doctor": "General symptom triage and medication/lab review outside maternity-specific tracking.", "fitness": "Activity load context when symptoms relate to exertion.", "nutrition": "Micronutrient adequacy and pregnancy diet context after triage is clear.", "period": "Cycle history context before or around conception tracking.", "sleep": "Sleep quality patterns that affect prenatal wellness logs.", "therapist": "Mental-health support once crisis routing and clinical handoff are handled."}'

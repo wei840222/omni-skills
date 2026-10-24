@@ -1,6 +1,6 @@
 ---
 name: authorization
-description: Implement and manage secure access control, permissions, and roles (RBAC/ABAC/ReBAC) when the user requests authorization rules or access limits.
+description: "Implement and manage secure access control, permissions, and roles (RBAC/ABAC/ReBAC) Use when the user requests authorization rules or access limits."
 metadata:
   openclaw: '{"emoji":"🔐"}'
 ---

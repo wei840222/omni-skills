@@ -1,8 +1,6 @@
 ---
 name: domain-registration
-description: Manage domain registrations, transfers, and renewals across major registrar
-  APIs. Load this skill when the user explicitly requests to buy, transfer, or modify
-  domain ownership settings.
+description: "Manage domain registrations, transfers, and renewals across major registrar APIs. Load this skill Use when the user explicitly requests to buy, transfer, or modify domain ownership settings."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🌐", "requires": {"config": ["<state_root>/domain-registration/"]}}'

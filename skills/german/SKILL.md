@@ -1,9 +1,6 @@
 ---
 name: german
-description: >
-  Write natural, casual German that sounds human. Use modal particles and
-  prioritize everyday vocabulary over formal terms unless explicitly
-  requested.
+description: "Generate natural, conversational German. Use when composing informal German emails, messages, or dialogue with idiomatic phrasing, modal particles, and appropriate du/Sie register."
 metadata:
   openclaw: '{"emoji": "🇩🇪"}'
 ---

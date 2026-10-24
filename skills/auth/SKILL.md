@@ -1,6 +1,6 @@
 ---
 name: auth
-description: Build secure authentication with sessions, JWT, OAuth, passwordless, MFA, and SSO for web and mobile apps.
+description: "Build secure authentication workflows for web and mobile apps. Use when implementing session management, JWT validation, OAuth2/OIDC flows, passwordless login, MFA, or SSO."
 metadata:
   version: "1.3.0"
   openclaw: '{"emoji": "🔐", "requires": null, "os": ["linux", "darwin", "win32"], "displayName": "Auth"}'

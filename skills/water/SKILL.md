@@ -1,9 +1,6 @@
 ---
 name: water
-description: Track user fluid intake from conversational mentions, applying clinical
-  and situational guidelines. Load this skill when the user logs a drink, asks about
-  hydration targets or status, or reports physical symptoms (like thirst, cramps,
-  headache) that might relate to dehydration or over-hydration. Not for meal logging.
+description: "Track user fluid intake from conversational mentions, applying clinical and situational guidelines. Load this skill Use when the user logs a drink, asks about hydration targets or status, or reports physical symptoms (like thirst, cramps, headache) that might relate to dehydration or over-hydration. Not for meal logging."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "💧", "requires": {"config": ["<state_root>/water/"]}}'

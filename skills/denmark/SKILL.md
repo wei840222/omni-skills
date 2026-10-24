@@ -1,8 +1,6 @@
 ---
 name: denmark
-description: >
-  Plan Denmark trips with concise route logic, verify entry rules, and access
-  practical local execution guides.
+description: "Plan travel in Denmark. Use when planning Copenhagen and regional Denmark itineraries, navigating public transit, calculating costs, or verifying Schengen entry requirements."
 metadata:
   openclaw: '{"emoji": "🇩🇰", "requires": {"bins": [], "config": ["<state_root>/denmark/"]}}'
   related-skills: '{"booking": "Reservation workflows and confirmation hygiene", "english": "Language support for bookings, transport, and service interactions", "europe": "Better wider-Europe context when Denmark is part of a longer route", "food": "Deeper restaurant and cuisine planning", "travel": "General trip planning and itinerary structure"}'

@@ -1,9 +1,6 @@
 ---
 name: image
-description: >
-  Applies intent-focused rules, compression strategies, and asset-type
-  formatting (WebP, AVIF, PNG) to optimize images for their destination
-  contexts.
+description: "Optimize and convert digital images for web and production. Use when choosing compression formats (WebP, AVIF, PNG, JPEG), resizing assets, stripping metadata, or balancing image quality and file size."
 metadata:
   openclaw: '{"emoji": "🖼️"}'
   related-skills: '{"ecommerce": "Marketplace and product-listing requirements that often constrain image delivery.", "image-edit": "Masking, cleanup, inpainting, and targeted visual edits.", "image-generation": "AI image generation and editing across current model providers.", "photography": "Capture, color, and print-oriented photo workflows.", "svg": "Vector graphics workflows when raster files are the wrong output."}'

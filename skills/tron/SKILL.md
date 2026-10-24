@@ -1,7 +1,6 @@
 ---
 name: tron
-description: Assist with TRON network operations. Trigger this skill to analyze TRX
-  transactions, manage bandwidth/energy resources, or troubleshoot TRC-20 token transfers.
+description: "Assist with TRON network operations. Use when needing to analyze TRX transactions, manage bandwidth/energy resources, or troubleshoot TRC-20 token transfers."
 metadata:
   openclaw: '{"emoji": "⚡"}'
 ---

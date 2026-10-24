@@ -1,6 +1,6 @@
 ---
 name: sydney
-description: Navigate Sydney as a visitor, resident, tech worker, student, or entrepreneur. Provides localized guidance on neighborhoods, beaches, transport, visas, cost of living, and local insights. Use this skill when the user asks about visiting, moving to, working in, studying in, or starting a business in Sydney.
+description: "Navigate Sydney as a visitor, resident, tech worker, student, or entrepreneur. Provides localized guidance on neighborhoods, beaches, transport, visas, cost of living, and local insights. Use this skill Use when the user asks about visiting, moving to, working in, studying in, or starting a business in Sydney."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏖️"}'

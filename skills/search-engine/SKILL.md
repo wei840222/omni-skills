@@ -1,12 +1,6 @@
 ---
 name: search-engine
-description: >
-  Plan engine-agnostic search architectures, indexing pipelines, retrieval
-  contracts, relevance policy, offline evaluation, and safe rollout when the
-  user is designing or tuning search for apps, docs, products, or knowledge
-  bases. Prefer `elasticsearch` for Elasticsearch/OpenSearch cluster and Query
-  DSL work, `meilisearch` for lightweight site/product search, and `rag` when
-  the ask is LLM retrieval pipelines rather than general search-system design.
+description: "Plan engine-agnostic search architectures, indexing pipelines, retrieval contracts, relevance policy, offline evaluation, and safe rollout Use when the user is designing or tuning search for apps, docs, products, or knowledge bases. Prefer `elasticsearch` for Elasticsearch/OpenSearch cluster and Query DSL work, `meilisearch` for lightweight site/product search, and `rag` when the ask is LLM retrieval pipelines rather than general search-system design."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔎"}'

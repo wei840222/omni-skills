@@ -1,9 +1,6 @@
 ---
 name: symphony
-description: >
-  Initialize per-issue workspaces and orchestrate Codex for unattended Linear
-  ticket resolution. Load when setting up Symphony, authoring WORKFLOW.md
-  contracts, hardening unattended runs, or triaging retry/workspace incidents.
+description: "Initialize per-issue workspaces and orchestrate Codex for unattended Linear ticket resolution. Use when setting up Symphony, authoring WORKFLOW.md contracts, hardening unattended runs, or triaging retry/workspace incidents."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎼","requires":{"bins":["git","codex"],"env":["LINEAR_API_KEY","OPENAI_API_KEY","GITHUB_TOKEN"],"config":["<state_root>/"]}}'

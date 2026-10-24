@@ -1,6 +1,6 @@
 ---
 name: prisma
-description: Designs Prisma schemas, writes type-safe queries, and fixes migrations, connection pools, and N+1 relation loads in Node and TypeScript. Trigger when editing schema.prisma, modeling relations or indexes, choosing between migration commands, fixing Prisma connection limits, or debugging Prisma client errors. Trigger this skill exclusively for Prisma-related schemas and queries. For general PostgreSQL/MySQL administration outside Prisma, delegate to other skills.
+description: "Designs Prisma schemas, writes type-safe queries, and fixes migrations, connection pools, and N+1 relation loads in Node and TypeScript. Use when editing schema.prisma, modeling relations or indexes, choosing between migration commands, fixing Prisma connection limits, or debugging Prisma client errors. Trigger this skill exclusively for Prisma-related schemas and queries. For general PostgreSQL/MySQL administration outside Prisma, delegate to other skills."
 metadata:
   openclaw: '{"emoji":"🔺"}'
   related-skills: '{"nextjs": "where the client lives in App Router, server actions, and build-time generation", "nodejs": "process lifecycle, memory, and shutdown around the client", "pg": "the PostgreSQL server underneath: plans, vacuum, locks, replication", "sql": "hand-written SQL, cross-engine portability, index and query design", "typescript": "type-system depth beyond Prisma''s generated types"}'

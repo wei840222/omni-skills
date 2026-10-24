@@ -1,9 +1,6 @@
 ---
 name: slovenian
-description: >
-  Write casual, natural-sounding Slovenian with correct ti/Vi, dual forms,
-  particles, fillers, and expressive vocabulary. Load when translating to
-  Slovenian or drafting informal messages, chats, or friendly emails.
+description: "Write casual, natural-sounding Slovenian with correct ti/Vi, dual forms, particles, fillers, and expressive vocabulary. Use when translating to Slovenian or drafting informal messages, chats, or friendly emails."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇸🇮","displayName":"Slovenian"}'

@@ -1,8 +1,6 @@
 ---
 name: malay
-description: Write and translate text into authentic, casual Malaysian Malay (Bahasa
-  Rojak) by mixing English naturally and applying native particles. Load when generating
-  conversational content for Malaysian users.
+description: "Write and translate text into authentic, casual Malaysian Malay (Bahasa Rojak) by mixing English naturally and applying native particles. Use when generating conversational content for Malaysian users."
 metadata:
   openclaw: '{"emoji": "🇲🇾"}'
 ---

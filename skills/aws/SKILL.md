@@ -1,12 +1,6 @@
 ---
 name: aws
-description: >
-  Architect, debug, secure, and cost-optimize AWS infrastructure. Trigger this
-  skill when investigating billing jumps, diagnosing AccessDenied or 5xx
-  errors, hardening IAM policies/security groups, auditing inherited AWS
-  accounts, or addressing service limits. Not for deep DynamoDB key modeling
-  (dynamodb), Kubernetes manifest authoring (k8s), or Terraform mechanics
-  (terraform).
+description: "Architect, debug, secure, and cost-optimize AWS infrastructure. Use when investigating billing jumps, diagnosing AccessDenied or 5xx errors, hardening IAM policies/security groups, auditing inherited AWS accounts, or addressing service limits. Not for deep DynamoDB key modeling (dynamodb), Kubernetes manifest authoring (k8s), or Terraform mechanics (terraform)."
 metadata:
   openclaw: '{"emoji": "☁️", "install": [{"bins": ["aws"], "formula": "awscli", "id": "brew", "kind": "brew", "label": "Install AWS CLI (Homebrew)"}], "requires": {"bins": ["aws"], "config": ["<state_root>/Clawic/data/aws/", "<state_root>/Clawic/data/servers/", "<state_root>/Clawic/profile.yaml"]}}'
   related-skills: '{"dynamodb": "partition/sort key modeling and query design", "infrastructure": "provider-agnostic architecture decisions", "k8s": "Kubernetes manifests and cluster debugging, for EKS workloads", "s3": "object-storage access patterns, presigned URLs, lifecycle detail", "terraform": "HCL authoring, state surgery, module design"}'

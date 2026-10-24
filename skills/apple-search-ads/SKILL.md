@@ -1,11 +1,6 @@
 ---
 name: apple-search-ads
-description: >
-  Manage Apple Search Ads (ASA) campaigns via the Campaign Management API v5.
-  Trigger this skill to launch or restructure iOS app ad campaigns, optimize
-  bids and budgets, perform keyword graduation from search-term reports,
-  defend brand terms, test Custom Product Pages, and diagnose impression drops
-  or attribution discrepancies (AdServices/SKAN).
+description: "Manage Apple Search Ads (ASA) campaigns via the Campaign Management API v5. Use when needing to launch or restructure iOS app ad campaigns, optimize bids and budgets, perform keyword graduation from search-term reports, defend brand terms, test Custom Product Pages, and diagnose impression drops or attribution discrepancies (AdServices/SKAN)."
 metadata:
   openclaw: '{"emoji": "🍎", "requires": {"bins": ["curl", "jq"], "env": ["ASA_CLIENT_ID", "ASA_TEAM_ID", "ASA_KEY_ID", "ASA_ORG_ID", "ASA_PRIVATE_KEY_FILE"]}}'
   related-skills: '{"analytics": "Campaign attribution, conversion tracking, and ROAS measurement.", "app-store-connect": "App Store listing synchronization and metadata configuration.", "aso": "Keyword strategy, organic ranking alignment, and creative asset optimization.", "ios": "SKAdNetwork setup, conversion value schema, and in-app attribution."}'

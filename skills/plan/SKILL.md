@@ -1,9 +1,6 @@
 ---
 name: plan
-description: Plan tasks with sizing, structuring steps, estimates, and risk rollbacks.
-  Load when work spans multiple sessions, involves irreversible actions, lacks clear
-  success criteria, or when resuming an existing plan. Does not handle personal productivity
-  or calendar time blocking.
+description: "Plan tasks with sizing, structuring steps, estimates, and risk rollbacks. Use when work spans multiple sessions, involves irreversible actions, lacks clear success criteria, or when resuming an existing plan. Does not handle personal productivity or calendar time blocking."
 metadata:
   openclaw: '{"emoji": "🗺️", "requires": {"config": ["<state_root>/", "~/plan/", "~/clawic/plan/"]}}'
   version: 1.0.3

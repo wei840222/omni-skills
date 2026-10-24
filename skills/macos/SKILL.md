@@ -1,11 +1,6 @@
 ---
 name: macos
-description: >
-  Apply macOS-specific system administration, BSD/GNU CLI traps, Homebrew path
-  differences, Keychain secrets, launchd agents, TCC privacy permissions, and
-  automation with defaults/osascript. Use on Darwin hosts for sed -i, Keychain,
-  LaunchAgents, SIP, screenshots, or networksetup. Prefer `linux` for non-Darwin
-  hosts, `bash` for shell syntax depth, and `network` for non-radio L3/DNS work.
+description: "Administer macOS systems and configure Darwin-specific tools. Use when debugging launchd agents, Keychain secrets, TCC privacy permissions, Homebrew path differences, or scripting defaults/osascript."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍎","os":["darwin"]}'

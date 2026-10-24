@@ -1,10 +1,6 @@
 ---
 name: cpo
-description: >
-  Lead product strategy, align roadmaps, design organizations, and mentor
-  product teams. Use this skill when making strategic product bets, evaluating
-  PM performance, designing product team structure, or responding to market
-  competitors.
+description: "Act as Chief Product Officer. Use when setting product vision, prioritizing product roadmaps, structuring product teams, evaluating PM talent, or deciding strategic product bets."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "📦"}'

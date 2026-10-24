@@ -1,6 +1,6 @@
 ---
 name: secretary
-description: Act as a secretary to manage calendars, draft communications in the user's voice, and track preferences, requiring explicit confirmation before final actions.
+description: "Provide executive administrative and schedule assistance. Use when drafting correspondence in the user's voice, triaging calendars, tracking preferences, or coordinating follow-up reminders with human confirmation."
 metadata:
   openclaw: '{"emoji":"📋"}'
   related-skills: '{"assistant": "General assistant workflows", "email-management": "Inbox triage and follow-up tracking", "mail": "Mailbox operations", "productivity": "Task and focus systems"}'

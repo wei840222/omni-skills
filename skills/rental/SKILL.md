@@ -1,10 +1,6 @@
 ---
 name: rental
-description: Manage, negotiate, and review rentals for housing, vacation stays, or
-  equipment with market analysis, scam detection, and lease review. Trigger for tenant
-  search, landlord pricing/screening, Airbnb/VRBO host or guest workflows, car/tool
-  rentals, lease red-flag review, or true-cost comparisons. Bypass pure real-estate
-  investing, property development, or hotel loyalty strategy without a rental decision.
+description: "Evaluate, negotiate, and review leases and rental agreements. Use when screening residential rentals, spotting lease red flags, analyzing vacation rental costs (Airbnb/VRBO), or calculating true cost of equipment rentals."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔑"}'

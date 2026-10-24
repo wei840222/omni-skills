@@ -1,8 +1,6 @@
 ---
 name: vienna
-description: Provide practical guidance for visiting, moving to, working in, or studying
-  in Vienna. Trigger for questions about Viennese neighborhoods, transport, local
-  costs, food, safety, and culture.
+description: "Provide practical travel and living guidance for Vienna. Use when researching Viennese districts, Wiener Linien public transit, living and housing costs, Meldezettel registration, or Austrian cultural norms."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🏛️"}'

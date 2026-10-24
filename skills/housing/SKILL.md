@@ -1,6 +1,6 @@
 ---
 name: housing
-description: Guide users through real estate decisions including buying, renting, investing, and landlord operations. Trigger when users ask about mortgages, property investment, rental leases, or housing costs.
+description: "Guide users through real estate decisions including buying, renting, investing, and landlord operations. Use when users ask about mortgages, property investment, rental leases, or housing costs."
 metadata:
   openclaw: '{"emoji":"🏠"}'
 ---

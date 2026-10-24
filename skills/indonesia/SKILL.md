@@ -1,11 +1,6 @@
 ---
 name: indonesia
-description: >
-  Plan an Indonesia trip by island cluster, entry path, weather and sea conditions,
-  and transfer realism. Use for Bali, Nusa islands, Java (Jakarta, Yogyakarta,
-  Bromo/Ijen), Lombok/Gilis, Komodo/Flores, or Sumatra routing with practical
-  on-the-ground logistics. Not for inventing a nationality-specific visa outcome,
-  fixing same-day boat-to-flight connections, or treating map distance as travel time.
+description: "Plan an Indonesia trip by island cluster, entry path, weather and sea conditions, and transfer realism. Use when working with Bali, Nusa islands, Java (Jakarta, Yogyakarta, Bromo/Ijen), Lombok/Gilis, Komodo/Flores, or Sumatra routing with practical on-the-ground logistics. Not for inventing a nationality-specific visa outcome, fixing same-day boat-to-flight connections, or treating map distance as travel time."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇮🇩"}'

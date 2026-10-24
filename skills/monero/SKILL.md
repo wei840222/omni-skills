@@ -1,14 +1,6 @@
 ---
 name: monero
-description: >
-  Explain Monero (XMR) privacy defaults, addresses, wallets, nodes, payment
-  proofs, mining/P2Pool choices, and common sync or unlock failures. Use for
-  RingCT/ring-signature/stealth-address questions, subaddress vs integrated
-  address routing, view-key audit limits, remote-node privacy trade-offs, or
-  download verification. Prefer `bitcoin` for UTXO/Lightning fee recovery,
-  `ethereum` for EVM gas/approvals/L2 bridges, `crypto-tools` for market/explorer
-  lookups, `payments` for fiat PSP checkout, and `cybersecurity` for broader
-  incident response beyond Monero wallet ops.
+description: "Explain Monero (XMR) privacy defaults, addresses, wallets, nodes, payment proofs, mining/P2Pool choices, and common sync or unlock failures. Use when working with RingCT/ring-signature/stealth-address questions, subaddress vs integrated address routing, view-key audit limits, remote-node privacy trade-offs, or download verification. Prefer `bitcoin` for UTXO/Lightning fee recovery, `ethereum` for EVM gas/approvals/L2 bridges, `crypto-tools` for market/explorer lookups, `payments` for fiat PSP checkout, and `cybersecurity` for broader incident response beyond Monero wallet ops."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔒"}'

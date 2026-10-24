@@ -1,6 +1,6 @@
 ---
 name: django
-description: "Build, debug, and harden Django web applications. Use for Django models, ORM query problems, migrations, views, templates, forms, admin, DRF, deployment, async work, or tests; not for plain Python, FastAPI/Flask, or database-engine tuning."
+description: "Build, debug, and harden Django web applications. Use when working with Django models, ORM query problems, migrations, views, templates, forms, admin, DRF, deployment, async work, or tests; not for plain Python, FastAPI/Flask, or database-engine tuning."
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🌿","requires":{"bins":["python3"]}}'

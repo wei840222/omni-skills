@@ -1,6 +1,6 @@
 ---
 name: google-play-store
-description: Manage Google Play Store publishing workflows, App Store Optimization (ASO), policy compliance, and app rejection recovery.
+description: "Manage Google Play Store publishing and optimization. Use when preparing store listing metadata, conducting ASO keyword research, resolving policy violations, or recovering from app rejections."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤖","displayName":"Google Play Store"}'

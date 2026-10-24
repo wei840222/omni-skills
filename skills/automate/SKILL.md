@@ -1,10 +1,6 @@
 ---
 name: automate
-description: Spot repetitive deterministic work and turn it into durable scripts so
-  agents stop burning tokens on format conversion, validation, fixed workflows, and
-  other rule-based tasks. Load `references/signals.md` for detection patterns,
-  `references/templates.md` for script skeletons, and `references/sources.md` for
-  automation reliability notes.
+description: "Convert repetitive manual procedures into durable automation scripts. Use when spotting predictable token-burning loops, fixed data transformations, recurring validation, or deterministic file operations."
 metadata:
   openclaw: '{"emoji": "⚙️"}'
 ---

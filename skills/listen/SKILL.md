@@ -1,9 +1,6 @@
 ---
 name: listen
-description: >
-  Repairs garbled speech-to-text input. Load when voice-dictated text contains
-  mistranscribed names, domain jargon, numbers, punctuation errors, or when a
-  user corrects an earlier dictation.
+description: "Repairs garbled speech-to-text input. Use when voice-dictated text contains mistranscribed names, domain jargon, numbers, punctuation errors, or when a user corrects an earlier dictation."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/", "~/listen/", "~/clawic/listen/"]}}'
   related-skills: '{"audio": "cleaning noisy recordings before they ever reach the STT engine", "speech-to-text-transcription": "batch transcription of audio and video files with timestamps and speakers", "talk": "setting up the real-time voice conversation channel this skill repairs", "voice-notes": "organizing accumulated voice transcripts into a searchable knowledge base"}'

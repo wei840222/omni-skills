@@ -1,6 +1,6 @@
 ---
 name: business
-description: Apply proven business frameworks to validate startup ideas, define strategic priorities, track unit economics, and manage irreversible decisions.
+description: "Apply proven business frameworks for strategic decisions. Use when validating startup hypotheses, defining strategic priorities, tracking unit economics, or analyzing reversible vs irreversible trade-offs."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "💼"}'

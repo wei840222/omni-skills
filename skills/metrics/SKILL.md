@@ -1,7 +1,6 @@
 ---
 name: metrics
-description: Load this skill to define, track, and report metrics using reusable dimensions
-  and standardized formulas. Do not load it for general data entry.
+description: "Define, track, and report business metrics using standardized formulas. Use when establishing KPI definitions, calculating unit metrics, designing metric schemas, or building recurring metric reports; do not use for general data entry."
 metadata:
   openclaw: '{"emoji":"📊"}'
 ---

@@ -1,10 +1,6 @@
 ---
 name: ukrainian
-description: >
-  Write casual, natural-sounding Ukrainian with correct ти/Ви, particles,
-  fillers, expressive vocabulary, and pure Ukrainian (not Russian mix). Load
-  when translating to Ukrainian or drafting informal messages, chats, or
-  friendly emails.
+description: "Write casual, natural-sounding Ukrainian with correct ти/Ви, particles, fillers, expressive vocabulary, and pure Ukrainian (not Russian mix). Use when translating to Ukrainian or drafting informal messages, chats, or friendly emails."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇺🇦","displayName":"Ukrainian"}'

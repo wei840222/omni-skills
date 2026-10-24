@@ -1,6 +1,6 @@
 ---
 name: binance
-description: Use safe Binance Spot REST and WebSocket workflows for market data, signed requests, order reconciliation, and testnet-first validation; do not use for unrelated exchanges or autonomous production trading.
+description: "Use safe Binance Spot REST and WebSocket workflows for market data, signed requests, order reconciliation, and testnet-first validation. Use when executing Binance Spot API integrations, live ticker streams, or account order flows; do not use for unrelated exchanges or autonomous production trading."
 metadata:
   version: "1.0.0"
   related-skills: '{"api": "Build and debug robust HTTP API request workflows", "auth": "Handle API auth models, signatures, and credential safety", "bash": "Automate shell workflows with safer command composition", "bitcoin": "Add BTC domain context when analyzing crypto execution"}'

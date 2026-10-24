@@ -1,6 +1,6 @@
 ---
 name: domains
-description: "Provides domain registration strategies, DNS management, and security best practices. Trigger this when a user asks about buying, securing, transferring, or configuring domains."
+description: "Manage domain registrations and DNS infrastructure. Use when evaluating domain purchase strategies, configuring DNS records (A/CNAME/MX/TXT), setting up DNSSEC, or handling domain transfers."
 metadata:
   openclaw: '{"emoji": "🌐"}'
 ---

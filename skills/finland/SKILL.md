@@ -1,16 +1,6 @@
 ---
 name: finland
-description: >
-  Plan Finland trips with verified Schengen entry orientation, season-aware
-  corridor routing, rail-and-Lapland logistics, and practical tourist safety.
-  Use for Helsinki city breaks, Lapland aurora/winter bases, Lakeland cabins,
-  Turku/archipelago summers, VR night trains, HSL airport transfers, sauna
-  etiquette, or family pacing. Prefer `travel` for multi-country systems,
-  `booking` after a base is chosen, `car-rental` for vehicle handoff details,
-  `food` beyond the Finland food playbook, and `english` for booking-language
-  clarity. Not for inventing nationality-specific visa outcomes, promising
-  aurora certainty, or stacking Helsinki + Lapland + archipelago into one
-  short trip without transfer buffers.
+description: "Plan Finland trips with verified Schengen entry orientation, season-aware corridor routing, rail-and-Lapland logistics, and practical tourist safety. Use when working with Helsinki city breaks, Lapland aurora/winter bases, Lakeland cabins, Turku/archipelago summers, VR night trains, HSL airport transfers, sauna etiquette, or family pacing. Prefer `travel` for multi-country systems, `booking` after a base is chosen, `car-rental` for vehicle handoff details, `food` beyond the Finland food playbook, and `english` for booking-language clarity. Not for inventing nationality-specific visa outcomes, promising aurora certainty, or stacking Helsinki + Lapland + archipelago into one short trip without transfer buffers."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇫🇮"}'

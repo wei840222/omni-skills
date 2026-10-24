@@ -1,6 +1,6 @@
 ---
 name: football
-description: Analyze football and soccer matches, squads, players, and training plans with tactical frameworks, scouting grids, and session blueprints.
+description: "Analyze soccer/football matches, tactics, and player scouting. Use when breaking down tactical formations, set-piece strategies, player performance metrics, or planning training sessions."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⚽","requires":{"config":["<state_root>/"]}}'

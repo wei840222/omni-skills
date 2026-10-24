@@ -1,6 +1,6 @@
 ---
 name: minimax
-description: Manage MiniMax multimodal generation (text, speech, video). Load when the user requests MiniMax text models (e.g. abab6.5-chat), speech generation, or video/music API jobs.
+description: "Manage MiniMax multimodal generation (text, speech, video). Use when the user requests MiniMax text models (e.g. abab6.5-chat), speech generation, or video/music API jobs."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🎛️", "requires": {"env": ["MINIMAX_API_KEY"], "config": ["<state_root>/"]}, "primaryEnv": "MINIMAX_API_KEY"}'

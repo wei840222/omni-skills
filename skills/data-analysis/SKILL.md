@@ -1,6 +1,6 @@
 ---
 name: data-analysis
-description: Analyze, visualize, and explain data to support decisions. Use for KPI definitions, experiment readouts, funnels, cohorts, anomalies, statistical comparisons, and decision-ready reports from SQL, spreadsheets, dashboards, notebooks, exports, or tables.
+description: "Analyze, visualize, and explain data to support decisions. Use when working with KPI definitions, experiment readouts, funnels, cohorts, anomalies, statistical comparisons, and decision-ready reports from SQL, spreadsheets, dashboards, notebooks, exports, or tables."
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"D"}'

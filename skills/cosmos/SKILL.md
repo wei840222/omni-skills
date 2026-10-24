@@ -1,8 +1,6 @@
 ---
 name: cosmos
-description: Assist with Cosmos ATOM transactions, IBC transfers, staking, and
-  cross-chain account issues. Load this when the user needs help with Hub staking,
-  validator choice, Keplr/Leap wallets, IBC routes, or common sequence and channel failures.
+description: "Assist with Cosmos ATOM transactions, IBC transfers, staking, and cross-chain account issues. Use when troubleshooting Hub staking, validator choice, Keplr/Leap wallets, IBC routes, or common sequence and channel failures."
 metadata:
   openclaw: '{"emoji":"⚛️","os":["linux","darwin","win32"],"displayName":"Cosmos"}'
   related-skills: '{"bitcoin": "Handle Bitcoin UTXO transfers instead of Cosmos account/IBC flows.", "ethereum": "Handle Ethereum gas and ERC-20 flows instead of Cosmos SDK chains.", "invest": "Frame broader portfolio allocation once Cosmos network mechanics are settled.", "polkadot": "Handle Polkadot DOT, SS58, and XCM instead of Cosmos Hub/IBC.", "tron": "Handle TRON TRX/TRC-20 bandwidth and energy instead of Cosmos IBC."}'

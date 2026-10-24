@@ -1,11 +1,6 @@
 ---
 name: dogecoin
-description: >
-  Diagnose Dogecoin (DOGE) address formats, fees, confirmations, unconfirmed
-  sends without RBF, wallet sync, and Scrypt merged-mining context with Litecoin.
-  Use for D-prefix deposits, stuck txs, exchange compatibility, or scam checks.
-  Not for Bitcoin UTXO/Lightning (`bitcoin`), Litecoin/MWEB (`litecoin`), XRPL
-  tags (`xrp`), or portfolio/market tooling (`crypto-tools`).
+description: "Diagnose Dogecoin (DOGE) address formats, fees, confirmations, unconfirmed sends without RBF, wallet sync, and Scrypt merged-mining context with Litecoin. Use when working with D-prefix deposits, stuck txs, exchange compatibility, or scam checks. Not for Bitcoin UTXO/Lightning (`bitcoin`), Litecoin/MWEB (`litecoin`), XRPL tags (`xrp`), or portfolio/market tooling (`crypto-tools`)."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐕"}'

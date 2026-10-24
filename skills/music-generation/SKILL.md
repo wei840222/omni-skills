@@ -1,6 +1,6 @@
 ---
 name: music-generation
-description: Generate AI music with optimized prompts, style control, and production-ready audio output. Trigger when the user wants to create music, background tracks, or sound effects.
+description: "Generate AI music with optimized prompts, style control, and production-ready audio output. Use when the user wants to create music, background tracks, or sound effects."
 metadata:
   openclaw: '{"emoji": "🎵"}'
 ---

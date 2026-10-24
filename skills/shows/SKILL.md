@@ -1,6 +1,6 @@
 ---
 name: shows
-description: Track movies and series with progress, watchlist, ratings, and proactive alerts.
+description: "Track television series and movies across streaming platforms. Use when maintaining watchlists, tracking episode progress, organizing ratings, or receiving alerts for upcoming season releases."
 metadata:
   openclaw: '{"emoji":"📺"}'
 ---

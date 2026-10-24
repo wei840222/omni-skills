@@ -1,12 +1,6 @@
 ---
 name: store
-description: >
-  Run physical retail operations: opening/closing routines, inventory accuracy,
-  staffing to traffic, cash/shrink control, merchandising, and weekly KPI reviews.
-  Use for boutiques, convenience stores, specialty retail, showrooms, kiosks, or
-  multi-shift brick-and-mortar shops that need floor execution. Not for pure
-  ecommerce ops, generic business strategy without a store floor, or payments
-  provider integration.
+description: "Run physical retail operations: opening/closing routines, inventory accuracy, staffing to traffic, cash/shrink control, merchandising, and weekly KPI reviews. Use when working with boutiques, convenience stores, specialty retail, showrooms, kiosks, or multi-shift brick-and-mortar shops that need floor execution. Not for pure ecommerce ops, generic business strategy without a store floor, or payments provider integration."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏬"}'

@@ -1,8 +1,6 @@
 ---
 name: meetings
-description: Design agendas, facilitate meetings, capture decisions, and drive follow-ups.
-  Load when preparing, running, minuting, or cleaning up 1-on-1s, standups, retros,
-  planning, client calls, workshops, or any meeting that needs owners and dates.
+description: "Design agendas, facilitate meetings, capture decisions, and drive follow-ups. Use when preparing, running, minuting, or cleaning up 1-on-1s, standups, retros, planning, client calls, workshops, or any meeting that needs owners and dates."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤝"}'

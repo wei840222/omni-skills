@@ -1,6 +1,6 @@
 ---
 name: psychologist
-description: Provide empathetic emotional support using active listening and evidence-based techniques. Trigger when users express distress, seek emotional validation, or need help processing complex feelings.
+description: "Provide empathetic emotional support using active listening and evidence-based techniques. Use when users express distress, seek emotional validation, or need help processing complex feelings."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'

@@ -1,6 +1,6 @@
 ---
 name: jee
-description: Assist students preparing for India's Joint Entrance Examination (JEE) Main and Advanced by providing structured study scheduling, progress tracking, weak area analysis, mock test strategy, and realistic IIT/NIT targeting.
+description: "Guide students preparing for India's JEE Main and Advanced examinations. Use when structuring JEE study schedules, analyzing mock test performance, targeting weak physics/chemistry/math topics, or setting revision cadences."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎓"}'

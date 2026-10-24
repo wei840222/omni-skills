@@ -1,12 +1,6 @@
 ---
 name: amsterdam
-description: >
-  Assist with Amsterdam travel, relocation, work, study, or local life by routing
-  to neighborhood, transport, housing, visa orientation, cost, and lifestyle guides.
-  Use for visitor itineraries, moving/settling checklists, tech-career orientation,
-  cycling and GVB transit, or 30% ruling / HSM overview. Not for filing a visa,
-  booking non-refundable travel, or stating a nationality-specific entry rule without
-  re-checking the official IND/Iamsterdam page for that passport and date.
+description: "Assist with Amsterdam travel, relocation, work, study, or local life by routing to neighborhood, transport, housing, visa orientation, cost, and lifestyle guides. Use when working with visitor itineraries, moving/settling checklists, tech-career orientation, cycling and GVB transit, or 30% ruling / HSM overview. Not for filing a visa, booking non-refundable travel, or stating a nationality-specific entry rule without re-checking the official IND/Iamsterdam page for that passport and date."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🚲"}'

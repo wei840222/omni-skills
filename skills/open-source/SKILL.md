@@ -1,8 +1,6 @@
 ---
 name: open-source
-description: Evaluate, self-host, maintain, and publish open source projects. Use
-  this skill when the user wants to compare open source alternatives, set up self-hosting
-  operations, manage a project repository, or release new software.
+description: "Evaluate, self-host, maintain, and publish open source projects. Use this skill Use when the user wants to compare open source alternatives, set up self-hosting operations, manage a project repository, or release new software."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🌍"}'

@@ -1,9 +1,6 @@
 ---
 name: history
-description: >
-  Analyze historical events, historiography, and primary sources with academic
-  standards and narrative clarity. Load when discussing past events, historical
-  analysis, source criticism, historiographical debates, or teaching history.
+description: "Analyze historical events, historiography, and primary sources with academic standards and narrative clarity. Use when discussing past events, historical analysis, source criticism, historiographical debates, or teaching history."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📜","os":["linux","darwin","win32"],"displayName":"History"}'

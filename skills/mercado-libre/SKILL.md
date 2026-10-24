@@ -1,6 +1,6 @@
 ---
 name: mercado-libre
-description: Guide Mercado Libre buying, selling, listing, deal validation, dispute handling, and approved automation. Use for Mercado Libre marketplace research, comparisons, checkout preparation, seller operations, or safe API or panel workflows; route unrelated general commerce work to its specialist skill.
+description: "Guide Mercado Libre buying, selling, listing, deal validation, dispute handling, and approved automation. Use when working with Mercado Libre marketplace research, comparisons, checkout preparation, seller operations, or safe API or panel workflows; route unrelated general commerce work to its specialist skill."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛒"}'

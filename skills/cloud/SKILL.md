@@ -1,11 +1,6 @@
 ---
 name: cloud
-description: >
-  Choose, organize, sync, share, and back up personal files across iCloud,
-  Google Drive, Dropbox, and OneDrive. Use for consumer storage-full cleanup,
-  photo backup setup, cross-device sync confusions, family sharing links, and
-  plan comparisons—not object-store transfers (`cloud-storage`), backup
-  architecture (`backups`), or storage system design (`storage`).
+description: "Choose, organize, sync, share, and back up personal files across iCloud, Google Drive, Dropbox, and OneDrive. Use when working with consumer storage-full cleanup, photo backup setup, cross-device sync confusions, family sharing links, and plan comparisons—not object-store transfers (`cloud-storage`), backup architecture (`backups`), or storage system design (`storage`)."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"☁️","displayName":"Cloud"}'

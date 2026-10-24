@@ -1,9 +1,6 @@
 ---
 name: homework
-description: >
-  Assist students with assignments by prioritizing teaching, hints, and concept
-  explanation over direct answers. Trigger when users ask for help with homework,
-  coursework, studying, or test preparation across subjects.
+description: "Assist students with assignments by prioritizing teaching, hints, and concept explanation over direct answers. Use when users ask for help with homework, coursework, studying, or test preparation across subjects."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📚"}'

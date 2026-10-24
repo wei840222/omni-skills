@@ -1,6 +1,6 @@
 ---
 name: japanese
-description: Writes and edits natural Japanese across all registers (casual to full keigo). Use to compose or repair Japanese text, correct register, fix mechanical errors (particles, transitivity), format typography (full-width, spacing), or manage politeness levels. Not for translating existing source text (`translate`) or travel tasks (`japan`).
+description: "Writes and edits natural Japanese across all registers (casual to full keigo). Use when needing to compose or repair Japanese text, correct register, fix mechanical errors (particles, transitivity), format typography (full-width, spacing), or manage politeness levels. Not for translating existing source text (`translate`) or travel tasks (`japan`)."
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🇯🇵"}'

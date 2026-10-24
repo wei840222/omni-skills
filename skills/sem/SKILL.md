@@ -1,6 +1,6 @@
 ---
 name: sem
-description: Manage search engine marketing strategy, keyword bidding, quality score optimization, and paid-search campaigns. Use this skill when planning, auditing, or troubleshooting paid-search campaigns and Google Ads workflows.
+description: "Manage paid search engine marketing (SEM) campaigns. Use when structuring Google Ads account architectures, managing keyword bidding strategies, optimizing quality scores, or auditing ad group conversion performance."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔍"}'

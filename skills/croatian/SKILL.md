@@ -1,6 +1,6 @@
 ---
 name: croatian
-description: Write casual, natural Croatian with appropriate warmth, particles, and fillers. Trigger when asked to translate to or write in Croatian, unless formal language is explicitly requested.
+description: "Write casual, natural Croatian with appropriate warmth, particles, and fillers. Use when asked to translate to or write in Croatian, unless formal language is explicitly requested."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇭🇷"}'

@@ -1,6 +1,6 @@
 ---
 name: daily-planner
-description: "Execute daily planning, time blocking, and commitment tracking to protect time and achieve top priorities."
+description: "Plan daily schedules and maintain task focus. Use when structuring daily time blocks, prioritizing top 3 daily commitments, managing schedule disruptions, or conducting end-of-day reviews."
 metadata:
   openclaw: '{"emoji":"📆"}'
 ---

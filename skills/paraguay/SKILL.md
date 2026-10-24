@@ -1,7 +1,6 @@
 ---
 name: paraguay
-description: Plan Paraguay trips with border-savvy routing, river-city priorities,
-  and practical guidance for Asuncion, Encarnacion, Ciudad del Este, and the Chaco.
+description: "Plan travel and logistics in Paraguay. Use when organizing itineraries for Asunción, Ciudad del Este, or the Chaco, navigating overland borders, or understanding local transit and currencies."
 metadata:
   openclaw: '{"emoji": "🇵🇾"}'
   related-skills: '{"argentina": "Better regional planning for cross-border combinations", "booking": "Reservation workflows and confirmation hygiene", "food": "Deeper restaurant and cuisine planning", "spanish": "Language support for bookings and practical interactions", "travel": "General trip planning and itinerary structure"}'

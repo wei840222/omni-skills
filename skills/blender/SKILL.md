@@ -1,10 +1,6 @@
 ---
 name: blender
-description: >
-  Apply Blender transforms, fix normals, order modifiers, unwrap UVs, set
-  origins, and export FBX/glTF for Unity, Unreal, or web. Use for mesh cleanup,
-  game-engine export orientation/scale, common modeling mistakes, and bpy
-  context/operator scripting.
+description: "Apply Blender transforms, fix normals, order modifiers, unwrap UVs, set origins, and export FBX/glTF for Unity, Unreal, or web. Use when working with mesh cleanup, game-engine export orientation/scale, common modeling mistakes, and bpy context/operator scripting."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧊"}'

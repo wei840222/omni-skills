@@ -1,13 +1,6 @@
 ---
 name: saas
-description: >
-  Compute and reconcile SaaS subscription metrics (MRR/ARR, NRR, deferred revenue),
-  design packaging (tiers, seats, limits, add-ons), run retention economics (trials,
-  dunning, churn), and verify enterprise readiness (SSO/SCIM, SOC 2, DPA, SLAs).
-  Use for movement bridges, plan architecture, failed-payment recovery, expansion,
-  cost-to-serve margins, multi-tenant isolation, and procurement readiness. Not for
-  setting list price (`pricing`), acquisition funnels (`growth`), payment-code
-  integration (`billing`), company financial models (`cfo`), or closing one deal (`b2b`).
+description: "Compute and reconcile SaaS subscription metrics (MRR/ARR, NRR, deferred revenue), design packaging (tiers, seats, limits, add-ons), run retention economics (trials, dunning, churn), and verify enterprise readiness (SSO/SCIM, SOC 2, DPA, SLAs). Use when working with movement bridges, plan architecture, failed-payment recovery, expansion, cost-to-serve margins, multi-tenant isolation, and procurement readiness. Not for setting list price (`pricing`), acquisition funnels (`growth`), payment-code integration (`billing`), company financial models (`cfo`), or closing one deal (`b2b`)."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💎","requires":{"config":["<state_root>/saas/","<state_root>/contacts/","<state_root>/projects/","<state_root>/profile.yaml"]},"configPaths":["<state_root>/saas/","<state_root>/contacts/","<state_root>/projects/","<state_root>/profile.yaml"]}'

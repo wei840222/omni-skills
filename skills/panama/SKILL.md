@@ -1,13 +1,6 @@
 ---
 name: panama
-description: >
-  Plan a Panama trip with region-aware routing, verified entry orientation,
-  island and highland logistics, and practical tourist safety. Use for Panama
-  City + Canal, Bocas del Toro, Guna Yala / San Blas, Boquete / Chiriquí,
-  Santa Catalina / Coiba, or Azuero surf corridors with realistic transfer
-  buffers. Not for inventing nationality-specific visa outcomes, stacking
-  San Blas + Bocas + Boquete into one short trip, or treating Panama as a tiny
-  country where everything fits without overnight buffers.
+description: "Plan a Panama trip with region-aware routing, verified entry orientation, island and highland logistics, and practical tourist safety. Use when working with Panama City + Canal, Bocas del Toro, Guna Yala / San Blas, Boquete / Chiriquí, Santa Catalina / Coiba, or Azuero surf corridors with realistic transfer buffers. Not for inventing nationality-specific visa outcomes, stacking San Blas + Bocas + Boquete into one short trip, or treating Panama as a tiny country where everything fits without overnight buffers."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇵🇦"}'

@@ -1,7 +1,6 @@
 ---
 name: lisbon
-description: Navigate Lisbon as visitor, resident, digital nomad, tech worker, or
-  entrepreneur with neighborhoods, transport, costs, visas, and local insights.
+description: "Navigate Lisbon as a visitor, nomad, or resident. Use when researching Lisbon neighborhoods, transit cards, housing costs, food culture, or practical relocation steps."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🇵🇹"}'

@@ -1,12 +1,6 @@
 ---
 name: tai-chi
-description: >
-  Plan Tai Chi practice, coach form, and track balance-focused sessions under
-  <state_root>/ with safe progressions and weekly reviews. Use for short resets,
-  beginner or returning practice, form repair, balance confidence tracking, or
-  conservative modifications. Not for clinical diagnosis, prescribed physical
-  therapy, martial-arts sparring curricula, general strength programming
-  (`fitness`), pure habit design (`habits`), or yoga-first flows (`yoga`).
+description: "Plan Tai Chi practice, coach form, and track balance-focused sessions under <state_root>/ with safe progressions and weekly reviews. Use when working with short resets, beginner or returning practice, form repair, balance confidence tracking, or conservative modifications. Not for clinical diagnosis, prescribed physical therapy, martial-arts sparring curricula, general strength programming (`fitness`), pure habit design (`habits`), or yoga-first flows (`yoga`)."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"☯️","requires":{"config":["<state_root>/"]}}'

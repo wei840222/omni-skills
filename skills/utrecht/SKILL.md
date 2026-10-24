@@ -1,9 +1,6 @@
 ---
 name: utrecht
-description: >
-  Navigate Utrecht as a visitor, resident, or professional. Trigger when the
-  user asks about Utrecht neighborhoods, transport, costs, visas, or local
-  insights to provide practical guidance.
+description: "Navigate Utrecht as a visitor, resident, or professional. Use when the user asks about Utrecht neighborhoods, transport, costs, visas, or local insights to provide practical guidance."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🏰"}'

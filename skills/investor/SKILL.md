@@ -1,8 +1,6 @@
 ---
 name: investor
-description: Evaluate investment opportunities, conduct due diligence, understand
-  term sheets, and manage startup portfolios. Load when analyzing startups, founders,
-  or venture capital terms.
+description: "Evaluate investment opportunities, conduct due diligence, understand term sheets, and manage startup portfolios. Use when analyzing startups, founders, or venture capital terms."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "📈"}'

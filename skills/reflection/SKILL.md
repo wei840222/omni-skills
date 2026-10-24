@@ -1,14 +1,6 @@
 ---
 name: reflection
-description: >
-  Run continuous self-reflection and lesson retention: evaluate deliverables
-  against 7 dimensions before sending, log post-mistake corrections, detect
-  recurring blind spots, and inject past lessons before repeating them. Use
-  for pre-delivery QA, after user corrections, weekly pattern review, or when
-  a heavier retrospective is needed once work is complete. Prefer
-  `self-criticism` for short mid-task breakpoints, `self-improving` for durable
-  execution lessons after outcomes, `decide` for consequential branch choices,
-  and `memory` / `learning` when the need is fact storage or study practice.
+description: "Run continuous self-reflection and lesson retention: evaluate deliverables against 7 dimensions before sending, log post-mistake corrections, detect recurring blind spots, and inject past lessons before repeating them. Use when working with pre-delivery QA, after user corrections, weekly pattern review, or when a heavier retrospective is needed once work is complete. Prefer `self-criticism` for short mid-task breakpoints, `self-improving` for durable execution lessons after outcomes, `decide` for consequential branch choices, and `memory` / `learning` when the need is fact storage or study practice."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🪞","requires":{"config":["<state_root>/"]}}'

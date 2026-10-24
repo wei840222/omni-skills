@@ -1,9 +1,6 @@
 ---
 name: onboarding
-description: >
-  Design and optimize user onboarding flows that maximize activation and
-  minimize time-to-value. Load when designing sign-up forms, empty states,
-  checklists, first-run tours, onboarding email sequences, or activation metrics.
+description: "Design and optimize user onboarding flows that maximize activation and minimize time-to-value. Use when designing sign-up forms, empty states, checklists, first-run tours, onboarding email sequences, or activation metrics."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🚀","os":["linux","darwin","win32"],"displayName":"Onboarding"}'

@@ -1,13 +1,6 @@
 ---
 name: kotlin
-description: >
-  Write, debug, and review Kotlin: coroutines and flows, null safety, collections,
-  Java interop, Compose state, Multiplatform, and server Kotlin. Load when an NPE
-  hits a non-null type, `!!` or a Java platform type blows up, a coroutine leaks or
-  fails to cancel, a StateFlow halts emissions, Compose recomposes too much or loses
-  state, kapt/KSP or JVM-target errors break the build, JSON puts null into a non-null
-  property, or a coroutine test hangs. Not for Java-only codebases or Android
-  release/signing configuration.
+description: "Write, debug, and review Kotlin: coroutines and flows, null safety, collections, Java interop, Compose state, Multiplatform, and server Kotlin. Use when an NPE hits a non-null type, `!!` or a Java platform type blows up, a coroutine leaks or fails to cancel, a StateFlow halts emissions, Compose recomposes too much or loses state, kapt/KSP or JVM-target errors break the build, JSON puts null into a non-null property, or a coroutine test hangs. Not for Java-only codebases or Android release/signing configuration."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟠","requires":{"bins":["kotlin"]},"os":["linux","darwin","win32"],"displayName":"Kotlin"}'

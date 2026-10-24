@@ -1,9 +1,6 @@
 ---
 name: bnb
-description: >
-  Assist with BNB Chain transactions, BEP-20 token transfers, wallet/RPC setup,
-  and DeFi tasks on PancakeSwap or similar apps. Load when handling BNB gas fees,
-  bridging assets, verifying contracts on bscscan, or managing BEP-20 tokens.
+description: "Assist with BNB Chain transactions, BEP-20 token transfers, wallet/RPC setup, and DeFi tasks on PancakeSwap or similar apps. Use when handling BNB gas fees, bridging assets, verifying contracts on bscscan, or managing BEP-20 tokens."
 metadata:
   openclaw: '{"emoji": "🔶"}'
   related-skills: '{"aave": "Analyze multi-chain Aave positions when the request leaves BNB-native DeFi mechanics.", "binance": "Handle Binance exchange account/API workflows rather than on-chain BNB Chain operations.", "blockchain": "Cover general ledger and EVM fundamentals beyond BNB-specific network and token mechanics.", "crypto-tools": "Fetch market data and exchange tooling once BNB Chain transaction mechanics are settled.", "ethereum": "Handle Ethereum/L2 gas, approvals, and bridges instead of BNB Chain BEP-20 flows."}'

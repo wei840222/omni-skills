@@ -1,13 +1,6 @@
 ---
 name: ssl
-description: >
-  Issue, renew, and debug TLS/SSL certificates and HTTPS endpoints with certbot,
-  ACME clients, openssl, and server configs (Nginx, Apache, Caddy, Traefik,
-  HAProxy, Node). Use for Let's Encrypt issuance, chain/expiry/hostname errors,
-  mixed content, format conversion (PEM/DER/PKCS#12), and automated renewal.
-  Prefer `nginx`/`caddy`/`traefik` for reverse-proxy routing beyond TLS
-  termination, `network` for generic reachability outside certificates, and
-  `oauth` for application identity rather than transport TLS.
+description: "Issue, renew, and debug TLS/SSL certificates and HTTPS endpoints with certbot, ACME clients, openssl, and server configs (Nginx, Apache, Caddy, Traefik, HAProxy, Node). Use when working with Let's Encrypt issuance, chain/expiry/hostname errors, mixed content, format conversion (PEM/DER/PKCS#12), and automated renewal. Prefer `nginx`/`caddy`/`traefik` for reverse-proxy routing beyond TLS termination, `network` for generic reachability outside certificates, and `oauth` for application identity rather than transport TLS."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔒"}'

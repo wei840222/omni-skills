@@ -1,6 +1,6 @@
 ---
 name: prayers
-description: Manage personal prayer routines across faith traditions. Use to configure prayer schedules, track intentions, log reflections, and receive spiritual reminders.
+description: "Manage personal prayer routines across faith traditions. Use when needing to configure prayer schedules, track intentions, log reflections, and receive spiritual reminders."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🙏"}'

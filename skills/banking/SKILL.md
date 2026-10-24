@@ -1,13 +1,6 @@
 ---
 name: banking
-description: >
-  Run retail and business banking operations: request intake, payment controls,
-  reconciliation triage, fraud containment, compliant customer messaging, and
-  escalation boundaries. Use for onboarding workflows, transfers, disputes,
-  outages, or ops guidance that must stay control-first; not for household
-  budgeting (`money`), ledger teaching (`accounting`), outbound client invoices
-  (`invoice`), product payment rails coding (`payments`), or portfolio picks
-  (`invest`).
+description: "Run retail and business banking operations: request intake, payment controls, reconciliation triage, fraud containment, compliant customer messaging, and escalation boundaries. Use when working with onboarding workflows, transfers, disputes, outages, or ops guidance that must stay control-first; not for household budgeting (`money`), ledger teaching (`accounting`), outbound client invoices (`invoice`), product payment rails coding (`payments`), or portfolio picks (`invest`)."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏦"}'

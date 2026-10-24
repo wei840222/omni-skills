@@ -1,6 +1,6 @@
 ---
 name: greece
-description: Plan Greece trips with island-mainland routing, ferry logistics, verified entry rules, and practical seasonal safety.
+description: "Plan travel across Greece and the Greek Islands. Use when coordinating ferry routes between islands, scheduling Athens sightseeing, checking seasonal transit schedules, or packing for regional climates."
 metadata:
   related-skills: '{"booking": "Reservation workflow and confirmation hygiene", "car-rental": "Better island and mainland rental strategy", "food": "Deeper restaurant and cuisine planning", "greek": "Language support for bookings, menus, and local interactions", "travel": "General trip planning and itinerary structure"}'
   openclaw: '{"emoji":"🇬🇷"}'

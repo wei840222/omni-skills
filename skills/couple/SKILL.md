@@ -1,7 +1,6 @@
 ---
 name: couple
-description: Strengthen relationships with milestone tracking, personalized celebrations,
-  date planning, and shared memory across all relationship stages.
+description: "Strengthen romantic relationships through intentional habits. Use when planning date nights, tracking relationship milestones, resolving recurring communication friction, or celebrating anniversaries."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "💑"}'

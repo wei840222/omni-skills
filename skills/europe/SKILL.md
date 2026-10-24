@@ -1,6 +1,6 @@
 ---
 name: europe
-description: "Expertly manage cross-border trip planning, mobility rights, choosing a base, moving, studying, and working remotely across Europe by understanding how the EU, Schengen, eurozone, and national systems intersect."
+description: "Navigate cross-border travel and relocation across Europe. Use when coordinating Schengen 90/180-day limits, EU cross-border transit, digital nomad visas, or moving between EU/EEA countries."
 license: MIT
 compatibility: "*"
 metadata:

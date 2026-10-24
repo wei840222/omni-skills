@@ -1,6 +1,6 @@
 ---
 name: affiliate-marketing
-description: Design and optimize affiliate programs with partner scoring, commission economics, tracking QA, fraud controls, and compliance reviews. Trigger when the user needs affiliate marketing management, partner recruitment, affiliate tracking, or affiliate operations.
+description: "Design and optimize affiliate programs with partner scoring, commission economics, tracking QA, fraud controls, and compliance reviews. Use when the user needs affiliate marketing management, partner recruitment, affiliate tracking, or affiliate operations."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤝","requires":{"configPaths":["<state_root>/"]}}'

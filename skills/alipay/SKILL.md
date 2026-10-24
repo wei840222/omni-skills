@@ -1,6 +1,6 @@
 ---
 name: alipay
-description: Implement Alipay for web and mobile with signed request safety, gateway alignment, and production-ready payment operations.
+description: "Implement Alipay for web and mobile. Use when configuring signed request safety, aligning gateway endpoints, handling asynchronous callbacks, or handling production error codes."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💴","requires":{"bins":["curl","jq"],"env":["ALIPAY_APP_ID"]}}'

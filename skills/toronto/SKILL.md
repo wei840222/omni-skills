@@ -1,6 +1,6 @@
 ---
 name: toronto
-description: "Navigate Toronto as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transit, costs, immigration, and local insights."
+description: "Navigate Toronto for visitors, newcomers, tech workers, and students. Use when researching Toronto neighborhoods, TTC transit, housing and rental costs, Canadian immigration pathways, or city winter logistics."
 metadata:
   openclaw: '{"emoji":"🍁"}'
 ---

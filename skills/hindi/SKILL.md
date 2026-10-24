@@ -1,6 +1,6 @@
 ---
 name: hindi
-description: When requested to write in Hindi, generate human-sounding, casual Hindi or Hinglish instead of formal, pure, AI-like Hindi.
+description: "Write natural, conversational Hindi or Hinglish. Use when generating informal Hindi messages, social posts, or dialogue using authentic phrasing and conversational registers instead of formal AI tone."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇮🇳"}'

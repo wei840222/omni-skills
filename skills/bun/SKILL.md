@@ -1,8 +1,6 @@
 ---
 name: bun
-description: Assist with migrating to the Bun runtime, bundling JavaScript/TypeScript,
-  and managing packages by guiding users through runtime traps, bundler pitfalls,
-  and resolution gotchas.
+description: "Migrate projects to Bun runtime, bundler, and package manager. Use when diagnosing runtime incompatibilities, configuring bun build/test, debugging native module resolution, or optimizing package scripts."
 metadata:
   openclaw: '{"emoji": "🥟", "requires": {"bins": ["bun"]}}'
 ---

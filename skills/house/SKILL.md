@@ -1,6 +1,6 @@
 ---
 name: house
-description: Buy, maintain, improve, sell, or rent out a home. Use for offer and inspection decisions, seasonal maintenance, permits and contractor scope, listing price, or a landlord lease. Not for licensed legal, tax, lending, or structural advice, and not for a jurisdiction whose rules were not checked. Load references/sources.md before repeating a ratio, permit rule, or ROI figure.
+description: "Buy, maintain, improve, sell, or rent out a home. Use when working with offer and inspection decisions, seasonal maintenance, permits and contractor scope, listing price, or a landlord lease. Not for licensed legal, tax, lending, or structural advice, and not for a jurisdiction whose rules were not checked. Load references/sources.md before repeating a ratio, permit rule, or ROI figure."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏠"}'

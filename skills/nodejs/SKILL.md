@@ -1,10 +1,6 @@
 ---
 name: nodejs
-description: >
-  Build, debug, and harden Node.js servers, CLIs, and npm packages. Trigger
-  when writing code for Node, debugging memory leaks, OOM crashes, unhandled
-  rejections, EADDRINUSE/EMFILE errors, or optimizing event loops and streams.
-  Does not cover browser-only JS, TS type-system design, or Bun/Deno.
+description: "Build, debug, and harden Node.js servers, CLIs, and npm packages. Use when writing code for Node, debugging memory leaks, OOM crashes, unhandled rejections, EADDRINUSE/EMFILE errors, or optimizing event loops and streams. Does not cover browser-only JS, TS type-system design, or Bun/Deno."
 metadata:
   openclaw: '{"emoji": "💚", "requires": {"bins": ["node"]}, "configPaths": ["<state_root>/nodejs/"]}'
   related-skills: '{"api": "HTTP API design, versioning, and contracts above the runtime", "docker": "containerizing the service, image layers, resource limits", "javascript": "language-level semantics: coercion, closures, dates, regex", "typescript": "type-system design, tsconfig strictness, declaration files"}'

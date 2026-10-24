@@ -1,12 +1,6 @@
 ---
 name: seville
-description: >
-  Navigate Seville for visitors, residents, tech workers, students, and
-  entrepreneurs: neighborhoods, TUSSAM/metro/bike, costs, tapeo culture,
-  flamenco authenticity, Semana Santa/Feria timing, extreme summer heat, and
-  local services. Use for Seville stay, move, commute, or work-base decisions.
-  Prefer `spain` for multi-city Spain routing, `travel`/`travel-planning` for
-  generic trip systems, and `expat` for full cross-border move project tracking.
+description: "Navigate Seville for visitors, residents, tech workers, students, and entrepreneurs: neighborhoods, TUSSAM/metro/bike, costs, tapeo culture, flamenco authenticity, Semana Santa/Feria timing, extreme summer heat, and local services. Use when working with Seville stay, move, commute, or work-base decisions. Prefer `spain` for multi-city Spain routing, `travel`/`travel-planning` for generic trip systems, and `expat` for full cross-border move project tracking."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏛️"}'

@@ -1,13 +1,6 @@
 ---
 name: chrome
-description: >
-  Debug and automate Chromium via Chrome DevTools Protocol (CDP), Manifest V3
-  extensions, and Chrome-only diagnostics: target discovery, domain enablement,
-  screenshots, network body fetch, Fetch interception, service-worker state,
-  and secure-context checks. Use for raw CDP clients, extension MV3 pitfalls,
-  remote-debugging endpoints, or Chrome-vs-Edge detection. Prefer `playwright`
-  or `puppeteer` for product browser automation; `cypress` for that suite;
-  `web`/`javascript` for page code without DevTools.
+description: "Debug and automate Chromium via Chrome DevTools Protocol (CDP), Manifest V3 extensions, and Chrome-only diagnostics: target discovery, domain enablement, screenshots, network body fetch, Fetch interception, service-worker state, and secure-context checks. Use when working with raw CDP clients, extension MV3 pitfalls, remote-debugging endpoints, or Chrome-vs-Edge detection. Prefer `playwright` or `puppeteer` for product browser automation; `cypress` for that suite; `web`/`javascript` for page code without DevTools."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐"}'

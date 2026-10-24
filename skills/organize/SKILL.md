@@ -1,6 +1,6 @@
 ---
 name: organize
-description: Proactively organizes files and directories during regular work by applying naming conventions and directory patterns. Triggers on file creation, renaming, or when noticing disorganized project structures to propose and apply structural improvements.
+description: "Proactively organizes files and directories during regular work by applying naming conventions and directory patterns. Use when dealing with file creation, renaming, or when noticing disorganized project structures to propose and apply structural improvements."
 metadata:
   openclaw: '{"emoji": "🗂️"}'
 ---

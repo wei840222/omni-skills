@@ -1,12 +1,6 @@
 ---
 name: boston
-description: >
-  Navigate Boston for visitors, residents, tech workers, students, and
-  entrepreneurs: neighborhoods, MBTA/transport, costs, safety, visas, food,
-  climate, and local services. Use for Greater Boston stay, move, commute, or
-  work-base decisions. Prefer `united-states` for multi-city US routing,
-  `travel`/`travel-planning` for generic trip systems, and `expat` for full
-  cross-border move project tracking.
+description: "Navigate Boston for visitors, residents, tech workers, students, and entrepreneurs: neighborhoods, MBTA/transport, costs, safety, visas, food, climate, and local services. Use when working with Greater Boston stay, move, commute, or work-base decisions. Prefer `united-states` for multi-city US routing, `travel`/`travel-planning` for generic trip systems, and `expat` for full cross-border move project tracking."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🦞"}'

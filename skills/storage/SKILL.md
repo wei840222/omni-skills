@@ -1,6 +1,6 @@
 ---
 name: storage
-description: Architect and evaluate storage systems by selecting appropriate databases, object storage, block storage, and CDN strategies.
+description: "Architect data storage systems and persistence strategies. Use when selecting relational vs NoSQL databases, designing object and block storage architectures, or configuring CDN caching layers."
 metadata:
   openclaw: '{"emoji":"💾"}'
   compatibility: "linux, darwin, win32"

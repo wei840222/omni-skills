@@ -1,6 +1,6 @@
 ---
 name: copywriting
-description: Draft and review persuasive marketing copy using proven direct response principles. Load references/copywriting-guide.md when drafting headlines, body copy, CTAs, landing pages, emails, or ads.
+description: "Draft and review high-converting marketing copy. Use when writing sales headlines, email campaigns, landing page copy, value propositions, or call-to-action prompts using direct-response principles."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📈"}'

@@ -1,8 +1,6 @@
 ---
 name: self-discipline
-description: >
-  Enforce strict compliance by analyzing failures, verifying fix visibility,
-  and generating automated validators to prevent recurring errors.
+description: "Enforce strict execution discipline and prevent recurring agent errors. Use when analyzing task failures, verifying fix visibility, generating regression assertions, or preventing regression patterns."
 metadata:
   openclaw: '{"emoji": "⚔️", "requires": {"bins": [], "config": ["<state_root>/"]}}'
   related-skills: '{"decide": "decision-making patterns", "escalate": "know when to ask vs act", "learning": "adaptive learning system", "memory": "persistent memory patterns", "reflection": "structured self-evaluation"}'

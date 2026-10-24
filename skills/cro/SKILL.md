@@ -1,8 +1,6 @@
 ---
 name: cro
-description: >
-  Optimize conversion rates using funnel analysis, A/B testing, and
-  statistical evaluation.
+description: "Optimize conversion rate funnels and user journeys. Use when designing A/B and multivariate tests, evaluating statistical significance, diagnosing drop-off stages, or auditing landing page friction."
 metadata:
   openclaw: '{"emoji": "📈"}'
 ---

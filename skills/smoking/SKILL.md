@@ -1,10 +1,6 @@
 ---
 name: smoking
-description: >
-  Track tobacco and nicotine use, log triggers, reduce consumption, and plan
-  quits. Load when asked to log a cigarette or vape, stop smoking, manage
-  cravings, or keep neutral smoking records. Not for medical diagnosis,
-  prescribing, or emergency care.
+description: "Track tobacco and nicotine use, log triggers, reduce consumption, and plan quits. Use when asked to log a cigarette or vape, stop smoking, manage cravings, or keep neutral smoking records. Not for medical diagnosis, prescribing, or emergency care."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🚬", "requires": {"config": ["<state_root>/smoking/"]}}'

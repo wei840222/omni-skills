@@ -1,11 +1,6 @@
 ---
 name: esim
-description: >
-  Implement and troubleshoot eSIM activation, carrier integration, and RSP
-  development. Use for SGP.22 consumer profiles, SGP.02 M2M profiles, SGP.32
-  IoT, SM-DP+ activation codes, iOS CTCellularPlanProvisioning, and Android
-  EuiccManager. Not for physical SIM cloning, arbitrary third-party
-  provisioning, or production SM-DP+ go-live without GSMA SAS.
+description: "Implement and troubleshoot eSIM activation, carrier integration, and RSP development. Use when working with SGP.22 consumer profiles, SGP.02 M2M profiles, SGP.32 IoT, SM-DP+ activation codes, iOS CTCellularPlanProvisioning, and Android EuiccManager. Not for physical SIM cloning, arbitrary third-party provisioning, or production SM-DP+ go-live without GSMA SAS."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📱","os":["linux","darwin","win32"],"displayName":"eSIM"}'

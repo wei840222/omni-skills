@@ -1,6 +1,6 @@
 ---
 name: food-delivery
-description: Manage end-to-end food delivery orders by learning preferences, filtering options based on state constraints, and optimizing across delivery platforms.
+description: "Manage food delivery ordering workflows. Use when selecting delivery platforms, applying dietary and budget filters, comparing fee structures, or managing reorders."
 metadata:
   openclaw: '{"emoji": "🍕", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"],
     "displayName": "Food Delivery"}'

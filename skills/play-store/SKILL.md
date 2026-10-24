@@ -1,7 +1,6 @@
 ---
 name: play-store
-description: Publish and optimize Android apps on Google Play. Trigger to validate
-  listing content, screenshots, ASO keywords, and compliance.
+description: "Publish and optimize Android apps on the Google Play Console. Use when auditing store listing copy, optimizing ASO keywords, formatting screenshots, or addressing Play Console policy warnings."
 metadata:
   openclaw: '{"emoji": "🤖"}'
 ---

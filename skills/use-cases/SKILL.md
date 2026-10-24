@@ -1,12 +1,6 @@
 ---
 name: use-cases
-description: >
-  Map practical AI agent use cases by role, task type, and skill level when
-  someone asks what AI can actually do, needs concrete starter examples, or
-  wants an honest capability boundary. Prefer `brainstorm` for raw idea volume,
-  `prompting` for diagnosing failing prompts, `ai` for live model/pricing facts,
-  `assistant` for operational inbox/scheduling workflows, and `onboarding` for
-  product first-run activation design.
+description: "Map practical AI agent use cases by role and skill level. Use when identifying high-impact AI automation opportunities, determining agent feasibility boundaries, or designing starter workflows for teams."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📋","displayName":"Use Cases"}'

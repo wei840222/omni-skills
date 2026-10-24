@@ -1,8 +1,6 @@
 ---
 name: podcast
-description: Plan, produce, and promote podcasts. Triggers on requests to write episode
-  scripts, edit audio/video, generate social clips, optimize show notes for SEO, or
-  set up podcasting equipment.
+description: "Plan, produce, and promote podcasts. Use when requesting to write episode scripts, edit audio/video, generate social clips, optimize show notes for SEO, or set up podcasting equipment."
 metadata:
   openclaw: '{"emoji": "🎙️"}'
 ---

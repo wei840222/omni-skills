@@ -1,6 +1,6 @@
 ---
 name: delegate
-description: Delegate bounded, independent tasks to sub-agents when parallel work costs less than manual execution; select capability tiers, recover from failures, and verify results.
+description: "Delegate bounded tasks to sub-agents. Use when orchestrating parallel independent work, selecting model capability tiers, recovering from sub-agent failures, or aggregating task results."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📤"}'

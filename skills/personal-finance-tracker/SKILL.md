@@ -1,12 +1,6 @@
 ---
 name: personal-finance-tracker
-description: >
-  Track personal finances with runway snapshots, recurring bill detection,
-  debt triage, CSV imports, and net-worth notes. Use for cashflow reviews,
-  expense cleanup, subscription drag, and weekly or monthly money decisions.
-  Not for moving money, bank login, regulated financial advice, company finance
-  (`cfo`), household money-ladder sequencing alone (`money`), or subscription
-  inventory without cashflow context (`subscriptions`).
+description: "Track personal finances with runway snapshots, recurring bill detection, debt triage, CSV imports, and net-worth notes. Use when working with cashflow reviews, expense cleanup, subscription drag, and weekly or monthly money decisions. Not for moving money, bank login, regulated financial advice, company finance (`cfo`), household money-ladder sequencing alone (`money`), or subscription inventory without cashflow context (`subscriptions`)."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💸"}'

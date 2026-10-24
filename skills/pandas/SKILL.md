@@ -1,6 +1,6 @@
 ---
 name: pandas
-description: Analyze, transform, and clean DataFrames with efficient patterns for filtering, grouping, merging, and pivoting.
+description: "Clean, transform, and analyze tabular data using Python pandas. Use when optimizing DataFrame filtering, vectorizing operations, handling missing data, or executing complex groupby, merge, and pivot aggregations."
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🐼","requires":{"bins":["python3"]},"os":["linux","darwin","win32"],"displayName":"Pandas"}'

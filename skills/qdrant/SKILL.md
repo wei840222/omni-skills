@@ -1,6 +1,6 @@
 ---
 name: qdrant
-description: Construct vector similarity searches, pre-filtered queries, and optimize HNSW indices using Qdrant for semantic recommendation systems.
+description: "Deploy and optimize vector search using Qdrant. Use when configuring dense/sparse vector collections, building filtered similarity queries, tuning HNSW indexing parameters, or setting up payload indexes."
 metadata:
   openclaw: '{"emoji":"🔍"}'
 ---

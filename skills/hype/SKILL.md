@@ -1,11 +1,6 @@
 ---
 name: hype
-description: >
-  Assist with Hyperliquid perpetuals, deposits, withdrawals, cross/isolated margin,
-  liquidations, funding rates, HLP vaults, and HYPE staking. Trigger when the user
-  asks about Hyperliquid onboarding, margin modes, liquidation risk, vault deposits,
-  or HYPE delegation. Out of scope: unrelated CEX APIs (binance) and generic portfolio
-  allocation (invest).
+description: "Assist with Hyperliquid perpetuals, deposits, withdrawals, cross/isolated margin, liquidations, funding rates, HLP vaults, and HYPE staking. Use when the user asks about Hyperliquid onboarding, margin modes, liquidation risk, vault deposits, or HYPE delegation. Out of scope: unrelated CEX APIs (binance) and generic portfolio allocation (invest)."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟢"}'

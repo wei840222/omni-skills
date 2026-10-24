@@ -1,6 +1,6 @@
 ---
 name: czech
-description: Write casual, natural Czech with obecná register, ty/vy cues, particles, and native flow. Trigger when asked to translate to or write in Czech, unless formal language is explicitly requested.
+description: "Write casual, natural Czech with obecná register, ty/vy cues, particles, and native flow. Use when asked to translate to or write in Czech, unless formal language is explicitly requested."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇨🇿"}'

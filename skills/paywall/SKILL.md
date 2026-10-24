@@ -1,10 +1,6 @@
 ---
 name: paywall
-description: >
-  Design and review high-converting paywalls for mobile (iOS/Android) and web.
-  Use for subscription screens, pricing pages, free-trial flows, placement strategy,
-  pricing display, copy, layout patterns, and A/B testing priorities. Skip general UI
-  design that is not about monetization or conversion.
+description: "Design and review high-converting paywalls for mobile (iOS/Android) and web. Use when working with subscription screens, pricing pages, free-trial flows, placement strategy, pricing display, copy, layout patterns, and A/B testing priorities. Skip general UI design that is not about monetization or conversion."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔓"}'

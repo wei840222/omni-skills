@@ -1,15 +1,6 @@
 ---
 name: hong-kong
-description: >
-  Navigate Hong Kong for visitors, residents, tech workers, students, and
-  entrepreneurs: neighborhoods, MTR/Octopus, housing costs, visas, typhoon
-  timing, food areas, and Greater Bay Area day-trip logistics. Use for Hong
-  Kong stay, move, commute, or work-base decisions. Prefer `travel` /
-  `travel-planning` for multi-city trip systems, `booking` after a base is
-  chosen, `expat` for full cross-border move tracking, `macau` / `china` /
-  `taiwan` / `singapore` for peer city routing, and `flight` for air-segment
-  details. Not for inventing nationality-specific visa outcomes or quoting
-  fares/rents as guaranteed without a live official or listing check.
+description: "Navigate Hong Kong for visitors, residents, tech workers, students, and entrepreneurs: neighborhoods, MTR/Octopus, housing costs, visas, typhoon timing, food areas, and Greater Bay Area day-trip logistics. Use when working with Hong Kong stay, move, commute, or work-base decisions. Prefer `travel` / `travel-planning` for multi-city trip systems, `booking` after a base is chosen, `expat` for full cross-border move tracking, `macau` / `china` / `taiwan` / `singapore` for peer city routing, and `flight` for air-segment details. Not for inventing nationality-specific visa outcomes or quoting fares/rents as guaranteed without a live official or listing check."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇭🇰"}'

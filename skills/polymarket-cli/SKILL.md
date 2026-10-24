@@ -1,6 +1,6 @@
 ---
 name: polymarket-cli
-description: Query Polymarket events, outcome-token prices and public positions with the official CLI; prepare individually confirmed orders and on-chain actions. Use for Polymarket discovery, price/orderbook checks, CLI errors or position queries, not generic crypto research or autonomous trading.
+description: "Query Polymarket events, outcome-token prices and public positions with the official CLI; prepare individually confirmed orders and on-chain actions. Use when working with Polymarket discovery, price/orderbook checks, CLI errors or position queries, not generic crypto research or autonomous trading."
 metadata:
   version: '1.0.0'
   openclaw: '{"emoji":"📊","requires":{"bins":["polymarket"]},"os":["linux","darwin"]}'

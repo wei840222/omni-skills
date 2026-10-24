@@ -1,6 +1,6 @@
 ---
 name: period
-description: Track menstrual cycles, log symptoms, predict periods and ovulation, and manage fertility signals using local state. Trigger when the user wants to log a period, report cycle symptoms, ask about cycle regularity, or configure fertility tracking.
+description: "Track menstrual cycles, log symptoms, predict periods and ovulation, and manage fertility signals using local state. Use when the user wants to log a period, report cycle symptoms, ask about cycle regularity, or configure fertility tracking."
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🩸"}'

@@ -1,6 +1,6 @@
 ---
 name: competing
-description: Trigger when the user wants to analyze a loss or track progress in a competitive domain. Improve systematically by studying winners and applying deliberate practice.
+description: "Use when the user wants to analyze a loss or track progress in a competitive domain. Improve systematically by studying winners and applying deliberate practice."
 metadata:
   openclaw: '{"emoji": "🏆"}'
 ---

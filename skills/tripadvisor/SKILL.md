@@ -1,6 +1,6 @@
 ---
 name: tripadvisor
-description: Triggers when the user requests to search for destinations, compare hotels, restaurants, or attractions, or inspect reviews on Tripadvisor. Provides official API workflows and stable UI navigation strategies to build trip shortlists and retrieve ratings.
+description: "Use when the user requests to search for destinations, compare hotels, restaurants, or attractions, or inspect reviews on Tripadvisor. Provides official API workflows and stable UI navigation strategies to build trip shortlists and retrieve ratings."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","requires":{"bins":["curl","jq","sed"],"env":["TRIPADVISOR_API_KEY"]},"primaryEnv":"TRIPADVISOR_API_KEY"}'

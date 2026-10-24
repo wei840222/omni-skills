@@ -1,6 +1,6 @@
 ---
 name: dubai
-description: Provide practical guidance on Dubai for visitors, residents, tech workers, and entrepreneurs. Use this skill when asked about Dubai neighborhoods, transport, costs, visas, or local insights.
+description: "Provide practical guidance on Dubai. Use when researching Dubai neighborhoods, visa requirements, business setup zones, local transportation, living expenses, or cultural norms."
 metadata:
   openclaw: '{"emoji": "\ud83c\udfd9\ufe0f", "requires": {"bins": null}, "os": ["linux", "darwin", "win32"], "displayName": "Dubai"}'
 ---

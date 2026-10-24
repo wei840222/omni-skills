@@ -1,6 +1,6 @@
 ---
 name: powershell
-description: Write and review PowerShell scripts, handling output streams, array unrolling, comparison operators, and cross-platform version differences safely. Trigger when generating, reviewing, or fixing PowerShell code.
+description: "Write and review PowerShell scripts, handling output streams, array unrolling, comparison operators, and cross-platform version differences safely. Use when generating, reviewing, or fixing PowerShell code."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "\ud83d\udd35", "requires": {"bins": ["pwsh"]}}'

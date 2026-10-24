@@ -1,10 +1,6 @@
 ---
 name: suno
-description: >
-  Generate music and structured lyrics with Suno. Trigger when users request
-  to create songs, jingles, anthems, or background tracks, convert lyrics into
-  audio, match a specific artist's style, or troubleshoot generation issues
-  like off-genre results or cut-off endings.
+description: "Generate music and structured lyrics with Suno. Use when users request to create songs, jingles, anthems, or background tracks, convert lyrics into audio, match a specific artist's style, or troubleshoot generation issues like off-genre results or cut-off endings."
 metadata:
   openclaw: '{"emoji": "🎵"}'
   related-skills: '{"audio": "Audio processing and editing", "ffmpeg": "Audio format conversion, cropping, cross-fades", "video": "Combine music with video content"}'

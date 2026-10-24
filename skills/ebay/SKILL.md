@@ -1,6 +1,6 @@
 ---
 name: ebay
-description: Buy, sell, and flip on eBay with listing optimization, pricing research, shipping calculations, and scam detection.
+description: "Buy, sell, and flip items on eBay. Use when optimizing product titles and descriptions, conducting sold-comp price research, estimating shipping costs, or identifying buyer/seller scams."
 metadata:
   openclaw: '{"emoji": "🛒"}'
 ---

@@ -1,6 +1,6 @@
 ---
 name: berlin
-description: Guide users on visiting, moving to, or living in Berlin. Provide practical insights on transport, housing, costs, visas, food, and neighborhoods based on the user's context (visitor, expat, tech worker).
+description: "Guide users on visiting, moving to, or living in Berlin. Use when researching Berlin neighborhood profiles, public transit, housing search strategies, visa pathways, or cost of living."
 metadata:
   openclaw: '{"emoji":"🐻"}'
 ---

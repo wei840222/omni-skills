@@ -1,11 +1,6 @@
 ---
 name: self-improving
-description: >
-  Manage self-reflection, criticism, learning, and self-organizing memory.
-  Evaluate own work, catch mistakes, and log improvements permanently. Load
-  when the user corrects you, a multi-step task needs post-mortem learning,
-  memory patterns must be reviewed/exported/forgotten, or durable execution
-  lessons should compound across sessions.
+description: "Manage self-reflection, criticism, learning, and self-organizing memory. Evaluate own work, catch mistakes, and log improvements permanently. Use when the user corrects you, a multi-step task needs post-mortem learning, memory patterns must be reviewed/exported/forgotten, or durable execution lessons should compound across sessions."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠","requires":{"config":["<state_root>/self-improving/"]}}'

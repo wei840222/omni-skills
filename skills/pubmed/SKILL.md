@@ -1,6 +1,5 @@
 ---
-description: Trigger this when asked to search or evaluate biomedical literature,
-  or construct queries. Loads PubMed research rules.
+description: "Search and evaluate biomedical literature via PubMed. Use when formulating Boolean MeSH search queries, retrieving clinical study PMIDs, synthesizing medical research findings, or assessing trial methodologies."
 metadata:
   openclaw: '{"emoji": "🔬", "os": ["linux", "darwin", "win32"], "displayName": "PubMed"}'
 name: pubmed

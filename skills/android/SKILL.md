@@ -1,6 +1,6 @@
 ---
 name: android
-description: 'Builds, debugs, ships, and hardens Android apps. Use for Gradle builds, UI (Compose/XML), ADB issues, crashes, ANRs, runtime permissions, targetSdk upgrades, signing, and release to Play Store. Not for Kotlin syntax, ASO, or cross-platform frameworks.'
+description: "Builds, debugs, ships, and hardens Android apps. Use when working with Gradle builds, UI (Compose/XML), ADB issues, crashes, ANRs, runtime permissions, targetSdk upgrades, signing, and release to Play Store. Not for Kotlin syntax, ASO, or cross-platform frameworks."
 metadata:
   version: '1.0.3'
   openclaw: '{"emoji":"🤖","requires":{"anyBins":["adb","gradle"]}}'

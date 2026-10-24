@@ -1,12 +1,6 @@
 ---
 name: argentina
-description: >
-  Plan an Argentina trip by macro-region, entry path, money strategy, season,
-  and domestic transport. Use for Buenos Aires, Mendoza, Iguazu, Patagonia
-  Lakes, South Patagonia, Ushuaia, Salta/Jujuy, Peninsula Valdes, or Atlantic
-  coast routing with practical logistics. Not for filing a visa, booking
-  flights, or stating a nationality-specific entry rule without checking the
-  official source for that passport and travel date.
+description: "Plan an Argentina trip by macro-region, entry path, money strategy, season, and domestic transport. Use when working with Buenos Aires, Mendoza, Iguazu, Patagonia Lakes, South Patagonia, Ushuaia, Salta/Jujuy, Peninsula Valdes, or Atlantic coast routing with practical logistics. Not for filing a visa, booking flights, or stating a nationality-specific entry rule without checking the official source for that passport and travel date."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇦🇷"}'

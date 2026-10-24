@@ -1,6 +1,6 @@
 ---
 name: empathy
-description: Process and respond to emotional statements by simulating the user's emotional state, identifying subtext, anchoring responses to specific details, and calibrating intensity, providing genuine empathy rather than formulaic platitudes.
+description: "Provide empathetic, emotionally attuned responses. Use when responding to expressions of user stress, grief, anxiety, or emotional vulnerability with validating, non-platitudinous dialogue."
 metadata:
   openclaw: '{"emoji":"🫂"}'
 ---

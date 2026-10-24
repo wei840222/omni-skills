@@ -1,12 +1,6 @@
 ---
 name: google-workspace-cli
-description: >
-  Drive Google Workspace from the terminal with the gws CLI: search, send,
-  upload, export, share, and administer Gmail, Drive, Calendar, Sheets, Docs,
-  and the Admin SDK. Use for bulk mail, file sharing, event or user management,
-  MCP exposure of Workspace methods, or when a call fails with 403, invalid_grant,
-  quota errors, or empty results. Not for Google Cloud infrastructure (gcloud)
-  or local macOS Mail and Calendar apps.
+description: "Drive Google Workspace from the terminal with the gws CLI: search, send, upload, export, share, and administer Gmail, Drive, Calendar, Sheets, Docs, and the Admin SDK. Use when working with bulk mail, file sharing, event or user management, MCP exposure of Workspace methods, or when a call fails with 403, invalid_grant, quota errors, or empty results. Not for Google Cloud infrastructure (gcloud) or local macOS Mail and Calendar apps."
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"\ud83d\uddc2\ufe0f","requires":{"bins":["gws","jq"],"env":["HOME"]},"install":[{"id":"npm","kind":"npm","package":"@googleworkspace/cli","bins":["gws"],"label":"Install gws CLI (npm)"}]}'

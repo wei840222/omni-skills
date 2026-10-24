@@ -1,6 +1,6 @@
 ---
 name: yoga
-description: Guide general yoga pose alignment, sequencing, breathwork, props, and modifications. Use for yoga instruction or adapting a practice; route acute symptoms or individualized medical clearance to a qualified professional.
+description: "Guide general yoga pose alignment, sequencing, breathwork, props, and modifications. Use when working with yoga instruction or adapting a practice; route acute symptoms or individualized medical clearance to a qualified professional."
 metadata:
   version: "1.0.0"
   category: fitness

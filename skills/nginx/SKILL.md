@@ -1,6 +1,6 @@
 ---
 name: nginx
-description: "Configure and debug Nginx servers for reverse proxying, load balancing, static file serving, and SSL/TLS termination. Trigger this skill to analyze and fix `nginx.conf`, `server` blocks, and `location` routing; to resolve 502/504/413 errors, proxy path mismatches, or redirect loops; and to configure WebSockets, caching, and rate limiting. For ACME/Let's Encrypt certificate issuance, redirect the user to the `ssl` skill."
+description: "Configure and debug Nginx servers for reverse proxying, load balancing, static file serving, and SSL/TLS termination. Use when needing to analyze and fix `nginx.conf`, `server` blocks, and `location` routing; to resolve 502/504/413 errors, proxy path mismatches, or redirect loops; and to configure WebSockets, caching, and rate limiting. For ACME/Let's Encrypt certificate issuance, redirect the user to the `ssl` skill."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐","requires":{"config":["<state_root>/nginx/"]}}'

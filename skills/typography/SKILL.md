@@ -1,6 +1,6 @@
 ---
 name: typography
-description: 'Apply typographic principles to layout and design. Trigger this skill to evaluate measure, leading, tracking, and optical scale, or to fix font rendering and legibility issues in CSS or print contexts.'
+description: "Apply typographic principles to layout and design. Use when needing to evaluate measure, leading, tracking, and optical scale, or to fix font rendering and legibility issues in CSS or print contexts."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨"}'

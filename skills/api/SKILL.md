@@ -1,6 +1,6 @@
 ---
 name: api
-description: 'Use to debug, authenticate, or write client code for calling third-party REST/GraphQL APIs (e.g. Stripe, OpenAI). Triggers when the user asks to integrate a service, handle 401/403/429 errors, paginations, webhooks, or sync API data. Do not use for building new APIs.'
+description: "Use to debug, authenticate, or write client code for calling third-party REST/GraphQL APIs (e.g. Stripe, OpenAI). Use when the user asks to integrate a service, handle 401/403/429 errors, paginations, webhooks, or sync API data. Do not use for building new APIs."
 metadata:
   version: "1.3.7"
   openclaw: '{"emoji":"🔌"}'

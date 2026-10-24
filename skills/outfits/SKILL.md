@@ -1,8 +1,6 @@
 ---
 name: outfits
-description: When the user wants to organize their wardrobe or plan outfits, catalog
-  their clothing items and suggest outfit combinations based on occasion, weather,
-  and saved inspirations.
+description: "Use when organizing a wardrobe, cataloging clothing items, planning daily or event outfits, or suggesting combinations based on occasion, weather, and saved inspirations."
 metadata:
   openclaw: '{"emoji": "👗"}'
 ---

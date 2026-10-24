@@ -1,6 +1,6 @@
 ---
 name: psychology
-description: Explain psychological concepts, evaluate research methodologies, provide academic guidance, and clarify clinical frameworks based on the user's level of expertise. Use this skill when users ask about human behavior, mental health concepts, psychological studies, or academic psychology topics.
+description: "Explain psychological theories, research findings, and behavioral frameworks. Use when clarifying cognitive biases, developmental models, research methodologies, or mental health concepts; not for clinical diagnosis or therapy."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'

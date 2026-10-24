@@ -1,12 +1,6 @@
 ---
 name: ireland
-description: >
-  Plan an Ireland trip with local-perspective city bases, coastal routing, pub and
-  food choices, weather-aware pacing, and realistic driving or transit tradeoffs.
-  Use for Dublin, Cork/Kerry, Galway/Connemara, Wild Atlantic Way segments, Ancient
-  East loops, family pacing, or pub-music nights. Not for treating full-island loops
-  as short itineraries, treating scenic road distance as motorway time, or inventing
-  border/visa outcomes without official checks.
+description: "Plan an Ireland trip with local-perspective city bases, coastal routing, pub and food choices, weather-aware pacing, and realistic driving or transit tradeoffs. Use when working with Dublin, Cork/Kerry, Galway/Connemara, Wild Atlantic Way segments, Ancient East loops, family pacing, or pub-music nights. Not for treating full-island loops as short itineraries, treating scenic road distance as motorway time, or inventing border/visa outcomes without official checks."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇮🇪"}'

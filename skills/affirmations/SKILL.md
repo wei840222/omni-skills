@@ -1,7 +1,6 @@
 ---
 name: affirmations
-description: Manage personal affirmations. Load when the user wants to practice daily
-  affirmations, create personalized positive statements, or reframe negative beliefs.
+description: "Manage personal affirmations. Use when the user wants to practice daily affirmations, create personalized positive statements, or reframe negative beliefs."
 metadata:
   openclaw: '{"emoji": "✨"}'
 ---

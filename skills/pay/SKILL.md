@@ -1,6 +1,6 @@
 ---
 name: pay
-description: Guide users through payment-method choices, card rewards, disputes, and card-security response. Use for card selection, bill, fraud, or chargeback questions; route payment execution and account-specific legal or tax advice to the appropriate workflow.
+description: "Guide users through payment-method choices, card rewards, disputes, and card-security response. Use when working with card selection, bill, fraud, or chargeback questions; route payment execution and account-specific legal or tax advice to the appropriate workflow."
 metadata:
   openclaw: '{"emoji":"💳"}'
 ---

@@ -1,10 +1,6 @@
 ---
 name: elasticsearch
-description: Design mappings, construct Query DSL/ES|QL, and manage Elasticsearch
-  clusters. Load when interacting with Elasticsearch or OpenSearch to fix empty search
-  results, resolve yellow/red cluster states, optimize shard sizing, configure vector
-  search, or debug mapping exceptions. Prefer for complex search and full-text workloads
-  rather than lightweight site search or dedicated vector stores.
+description: "Design mappings, construct Query DSL/ES|QL, and manage Elasticsearch clusters. Use when interacting with Elasticsearch or OpenSearch to fix empty search results, resolve yellow/red cluster states, optimize shard sizing, configure vector search, or debug mapping exceptions. Prefer for complex search and full-text workloads rather than lightweight site search or dedicated vector stores."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🔍", "requires": {"anyBins": ["curl"]}}'

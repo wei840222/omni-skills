@@ -1,6 +1,6 @@
 ---
 name: dietitian
-description: Plan meals, calculate calorie targets and macros, schedule meal timing, and advise on goal-specific diet protocols. Use this when the user needs structured diet advice, meal plans, or macro calculations.
+description: "Plan meals, calculate calorie targets and macros, schedule meal timing, and advise on goal-specific diet protocols. Use this Use when the user needs structured diet advice, meal plans, or macro calculations."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🥗"}'

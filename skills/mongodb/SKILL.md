@@ -1,10 +1,6 @@
 ---
 name: mongodb
-description: Design MongoDB schemas and aggregation pipelines, debug slow queries,
-  and recover from replica set failures or cache stalls. Covers document modeling,
-  index optimization, connection pooling, change streams, sharding, and Atlas search.
-  Trigger when users ask to model documents, read an explain plan, fix a COLLSCAN,
-  or debug driver timeouts.
+description: "Design MongoDB schemas and aggregation pipelines, debug slow queries, and recover from replica set failures or cache stalls. Covers document modeling, index optimization, connection pooling, change streams, sharding, and Atlas search. Use when users ask to model documents, read an explain plan, fix a COLLSCAN, or debug driver timeouts."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/"]}}'
   related-skills: '{"db": "Use for general database operations, reliability, and scaling patterns.", "elasticsearch": "Use when text search outgrows Atlas Search: analyzers, relevance tuning, aggregations.", "pg": "Use when the model is genuinely relational or cross-row constraints and SQL are required."}'

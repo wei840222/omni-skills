@@ -1,6 +1,6 @@
 ---
 name: inventory
-description: Maintain a markdown-based personal inventory system in <state_root>/inventory/ for tracking valuable items, locations, warranties, and insurance claims. Trigger when the user mentions acquiring new valuables or asks where an item is located.
+description: "Maintain a markdown-based personal inventory system in <state_root>/inventory/ for tracking valuable items, locations, warranties, and insurance claims. Use when the user mentions acquiring new valuables or asks where an item is located."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📦"}'

@@ -1,6 +1,6 @@
 ---
 name: projects
-description: Manage projects, define scopes, capture tasks, review progress, and organize project folders. Trigger when starting, managing, reviewing, or completing a project.
+description: "Manage projects, define scopes, capture tasks, review progress, and organize project folders. Use when starting, managing, reviewing, or completing a project."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📁"}'

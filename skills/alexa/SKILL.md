@@ -1,8 +1,6 @@
 ---
 name: alexa
-description: Control Alexa smart home devices, automate routines, and guide custom
-  voice skill development. Use for device naming, rooms/groups, routines, privacy
-  controls, troubleshooting, and Alexa Skills Kit certification basics.
+description: "Control Alexa smart home devices, automate routines, and guide custom voice skill development. Use when working with device naming, rooms/groups, routines, privacy controls, troubleshooting, and Alexa Skills Kit certification basics."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔊"}'

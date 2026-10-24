@@ -1,6 +1,6 @@
 ---
 name: russian
-description: Write casual, natural-sounding Russian by using common internet style, particles, and avoiding robotic formality.
+description: "Generate natural, conversational Russian text. Use when writing informal Russian messages, online commentary, or dialogues with authentic colloquial idioms, particles, and proper informal register."
 metadata:
   openclaw: '{"emoji":"🇷🇺"}'
 ---

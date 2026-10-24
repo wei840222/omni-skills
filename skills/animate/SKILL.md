@@ -1,13 +1,6 @@
 ---
 name: animate
-description: >
-  Design and implement product UI motion systems across Flutter, React/Next.js,
-  SwiftUI, Jetpack Compose, React Native, and web. Use for micro-interactions,
-  navigation/shared-element transitions, modals/sheets, loading feedback,
-  gesture response, motion tokens, reduced-motion fallbacks, and QA acceptance
-  criteria. Prefer media/video tools for timeline editing or GIF encoding; prefer
-  `design` / `figma` for pure visual taste or canvas mechanics without motion
-  implementation.
+description: "Design and implement product UI motion systems across Flutter, React/Next.js, SwiftUI, Jetpack Compose, React Native, and web. Use when working with micro-interactions, navigation/shared-element transitions, modals/sheets, loading feedback, gesture response, motion tokens, reduced-motion fallbacks, and QA acceptance criteria. Prefer media/video tools for timeline editing or GIF encoding; prefer `design` / `figma` for pure visual taste or canvas mechanics without motion implementation."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎞️","requires":{"config":["<state_root>"]}}'

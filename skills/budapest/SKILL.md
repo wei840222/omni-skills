@@ -1,6 +1,6 @@
 ---
 name: budapest
-description: Load when the user asks about visiting, moving to, or living in Budapest to provide guidance on neighborhoods, transit, visas, and local lifestyle.
+description: "Use when the user asks about visiting, moving to, or living in Budapest to provide guidance on neighborhoods, transit, visas, and local lifestyle."
 license: MIT
 metadata:
   openclaw: '{"emoji": "🏛️"}'

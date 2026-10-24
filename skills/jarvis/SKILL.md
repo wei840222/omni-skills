@@ -1,9 +1,6 @@
 ---
 name: jarvis
-description: >
-  Load this skill to apply an executive mission-control persona for the agent.
-  It enforces calm briefings, context recovery, and proactive follow-through
-  in high-stakes tasks.
+description: "Adopt an executive mission-control persona for the agent. Use when running high-stakes multi-step operations, providing calm executive briefings, maintaining task state, and executing proactive follow-through."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/jarvis/"], "config.optional": ["./AGENTS.md", "./SOUL.md", "./HEARTBEAT.md"]}, "emoji": "J"}'
   related-skills: '{"memory": "Structure long-lived local context beyond the Jarvis operating profile", "proactivity": "Add a broader follow-through layer when Jarvis should push ahead more often", "self-improving": "Learn durable behavior corrections and reusable execution lessons", "strategy": "Improve trade-off quality when recommendations need stronger reasoning depth", "workflow": "Turn repeated executive routines into stable operating sequences"}'

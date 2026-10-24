@@ -1,6 +1,6 @@
 ---
 name: ollama
-description: Run, configure, and troubleshoot local Ollama instances. Load this skill when the user explicitly manages local model deployments, builds Modelfiles, configures local RAG embeddings, or tunes hardware constraints.
+description: "Run, configure, and troubleshoot local Ollama instances. Load this skill Use when the user explicitly manages local model deployments, builds Modelfiles, configures local RAG embeddings, or tunes hardware constraints."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🦙", "requires": {"bins": ["ollama"], "anyBins": ["curl", "jq"], "config": ["~/.ollama/"]}}'

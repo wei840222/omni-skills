@@ -1,11 +1,6 @@
 ---
 name: self-host
-description: >
-  Deploy and maintain self-hosted services with Docker, reverse proxies, backups,
-  and long-term reliability. Use for home-server or VPS service planning, compose
-  hardening, private networking, SSL, monitoring, and restore-tested backup loops.
-  Prefer `docker`/`docker-compose` for runtime debugging, `caddy`/`traefik` for
-  proxy syntax, `sysadmin` for host surgery, and `home-server` for full homelab design.
+description: "Deploy and maintain self-hosted services with Docker, reverse proxies, backups, and long-term reliability. Use when working with home-server or VPS service planning, compose hardening, private networking, SSL, monitoring, and restore-tested backup loops. Prefer `docker`/`docker-compose` for runtime debugging, `caddy`/`traefik` for proxy syntax, `sysadmin` for host surgery, and `home-server` for full homelab design."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🖥️","requires":{"anyBins":["docker","podman"]}}'

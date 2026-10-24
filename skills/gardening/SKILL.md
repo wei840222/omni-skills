@@ -1,6 +1,6 @@
 ---
 name: gardening
-description: Provides gardening advice on soil management, watering, planting timing, spacing, fertilizing, pest control, pruning, composting, and companion planting.
+description: "Provide practical gardening advice. Use when troubleshooting soil conditions, watering schedules, pest infestations, companion planting, seasonal pruning, or composting methods."
 metadata:
   openclaw: '{"emoji":"🌱","displayName":"Gardening"}'
   category: lifestyle

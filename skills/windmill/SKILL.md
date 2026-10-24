@@ -1,6 +1,6 @@
 ---
 name: windmill
-description: Create and manage scripts, flows, schedules, and variables in a Windmill workspace. Trigger this skill when the user asks to build internal tools or automate workflows using Windmill.
+description: "Create and manage scripts, flows, schedules, and variables in a Windmill workspace. Use when the user asks to build internal tools or automate workflows using Windmill."
 metadata:
   openclaw: '{"emoji":"🌀"}'
 ---

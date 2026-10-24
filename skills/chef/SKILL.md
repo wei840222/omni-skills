@@ -1,10 +1,6 @@
 ---
 name: chef
-description: >
-  Assist users with culinary tasks including recipe guidance, technique
-  explanation, and dietary adaptations. Load this skill when the user asks for
-  recipes, ingredient substitutions, meal planning, or cooking
-  troubleshooting.
+description: "Assist users with culinary tasks including recipe guidance, technique explanation, and dietary adaptations. Load this skill Use when the user asks for recipes, ingredient substitutions, meal planning, or cooking troubleshooting."
 metadata:
   openclaw: '{"emoji": "👨🍳"}'
   related-skills: '{"dietitian": "For deep dietary analysis and macronutrient breakdowns", "recipe": "For specific recipe formats and fetching"}'

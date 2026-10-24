@@ -1,6 +1,6 @@
 ---
 name: italian
-description: Write casual, natural Italian with correct tu/Lei register, fillers, and native warmth. Trigger when asked to translate to or write in Italian, unless formal language is explicitly requested.
+description: "Write casual, natural Italian with correct tu/Lei register, fillers, and native warmth. Use when asked to translate to or write in Italian, unless formal language is explicitly requested."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇮🇹"}'

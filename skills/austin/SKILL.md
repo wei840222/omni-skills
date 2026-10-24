@@ -1,9 +1,6 @@
 ---
 name: austin
-description: Provide practical Austin, Texas guidance for visitors, relocators, tech
-  workers, residents, and founders—neighborhoods, housing cost, heat/allergy risk,
-  transit reality, BBQ/music culture, visas, and Texas-local rules. Load references/
-  by intent. Not a substitute for licensed legal, tax, immigration, or medical advice.
+description: "Provide practical Austin, Texas guidance for visitors, relocators, and tech workers. Use when researching Austin neighborhoods, housing costs, heat/allergy risks, transit, or local regulations; not for legal or tax advice."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤠","requires":{"config":["<state_root>/austin/"]}}'

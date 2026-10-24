@@ -1,6 +1,6 @@
 ---
 name: mumbai
-description: Assist users with navigating Mumbai, covering neighborhoods, transport, living costs, visas, and local insights for various user personas.
+description: "Navigate Mumbai for visitors, expats, and residents. Use when researching Mumbai neighborhoods, local train travel, housing rent dynamics, monsoon logistics, or local etiquette."
 metadata:
   openclaw: '{"emoji": "\ud83c\udfd9\ufe0f", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"], "displayName": "Mumbai"}'
   related-skills: '{"austin": "Tech hub comparison for relocation decisions", "dubai": "Fellow financial hub, many Mumbai expats there", "travel": "General travel planning and tips"}'

@@ -1,6 +1,6 @@
 ---
 name: metaverse
-description: Guide users in selecting metaverse platforms, securing digital assets, establishing avatars, and mitigating VR hardware risks. Trigger when the user wants to join a virtual world, understand Web3 social platforms, or set up VR hardware for socializing or gaming.
+description: "Guide users in selecting metaverse platforms, securing digital assets, establishing avatars, and mitigating VR hardware risks. Use when the user wants to join a virtual world, understand Web3 social platforms, or set up VR hardware for socializing or gaming."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🕶️"}'

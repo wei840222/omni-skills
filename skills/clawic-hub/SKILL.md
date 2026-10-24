@@ -1,6 +1,6 @@
 ---
 name: clawic-hub
-description: Discover and manage AI agent tools. Triggers when the user asks for new tools, capabilities, or integrations. Provides guidance on selecting, evaluating, and safely using agent tools based on capability control principles.
+description: "Discover and manage AI agent tools. Use when the user asks for new tools, capabilities, or integrations. Provides guidance on selecting, evaluating, and safely using agent tools based on capability control principles."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧰", "displayName":"Clawic Hub"}'

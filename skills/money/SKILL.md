@@ -1,6 +1,6 @@
 ---
 name: money
-description: "Guide debt-payoff order, emergency-fund sizing, saving rates, affordability, and financial shocks. Use for personal money decisions such as debt versus saving, a windfall, budgeting, retirement planning, or judging a financial offer; not for selecting specific funds or brokers."
+description: "Guide debt-payoff order, emergency-fund sizing, saving rates, affordability, and financial shocks. Use when working with personal money decisions such as debt versus saving, a windfall, budgeting, retirement planning, or judging a financial offer; not for selecting specific funds or brokers."
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"💰"}'

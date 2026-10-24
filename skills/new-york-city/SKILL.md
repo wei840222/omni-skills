@@ -1,6 +1,6 @@
 ---
 name: new-york-city
-description: Plan NYC visits, moves, neighborhood choices, transit, housing, food, and work routines. Use for borough-specific itineraries, commutes, relocation, airport transfers, or practical local decisions; not for a generic multi-destination trip.
+description: "Plan NYC visits, moves, neighborhood choices, transit, housing, food, and work routines. Use when working with borough-specific itineraries, commutes, relocation, airport transfers, or practical local decisions; not for a generic multi-destination trip."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🗽"}'

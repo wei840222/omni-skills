@@ -1,8 +1,6 @@
 ---
 name: vancouver
-description: Load this skill when the user asks about visiting, moving to, working
-  in, or navigating Vancouver. Read the relevant references to answer questions about
-  neighborhoods, transit, dining, immigration, or local culture.
+description: "Load this skill Use when the user asks about visiting, moving to, working in, or navigating Vancouver. Read the relevant references to answer questions about neighborhoods, transit, dining, immigration, or local culture."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🏔️"}'

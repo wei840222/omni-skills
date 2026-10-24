@@ -1,15 +1,6 @@
 ---
 name: walmart
-description: >
-  Plan Walmart grocery and household orders with pickup timing, substitutions,
-  repeat restocks, and budget-aware cart decisions. Use for weekly stock-ups,
-  urgent top-offs, reorder workflows, pickup/delivery coordination, substitution
-  policy, order recovery, and pharmacy-adjacent operational planning with strict
-  safety limits. Prefer `grocery` for pantry/list logistics across any store,
-  `shopping` for general buy-vs-wait product research, `meal-planner` for what to
-  cook before the basket, `price` for deal timing outside Walmart flows, and
-  `family` / `subscriptions` when the hard part is household coordination or
-  recurring non-Walmart renewals.
+description: "Plan Walmart grocery and household orders with pickup timing, substitutions, repeat restocks, and budget-aware cart decisions. Use when working with weekly stock-ups, urgent top-offs, reorder workflows, pickup/delivery coordination, substitution policy, order recovery, and pharmacy-adjacent operational planning with strict safety limits. Prefer `grocery` for pantry/list logistics across any store, `shopping` for general buy-vs-wait product research, `meal-planner` for what to cook before the basket, `price` for deal timing outside Walmart flows, and `family` / `subscriptions` when the hard part is household coordination or recurring non-Walmart renewals."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛒","requires":{"config":["<state_root>/"]}}'

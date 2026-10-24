@@ -1,10 +1,6 @@
 ---
 name: veterinary
-description: >
-  Load for veterinary information, clinical reasoning, or animal-care guidance
-  across pet owners, vet students, DVMs, technicians, educators, and researchers.
-  Covers urgency triage, species-specific pharmacology, toxicity thresholds, and
-  scope-safe technician support without diagnosing individual animals.
+description: "Provide clinical reasoning and animal-care guidance for pets. Use when performing urgency triage, evaluating species-specific pharmacology, checking toxicity thresholds, or preparing vet clinic visits; do not use for prescribing or diagnosing."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🐾","os":["linux","darwin","win32"],"displayName":"Veterinary"}'

@@ -1,7 +1,6 @@
 ---
 name: video-edit
-description: Edit videos with AI tools for background removal, color grading, upscaling,
-  stabilization, and enhancement.
+description: "Edit and enhance videos with AI and automation tools. Use when removing video backgrounds, applying color grading, upscaling video resolution, stabilizing footage, or automating clip transitions."
 metadata:
   openclaw: '{"emoji": "🎞️"}'
 ---

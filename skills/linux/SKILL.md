@@ -1,6 +1,6 @@
 ---
 name: linux
-description: "Debugs and hardens Linux hosts across Debian, RHEL, Arch, Alpine, SUSE, and WSL. Use for stuck processes, OOM kills, disk-full triage, systemd/cron failures, networking/SSH lockouts, permissions, and host hardening. Do not use for bash script syntax or docker internals."
+description: "Debugs and hardens Linux hosts across Debian, RHEL, Arch, Alpine, SUSE, and WSL. Use when diagnosing stuck processes, OOM kills, disk-full triage, systemd/cron failures, networking/SSH lockouts, permissions, or host hardening. Do not use for bash script syntax or docker internals."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐧","os":["linux","darwin"],"displayName":"Linux","requires":{"config":["<state_root>/"]}}'

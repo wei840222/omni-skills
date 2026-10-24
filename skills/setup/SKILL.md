@@ -1,9 +1,6 @@
 ---
 name: setup
-description: Configure OpenClaw installations — channels, security hardening,
-  gateway/Tailscale exposure, tools/exec policy, automation, and production
-  recommendations. Trigger for first-time setup, dmPolicy/allowlist changes,
-  remote gateway auth, or openclaw doctor/onboard follow-up.
+description: "Configure OpenClaw agent installations and environments. Use when setting up communication channels, configuring security allowlists/dmPolicy, hardening gateway access, managing tool permissions, or running openclaw doctor."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "\u2699\ufe0f"}'

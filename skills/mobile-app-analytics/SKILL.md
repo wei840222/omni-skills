@@ -1,6 +1,6 @@
 ---
 name: mobile-app-analytics
-description: Track mobile app metrics, retention, and funnels. Trigger when analyzing app performance, Firebase, App Store Connect, or Play Console.
+description: "Track mobile app metrics, retention, and funnels. Use when analyzing app performance, Firebase, App Store Connect, or Play Console."
 metadata:
   openclaw: '{"emoji":"📱"}'
 ---

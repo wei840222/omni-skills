@@ -1,8 +1,6 @@
 ---
 name: infrastructure
-description: >
-  Guide architecture decisions and generate infrastructure provisioning
-  commands for the user to execute.
+description: "Architect cloud infrastructure and generate provisioning steps. Use when designing VPCs, container orchestration, compute tiers, or generating Terraform and cloud CLI infrastructure configurations."
 metadata:
   openclaw: '{"emoji": "\ud83c\udfd7\ufe0f"}'
   related-skills: '{"docker": "Container runtime configuration, multi-container stacks, and storage volumes.", "server": "Host provisioning, Linux system administration, and network hardening."}'

@@ -1,8 +1,6 @@
 ---
 name: amazon
-description: >
-  Navigate Amazon as a buyer, seller, or affiliate by tracking prices,
-  optimizing listings, and making smart purchasing decisions.
+description: "Navigate Amazon as a buyer, seller, or affiliate. Use when tracking price drops, optimizing product listings, checking seller fees, or comparing purchase options."
 metadata:
   openclaw: '{"emoji": "📦"}'
 ---

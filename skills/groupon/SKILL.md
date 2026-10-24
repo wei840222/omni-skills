@@ -1,6 +1,6 @@
 ---
 name: groupon
-description: Find, vet, and compare Groupon vouchers. Use for local-deal research, fine-print checks, merchant validation, redemption planning, and Groupon booking or refund problems.
+description: "Find, vet, and compare Groupon vouchers. Use when working with local-deal research, fine-print checks, merchant validation, redemption planning, and Groupon booking or refund problems."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎟️"}'

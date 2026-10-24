@@ -1,7 +1,6 @@
 ---
 name: invest
-description: Educate users on investing basics, account types, portfolio allocation,
-  and historical context. Redirect personalized advice requests.
+description: "Educate users on investing principles, asset classes, and portfolio allocation. Use when explaining index funds, retirement account types (IRA/401k), risk diversification, or dollar-cost averaging; not for personalized financial advice."
 metadata:
   openclaw: '{"emoji": "📈"}'
 ---

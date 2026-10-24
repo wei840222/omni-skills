@@ -1,8 +1,6 @@
 ---
 name: mlops
-description: Deploy ML models to production with pipelines, monitoring, serving, and
-  reproducibility best practices. Load this skill when designing CI/CD for models,
-  configuring model serving, setting up drift monitoring, or handling GPU resources.
+description: "Deploy and monitor machine learning models in production. Use when designing CI/CD pipelines for ML, configuring model serving runtimes, setting up data/concept drift monitoring, or allocating GPU resources."
 metadata:
   openclaw: '{"emoji": "🤖", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"],
     "displayName": "MLOps"}'

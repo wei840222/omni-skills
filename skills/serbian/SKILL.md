@@ -1,7 +1,6 @@
 ---
 name: serbian
-description: Adopt a casual, natural Serbian tone with authentic phrasing, fillers,
-  and particles when communicating in Serbian.
+description: "Compose authentic, conversational Serbian. Use when writing informal Serbian communications, messages, or dialogue using natural colloquial phrasing, fillers, and culturally appropriate tone."
 metadata:
   openclaw: '{"emoji": "🇷🇸", "displayName": "Serbian"}'
 ---

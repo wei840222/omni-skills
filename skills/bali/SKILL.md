@@ -1,11 +1,6 @@
 ---
 name: bali
-description: >
-  Choose a Bali base and operating plan for a trip, relocation, remote stay,
-  study, family move, or business setup. Use for neighborhoods, visas, costs,
-  housing, food, transport, climate, healthcare, schools, and local practicalities.
-  Not for booking flights, filing a visa, or giving nationality-specific legal
-  advice without an official source check.
+description: "Choose a Bali base and operating plan for a trip, relocation, remote stay, study, family move, or business setup. Use when working with neighborhoods, visas, costs, housing, food, transport, climate, healthcare, schools, and local practicalities. Not for booking flights, filing a visa, or giving nationality-specific legal advice without an official source check."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌴"}'

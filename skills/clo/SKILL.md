@@ -1,8 +1,6 @@
 ---
 name: clo
-description: Act as Chief Legal Officer. Manage contracts, compliance, corporate governance,
-  and intellectual property strategy. Load references when specific legal, privacy,
-  or IP procedures are required.
+description: "Act as Chief Legal Officer. Use when managing commercial contract lifecycles, corporate compliance, governance policies, and IP protection strategies; not for licensed legal representation."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⚖️"}'

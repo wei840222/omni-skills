@@ -1,6 +1,6 @@
 ---
 name: testflight
-description: Distribute iOS and macOS beta builds via TestFlight. Handles App Store Connect API keys, tester management, provisioning profiles, and automated Fastlane/Xcode CI/CD uploads.
+description: "Manage iOS and macOS beta distribution using Apple TestFlight. Use when configuring App Store Connect API keys, managing internal/external tester groups, troubleshooting provisioning profiles, or automating Fastlane build uploads."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛫"}'

@@ -1,8 +1,6 @@
 ---
 name: tapo-camera
-description: >
-  Connect to Tapo cameras on a trusted local network to verify reachability,
-  capture snapshots, and inspect frames using RTSP.
+description: "Manage TP-Link Tapo smart cameras on local networks. Use when discovering camera IP addresses, verifying RTSP/ONVIF reachability, capturing live camera snapshots, or troubleshooting local video stream latency."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "📷","requires": {"bins": ["python3","ffmpeg","kasa"],"pip": ["python-kasa"],"config": ["<state_root>/"],"env.optional": ["TAPO_CAMERA_USERNAME","TAPO_CAMERA_PASSWORD","KASA_CREDENTIALS_HASH"]},"install": [{"id": "pip-python-kasa","kind": "pip","package": "python-kasa","bins": ["kasa"],"label": "Install python-kasa and the kasa CLI (pip)"},{"id": "brew-ffmpeg","kind": "brew","formula": "ffmpeg","bins": ["ffmpeg"],"label": "Install ffmpeg (Homebrew)"}],"configPaths": ["<state_root>/"],"os": ["darwin","linux","win32"]}'

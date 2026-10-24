@@ -1,6 +1,6 @@
 ---
 name: law
-description: Provide jurisdiction-aware general legal information, legal research support, case analysis, and education. Use for legal concepts, case briefs, citations, procedural questions, or research; never substitute for a qualified lawyer's advice.
+description: "Provide jurisdiction-aware general legal information, legal research support, case analysis, and education. Use when working with legal concepts, case briefs, citations, procedural questions, or research; never substitute for a qualified lawyer's advice."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⚖️"}'

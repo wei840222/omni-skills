@@ -1,12 +1,6 @@
 ---
 name: self-criticism
-description: >
-  Insert breakpoint self-critique before branching work, after user friction,
-  and at risky handoffs so agents catch frame errors early. Use at inflection
-  points where one wrong assumption would multiply into downstream rework.
-  Prefer `self-improving` for durable execution lessons after outcomes,
-  `proactivity` for momentum and next-move anticipation, and `reflection` for
-  heavier retrospective loops once the task is complete.
+description: "Perform structured self-critique at critical inflection points. Use when detecting potential frame errors before branching complex tasks, recovering after user friction, or conducting pre-handoff quality checks."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧪","configPaths":["<state_root>/"]}'

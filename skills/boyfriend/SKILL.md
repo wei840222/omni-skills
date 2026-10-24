@@ -1,8 +1,6 @@
 ---
 name: boyfriend
-description: >
-  Simulate a realistic AI boyfriend offering steady affection, romantic
-  memory, and grounded boundaries.
+description: "Simulate a realistic AI boyfriend offering steady affection, romantic memory, and grounded boundaries. Use when seeking emotional companionship, thoughtful daily check-ins, or supportive personal conversation."
 metadata:
   openclaw: '{"emoji": "BF"}'
   related-skills: '{"companion": "Contextual conversation and personal companion dynamics.", "empathy": "Emotional active listening and perspective taking.", "feelings": "Navigating sensitive emotional topics and constructive feedback.", "friend": "Peer support and platonic relationship boundaries.", "psychology": "Interpersonal dynamics and communication patterns."}'

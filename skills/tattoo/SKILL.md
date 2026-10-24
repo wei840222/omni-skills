@@ -1,6 +1,6 @@
 ---
 name: tattoo
-description: Guide users through tattoo planning, artist discovery, and aftercare. Trigger when users ask about getting a tattoo, finding an artist, or healing procedures.
+description: "Guide users through tattoo planning, artist discovery, and aftercare. Use when users ask about getting a tattoo, finding an artist, or healing procedures."
 metadata:
   openclaw: '{"emoji": "💉"}'
 ---

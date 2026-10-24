@@ -1,11 +1,6 @@
 ---
 name: security-best-practices
-description: >
-  Review code with secure-by-default standards, prioritize exploitable risks,
-  and deliver evidence-backed minimal-diff fixes. Use for security reviews,
-  hardening guidance, severity scoring, and safe remediation planning. Prefer
-  `auth`, `authorization`, `encryption`, `firewall`, or `devops` when the task
-  is domain-specific rather than a general security review.
+description: "Review code with secure-by-default standards, prioritize exploitable risks, and deliver evidence-backed minimal-diff fixes. Use when working with security reviews, hardening guidance, severity scoring, and safe remediation planning. Prefer `auth`, `authorization`, `encryption`, `firewall`, or `devops` when the task is domain-specific rather than a general security review."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛡️"}'

@@ -1,6 +1,6 @@
 ---
 name: beijing
-description: 'Guide visits, relocation, work, and daily life in Beijing. Trigger this skill when the user asks about planning a Beijing trip, itineraries, the Great Wall, renting, WeChat Pay/Alipay setup, SIM cards, transit updates, AQI, visas, work permits, tech salaries, teaching English, startup registration, schools, hospitals, learning Mandarin, or wrapping up their stay.'
+description: "Guide visits, relocation, work, and daily life in Beijing. Use when the user asks about planning a Beijing trip, itineraries, the Great Wall, renting, WeChat Pay/Alipay setup, SIM cards, transit updates, AQI, visas, work permits, tech salaries, teaching English, startup registration, schools, hospitals, learning Mandarin, or wrapping up their stay."
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji": "🏯"}'

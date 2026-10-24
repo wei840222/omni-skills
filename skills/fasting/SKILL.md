@@ -1,6 +1,6 @@
 ---
 name: fasting
-description: "Track intermittent and extended fasts: log start/break times, elapsed hours, stages, and eating windows. Use for 16:8, 18:6, OMAD, 5:2, ADF, religious fasts, electrolytes, refeeding, symptoms, medications, cycle questions, fasted training, plateaus, or glucose/ketone readings."
+description: "Track intermittent and extended fasts: log start/break times, elapsed hours, stages, and eating windows. Use when working with 16:8, 18:6, OMAD, 5:2, ADF, religious fasts, electrolytes, refeeding, symptoms, medications, cycle questions, fasted training, plateaus, or glucose/ketone readings."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "⏳", "requires": {"config": ["<state_root>/"]}}'

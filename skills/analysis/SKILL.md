@@ -1,12 +1,6 @@
 ---
 name: analysis
-description: >
-  Audit the agent's setup, workspace, memory, and scheduled jobs to identify
-  exposed credentials, broken integrations, bloat, or anomalous costs. Trigger
-  this when asked to diagnose system health, investigate looping subagents,
-  verify permissions, or fix missing skills. Load references/remediation.md
-  and references/tracking.md for remediation policies and historical tracking
-  rules.
+description: "Audit agent setup, workspace, memory, and scheduled jobs. Use when diagnosing system health, investigating looping subagents, verifying permissions, or identifying exposed credentials and bloat."
 metadata:
   openclaw: '{"emoji": "🔍", "configPaths": ["<state_root>/analysis/", "<state_root>/servers/", "<state_root>/devices/", "<state_root>/finances/", "<state_root>/contacts/", "~/Clawic/profile.yaml", "~/analysis/", "~/clawic/analysis/"]}'
   related-skills: '{"monitoring": "continuous observability for applications and servers, as opposed to point-in-time audits of the agent''s own setup", "openclaw-workspace": "persona, tone, and proactivity tuning in instruction files that shape the agent", "security-best-practices": "broader secure-defaults guidance once analysis surfaces exposure or permission findings", "skill-audit": "whether a third-party skill is safe to install; this one assumes the code is trusted and asks whether the setup is healthy", "skill-manager": "installing, updating, and removing skills once this audit says which ones to touch"}'

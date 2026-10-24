@@ -1,13 +1,6 @@
 ---
 name: bucharest
-description: >
-  Navigate Bucharest for visitors, residents, tech workers, students, and
-  entrepreneurs: neighborhoods (Old Town, Floreasca/Dorobanți, Pipera/Băneasa),
-  STB/metro + Bolt routing, cost bands in RON/EUR, EU/Schengen stay orientation,
-  Romanian food, climate, and local services. Use for Bucharest stay, move,
-  commute, or work-base decisions. Prefer `romania` for multi-city Romania
-  routing, `travel`/`travel-planning` for generic trip systems, and `expat` for
-  full cross-border move project tracking.
+description: "Navigate Bucharest for visitors, residents, tech workers, students, and entrepreneurs: neighborhoods (Old Town, Floreasca/Dorobanți, Pipera/Băneasa), STB/metro + Bolt routing, cost bands in RON/EUR, EU/Schengen stay orientation, Romanian food, climate, and local services. Use when working with Bucharest stay, move, commute, or work-base decisions. Prefer `romania` for multi-city Romania routing, `travel`/`travel-planning` for generic trip systems, and `expat` for full cross-border move project tracking."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏛️"}'

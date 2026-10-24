@@ -1,8 +1,6 @@
 ---
 name: cypress
-description: >
-  Write and debug Cypress E2E/component tests. Trigger when configuring
-  Cypress CI, mocking networks, or writing custom test commands.
+description: "Write and debug Cypress E2E/component tests. Use when configuring Cypress CI, mocking networks, or writing custom test commands."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🌲", "requires": {"bins": ["npx"]}, "os": ["linux", "darwin", "win32"], "displayName": "Cypress"}'

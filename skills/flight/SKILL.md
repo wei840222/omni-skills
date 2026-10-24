@@ -1,6 +1,6 @@
 ---
 name: flight
-description: Manage flight searches, bookings, points, baggage rules, and disruption claims. Use for flight options, fare rules, award travel, ticket changes, or passenger-rights questions; load the relevant reference before live searches or current-rule advice.
+description: "Manage flight searches, bookings, points, baggage rules, and disruption claims. Use when working with flight options, fare rules, award travel, ticket changes, or passenger-rights questions; load the relevant reference before live searches or current-rule advice."
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"✈️"}'

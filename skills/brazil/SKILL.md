@@ -1,9 +1,6 @@
 ---
 name: brazil
-description: >
-  Structure Brazil travel itineraries. Load this skill to route between
-  macro-regions, verify visa/entry rules, plan payment strategies (PIX/CPF),
-  and resolve city-level logistics.
+description: "Plan travel routes and logistics across Brazil. Use when structuring inter-region travel itineraries, navigating visa/entry rules, planning PIX/CPF payments, or reviewing regional safety guidelines."
 metadata:
   openclaw: '{"emoji": "🇧🇷", "requires": {"config": ["<state_root>/brazil/"]}, "configPaths": ["<state_root>/brazil/"]}'
   related-skills: '{"booking": "Reservation workflows and confirmation hygiene.", "car-rental": "Self-drive strategy and handoff logistics.", "food": "Deeper restaurant and cuisine recommendations.", "portuguese": "Language support for bookings, transport, and service interactions.", "travel": "General trip planning and itinerary structure."}'

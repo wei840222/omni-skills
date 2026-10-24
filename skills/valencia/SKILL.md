@@ -1,12 +1,6 @@
 ---
 name: valencia
-description: >
-  Navigate Valencia for visitors, residents, tech workers, students, and
-  entrepreneurs: neighborhoods, metro/EMT/Valenbisi, costs, Digital Nomad/NIE
-  orientation, paella lunch culture, Fallas timing, climate, and local services.
-  Use for Valencia stay, move, commute, or work-base decisions. Prefer `spain`
-  for multi-city Spain routing, `travel`/`travel-planning` for generic trip
-  systems, and `expat` for full cross-border move project tracking.
+description: "Navigate Valencia for visitors, residents, tech workers, students, and entrepreneurs: neighborhoods, metro/EMT/Valenbisi, costs, Digital Nomad/NIE orientation, paella lunch culture, Fallas timing, climate, and local services. Use when working with Valencia stay, move, commute, or work-base decisions. Prefer `spain` for multi-city Spain routing, `travel`/`travel-planning` for generic trip systems, and `expat` for full cross-border move project tracking."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍊"}'

@@ -1,12 +1,6 @@
 ---
 name: litecoin
-description: >
-  Diagnose Litecoin (LTC) address formats, fees, confirmations, RBF recovery,
-  and optional MWEB privacy (peg-in/peg-out, stealth addresses). Use for
-  Legacy/P2SH/bech32/MWEB deposit checks, stuck txs, exchange compatibility,
-  or merged-mining context with Dogecoin. Not for Bitcoin UTXO/Lightning
-  (`bitcoin`), Dogecoin-only flows (`dogecoin`), EVM chains (`ethereum`), or
-  portfolio/market tooling (`crypto-tools`).
+description: "Diagnose Litecoin (LTC) address formats, fees, confirmations, RBF recovery, and optional MWEB privacy (peg-in/peg-out, stealth addresses). Use when working with Legacy/P2SH/bech32/MWEB deposit checks, stuck txs, exchange compatibility, or merged-mining context with Dogecoin. Not for Bitcoin UTXO/Lightning (`bitcoin`), Dogecoin-only flows (`dogecoin`), EVM chains (`ethereum`), or portfolio/market tooling (`crypto-tools`)."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"Ł"}'

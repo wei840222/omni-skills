@@ -1,8 +1,6 @@
 ---
 name: caldav
-description: Sync, inspect, and safely modify CalDAV calendars with vdirsyncer and
-  khal. Use for local-first event queries, verified writes, recurrence-aware edits,
-  and stale-sync troubleshooting on standards-based servers.
+description: "Sync, inspect, and safely modify CalDAV calendars with vdirsyncer and khal. Use when working with local-first event queries, verified writes, recurrence-aware edits, and stale-sync troubleshooting on standards-based servers."
 metadata:
   openclaw: '{"emoji":"📅","requires":{"bins":["vdirsyncer","khal"]}}'
   related-skills: '{"calendar-planner": "week repair, focus protection, multi-calendar planning", "fastmail-api": "Fastmail-native APIs beyond CalDAV", "remind": "commitment nudges, not direct calendar mutation", "schedule": "durable job firing rather than calendar event CRUD"}'

@@ -1,6 +1,6 @@
 ---
 name: rails
-description: Write reliable Ruby on Rails applications. Trigger this skill when writing controllers, working with ActiveRecord, setting up routes, or implementing background jobs.
+description: "Write reliable Ruby on Rails applications. Use when writing controllers, working with ActiveRecord, setting up routes, or implementing background jobs."
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🛤️","requires":{"bins":["rails"]},"os":["linux","darwin","win32"],"displayName":"Rails"}'

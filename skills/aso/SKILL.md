@@ -1,6 +1,6 @@
 ---
 name: aso
-description: Plan and improve App Store Optimization (ASO) for iOS or Android apps. Use for store-listing keyword research, metadata, creative assets, localization, experiments, review responses, or ASO measurement.
+description: "Plan and improve App Store Optimization (ASO) for iOS or Android apps. Use when working with store-listing keyword research, metadata, creative assets, localization, experiments, review responses, or ASO measurement."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📲"}'

@@ -1,6 +1,6 @@
 ---
 name: unreal-engine
-description: Navigate Unreal Engine C++ architecture by handling garbage collection, component initialization, and multiplayer replication reliably. Load unreal-engine-concepts for full technical constraints.
+description: "Architect and develop games using Unreal Engine C++. Use when handling UObject garbage collection, structuring actor components, debugging multiplayer network replication, or optimizing game performance."
 metadata:
   openclaw: '{"emoji":"🎯","os":["linux","darwin","win32"]}'
 ---

@@ -1,16 +1,6 @@
 ---
 name: italy
-description: >
-  Plan Italy trips with region-aware city routing, ZTL and rail logistics,
-  local food playbooks, and practical tourist safety. Use for Rome, Florence,
-  Venice, Naples/Amalfi, Tuscany countryside, or multi-region corridors with
-  realistic transfer buffers. Prefer `travel` for multi-country systems,
-  `booking` after a base is chosen, `car-rental` for self-drive segments,
-  `food` beyond the Italy food playbook, `italian` for language, and
-  `rome` / `venice` when the ask is city-resident depth rather than Italy
-  trip routing. Not for inventing nationality-specific visa outcomes,
-  stacking Rome + Venice + Amalfi into one short trip without overnight
-  buffers, or treating ZTL as optional when driving into historic centers.
+description: "Plan Italy trips with region-aware city routing, ZTL and rail logistics, local food playbooks, and practical tourist safety. Use when working with Rome, Florence, Venice, Naples/Amalfi, Tuscany countryside, or multi-region corridors with realistic transfer buffers. Prefer `travel` for multi-country systems, `booking` after a base is chosen, `car-rental` for self-drive segments, `food` beyond the Italy food playbook, `italian` for language, and `rome` / `venice` when the ask is city-resident depth rather than Italy trip routing. Not for inventing nationality-specific visa outcomes, stacking Rome + Venice + Amalfi into one short trip without overnight buffers, or treating ZTL as optional when driving into historic centers."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇮🇹"}'

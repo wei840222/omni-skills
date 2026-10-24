@@ -1,9 +1,6 @@
 ---
 name: texas
-description: Navigate Texas for living, moving, working, and road trips with region
-  fit, state rules, weather risk, and daily logistics. Trigger for Texas metro choice,
-  relocation checklists, DPS/TxDMV, property tax, flood/heat prep, small-business setup,
-  or long-drive planning.
+description: "Navigate Texas for living, relocation, and travel. Use when comparing Texas metros (Austin, Dallas, Houston, San Antonio), managing DPS/TxDMV requirements, planning for property taxes and severe weather, or planning road trips."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤠","requires":{"config":["<state_root>/texas/"]}}'

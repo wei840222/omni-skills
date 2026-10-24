@@ -1,6 +1,6 @@
 ---
 name: prompting
-description: Iterate and diagnose prompts for AI models based on verifiable failure criteria. Trigger when resolving instruction drift, invalid structured output, voice degradation, or when adapting prompts across platform versions.
+description: "Iterate and diagnose prompts for AI models based on verifiable failure criteria. Use when resolving instruction drift, invalid structured output, voice degradation, or when adapting prompts across platform versions."
 metadata:
   openclaw: '{"emoji":"💬"}'
 ---

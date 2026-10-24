@@ -1,10 +1,6 @@
 ---
 name: bitcoin
-description: >
-  Diagnose Bitcoin transactions, wallet derivation mismatches, fee strategies,
-  Lightning gotchas, and on-chain security risks. Load when troubleshooting
-  stuck txs, zero-balance imports, RBF/CPFP recovery, Lightning liquidity, or
-  scam patterns. Not for custodial account recovery that requires seed phrases.
+description: "Diagnose Bitcoin transactions, wallet derivation mismatches, fee strategies, Lightning gotchas, and on-chain security risks. Use when troubleshooting stuck txs, zero-balance imports, RBF/CPFP recovery, Lightning liquidity, or scam patterns. Not for custodial account recovery that requires seed phrases."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "₿"}'

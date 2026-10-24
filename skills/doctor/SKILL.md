@@ -1,9 +1,6 @@
 ---
 name: doctor
-description: Load when the user describes symptoms like pain, fever, or rash and needs
-  to know urgency (emergency, today, or watch). Load to read lab results, check medication
-  interactions, review chronic condition targets, or prepare for medical appointments.
-  Provides triage and safety guidance, not diagnosis.
+description: "Use when the user describes symptoms like pain, fever, or rash and needs to know urgency (emergency, today, or watch). Load to read lab results, check medication interactions, review chronic condition targets, or prepare for medical appointments. Provides triage and safety guidance, not diagnosis."
 metadata:
   openclaw: '{"emoji": "🩺", "configPaths": ["<state_root>/Clawic/data/doctor/", "<state_root>/Clawic/data/health/", "<state_root>/Clawic/data/contacts/", "<state_root>/Clawic/data/bookings/", "<state_root>/Clawic/data/finances/", "<state_root>/Clawic/data/projects/", "<state_root>/Clawic/profile.yaml", "<state_root>/doctor/", "<state_root>/clawic/doctor/"]}'
   related-skills: '{"baby": "Infant day-to-day tracking; not a substitute for pediatric red-flag triage.", "dietitian": "Meal-planning and therapeutic diet construction after medical triage.", "fitness": "Training load context when symptoms relate to exertion.", "nutrition": "Micronutrient gaps, supplement stacks, and food-drug interactions.", "period": "Cycle tracking and contraception effects on bleeding patterns.", "pregnancy": "Pregnancy day-to-day tracking once maternity red flags are cleared.", "sleep": "Insomnia protocols, shift work, and tracker-score interpretation.", "therapist": "CBT/ACT and therapy technique once triage points past crisis routing."}'

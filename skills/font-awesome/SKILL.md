@@ -1,6 +1,6 @@
 ---
 name: font-awesome
-description: Add Font Awesome icons to web projects using CDN, npm, React, or SVG methods. Load this skill when the user needs to integrate, style, or search for icons in a web application.
+description: "Add Font Awesome icons to web projects using CDN, npm, React, or SVG methods. Load this skill Use when the user needs to integrate, style, or search for icons in a web application."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🎨"}'

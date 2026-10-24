@@ -1,6 +1,6 @@
 ---
 name: weaviate
-description: Build vector search with Weaviate using v4 syntax, proper module configuration, and production-ready patterns.
+description: "Build vector search applications using Weaviate v4 Python client. Use when defining collection schemas, configuring vectorizer modules, executing hybrid or semantic search queries, or tuning multi-tenancy."
 metadata:
   openclaw: '{"emoji":"🔷","os":["linux","darwin","win32"],"displayName":"Weaviate","requires":null}'
 ---

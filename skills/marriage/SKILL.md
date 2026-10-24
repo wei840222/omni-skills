@@ -1,6 +1,6 @@
 ---
 name: marriage
-description: Provide practical frameworks, conflict resolution strategies, and communication tools for marriage challenges. Trigger on queries about marital stages (engaged, newlywed, long-term, struggling, or considering divorce).
+description: "Provide practical frameworks and communication tools for marital challenges. Use when resolving recurring conflict patterns, improving emotional intimacy, or navigating critical relationship transitions."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💍"}'

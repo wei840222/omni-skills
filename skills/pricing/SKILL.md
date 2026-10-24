@@ -1,6 +1,6 @@
 ---
 name: pricing
-description: 'Manage, set, and test software pricing strategies. Trigger for value metrics, packaging tiers, discounts, price increases, willingness-to-pay research (Van Westendorp/conjoint), and marketplace take rates. Handles grandfathering logic, annual prepay calculations, price tests, and local currency rules. Limit trigger scope to B2B software/SaaS pricing; redirect consumer buying, indie launch monetization, billing system building, or corporate financial modeling to specialized tools.'
+description: "Design, evaluate, and test software pricing models. Use when structuring SaaS pricing tiers, setting value metrics, calculating discount structures, planning price increases, or conducting willingness-to-pay research."
 metadata:
   openclaw: '{"emoji": "💰"}'
   related-skills: '{"billing": "implementing the charge: subscriptions, proration, invoices, webhooks, tax", "cfo": "the company financial model a pricing change feeds into", "monetize": "Indie launch sequencing and revenue mix outside list-price design.", "negotiate": "the deal conversation itself, once the floor and the trade list exist", "price": "Consumer buying decisions outside B2B software pricing."}'

@@ -1,9 +1,6 @@
 ---
 name: image-edit
-description: >
-  Edit and enhance existing images with AI tools for inpainting, outpainting,
-  background removal, upscaling, restoration, and style transfer. Trigger when
-  a user asks to modify, fix, upscale, relight, or alter an existing image.
+description: "Edit and enhance existing images with AI tools for inpainting, outpainting, background removal, upscaling, restoration, and style transfer. Use when a user asks to modify, fix, upscale, relight, or alter an existing image."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"✂️","os":["linux","darwin","win32"],"displayName":"Image Editing"}'

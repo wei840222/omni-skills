@@ -1,6 +1,6 @@
 ---
 name: animations
-description: Create performant web animations with proper accessibility and timing. Triggers on requests involving CSS transitions, keyframes, or UI animation libraries.
+description: "Create performant web animations with proper accessibility and timing. Use when working with CSS transitions, keyframes, or UI animation libraries."
 compatibility: "css, react, javascript"
 metadata:
   openclaw: '{"emoji":"✨","requires":{},"os":["linux","darwin","win32"],"displayName":"Animations"}'

@@ -1,14 +1,6 @@
 ---
 name: new-zealand
-description: >
-  Plan New Zealand trips with island-aware corridors, realistic driving pace,
-  outdoor safety, biosecurity, food, and regional bases. Use for Auckland,
-  Wellington, Rotorua/Taupo, Queenstown, Christchurch, Nelson/Abel Tasman,
-  Fiordland, road trips, ferries, Great Walks, wine, or family itineraries.
-  Prefer `travel` for multi-country trip systems, `booking` for reservation
-  completion after a base is chosen, `car-rental` for vehicle handoff details,
-  `food` for cuisine logging beyond NZ regional guidance, and `english` for
-  booking-language clarity.
+description: "Plan New Zealand trips with island-aware corridors, realistic driving pace, outdoor safety, biosecurity, food, and regional bases. Use when working with Auckland, Wellington, Rotorua/Taupo, Queenstown, Christchurch, Nelson/Abel Tasman, Fiordland, road trips, ferries, Great Walks, wine, or family itineraries. Prefer `travel` for multi-country trip systems, `booking` for reservation completion after a base is chosen, `car-rental` for vehicle handoff details, `food` for cuisine logging beyond NZ regional guidance, and `english` for booking-language clarity."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇳🇿"}'

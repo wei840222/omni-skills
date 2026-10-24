@@ -1,6 +1,6 @@
 ---
 name: pets
-description: Track and care for pets with profiles, routines, behavior logging, training progress, and creative projects.
+description: "Track pet health routines and daily care. Use when maintaining pet care profiles, logging feeding and medication schedules, tracking behavioral training progress, or preparing veterinary visit notes."
 metadata:
   openclaw: '{"emoji": "🐾", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"],
     "displayName": "Pets"}'

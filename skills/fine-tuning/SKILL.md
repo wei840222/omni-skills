@@ -1,6 +1,6 @@
 ---
 name: fine-tuning
-description: Plan, evaluate, and troubleshoot LLM fine-tuning. Use for training-data preparation, provider/model selection, cost estimates, training failures, and privacy review; compare prompting and retrieval before recommending a training job.
+description: "Plan, evaluate, and troubleshoot LLM fine-tuning. Use when working with training-data preparation, provider/model selection, cost estimates, training failures, and privacy review; compare prompting and retrieval before recommending a training job."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎛️"}'

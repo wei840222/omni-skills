@@ -1,8 +1,6 @@
 ---
 name: gaming
-description: >
-  Recommend games, troubleshoot stuck points, optimize settings, and promote
-  healthy gaming habits.
+description: "Recommend video games and troubleshoot gameplay issues. Use when searching for games matching player preferences, optimizing PC graphics settings, navigating game progression, or setting healthy play habits."
 metadata:
   openclaw: '{"emoji": "🎮"}'
   category: 'entertainment'

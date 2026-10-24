@@ -1,11 +1,6 @@
 ---
 name: taiwan
-description: >
-  Design Taiwan itineraries with HSR/TRA routing, city-specific food, weather
-  backups, and tourist-trap avoidance. Load when planning Taiwan trips, choosing
-  bases (Taipei/Taichung/Tainan/Kaohsiung), or asking about night markets, tea,
-  hot springs, east-coast logistics, or family pacing. Not for mainland China
-  or Japan-only travel plans.
+description: "Design Taiwan itineraries with HSR/TRA routing, city-specific food, weather backups, and tourist-trap avoidance. Use when planning Taiwan trips, choosing bases (Taipei/Taichung/Tainan/Kaohsiung), or asking about night markets, tea, hot springs, east-coast logistics, or family pacing. Not for mainland China or Japan-only travel plans."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🇹🇼", "requires": {"config": ["<state_root>/taiwan/"]}}'

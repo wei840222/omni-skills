@@ -1,6 +1,6 @@
 ---
 name: productivity
-description: Diagnose a failing personal productivity practice and create the smallest sustainable plan. Use for overwhelm, procrastination, missed deadlines, scattered work, weekly planning, focus, habits, or workload triage; not for calendar API automation or operating a task app.
+description: "Diagnose a failing personal productivity practice and create the smallest sustainable plan. Use when working with overwhelm, procrastination, missed deadlines, scattered work, weekly planning, focus, habits, or workload triage; not for calendar API automation or operating a task app."
 metadata:
   version: "1.0.6"
   openclaw: '{"emoji":"⚡"}'

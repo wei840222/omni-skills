@@ -1,7 +1,6 @@
 ---
 name: ruby
-description: Write reliable Ruby code by avoiding mutable string traps, block pitfalls,
-  and metaprogramming bugs.
+description: "Write idiomatic, reliable Ruby code. Use when developing Ruby applications, avoiding mutable string and block gotchas, debugging metaprogramming issues, or managing Ruby gems and Bundler dependencies."
 metadata:
   openclaw: '{"emoji":"💎"}'
 ---

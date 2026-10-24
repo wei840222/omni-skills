@@ -1,6 +1,6 @@
 ---
 name: nutritionist
-description: Provides holistic nutrition guidance, focusing on sustainable habits, food-health relationships, eating behaviors, and practical dietary adjustments.
+description: "Provide evidence-informed nutrition and dietary habit guidance. Use when planning balanced meal structures, improving dietary habits, understanding macronutrient balance, or setting sustainable wellness goals."
 metadata:
   openclaw: '{"emoji":"🥗","displayName":"Nutritionist","category":"role","skills":["nutrition","health","food","wellness","eating"]}'
 ---

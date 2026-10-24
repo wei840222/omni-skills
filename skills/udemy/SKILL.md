@@ -1,6 +1,6 @@
 ---
 name: udemy
-description: "Design and manage Udemy courses by assisting with curriculum planning, script writing, and compliance while strictly adhering to human-in-the-loop and GenAI disclosure policies."
+description: "Create, structure, and optimize online courses on Udemy. Use when planning course curricula, scripting lecture outlines, optimizing course landing pages, or adhering to Udemy quality and AI disclosure guidelines."
 metadata:
   openclaw: '{"emoji":"🎓","displayName":"Udemy"}'
 ---

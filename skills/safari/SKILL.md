@@ -1,12 +1,6 @@
 ---
 name: safari
-description: >
-  Control Safari on macOS via AppleScript (real session tabs/cookies),
-  safaridriver/WebDriver (isolated automation), screenshots, tab navigation,
-  and verified read/click/type loops. Use for live Safari control, permission
-  preflight, or Safari-only WebDriver. Prefer `playwright` for generic browser
-  automation; `applescript`/`macos` for deeper script or permission work;
-  `passkey` for WebAuthn; not for non-Safari browsers.
+description: "Control Safari on macOS via AppleScript (real session tabs/cookies), safaridriver/WebDriver (isolated automation), screenshots, tab navigation, and verified read/click/type loops. Use when working with live Safari control, permission preflight, or Safari-only WebDriver. Prefer `playwright` for generic browser automation; `applescript`/`macos` for deeper script or permission work; `passkey` for WebAuthn; not for non-Safari browsers."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","os":["darwin"],"requires":{"bins":["osascript","safaridriver","screencapture"]}}'

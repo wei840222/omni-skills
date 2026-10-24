@@ -1,9 +1,6 @@
 ---
 name: bluetooth
-description: >
-  Scan, connect, and control Bluetooth and BLE devices across Linux, macOS, and
-  Windows. Use for device discovery, profile learning, pairing confirmation,
-  audio/smart-home/fitness workflows, and secure local-only MAC handling.
+description: "Scan, connect, and control Bluetooth and BLE devices across Linux, macOS, and Windows. Use when working with device discovery, profile learning, pairing confirmation, audio/smart-home/fitness workflows, and secure local-only MAC handling."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📶","requires":{"anyBins":["bluetoothctl","blueutil","python3"]}}'

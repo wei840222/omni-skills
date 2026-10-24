@@ -1,9 +1,6 @@
 ---
 name: speak
-description: >
-  Write and convert text into natural speech-ready output with SSML tags.
-  Trigger when preparing replies to be read aloud, converting scripts for TTS,
-  or fixing mispronunciations, bad pacing, and robotic voices.
+description: "Write and convert text into natural speech-ready output with SSML tags. Use when preparing replies to be read aloud, converting scripts for TTS, or fixing mispronunciations, bad pacing, and robotic voices."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/speak/"]}}'
   related-skills: '{"audio": "process the audio files themselves: conversion, cleanup, normalization", "listen": "the input side: speech-to-text and transcription accuracy", "talk": "set up the real-time two-way voice session this skill writes for"}'

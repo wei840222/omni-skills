@@ -1,12 +1,6 @@
 ---
 name: arbitrum
-description: >
-  Operate Arbitrum One and Nova: official bridging and ~7-day exits, ETH gas vs ARB
-  governance, chain IDs/RPCs, Stylus status, sequencer force-inclusion, and BoLD
-  dispute context. Use for Arbitrum deposits, withdrawals, wallet setup, L2 gas,
-  or One-vs-Nova confusion. Not for general Ethereum L1 fee markets alone
-  (`ethereum`), multi-chain architecture choice (`blockchain`), or Solidity authoring
-  (`solidity`).
+description: "Operate Arbitrum One and Nova: official bridging and ~7-day exits, ETH gas vs ARB governance, chain IDs/RPCs, Stylus status, sequencer force-inclusion, and BoLD dispute context. Use when working with Arbitrum deposits, withdrawals, wallet setup, L2 gas, or One-vs-Nova confusion. Not for general Ethereum L1 fee markets alone (`ethereum`), multi-chain architecture choice (`blockchain`), or Solidity authoring (`solidity`)."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔵"}'

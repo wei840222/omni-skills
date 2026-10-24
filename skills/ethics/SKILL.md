@@ -1,6 +1,6 @@
 ---
 name: ethics
-description: Guide moral reasoning, from resolving personal ethical dilemmas to analyzing academic philosophy and contemporary metaethics. Trigger when asked about morality, dilemmas, argument structures, or philosophy teaching protocols.
+description: "Guide moral reasoning, from resolving personal ethical dilemmas to analyzing academic philosophy and contemporary metaethics. Use when asked about morality, dilemmas, argument structures, or philosophy teaching protocols."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⚖️"}'

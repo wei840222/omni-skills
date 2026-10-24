@@ -1,6 +1,6 @@
 ---
 name: geography
-description: Explain physical and human geography, map literacy, spatial patterns, and geographic analysis. Use for questions about places, maps, spatial relationships, geographic data, or how people and environments shape one another.
+description: "Explain physical and human geography, map literacy, spatial patterns, and geographic analysis. Use when working with questions about places, maps, spatial relationships, geographic data, or how people and environments shape one another."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌍"}'

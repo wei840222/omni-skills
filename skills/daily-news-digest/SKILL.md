@@ -1,10 +1,6 @@
 ---
 name: daily-news-digest
-description: >
-  Fetch and compile personalized news briefings from specified sources, filter
-  topics, and schedule automated delivery. Use for morning/evening digests, RSS
-  and public-API aggregation, topic include/exclude lists, format selection
-  (brief/standard/deep-dive/audio), and OpenClaw cron delivery.
+description: "Fetch and compile personalized news briefings from specified sources, filter topics, and schedule automated delivery. Use when working with morning/evening digests, RSS and public-API aggregation, topic include/exclude lists, format selection (brief/standard/deep-dive/audio), and OpenClaw cron delivery."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📰"}'

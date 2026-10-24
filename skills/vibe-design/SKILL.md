@@ -1,7 +1,6 @@
 ---
 name: vibe-design
-description: Create visual designs with AI tools. Covers prompting for UI/graphics,
-  Midjourney techniques, Figma AI workflow, and iteration patterns.
+description: "Create aesthetic UI and visual designs with generative AI tools. Use when prompting for modern UI components, directing Midjourney aesthetic styles, structuring Figma AI workflows, or crafting visual design systems."
 metadata:
   openclaw: '{"emoji": "🎨"}'
 ---

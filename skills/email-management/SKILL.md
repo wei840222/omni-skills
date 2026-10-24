@@ -1,6 +1,6 @@
 ---
 name: email-management
-description: "Triage inbox email, draft replies, and track follow-ups. Trigger when user requests inbox processing, response drafting, or managing pending threads."
+description: "Triage inbox email, draft replies, and track follow-ups. Use when user requests inbox processing, response drafting, or managing pending threads."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📬","requires":{"config":["<state_root>"]},"configPaths":["<state_root>/"]}'

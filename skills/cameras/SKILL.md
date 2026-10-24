@@ -1,7 +1,6 @@
 ---
 name: cameras
-description: Connect to security cameras and capture or process video feeds when users
-  provide necessary credentials.
+description: "Connect to security cameras and process video streams. Use when configuring RTSP/ONVIF streams, verifying camera reachability on trusted local networks, or extracting snapshots and video frames."
 metadata:
   openclaw: '{"emoji": "📷", "requires": {"bins": ["ffmpeg"]}, "os": ["linux", "darwin"],
     "displayName": "Cameras"}'

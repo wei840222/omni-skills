@@ -1,15 +1,6 @@
 ---
 name: cybersecurity
-description: >
-  Run defensive security work: alert triage, compromise scoping, containment,
-  vulnerability prioritization (KEV/EPSS/exposure), detection quality, identity
-  token eviction, ransomware recovery posture, compliance notification clocks,
-  and risk reporting. Use for suspected breaches, phishing/BEC, scanner/pentest
-  backlogs, cloud or SaaS tenant reviews, hardening programs, authorized-test
-  scope, and findings that need an owner and due date. Prefer
-  `security-best-practices` for line-by-line code fixes, `auth` for building
-  login flows, `firewall` for host/cloud packet filters, and `network` for
-  generic reachability triage.
+description: "Run defensive security work: alert triage, compromise scoping, containment, vulnerability prioritization (KEV/EPSS/exposure), detection quality, identity token eviction, ransomware recovery posture, compliance notification clocks, and risk reporting. Use when working with suspected breaches, phishing/BEC, scanner/pentest backlogs, cloud or SaaS tenant reviews, hardening programs, authorized-test scope, and findings that need an owner and due date. Prefer `security-best-practices` for line-by-line code fixes, `auth` for building login flows, `firewall` for host/cloud packet filters, and `network` for generic reachability triage."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛡️","os":["linux","darwin","win32"],"displayName":"Cybersecurity"}'

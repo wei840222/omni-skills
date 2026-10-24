@@ -1,6 +1,6 @@
 ---
 name: germany
-description: "Plan Germany trips with region-specific routing, rail-vs-car strategy, verified entry rules, and practical travel logistics. Note: For complex multi-city trips, read references in sequence, focusing on core planning before execution details."
+description: "Plan travel and logistics in Germany. Use when creating multi-city rail or road trip itineraries, booking Deutsche Bahn routes, navigating seasonal travel, or checking entry rules."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇩🇪","requires":{"config":["<state_root>/"]}}'

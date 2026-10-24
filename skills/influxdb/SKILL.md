@@ -1,11 +1,6 @@
 ---
 name: influxdb
-description: >
-  Query and write InfluxDB time-series data with schema design, line protocol,
-  Flux/InfluxQL patterns, cardinality control, and retention guidance. Load when
-  designing measurements/tags/fields, generating Flux or InfluxQL, diagnosing
-  high-cardinality or write errors, or planning downsampling. Prefer for InfluxDB
-  1.x/2.x workloads rather than general metrics definitions or full-text search.
+description: "Query and write InfluxDB time-series data with schema design, line protocol, Flux/InfluxQL patterns, cardinality control, and retention guidance. Use when designing measurements/tags/fields, generating Flux or InfluxQL, diagnosing high-cardinality or write errors, or planning downsampling. Prefer for InfluxDB 1.x/2.x workloads rather than general metrics definitions or full-text search."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "📈", "requires": {"anyBins": ["influx", "curl"]}, "os": ["linux", "darwin", "win32"], "displayName": "InfluxDB"}'

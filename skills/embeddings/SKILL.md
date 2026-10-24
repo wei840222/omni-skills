@@ -1,6 +1,6 @@
 ---
 name: embeddings
-description: Generate, store, and search vector embeddings with provider selection, chunking strategies, and similarity search optimization.
+description: "Generate, store, and query vector embeddings. Use when selecting embedding models, choosing text chunking strategies, indexing vector spaces, or optimizing cosine similarity search performance."
 metadata:
   openclaw: '{"emoji":"🧮","displayName":"Embeddings"}'
 ---

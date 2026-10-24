@@ -1,6 +1,6 @@
 ---
 name: fitness
-description: Design, progress, and adapt fitness programs (strength, cardio, endurance) based on quantified rules. Trigger when building a training plan, computing loads, troubleshooting plateaus, adjusting for missed sessions, or interpreting wearable readiness data. Bypass this skill for rep-by-rep logging or meal-level nutrition.
+description: "Design, progress, and adapt fitness programs (strength, cardio, endurance) based on quantified rules. Use when building a training plan, computing loads, troubleshooting plateaus, adjusting for missed sessions, or interpreting wearable readiness data. Bypass this skill for rep-by-rep logging or meal-level nutrition."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💪","requires":{"config":["<state_root>/fitness/"]}}'

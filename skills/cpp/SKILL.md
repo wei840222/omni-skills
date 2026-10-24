@@ -1,9 +1,6 @@
 ---
 name: cpp
-description: >
-  Apply C++ standard practices to manage memory safely, eliminate undefined
-  behavior, enforce RAII, and modernize legacy pointer and class
-  architectures.
+description: "Apply modern C++ standards (C++17/20/23) best practices. Use when managing memory safely, enforcing RAII, eliminating undefined behavior, debugging pointer traps, or modernizing legacy C++ codebases."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "⚡"}'

@@ -1,6 +1,6 @@
 ---
 name: clients
-description: 'Manages client relationships end to end for freelancers, consultants, and agencies. Core value: Maintains professional boundaries, handles scope creep, and ensures you get paid. Primary triggers: When a prospect enquires, when scoping proposals, managing scope creep, getting paid, or handling renewals and endings. Common use cases: Covers retainers versus project work, change orders, and referrals. Alternative skills: drafting (`skills/contract`) the contract itself (`skills/contract`), issuing invoices (`skills/invoice`), filing received invoices (`skills/invoices`), a personal contact book (`skills/people`), running an agency (`skills/agency`), or Upwork tactics (`skills/upwork`).'
+description: "Manage client relationships for freelancers, consultants, and agencies. Use when scoping proposals, setting retainers, handling scope creep, negotiating change orders, or resolving late payments."
 metadata:
   openclaw: '{"emoji": "\ud83d\udcbc", "requires": {"config": ["<state_root>/data/clients/", "<state_root>/data/contacts/", "<state_root>/data/projects/", "<state_root>/profile.yaml"]}}'
   related-skills: '{"negotiate": "Negotiate prices, contracts, marketplace deals, or salary/offer terms on behalf of a principal with mandatory limits, graduated autonomy, and human approval for commitments", "people": "Maintain a personal address book of people, context, last contact, birthdays, and open loops", "projects": "Manage projects, define scopes, capture tasks, review progress, and organize project folders"}'

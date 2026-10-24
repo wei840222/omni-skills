@@ -1,6 +1,6 @@
 ---
 name: vibe-coding
-description: Direct the workflow and prompting strategy for vibe coding. Trigger when the user is using AI-native tools (Cursor, Bolt.new, Claude Code) to build prototypes or MVPs. Bypass this skill for security-critical or compliance-heavy production systems.
+description: "Direct the workflow and prompting strategy for vibe coding. Use when the user is using AI-native tools (Cursor, Bolt.new, Claude Code) to build prototypes or MVPs. Bypass this skill for security-critical or compliance-heavy production systems."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎸"}'

@@ -1,8 +1,6 @@
 ---
 name: diagram
-description: Generate architecture, flow, sequence, and data model diagrams from descriptions
-  using Mermaid, PlantUML, or ASCII. Trigger this when visualizing systems, processes,
-  or code structures is requested.
+description: "Generate technical diagrams from system descriptions. Use when creating architecture diagrams, sequence diagrams, flowcharts, or entity-relationship models using Mermaid, PlantUML, or ASCII."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "📈"}'

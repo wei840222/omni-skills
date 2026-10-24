@@ -1,6 +1,6 @@
 ---
 name: dermatologist
-description: Track skin lesions, rashes, photos, treatment response, and dermatology visit preparation. Use for conservative triage, case-based documentation, photo comparison, and clinician handoffs; do not use for diagnosis or prescribing.
+description: "Track skin lesions, rashes, photos, treatment response, and dermatology visit preparation. Use when conducting conservative triage, case documentation, photo comparison, or clinician handoffs; do not use for diagnosis or prescribing."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"D"}'

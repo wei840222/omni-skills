@@ -1,6 +1,6 @@
 ---
 name: toml
-description: Create, edit, convert, validate, and troubleshoot TOML configuration files; use for TOML syntax, tables, arrays, types, dates, and parser errors.
+description: "Create, edit, convert, validate, and troubleshoot TOML configuration files; Use when working with TOML syntax, tables, arrays, types, dates, and parser errors."
 metadata:
   openclaw: '{"emoji":"⚙️"}'
 ---

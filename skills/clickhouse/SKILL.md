@@ -1,6 +1,6 @@
 ---
 name: clickhouse
-description: Query, optimize, and administer ClickHouse OLAP databases. Use for schema design, ORDER BY/primary-key layout, data skipping indexes, batch ingestion, slow-query tuning, system table diagnostics, TTL/retention, and MergeTree family operations with clickhouse-client.
+description: "Query, optimize, and administer ClickHouse OLAP databases. Use when working with schema design, ORDER BY/primary-key layout, data skipping indexes, batch ingestion, slow-query tuning, system table diagnostics, TTL/retention, and MergeTree family operations with clickhouse-client."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "🏠","requires": {"bins": ["clickhouse-client"]},"install": [{"id": "brew","kind": "brew","formula": "clickhouse","bins": ["clickhouse-client"],"label": "Install ClickHouse (Homebrew)"}],"os": ["linux","darwin"]}'

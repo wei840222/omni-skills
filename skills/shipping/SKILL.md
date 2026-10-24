@@ -1,6 +1,6 @@
 ---
 name: shipping
-description: Optimize parcel shipping decisions across carrier selection, landed-cost math, HS code compliance, and delivery exception playbooks. Trigger when evaluating shipping options, quoting rates, preparing international documentation, or responding to carrier delays.
+description: "Optimize parcel shipping decisions across carrier selection, landed-cost math, HS code compliance, and delivery exception playbooks. Use when evaluating shipping options, quoting rates, preparing international documentation, or responding to carrier delays."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "\ud83d\udce6"}'

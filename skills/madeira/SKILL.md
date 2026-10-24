@@ -1,6 +1,6 @@
 ---
 name: madeira
-description: Navigate Madeira as visitor, digital nomad, or resident with neighborhoods, levadas, costs, visas, and local insights for the Atlantic island.
+description: "Plan travel or remote work in Madeira. Use when researching Funchal and island neighborhoods, hiking levadas safely, budgeting living costs, or navigating island weather and car rentals."
 metadata:
   openclaw: '{"emoji":"🌴"}'
   related-skills: '{"dubai": "City-level Atlantic/Gulf visitor and resident guidance that Madeira can hand off to for UAE comparisons.", "health": "Wellness and safety boundaries when Madeira healthcare or hiking risks come up.", "portuguese": "Natural Portuguese language help for deeper local integration.", "travel": "Standing travel records, visas, and multi-destination planning beyond one island."}'

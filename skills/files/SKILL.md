@@ -1,6 +1,6 @@
 ---
 name: files
-description: Safely organize directories, find duplicate files, and run confirmed bulk rename, move, or cleanup operations. Use for reorganization, disk-space analysis, and deduplication; use normal file tooling for ordinary file creation, copying, extraction, or one-file reads.
+description: "Safely organize directories, find duplicate files, and run confirmed bulk rename, move, or cleanup operations. Use when working with reorganization, disk-space analysis, and deduplication; use normal file tooling for ordinary file creation, copying, extraction, or one-file reads."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📁"}'

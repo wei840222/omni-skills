@@ -1,7 +1,6 @@
 ---
 name: vibe-clawing
-description: Design self-closing automation loops and delegate full responsibilities
-  to transition from task execution to system direction.
+description: "Design self-closing automation loops and agent delegation systems. Use when transitioning from manual step-by-step task execution to autonomous system orchestration, recursive feedback loops, and outcome verification."
 metadata:
   openclaw: '{"emoji": "🎛️", "displayName": "Vibe Clawing"}'
 ---

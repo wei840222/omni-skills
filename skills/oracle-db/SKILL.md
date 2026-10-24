@@ -1,6 +1,6 @@
 ---
 name: oracle-db
-description: "Write and optimize Oracle SQL and PL/SQL queries. Trigger when interacting with an Oracle database, generating PL/SQL blocks, or optimizing Oracle-specific SQL queries (pagination, hints, dates, modern 23ai features)."
+description: "Write and optimize Oracle SQL and PL/SQL queries. Use when interacting with an Oracle database, generating PL/SQL blocks, or optimizing Oracle-specific SQL queries (pagination, hints, dates, modern 23ai features)."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔴","requires":{"anyBins":["sqlplus","sql"]}}'

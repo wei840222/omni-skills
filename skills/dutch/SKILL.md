@@ -1,6 +1,6 @@
 ---
 name: dutch
-description: Write casual, natural Dutch with correct je/u register, particles, and native flow. Trigger when asked to translate to or write in Dutch, unless formal language is explicitly requested.
+description: "Write casual, natural Dutch with correct je/u register, particles, and native flow. Use when asked to translate to or write in Dutch, unless formal language is explicitly requested."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇳🇱"}'

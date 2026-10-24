@@ -1,9 +1,6 @@
 ---
 name: react-native
-description: Develop cross-platform mobile applications using React Native. Triggers
-  for requests related to building mobile interfaces, configuring React Native navigation,
-  implementing native modules, optimizing app performance, managing Expo projects,
-  or resolving iOS/Android platform-specific UI differences.
+description: "Develop cross-platform mobile apps with React Native and Expo. Use when configuring React Navigation, bridging native modules, debugging platform-specific layout bugs, or profiling mobile rendering performance."
 metadata:
   openclaw: '{"emoji": "📱", "requires": {"anyBins": ["npx", "expo"]}}'
 ---

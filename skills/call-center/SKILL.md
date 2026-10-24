@@ -1,6 +1,6 @@
 ---
 name: call-center
-description: Handle inbound and outbound customer voice calls. Use this when the user needs to provide support, run sales campaigns, de-escalate issues, or log call interactions.
+description: "Handle inbound and outbound customer voice calls. Use this Use when the user needs to provide support, run sales campaigns, de-escalate issues, or log call interactions."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📞"}'

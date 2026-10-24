@@ -1,10 +1,6 @@
 ---
 name: turkey
-description: >
-  Plan a Turkey trip by cluster, entry pathway, and season. Use for Istanbul,
-  Cappadocia, Aegean, Mediterranean, Black Sea, or southeast routing, domestic
-  transport, and weather backups. Not for filing a visa, booking flights, or
-  stating a nationality rule without checking the official source for that passport.
+description: "Plan a Turkey trip by cluster, entry pathway, and season. Use when working with Istanbul, Cappadocia, Aegean, Mediterranean, Black Sea, or southeast routing, domestic transport, and weather backups. Not for filing a visa, booking flights, or stating a nationality rule without checking the official source for that passport."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇹🇷"}'

@@ -1,11 +1,6 @@
 ---
 name: tenerife
-description: >
-  Guide Tenerife visits, moves, and remote-work stays with north/south zone fit,
-  transport, cost bands, residency orientation, and Canary tax context. Use for
-  visitor itineraries, digital-nomad bases, NIE/empadronamiento orientation, or
-  Teide/microclimate planning. Not for filing a visa, booking non-refundable
-  travel, or quoting live income floors without re-checking official pages.
+description: "Guide Tenerife visits, moves, and remote-work stays with north/south zone fit, transport, cost bands, residency orientation, and Canary tax context. Use when working with visitor itineraries, digital-nomad bases, NIE/empadronamiento orientation, or Teide/microclimate planning. Not for filing a visa, booking non-refundable travel, or quoting live income floors without re-checking official pages."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌋"}'

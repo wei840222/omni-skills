@@ -1,8 +1,6 @@
 ---
 name: hebrew
-description: Write natural, human-sounding Hebrew with authentic slang, proper gender
-  agreement, and casual register. Trigger when generating Hebrew text for informal
-  contexts.
+description: "Write natural, human-sounding Hebrew with authentic slang, proper gender agreement, and casual register. Use when generating Hebrew text for informal contexts."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🇮🇱", "displayName": "Hebrew"}'

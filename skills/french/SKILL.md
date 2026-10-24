@@ -1,9 +1,6 @@
 ---
 name: french
-description: >
-  Write casual, native-sounding French with correct tu/vous, contractions,
-  ne-dropping, fillers, and one locked regional variety. Load when translating
-  or drafting informal messages, emails to friends, or conversational French.
+description: "Write casual, native-sounding French with correct tu/vous, contractions, ne-dropping, fillers, and one locked regional variety. Use when translating or drafting informal messages, emails to friends, or conversational French."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇫🇷","displayName":"French"}'

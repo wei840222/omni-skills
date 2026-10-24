@@ -1,14 +1,6 @@
 ---
 name: db
-description: >
-  Design and operate relational databases safely: connection pools, short
-  transactions, lock ordering, SELECT FOR UPDATE, expand-migrate-contract schema
-  changes, CONCURRENTLY/ONLINE indexes, backup/PITR, replica lag, N+1 and unbounded
-  SELECT, constraints over app checks, UTC timestamps, DECIMAL money, vacuum and
-  IOPS limits. Use for generic DB gotchas across Postgres/MySQL-class systems.
-  Prefer `sql` for dialect-agnostic query craft, `mysql`/`mariadb`/`sqlite`/
-  `mongodb`/`timescaledb`/`dynamodb`/`influxdb`/`oracle-db` for engine-specific work,
-  and `observability` for metrics/traces around the data plane.
+description: "Design and operate relational databases safely: connection pools, short transactions, lock ordering, SELECT FOR UPDATE, expand-migrate-contract schema changes, CONCURRENTLY/ONLINE indexes, backup/PITR, replica lag, N+1 and unbounded SELECT, constraints over app checks, UTC timestamps, DECIMAL money, vacuum and IOPS limits. Use when working with generic DB gotchas across Postgres/MySQL-class systems. Prefer `sql` for dialect-agnostic query craft, `mysql`/`mariadb`/`sqlite`/ `mongodb`/`timescaledb`/`dynamodb`/`influxdb`/`oracle-db` for engine-specific work, and `observability` for metrics/traces around the data plane."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🗃️"}'

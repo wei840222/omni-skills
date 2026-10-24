@@ -1,9 +1,6 @@
 ---
 name: business-intelligence
-description: >
-  Establish business intelligence systems, define KPIs, and structure metric
-  trees to drive data-informed executive decisions. Trigger this when building
-  dashboards, defining metric contracts, or setting up review cadences.
+description: "Establish business intelligence systems and metric trees. Use when defining executive KPIs, structuring metric contracts, building dashboard reporting frameworks, or setting up data review cadences."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊","os":["linux","darwin","win32"],"displayName":"Business Intelligence"}'

@@ -1,6 +1,6 @@
 ---
 name: robot
-description: Assist with robotics hardware wiring, ROS2 setup, motor control, and industrial programming. Trigger when the user needs help with Arduino/ESP32 robotics, ROS1/2, sensors, actuators, or robotic arms.
+description: "Assist with robotics hardware wiring, ROS2 setup, motor control, and industrial programming. Use when the user needs help with Arduino/ESP32 robotics, ROS1/2, sensors, actuators, or robotic arms."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤖","os":["linux","darwin","win32"]}'

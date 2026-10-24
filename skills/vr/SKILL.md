@@ -1,6 +1,6 @@
 ---
 name: vr
-description: Set up VR headsets, troubleshoot PC/standalone VR issues, optimize physical comfort, and recommend VR experiences based on user hardware and use cases.
+description: "Configure VR hardware and optimize virtual reality experiences. Use when setting up PC VR and standalone headsets (Quest/Index/PSVR), troubleshooting tracking or display stutter, optimizing comfort, or selecting VR software."
 metadata:
   openclaw: '{"emoji":"🥽","displayName":"VR"}'
   related-skills: '{"fitness": "Hand off when the user wants workout planning, sweat/recovery routines, or training load beyond headset-specific VR fitness tips.", "games": "Hand off when the user wants broader game discovery outside VR-native titles and platforms.", "mobile": "Hand off when phone or tablet workflows matter more than headset play-space setup.", "unreal-engine": "Hand off when the user is building Unreal XR/VR projects beyond headset setup guidance."}'

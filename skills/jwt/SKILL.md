@@ -1,6 +1,6 @@
 ---
 name: jwt
-description: "Implement and validate secure JWT authentication. Triggers when working on authentication, authorization, or token management."
+description: "Implement and validate secure JWT authentication. Use when working on authentication, authorization, or token management."
 metadata:
   openclaw: '{"emoji":"🔐"}'
   related-skills: '{"auth": "Use for broader authentication architecture that includes sessions, MFA, and SSO beyond JWT specifics.", "authorization": "Use after identity is established when designing RBAC/ABAC and permission checks.", "oauth": "Hand off OAuth 2.0 / OIDC authorization-code and token-exchange flows.", "passkey": "Prefer WebAuthn passkeys when replacing password+JWT login with phishing-resistant credentials.", "security-best-practices": "Escalate for general secure-coding review outside JWT-specific traps."}'

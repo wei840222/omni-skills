@@ -1,7 +1,6 @@
 ---
 name: portuguese
-description: Write natural, casual Portuguese with appropriate regional variants and
-  contractions. Load when generating conversational Portuguese text.
+description: "Write natural, casual Portuguese with appropriate regional variants and contractions. Use when generating conversational Portuguese text."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇵🇹"}'

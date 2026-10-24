@@ -1,8 +1,6 @@
 ---
 name: reverse-engineering
-description: >
-  Reverse engineer undocumented systems. Map interfaces, test hypotheses, and
-  create evidence-backed behavioral models.
+description: "Analyze and reverse engineer undocumented software and protocols. Use when inspecting binary interfaces, intercepting network protocols, reconstructing schemas, or validating behavioral models with tracer payloads."
 metadata:
   openclaw: '{"emoji": "🧩", "requires": {"bins": []}}'
   related-skills: '{"analysis": "structure ambiguous problems and turn raw evidence into decisions", "api": "reason about endpoints, payloads, contracts, and integration behavior", "architecture": "model system boundaries, components, and data flow once the target is understood", "bash": "build small inspection and replay loops for traces, logs, and artifacts", "cybersecurity": "evaluate trust boundaries, attack surface, and safe handling of sensitive targets"}'

@@ -1,8 +1,6 @@
 ---
 name: polkadot
-description: Assist with Polkadot (DOT) network transactions, staking mechanics, and
-  parachain transfers. Load this when the user needs help troubleshooting existential
-  deposits, unbonding periods, or navigating Substrate-based network tools.
+description: "Assist with Polkadot (DOT) network transactions, staking mechanics, and parachain transfers. Use when troubleshooting existential deposits, unbonding periods, or navigating Substrate-based network tools."
 metadata:
   openclaw: '{"emoji":"⚪"}'
   related-skills: '{"aave": "Handle Aave lending markets rather than Polkadot staking or XCM.", "bitcoin": "Handle Bitcoin UTXO transfers instead of Polkadot accounts.", "ethereum": "Handle Ethereum gas and ERC-20 flows instead of Substrate/Polkadot.", "invest": "Frame broader portfolio allocation once Polkadot network mechanics are settled.", "tron": "Handle TRON TRX/TRC-20 bandwidth and energy instead of Polkadot."}'

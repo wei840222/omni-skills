@@ -1,6 +1,6 @@
 ---
 name: stripe-api-integration
-description: 'Debug and build Stripe integrations. Triggers for API failures, checkout issues, subscriptions, billing, Connect payouts, disputes, webhooks, or test-to-live migrations. Refrain from triggering for PayPal, App Store, or consumer subscription tracking.'
+description: "Build and debug Stripe payment integrations. Use when handling Stripe API errors, Checkout sessions, recurring billing/subscriptions, Connect payouts, dispute resolution, or webhook validation; do not use for PayPal or App Store billing."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💳","requires":{"env":["STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET"]},"primaryEnv":"STRIPE_SECRET_KEY","os":["linux","darwin","win32"],"displayName":"Stripe API Integration"}'

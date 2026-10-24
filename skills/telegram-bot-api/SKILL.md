@@ -1,9 +1,6 @@
 ---
 name: telegram-bot-api
-description: >
-  Develop and manage Telegram bots by formulating valid API requests,
-  configuring webhooks, structuring inline keyboards, and applying HTML or
-  MarkdownV2 message formatting.
+description: "Build and maintain Telegram bots via the Telegram Bot API. Use when formulating bot API requests, setting up HTTPS webhooks, designing inline keyboards, or formatting messages with MarkdownV2 and HTML."
 metadata:
   openclaw: '{"emoji": "🤖", "requires": {"bins": ["curl"]}}'
   related-skills: '{"api": "REST API best practices", "http": "HTTP protocol essentials", "json": "JSON parsing and manipulation"}'

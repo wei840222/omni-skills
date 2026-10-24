@@ -1,6 +1,6 @@
 ---
 name: cycling
-description: Trigger this skill when the user asks about cycling training, bike fit, power zones, on-bike nutrition, or bicycle safety and maintenance.
+description: "Use when the user asks about cycling training, bike fit, power zones, on-bike nutrition, or bicycle safety and maintenance."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🚴","displayName":"Cycling"}'

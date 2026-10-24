@@ -1,6 +1,6 @@
 ---
 name: biotechnology
-description: Guide biotechnology learning, research planning, bioinformatics, genetic engineering, and drug-development questions. Use for conceptual explanations, experimental-design discussion, literature interpretation, or teaching support; keep high-risk wet-lab work within qualified institutional biosafety oversight.
+description: "Guide biotechnology learning, research planning, bioinformatics, genetic engineering, and drug-development questions. Use when working with conceptual explanations, experimental-design discussion, literature interpretation, or teaching support; keep high-risk wet-lab work within qualified institutional biosafety oversight."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧬"}'

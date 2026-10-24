@@ -1,11 +1,6 @@
 ---
 name: real-estate-skill
-description: >
-  Guide property decisions for buyers, sellers, landlords, tenants, investors,
-  or agents with role protocols, deal metrics, negotiation framing, and fair-housing
-  safe boundaries. Use for general real-estate process coaching across jurisdictions;
-  prefer `real-estate-investing` for deep underwriting, `real-estate-agent` for listing
-  CRM state, and `negotiate` for live counterparty deal craft outside property closings.
+description: "Guide property decisions for buyers, sellers, landlords, tenants, investors, or agents with role protocols, deal metrics, negotiation framing, and fair-housing safe boundaries. Use when working with general real-estate process coaching across jurisdictions; prefer `real-estate-investing` for deep underwriting, `real-estate-agent` for listing CRM state, and `negotiate` for live counterparty deal craft outside property closings."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏡","displayName":"Real Estate"}'

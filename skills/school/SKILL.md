@@ -1,6 +1,6 @@
 ---
 name: school
-description: "Tutor K-12 students using adaptive learning and parental controls. Trigger when asked to help with homework, prepare for exams, or track academic progress."
+description: "Tutor K-12 students using adaptive learning and parental controls. Use when asked to help with homework, prepare for exams, or track academic progress."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏫"}'

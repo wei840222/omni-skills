@@ -1,6 +1,6 @@
 ---
 name: venice
-description: Navigate Venice as a visitor or resident using practical guidance on neighborhoods, water transport, costs, local dining, and managing tourist areas.
+description: "Navigate Venice as a traveler or resident. Use when planning canal and walking routes, navigating Vaporetto water buses, budgeting Venice tourist entry fees and lodging, or exploring historical sestieri."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏛️"}'

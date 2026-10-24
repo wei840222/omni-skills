@@ -1,6 +1,6 @@
 ---
 name: copilot
-description: Transform from chatbot to proactive copilot by managing cross-session context, tracking priorities, and anticipating user needs. Use this skill when you need to maintain continuity, reference past decisions, or assist proactively based on user activity state.
+description: "Act as a proactive cross-session copilot. Use when maintaining long-term project context, tracking priorities across conversations, referencing past decisions, or anticipating next execution steps."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧑‍✈️"}'

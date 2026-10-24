@@ -1,6 +1,6 @@
 ---
 name: second-order-effects
-description: Analyze decisions by tracing consequences beyond immediate outcomes to second and third-order effects. Trigger this skill when the user asks to analyze a decision, evaluate long-term impacts, or apply systems thinking.
+description: "Analyze decisions by tracing consequences beyond immediate outcomes to second and third-order effects. Use when the user asks to analyze a decision, evaluate long-term impacts, or apply systems thinking."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔮"}'

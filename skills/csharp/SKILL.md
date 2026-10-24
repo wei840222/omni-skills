@@ -1,7 +1,6 @@
 ---
 name: csharp
-description: Load when reviewing or writing C# code to enforce robust practices, mitigate
-  null traps, prevent async deadlocks, and write efficient LINQ.
+description: "Use when reviewing or writing C# code to enforce robust practices, mitigate null traps, prevent async deadlocks, and write efficient LINQ."
 metadata:
   openclaw: '{"emoji": "💜", "requires": {"bins": ["dotnet"]}}'
 ---

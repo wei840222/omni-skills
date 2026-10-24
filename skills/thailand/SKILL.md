@@ -1,11 +1,6 @@
 ---
 name: thailand
-description: >
-  Choose a Thailand base and operating plan for a trip, relocation, remote
-  stay, study, retirement, or business setup. Use for regions, visas, costs,
-  housing, food, transport, climate, healthcare, and local practicalities.
-  Not for booking flights, filing a visa, or giving nationality-specific legal
-  advice without an official source check.
+description: "Choose a Thailand base and operating plan for a trip, relocation, remote stay, study, retirement, or business setup. Use when working with regions, visas, costs, housing, food, transport, climate, healthcare, and local practicalities. Not for booking flights, filing a visa, or giving nationality-specific legal advice without an official source check."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇹🇭"}'

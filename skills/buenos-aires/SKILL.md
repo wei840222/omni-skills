@@ -1,12 +1,6 @@
 ---
 name: buenos-aires
-description: >
-  Navigate Buenos Aires as a visitor, resident, tech worker, student, or
-  entrepreneur: neighborhoods, transport (SUBE/subte), costs and money friction,
-  safety, visas/residency paths, food, climate, and local services. Use for
-  CABA-specific stay, move, commute, or work-base decisions. Prefer `argentina`
-  for multi-region country routing, `travel`/`travel-planning` for generic trip
-  systems, and `expat` for full cross-border move project tracking.
+description: "Navigate Buenos Aires as a visitor, resident, tech worker, student, or entrepreneur: neighborhoods, transport (SUBE/subte), costs and money friction, safety, visas/residency paths, food, climate, and local services. Use when working with CABA-specific stay, move, commute, or work-base decisions. Prefer `argentina` for multi-region country routing, `travel`/`travel-planning` for generic trip systems, and `expat` for full cross-border move project tracking."
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇦🇷"}'

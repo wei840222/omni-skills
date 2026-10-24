@@ -1,6 +1,6 @@
 ---
 name: image-generation
-description: "Select and run text-to-image or image-editing workflows across GPT Image, Gemini, FLUX, Imagen, and related providers with alias resolution, cost-aware drafting, and portable local memory."
+description: "Select and run text-to-image or image-editing workflows across AI providers. Use when crafting prompts for Midjourney, FLUX, DALL-E, or Imagen, applying style anchors, or iterating on generated visuals."
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🎨","requires":{"config":["<state_root>/"]}}'

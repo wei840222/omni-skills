@@ -1,9 +1,6 @@
 ---
 name: norwegian
-description: >
-  Write casual, natural-sounding Norwegian (Bokmål by default) with particles,
-  fillers, dialect-aware shortcuts, and expressive vocabulary. Load when
-  translating to Norwegian or drafting informal messages, chats, or friendly emails.
+description: "Write casual, natural-sounding Norwegian (Bokmål by default) with particles, fillers, dialect-aware shortcuts, and expressive vocabulary. Use when translating to Norwegian or drafting informal messages, chats, or friendly emails."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇳🇴","displayName":"Norwegian"}'

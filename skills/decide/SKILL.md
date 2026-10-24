@@ -1,8 +1,6 @@
 ---
 name: decide
-description: >
-  Log and retrieve decision patterns to safely build autonomous
-  decision-making capabilities.
+description: "Log and retrieve decision rationale for autonomous agents. Use when recording architectural or operational decisions, checking historical precedents, or evaluating decision reversibility."
 metadata:
   openclaw: '{"emoji": "⚖️", "requires": {"config": ["<state_root>/"]}}'
   related-skills: '{"escalate": "Threshold criteria for deciding autonomously versus requesting user input.", "memory": "Persistent logging of architectural decisions and branching rationale.", "proactivity": "Autonomous action boundaries once a decision branch is confirmed.", "self-improving": "Review past decision outcomes to refine future judgment heuristics."}'

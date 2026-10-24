@@ -1,6 +1,6 @@
 ---
 name: recruiter
-description: "Source candidates, evaluate resumes, conduct fair interviews, and manage hiring pipelines. Triggers when asked about hiring, recruiting, candidate experience, or sourcing strategies."
+description: "Source candidates, evaluate resumes, conduct fair interviews, and manage hiring pipelines. Use when asked about hiring, recruiting, candidate experience, or sourcing strategies."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎯"}'

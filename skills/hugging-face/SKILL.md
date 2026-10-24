@@ -1,8 +1,6 @@
 ---
 name: hugging-face
-description: Discover models and datasets, run local/remote inference, and manage
-  local evaluation context for Hugging Face tasks. Trigger when asked to find models
-  or use the HF API.
+description: "Discover models and datasets, run local/remote inference, and manage local evaluation context for Hugging Face tasks. Use when asked to find models or use the HF API."
 compatibility: linux, darwin, win32
 metadata:
   version: 1.0.0

@@ -1,6 +1,6 @@
 ---
 name: in-app-purchases
-description: Implement in-app purchases, auto-renewable subscriptions, and paywalls across iOS and Android. Use this when the user needs to integrate StoreKit, Google Play Billing, or RevenueCat, verify receipts, or design conversion-optimized paywalls.
+description: "Implement in-app purchases, auto-renewable subscriptions, and paywalls across iOS and Android. Use this Use when the user needs to integrate StoreKit, Google Play Billing, or RevenueCat, verify receipts, or design conversion-optimized paywalls."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💳"}'

@@ -1,7 +1,6 @@
 ---
 name: scipy
-description: Write working, vectorized SciPy and NumPy Python code to solve optimization,
-  statistics, signal processing, and linear algebra problems.
+description: "Solve scientific, numerical, and engineering problems using SciPy and NumPy. Use when implementing numerical optimization, curve fitting, statistical hypothesis testing, signal processing, or linear algebra computations."
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🔬", "requires": {"bins": ["python3"]}, "os": ["linux", "darwin", "win32"], "displayName": "SciPy"}'

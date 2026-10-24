@@ -1,6 +1,6 @@
 ---
 name: sweden
-description: Plan Sweden travel routes, budgets, and seasonal itineraries while verifying Schengen entry and transport viability.
+description: "Plan travel routes and logistics across Sweden. Use when planning Stockholm and regional Sweden itineraries, navigating trains and public transport, budgeting seasonal trips, or verifying Schengen entry requirements."
 metadata:
   openclaw: '{"emoji":"🇸🇪"}'
   related-skills: '{"booking": "Reservation workflows and total-cost booking hygiene", "english": "Language support for bookings and practical interactions", "europe": "Broader Schengen and multi-country Europe planning", "food": "Deeper restaurant and cuisine planning", "travel": "General trip planning and itinerary structure"}'

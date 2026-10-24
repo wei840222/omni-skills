@@ -1,6 +1,6 @@
 ---
 name: arduino
-description: Review and troubleshoot Arduino circuits and C++ sketches for common hardware and software pitfalls. Trigger when working with microcontrollers, writing `.ino` files, or debugging voltage, memory, timing, and upload issues.
+description: "Review and troubleshoot Arduino circuits and C++ sketches for common hardware and software pitfalls. Use when working with microcontrollers, writing `.ino` files, or debugging voltage, memory, timing, and upload issues."
 compatibility: "arduino, cpp"
 metadata:
   openclaw: '{"emoji":"🔌","os":["linux","darwin","win32"],"displayName":"Arduino"}'

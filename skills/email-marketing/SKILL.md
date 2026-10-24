@@ -1,6 +1,6 @@
 ---
 name: email-marketing
-description: Manage email deliverability, list health, sequences, segmentation, and campaign optimization with modern bulk-sender compliance. Trigger when the user needs email marketing strategy, deliverability fixes, nurture sequences, list hygiene, or ESP campaign operations.
+description: "Manage email deliverability, list health, sequences, segmentation, and campaign optimization with modern bulk-sender compliance. Use when the user needs email marketing strategy, deliverability fixes, nurture sequences, list hygiene, or ESP campaign operations."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📧","requires":{"configPaths":["<state_root>/"]}}'

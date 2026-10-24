@@ -1,9 +1,6 @@
 ---
 name: http
-description: >
-  Apply proper HTTP methods, status codes, headers, and caching strategies.
-  Load when debugging API responses, configuring CORS/security headers, or
-  handling HTTP redirects and conditional requests.
+description: "Apply proper HTTP methods, status codes, headers, and caching strategies. Use when debugging API responses, configuring CORS/security headers, or handling HTTP redirects and conditional requests."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌐","os":["linux","darwin","win32"],"displayName":"HTTP"}'

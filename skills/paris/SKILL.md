@@ -1,6 +1,6 @@
 ---
 name: paris
-description: Plan a visit, move, study, or work in Paris with practical guidance on transit, safety, neighbourhoods, costs, and itineraries. Use for Paris-specific decisions; verify live prices, availability, and official rules before relying on them.
+description: "Plan a visit, move, study, or work in Paris with practical guidance on transit, safety, neighbourhoods, costs, and itineraries. Use when working with Paris-specific decisions; verify live prices, availability, and official rules before relying on them."
 metadata:
   openclaw: '{"emoji":"🇫🇷"}'
 ---

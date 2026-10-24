@@ -1,6 +1,6 @@
 ---
 name: friends
-description: Track interactions, relationship health, and proactive maintenance reminders for friends. Trigger when the user mentions meeting a friend, discusses relationships, or asks about their social circle.
+description: "Track interactions, relationship health, and proactive maintenance reminders for friends. Use when the user mentions meeting a friend, discusses relationships, or asks about their social circle."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"👥"}'

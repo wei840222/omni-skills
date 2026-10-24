@@ -1,7 +1,6 @@
 ---
 name: seoul
-description: Load this to get practical guidance on navigating Seoul, including neighborhood
-  profiles, transit rules, housing costs, tech industry insights, and cultural etiquette.
+description: "Navigate Seoul for travel, living, or relocation. Use when researching Seoul neighborhoods, subway and T-money transit, housing deposit systems (Jeonse/Wolse), tech hubs, or Korean business etiquette."
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏙️"}'
