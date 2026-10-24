@@ -4,7 +4,7 @@ description: Build and manage grocery lists, pantry inventory, household quantit
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛒"}'
-  related-skills: '{"meals":"Use meals for weekly meal planning, recipes, and dietary balance; use grocery for ingredient purchasing, pantry inventory, and shopping-list logistics."}'
+  related-skills: '{"meals": "Use meals for weekly meal planning, recipes, and dietary balance; use grocery for ingredient purchasing, pantry inventory, and shopping-list logistics."}'
 ---
 
 ## When to Use

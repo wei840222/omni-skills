@@ -4,7 +4,7 @@ description: "Guide Cardano operations: inspect and prepare transactions, explai
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"₳"}'
-  related-skills: '{"bitcoin":"Cardano uses UTxO like Bitcoin; understanding Bitcoin''s model helps explain Cardano''s design.","blockchain":"Provides foundational blockchain concepts underlying Cardano.","crypto-tools":"Real-time Cardano price data, portfolio tracking, and transaction monitoring.","ethereum":"Contrasts Cardano''s UTxO model with Ethereum''s account model and EVM.","polkadot":"Another proof-of-stake blockchain with cross-chain capabilities; compares governance and staking models.","trading":"ADA trading analysis, technical patterns, and risk management for Cardano positions."}'
+  related-skills: '{"bitcoin": "Cardano uses UTxO like Bitcoin; understanding Bitcoin''s model helps explain Cardano''s design.", "blockchain": "Provides foundational blockchain concepts underlying Cardano.", "crypto-tools": "Real-time Cardano price data, portfolio tracking, and transaction monitoring.", "ethereum": "Contrasts Cardano''s UTxO model with Ethereum''s account model and EVM.", "polkadot": "Another proof-of-stake blockchain with cross-chain capabilities; compares governance and staking models.", "trading": "ADA trading analysis, technical patterns, and risk management for Cardano positions."}'
 ---
 
 # Cardano Operations Guide

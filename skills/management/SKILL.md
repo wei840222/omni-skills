@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👔"}'
-  related-skills: '{"coach":"1:1 coaching craft, questions, and commitment design rather than managerial authority.","product-manager":"Product discovery, prioritization, and roadmap artifacts rather than people management.","career":"Individual career strategy and role moves without day-to-day team leadership.","meetings":"Meeting design and facilitation mechanics beyond manager 1:1 agendas.","legal":"Employment-law review when discipline, termination, or protected activity is in scope.","ethics":"Ethical framing when decisions affect livelihoods, fairness, or trust.","productivity":"Personal task systems rather than team leadership systems."}'
+  related-skills: '{"career": "Individual career strategy and role moves without day-to-day team leadership.", "coach": "1:1 coaching craft, questions, and commitment design rather than managerial authority.", "ethics": "Ethical framing when decisions affect livelihoods, fairness, or trust.", "legal": "Employment-law review when discipline, termination, or protected activity is in scope.", "meetings": "Meeting design and facilitation mechanics beyond manager 1:1 agendas.", "product-manager": "Product discovery, prioritization, and roadmap artifacts rather than people management.", "productivity": "Personal task systems rather than team leadership systems."}'
 ---
 
 # Management

@@ -4,7 +4,7 @@ description: "Guide iPhone battery, storage, privacy, connectivity, and daily-au
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📱"}'
-  related-skills: '{"ios":"iOS platform behavior and deeper system context","photos":"media cleanup and photo library workflows","notes":"personal capture systems and structured notes","app-store-connect":"app updates, installs, and store-level issue handling"}'
+  related-skills: '{"app-store-connect": "app updates, installs, and store-level issue handling", "ios": "iOS platform behavior and deeper system context", "notes": "personal capture systems and structured notes", "photos": "media cleanup and photo library workflows"}'
 ---
 
 ## Setup

@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊","requires":{"bins":["curl","jq"],"env":["MP_SERVICE_ACCOUNT","MP_SERVICE_SECRET","MP_PROJECT_ID"]},"primaryEnv":"MP_SERVICE_SECRET","os":["linux","darwin"],"displayName":"Mixpanel","configPaths":["<state_root>/"]}'
-  related-skills: '{"analytics":"Cross-vendor analytics routing when the ask is not Mixpanel-specific.","api":"Generic REST request shaping outside Mixpanel Query/Export endpoints.","data-analysis":"General analysis patterns after Mixpanel returns raw numbers.","plausible":"Privacy-first web analytics alternative to Mixpanel product analytics.","umami":"Self-hosted web analytics alternative when Mixpanel is not the product."}'
+  related-skills: '{"analytics": "Cross-vendor analytics routing when the ask is not Mixpanel-specific.", "api": "Generic REST request shaping outside Mixpanel Query/Export endpoints.", "data-analysis": "General analysis patterns after Mixpanel returns raw numbers.", "plausible": "Privacy-first web analytics alternative to Mixpanel product analytics.", "umami": "Self-hosted web analytics alternative when Mixpanel is not the product."}'
 ---
 
 # Mixpanel

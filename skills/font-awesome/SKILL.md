@@ -4,7 +4,7 @@ description: Add Font Awesome icons to web projects using CDN, npm, React, or SV
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🎨"}'
-  related-skills: '{"react": "React development patterns", "html": "HTML best practices", "css": "CSS styling patterns"}'
+  related-skills: '{"css": "CSS styling patterns", "html": "HTML best practices", "react": "React development patterns"}'
 ---
 
 ## When to Load

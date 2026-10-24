@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏛️"}'
-  related-skills: '{"booking":"Lodging search and reservation completion after a Seville neighborhood base is chosen.","dubai":"Peer dense-city guide when comparing city-skill patterns.","expat":"Cross-border move project tracking beyond Seville neighborhood and settling advice.","spain":"Country-level multi-city Spain routing when Seville is only one stop.","spanish":"Everyday Spanish for menus, bookings, and on-the-ground talk.","travel":"Standing multi-destination travel records when Seville is one city among several.","travel-planning":"Day-by-day multi-city itineraries when the trip leaves Seville.","valencia":"Peer Andalusian/Spanish city guide for Valencia comparisons."}'
+  related-skills: '{"booking": "Lodging search and reservation completion after a Seville neighborhood base is chosen.", "dubai": "Peer dense-city guide when comparing city-skill patterns.", "expat": "Cross-border move project tracking beyond Seville neighborhood and settling advice.", "spain": "Country-level multi-city Spain routing when Seville is only one stop.", "spanish": "Everyday Spanish for menus, bookings, and on-the-ground talk.", "travel": "Standing multi-destination travel records when Seville is one city among several.", "travel-planning": "Day-by-day multi-city itineraries when the trip leaves Seville.", "valencia": "Peer Andalusian/Spanish city guide for Valencia comparisons."}'
 ---
 
 ## State location

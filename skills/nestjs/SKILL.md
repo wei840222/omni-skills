@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐱","requires":{"bins":["node"]}}'
-  related-skills: '{"docker":"Container images and Compose once Nest builds leave the framework.","k8s":"Cluster manifests and scheduling after Nest ships as a workload.","nextjs":"Next.js/React full-stack when the app is not Nest.","nodejs":"Node runtime, process, and HTTP concerns outside Nest DI.","react":"React UI patterns when the problem is not Nest servers.","typescript":"Language-level typing outside Nest decorators and DTOs."}'
+  related-skills: '{"docker": "Container images and Compose once Nest builds leave the framework.", "k8s": "Cluster manifests and scheduling after Nest ships as a workload.", "nextjs": "Next.js/React full-stack when the app is not Nest.", "nodejs": "Node runtime, process, and HTTP concerns outside Nest DI.", "react": "React UI patterns when the problem is not Nest servers.", "typescript": "Language-level typing outside Nest decorators and DTOs."}'
 ---
 
 # NestJS

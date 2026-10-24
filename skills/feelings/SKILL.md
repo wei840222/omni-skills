@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💭"}'
-  related-skills: '{"journal":"Long-form writing practice and corpus review rather than structured emotion logs.","empathy":"Reflective emotional response in the moment without requiring a feelings tracker.","gratitude":"Gratitude-only logging when that is the whole request.","psychologist":"Deeper psychological framing or distress support beyond mood tracking.","habits":"Turning check-ins into a recurring cue once the log format is stable."}'
+  related-skills: '{"empathy": "Reflective emotional response in the moment without requiring a feelings tracker.", "gratitude": "Gratitude-only logging when that is the whole request.", "habits": "Turning check-ins into a recurring cue once the log format is stable.", "journal": "Long-form writing practice and corpus review rather than structured emotion logs.", "psychologist": "Deeper psychological framing or distress support beyond mood tracking."}'
 ---
 
 ## When to load

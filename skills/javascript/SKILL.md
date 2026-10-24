@@ -1,13 +1,16 @@
 ---
 name: javascript
-description: 'Writes, debugs, and reviews JavaScript: async/event loop, coercion, closures, dates, Unicode, regex, and ES2023+. Use when JS throws errors, promises hang, values are NaN/[object Object], dates shift, sorting/equality misbehaves, memory grows, regex hangs, JSON loses precision, or Node processes stall. Covers Node and browser runtime edges. Does not cover TypeScript type-system design or framework internals.'
+description: >
+  Writes, debugs, and reviews JavaScript: async/event loop, coercion,
+  closures, dates, Unicode, regex, and ES2023+. Use when JS throws errors,
+  promises hang, values are NaN/[object Object], dates shift, sorting/equality
+  misbehaves, memory grows, regex hangs, JSON loses precision, or Node
+  processes stall. Covers Node and browser runtime edges. Does not cover
+  TypeScript type-system design or framework internals.
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟨","requires":{"config":["<state_root>/javascript/","~/javascript/","~/clawic/javascript/"]}}'
-  related-skills:
-  - skills/typescript
-  - skills/nodejs
-  - skills/react
+  related-skills: '{"nodejs": "Runtime environment, event loop execution, and ESM/CJS packaging.", "react": "Component rendering, virtual DOM state updates, and hooks semantics.", "typescript": "Static typing, compile-time contracts, and declaration files."}'
 ---
 
 ## State location
@@ -152,5 +155,3 @@ Before emitting JS code or a review verdict, verify:
 ## Research sources
 
 - Verifiable language/runtime anchors: `references/sources.md`
-
-## Related Skills

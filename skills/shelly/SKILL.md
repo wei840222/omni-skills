@@ -6,7 +6,7 @@ description: Control Shelly devices via local RPC and cloud APIs. Use for device
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔌","requires":{"bins":["curl","jq"],"env":["SHELLY_CLOUD_TOKEN"]}}'
-  related-skills: '{"iot":"Broader IoT protocols and security when the question is not Shelly-specific.","smart-home":"Ecosystem-agnostic hub, automation, and network isolation guidance beyond Shelly-only workflows.","mqtt":"Broker-based messaging patterns when Shelly is one of several MQTT clients.","home-server":"Local always-on host and service placement for Shelly controllers and brokers.","api":"Generic HTTP/API workflow craft outside Shelly RPC method details."}'
+  related-skills: '{"api": "Generic HTTP/API workflow craft outside Shelly RPC method details.", "home-server": "Local always-on host and service placement for Shelly controllers and brokers.", "iot": "Broader IoT protocols and security when the question is not Shelly-specific.", "mqtt": "Broker-based messaging patterns when Shelly is one of several MQTT clients.", "smart-home": "Ecosystem-agnostic hub, automation, and network isolation guidance beyond Shelly-only workflows."}'
 ---
 
 ## Setup

@@ -7,7 +7,7 @@ compatibility: linux, darwin, win32
 metadata:
   version: 1.0.0
   openclaw: '{"emoji":"🤗","requires":{"bins":["curl","jq"],"env":["HF_TOKEN"]}}'
-  related-skills: '{"ai":"general AI strategy and model-selection framing","api":"API-first integration patterns and HTTP debugging","data-analysis":"dataset inspection and quality interpretation","data":"structured data workflows and extraction patterns","code":"implementation support for scripts and adapters"}'
+  related-skills: '{"ai": "general AI strategy and model-selection framing", "api": "API-first integration patterns and HTTP debugging", "code": "implementation support for scripts and adapters", "data": "structured data workflows and extraction patterns", "data-analysis": "dataset inspection and quality interpretation"}'
 ---
 
 ## State location

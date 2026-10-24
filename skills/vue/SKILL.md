@@ -1,17 +1,12 @@
 ---
 name: vue
-description: Build, debug, and optimize Vue 3 applications. Load this skill to resolve
-  reactivity loss, component communication issues, SSR hydration mismatches, Pinia
-  state warnings, and configuration problems.
+description: >
+  Build, debug, and optimize Vue 3 applications. Load this skill to resolve
+  reactivity loss, component communication issues, SSR hydration mismatches,
+  Pinia state warnings, and configuration problems.
 metadata:
-  openclaw: '{"requires": {"config": ["<state_root>/data/vue/", "<state_root>/vue/",
-    "<state_root>/clawic/vue/"]}}'
-  related-skills:
-    nuxt: Nuxt.js SSR and server logic
-    vite: Vite build and configuration
-    typescript: Type system design
-    javascript: JavaScript semantics
-    playwright: End-to-end tests
+  openclaw: '{"requires": {"config": ["<state_root>/data/vue/", "<state_root>/vue/", "<state_root>/clawic/vue/"]}}'
+  related-skills: '{"javascript": "JavaScript semantics", "nuxt": "Nuxt.js SSR and server logic", "playwright": "End-to-end tests", "typescript": "Type system design", "vite": "Vite build and configuration"}'
 ---
 ## When to load references
 This skill supports deep expertise in Vue 3. When encountering specific issues, load the corresponding reference document:

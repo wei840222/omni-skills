@@ -3,7 +3,7 @@ name: betting
 description: Evaluate betting opportunities with line shopping, bankroll discipline, market checks, and risk filters before any stake is placed.
 metadata:
   openclaw: '{"requires":{"config":["<state_root>/betting/"]}}'
-  related-skills: '{"decide":"structure tradeoffs and pass-or-proceed decisions without hype","legal":"tighten wording when the user asks about compliance, terms, or risk boundaries","pricing":"reason about price quality when the user needs cleaner expected value language","trader":"frame discipline, journaling, and risk control for repeated decision making"}'
+  related-skills: '{"decide": "structure tradeoffs and pass-or-proceed decisions without hype", "legal": "tighten wording when the user asks about compliance, terms, or risk boundaries", "pricing": "reason about price quality when the user needs cleaner expected value language", "trader": "frame discipline, journaling, and risk control for repeated decision making"}'
 ---
 
 ## When to Use

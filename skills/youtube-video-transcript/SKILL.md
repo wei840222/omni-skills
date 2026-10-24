@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📺","requires":{"bins":["yt-dlp"]},"install":[{"id":"brew","kind":"brew","formula":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (Homebrew)"},{"id":"pip","kind":"pip","package":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (pip)"}]}'
-  related-skills: '{"summarizer":"Compress an already-extracted transcript or other text source once you have plain text.","video-captions":"Generate or burn captions for a local video file rather than fetch YouTube host subtitles.","ffmpeg":"Lower-level media convert/trim/extract when the request is not YouTube transcript work.","video":"General video tasks outside YouTube subtitle extraction.","extract-pdf-text":"Extract text from PDFs/scans before summarization; different source type."}'
+  related-skills: '{"extract-pdf-text": "Extract text from PDFs/scans before summarization; different source type.", "ffmpeg": "Lower-level media convert/trim/extract when the request is not YouTube transcript work.", "summarizer": "Compress an already-extracted transcript or other text source once you have plain text.", "video": "General video tasks outside YouTube subtitle extraction.", "video-captions": "Generate or burn captions for a local video file rather than fetch YouTube host subtitles."}'
 ---
 
 # YouTube Video Transcript

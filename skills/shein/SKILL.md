@@ -7,7 +7,7 @@ description: Assist Shein shopping with size conversion, quality checks, price t
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛍️"}'
-  related-skills: '{"shopping":"General multi-store purchase research and deal timing outside Shein.","fashion":"Outfit styling and wardrobe strategy beyond Shein product picks.","ecommerce":"Broader store operations and funnel work outside one marketplace."}'
+  related-skills: '{"ecommerce": "Broader store operations and funnel work outside one marketplace.", "fashion": "Outfit styling and wardrobe strategy beyond Shein product picks.", "shopping": "General multi-store purchase research and deal timing outside Shein."}'
 ---
 
 ## When to Use

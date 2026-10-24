@@ -4,7 +4,7 @@ description: Analyze decisions by tracing consequences beyond immediate outcomes
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔮"}'
-  related-skills: '{"first-principles-thinking":"break problems to fundamentals","six-thinking-hats":"parallel thinking modes","strategy":"strategic planning frameworks"}'
+  related-skills: '{"first-principles-thinking": "break problems to fundamentals", "six-thinking-hats": "parallel thinking modes", "strategy": "strategic planning frameworks"}'
 ---
 
 ## Setup

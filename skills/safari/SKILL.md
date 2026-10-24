@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","os":["darwin"],"requires":{"bins":["osascript","safaridriver","screencapture"]}}'
-  related-skills: '{"applescript":"Deeper AppleScript design beyond known-good Safari snippets.","macos":"Apple Events, Screen Recording, focus, and native macOS diagnostics.","playwright":"Cross-browser product automation once the task leaves real Safari.","ios":"Safari-adjacent flows that move to iPhone or iPad.","passkey":"Safari sign-in and WebAuthn without guessing credential rules."}'
+  related-skills: '{"applescript": "Deeper AppleScript design beyond known-good Safari snippets.", "ios": "Safari-adjacent flows that move to iPhone or iPad.", "macos": "Apple Events, Screen Recording, focus, and native macOS diagnostics.", "passkey": "Safari sign-in and WebAuthn without guessing credential rules.", "playwright": "Cross-browser product automation once the task leaves real Safari."}'
 ---
 
 # Safari

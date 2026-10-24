@@ -4,7 +4,7 @@ description: Handle inbound and outbound customer voice calls. Use this when the
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📞"}'
-  related-skills: '{"customer-support": "Provides customer support workflows.", "escalate": "Provides escalation patterns.", "crm": "Manages customer data.", "chat": "Handles text conversations."}'
+  related-skills: '{"chat": "Handles text conversations.", "crm": "Manages customer data.", "customer-support": "Provides customer support workflows.", "escalate": "Provides escalation patterns."}'
 ---
 
 

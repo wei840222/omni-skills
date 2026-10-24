@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👥"}'
-  related-skills: '{"crm":"Sales pipelines, deals, forecasts, and commercial outreach hygiene.","friends":"Friendship depth, reciprocity, drift, and repair beyond address-book upkeep.","gifts":"Gift ideas and giving history built on dates and details this box holds.","remind":"Reminder mechanics for anything that is not about a person.","family":"Household logistics, schedules, and care routines."}'
+  related-skills: '{"crm": "Sales pipelines, deals, forecasts, and commercial outreach hygiene.", "family": "Household logistics, schedules, and care routines.", "friends": "Friendship depth, reciprocity, drift, and repair beyond address-book upkeep.", "gifts": "Gift ideas and giving history built on dates and details this box holds.", "remind": "Reminder mechanics for anything that is not about a person."}'
 ---
 
 # People

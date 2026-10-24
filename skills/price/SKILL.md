@@ -4,7 +4,7 @@ description: "Track prices, detect dynamic pricing manipulation, time purchases,
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💰"}'
-  related-skills: '{"pricing":"Seller-side price setting, packaging, and willingness-to-pay research.","buy":"End-to-end purchase research, scam checks, and deal negotiation after a price verdict.","money":"Household cash-flow, debt, and affordability sequencing beyond a single purchase decision.","ebay":"Marketplace-specific listing, fee, and shipping pricing on eBay."}'
+  related-skills: '{"buy": "End-to-end purchase research, scam checks, and deal negotiation after a price verdict.", "ebay": "Marketplace-specific listing, fee, and shipping pricing on eBay.", "money": "Household cash-flow, debt, and affordability sequencing beyond a single purchase decision.", "pricing": "Seller-side price setting, packaging, and willingness-to-pay research."}'
 ---
 
 ## When to Use

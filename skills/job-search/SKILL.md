@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💼"}'
-  related-skills: '{"cv":"Tailor the actual resume/CV and bullet evidence for a target role.","resume":"Resume structure and ATS-aware rewriting when the artifact itself is the task.","career":"Longer-horizon career strategy, role sequencing, and growth planning outside an active application cycle."}'
+  related-skills: '{"career": "Longer-horizon career strategy, role sequencing, and growth planning outside an active application cycle.", "cv": "Tailor the actual resume/CV and bullet evidence for a target role.", "resume": "Resume structure and ATS-aware rewriting when the artifact itself is the task."}'
 ---
 
 ## State location

@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"chinese":"Write original Chinese copy natively when the task is no longer source-to-target translation.","copywriting":"Craft source marketing copy that later localization or transcreation must carry.","french":"Write original French copy natively when nothing is being translated.","german":"Write original German copy natively when nothing is being translated.","japanese":"Write original Japanese copy natively when nothing is being translated.","seo":"Handle multilingual SEO and hreflang ranking after pages are localized.","spanish":"Write original Spanish copy natively when nothing is being translated.","speech-to-text-transcription":"Produce transcripts before caption localization begins.","video-captions":"Generate and time-code captions from audio before translating the caption file."}'
+  related-skills: '{"chinese": "Write original Chinese copy natively when the task is no longer source-to-target translation.", "copywriting": "Craft source marketing copy that later localization or transcreation must carry.", "french": "Write original French copy natively when nothing is being translated.", "german": "Write original German copy natively when nothing is being translated.", "japanese": "Write original Japanese copy natively when nothing is being translated.", "seo": "Handle multilingual SEO and hreflang ranking after pages are localized.", "spanish": "Write original Spanish copy natively when nothing is being translated.", "speech-to-text-transcription": "Produce transcripts before caption localization begins.", "video-captions": "Generate and time-code captions from audio before translating the caption file."}'
 ---
 
 ## State location

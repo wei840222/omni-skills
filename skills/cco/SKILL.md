@@ -3,7 +3,7 @@ name: cco
 description: Lead customer success by developing retention strategies, calculating health scores, driving expansion revenue, and managing the customer lifecycle. Triggers when the user discusses customer retention, churn prevention, upsell strategies, or customer success operations.
 metadata:
   openclaw: '{"emoji":"🤝","os":["linux","darwin","win32"],"displayName":"CCO / Chief Customer Officer"}'
-  related-skills: '{"ceo":"executive leadership","cro":"revenue strategy","cmo":"marketing alignment","cxo":"experience strategy"}'
+  related-skills: '{"ceo": "executive leadership", "cmo": "marketing alignment", "cro": "revenue strategy", "cxo": "experience strategy"}'
 ---
 
 ## Setup

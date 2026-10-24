@@ -3,7 +3,7 @@ name: mobile
 description: Build and design mobile applications by applying proper lifecycle handling, offline-first architectures, platform-specific conventions, and optimal UI/UX performance patterns.
 metadata:
   openclaw: '{"emoji":"📱","os":["linux","darwin","win32"],"displayName":"Mobile"}'
-  related-skills: '{"android":"Android platform specific guidance","iphone":"iOS platform specific guidance","flutter":"Cross-platform development guidance","app-store-connect":"App Store deployment and survival guidelines"}'
+  related-skills: '{"android": "Android platform specific guidance", "app-store-connect": "App Store deployment and survival guidelines", "flutter": "Cross-platform development guidance", "iphone": "iOS platform specific guidance"}'
 ---
 
 ## State location

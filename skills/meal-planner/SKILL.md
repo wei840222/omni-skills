@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍽️","requires":{"config":["<state_root>/meal-planner/"]}}'
-  related-skills: '{"cooking":"Stove-side technique and dish rescue once a meal is chosen.","recipe":"Capture, scale, and file individual recipes rather than the household week.","grocery":"Shopping-list and pantry logistics when no weekly menu is needed.","nutrition":"Micronutrient gaps and supplement/food-drug interactions.","calories":"Calorie and macro tracking after menus exist.","dietitian":"Clinical or therapeutic nutrition plans.","daily-planner":"Calendar and timeboxing for cook/shop blocks.","food":"Casual food logging and classification outside multi-day planning."}'
+  related-skills: '{"calories": "Calorie and macro tracking after menus exist.", "cooking": "Stove-side technique and dish rescue once a meal is chosen.", "daily-planner": "Calendar and timeboxing for cook/shop blocks.", "dietitian": "Clinical or therapeutic nutrition plans.", "food": "Casual food logging and classification outside multi-day planning.", "grocery": "Shopping-list and pantry logistics when no weekly menu is needed.", "nutrition": "Micronutrient gaps and supplement/food-drug interactions.", "recipe": "Capture, scale, and file individual recipes rather than the household week."}'
 ---
 
 # Meal Planner

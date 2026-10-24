@@ -4,7 +4,7 @@ description: Plan study schedules and coach active study sessions with retrieval
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"📖"}'
-  related-skills: '{"homework":"Use for completing an assignment rather than planning study.","anki":"Use for building and managing flashcard decks.","exam":"Use for generating practice tests and timed simulations."}'
+  related-skills: '{"anki": "handles card design and deck mechanics for fact-heavy tracks.", "exam": "generates the practice tests and timed simulations this skill schedules.", "homework": "handles completing an assignment rather than preparing for a test."}'
 compatibility: "Any Agent Skills-compatible runtime; state uses the runtime-provided <state_root>."
 ---
 
@@ -155,9 +155,3 @@ Anything in this table suspends the protocols above: route to a clinician or cou
 ## Test Coverage
 
 `test-prompts.json` records three dry-run cases: an imminent exam, a multi-course procrastination plan, and confirmed legacy-state migration. Each case routes to a defined workflow or confirmation boundary.
-
-## Related Skills
-
-- `exam` — generates the practice tests and timed simulations this skill schedules.
-- `anki` — handles card design and deck mechanics for fact-heavy tracks.
-- `homework` — handles completing an assignment rather than preparing for a test.

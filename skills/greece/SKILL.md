@@ -2,7 +2,7 @@
 name: greece
 description: Plan Greece trips with island-mainland routing, ferry logistics, verified entry rules, and practical seasonal safety.
 metadata:
-  related-skills: '{"travel": "General trip planning and itinerary structure", "booking": "Reservation workflow and confirmation hygiene", "car-rental": "Better island and mainland rental strategy", "food": "Deeper restaurant and cuisine planning", "greek": "Language support for bookings, menus, and local interactions"}'
+  related-skills: '{"booking": "Reservation workflow and confirmation hygiene", "car-rental": "Better island and mainland rental strategy", "food": "Deeper restaurant and cuisine planning", "greek": "Language support for bookings, menus, and local interactions", "travel": "General trip planning and itinerary structure"}'
   openclaw: '{"emoji":"🇬🇷"}'
 ---
 

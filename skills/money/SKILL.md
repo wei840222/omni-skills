@@ -4,7 +4,7 @@ description: "Guide debt-payoff order, emergency-fund sizing, saving rates, affo
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"💰"}'
-  related-skills: '{"car":"Handles vehicle-specific ownership and cost questions.","cfo":"Handles company finance rather than household financial decisions.","invest":"Handles choosing specific accounts, brokers, and portfolios.","negotiate":"Handles salary, rates, and debt-settlement conversations.","personal-finance-tracker":"Handles statement imports, cash-flow reports, and net-worth tooling.","real-estate-investing":"Handles property underwriting.","subscriptions":"Handles recurring-payment inventory."}'
+  related-skills: '{"car": "Handles vehicle-specific ownership and cost questions.", "cfo": "Handles company finance rather than household financial decisions.", "invest": "Handles choosing specific accounts, brokers, and portfolios.", "negotiate": "Handles salary, rates, and debt-settlement conversations.", "personal-finance-tracker": "Handles statement imports, cash-flow reports, and net-worth tooling.", "real-estate-investing": "Handles property underwriting.", "subscriptions": "Handles recurring-payment inventory."}'
 ---
 
 ## State location

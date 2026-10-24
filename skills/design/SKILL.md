@@ -4,7 +4,7 @@ description: Executes and critiques visual design with quantified rules for hier
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji": "🎨"}'
-  related-skills: '{"ui": "Provides interface component patterns, interaction states, and platform conventions.", "typography": "Handles deep type work: optical sizes, variable weight axes, and print settings.", "color": "Provides full color systems, tokens, and cross-surface color validation.", "design-system": "Scales one-off decisions into tokens and component libraries."}'
+  related-skills: '{"color": "Provides full color systems, tokens, and cross-surface color validation.", "design-system": "Scales one-off decisions into tokens and component libraries.", "typography": "Handles deep type work: optical sizes, variable weight axes, and print settings.", "ui": "Provides interface component patterns, interaction states, and platform conventions."}'
 ---
 ## State location
 

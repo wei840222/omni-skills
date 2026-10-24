@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎻"}'
-  related-skills: '{"acoustic-guitar":"Acoustic guitar practice and care instead of violin technique.","drums":"Drum-kit practice and rudiments instead of violin work.","electric-guitar":"Amplified guitar tone and gear instead of violin practice.","habits":"Design the recurring practice habit once the violin routine itself is clear.","music":"Track listening history, playlists, and concerts rather than violin technique.","piano":"Keyboard practice plans and technique instead of violin.","song":"Original songwriting, lyrics, and harmony when composition is the goal."}'
+  related-skills: '{"acoustic-guitar": "Acoustic guitar practice and care instead of violin technique.", "drums": "Drum-kit practice and rudiments instead of violin work.", "electric-guitar": "Amplified guitar tone and gear instead of violin practice.", "habits": "Design the recurring practice habit once the violin routine itself is clear.", "music": "Track listening history, playlists, and concerts rather than violin technique.", "piano": "Keyboard practice plans and technique instead of violin.", "song": "Original songwriting, lyrics, and harmony when composition is the goal."}'
 ---
 
 ## State location

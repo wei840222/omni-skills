@@ -2,26 +2,13 @@
 name: hermes-agent
 description: >
   Initialize an autonomous learning loop for OpenClaw that seeds workspace
-  rules, maintains reflective memory, and proactively promotes workflows.
-  Use when bootstrapping agent persistence, diagnosing cross-session memory
-  failures, or setting up continuous self-improvement. Not a general notes
-  app (memory/journal) and not a full skill-authoring workflow (skill-builder).
+  rules, maintains reflective memory, and proactively promotes workflows. Use
+  when bootstrapping agent persistence, diagnosing cross-session memory
+  failures, or setting up continuous self-improvement. Not a general notes app
+  (memory/journal) and not a full skill-authoring workflow (skill-builder).
 metadata:
-  clawdbot:
-    emoji: "H"
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - <state_root>/
-    displayName: Hermes Agent
-  openclaw: '{"emoji":"H","requires":{"config":["<state_root>/"]}}'
-  related-skills:
-  - self-improving
-  - memory
-  - workflow
-  - skill-builder
+  openclaw: '{"emoji": "H"}'
+  related-skills: '{"memory": "structure durable local memory for agent continuity", "self-improving": "capture corrections and recurring lessons so execution quality compounds", "skill-builder": "turn a proven repeated workflow into a dedicated skill package", "workflow": "formalize repeated operating patterns into stable execution sequences"}'
 ---
 
 
@@ -111,10 +98,3 @@ Memory lives in `<state_root>/` (example default: `~/Clawic/data/hermes-agent/`)
 - access files outside the local OpenClaw workspace and `<state_root>/`
 - replace the full contents of AGENTS.md, SOUL.md, or HEARTBEAT.md
 - store secrets or sensitive personal data
-
-## Related Skills
-Related skills to consider:
-- `self-improving` - capture corrections and recurring lessons so execution quality compounds
-- `memory` - structure durable local memory for agent continuity
-- `workflow` - formalize repeated operating patterns into stable execution sequences
-- `skill-builder` - turn a proven repeated workflow into a dedicated skill package

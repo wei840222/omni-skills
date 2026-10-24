@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔍"}'
-  related-skills: '{"content-marketing":"Content strategy and calendars when there is no ranking target.","analytics":"Traffic and conversion analysis beyond Search Console SEO signals.","market-research":"Broader competitive and market research outside SERP gap work.","html":"Deep semantic markup, forms, and sanitization beyond on-page SEO tags.","web":"General web build, deploy, and CWV engineering under the ranking layer."}'
+  related-skills: '{"analytics": "Traffic and conversion analysis beyond Search Console SEO signals.", "content-marketing": "Content strategy and calendars when there is no ranking target.", "html": "Deep semantic markup, forms, and sanitization beyond on-page SEO tags.", "market-research": "Broader competitive and market research outside SERP gap work.", "web": "General web build, deploy, and CWV engineering under the ranking layer."}'
 ---
 
 ## State location

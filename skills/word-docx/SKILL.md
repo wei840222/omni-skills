@@ -3,7 +3,7 @@ name: word-docx
 description: "Inspect, modify, and generate `.docx` (Office Open XML) files. Triggers on requests involving Microsoft Word documents, DOCX format, document styling, tracked changes, or layout preservation. Does not natively support legacy `.doc` or `.docm` files without conversion."
 metadata:
   openclaw: '{"emoji":"📘","os":["linux","darwin","win32"],"displayName":"Word / DOCX"}'
-  related-skills: '{"documents":"General document handling and format conversion.","brief":"Concise business writing and structured summaries.","article":"Long-form drafting and editorial structure."}'
+  related-skills: '{"article": "Long-form drafting and editorial structure.", "brief": "Concise business writing and structured summaries.", "documents": "General document handling and format conversion."}'
 ---
 
 ## When to Use

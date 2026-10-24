@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🔐"}'
-  related-skills: '{"auth":"General authentication architecture beyond WebAuthn.","oauth":"OAuth/OIDC flows instead of passkeys.","passwords":"Password and recovery paths alongside passkeys.","security-best-practices":"Broader app security controls.","chrome":"Chrome WebAuthn DevTools and platform quirks.","safari":"Safari/Apple passkey and iCloud Keychain behavior."}'
+  related-skills: '{"auth": "General authentication architecture beyond WebAuthn.", "chrome": "Chrome WebAuthn DevTools and platform quirks.", "oauth": "OAuth/OIDC flows instead of passkeys.", "passwords": "Password and recovery paths alongside passkeys.", "safari": "Safari/Apple passkey and iCloud Keychain behavior.", "security-best-practices": "Broader app security controls."}'
 ---
 
 # Passkey

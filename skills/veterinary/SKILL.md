@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🐾","os":["linux","darwin","win32"],"displayName":"Veterinary"}'
-  related-skills: '{"doctor":"Human medical triage and medication/lab review; veterinary owns animal species and DVM scope.","nutrition":"Human micronutrient gaps; veterinary owns species-specific nutrition and toxin food risks.","pets":"Day-to-day pet care logistics and routines after clinical triage is clear.","health":"Shared human health record context when zoonoses or owner meds matter.","therapist":"Owner grief or anxiety support after clinical handoff, not animal diagnosis."}'
+  related-skills: '{"doctor": "Human medical triage and medication/lab review; veterinary owns animal species and DVM scope.", "health": "Shared human health record context when zoonoses or owner meds matter.", "nutrition": "Human micronutrient gaps; veterinary owns species-specific nutrition and toxin food risks.", "pets": "Day-to-day pet care logistics and routines after clinical triage is clear.", "therapist": "Owner grief or anxiety support after clinical handoff, not animal diagnosis."}'
 ---
 
 Research notes, toxicity anchors, and citation pointers live in `references/sources.md`.

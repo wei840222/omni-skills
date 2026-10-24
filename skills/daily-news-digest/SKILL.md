@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📰"}'
-  related-skills: '{"news":"Personalized news with ongoing preference learning when the ask is continuous feed tuning rather than a scheduled digest.","summarizer":"Single-article or long-form summarization after a digest story is selected.","podcast":"Audio show discovery when the user wants podcasts instead of a text/voice news briefing.","schedule":"Calendar and scheduling primitives when delivery timing needs calendar coordination beyond digest cron.","digest":"General multi-source content digests outside the daily news briefing loop."}'
+  related-skills: '{"digest": "general content digests", "news": "personalized news with learning", "podcast": "audio content discovery", "schedule": "calendar and scheduling", "summarizer": "article summarization"}'
 ---
 
 ## When to load
@@ -115,11 +115,3 @@ On first use, read `references/setup.md`. Learn activation mode, topics, sources
 **This skill does not:** share reading habits with third parties; store credentials in plain text; access files outside the resolved state root; modify itself or other skills.
 
 **Trust:** enable voice synthesis only when the user accepts sending briefing text to the configured TTS provider.
-
-## Related skills
-
-- `news` — personalized news with learning
-- `summarizer` — article summarization
-- `podcast` — audio content discovery
-- `schedule` — calendar and scheduling
-- `digest` — general content digests

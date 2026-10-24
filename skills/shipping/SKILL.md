@@ -4,7 +4,7 @@ description: Optimize parcel shipping decisions across carrier selection, landed
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "\ud83d\udce6"}'
-  related-skills: '{"ecommerce": "Store operations and conversion workflows.", "marketplace": "Multi-platform selling and fulfillment strategy.", "inventory": "Stock planning and replenishment control.", "sell": "Listing, pricing, and sales execution.", "buy": "Purchasing decisions and supplier-side evaluation."}'
+  related-skills: '{"buy": "Purchasing decisions and supplier-side evaluation.", "ecommerce": "Store operations and conversion workflows.", "inventory": "Stock planning and replenishment control.", "marketplace": "Multi-platform selling and fulfillment strategy.", "sell": "Listing, pricing, and sales execution."}'
 ---
 ## Setup
 

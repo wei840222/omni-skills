@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"branding":"Set brand strategy and identity before choosing a palette.","css":"Implement approved color decisions in stylesheets.","design":"Judge one visual artifact without maintaining a token system.","design-system":"Extend an existing component library and token architecture.","figma":"Apply variables and styles inside a Figma file.","frontend":"Ship approved colors in interface code.","html":"Mark up status with text or icons so color is not the only signal.","typography":"Pair type size and weight with the contrast check for that text."}'
+  related-skills: '{"branding": "Set brand strategy and identity before choosing a palette.", "css": "Implement approved color decisions in stylesheets.", "design": "Judge one visual artifact without maintaining a token system.", "design-system": "Extend an existing component library and token architecture.", "figma": "Apply variables and styles inside a Figma file.", "frontend": "Ship approved colors in interface code.", "html": "Mark up status with text or icons so color is not the only signal.", "typography": "Pair type size and weight with the contrast check for that text."}'
 ---
 
 ## When to load

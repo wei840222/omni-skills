@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌐","os":["linux","darwin","win32"],"displayName":"HTTP"}'
-  related-skills: '{"api":"Use for third-party REST/GraphQL client integration beyond protocol mechanics.","cors":"Use for detailed Cross-Origin Resource Sharing policy design.","postman":"Use for Postman collections and Newman runs when HTTP debugging needs a collection harness.","web":"Use for full website build/deploy work beyond HTTP protocol guidance."}'
+  related-skills: '{"api": "Use for third-party REST/GraphQL client integration beyond protocol mechanics.", "cors": "Use for detailed Cross-Origin Resource Sharing policy design.", "postman": "Use for Postman collections and Newman runs when HTTP debugging needs a collection harness.", "web": "Use for full website build/deploy work beyond HTTP protocol guidance."}'
 ---
 
 Use this skill for protocol-level HTTP guidance. Deeper research notes for redirects, caching, conditional requests, and security headers live in `references/sources.md`.

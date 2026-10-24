@@ -4,7 +4,7 @@ description: Track Gaokao scores, weak areas, spaced repetition, and university 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎓"}'
-  related-skills: '{"exam":"Generate practice questions or mocks from supplied material rather than Gaokao-specific workflows.","study":"Semester coursework schedules beyond Gaokao-focused prep.","school":"Curriculum or classroom systems beyond Gaokao planning.","parenting":"Broader parenting coaching when the request is not Gaokao support.","habits":"Routine design once a Gaokao study habit is chosen.","daily-planner":"Day packing once Gaokao priorities are set.","act-prep":"ACT structure and admissions prep instead of Gaokao.","sat":"Digital SAT prep instead of Gaokao.","math":"Deep math topic tutoring outside Gaokao section strategy.","chinese":"General Chinese language study outside Gaokao 语文 workflows."}'
+  related-skills: '{"act-prep": "ACT structure and admissions prep instead of Gaokao.", "chinese": "General Chinese language study outside Gaokao 语文 workflows.", "daily-planner": "Day packing once Gaokao priorities are set.", "exam": "Generate practice questions or mocks from supplied material rather than Gaokao-specific workflows.", "habits": "Routine design once a Gaokao study habit is chosen.", "math": "Deep math topic tutoring outside Gaokao section strategy.", "parenting": "Broader parenting coaching when the request is not Gaokao support.", "sat": "Digital SAT prep instead of Gaokao.", "school": "Curriculum or classroom systems beyond Gaokao planning.", "study": "Semester coursework schedules beyond Gaokao-focused prep."}'
 ---
 
 ## When to load

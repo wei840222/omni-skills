@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📝"}'
-  related-skills: '{"html":"Semantic markup, labels, autofill, and a11y when the issue is HTML form structure rather than product design.","react":"React Hook Form, controlled inputs, and component state once the stack is React.","flutter":"Flutter form widgets and builders once the client is a Flutter app.","frontend":"Broader UI layout and design-system polish beyond form field logic.","webhook":"Secure webhook receivers, signatures, and idempotency after form submit delivery.","crm":"Pipeline, contacts, and deal hygiene once form leads land in a CRM."}'
+  related-skills: '{"crm": "Pipeline, contacts, and deal hygiene once form leads land in a CRM.", "flutter": "Flutter form widgets and builders once the client is a Flutter app.", "frontend": "Broader UI layout and design-system polish beyond form field logic.", "html": "Semantic markup, labels, autofill, and a11y when the issue is HTML form structure rather than product design.", "react": "React Hook Form, controlled inputs, and component state once the stack is React.", "webhook": "Secure webhook receivers, signatures, and idempotency after form submit delivery."}'
 ---
 
 # Forms

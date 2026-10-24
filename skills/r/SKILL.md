@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊","requires":{"bins":["Rscript"]}}'
-  related-skills: '{"statistics":"Probability, hypothesis tests, and inference language beyond R syntax traps.","pandas":"Python DataFrame cleaning and transforms instead of R data.frame work.","numpy":"Python ndarray vectorization and broadcasting instead of R vectors.","sql":"Relational queries and schema work outside in-memory R frames.","matlab":"MATLAB indexing, NaN, and matrix-vs-element-wise traps when the runtime is MATLAB."}'
+  related-skills: '{"matlab": "MATLAB indexing, NaN, and matrix-vs-element-wise traps when the runtime is MATLAB.", "numpy": "Python ndarray vectorization and broadcasting instead of R vectors.", "pandas": "Python DataFrame cleaning and transforms instead of R data.frame work.", "sql": "Relational queries and schema work outside in-memory R frames.", "statistics": "Probability, hypothesis tests, and inference language beyond R syntax traps."}'
 ---
 
 # R

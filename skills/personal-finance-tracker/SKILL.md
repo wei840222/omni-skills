@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💸"}'
-  related-skills: '{"money":"Household money-ladder sequencing beyond statement rollups.","subscriptions":"Subscription inventory and renewal cuts when cashflow context is already known.","csv":"CSV cleanup and column mapping before finance rollups.","cfo":"Company finance and operating decisions, not household trackers."}'
+  related-skills: '{"cfo": "Company finance and operating decisions, not household trackers.", "csv": "CSV cleanup and column mapping before finance rollups.", "money": "Household money-ladder sequencing beyond statement rollups.", "subscriptions": "Subscription inventory and renewal cuts when cashflow context is already known."}'
 ---
 
 ## State location

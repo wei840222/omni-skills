@@ -3,7 +3,7 @@ name: sweden
 description: Plan Sweden travel routes, budgets, and seasonal itineraries while verifying Schengen entry and transport viability.
 metadata:
   openclaw: '{"emoji":"🇸🇪"}'
-  related-skills: '{"travel":"General trip planning and itinerary structure","europe":"Broader Schengen and multi-country Europe planning","booking":"Reservation workflows and total-cost booking hygiene","food":"Deeper restaurant and cuisine planning","english":"Language support for bookings and practical interactions"}'
+  related-skills: '{"booking": "Reservation workflows and total-cost booking hygiene", "english": "Language support for bookings and practical interactions", "europe": "Broader Schengen and multi-country Europe planning", "food": "Deeper restaurant and cuisine planning", "travel": "General trip planning and itinerary structure"}'
 ---
 
 ## State location

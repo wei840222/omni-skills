@@ -5,7 +5,7 @@ description: Navigate California living, moving, and travel logistics including 
   regions, relocation, resident tasks, or state-specific trip planning.
 metadata:
   openclaw: '{"emoji":"🌊","requires":{"config":["<state_root>/california/"]}}'
-  related-skills: '{"travel":"General itinerary design and multi-stop trip structure beyond California-specific logistics.","car-rental":"Rental car pickup, return, and handoff decisions for California trips.","housing":"Deeper buy/rent/invest workflow after California region and housing fit are narrowed.","home-buying":"Purchase and mortgage workflow support once a California market is selected.","health-insurance":"Plan comparison terminology after Covered California or employer coverage is in scope.","business":"Broader operations guidance beyond California formation, tax, and local compliance layers.","legal":"General legal framing when a California question escalates past practical resident guidance."}'
+  related-skills: '{"business": "Broader operations guidance beyond California formation, tax, and local compliance layers.", "car-rental": "Rental car pickup, return, and handoff decisions for California trips.", "health-insurance": "Plan comparison terminology after Covered California or employer coverage is in scope.", "home-buying": "Purchase and mortgage workflow support once a California market is selected.", "housing": "Deeper buy/rent/invest workflow after California region and housing fit are narrowed.", "legal": "General legal framing when a California question escalates past practical resident guidance.", "travel": "General itinerary design and multi-stop trip structure beyond California-specific logistics."}'
 ---
 
 ## When to load

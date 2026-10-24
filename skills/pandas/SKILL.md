@@ -4,7 +4,7 @@ description: Analyze, transform, and clean DataFrames with efficient patterns fo
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🐼","requires":{"bins":["python3"]},"os":["linux","darwin","win32"],"displayName":"Pandas"}'
-  related-skills: '{"data-analysis":"Broader analysis framing, metrics, and decision briefs beyond DataFrame mechanics","csv":"Delimited-text interchange before or after Pandas transforms","sql":"Relational query and schema work instead of in-memory DataFrames","excel-xlsx":"Native workbook editing when the artifact must remain an Excel file"}'
+  related-skills: '{"csv": "Delimited-text interchange before or after Pandas transforms", "data-analysis": "Broader analysis framing, metrics, and decision briefs beyond DataFrame mechanics", "excel-xlsx": "Native workbook editing when the artifact must remain an Excel file", "sql": "Relational query and schema work instead of in-memory DataFrames"}'
 ---
 
 ## When to Use

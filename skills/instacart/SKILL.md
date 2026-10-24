@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛒","requires":{"env":["INSTACART_API_KEY"],"bins":["jq"]},"primaryEnv":"INSTACART_API_KEY"}'
-  related-skills: '{"api":"Generic REST request and error-handling patterns beyond Instacart endpoints.","auth":"Credential and environment hygiene when the problem is not Instacart-key specific.","grocery":"Grocery planning and item taxonomy without Instacart Developer Platform calls.","webhook":"Callback verification when Connect post-checkout events are in scope.","workflow":"General operating runbooks outside Instacart surface routing."}'
+  related-skills: '{"api": "generic REST patterns", "auth": "non-Instacart credential hygiene", "grocery": "shopping planning without Instacart APIs", "webhook": "Connect callback verification", "workflow": "general runbook design"}'
 ---
 
 ## State location
@@ -95,13 +95,3 @@ Load this skill when the user needs Instacart-specific execution: Developer Plat
 - Optional: MCP Inspector (`npx`) for MCP connectivity checks
 
 Keep API keys out of chat. Use environment variables or the user's secret manager.
-
-## Related Skills
-
-Consider these skills when the request leaves Instacart Developer Platform scope:
-
-- `api` — generic REST patterns
-- `auth` — non-Instacart credential hygiene
-- `grocery` — shopping planning without Instacart APIs
-- `webhook` — Connect callback verification
-- `workflow` — general runbook design

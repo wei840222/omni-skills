@@ -4,7 +4,7 @@ description: Use when building, integrating, or debugging Groq API chat completi
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⚡","requires":{"bins":["curl","jq"],"env":["GROQ_API_KEY"]}}'
-  related-skills: '{"api":"Provides reusable REST auth and error-handling patterns that complement Groq endpoint usage.","ai":"Landscape check before committing to a specific Groq model or provider.","fine-tuning":"Adaptation path when Groq prompting alone is insufficient.","langchain":"Orchestration layer for multi-step Groq-backed pipelines.","models":"Cross-provider model comparison when Groq is one of several options."}'
+  related-skills: '{"ai": "Landscape check before committing to a specific Groq model or provider.", "api": "Provides reusable REST auth and error-handling patterns that complement Groq endpoint usage.", "fine-tuning": "Adaptation path when Groq prompting alone is insufficient.", "langchain": "Orchestration layer for multi-step Groq-backed pipelines.", "models": "Cross-provider model comparison when Groq is one of several options."}'
 ---
 
 ## State location

@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.2.0"
   openclaw: '{"emoji":"🇩🇴"}'
-  related-skills: '{"travel":"Standing traveler system for passports, visas, bookings, and trip memory across destinations.","travel-planning":"Multi-city itineraries, packing lists, and budget tracking beyond one-country DR routing.","spanish":"Write or edit Spanish-language text rather than plan Dominican Republic travel.","mexico":"Plan Mexico travel instead of Dominican Republic destinations.","spain":"Plan Spain travel instead of Dominican Republic destinations.","flight":"Search or compare flights once the DR route and airports are decided.","booking":"Search lodging after the coast and stay style are chosen.","car-rental":"Arrange rental cars after DR road and transfer decisions are set."}'
+  related-skills: '{"booking": "Search lodging after the coast and stay style are chosen.", "car-rental": "Arrange rental cars after DR road and transfer decisions are set.", "flight": "Search or compare flights once the DR route and airports are decided.", "mexico": "Plan Mexico travel instead of Dominican Republic destinations.", "spain": "Plan Spain travel instead of Dominican Republic destinations.", "spanish": "Write or edit Spanish-language text rather than plan Dominican Republic travel.", "travel": "Standing traveler system for passports, visas, bookings, and trip memory across destinations.", "travel-planning": "Multi-city itineraries, packing lists, and budget tracking beyond one-country DR routing."}'
 ---
 
 ## State location

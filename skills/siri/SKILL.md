@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🗣️","displayName":"Siri"}'
-  related-skills: '{"homepod":"HomePod-specific Siri, audio, hub, and automation recovery.","smart-home":"Cross-vendor smart-home architecture beyond Apple Home voice control.","ios":"Broader iOS app lifecycle, entitlements, and platform debugging.","apple-health":"Health data workflows when App Intents log health metrics.","voice-notes":"Structured note capture when voice transcripts need knowledge organization."}'
+  related-skills: '{"apple-health": "Health data workflows when App Intents log health metrics.", "homepod": "HomePod-specific Siri, audio, hub, and automation recovery.", "ios": "Broader iOS app lifecycle, entitlements, and platform debugging.", "smart-home": "Cross-vendor smart-home architecture beyond Apple Home voice control.", "voice-notes": "Structured note capture when voice transcripts need knowledge organization."}'
 ---
 
 # Siri

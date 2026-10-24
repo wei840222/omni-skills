@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊","os":["linux","darwin","win32"],"displayName":"Business Intelligence"}'
-  related-skills: '{"analytics":"Performance pattern analysis after KPI contracts exist.","data-analysis":"Trend, segment, and causal modeling underneath BI trees.","dashboard":"Visualization implementation once metric contracts are fixed.","strategy":"Outcome framing that BI trees and cadence must serve.","report":"Stakeholder narrative packaging for decision briefs."}'
+  related-skills: '{"analytics": "Performance pattern analysis after KPI contracts exist.", "dashboard": "Visualization implementation once metric contracts are fixed.", "data-analysis": "Trend, segment, and causal modeling underneath BI trees.", "report": "Stakeholder narrative packaging for decision briefs.", "strategy": "Outcome framing that BI trees and cadence must serve."}'
 ---
 
 ## When to load

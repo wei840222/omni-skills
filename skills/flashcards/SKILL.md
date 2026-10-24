@@ -4,7 +4,7 @@ description: Create effective, atomic flashcards optimized for active recall and
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🃏"}'
-  related-skills: '{"spaced-repetition":"Manages the scheduling algorithm for studying flashcards over time.","study":"Provides broader study techniques and planning that incorporates flashcards."}'
+  related-skills: '{"spaced-repetition": "Manages the scheduling algorithm for studying flashcards over time.", "study": "Provides broader study techniques and planning that incorporates flashcards."}'
 ---
 
 ## Memory Science & Formatting Instructions

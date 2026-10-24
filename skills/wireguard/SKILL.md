@@ -9,7 +9,7 @@ description: Configure and troubleshoot WireGuard VPN tunnels, peers, AllowedIPs
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔐","requires":{"bins":["wg"]}}'
-  related-skills: '{"vpn":"Provider selection, privacy trade-offs, and non-WireGuard VPN clients.","network":"Layer-3 reachability, DNS, and routing diagnosis outside WireGuard specifics.","firewall":"Host and cloud packet filters that must allow UDP ListenPort.","encryption":"Broader crypto algorithm choice beyond WireGuard key handling.","dns":"Resolver and leak fixes once tunnel DNS is configured.","linux":"Host forwarding, sysctl, and systemd concerns around the tunnel."}'
+  related-skills: '{"dns": "Resolver and leak fixes once tunnel DNS is configured.", "encryption": "Broader crypto algorithm choice beyond WireGuard key handling.", "firewall": "Host and cloud packet filters that must allow UDP ListenPort.", "linux": "Host forwarding, sysctl, and systemd concerns around the tunnel.", "network": "Layer-3 reachability, DNS, and routing diagnosis outside WireGuard specifics.", "vpn": "Provider selection, privacy trade-offs, and non-WireGuard VPN clients."}'
 ---
 
 ## When to load

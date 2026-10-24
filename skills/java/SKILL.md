@@ -1,17 +1,17 @@
 ---
 name: java
-description: Write, debug, and tune Java and the JVM. Trigger this skill to resolve
-  exceptions (NullPointerException, ClassCastException, OutOfMemoryError, etc.), thread
-  deadlocks, memory leaks, high CPU usage, build and packaging issues (Maven/Gradle),
-  date/text rendering bugs, database connection exhaustion, or Spring @Transactional
-  failures. It also provides expertise for JDK version upgrades (8 to 17/21+), memory
-  sizing in containers, and library configuration. Not for Kotlin, JavaScript, or
-  Android app development.
+description: >
+  Write, debug, and tune Java and the JVM. Trigger this skill to resolve
+  exceptions (NullPointerException, ClassCastException, OutOfMemoryError,
+  etc.), thread deadlocks, memory leaks, high CPU usage, build and packaging
+  issues (Maven/Gradle), date/text rendering bugs, database connection
+  exhaustion, or Spring @Transactional failures. It also provides expertise
+  for JDK version upgrades (8 to 17/21+), memory sizing in containers, and
+  library configuration. Not for Kotlin, JavaScript, or Android app
+  development.
 metadata:
-  openclaw: '{"requires": {"config": ["<state_root>/Clawic/data/java/", "<state_root>/Clawic/profile.yaml",
-    "<state_root>/java/", "<state_root>/clawic/java/"]}, "emoji": "☕", "configPaths":
-    ["<state_root>/Clawic/data/java/", "<state_root>/Clawic/profile.yaml", "<state_root>/java/",
-    "<state_root>/clawic/java/"]}'
+  openclaw: '{"requires": {"config": ["<state_root>/Clawic/data/java/", "<state_root>/Clawic/profile.yaml", "<state_root>/java/", "<state_root>/clawic/java/"]}, "emoji": "☕", "configPaths": ["<state_root>/Clawic/data/java/", "<state_root>/Clawic/profile.yaml", "<state_root>/java/", "<state_root>/clawic/java/"]}'
+  related-skills: '{"android": "Android SDK, lifecycle, and app packaging", "docker": "containerizing a JVM and matching memory limits to heap", "kotlin": "the other JVM language; same bytecode, different null and concurrency model", "sql": "the queries your JDBC and JPA code actually sends"}'
 ---
 User preferences and memory live in `<state_root>/Clawic/data/java/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`<state_root>/java/` or `<state_root>/clawic/java/`), move it to `<state_root>/Clawic/data/java/`, and say in one line that you moved it and from where.
 
@@ -175,11 +175,5 @@ Preference areas to record as the user reveals them:
 - **Lombok.** Removes real boilerplate vs it is an annotation processor that breaks on JDK upgrades and hides behavior from readers and tools. Since records (16) cover immutable carriers, its honest remaining use is `@Slf4j` and `@Builder` on mutable entities.
 - **Mocks vs real dependencies in tests.** Mock what you own and what is slow or non-deterministic; run repositories and SQL against a real engine (Testcontainers). A mocked JDBC layer verifies the mock, not the query.
 - **Virtual threads vs reactive.** Since 21, virtual threads deliver most of the throughput of reactive code with straight-line control flow and readable stack traces. Reactive still wins where you genuinely need backpressure across a streaming pipeline — that need, not fashion, is the criterion.
-
-## Related Skills
-- `kotlin` — the other JVM language; same bytecode, different null and concurrency model
-- `android` — Android SDK, lifecycle, and app packaging
-- `sql` — the queries your JDBC and JPA code actually sends
-- `docker` — containerizing a JVM and matching memory limits to heap
 
 ## Feedback

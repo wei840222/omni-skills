@@ -4,7 +4,7 @@ description: Recommend, compare, and track iOS or Android apps around a user's p
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📱"}'
-  related-skills: '{"mobile-app-analytics":"Analyzes product performance metrics rather than recommending consumer apps."}'
+  related-skills: '{"mobile-app-analytics": "Analyzes product performance metrics rather than recommending consumer apps."}'
 ---
 
 ## State location

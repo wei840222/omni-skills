@@ -2,7 +2,7 @@
 name: brief
 description: "Turns raw material into decision-ready briefs: executive summaries, status updates, meeting pre-reads, and decision documents. Use when asked to brief someone, write a TL;DR or weekly update, prepare a board, investor, or incident update, hand off a project, compare options with a recommendation, or condense a long report, thread, transcript, or doc pile into what the reader needs to act. Also when updates run long, readers skim past the point, or the lede keeps getting buried. Not for plain compression with no decision to serve, or for recurring digests pulled from external sources."
 metadata:
-  related-skills: '{"summarizer": "compression when there is no decision to serve", "digest": "recurring curated updates pulled from external sources on a schedule", "report": "recurring configured reports with fixed data sources", "meetings": "the full meeting system"}'
+  related-skills: '{"digest": "recurring curated updates pulled from external sources on a schedule", "meetings": "the full meeting system", "report": "recurring configured reports with fixed data sources", "summarizer": "compression when there is no decision to serve"}'
   openclaw: '{"requires":{"config":["<state_root>/","<state_root>/profile.yaml"]}}'
 ---
 

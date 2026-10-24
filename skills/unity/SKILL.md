@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎮"}'
-  related-skills: '{"blender":"Mesh cleanup and FBX/glTF export before Unity import.","unreal-engine":"Unreal C++ GC, actor lifecycle, and replication instead of Unity MonoBehaviour.","game-development":"Browser playable loops and Three.js delivery when Unity Editor is not the target.","csharp":"General C# null/async/LINQ discipline outside UnityEngine.Object semantics."}'
+  related-skills: '{"blender": "Mesh cleanup and FBX/glTF export before Unity import.", "csharp": "General C# null/async/LINQ discipline outside UnityEngine.Object semantics.", "game-development": "Browser playable loops and Three.js delivery when Unity Editor is not the target.", "unreal-engine": "Unreal C++ GC, actor lifecycle, and replication instead of Unity MonoBehaviour."}'
 ---
 
 This skill is stateless knowledge guidance. It does not store local configuration or persistent user state.

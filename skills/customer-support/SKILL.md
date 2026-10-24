@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎧"}'
-  related-skills: '{"empathy":"Deep emotional simulation and intensity calibration when the need is pure affect work, not full case resolution.","call-center":"Live voice/inbound-outbound call scripts, AHT/FCR framing, and call logging.","zendesk":"Zendesk Support API tickets, users, and automation once the work is platform ops.","triage":"P0–P3 cost-of-delay ordering for a mixed work pile before writing the customer reply.","crm":"Contact, account, and pipeline hygiene after the support issue becomes a CRM record problem.","chat":"General conversational channel mechanics when the medium—not support judgment—is the blocker.","escalate":"Ask-vs-act thresholds when the agent must decide autonomy vs human approval."}'
+  related-skills: '{"call-center": "Live voice/inbound-outbound call scripts, AHT/FCR framing, and call logging.", "chat": "General conversational channel mechanics when the medium—not support judgment—is the blocker.", "crm": "Contact, account, and pipeline hygiene after the support issue becomes a CRM record problem.", "empathy": "Deep emotional simulation and intensity calibration when the need is pure affect work, not full case resolution.", "escalate": "Ask-vs-act thresholds when the agent must decide autonomy vs human approval.", "triage": "P0–P3 cost-of-delay ordering for a mixed work pile before writing the customer reply.", "zendesk": "Zendesk Support API tickets, users, and automation once the work is platform ops."}'
 ---
 
 # Customer Support

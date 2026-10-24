@@ -4,7 +4,7 @@ description: "Triage inbox email, draft replies, and track follow-ups. Trigger w
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📬","requires":{"config":["<state_root>"]},"configPaths":["<state_root>/"]}'
-  related-skills: '{"mail":"generic mail workflow support", "email-marketing":"campaign and newsletter execution workflows", "crm":"customer relationship process management", "productivity":"execution and prioritization frameworks", "assistant":"general assistant orchestration patterns"}'
+  related-skills: '{"assistant": "general assistant orchestration patterns", "crm": "customer relationship process management", "email-marketing": "campaign and newsletter execution workflows", "mail": "generic mail workflow support", "productivity": "execution and prioritization frameworks"}'
 ---
 
 ## State Location

@@ -4,7 +4,7 @@ description: Log personal symptoms, ask structured follow-up questions, track pa
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🩺"}'
-  related-skills: '{"doctor":"Urgency triage, lab reading, and medication safety when a logged symptom needs more than documentation.","medicine":"General medical explanation after documentation, without turning the log into a diagnosis.","health":"Broader wellness tracking outside a symptom episode.","water":"Hydration context when headache, cramps, or fatigue may relate to fluid intake.","nutrition":"Diet and micronutrient context when a symptom follows food or supplements.","dermatologist":"Skin-lesion and rash case records when the symptom is primarily dermatologic.","journal":"Non-clinical daily notes that should stay outside the symptom log."}'
+  related-skills: '{"dermatologist": "Skin-lesion and rash case records when the symptom is primarily dermatologic.", "doctor": "Urgency triage, lab reading, and medication safety when a logged symptom needs more than documentation.", "health": "Broader wellness tracking outside a symptom episode.", "journal": "Non-clinical daily notes that should stay outside the symptom log.", "medicine": "General medical explanation after documentation, without turning the log into a diagnosis.", "nutrition": "Diet and micronutrient context when a symptom follows food or supplements.", "water": "Hydration context when headache, cramps, or fatigue may relate to fluid intake."}'
 ---
 
 ## State location

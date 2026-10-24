@@ -7,7 +7,7 @@ description: >
   escalation cues only — not diagnosis, prescribing, or replacing clinician care.
 metadata:
   openclaw: '{"emoji":"🤰","requires":{"bins":[]},"config":["<state_root>/pregnancy/"],"os":["darwin","linux","win32"],"displayName":"Pregnancy (Tracker, Journal, Triage, Visit Prep)"}'
-  related-skills: '{"doctor":"General symptom triage and medication/lab review outside maternity-specific tracking.","nutrition":"Micronutrient adequacy and pregnancy diet context after triage is clear.","period":"Cycle history context before or around conception tracking.","baby":"Postpartum/infant day-to-day tracking after delivery handoff.","therapist":"Mental-health support once crisis routing and clinical handoff are handled.","sleep":"Sleep quality patterns that affect prenatal wellness logs.","fitness":"Activity load context when symptoms relate to exertion.","dietitian":"Therapeutic meal construction after clinician guidance."}'
+  related-skills: '{"baby": "Postpartum/infant day-to-day tracking after delivery handoff.", "dietitian": "Therapeutic meal construction after clinician guidance.", "doctor": "General symptom triage and medication/lab review outside maternity-specific tracking.", "fitness": "Activity load context when symptoms relate to exertion.", "nutrition": "Micronutrient adequacy and pregnancy diet context after triage is clear.", "period": "Cycle history context before or around conception tracking.", "sleep": "Sleep quality patterns that affect prenatal wellness logs.", "therapist": "Mental-health support once crisis routing and clinical handoff are handled."}'
 ---
 
 ## When to load

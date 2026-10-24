@@ -1,16 +1,11 @@
 ---
 name: venture-capital
-description: Evaluate startup pitches, perform due diligence, structure term sheets,
+description: >
+  Evaluate startup pitches, perform due diligence, structure term sheets,
   analyze market opportunities, and advise on fundraising strategy.
 metadata:
-  openclaw: '{"emoji": "💰", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"],
-    "displayName": "Venture Capital"}'
-  related-skills:
-  - cfo
-  - ceo
-  - business
-  - founder
-  - startup
+  openclaw: '{"emoji": "💰", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"], "displayName": "Venture Capital"}'
+  related-skills: '{"business": "Business model scalability, moat analysis, and defensibility evaluation.", "ceo": "Pitch deck narrative, founder vision, and executive board governance.", "cfo": "Cap table math, term sheet dilution, valuation modeling, and fund economics.", "founder": "Founder-investor alignment, reference checks, and syndicate building.", "startup": "Due diligence readiness, venture growth metrics, and fundraise milestones."}'
 ---
 
 ## When to load

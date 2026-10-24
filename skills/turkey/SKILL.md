@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇹🇷"}'
-  related-skills: '{"booking":"Keeps reservation names, deadlines, and confirmation hygiene aligned with the Turkey route.","car-rental":"Chooses a rental only when a coast or inland cluster actually benefits from a car.","food":"Extends regional meal planning beyond the Turkey food playbook.","travel":"Builds the multi-stop itinerary when Turkey is one part of a larger trip.","turkish":"Supports menus, bookings, and on-the-ground language once the route is chosen."}'
+  related-skills: '{"booking": "Keeps reservation names, deadlines, and confirmation hygiene aligned with the Turkey route.", "car-rental": "Chooses a rental only when a coast or inland cluster actually benefits from a car.", "food": "Extends regional meal planning beyond the Turkey food playbook.", "travel": "Builds the multi-stop itinerary when Turkey is one part of a larger trip.", "turkish": "Supports menus, bookings, and on-the-ground language once the route is chosen."}'
 ---
 
 ## State location

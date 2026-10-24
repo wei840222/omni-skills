@@ -1,11 +1,11 @@
 ---
 name: infrastructure
-description: Guide architecture decisions and generate infrastructure provisioning commands for the user to execute.
+description: >
+  Guide architecture decisions and generate infrastructure provisioning
+  commands for the user to execute.
 metadata:
   openclaw: '{"emoji": "\ud83c\udfd7\ufe0f"}'
-  related-skills:
-    server: skills/server
-    docker: skills/docker
+  related-skills: '{"docker": "Container runtime configuration, multi-container stacks, and storage volumes.", "server": "Host provisioning, Linux system administration, and network hardening."}'
 ---
 
 ## Scope

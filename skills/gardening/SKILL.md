@@ -4,7 +4,7 @@ description: Provides gardening advice on soil management, watering, planting ti
 metadata:
   openclaw: '{"emoji":"🌱","displayName":"Gardening"}'
   category: lifestyle
-  related-skills: '{"plants":"Focuses on specific plant types"}'
+  related-skills: '{"plants": "Focuses on specific plant types"}'
 ---
 
 ## Soil Fundamentals

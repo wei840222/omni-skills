@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"drawing":"Children image prompts, coloring pages, and model-portable generation scaffolds.","design":"Quantified visual hierarchy, spacing, type, and UI layout critique.","graphic-design":"Print layout, posters, and production graphics beyond studio art craft.","colors":"Accessible palette systems, contrast ratios, and design tokens.","designer":"Broader design-role coaching outside medium-specific studio practice."}'
+  related-skills: '{"colors": "Accessible palette systems, contrast ratios, and design tokens.", "design": "Quantified visual hierarchy, spacing, type, and UI layout critique.", "designer": "Broader design-role coaching outside medium-specific studio practice.", "drawing": "Children image prompts, coloring pages, and model-portable generation scaffolds.", "graphic-design": "Print layout, posters, and production graphics beyond studio art craft."}'
 ---
 
 # Art

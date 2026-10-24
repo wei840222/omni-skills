@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔊","requires":{"bins":["ffmpeg","ffprobe"]}}'
-  related-skills: '{"ffmpeg":"Lower-level codec, filter, and encoding details when the task is pure FFmpeg craft rather than an end-to-end audio deliverable.","music":"Personal listening memory, playlists, and concert logs rather than file processing.","podcast":"Show concept, scripting, publishing, and promotion around episodes this skill masters.","speech-to-text-transcription":"Dedicated transcription, diarization, and subtitle products when speech-to-text is the primary goal.","video":"Full video packaging, reframing, and platform video delivery beyond soundtrack work.","video-captions":"Caption styling and burn-in when captions are the main request.","youtube-video-transcript":"Fetch existing YouTube subtitles instead of processing a local file."}'
+  related-skills: '{"ffmpeg": "Lower-level codec, filter, and encoding details when the task is pure FFmpeg craft rather than an end-to-end audio deliverable.", "music": "Personal listening memory, playlists, and concert logs rather than file processing.", "podcast": "Show concept, scripting, publishing, and promotion around episodes this skill masters.", "speech-to-text-transcription": "Dedicated transcription, diarization, and subtitle products when speech-to-text is the primary goal.", "video": "Full video packaging, reframing, and platform video delivery beyond soundtrack work.", "video-captions": "Caption styling and burn-in when captions are the main request.", "youtube-video-transcript": "Fetch existing YouTube subtitles instead of processing a local file."}'
 ---
 
 # Audio

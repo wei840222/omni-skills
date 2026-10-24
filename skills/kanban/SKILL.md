@@ -4,7 +4,7 @@ description: Create, update, and manage multi-project Kanban boards with determi
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📋"}'
-  related-skills: '{"daily-planner":"Incorporates Kanban tasks into daily planning and time block execution.","delegate":"Handles owner assignment and task handoff protocols for items on the board.","projects":"Manages cross-project governance that feeds into specific Kanban boards.","workflow":"Provides operational workflow design and execution loops connected to Kanban tasks."}'
+  related-skills: '{"daily-planner": "Incorporates Kanban tasks into daily planning and time block execution.", "delegate": "Handles owner assignment and task handoff protocols for items on the board.", "projects": "Manages cross-project governance that feeds into specific Kanban boards.", "workflow": "Provides operational workflow design and execution loops connected to Kanban tasks."}'
 ---
 
 ## State location

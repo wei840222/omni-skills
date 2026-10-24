@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤝"}'
-  related-skills: '{"delegate":"Routes specified work to sub-agents when acceptance criteria are already writable.","diverge":"Fans out multiple parallel viewpoints before synthesis.","six-thinking-hats":"Structured multi-hat parallel thinking for option analysis.","brainstorm":"Generates option volume before a focused collaborative exchange."}'
+  related-skills: '{"brainstorm": "Generates option volume before a focused collaborative exchange.", "delegate": "Routes specified work to sub-agents when acceptance criteria are already writable.", "diverge": "Fans out multiple parallel viewpoints before synthesis.", "six-thinking-hats": "Structured multi-hat parallel thinking for option analysis."}'
 ---
 
 ## State location

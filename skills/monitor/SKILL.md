@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"📡","requires":{"bins":["curl"]}}'
-  related-skills: '{"monitoring":"Design metrics, logs, traces, and observability stacks beyond individual periodic checks."}'
+  related-skills: '{"monitoring": "Design metrics, logs, traces, and observability stacks beyond individual periodic checks."}'
 ---
 
 ## State location

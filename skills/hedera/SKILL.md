@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"ℏ"}'
-  related-skills: '{"ethereum":"EVM gas, approvals, and L2 bridges rather than Hedera account/HTS mechanics.","solana":"SPL token accounts and Solana fee/priority issues instead of Hedera association.","blockchain":"Ledger-fit decisions and generic EVM contract interaction beyond Hedera-native services.","crypto-tools":"Prices, explorers, and portfolio tooling when the ask is not Hedera account or HTS operations."}'
+  related-skills: '{"blockchain": "Ledger-fit decisions and generic EVM contract interaction beyond Hedera-native services.", "crypto-tools": "Prices, explorers, and portfolio tooling when the ask is not Hedera account or HTS operations.", "ethereum": "EVM gas, approvals, and L2 bridges rather than Hedera account/HTS mechanics.", "solana": "SPL token accounts and Solana fee/priority issues instead of Hedera association."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

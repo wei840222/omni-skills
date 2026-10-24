@@ -4,7 +4,7 @@ description: Write natural, human-sounding Welsh with appropriate register, regi
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏴󠁧󠁢󠁷󠁬󠁳󠁿"}'
-  related-skills: '{"speak":"Supports spoken Welsh practice and pronunciation guidance.","translate":"Handles general translation tasks where Welsh is the target or source language."}'
+  related-skills: '{"speak": "Supports spoken Welsh practice and pronunciation guidance.", "translate": "Handles general translation tasks where Welsh is the target or source language."}'
 ---
 
 ## Core Principle

@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⚖️","requires":{"config":["<state_root>"]}}'
-  related-skills: '{"trading":"Single-venue charting, TA, and position sizing without a locked second leg.","trader":"Execution desk workflow once a structure is already classified.","pricing":"B2B SaaS packaging and list price, not cross-venue arb.","invest":"Long-horizon allocation and portfolio construction outside locked spreads."}'
+  related-skills: '{"invest": "Long-horizon allocation and portfolio construction outside locked spreads.", "pricing": "B2B SaaS packaging and list price, not cross-venue arb.", "trader": "Execution desk workflow once a structure is already classified.", "trading": "Single-venue charting, TA, and position sizing without a locked second leg."}'
 ---
 
 ## When to Use

@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔎"}'
-  related-skills: '{"elasticsearch":"Elasticsearch/OpenSearch mappings, Query DSL, cluster ops, and ES-specific vector fields.","meilisearch":"Lightweight site and product search when a full search cluster is more than the job needs.","rag":"LLM retrieval pipelines built on top of an index once the retrieval contract is set.","engineering":"Structure multi-week search delivery workstreams and decision logs.","software-engineer":"Testable rollout discipline, CI gates, and incident-ready delivery practices."}'
+  related-skills: '{"elasticsearch": "Elasticsearch/OpenSearch mappings, Query DSL, cluster ops, and ES-specific vector fields.", "engineering": "Structure multi-week search delivery workstreams and decision logs.", "meilisearch": "Lightweight site and product search when a full search cluster is more than the job needs.", "rag": "LLM retrieval pipelines built on top of an index once the retrieval contract is set.", "software-engineer": "Testable rollout discipline, CI gates, and incident-ready delivery practices."}'
 ---
 
 # Search Engine

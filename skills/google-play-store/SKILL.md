@@ -4,7 +4,7 @@ description: Manage Google Play Store publishing workflows, App Store Optimizati
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤖","displayName":"Google Play Store"}'
-  related-skills: '{"android":"Android build and development procedures before publishing.","app-store":"Parallel iOS publishing workflows for cross-platform releases.","mobile":"Cross-platform mobile strategy shared by both stores."}'
+  related-skills: '{"android": "Android build and development procedures before publishing.", "app-store": "Parallel iOS publishing workflows for cross-platform releases.", "mobile": "Cross-platform mobile strategy shared by both stores."}'
 ---
 
 ## State location

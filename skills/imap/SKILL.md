@@ -4,7 +4,7 @@ description: Read, search, and sync IMAP mailboxes with UID-safe fetches, precis
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📬"}'
-  related-skills: '{"api":"API-integration boundary for authenticated mailbox wrappers.","http":"HTTP transport and header debugging outside IMAP.","json":"Structured mailbox-result transformation.","code":"Implementing or verifying a mailbox parser or sync worker.","bash":"Shell-first mailbox automation and repeatable wrappers."}'
+  related-skills: '{"api": "API-integration boundary for authenticated mailbox wrappers.", "bash": "Shell-first mailbox automation and repeatable wrappers.", "code": "Implementing or verifying a mailbox parser or sync worker.", "http": "HTTP transport and header debugging outside IMAP.", "json": "Structured mailbox-result transformation."}'
 ---
 
 ## When to Use
@@ -111,8 +111,3 @@ This skill does NOT:
 
 By using this skill, data is exchanged with the user-configured mail provider or IMAP bridge.
 Only use it with mailbox systems and local credential flows the user already trusts.
-
-
-## Related skills
-
-Read the `metadata.related-skills` map when the mailbox request crosses into API integration, HTTP transport diagnosis, structured JSON transformation, code implementation, or shell automation.

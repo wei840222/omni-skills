@@ -16,7 +16,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐹","requires":{"bins":["go"]},"displayName":"Go"}'
-  related-skills: '{"http":"Protocol, status, headers, CORS, and caching depth above Go net/http handlers.","k8s":"Kubernetes operators, manifests, and cluster operations outside this skill\u2019s Go-language boundary.","docker":"Container image and Compose shipping for the Go binary this skill helps build.","rust":"Systems-language alternative when the user switches away from Go.","java":"JVM-language alternative when the user switches away from Go.","kotlin":"JVM-language alternative when the user switches away from Go.","javascript":"JS/TS alternative when the user switches away from Go."}'
+  related-skills: '{"docker": "Container image and Compose shipping for the Go binary this skill helps build.", "http": "Protocol, status, headers, CORS, and caching depth above Go net/http handlers.", "java": "JVM-language alternative when the user switches away from Go.", "javascript": "JS/TS alternative when the user switches away from Go.", "k8s": "Kubernetes operators, manifests, and cluster operations outside this skill’s Go-language boundary.", "kotlin": "JVM-language alternative when the user switches away from Go.", "rust": "Systems-language alternative when the user switches away from Go."}'
 ---
 
 ## State location

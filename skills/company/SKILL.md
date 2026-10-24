@@ -1,14 +1,13 @@
 ---
 name: company
-description: Design and build an agent-powered organizational structure. Use this
-  skill when you need to map business functions to AI agents, determine optimal deployment
-  sequences, and establish tracking protocols.
+description: >
+  Design and build an agent-powered organizational structure. Use this skill
+  when you need to map business functions to AI agents, determine optimal
+  deployment sequences, and establish tracking protocols.
 metadata:
-  version: 1.0.0
+  version: "1.0.0"
   openclaw: '{"emoji": "🏢"}'
-  related-skills: '{"business":"Focuses on strategy, complementing this skill''s focus
-    on organizational structure.","startup":"Provides methodology for new ventures,
-    whereas this skill focuses on building the organization itself."}'
+  related-skills: '{"business": "Focuses on strategy, complementing this skill''s focus on organizational structure.", "startup": "Provides methodology for new ventures, whereas this skill focuses on building the organization itself."}'
 ---
 ## Triggers
 

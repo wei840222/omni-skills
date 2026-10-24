@@ -1,14 +1,12 @@
 ---
 name: brazil
-description: Structure Brazil travel itineraries. Load this skill to route between macro-regions, verify visa/entry rules, plan payment strategies (PIX/CPF), and resolve city-level logistics.
+description: >
+  Structure Brazil travel itineraries. Load this skill to route between
+  macro-regions, verify visa/entry rules, plan payment strategies (PIX/CPF),
+  and resolve city-level logistics.
 metadata:
   openclaw: '{"emoji": "🇧🇷", "requires": {"config": ["<state_root>/brazil/"]}, "configPaths": ["<state_root>/brazil/"]}'
-  related-skills:
-    travel: skills/travel
-    booking: skills/booking
-    car-rental: skills/car-rental
-    food: skills/food
-    portuguese: skills/portuguese
+  related-skills: '{"booking": "Reservation workflows and confirmation hygiene.", "car-rental": "Self-drive strategy and handoff logistics.", "food": "Deeper restaurant and cuisine recommendations.", "portuguese": "Language support for bookings, transport, and service interactions.", "travel": "General trip planning and itinerary structure."}'
 ---
 
 ## When to load
@@ -129,10 +127,3 @@ Required restrictions:
 - pack Amazon, Rio, Iguacu, and remote islands into one short trip without stating transfer cost
 - assume every local operator accepts foreign cards without PIX/CPF friction
 - give generic safety warnings without neighborhood or arrival context
-
-## Related Skills
-- `travel` - General trip planning and itinerary structure.
-- `booking` - Reservation workflows and confirmation hygiene.
-- `car-rental` - Self-drive strategy and handoff logistics.
-- `food` - Deeper restaurant and cuisine recommendations.
-- `portuguese` - Language support for bookings, transport, and service interactions.

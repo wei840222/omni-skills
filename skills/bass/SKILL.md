@@ -7,7 +7,7 @@ metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "🎸"}'
   related-skills:
-    music: skills/music
+    '{"music": "Musical notation, music theory, and rhythm training."}'
 ---
 
 ## When to load references

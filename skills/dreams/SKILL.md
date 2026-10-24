@@ -4,7 +4,7 @@ description: Record, organize, and analyze personal dreams to track symbols, rec
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌙","requires":{"config":["<state_root>/dreams/"]}}'
-  related-skills: '{"journal":"Broader reflective writing and life reviews beyond dream capture.","sleep":"Sleep quality, insomnia, jet lag, and clinical sleep red flags rather than dream content.","habits":"Daily cue and streak tracking once a morning dream-log slot is chosen.","psychologist":"In-the-moment emotional support; dream logging is not therapy.","voice-notes":"Turn groggy spoken fragments into text before filing a dream entry.","notes":"Retrieval-oriented notes unrelated to dream journaling.","mindfulness":"Waking awareness practices adjacent to dream recall and lucidity prep."}'
+  related-skills: '{"habits": "Daily cue and streak tracking once a morning dream-log slot is chosen.", "journal": "Broader reflective writing and life reviews beyond dream capture.", "mindfulness": "Waking awareness practices adjacent to dream recall and lucidity prep.", "notes": "Retrieval-oriented notes unrelated to dream journaling.", "psychologist": "In-the-moment emotional support; dream logging is not therapy.", "sleep": "Sleep quality, insomnia, jet lag, and clinical sleep red flags rather than dream content.", "voice-notes": "Turn groggy spoken fragments into text before filing a dream entry."}'
 ---
 
 ## State location

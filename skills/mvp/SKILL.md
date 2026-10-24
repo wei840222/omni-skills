@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🚀"}'
-  related-skills: '{"founder":"Founder operating-system and psychology when the bottleneck is the person, not MVP scope.","growth":"Acquisition and retention systems after the MVP has validated demand.","indie-hacker":"Solo bootstrap sequencing and time protection for side-project MVPs.","product":"Broader product strategy, prioritization, and marketplace execution beyond MVP scope.","product-launch":"Go-to-market sequencing once the MVP scope is locked.","product-manager":"PM discovery, roadmaps, and stakeholder craft without MVP kill-criteria focus.","startup":"Stage-wide founder orchestration across PMF, hiring, and runway beyond a single MVP."}'
+  related-skills: '{"founder": "Founder operating-system and psychology when the bottleneck is the person, not MVP scope.", "growth": "Acquisition and retention systems after the MVP has validated demand.", "indie-hacker": "Solo bootstrap sequencing and time protection for side-project MVPs.", "product": "Broader product strategy, prioritization, and marketplace execution beyond MVP scope.", "product-launch": "Go-to-market sequencing once the MVP scope is locked.", "product-manager": "PM discovery, roadmaps, and stakeholder craft without MVP kill-criteria focus.", "startup": "Stage-wide founder orchestration across PMF, hiring, and runway beyond a single MVP."}'
 ---
 
 # MVP

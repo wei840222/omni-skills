@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇪🇪"}'
-  related-skills: '{"finnish":"Write Finnish when Estonian is not the target language.","swedish":"Write Swedish when Estonian is not the target language.","translate":"Translate an existing source text into Estonian across a broader localization job.","writing":"Shape broader prose once the Estonian-language decision is settled.","english":"Draft or revise the English source before translating it into Estonian.","copywriting":"Shape persuasive marketing copy after the Estonian register is chosen."}'
+  related-skills: '{"copywriting": "Shape persuasive marketing copy after the Estonian register is chosen.", "english": "Draft or revise the English source before translating it into Estonian.", "finnish": "Write Finnish when Estonian is not the target language.", "swedish": "Write Swedish when Estonian is not the target language.", "translate": "Translate an existing source text into Estonian across a broader localization job.", "writing": "Shape broader prose once the Estonian-language decision is settled."}'
 ---
 
 Research notes for sina/Teie, particles, and understatement live in `references/sources.md`.

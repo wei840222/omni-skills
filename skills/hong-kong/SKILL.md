@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇭🇰"}'
-  related-skills: '{"booking":"Lodging or reservation completion after a Hong Kong neighborhood base is chosen.","china":"Mainland China routing when the trip or move crosses the Shenzhen/Guangzhou border.","expat":"Cross-border move project tracking beyond Hong Kong neighborhood and settling advice.","flight":"Air-segment planning into or out of HKG when flights are the main question.","macau":"Peer SAR guide for ferry/HZMB day trips and Macau-specific districts.","singapore":"Peer dense Asian city-state guide for comparative relocation framing.","taiwan":"Peer Traditional Chinese destination when comparing HK with Taiwan bases.","travel":"Standing multi-destination travel records when Hong Kong is one stop among several.","travel-planning":"Day-by-day multi-city itineraries when the trip leaves Hong Kong."}'
+  related-skills: '{"booking": "Lodging or reservation completion after a Hong Kong neighborhood base is chosen.", "china": "Mainland China routing when the trip or move crosses the Shenzhen/Guangzhou border.", "expat": "Cross-border move project tracking beyond Hong Kong neighborhood and settling advice.", "flight": "Air-segment planning into or out of HKG when flights are the main question.", "macau": "Peer SAR guide for ferry/HZMB day trips and Macau-specific districts.", "singapore": "Peer dense Asian city-state guide for comparative relocation framing.", "taiwan": "Peer Traditional Chinese destination when comparing HK with Taiwan bases.", "travel": "Standing multi-destination travel records when Hong Kong is one stop among several.", "travel-planning": "Day-by-day multi-city itineraries when the trip leaves Hong Kong."}'
 ---
 
 ## State location

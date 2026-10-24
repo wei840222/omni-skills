@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔑","requires":{"bins":["curl","jq","bash"]},"os":["linux","darwin"]}'
-  related-skills: '{"auth":"Application login, session, JWT, and MFA design rather than keychain-backed outbound API calls.","cybersecurity":"Incident response and defensive security program work when a leaked key is part of a broader compromise.","oauth":"OAuth 2.0 / OIDC client flows and token endpoints instead of static API keys in the OS keychain.","passkey":"WebAuthn passkey registration and assertion rather than storing third-party API keys."}'
+  related-skills: '{"auth": "Application login, session, JWT, and MFA design rather than keychain-backed outbound API calls.", "cybersecurity": "Incident response and defensive security program work when a leaked key is part of a broader compromise.", "oauth": "OAuth 2.0 / OIDC client flows and token endpoints instead of static API keys in the OS keychain.", "passkey": "WebAuthn passkey registration and assertion rather than storing third-party API keys."}'
 ---
 
 # Keys

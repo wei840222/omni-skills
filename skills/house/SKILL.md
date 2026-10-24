@@ -4,7 +4,7 @@ description: Buy, maintain, improve, sell, or rent out a home. Use for offer and
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"home-buying":"Run a purchase search and offer path when the question is only about buying.","home-renovation":"Plan a remodel scope, budget, and contractor sequence.","property-valuation":"Estimate value before pricing a buy or a sale.","real-estate-agent":"Coordinate listing, showing, and negotiation tasks with an agent.","real-estate-investing":"Judge rental yield and hold-versus-sell for an investment property.","law":"Check local landlord, disclosure, or contract rules before treating a checklist as legal advice."}'
+  related-skills: '{"home-buying": "Run a purchase search and offer path when the question is only about buying.", "home-renovation": "Plan a remodel scope, budget, and contractor sequence.", "law": "Check local landlord, disclosure, or contract rules before treating a checklist as legal advice.", "property-valuation": "Estimate value before pricing a buy or a sale.", "real-estate-agent": "Coordinate listing, showing, and negotiation tasks with an agent.", "real-estate-investing": "Judge rental yield and hold-versus-sell for an investment property."}'
 ---
 
 ## When to load

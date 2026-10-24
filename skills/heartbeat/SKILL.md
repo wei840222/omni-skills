@@ -4,7 +4,7 @@ description: Automate proactive monitoring, reactive workflows, and safe cron ha
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💓"}'
-  related-skills: '{"alerts":"Alert routing and escalation hygiene.","copilot":"Proactive assistant patterns with controlled autonomy.","monitoring":"Monitoring strategies and alert design.","schedule":"Scheduling patterns for recurring workflows.","workflow":"Multi-step workflow orchestration."}'
+  related-skills: '{"alerts": "Alert routing and escalation hygiene.", "copilot": "Proactive assistant patterns with controlled autonomy.", "monitoring": "Monitoring strategies and alert design.", "schedule": "Scheduling patterns for recurring workflows.", "workflow": "Multi-step workflow orchestration."}'
 ---
 
 # Heartbeat 💓

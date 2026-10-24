@@ -4,7 +4,7 @@ description: Works as counsel — reviews and redlines agreements, negotiates mo
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚖️"}'
-  related-skills: '{"accountant":"Tax treatment and books behind an entity choice or settlement figure.","cfo":"Financial model behind a raise, term sheet, or dilution question.","clients":"Commercial relationship the agreement sits inside.","contract":"Blank-page agreement drafting with guided intake when no marked-up paper exists yet.","contracts":"Executed-contract register, renewal alerts, and clause lookup after signature.","law":"Jurisdiction-aware primary-authority research and education rather than counsel redlines.","legal":"IRAC issue-spotting drills when the task is analysis structure, not markup.","negotiate":"Live commercial negotiation once legal positions and walk-aways are set."}'
+  related-skills: '{"accountant": "Tax treatment and books behind an entity choice or settlement figure.", "cfo": "Financial model behind a raise, term sheet, or dilution question.", "clients": "Commercial relationship the agreement sits inside.", "contract": "Blank-page agreement drafting with guided intake when no marked-up paper exists yet.", "contracts": "Executed-contract register, renewal alerts, and clause lookup after signature.", "law": "Jurisdiction-aware primary-authority research and education rather than counsel redlines.", "legal": "IRAC issue-spotting drills when the task is analysis structure, not markup.", "negotiate": "Live commercial negotiation once legal positions and walk-aways are set."}'
 ---
 
 ## State location

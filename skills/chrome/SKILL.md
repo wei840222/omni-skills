@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"playwright":"Primary browser test/automation runner with locators, traces, and CI sharding.","puppeteer":"Chrome/Chromium automation library when staying on the Puppeteer API.","cypress":"Maintain an existing Cypress suite rather than raw CDP.","web":"General web delivery, DOM, and frontend traps outside DevTools.","javascript":"Language-only JS patterns without Chrome protocol or extension APIs."}'
+  related-skills: '{"cypress": "Maintain an existing Cypress suite rather than raw CDP.", "javascript": "Language-only JS patterns without Chrome protocol or extension APIs.", "playwright": "Primary browser test/automation runner with locators, traces, and CI sharding.", "puppeteer": "Chrome/Chromium automation library when staying on the Puppeteer API.", "web": "General web delivery, DOM, and frontend traps outside DevTools."}'
 ---
 
 # Chrome

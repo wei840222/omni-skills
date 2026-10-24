@@ -4,7 +4,7 @@ description: Manage product backlogs, write clear user stories with acceptance c
   and align stakeholders on priority.
 metadata:
   openclaw: '{"emoji": "📋"}'
-  related-skills: null
+  related-skills: '{"business": "Business strategy fundamentals", "cpo": "Chief Product Officer leadership", "delegate": "Task delegation patterns", "product-manager": "Product strategy and roadmap"}'
 ---
 
 
@@ -144,10 +144,3 @@ Impact: [users affected, severity]
 | Escaped Defects | Quality |
 | Sprint Goal Achievement | Commitment reliability |
 | Stakeholder Satisfaction | Value delivery |
-
-## Related Skills
-
-- `product-manager` — Product strategy and roadmap
-- `cpo` — Chief Product Officer leadership
-- `delegate` — Task delegation patterns
-- `business` — Business strategy fundamentals

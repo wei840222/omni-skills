@@ -5,7 +5,7 @@ compatibility: Requires macOS with News.app and the `open` command. Shortcut wor
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📰","os":["darwin"],"requires":{"bins":["open"]}}'
-  related-skills: '{"macos":"Provides macOS command workflows and automation patterns.","news":"Provides general news workflows and monitoring patterns.","productivity":"Provides frameworks for daily information intake.","reading":"Provides reading-queue and prioritization workflows.","travel":"Provides location and destination context for news."}'
+  related-skills: '{"macos": "Provides macOS command workflows and automation patterns.", "news": "Provides general news workflows and monitoring patterns.", "productivity": "Provides frameworks for daily information intake.", "reading": "Provides reading-queue and prioritization workflows.", "travel": "Provides location and destination context for news."}'
 ---
 
 ## State location

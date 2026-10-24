@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💜"}'
-  related-skills: '{"daily-planner":"Place a chosen date into the day plan after the user picks a time.","habits":"Turn a user-chosen dating rhythm, such as a weekly check-in, into a trackable routine.","journal":"Hold free-form feelings that should not live in a person profile.","remind":"Schedule a reminder the user already asked for, such as a birthday or a planned date."}'
+  related-skills: '{"daily-planner": "Place a chosen date into the day plan after the user picks a time.", "habits": "Turn a user-chosen dating rhythm, such as a weekly check-in, into a trackable routine.", "journal": "Hold free-form feelings that should not live in a person profile.", "remind": "Schedule a reminder the user already asked for, such as a birthday or a planned date."}'
 ---
 
 ## When to load

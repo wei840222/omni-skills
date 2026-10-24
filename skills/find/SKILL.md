@@ -3,7 +3,7 @@ name: find
 description: Trigger this skill to locate specific information, entities, or sources when the exact location is unknown. It executes a progressive search, validates findings, and iterates until the target is found or all paths are exhausted.
 metadata:
   openclaw: '{"emoji":"🔎","displayName":"Find"}'
-  related-skills: '{"loop":"For iterating until success criteria are met","cycle":"For multi-phase workflows"}'
+  related-skills: '{"cycle": "For multi-phase workflows", "loop": "For iterating until success criteria are met"}'
 ---
 
 ## Pattern

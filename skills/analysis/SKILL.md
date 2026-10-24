@@ -1,14 +1,15 @@
 ---
 name: analysis
-description: Audit the agent's setup, workspace, memory, and scheduled jobs to identify
-  exposed credentials, broken integrations, bloat, or anomalous costs. Trigger this
-  when asked to diagnose system health, investigate looping subagents, verify permissions,
-  or fix missing skills. Load references/remediation.md and references/tracking.md
-  for remediation policies and historical tracking rules.
+description: >
+  Audit the agent's setup, workspace, memory, and scheduled jobs to identify
+  exposed credentials, broken integrations, bloat, or anomalous costs. Trigger
+  this when asked to diagnose system health, investigate looping subagents,
+  verify permissions, or fix missing skills. Load references/remediation.md
+  and references/tracking.md for remediation policies and historical tracking
+  rules.
 metadata:
-  openclaw: '{"emoji": "🔍", "configPaths": ["<state_root>/analysis/", "<state_root>/servers/",
-    "<state_root>/devices/", "<state_root>/finances/", "<state_root>/contacts/", "~/Clawic/profile.yaml",
-    "~/analysis/", "~/clawic/analysis/"]}'
+  openclaw: '{"emoji": "🔍", "configPaths": ["<state_root>/analysis/", "<state_root>/servers/", "<state_root>/devices/", "<state_root>/finances/", "<state_root>/contacts/", "~/Clawic/profile.yaml", "~/analysis/", "~/clawic/analysis/"]}'
+  related-skills: '{"monitoring": "continuous observability for applications and servers, as opposed to point-in-time audits of the agent''s own setup", "openclaw-workspace": "persona, tone, and proactivity tuning in instruction files that shape the agent", "security-best-practices": "broader secure-defaults guidance once analysis surfaces exposure or permission findings", "skill-audit": "whether a third-party skill is safe to install; this one assumes the code is trusted and asks whether the setup is healthy", "skill-manager": "installing, updating, and removing skills once this audit says which ones to touch"}'
 ---
 
 **Data.** At the start of every session, read `<state_root>/analysis/config.yaml` (what the user declared) and `<state_root>/analysis/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, verify the list dynamically. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — all data remains strictly local and credentials must remain unwritten. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved without modification or deletion, and every write and deletion is named in one line as it happens. `## Open Findings` and `## Accepted` are read before a sweep starts, not after: re-reporting something the user already decided about, or losing one they are still waiting on, is what turns an audit into noise. Read `<state_root>/servers/servers.md` before any host question — which machines run or serve the agent, where a scheduled job actually executes, what a "what do I have" sweep should cover — so a host another skill already recorded is always identified accurately. If none of it exists, work from defaults and omit it from the report.
@@ -202,11 +203,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 **Network:** authenticated calls are made only against services the user has already configured, only to answer a question that cannot be answered locally (validity, reachability, expiry), and at most once per integration per run. No finding, transcript, or file content is sent anywhere.
 
 **Guardrails:** read-only by default (`autofix_policy: propose`). Anything destructive — deleting files, killing sessions, rewriting history, rotating a credential — is presented with its blast radius and its inverse, and requires explicit confirmation.
-
-## Related Skills
-- `skill-audit` — whether a third-party skill is safe to install; this one assumes the code is trusted and asks whether the setup is healthy
-- `skill-manager` — installing, updating, and removing skills once this audit says which ones to touch
-- `openclaw-workspace` — persona, tone, and proactivity tuning in instruction files that shape the agent
-- `security-best-practices` — broader secure-defaults guidance once analysis surfaces exposure or permission findings
-- `monitoring` — continuous observability for applications and servers, as opposed to point-in-time audits of the agent's own setup
-

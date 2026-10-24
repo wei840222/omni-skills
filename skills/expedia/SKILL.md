@@ -12,7 +12,7 @@ license: Apache-2.0
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧳","requires":{"bins":["curl","jq","openssl","xxd"]}}'
-  related-skills: '{"booking":"Extend Expedia options into broader accommodation comparison across other booking surfaces.","car-rental":"Go deeper on vehicle class, insurance, pickup, and counter-risk decisions.","flight":"Hand off route quality, misconnect risk, baggage traps, and fare-family judgment when flight complexity dominates.","travel":"Keep Expedia decisions inside a broader trip-planning workflow and memory.","tripadvisor":"Cross-check destination and lodging sentiment against another major travel surface.","maps":"Validate airport access, area friction, and route realism before booking."}'
+  related-skills: '{"booking": "Extend Expedia options into broader accommodation comparison across other booking surfaces.", "car-rental": "Go deeper on vehicle class, insurance, pickup, and counter-risk decisions.", "flight": "Hand off route quality, misconnect risk, baggage traps, and fare-family judgment when flight complexity dominates.", "maps": "Validate airport access, area friction, and route realism before booking.", "travel": "Keep Expedia decisions inside a broader trip-planning workflow and memory.", "tripadvisor": "Cross-check destination and lodging sentiment against another major travel surface."}'
 ---
 
 ## State location

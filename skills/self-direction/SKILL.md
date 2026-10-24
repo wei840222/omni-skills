@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","requires":{"config":["<state_root>/self-direction/"]}}'
-  related-skills: '{"reflection":"Heavier post-task evaluation of work quality; self-direction owns ongoing priority and value capture.","decide":"Log one consequential branch choice; self-direction maintains the broader direction model that informs many choices.","escalate":"Ask-vs-act thresholds by risk and reversibility; self-direction supplies the values and boundaries those thresholds protect.","delegate":"Spawn mechanics, tiers, and verification; self-direction supplies the transmission frame content.","memory":"Durable world facts and diary continuity; self-direction stores preference and decision-direction patterns, not factual memory."}'
+  related-skills: '{"decide": "consequential branch-choice logging", "delegate": "spawn mechanics and verification", "escalate": "ask-vs-act thresholds", "memory": "long-term factual continuity", "reflection": "structured self-evaluation before or after delivery"}'
 ---
 
 # Self-Direction
@@ -168,11 +168,3 @@ Track confidence per element:
 | Stale model | Continuous updates + periodic validation |
 | Incomplete transmission | Verify boundaries and escalation triggers |
 | Assuming universal patterns | Context-tag observations (work vs personal) |
-
-## Related skills
-
-- `reflection` — structured self-evaluation before or after delivery
-- `decide` — consequential branch-choice logging
-- `escalate` — ask-vs-act thresholds
-- `delegate` — spawn mechanics and verification
-- `memory` — long-term factual continuity

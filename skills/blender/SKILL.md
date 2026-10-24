@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧊"}'
-  related-skills: '{"unity":"Engine-side lifecycle, components, and import behavior after Blender export.","unreal-engine":"Unreal C++ and asset constraints after FBX/glTF handoff.","drawing":"2D illustration and coloring workflows outside 3D mesh authoring.","art":"Broader art direction when the task is critique or style, not Blender ops.","design":"Visual direction before locking a 3D modeling or export workflow."}'
+  related-skills: '{"art": "Broader art direction when the task is critique or style, not Blender ops.", "design": "Visual direction before locking a 3D modeling or export workflow.", "drawing": "2D illustration and coloring workflows outside 3D mesh authoring.", "unity": "Engine-side lifecycle, components, and import behavior after Blender export.", "unreal-engine": "Unreal C++ and asset constraints after FBX/glTF handoff."}'
 ---
 
 ## When to Use

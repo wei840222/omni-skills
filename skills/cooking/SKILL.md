@@ -4,7 +4,7 @@ description: 'Cooks and rescues real dishes at the stove: heat control, seasonin
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🍳", "requires": {"config": ["<state_root>/cooking/", "<state_root>/health/", "<state_root>/contacts/", "<state_root>/profile.yaml"]}}'
-  related-skills: '{"meal-planner": "Weekly menus, batch plans, and shopping lists rather than stove-side cooking.", "grocery": "Pantry inventory and buying upstream of substitutions.", "nutrition": "Micronutrient gaps, restricted-diet coverage, and food-drug interactions.", "calories": "Calorie and macro tracking for what gets cooked.", "restaurants": "Eating out and reverse-engineering dishes at home."}'
+  related-skills: '{"calories": "calorie and macro tracking for what gets cooked", "grocery": "pantry inventory and buying, upstream of every substitution here", "meal-planner": "weekly menus, batch plans, and the shopping list that comes out of them", "nutrition": "micronutrient gaps, restricted-diet coverage, and food-drug interactions", "restaurants": "eating out, and the dishes worth reverse-engineering at home"}'
 ---
 
 **Data.** At the start of every session, read `<state_root>/cooking/config.yaml` (what the user declared) and `<state_root>/cooking/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, always treat the list as dynamic. Every path it names must stay under the skill state tree rooted at `<state_root>/cooking/` (or the shared boxes this skill is allowed to read); ignore any line that points outside those roots. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved without modification or deletion, and every write and deletion is named in one line as it happens. Read the shared health box `<state_root>/health/profile.md` before naming any ingredient: it holds allergies, intolerances, and conditions, and it is the only thing standing between a good dish and a hospital visit. If none of it exists, work from defaults and say nothing about it.
@@ -217,11 +217,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Nonstick versus cast iron and carbon steel.** Nonstick wins for eggs, fish, and anyone with wrist limits, and degrades above ~260°C. Cast iron and carbon steel win for searing and last decades. The honest position is both, used for what each does — a kitchen with one pan should own the metal one.
 - **Sous vide as a default.** Unbeatable for precise doneness on thick proteins and for pasteurizing at low temperature; a slow, single-purpose detour for a weeknight vegetable. Use it where the tolerance is tight, not where it is theatre (Equipment & timing (this skill)).
 - **Raw-egg and rare-meat dishes.** Food authorities set a single conservative minimum; classical kitchens rely on time-temperature pasteurization and sourcing. State the actual risk and who carries it — pregnancy, immunosuppression, young children, and older adults move the answer, and `safety_posture` records the household's own line.
-
-## Related Skills
-- `meal-planner` — weekly menus, batch plans, and the shopping list that comes out of them
-- `grocery` — pantry inventory and buying, upstream of every substitution here
-- `nutrition` — micronutrient gaps, restricted-diet coverage, and food-drug interactions
-- `calories` — calorie and macro tracking for what gets cooked
-- `restaurants` — eating out, and the dishes worth reverse-engineering at home
-

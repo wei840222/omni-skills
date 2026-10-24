@@ -1,14 +1,11 @@
 ---
 name: romania
-description: Plan Romania travel itineraries. Trigger when the user asks about Romanian regions, Transylvania bases, Bucharest transit, or local logistics.
+description: >
+  Plan Romania travel itineraries. Trigger when the user asks about Romanian
+  regions, Transylvania bases, Bucharest transit, or local logistics.
 metadata:
   openclaw: '{"emoji":"🇷🇴","requires":{"config":["<state_root>/romania/"]}}'
-  related-skills:
-    - travel
-    - europe
-    - food
-    - booking
-    - family
+  related-skills: '{"booking": "Hotel reservations, guesthouse lodging, and train booking in Romania.", "europe": "Cross-border transit, Schengen rules, and regional EU travel context.", "family": "Family-friendly itineraries, rural tourism, and child activities.", "food": "Traditional Romanian cuisine, regional wine, and dining etiquette.", "travel": "Carpathian routes, castle itineraries, and transport logistics."}'
 ---
 
 ## Setup

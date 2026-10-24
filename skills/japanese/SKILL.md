@@ -4,7 +4,7 @@ description: Writes and edits natural Japanese across all registers (casual to f
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🇯🇵"}'
-  related-skills: '{"chinese":"Write Mandarin Chinese when Japanese is not the target language.","korean":"Write Korean for Korean-language requests.","japan":"Plan travel in Japan rather than compose Japanese text.","translate":"Translate an existing source text into Japanese.","writing":"Shape broader prose once the Japanese-language decision is settled."}'
+  related-skills: '{"chinese": "Write Mandarin Chinese when Japanese is not the target language.", "japan": "Plan travel in Japan rather than compose Japanese text.", "korean": "Write Korean for Korean-language requests.", "translate": "Translate an existing source text into Japanese.", "writing": "Shape broader prose once the Japanese-language decision is settled."}'
 ---
 
 ## State location

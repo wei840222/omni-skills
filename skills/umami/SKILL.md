@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"pg":"PostgreSQL operations beyond Umami DATABASE_URL setup.","nextjs":"Next.js app structure when embedding the Umami tracker.","react":"React SPA patterns when placing the tracker or custom events.","vue":"Vue/Nuxt head config when embedding the tracker.","plausible":"Plausible Analytics instead of Umami.","matomo":"Matomo Analytics instead of Umami.","analytics":"General analytics patterns across products."}'
+  related-skills: '{"analytics": "General analytics patterns across products.", "matomo": "Matomo Analytics instead of Umami.", "nextjs": "Next.js app structure when embedding the Umami tracker.", "pg": "PostgreSQL operations beyond Umami DATABASE_URL setup.", "plausible": "Plausible Analytics instead of Umami.", "react": "React SPA patterns when placing the tracker or custom events.", "vue": "Vue/Nuxt head config when embedding the tracker."}'
 ---
 
 # Umami

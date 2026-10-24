@@ -1,13 +1,11 @@
 ---
 name: postman
-description: Manage APIs by writing Postman collections, configuring environments,
-  and executing automated Newman test runs.
+description: >
+  Manage APIs by writing Postman collections, configuring environments, and
+  executing automated Newman test runs.
 metadata:
   openclaw: '{"emoji":"📮","requires":{"bins":["newman"]},"install":[{"id":"npm","kind":"npm","package":"newman","bins":["newman"],"label":"Install Newman (npm)"}]}'
-  related-skills:
-  - api
-  - json
-  - ci-cd
+  related-skills: '{"api": "API endpoint design, REST contracts, and request debugging.", "ci-cd": "Automating Newman collection test runs inside deployment pipelines.", "json": "Response body validation, JSON schema assertions, and payload formatting."}'
 ---
 
 ## Setup

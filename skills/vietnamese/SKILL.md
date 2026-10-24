@@ -5,7 +5,7 @@ description: Write natural, human-sounding Vietnamese by choosing appropriate re
   tones. Load this skill when generating informal or casual Vietnamese text.
 metadata:
   openclaw: '{"emoji": "🇻🇳"}'
-  related-skills: '{"thai":"Write Thai when Vietnamese is not the target language.","chinese":"Write Chinese when Vietnamese is not the target language.","traditional-chinese":"Write Traditional Chinese when Vietnamese is not the target language.","english":"Write English when Vietnamese is not the target language.","translate":"Translate an existing source text into Vietnamese.","writing":"Shape broader prose once the Vietnamese-language decision is settled."}'
+  related-skills: '{"chinese": "Write Chinese when Vietnamese is not the target language.", "english": "Write English when Vietnamese is not the target language.", "thai": "Write Thai when Vietnamese is not the target language.", "traditional-chinese": "Write Traditional Chinese when Vietnamese is not the target language.", "translate": "Translate an existing source text into Vietnamese.", "writing": "Shape broader prose once the Vietnamese-language decision is settled."}'
 ---
 
 Research notes for pronouns, particles, dialects, and orthography live in `references/sources.md`.

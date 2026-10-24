@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇵🇦"}'
-  related-skills: '{"booking":"Keep hotel, flight, and excursion reservation hygiene after the Panama route is chosen.","car-rental":"Decide when a self-drive segment in Azuero, highlands, or Pacific coast actually helps.","english":"Support calls, bookings, and service interactions when language scaffolding is the main need.","food":"Extend meal planning beyond the Panama food playbook.","spanish":"Everyday Spanish for menus, bookings, and on-the-ground talk once the route is set.","travel":"Build a multi-country itinerary when Panama is only one stop.","travel-planning":"Day-by-day multi-stop itineraries when the trip leaves Panama."}'
+  related-skills: '{"booking": "Keep hotel, flight, and excursion reservation hygiene after the Panama route is chosen.", "car-rental": "Decide when a self-drive segment in Azuero, highlands, or Pacific coast actually helps.", "english": "Support calls, bookings, and service interactions when language scaffolding is the main need.", "food": "Extend meal planning beyond the Panama food playbook.", "spanish": "Everyday Spanish for menus, bookings, and on-the-ground talk once the route is set.", "travel": "Build a multi-country itinerary when Panama is only one stop.", "travel-planning": "Day-by-day multi-stop itineraries when the trip leaves Panama."}'
 ---
 
 ## State location

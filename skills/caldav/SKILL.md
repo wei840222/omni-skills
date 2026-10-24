@@ -5,7 +5,7 @@ description: Sync, inspect, and safely modify CalDAV calendars with vdirsyncer a
   and stale-sync troubleshooting on standards-based servers.
 metadata:
   openclaw: '{"emoji":"📅","requires":{"bins":["vdirsyncer","khal"]}}'
-  related-skills: '{"calendar-planner":"Cross-calendar conflict repair and defended weekly planning beyond raw CalDAV CRUD.","schedule":"Job timing and cron-style execution when the need is scheduled work, not calendar event state.","fastmail-api":"Provider-specific Fastmail mail and calendar APIs when CalDAV alone is insufficient.","remind":"Lead-time nudges for known commitments rather than direct CalDAV event mutation."}'
+  related-skills: '{"calendar-planner": "week repair, focus protection, multi-calendar planning", "fastmail-api": "Fastmail-native APIs beyond CalDAV", "remind": "commitment nudges, not direct calendar mutation", "schedule": "durable job firing rather than calendar event CRUD"}'
 ---
 
 ## State location
@@ -62,10 +62,3 @@ Prefer inspect → bounded query → explicit calendar scope → write → sync 
 - Do not delete `khal`'s cache database as a first fix for every mismatch.
 - Certificate and TLS errors block further writes until the trust chain is fixed.
 - Bulk recurring surgery requires an explicit user go-ahead after the risk is stated.
-
-## Related skills
-
-- `calendar-planner` — week repair, focus protection, multi-calendar planning
-- `schedule` — durable job firing rather than calendar event CRUD
-- `fastmail-api` — Fastmail-native APIs beyond CalDAV
-- `remind` — commitment nudges, not direct calendar mutation

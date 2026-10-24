@@ -4,7 +4,7 @@ description: 'Apply typographic principles to layout and design. Trigger this sk
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"figma":"where type specs become components, variables, and Dev Mode handoff","design-system":"the type scale, weights, and feature settings this skill feeds","css":"the font-variation-settings, font-feature-settings, and line-height units this skill reasons about","tailwindcss":"the font-variation-settings, font-feature-settings, and line-height units this skill reasons about"}'
+  related-skills: '{"css": "the font-variation-settings, font-feature-settings, and line-height units this skill reasons about", "design-system": "the type scale, weights, and feature settings this skill feeds", "figma": "where type specs become components, variables, and Dev Mode handoff", "tailwindcss": "the font-variation-settings, font-feature-settings, and line-height units this skill reasons about"}'
 ---
 
 ## Measure, leading, and the reading engine

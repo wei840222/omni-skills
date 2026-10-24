@@ -4,7 +4,7 @@ description: Plan China travel itineraries, handle regional logistics, navigate 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇨🇳"}'
-  related-skills: '{"chinese":"Language support for local communication and signs.","english":"Backup communication support for multilingual logistics.","food":"Deeper restaurant and cuisine recommendations.","travel":"General trip planning and itinerary structuring."}'
+  related-skills: '{"chinese": "Language support for local communication and signs.", "english": "Backup communication support for multilingual logistics.", "food": "Deeper restaurant and cuisine recommendations.", "travel": "General trip planning and itinerary structuring."}'
 ---
 
 ## State location

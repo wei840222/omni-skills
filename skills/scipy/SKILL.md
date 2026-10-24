@@ -5,7 +5,7 @@ description: Write working, vectorized SciPy and NumPy Python code to solve opti
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🔬", "requires": {"bins": ["python3"]}, "os": ["linux", "darwin", "win32"], "displayName": "SciPy"}'
-  related-skills: '["math", "data-analysis", "data", "numpy"]'
+  related-skills: '{"data": "data handling patterns", "data-analysis": "data exploration workflows", "math": "mathematical concepts and formulas", "numpy": "array and vectorization fundamentals"}'
 ---
 
 ## When to load
@@ -361,10 +361,3 @@ print(f"Eigenvectors:\n{eigenvectors}")
 - Send data externally
 - Create persistent files
 - Access network resources
-
-## Related Skills
-
-- `math` — mathematical concepts and formulas
-- `data-analysis` — data exploration workflows
-- `data` — data handling patterns
-- `numpy` — array and vectorization fundamentals

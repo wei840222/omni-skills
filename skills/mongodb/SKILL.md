@@ -7,7 +7,7 @@ description: Design MongoDB schemas and aggregation pipelines, debug slow querie
   or debug driver timeouts.
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/"]}}'
-  related-skills: '{"pg":"Use when the model is genuinely relational or cross-row constraints and SQL are required.","db":"Use for general database operations, reliability, and scaling patterns.","elasticsearch":"Use when text search outgrows Atlas Search: analyzers, relevance tuning, aggregations."}'
+  related-skills: '{"db": "Use for general database operations, reliability, and scaling patterns.", "elasticsearch": "Use when text search outgrows Atlas Search: analyzers, relevance tuning, aggregations.", "pg": "Use when the model is genuinely relational or cross-row constraints and SQL are required."}'
 ---
 
 ## State location

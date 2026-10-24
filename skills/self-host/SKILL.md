@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🖥️","requires":{"anyBins":["docker","podman"]}}'
-  related-skills: '{"docker":"Container runtime, image, and Compose trap debugging when the ask is Docker mechanics rather than whole-service self-host strategy.","docker-compose":"Multi-container Compose definitions and dependency wiring.","caddy":"Caddyfile reverse-proxy and automatic HTTPS configuration.","traefik":"Traefik routers, entrypoints, TLS, and Docker labels.","sysadmin":"Linux host administration, packages, storage, and diagnostics under the service stack.","home-server":"Broader homelab design covering remote access, NAS, and household network layout.","backups":"Dedicated backup strategy design beyond the self-host checklist defaults."}'
+  related-skills: '{"backups": "Dedicated backup strategy design beyond the self-host checklist defaults.", "caddy": "Caddyfile reverse-proxy and automatic HTTPS configuration.", "docker": "Container runtime, image, and Compose trap debugging when the ask is Docker mechanics rather than whole-service self-host strategy.", "docker-compose": "Multi-container Compose definitions and dependency wiring.", "home-server": "Broader homelab design covering remote access, NAS, and household network layout.", "sysadmin": "Linux host administration, packages, storage, and diagnostics under the service stack.", "traefik": "Traefik routers, entrypoints, TLS, and Docker labels."}'
 ---
 
 ## When to load

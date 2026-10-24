@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧩"}'
-  related-skills: '{"api":"Generic multi-vendor API catalogs when the task is not Atlassian-specific.","rest-api":"REST design and HTTP mechanics outside Atlassian product surfaces.","developer":"Broad engineering process and tooling beyond Atlassian Cloud automation.","devops":"Delivery pipelines and ops culture when Atlassian is only one integration point.","gitlab":"GitLab-native issues/MR/CI when the user is not on Bitbucket/Jira."}'
+  related-skills: '{"api": "Generic multi-vendor API catalogs when the task is not Atlassian-specific.", "developer": "Broad engineering process and tooling beyond Atlassian Cloud automation.", "devops": "Delivery pipelines and ops culture when Atlassian is only one integration point.", "gitlab": "GitLab-native issues/MR/CI when the user is not on Bitbucket/Jira.", "rest-api": "REST design and HTTP mechanics outside Atlassian product surfaces."}'
 ---
 
 # Atlassian

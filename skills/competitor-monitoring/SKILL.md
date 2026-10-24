@@ -3,7 +3,7 @@ name: competitor-monitoring
 description: Monitor competitors by tracking pricing, features, and positioning. Maintain strategic dossiers and alert the user to critical market shifts.
 metadata:
   openclaw: '{"emoji":"🔍","displayName":"Competitor Monitoring","requires":{"os":["linux","darwin","win32"]}}'
-  related-skills: '{"market-research":"broader market analysis","business":"strategic frameworks","analytics":"data analysis patterns"}'
+  related-skills: '{"analytics": "data analysis patterns", "business": "strategic frameworks", "market-research": "broader market analysis"}'
 ---
 
 ## Setup

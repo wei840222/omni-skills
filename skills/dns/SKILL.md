@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌍"}'
-  related-skills: '{"domain-registration":"Registrar purchase, transfer, and renewal before DNS handoff.","domains":"Domain portfolio and ownership context beyond record edits.","network":"Broader connectivity diagnosis when DNS is only one layer.","hosting":"Point domains at hosting targets after records are correct.","ssl":"Certificate issuance and renewal once DNS control is verified.","nginx":"Reverse-proxy and TLS termination after DNS reaches the origin."}'
+  related-skills: '{"domain-registration": "Registrar purchase, transfer, and renewal before DNS handoff.", "domains": "Domain portfolio and ownership context beyond record edits.", "hosting": "Point domains at hosting targets after records are correct.", "network": "Broader connectivity diagnosis when DNS is only one layer.", "nginx": "Reverse-proxy and TLS termination after DNS reaches the origin.", "ssl": "Certificate issuance and renewal once DNS control is verified."}'
 ---
 
 ## When to load

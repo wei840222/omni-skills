@@ -4,7 +4,7 @@ description: Manage Zendesk tickets, users, and support workflows. Authenticate 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎫","requires":{"env":["ZENDESK_SUBDOMAIN","ZENDESK_EMAIL","ZENDESK_TOKEN"]},"primaryEnv":"ZENDESK_TOKEN","os":["linux","darwin","win32"],"displayName":"Zendesk"}'
-  related-skills: '{"api":"REST API patterns including auth, rate limits, and retries.","customer-support":"Support best practices and ticket lifecycle coaching.","csv":"Export and analyze ticket data."}'
+  related-skills: '{"api": "REST API patterns including auth, rate limits, and retries.", "csv": "Export and analyze ticket data.", "customer-support": "Support best practices and ticket lifecycle coaching."}'
 ---
 
 ## Setup

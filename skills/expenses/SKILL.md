@@ -3,7 +3,7 @@ name: expenses
 description: Log, split, and report expenses, reimbursements, and budgets. Use when recording payments, splitting bills, settling group trips, or tracking budgets; route net-worth questions to personal-finance-tracker and bookkeeping to accountant.
 metadata:
   openclaw: '{"emoji":"💸"}'
-  related-skills: '{"personal-finance-tracker":"net worth, cashflow and debt, which read these totals as input","subscriptions":"the recurring-charge inventory in the shared finances/ box","invoice":"issuing invoices to clients, where rebillable costs end up","accountant":"bookkeeping, financial statements and tax filing beyond expense evidence","travel-planning":"the trip itself; this skill covers what the trip costs"}'
+  related-skills: '{"accountant": "bookkeeping, financial statements and tax filing beyond expense evidence", "invoice": "issuing invoices to clients, where rebillable costs end up", "personal-finance-tracker": "net worth, cashflow and debt, which read these totals as input", "subscriptions": "the recurring-charge inventory in the shared finances/ box", "travel-planning": "the trip itself; this skill covers what the trip costs"}'
 ---
 
 ## State location

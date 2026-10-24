@@ -1,14 +1,11 @@
 ---
 name: decide
-description: Log and retrieve decision patterns to safely build autonomous decision-making
-  capabilities.
+description: >
+  Log and retrieve decision patterns to safely build autonomous
+  decision-making capabilities.
 metadata:
   openclaw: '{"emoji": "⚖️", "requires": {"config": ["<state_root>/"]}}'
-  related-skills:
-  - escalate
-  - self-improving
-  - memory
-  - proactivity
+  related-skills: '{"escalate": "Threshold criteria for deciding autonomously versus requesting user input.", "memory": "Persistent logging of architectural decisions and branching rationale.", "proactivity": "Autonomous action boundaries once a decision branch is confirmed.", "self-improving": "Review past decision outcomes to refine future judgment heuristics."}'
 ---
 
 ## Architecture

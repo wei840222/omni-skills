@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌴"}'
-  related-skills: '{"booking":"Reservation workflows for flights, cruises, resorts, and schedule holds after Florida bases or dates are chosen.","business":"Broader business operations guidance beyond Florida-specific rules and Sunbiz workflows.","car-rental":"Rental car, airport pickup, and highway planning for Florida trips.","health-insurance":"Deeper plan-comparison support beyond Florida-specific access questions.","travel":"General itinerary design and standing multi-destination traveler systems outside Florida-specific logistics."}'
+  related-skills: '{"booking": "Reservation workflows for flights, cruises, resorts, and schedule holds after Florida bases or dates are chosen.", "business": "Broader business operations guidance beyond Florida-specific rules and Sunbiz workflows.", "car-rental": "Rental car, airport pickup, and highway planning for Florida trips.", "health-insurance": "Deeper plan-comparison support beyond Florida-specific access questions.", "travel": "General itinerary design and standing multi-destination traveler systems outside Florida-specific logistics."}'
 ---
 
 ## State location

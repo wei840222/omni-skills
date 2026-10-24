@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚡","requires":{"bins":["python3"]}}'
-  related-skills: '{"django":"Full Django stack, ORM, admin, and templates when the service is not async-first FastAPI.","flask":"WSGI Flask apps, blueprints, and application context instead of FastAPI.","py":"Plain Python packaging, typing, asyncio primitives, and pytest outside FastAPI-specific behavior.","pg":"PostgreSQL plans, indexes, vacuum, locks, and server connection limits below the FastAPI/SQLAlchemy layer.","auth":"Protocol-level OAuth, OIDC, MFA, and passwordless design beyond FastAPI dependency wiring.","rest-api":"Framework-independent API contracts, versioning, and error shapes.","docker":"Container images, process model, and runtime packaging for the FastAPI service.","http":"Protocol-level HTTP status, headers, and caching independent of FastAPI."}'
+  related-skills: '{"auth": "Protocol-level OAuth, OIDC, MFA, and passwordless design beyond FastAPI dependency wiring.", "django": "Full Django stack, ORM, admin, and templates when the service is not async-first FastAPI.", "docker": "Container images, process model, and runtime packaging for the FastAPI service.", "flask": "WSGI Flask apps, blueprints, and application context instead of FastAPI.", "http": "Protocol-level HTTP status, headers, and caching independent of FastAPI.", "pg": "PostgreSQL plans, indexes, vacuum, locks, and server connection limits below the FastAPI/SQLAlchemy layer.", "py": "Plain Python packaging, typing, asyncio primitives, and pytest outside FastAPI-specific behavior.", "rest-api": "Framework-independent API contracts, versioning, and error shapes."}'
 ---
 
 # FastAPI

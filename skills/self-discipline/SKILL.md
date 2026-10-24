@@ -1,8 +1,11 @@
 ---
 name: self-discipline
-description: Enforce strict compliance by analyzing failures, verifying fix visibility, and generating automated validators to prevent recurring errors.
+description: >
+  Enforce strict compliance by analyzing failures, verifying fix visibility,
+  and generating automated validators to prevent recurring errors.
 metadata:
   openclaw: '{"emoji": "⚔️", "requires": {"bins": [], "config": ["<state_root>/"]}}'
+  related-skills: '{"decide": "decision-making patterns", "escalate": "know when to ask vs act", "learning": "adaptive learning system", "memory": "persistent memory patterns", "reflection": "structured self-evaluation"}'
 ---
 
 Load this skill to enforce instruction compliance, conduct root cause analysis, and generate automated validators when rules are ignored.
@@ -340,10 +343,3 @@ exit 0
 - Always shown to user first
 - Require explicit approval before execution
 - Include backup before any edit
-
-## Related Skills
-- `reflection` — structured self-evaluation
-- `memory` — persistent memory patterns
-- `decide` — decision-making patterns
-- `escalate` — know when to ask vs act
-- `learning` — adaptive learning system

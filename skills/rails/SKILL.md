@@ -4,7 +4,7 @@ description: Write reliable Ruby on Rails applications. Trigger this skill when 
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🛤️","requires":{"bins":["rails"]},"os":["linux","darwin","win32"],"displayName":"Rails"}'
-  related-skills: '{"ruby":"Language-level Ruby traps outside Rails APIs","backend":"General backend service design beyond the Rails stack","web":"Front-end HTML/CSS/JS work adjacent to Rails views","security-best-practices":"Cross-stack security review beyond Rails-specific traps"}'
+  related-skills: '{"backend": "General backend service design beyond the Rails stack", "ruby": "Language-level Ruby traps outside Rails APIs", "security-best-practices": "Cross-stack security review beyond Rails-specific traps", "web": "Front-end HTML/CSS/JS work adjacent to Rails views"}'
 ---
 
 ## Quick Reference

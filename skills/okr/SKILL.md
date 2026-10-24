@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎯"}'
-  related-skills: '{"metrics":"KPI contracts, leading vs lagging indicators, and the measurement layer KRs depend on.","strategy":"Annual direction and org themes that OKRs decompose from.","product":"Product roadmaps and bets that OKRs operationalize into measurable focus.","management":"Cadence, one-on-ones, and people systems OKRs sit inside.","analytics":"Data pipeline that must produce each KR number on a weekly cadence."}'
+  related-skills: '{"analytics": "Data pipeline that must produce each KR number on a weekly cadence.", "management": "Cadence, one-on-ones, and people systems OKRs sit inside.", "metrics": "KPI contracts, leading vs lagging indicators, and the measurement layer KRs depend on.", "product": "Product roadmaps and bets that OKRs operationalize into measurable focus.", "strategy": "Annual direction and org themes that OKRs decompose from."}'
 ---
 
 # OKR

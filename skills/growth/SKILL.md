@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📈","requires":{"config":["<state_root>/growth/","<state_root>/finances/","<state_root>/projects/","<state_root>/contacts/","<state_root>/profile.yaml"]}}'
-  related-skills: '{"cro":"Page-level conversion craft once the constrained stage is a page.","retention":"Cohort curves, churn prevention, and reactivation depth after the growth constraint is named.","cgo":"Growth-org leadership, hiring, and board narrative around the numbers this skill produces.","saas":"SaaS operating metrics when MRR/NRR definitions are the primary ask.","analytics":"Broader measurement design when growth is one slice of a full analytics system."}'
+  related-skills: '{"analytics": "Broader measurement design when growth is one slice of a full analytics system.", "cgo": "Growth-org leadership, hiring, and board narrative around the numbers this skill produces.", "cro": "Page-level conversion craft once the constrained stage is a page.", "retention": "Cohort curves, churn prevention, and reactivation depth after the growth constraint is named.", "saas": "SaaS operating metrics when MRR/NRR definitions are the primary ask."}'
 ---
 
 # Growth

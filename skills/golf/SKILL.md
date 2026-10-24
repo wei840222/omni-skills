@@ -4,7 +4,7 @@ description: Track golf rounds, handicap, club distances, and course notes with 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⛳"}'
-  related-skills: '{"plan":"Plans golf trips with tee times and course scheduling.","remind":"Schedules tee time reminders and practice sessions."}'
+  related-skills: '{"plan": "Plans golf trips with tee times and course scheduling.", "remind": "Schedules tee time reminders and practice sessions."}'
 ---
 
 ## State location

@@ -4,7 +4,7 @@ description: "Track intermittent and extended fasts: log start/break times, elap
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "⏳", "requires": {"config": ["<state_root>/"]}}'
-  related-skills: '{"nutrition": "Window macros and micros.", "calories": "Window calorie/macro totals and TDEE recalibration.", "water": "Hydration and electrolyte logging.", "meal-planner": "Menus inside the eating window.", "dietitian": "Clinical nutrition when medical diet context dominates.", "fitness": "Quantified training load for fasted sessions.", "personal-trainer": "Coaching tone and program adaptations around fasted training."}'
+  related-skills: '{"calories": "Window calorie/macro totals and TDEE recalibration.", "dietitian": "Clinical nutrition when medical diet context dominates.", "fitness": "Quantified training load for fasted sessions.", "meal-planner": "Menus inside the eating window.", "nutrition": "Window macros and micros.", "personal-trainer": "Coaching tone and program adaptations around fasted training.", "water": "Hydration and electrolyte logging."}'
 ---
 
 User preferences and fast state live under `<state_root>/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). Prefer `<state_root>/config.yaml`, `log.md`, and `memory.md`.
@@ -144,14 +144,3 @@ Before logging a fast or reporting status, verify:
 - **Autophagy timing in humans.** Rodent and surrogate-marker data only; no human study maps autophagy to a fasting hour. Treat "autophagy starts at Nh" claims as hypothesis, never a promise.
 - **Coffee mid-fast.** Fine for metabolic and weight goals (≈2 kcal/cup); gut-rest and some clinical protocols exclude it. Follow the user's protocol; don't relitigate.
 - **Daily long fasts for women.** Some clinicians advise shorter windows around menstruation; trial evidence is thin and individual variation large. Surface `references/women.md`; let logged symptoms decide.
-
-## Related Skills
-
-Install only if the user confirms and the skill exists in this workspace:
-
-- `nutrition` — what to eat inside the window (macros, micros)
-- `calories` — calorie and macro totals for eating-window meals, TDEE recalibration
-- `water` — hydration and electrolyte intake as the primary log
-- `meal-planner` — weekly menus or batch-cooking for the eating window
-- `dietitian` — clinical nutrition framing when medical diet context dominates
-- `fitness` / `personal-trainer` — training load when fasted sessions need programming math or coaching tone

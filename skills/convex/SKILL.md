@@ -9,7 +9,7 @@ description: >
   mathematics uses of the word "convex" and non-Convex app scaffolding.
 metadata:
   version: "1.1.0"
-  related-skills: '{"backend":"Extends Convex service architecture and operational reliability decisions.","javascript":"Supports JavaScript runtime behavior in Convex functions.","typescript":"Supports type-safe Convex schema and function implementations."}'
+  related-skills: '{"backend": "Extends Convex service architecture and operational reliability decisions.", "javascript": "Supports JavaScript runtime behavior in Convex functions.", "typescript": "Supports type-safe Convex schema and function implementations."}'
 ---
 
 ## State location

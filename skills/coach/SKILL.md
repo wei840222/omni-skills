@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"✨"}'
-  related-skills: '{"therapist":"Clinical techniques where coaching must stop and refer.","psychologist":"Deeper psychological framing or distress support beyond coaching scope.","productivity":"Personal task systems underneath commitments when the constraint is the system.","habits":"Streaks and habit progression for repeating-behavior commitments.","goals":"Standalone goal system with milestones when no live coaching relationship is needed.","career":"Career decisions, offers, and negotiation when that is the goal being coached.","management":"Managerial authority, 1:1s, and PIPs rather than pure coaching craft.","empathy":"One-shot reflective support without accountability or session structure.","feelings":"Structured emotion logging rather than coaching commitments."}'
+  related-skills: '{"career": "Career decisions, offers, and negotiation when that is the goal being coached.", "empathy": "One-shot reflective support without accountability or session structure.", "feelings": "Structured emotion logging rather than coaching commitments.", "goals": "Standalone goal system with milestones when no live coaching relationship is needed.", "habits": "Streaks and habit progression for repeating-behavior commitments.", "management": "Managerial authority, 1:1s, and PIPs rather than pure coaching craft.", "productivity": "Personal task systems underneath commitments when the constraint is the system.", "psychologist": "Deeper psychological framing or distress support beyond coaching scope.", "therapist": "Clinical techniques where coaching must stop and refer."}'
 ---
 
 ## When to load

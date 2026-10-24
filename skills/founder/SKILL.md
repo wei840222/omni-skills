@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🚀"}'
-  related-skills: '{"b2b":"Enterprise deal qualification once founder advice becomes sales execution.","business":"Broader company strategy outside founder-operating judgment.","ceo":"Executive operating cadence after the founder role expands into company leadership.","cfo":"Financial modeling, burn math, and capital structure depth.","cofounder":"Adaptive counterweight partner when blind-spot challenge is the need.","cto":"Engineering leadership, hiring ladders, and tech strategy.","indie-hacker":"Solo bootstrap validation, pricing, and time protection.","startup":"Stage-routed multi-function orchestration across product, growth, and ops.","venture-capital":"Investor-side diligence, term sheets, and round mechanics."}'
+  related-skills: '{"b2b": "Enterprise deal qualification once founder advice becomes sales execution.", "business": "Broader company strategy outside founder-operating judgment.", "ceo": "Executive operating cadence after the founder role expands into company leadership.", "cfo": "Financial modeling, burn math, and capital structure depth.", "cofounder": "Adaptive counterweight partner when blind-spot challenge is the need.", "cto": "Engineering leadership, hiring ladders, and tech strategy.", "indie-hacker": "Solo bootstrap validation, pricing, and time protection.", "startup": "Stage-routed multi-function orchestration across product, growth, and ops.", "venture-capital": "Investor-side diligence, term sheets, and round mechanics."}'
 ---
 
 # Founder

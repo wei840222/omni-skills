@@ -3,7 +3,7 @@ name: trading
 description: Provide trading analysis and education. Triggers when users ask about technical analysis, chart patterns, risk management, or position sizing.
 metadata:
   openclaw: '{"emoji":"📈","requires":{"config":["<state_root>/trading/"]}}'
-  related-skills: '{"invest":"skills/invest","money":"skills/money","crypto-tools":"skills/crypto-tools","business":"skills/business"}'
+  related-skills: '{"business": "business strategy and planning", "crypto-tools": "cryptocurrency utilities", "invest": "long-term investing fundamentals", "money": "personal finance basics"}'
 ---
 
 ## Guardrails
@@ -151,9 +151,3 @@ This skill ONLY:
 - References its auxiliary files
 
 Maintain strict separation from real capital. Ensure users execute their own trades in their own accounts. Provide generalized education rather than personalized advice. Frame all analysis as probabilities rather than guarantees.
-
-## Related Skills
-- `invest` — long-term investing fundamentals
-- `money` — personal finance basics
-- `crypto-tools` — cryptocurrency utilities
-- `business` — business strategy and planning

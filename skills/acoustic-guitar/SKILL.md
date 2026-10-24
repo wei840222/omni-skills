@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🎸"}'
-  related-skills: '{"drums":"Drum-kit practice and rudiments instead of acoustic guitar work.","electric-guitar":"Amplified guitar tone, gear, and electric technique instead of acoustic practice.","habits":"Design the recurring practice habit once the acoustic routine itself is clear.","music":"Track listening history, playlists, and concerts rather than guitar technique.","piano":"Keyboard practice plans and technique instead of acoustic guitar.","song":"Original songwriting, lyrics, and harmony when composition is the goal."}'
+  related-skills: '{"drums": "Drum-kit practice and rudiments instead of acoustic guitar work.", "electric-guitar": "Amplified guitar tone, gear, and electric technique instead of acoustic practice.", "habits": "Design the recurring practice habit once the acoustic routine itself is clear.", "music": "Track listening history, playlists, and concerts rather than guitar technique.", "piano": "Keyboard practice plans and technique instead of acoustic guitar.", "song": "Original songwriting, lyrics, and harmony when composition is the goal."}'
 ---
 
 ## State location

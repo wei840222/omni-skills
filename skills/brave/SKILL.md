@@ -1,15 +1,11 @@
 ---
 name: brave
-description: Manage Brave Browser profiles, troubleshoot Shields site compatibility, handle extension conflicts, and execute Chromium debugging workflows.
+description: >
+  Manage Brave Browser profiles, troubleshoot Shields site compatibility,
+  handle extension conflicts, and execute Chromium debugging workflows.
 metadata:
-  openclaw: '{"emoji": "🦁", "requires": {"config": ["<state_root>/brave/"]}, "configPaths":
-    ["<state_root>/brave/"]}'
-  related-skills:
-    chrome: skills/chrome
-    playwright: skills/playwright
-    puppeteer: skills/puppeteer
-    macos: skills/macos
-    web: skills/web
+  openclaw: '{"emoji": "🦁", "requires": {"config": ["<state_root>/brave/"]}, "configPaths": ["<state_root>/brave/"]}'
+  related-skills: '{"chrome": "Reuse Chromium debugging patterns when the issue is not Brave-specific.", "macos": "Handle macOS app paths, permissions, and automation details around Brave on Apple systems.", "playwright": "Automate and verify web flows after the Brave launch surface is stable.", "puppeteer": "Drive DevTools and Chromium automation with lower-level script control.", "web": "Fetch or inspect web content after the browser environment is behaving correctly."}'
 ---
 
 ## When to load
@@ -143,10 +139,3 @@ Required restrictions:
 - require the user to adopt sync, wallet, or private-window workflows they did not ask for
 - store secrets, passwords, or full browsing history in its own memory files
 - modify its own skill files
-
-## Related Skills
-- `chrome` - Reuse Chromium debugging patterns when the issue is not Brave-specific.
-- `playwright` - Automate and verify web flows after the Brave launch surface is stable.
-- `puppeteer` - Drive DevTools and Chromium automation with lower-level script control.
-- `macos` - Handle macOS app paths, permissions, and automation details around Brave on Apple systems.
-- `web` - Fetch or inspect web content after the browser environment is behaving correctly.

@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛠️"}'
-  related-skills: '{"skill-manager":"Lifecycle inventory, install consent, and cleanup after a skill exists.","skill-update":"Safe upgrade with preview, backup, and rollback for installed skills.","skill-test":"Isolated trial and multi-lens evaluation before install or publish.","skill-audit":"Security and supply-chain scan before trusting a candidate package.","skill-finder":"Catalog discovery when the need is find/install rather than author.","skill-publish":"Registry publish path after authoring and evaluation pass."}'
+  related-skills: '{"skill-audit": "Security and supply-chain scan before trusting a candidate package.", "skill-finder": "Catalog discovery when the need is find/install rather than author.", "skill-manager": "Lifecycle inventory, install consent, and cleanup after a skill exists.", "skill-publish": "Registry publish path after authoring and evaluation pass.", "skill-test": "Isolated trial and multi-lens evaluation before install or publish.", "skill-update": "Safe upgrade with preview, backup, and rollback for installed skills."}'
 ---
 
 # Skill Builder

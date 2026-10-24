@@ -4,7 +4,7 @@ description: Query, optimize, and administer ClickHouse OLAP databases. Use for 
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "🏠","requires": {"bins": ["clickhouse-client"]},"install": [{"id": "brew","kind": "brew","formula": "clickhouse","bins": ["clickhouse-client"],"label": "Install ClickHouse (Homebrew)"}],"os": ["linux","darwin"]}'
-  related-skills: '{"sql": "General SQL query patterns.","analytics": "Data analysis workflows using ClickHouse.","data-analysis": "Structured data exploration."}'
+  related-skills: '{"analytics": "Data analysis workflows using ClickHouse.", "data-analysis": "Structured data exploration.", "sql": "General SQL query patterns."}'
 ---
 
 # ClickHouse 🏠

@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐘","requires":{"bins":["hdfs","yarn","hadoop"]},"os":["linux","darwin"]}'
-  related-skills: '{"bash":"Shell quoting, pipelines, and script hardening around hdfs/yarn one-liners.","docker":"Containerized edge clients or single-host daemons that still talk to HDFS/YARN.","linux":"Host disks, NTP, firewall, systemd, and OS limits underneath NameNode/DataNode/NodeManager."}'
+  related-skills: '{"bash": "Shell quoting, pipelines, and script hardening around hdfs/yarn one-liners.", "docker": "Containerized edge clients or single-host daemons that still talk to HDFS/YARN.", "linux": "Host disks, NTP, firewall, systemd, and OS limits underneath NameNode/DataNode/NodeManager."}'
 ---
 
 # Hadoop

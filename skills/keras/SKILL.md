@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧠","requires":{"bins":["python3"]}}'
-  related-skills: '{"tensorflow":"tf.function retracing, GPU memory growth, tf.data bottlenecks, GradientTape, and SavedModel export beyond high-level Keras APIs.","pytorch":"Pure PyTorch train/eval loops, device matching, and state_dict persistence when the stack is not Keras.","ai":"Live AI product, pricing, ranking, and outage facts instead of stale catalog memory.","models":"Task-to-model and cost-tier portfolio choices for LLMs rather than Keras neural-net training."}'
+  related-skills: '{"ai": "Live AI product, pricing, ranking, and outage facts instead of stale catalog memory.", "models": "Task-to-model and cost-tier portfolio choices for LLMs rather than Keras neural-net training.", "pytorch": "Pure PyTorch train/eval loops, device matching, and state_dict persistence when the stack is not Keras.", "tensorflow": "tf.function retracing, GPU memory growth, tf.data bottlenecks, GradientTape, and SavedModel export beyond high-level Keras APIs."}'
 ---
 
 # Keras

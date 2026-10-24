@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📣"}'
-  related-skills: '{"ceo":"Company-level capital, pivot, and board decisions above the marketing plan.","cro":"Conversion-rate and landing-page experiments once the channel and offer are chosen.","coo":"Cross-functional operating rhythm and process scaling around marketing execution.","business":"Startup strategy validation and unit-economics framing before marketing spend.","ads":"Hands-on paid media creative and campaign craft under the CMO allocation layer.","content-marketing":"Content systems and SEO execution after the content bet is set.","email-marketing":"Owned-list nurture and lifecycle campaigns under the lifecycle plan.","growth-hacker":"Acquisition experiments and growth loops adjacent to CMO channel strategy."}'
+  related-skills: '{"ads": "paid media craft under the allocation layer", "business": "strategy validation and planning", "ceo": "executive strategy and board management", "content-marketing": "content and SEO systems after the content bet is set", "coo": "operations and scaling execution", "cro": "conversion-rate optimization and landing-page experiments", "email-marketing": "owned-list nurture under the lifecycle plan", "growth-hacker": "acquisition experiments adjacent to channel strategy"}'
 ---
 
 # CMO
@@ -189,15 +189,5 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Category creation vs. competing in an existing category**: creation is a multi-year, funding-heavy bet that mostly fails and occasionally wins big. Default to positioning inside an existing category until you hold monopoly-grade differentiation.
 - **Brand spend in a downturn**: cut it to protect runway, or hold share of voice while competitors go quiet (the IPA position — excess SOV is cheapest when others stop bidding). The deciding variable is runway, not conviction: under 12 months, activation wins; above, holding SOV is the higher-return bet.
 - **Marketing owning a revenue number**: shared accountability aligns teams, or it makes marketing hostage to a sales capacity it does not control. Split the difference — marketing owns pipeline created and its conversion to opportunity; sales owns opportunity to close.
-
-## Related Skills
-- `ceo` — executive strategy and board management
-- `cro` — conversion-rate optimization and landing-page experiments
-- `coo` — operations and scaling execution
-- `business` — strategy validation and planning
-- `ads` — paid media craft under the allocation layer
-- `content-marketing` — content and SEO systems after the content bet is set
-- `email-marketing` — owned-list nurture under the lifecycle plan
-- `growth-hacker` — acquisition experiments adjacent to channel strategy
 
 Positioning depth lives in `references/positioning.md` inside this skill.

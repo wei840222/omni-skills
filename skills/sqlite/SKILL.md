@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🪶","requires":{"bins":["sqlite3"]}}'
-  related-skills: '{"sql":"Cross-engine SQL craft, EXPLAIN patterns, and migrations when the ask is not SQLite-specific.","pg":"PostgreSQL server internals once the workload outgrows single-writer SQLite.","mysql":"MySQL/InnoDB production patterns when the target engine is MySQL rather than SQLite.","backups":"Backup policy, retention, and restore drills beyond SQLite .backup / VACUUM INTO mechanics."}'
+  related-skills: '{"backups": "Backup policy, retention, and restore drills beyond SQLite .backup / VACUUM INTO mechanics.", "mysql": "MySQL/InnoDB production patterns when the target engine is MySQL rather than SQLite.", "pg": "PostgreSQL server internals once the workload outgrows single-writer SQLite.", "sql": "Cross-engine SQL craft, EXPLAIN patterns, and migrations when the ask is not SQLite-specific."}'
 ---
 
 # SQLite
