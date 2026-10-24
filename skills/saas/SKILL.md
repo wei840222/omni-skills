@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💎","requires":{"config":["<state_root>/saas/","<state_root>/contacts/","<state_root>/projects/","<state_root>/profile.yaml"]},"configPaths":["<state_root>/saas/","<state_root>/contacts/","<state_root>/projects/","<state_root>/profile.yaml"]}'
-  related-skills: '{"pricing":"Set list price, willingness-to-pay research, and price tests outside SaaS ops metrics.","growth":"Acquisition channels and funnel diagnosis once retention math is sound.","billing":"Implement payments, webhooks, invoicing, and tax in code.","cfo":"Company financial model, runway, board, and fundraise mechanics.","b2b":"Qualify and close an individual enterprise deal."}'
+  related-skills: '{"b2b": "qualifying and closing the individual enterprise deal", "billing": "implementing payments, webhooks, invoicing and tax in code", "cfo": "company financial model, runway, board and fundraise mechanics", "growth": "acquisition channels, funnel diagnosis, experiment programme", "pricing": "setting and changing the price itself, willingness-to-pay research, price tests"}'
 ---
 
 **Data.** At the start of every session, read `<state_root>/saas/config.yaml` (what the user declared) and `<state_root>/saas/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, treat the list as dynamic. Every path it names is inside `<state_root>/`; process only lines pointing inside `<state_root>/`. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved read-only, and every write and deletion is named in one line as it happens. Read the definitions before computing or reporting any number, and the plan architecture before answering anything about tiers, limits, trials or upgrades: both live in `memory.md` until `## Boxes` points them elsewhere. If none of it exists, work from defaults and say nothing about it.
@@ -202,11 +202,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 **Local storage:** preferences, revenue history, plans, accounts, commitments and generated artifacts stay in `<state_root>/saas/` on this machine, plus contact rows in `<state_root>/contacts/` and programme files in `<state_root>/projects/`.
 
 **Guardrails:** actions that touch live billing — cancelling, refunding, migrating a customer between plans, suspending access — are described with the affected customer count and their revenue before anything is proposed, and require explicit confirmation.
-
-## Related Skills
-Related skills:
-- `pricing` — setting and changing the price itself, willingness-to-pay research, price tests
-- `growth` — acquisition channels, funnel diagnosis, experiment programme
-- `billing` — implementing payments, webhooks, invoicing and tax in code
-- `cfo` — company financial model, runway, board and fundraise mechanics
-- `b2b` — qualifying and closing the individual enterprise deal

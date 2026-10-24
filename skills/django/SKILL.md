@@ -4,7 +4,7 @@ description: "Build, debug, and harden Django web applications. Use for Django m
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🌿","requires":{"bins":["python3"]}}'
-  related-skills: '{"auth":"Use for protocol-level OAuth, SAML, OIDC, MFA, and passwordless identity flows beyond Django session integration.","fastapi":"Use for async-first services that do not need Django’s ORM, admin, or templates.","pg":"Use for PostgreSQL execution plans, index design, vacuum, locks, and connection-pooling questions below Django’s ORM.","py":"Use for plain Python semantics, packaging, typing, asyncio internals, and pytest mechanics outside Django-specific behavior.","rest-api":"Use for API versioning, contracts, error shapes, and other framework-independent API design decisions."}'
+  related-skills: '{"auth": "Use for protocol-level OAuth, SAML, OIDC, MFA, and passwordless identity flows beyond Django session integration.", "fastapi": "Use for async-first services that do not need Django’s ORM, admin, or templates.", "pg": "Use for PostgreSQL execution plans, index design, vacuum, locks, and connection-pooling questions below Django’s ORM.", "py": "Use for plain Python semantics, packaging, typing, asyncio internals, and pytest mechanics outside Django-specific behavior.", "rest-api": "Use for API versioning, contracts, error shapes, and other framework-independent API design decisions."}'
 ---
 
 ## State location

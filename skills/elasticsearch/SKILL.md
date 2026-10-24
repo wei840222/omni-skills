@@ -8,7 +8,7 @@ description: Design mappings, construct Query DSL/ES|QL, and manage Elasticsearc
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🔍", "requires": {"anyBins": ["curl"]}}'
-  related-skills: '{"search-engine": "Engine-agnostic search design and relevance evaluation when the target is not Elasticsearch.", "meilisearch": "Lighter site and product search when a full cluster is more than the job needs.", "rag": "Retrieval design for LLM pipelines built on top of a search index.", "sql": "General SQL patterns; not a substitute for Query DSL or ES|QL.", "database-manager": "Broader database operations outside Elasticsearch-specific search and cluster work."}'
+  related-skills: '{"database-manager": "broader database operations outside Elasticsearch-specific search and cluster work", "meilisearch": "lighter site and product search when a cluster is more machinery than the job needs", "rag": "retrieval design for LLM pipelines built on top of an index like this one", "search-engine": "engine-agnostic search design and relevance evaluation when the target is not Elasticsearch", "sql": "general SQL patterns; not a substitute for Query DSL or ES|QL"}'
 ---
 
 # Elasticsearch 🔍
@@ -265,12 +265,3 @@ Preference areas — customizable dimensions; a stated preference is recorded in
 - **Sizing by shard-size rule vs by benchmark.** The 10-50 GB range is a starting posture, not a law: it comes from recovery and merge behaviour, not from your query shape. Anyone running a stable workload should benchmark one shard at real volume with real queries and size from the measured knee.
 - **Elasticsearch as the primary store.** One camp keeps a system of record elsewhere and treats the index as rebuildable; the other writes straight to Elasticsearch. The testable boundary is whether you can afford to reindex from source after an unrecoverable mapping mistake or a corrupted shard — if you cannot, it was never a search index.
 - **kNN alone vs hybrid retrieval.** Pure vector search wins on paraphrase and loses on exact identifiers, part numbers, and rare terms that no embedding preserved. Default to hybrid with RRF and only drop BM25 if an offline evaluation says it contributes nothing (`references/vector-search.md`).
-
-
-## Related Skills
-
-- `search-engine` — engine-agnostic search design and relevance evaluation when the target is not Elasticsearch
-- `meilisearch` — lighter site and product search when a cluster is more machinery than the job needs
-- `rag` — retrieval design for LLM pipelines built on top of an index like this one
-- `sql` — general SQL patterns; not a substitute for Query DSL or ES|QL
-- `database-manager` — broader database operations outside Elasticsearch-specific search and cluster work

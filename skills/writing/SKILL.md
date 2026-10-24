@@ -15,7 +15,7 @@ description: >
 metadata:
   version: "1.2.0"
   openclaw: '{"emoji":"✍️","requires":{"config":["<state_root>/"]},"os":["linux","darwin","win32"],"displayName":"Writing"}'
-  related-skills: '{"grammar":"Mechanical spelling, agreement, and punctuation fixes without style changes.","copywriting":"Conversion-focused persuasion, offers, benefits, and calls to action.","storytelling":"Narrative arc, scene, and tension when the deliverable is a story.","documentation":"Technical docs, READMEs, and API reference shaped by the doc type.","book-writing":"Chapter architecture and voice consistency across a manuscript.","write":"Versioned draft-and-audit pipelines with numbered revisions and sign-off gates.","email-management":"Inbox triage, routing, and follow-up chase after the words are written.","text":"Encoding, CSV/regex transforms, and locale utilities outside voice-matched prose."}'
+  related-skills: '{"book-writing": "Chapter architecture and voice consistency across a manuscript.", "copywriting": "Conversion-focused persuasion, offers, benefits, and calls to action.", "documentation": "Technical docs, READMEs, and API reference shaped by the doc type.", "email-management": "Inbox triage, routing, and follow-up chase after the words are written.", "grammar": "Mechanical spelling, agreement, and punctuation fixes without style changes.", "storytelling": "Narrative arc, scene, and tension when the deliverable is a story.", "text": "Encoding, CSV/regex transforms, and locale utilities outside voice-matched prose.", "write": "Versioned draft-and-audit pipelines with numbered revisions and sign-off gates."}'
 ---
 
 ## State location

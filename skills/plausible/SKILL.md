@@ -1,12 +1,11 @@
 ---
 name: plausible
-description: Query Plausible Analytics API for website traffic stats, visitors, pageviews, referrers, conversions, and custom events.
+description: >
+  Query Plausible Analytics API for website traffic stats, visitors,
+  pageviews, referrers, conversions, and custom events.
 metadata:
   openclaw: '{"emoji": "📊", "requires": {"bins": null, "env": ["PLAUSIBLE_API_KEY"]}}'
-  related-skills:
-  - skills/analytics
-  - skills/umami
-  - skills/mixpanel
+  related-skills: '{"analytics": "Core web traffic metrics, conversion goals, and event funnel tracking.", "mixpanel": "User journey tracking and product analytics beyond aggregate web traffic.", "umami": "Privacy-focused self-hosted analytics comparison and migration."}'
 ---
 
 

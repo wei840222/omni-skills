@@ -1,10 +1,12 @@
 ---
 name: listen
-description: Repairs garbled speech-to-text input. Load when voice-dictated text contains
-  mistranscribed names, domain jargon, numbers, punctuation errors, or when a user
-  corrects an earlier dictation.
+description: >
+  Repairs garbled speech-to-text input. Load when voice-dictated text contains
+  mistranscribed names, domain jargon, numbers, punctuation errors, or when a
+  user corrects an earlier dictation.
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/", "~/listen/", "~/clawic/listen/"]}}'
+  related-skills: '{"audio": "cleaning noisy recordings before they ever reach the STT engine", "speech-to-text-transcription": "batch transcription of audio and video files with timestamps and speakers", "talk": "setting up the real-time voice conversation channel this skill repairs", "voice-notes": "organizing accumulated voice transcripts into a searchable knowledge base"}'
 ---
 
 Voice input reaches the agent as text that already passed through a speech-to-text engine. Good engines hold 5-10% word error rate on clean conversational English, but the errors concentrate exactly where meaning lives: proper nouns, domain jargon, and numbers. This skill is the repair layer between the raw transcript and your response. Learned corrections and preferences persist in `<state_root>/` (see `references/setup.md` on first use, `references/lexicon.md` for the file formats). If you have data at an old location (`~/listen/` or `~/clawic/listen/`), move it to `<state_root>/`, and say in one line that you moved it and from where.
@@ -127,11 +129,3 @@ Preference areas to record as the user reveals them:
 - **Silent vs surfaced repair.** Transparency school surfaces every fix; fluency school hides all of them. The working boundary: surface while a pair is `candidate`, go silent once `confirmed`, and always confirm when side effects ride on the repair (Rules 1 and 3). Full transparency is available on request — the lexicon is a readable file.
 - **Cleaned vs verbatim dictation.** Smart-dictation products clean filler and apply self-corrections; court-reporter style keeps every word. Default cleaned; verbatim when the user asks for exact words or the artifact is quoted testimony. `dictation_mode` records the user's side.
 - **Fix upstream vs repair downstream.** Engine vocabulary biasing kills recurring errors at the source but over-biasing makes the engine hallucinate the boosted terms into unrelated audio. Boundary: 5+ recurring terms justify upstream tuning (`references/tuning.md`); one-off errors stay downstream in the repair layer.
-
-## Related Skills
-
-
-- `speech-to-text-transcription` — batch transcription of audio and video files with timestamps and speakers
-- `voice-notes` — organizing accumulated voice transcripts into a searchable knowledge base
-- `talk` — setting up the real-time voice conversation channel this skill repairs
-- `audio` — cleaning noisy recordings before they ever reach the STT engine

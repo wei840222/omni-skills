@@ -4,7 +4,7 @@ description: Provide practical Rome guidance for visitors, expats, digital nomad
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏛️","requires":{"config":["<state_root>/rome/"]}}'
-  related-skills: '{"italy":"Italy-wide destinations and multi-city routing beyond Rome-only depth.","travel":"Multi-destination trip systems and general travel memory.","italian":"Natural Italian writing and register rather than Rome logistics.","europe":"Cross-border EU mobility context beyond Rome.","booking":"Lodging and reservation execution after a Rome base is chosen.","career":"Broader career decisions after Rome tech or job context is set.","startup":"Founder workflows after Rome startup landscape is scoped.","food":"Deeper food-system workflows beyond Roman dining guidance.","dubai":"Expat-destination comparison when weighing Rome against other hubs."}'
+  related-skills: '{"booking": "Lodging and reservation execution after a Rome base is chosen.", "career": "Broader career decisions after Rome tech or job context is set.", "dubai": "Expat-destination comparison when weighing Rome against other hubs.", "europe": "Cross-border EU mobility context beyond Rome.", "food": "Deeper food-system workflows beyond Roman dining guidance.", "italian": "Natural Italian writing and register rather than Rome logistics.", "italy": "Italy-wide destinations and multi-city routing beyond Rome-only depth.", "startup": "Founder workflows after Rome startup landscape is scoped.", "travel": "Multi-destination trip systems and general travel memory."}'
 ---
 
 ## State location
@@ -215,14 +215,3 @@ Housing in Rome:
 - **Bureaucracy in Italian**: Almost always, bring translator if needed
 - **Learning Italian**: Greatly improves quality of life and integration
 - **English improving**: Younger generation, tourist areas, but verify beforehand
-
-## Related Skills
-
-Route adjacent work instead of stretching this package:
-
-- `italy` — Italy-wide destinations and multi-city routing
-- `travel` — Multi-destination trip systems
-- `italian` — Natural Italian writing and register
-- `europe` — Broader EU mobility context
-- `booking` — Reservation execution after a Rome base is chosen
-- `career` / `startup` / `food` / `dubai` — adjacent career, founder, dining, or destination-comparison depth

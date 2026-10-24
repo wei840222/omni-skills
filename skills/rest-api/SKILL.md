@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"fastapi":"Async FastAPI routers, Depends, and Pydantic wiring for a concrete Python stack.","flask":"WSGI Flask blueprints and app-factory wiring instead of generic REST contracts.","django":"Django ORM/admin/DRF stack beyond contract-first REST design.","http":"Protocol-level methods, status codes, headers, and caching independent of API product design.","auth":"Session/JWT/OAuth/MFA identity design beyond attaching schemes to OpenAPI operations.","api":"Consuming third-party REST/GraphQL APIs rather than building your own.","backend":"Service resilience, pools, caching, and observability below the public HTTP contract."}'
+  related-skills: '{"api": "Consuming third-party REST/GraphQL APIs rather than building your own.", "auth": "Session/JWT/OAuth/MFA identity design beyond attaching schemes to OpenAPI operations.", "backend": "Service resilience, pools, caching, and observability below the public HTTP contract.", "django": "Django ORM/admin/DRF stack beyond contract-first REST design.", "fastapi": "Async FastAPI routers, Depends, and Pydantic wiring for a concrete Python stack.", "flask": "WSGI Flask blueprints and app-factory wiring instead of generic REST contracts.", "http": "Protocol-level methods, status codes, headers, and caching independent of API product design."}'
 ---
 
 # REST API

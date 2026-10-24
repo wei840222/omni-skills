@@ -5,7 +5,7 @@ compatibility: "web, android, ios"
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"branding":"Handles brand strategy, positioning, and voice before visual identity work.","css":"Implements approved design decisions in CSS.","design":"Provides one-off visual judgment for a single artifact without a maintained system.","design-system":"Extends established component-library architecture.","figma":"Handles Figma file mechanics, including auto layout, variants, variables, and Dev Mode.","frontend":"Implements approved interface designs in front-end code."}'
+  related-skills: '{"branding": "Handles brand strategy, positioning, and voice before visual identity work.", "css": "Implements approved design decisions in CSS.", "design": "Provides one-off visual judgment for a single artifact without a maintained system.", "design-system": "Extends established component-library architecture.", "figma": "Handles Figma file mechanics, including auto layout, variants, variables, and Dev Mode.", "frontend": "Implements approved interface designs in front-end code."}'
 ---
 
 ## State location

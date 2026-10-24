@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"powerpoint":"Live macOS PowerPoint app control via osascript when a window/presenter state matters.","documents":"Document workflows that often feed presentation content.","design":"Visual direction and layout decisions beyond deck mechanics.","brief":"Concise business messaging for slide narratives.","office":"Cross-app Office routing across documents, spreadsheets, and presentations."}'
+  related-skills: '{"brief": "Concise business messaging for slide narratives.", "design": "Visual direction and layout decisions beyond deck mechanics.", "documents": "Document workflows that often feed presentation content.", "office": "Cross-app Office routing across documents, spreadsheets, and presentations.", "powerpoint": "Live macOS PowerPoint app control via osascript when a window/presenter state matters."}'
 ---
 
 # PowerPoint PPTX

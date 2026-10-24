@@ -5,7 +5,7 @@ metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📦"}'
   related-skills:
-    home: skills/home
+    '{"home": "Household asset management, storage organization, and property tracking."}'
 ---
 
 ## State location

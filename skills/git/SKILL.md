@@ -15,7 +15,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📚","requires":{"bins":["git"]}}'
-  related-skills: '{"pull-request":"when the branch is ready and the PR itself has to be written and validated","review-code":"when the job is judging another contributors diff, not producing it","github-actions":"when the failure is in workflow YAML rather than in the repository","gitlab":"GitLab CI/CD pipelines and merge-request settings","code":"planning, implementing, and verifying the change the commits will carry"}'
+  related-skills: '{"code": "planning, implementing, and verifying the change the commits will carry", "github-actions": "when the failure is in workflow YAML rather than in the repository", "gitlab": "GitLab CI/CD pipelines and merge-request settings", "pull-request": "when the branch is ready and the PR itself has to be written and validated", "review-code": "when the job is judging another contributors diff, not producing it"}'
 ---
 
 # Git

@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇹🇭"}'
-  related-skills: '{"expat":"Plan the broader move, settling, and adaptation around a Thailand base.","travel":"Build a general itinerary when Thailand is only one stop.","travel-planning":"Track a multi-region Thailand route, buffers, and reservations."}'
+  related-skills: '{"expat": "Plan the broader move, settling, and adaptation around a Thailand base.", "travel": "Build a general itinerary when Thailand is only one stop.", "travel-planning": "Track a multi-region Thailand route, buffers, and reservations."}'
 ---
 
 ## State location

@@ -4,7 +4,7 @@ description: "Build a unified bookmark system that imports saves from X, YouTube
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔖","requires":{"config":["<state_root>/"]},"displayName":"Bookmarks"}'
-  related-skills: '{"inbox":"Triage unread streams across email/chat/tools rather than long-lived bookmark collections.","archive":"Long-term archival of completed material after bookmark usefulness fades.","productivity":"Prioritize which saved items deserve action beyond passive organization.","brief":"Turn bookmark themes into concise status briefs when the user wants a digest.","journal":"Capture free-form notes about why a save mattered outside structured bookmark tags."}'
+  related-skills: '{"archive": "Long-term archival of completed material after bookmark usefulness fades.", "brief": "Turn bookmark themes into concise status briefs when the user wants a digest.", "inbox": "Triage unread streams across email/chat/tools rather than long-lived bookmark collections.", "journal": "Capture free-form notes about why a save mattered outside structured bookmark tags.", "productivity": "Prioritize which saved items deserve action beyond passive organization."}'
 ---
 
 ## State location

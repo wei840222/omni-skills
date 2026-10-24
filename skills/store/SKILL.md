@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏬"}'
-  related-skills: '{"business":"Strategic validation, unit economics, and irreversible decisions beyond day-to-day floor ops.","payments":"Payment-provider and tender-flow mechanics when POS outages or refund rails need product detail.","accounting":"Books, COGS, and financial close when store KPIs must connect to formal accounting.","customer-support":"Post-purchase complaint handling and service recovery scripts beyond floor incident notes.","management":"People-management frameworks for coaching, feedback, and team conflict beyond shift staffing."}'
+  related-skills: '{"accounting": "Books, COGS, and financial close when store KPIs must connect to formal accounting.", "business": "Strategic validation, unit economics, and irreversible decisions beyond day-to-day floor ops.", "customer-support": "Post-purchase complaint handling and service recovery scripts beyond floor incident notes.", "management": "People-management frameworks for coaching, feedback, and team conflict beyond shift staffing.", "payments": "Payment-provider and tender-flow mechanics when POS outages or refund rails need product detail."}'
 ---
 
 # Store

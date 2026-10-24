@@ -3,7 +3,7 @@ name: ibiza
 description: Provide practical Ibiza guidance for holidays, relocation, remote work, seasonal work, or business setup, including zones, transport, costs, visas, and legal rules. Use when the user asks about Ibiza travel, lodging, nightlife, beaches, residency, or island operations.
 metadata:
   openclaw: '{"emoji":"🏝️"}'
-  related-skills: '{"travel":"Multi-destination trip planning and logistics beyond one island.","expat":"Relocation and adaptation workflows for longer stays.","food":"Dining research and personalization for food-first trips.","startup":"Founder operations when setting up or running a business from Ibiza.","spain":"Spain-wide travel and regional context beyond the Balearics.","europe":"EU/Schengen mobility and cross-border framing."}'
+  related-skills: '{"europe": "EU/Schengen mobility and cross-border framing.", "expat": "Relocation and adaptation workflows for longer stays.", "food": "Dining research and personalization for food-first trips.", "spain": "Spain-wide travel and regional context beyond the Balearics.", "startup": "Founder operations when setting up or running a business from Ibiza.", "travel": "Multi-destination trip planning and logistics beyond one island."}'
 ---
 
 ## When to Use

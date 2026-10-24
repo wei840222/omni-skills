@@ -1,16 +1,12 @@
 ---
 name: cypress
-description: Write and debug Cypress E2E/component tests. Trigger when configuring
+description: >
+  Write and debug Cypress E2E/component tests. Trigger when configuring
   Cypress CI, mocking networks, or writing custom test commands.
 metadata:
-  version: 1.0.0
-  openclaw: '{"emoji": "🌲", "requires": {"bins": ["npx"]}, "os": ["linux", "darwin",
-    "win32"], "displayName": "Cypress"}'
-  related-skills:
-  - playwright
-  - typescript
-  - javascript
-  - react
+  version: "1.0.0"
+  openclaw: '{"emoji": "🌲", "requires": {"bins": ["npx"]}, "os": ["linux", "darwin", "win32"], "displayName": "Cypress"}'
+  related-skills: '{"javascript": "Test execution semantics, asynchronous assertion chaining, and fixtures.", "playwright": "Cross-browser test comparison and modern end-to-end test migration.", "react": "Component testing, virtual DOM inspection, and frontend state fixtures.", "typescript": "Type definitions for custom Cypress commands and test data fixtures."}'
 ---
 ## Setup
 

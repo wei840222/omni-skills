@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🚀"}'
-  related-skills: '{"aave":"EVM lending markets when the question leaves Stellar.","bitcoin":"Bitcoin UTXO and L1 flows outside Stellar.","ethereum":"EVM account model, gas, and contracts outside Stellar.","payments":"Generic payment rails when the network is not Stellar-specific."}'
+  related-skills: '{"aave": "EVM lending markets when the question leaves Stellar.", "bitcoin": "Bitcoin UTXO and L1 flows outside Stellar.", "ethereum": "EVM account model, gas, and contracts outside Stellar.", "payments": "Generic payment rails when the network is not Stellar-specific."}'
 ---
 
 # Stellar (XLM)

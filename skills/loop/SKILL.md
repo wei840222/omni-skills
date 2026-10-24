@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔄"}'
-  related-skills: '{"cycle":"Design multi-phase Plan→Do→Check→Act processes; a cycle phase may embed loop until that phase passes.","workflow":"Build executable automated pipelines with components, triggers, and flock once iteration belongs inside a reusable flow."}'
+  related-skills: '{"cycle": "Design multi-phase Plan→Do→Check→Act processes; a cycle phase may embed loop until that phase passes.", "workflow": "Build executable automated pipelines with components, triggers, and flock once iteration belongs inside a reusable flow."}'
 ---
 
 ## State location

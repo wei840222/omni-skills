@@ -3,7 +3,7 @@ name: singapore
 description: Guide users on visiting, living, working, or doing business in Singapore using current practical data and legal awareness.
 metadata:
   openclaw: '{"emoji":"🦁"}'
-  related-skills: '{"travel-planning":"For flight/hotel bookings beyond the skill scope","expat":"For general expatriate advice"}'
+  related-skills: '{"expat": "For general expatriate advice", "travel-planning": "For flight/hotel bookings beyond the skill scope"}'
 ---
 
 ## Quick Reference

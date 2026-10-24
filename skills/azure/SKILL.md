@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔷","requires":{"anyBins":["az"]}}'
-  related-skills: '{"terraform":"HCL authoring, state surgery, and module design beyond Azure platform defaults.","k8s":"Kubernetes manifests and cluster debugging for workloads on AKS.","aws":"Multi-cloud counterpart and common migration source estate.","sql":"Query and index tuning inside Azure SQL or PostgreSQL Flexible Server.","infrastructure":"Provider-agnostic architecture decisions before Azure-specific SKUs."}'
+  related-skills: '{"aws": "Multi-cloud counterpart and common migration source estate.", "infrastructure": "Provider-agnostic architecture decisions before Azure-specific SKUs.", "k8s": "Kubernetes manifests and cluster debugging for workloads on AKS.", "sql": "Query and index tuning inside Azure SQL or PostgreSQL Flexible Server.", "terraform": "HCL authoring, state surgery, and module design beyond Azure platform defaults."}'
 ---
 
 ## When to load

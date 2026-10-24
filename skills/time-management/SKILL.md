@@ -4,7 +4,7 @@ description: Plan days, prioritize Most Important Tasks, protect deep-work block
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⏰"}'
-  related-skills: '{"productivity":"Diagnoses whole-life capacity, overwhelm, and sustainable plans beyond a single day schedule.","habits":"Owns recurring behavior design, streaks, and relapse plans rather than one-day blocking.","schedule":"Programs recurring or one-time jobs; time-management plans the human day those jobs sit inside.","remind":"Surfaces known commitments at the right time; time-management decides what deserves a protected block.","calendar-planner":"Repairs calendar conflicts and meeting placement once the day plan exists."}'
+  related-skills: '{"calendar-planner": "Repairs calendar conflicts and meeting placement once the day plan exists.", "habits": "Owns recurring behavior design, streaks, and relapse plans rather than one-day blocking.", "productivity": "Diagnoses whole-life capacity, overwhelm, and sustainable plans beyond a single day schedule.", "remind": "Surfaces known commitments at the right time; time-management decides what deserves a protected block.", "schedule": "Programs recurring or one-time jobs; time-management plans the human day those jobs sit inside."}'
 ---
 
 ## State location

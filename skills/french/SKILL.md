@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇫🇷","displayName":"French"}'
-  related-skills: '{"spanish":"Write Spanish when French is not the target language.","portuguese":"Write Portuguese when French is not the target language.","german":"Write German when French is not the target language.","english":"Write English when French is not the target language.","translate":"Translate an existing source text into French.","writing":"Shape broader prose once the French-language decision is settled."}'
+  related-skills: '{"english": "Write English when French is not the target language.", "german": "Write German when French is not the target language.", "portuguese": "Write Portuguese when French is not the target language.", "spanish": "Write Spanish when French is not the target language.", "translate": "Translate an existing source text into French.", "writing": "Shape broader prose once the French-language decision is settled."}'
 ---
 
 Research notes for register, orthography, and regional varieties live in `references/sources.md`.

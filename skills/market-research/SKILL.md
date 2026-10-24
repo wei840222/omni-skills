@@ -9,7 +9,7 @@ description: Conduct market research including sizing (TAM/SAM/SOM), segmentatio
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"pricing":"Convert validation findings into pricing strategy and willingness-to-pay decisions.","seo":"Translate validated demand into search-driven positioning and content opportunities.","business":"Connect market findings to strategic choices and operating tradeoffs.","compare":"Structure side-by-side option analysis when multiple markets or segments compete.","data-analysis":"Turn collected numbers into cleaner interpretation and supporting visuals."}'
+  related-skills: '{"business": "Connect market findings to strategic choices and operating tradeoffs.", "compare": "Structure side-by-side option analysis when multiple markets or segments compete.", "data-analysis": "Turn collected numbers into cleaner interpretation and supporting visuals.", "pricing": "Convert validation findings into pricing strategy and willingness-to-pay decisions.", "seo": "Translate validated demand into search-driven positioning and content opportunities."}'
 ---
 
 ## When to Use

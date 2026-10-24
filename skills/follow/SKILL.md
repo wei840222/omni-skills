@@ -6,7 +6,7 @@ description: Track content from people, topics, and sources with smart filtering
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "👀"}'
-  related-skills: '{"news": "Personalized multi-source news briefings when the user wants ongoing feed tuning rather than person/topic follow trackers.","daily-news-digest": "Scheduled daily news briefing loops when delivery is a digest cadence instead of per-source follow alerts.","summarizer": "Single-article or long-form summarization after a followed item is selected from the archive.","newsletter": "Newsletter subscribe/send workflows when the source is an owned list rather than external account monitoring.","hacker-news": "Live Hacker News API access when the follow target is HN specifically rather than generic multi-platform tracking.","digest": "General multi-source content digests outside person/topic follow state."}'
+  related-skills: '{"daily-news-digest": "Scheduled daily news briefing loops when delivery is a digest cadence instead of per-source follow alerts.", "digest": "General multi-source content digests outside person/topic follow state.", "hacker-news": "Live Hacker News API access when the follow target is HN specifically rather than generic multi-platform tracking.", "news": "Personalized multi-source news briefings when the user wants ongoing feed tuning rather than person/topic follow trackers.", "newsletter": "Newsletter subscribe/send workflows when the source is an owned list rather than external account monitoring.", "summarizer": "Single-article or long-form summarization after a followed item is selected from the archive."}'
 ---
 
 ## State location

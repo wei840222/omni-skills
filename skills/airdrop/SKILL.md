@@ -4,7 +4,7 @@ description: Send local files, exports, screenshots, or review artifacts to near
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"A"}'
-  related-skills: '{"applescript":"Finder and app automation when AirDrop workflows need UI scripting around local files.","files":"File selection, packaging, renaming, and cleanup before sharing the final payload.","macos":"General macOS command workflows, permissions checks, and native app automation patterns.","photos":"Exporting and converting image assets before sending them to another Apple device."}'
+  related-skills: '{"applescript": "Finder and app automation when AirDrop workflows need UI scripting around local files.", "files": "File selection, packaging, renaming, and cleanup before sharing the final payload.", "macos": "General macOS command workflows, permissions checks, and native app automation patterns.", "photos": "Exporting and converting image assets before sending them to another Apple device."}'
 ---
 
 ## State location

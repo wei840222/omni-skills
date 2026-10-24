@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📎","requires":{"bins":["curl"],"env":{"optional":["PAPERCLIP_API_URL","PAPERCLIP_API_KEY","PAPERCLIP_COMPANY_ID","PAPERCLIP_AGENT_ID","PAPERCLIP_RUN_ID","PAPERCLIP_HOME","OPENAI_API_KEY","ANTHROPIC_API_KEY","OPENCLAW_GATEWAY_TOKEN"]}}}'
-  related-skills: '{"agent":"General single-agent execution patterns when Paperclip is not the control plane.","agents":"Multi-agent role design that maps into Paperclip org charts.","api":"Generic HTTP/API payload design when debugging Paperclip endpoints.","company":"Company strategy framing before encoding goals and reporting lines in Paperclip.","workflow":"Repeatable handoffs that become issues, routines, or approval gates."}'
+  related-skills: '{"agent": "General single-agent execution patterns when Paperclip is not the control plane.", "agents": "Multi-agent role design that maps into Paperclip org charts.", "api": "Generic HTTP/API payload design when debugging Paperclip endpoints.", "company": "Company strategy framing before encoding goals and reporting lines in Paperclip.", "workflow": "Repeatable handoffs that become issues, routines, or approval gates."}'
 ---
 
 ## When to use

@@ -4,7 +4,7 @@ description: "Manages student course load, study schedules, assignments, and exa
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"📚","requires":{"config":["<state_root>/study/","<state_root>/contacts/","<state_root>/projects/","<state_root>/bookings/","<state_root>/profile.yaml"]}}'
-  related-skills: '{"daily-planner":"Plans daily study slots","habits":"Tracks study routines"}'
+  related-skills: '{"anki": "deck mechanics, FSRS and SM-2 settings, leeches, imports and sync", "daily-planner": "Plans daily study slots", "habits": "Tracks study routines", "learn": "self-directed learning of a skill with no course, exam, or grade", "learning": "teaching a specific concept in the moment, when the block is understanding rather than schedule", "notes": "general-purpose note capture and retrieval outside coursework", "sleep": "the consolidation side of Rule 9, when sleep itself is the broken part"}'
 ---
 
 ## State location
@@ -198,14 +198,6 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 **Credentials:** this skill does NOT store, log, copy or transmit portal, LMS, SRS-sync or proctoring credentials, and never writes one into `<state_root>/`. Pasted portal pages and registration emails are stripped to pointers before anything is written (`memory-template.md`).
 
 **Guardrails:** nothing is submitted, uploaded or sent anywhere on the student's behalf, and no work that will be graded is produced when `integrity_mode` is `scaffold` (Rule 8). Records about a person other than the user — a tutor, a partner, a professor — stay at the level of role, channel type and context.
-
-## Related Skills
-
-- `learn` — self-directed learning of a skill with no course, exam, or grade
-- `learning` — teaching a specific concept in the moment, when the block is understanding rather than schedule
-- `anki` — deck mechanics, FSRS and SM-2 settings, leeches, imports and sync
-- `notes` — general-purpose note capture and retrieval outside coursework
-- `sleep` — the consolidation side of Rule 9, when sleep itself is the broken part
 
 ## Feedback
 

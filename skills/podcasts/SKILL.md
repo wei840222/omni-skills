@@ -9,7 +9,7 @@ description: Track, summarize, and manage podcasts. Use when the user follows sh
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎙️"}'
-  related-skills: '{"music":"Curate personal music discoveries, playlists, and concerts rather than podcast episode workflows.","audio":"Process or convert audio files rather than manage show subscriptions and briefings.","journal":"Capture reflective listening notes beyond structured podcast state.","music-generation":"Generate AI music with style prompts rather than manage podcast listening.","song":"Write original lyrics or melody rather than track podcast episodes."}'
+  related-skills: '{"audio": "Process or convert audio files rather than manage show subscriptions and briefings.", "journal": "Capture reflective listening notes beyond structured podcast state.", "music": "Curate personal music discoveries, playlists, and concerts rather than podcast episode workflows.", "music-generation": "Generate AI music with style prompts rather than manage podcast listening.", "song": "Write original lyrics or melody rather than track podcast episodes."}'
 ---
 
 ## State location

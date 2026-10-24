@@ -3,7 +3,7 @@ name: qwen
 description: Build and route Qwen chat, coding, reasoning, and vision workflows across hosted and self-hosted endpoints with safer debugging.
 metadata:
   openclaw: '{"emoji": "🧩","requires": {"bins": ["curl","jq"],"env": ["DASHSCOPE_API_KEY"],"config": ["<state_root>/qwen/"]},"primaryEnv": "DASHSCOPE_API_KEY","os": ["linux","darwin","win32"],"displayName": "Qwen"}'
-  related-skills: '{"models": "Compare Qwen against other model families and choose fallbacks by workload.","api": "Reuse structured HTTP, retry, and payload-debugging patterns around DashScope or OpenAI-compatible endpoints.","coding": "Hand off general coding-agent workflow once the Qwen execution surface is stable.","chat": "Use for generic chat UX patterns that are not Qwen-specific routing.","memory": "Persist durable routing preferences outside this skill optional local state notes."}'
+  related-skills: '{"api": "Reuse structured HTTP, retry, and payload-debugging patterns around DashScope or OpenAI-compatible endpoints.", "chat": "Use for generic chat UX patterns that are not Qwen-specific routing.", "coding": "Hand off general coding-agent workflow once the Qwen execution surface is stable.", "memory": "Persist durable routing preferences outside this skill optional local state notes.", "models": "Compare Qwen against other model families and choose fallbacks by workload."}'
 ---
 
 ## When to load

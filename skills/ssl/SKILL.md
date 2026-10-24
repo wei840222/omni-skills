@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔒"}'
-  related-skills: '{"caddy":"Automatic HTTPS and simpler reverse-proxy configs when Caddy owns termination.","linux":"Host permissions, systemd timers, and firewall ports that block ACME or private-key reads.","network":"Layer-3 reachability, DNS, and routing diagnosis outside certificate content.","nginx":"Nginx reverse-proxy routing, upstreams, and TLS termination directives beyond issuance.","oauth":"Application identity (JWT/OAuth) separate from transport-layer TLS.","traefik":"Traefik ACME resolvers and router TLS when the edge is Traefik."}'
+  related-skills: '{"caddy": "Automatic HTTPS and simpler reverse-proxy configs when Caddy owns termination.", "linux": "Host permissions, systemd timers, and firewall ports that block ACME or private-key reads.", "network": "Layer-3 reachability, DNS, and routing diagnosis outside certificate content.", "nginx": "Nginx reverse-proxy routing, upstreams, and TLS termination directives beyond issuance.", "oauth": "Application identity (JWT/OAuth) separate from transport-layer TLS.", "traefik": "Traefik ACME resolvers and router TLS when the edge is Traefik."}'
 ---
 
 # SSL / TLS certificates

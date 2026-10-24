@@ -4,7 +4,7 @@ description: Write natural-sounding Irish that mixes English casually, uses corr
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇮🇪"}'
-  related-skills: '{"ireland":"Context for travel and culture in Ireland."}'
+  related-skills: '{"ireland": "Context for travel and culture in Ireland."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

@@ -3,8 +3,8 @@ name: venice
 description: Navigate Venice as a visitor or resident using practical guidance on neighborhoods, water transport, costs, local dining, and managing tourist areas.
 metadata:
   version: "1.0.0"
-  clawdbot: '{"emoji":"🏛️","requires":{"bins":[]},"os":["linux","darwin","win32"],"displayName":"Venice"}'
-  related-skills: '{"travel": "General travel planning and logistics", "dubai": "Compare luxury city destination", "toronto": "Compare with another major city skill"}'
+  openclaw: '{"emoji":"🏛️"}'
+  related-skills: '{"dubai": "Compare luxury city destination", "toronto": "Compare with another major city skill", "travel": "General travel planning and logistics"}'
 ---
 
 ## State Location

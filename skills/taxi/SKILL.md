@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🚕"}'
-  related-skills: '{"travel-planning":"Whole-trip itineraries and budgets beyond a single ground leg.","flight":"Air segments, delay tracking inputs, and passenger-rights questions.","car-rental":"Multi-day or multi-stop self-drive instead of repeated rides.","expenses":"Ledger taxi costs into categories, reimbursements, and monthly totals.","travel":"Standing travel system, documents, and long-lived trip boxes."}'
+  related-skills: '{"car-rental": "Multi-day or multi-stop self-drive instead of repeated rides.", "expenses": "Ledger taxi costs into categories, reimbursements, and monthly totals.", "flight": "Air segments, delay tracking inputs, and passenger-rights questions.", "travel": "Standing travel system, documents, and long-lived trip boxes.", "travel-planning": "Whole-trip itineraries and budgets beyond a single ground leg."}'
 ---
 
 # Taxi

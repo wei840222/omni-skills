@@ -3,7 +3,7 @@ name: apple-mail-macos
 description: Use local CLI to manage Gmail, Outlook, iCloud, Yahoo, Fastmail, and other mail accounts synced in Apple Mail on macOS, without APIs or OAuth.
 metadata:
   openclaw: '{"emoji": "\u2709\ufe0f", "requires": {"bins": null, "anyBins": ["osascript", "shortcuts", "sqlite3"], "config": ["<state_root>/"]}}'
-  related-skills: '{"macos": "skills/macos", "mail": "skills/mail", "events": "skills/events", "schedule": "skills/schedule", "productivity": "skills/productivity"}'
+  related-skills: '{"events": "skills/events", "macos": "skills/macos", "mail": "skills/mail", "productivity": "skills/productivity", "schedule": "skills/schedule"}'
 license: MIT
 ---
 ## Setup

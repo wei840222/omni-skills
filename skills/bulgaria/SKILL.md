@@ -1,14 +1,11 @@
 ---
 name: bulgaria
-description: Plan travel to Bulgaria by offering local context on cities, coastal
-  and mountain regions, food, and navigating practical travel logistics.
+description: >
+  Plan travel to Bulgaria by offering local context on cities, coastal and
+  mountain regions, food, and navigating practical travel logistics.
 metadata:
-  related-skills:
-  - travel
-  - food
-  - bulgarian
-  openclaw: '{"emoji": "🇧🇬", "requires": {"bins": [], "config": ["<state_root>/data/bulgaria/"]},
-    "os": ["linux", "darwin", "win32"], "displayName": "Bulgaria"}'
+  openclaw: '{"emoji": "🇧🇬", "requires": {"bins": [], "config": ["<state_root>/data/bulgaria/"]}, "os": ["linux", "darwin", "win32"], "displayName": "Bulgaria"}'
+  related-skills: '{"bulgarian": "Bulgarian language phrases, Cyrillic signage, and local communication.", "food": "Traditional Bulgarian cuisine, dining etiquette, and regional specialties.", "travel": "Itinerary design, Balkan transit routes, and regional accommodation."}'
 ---
 
 ## Setup

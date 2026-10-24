@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🦀","displayName":"Rust","requires":{"bins":["rustc","cargo"]}}'
-  related-skills: '{"cpp":"when the other side of the FFI boundary is C++, or when comparing ownership models","go":"the other systems language on the same team; different concurrency tradeoffs"}'
+  related-skills: '{"cpp": "when the other side of the FFI boundary is C++, or when comparing ownership models", "go": "the other systems language on the same team; different concurrency tradeoffs"}'
 ---
 
 User preferences and memory live in `<state_root>/rust/` (see `references/setup.md` on first use, `assets/memory-template.md` for the file format). If you have data at an old location, move it to `<state_root>/rust/`, and say in one line that you moved it and from where.

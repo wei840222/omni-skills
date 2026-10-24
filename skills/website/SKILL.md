@@ -4,7 +4,7 @@ description: Build and harden fast, accessible, SEO-friendly websites with moder
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"seo":"Organic ranking strategy, Search Console recovery, keyword research, and schema beyond basic launch tags.","html":"Deep semantic markup, forms, dialogs, and sanitization details.","css":"Cascade, layout bugs, container queries, and stylesheet architecture.","frontend":"React/Next/Tailwind UI systems and component polish.","icons":"Accessible SVG icon patterns and touch targets.","image":"Format choice, compression, and responsive image delivery.","typography":"Measure, leading, and type-scale decisions that feed site readability."}'
+  related-skills: '{"css": "Cascade, layout bugs, container queries, and stylesheet architecture.", "frontend": "React/Next/Tailwind UI systems and component polish.", "html": "Deep semantic markup, forms, dialogs, and sanitization details.", "icons": "Accessible SVG icon patterns and touch targets.", "image": "Format choice, compression, and responsive image delivery.", "seo": "Organic ranking strategy, Search Console recovery, keyword research, and schema beyond basic launch tags.", "typography": "Measure, leading, and type-scale decisions that feed site readability."}'
 ---
 
 ## State location

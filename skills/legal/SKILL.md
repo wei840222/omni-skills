@@ -7,7 +7,7 @@ description: Structure jurisdiction-first IRAC legal analysis with issue spottin
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "⚖️"}'
-  related-skills: '{"law":"Jurisdiction-aware legal research and education across roles when the task is authority lookup rather than IRAC issue spotting.","lawyer":"Counsel-style redlines, negotiation, and matter workflow when an agreement or filing needs markup rather than an analysis drill.","contract":"Blank-page contract drafting with guided intake when the user wants a new agreement written.","contracts":"Contract register, renewal alerts, and clause lookup for executed agreements."}'
+  related-skills: '{"contract": "Blank-page contract drafting with guided intake when the user wants a new agreement written.", "contracts": "Contract register, renewal alerts, and clause lookup for executed agreements.", "law": "Jurisdiction-aware legal research and education across roles when the task is authority lookup rather than IRAC issue spotting.", "lawyer": "Counsel-style redlines, negotiation, and matter workflow when an agreement or filing needs markup rather than an analysis drill."}'
 ---
 
 ## When to load

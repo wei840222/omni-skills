@@ -4,7 +4,7 @@ description: Plan trips with itineraries, multi-city routing, budget optimizatio
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"✈️"}'
-  related-skills: '{"daily-planner":"Places trip activities into daily schedules.","expenses":"Tracks complex travel expenses against the budget.","plan":"Provides generalized project planning for long-term trip preparation."}'
+  related-skills: '{"daily-planner": "Places trip activities into daily schedules.", "expenses": "Tracks complex travel expenses against the budget.", "plan": "Provides generalized project planning for long-term trip preparation."}'
 ---
 
 ## State location

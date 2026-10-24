@@ -4,7 +4,7 @@ description: "Debugs and builds Angular apps around change detection, RxJS subsc
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🅰️","displayName":"Angular"}'
-  related-skills: '{"typescript":"Language-level typing, generics, and tsconfig issues outside Angular APIs","frontend":"Cross-framework UI polish, accessibility, and layout systems","react":"React component and hooks work instead of Angular","vue":"Vue reactivity and composables instead of Angular"}'
+  related-skills: '{"frontend": "Cross-framework UI polish, accessibility, and layout systems", "react": "React component and hooks work instead of Angular", "typescript": "Language-level typing, generics, and tsconfig issues outside Angular APIs", "vue": "Vue reactivity and composables instead of Angular"}'
 ---
 
 # Angular Reliability

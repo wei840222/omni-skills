@@ -3,7 +3,7 @@ name: tech-debt
 description: Guide technical debt categorization, track inventory, and implement payoff cadences without freezing delivery. Trigger when discussing refactoring, code quality, or legacy systems.
 metadata:
   openclaw: '{"emoji": "⚙️"}'
-  related-skills: '{"ci-cd":"Provides the test and staged-rollout safety net that lowers repayment risk.","review-code":"Helps reviewers evaluate and scope debt-payoff changes."}'
+  related-skills: '{"ci-cd": "Provides the test and staged-rollout safety net that lowers repayment risk.", "review-code": "Helps reviewers evaluate and scope debt-payoff changes."}'
 ---
 
 ## Start here

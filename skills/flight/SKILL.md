@@ -4,7 +4,7 @@ description: Manage flight searches, bookings, points, baggage rules, and disrup
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"✈️"}'
-  related-skills: '{"travel-planning":"Extends flight choices into an itinerary, packing list, and whole-trip budget."}'
+  related-skills: '{"travel-planning": "Extends flight choices into an itinerary, packing list, and whole-trip budget."}'
 ---
 
 ## State location

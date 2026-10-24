@@ -4,7 +4,7 @@ description: "Tutor K-12 students using adaptive learning and parental controls.
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏫"}'
-  related-skills: '{"studying":"Plan study schedules and retrieval practice for exams","flashcards":"Build spaced-repetition decks when the learner needs durable recall drills"}'
+  related-skills: '{"flashcards": "Build spaced-repetition decks when the learner needs durable recall drills", "studying": "Plan study schedules and retrieval practice for exams"}'
 compatibility: "linux, darwin, win32"
 ---
 

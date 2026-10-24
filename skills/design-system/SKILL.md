@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"css":"CSS custom-property export and cascade details once tokens are defined.","tailwindcss":"Tailwind theme/config mapping from semantic tokens.","frontend":"Application component wiring after the system contract is set.","ui":"Screen-level UI composition using system components.","design":"One-off visual hierarchy and critique when a reusable system is not the goal.","typography":"Measure, leading, and optical type depth feeding the type scale."}'
+  related-skills: '{"css": "CSS custom-property export and cascade details once tokens are defined.", "design": "One-off visual hierarchy and critique when a reusable system is not the goal.", "frontend": "Application component wiring after the system contract is set.", "tailwindcss": "Tailwind theme/config mapping from semantic tokens.", "typography": "Measure, leading, and optical type depth feeding the type scale.", "ui": "Screen-level UI composition using system components."}'
 ---
 
 ## State location

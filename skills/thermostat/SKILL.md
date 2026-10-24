@@ -1,12 +1,14 @@
 ---
 name: thermostat
-description: Adjust thermostat setpoints, diagnose room comfort issues, estimate setback savings, and configure away/vacation or smart-home thermostat schedules. Use when the user asks to change temperature, troubleshoot HVAC comfort, plan setbacks, or set vacation freeze protection.
+description: >
+  Adjust thermostat setpoints, diagnose room comfort issues, estimate setback
+  savings, and configure away/vacation or smart-home thermostat schedules. Use
+  when the user asks to change temperature, troubleshoot HVAC comfort, plan
+  setbacks, or set vacation freeze protection.
 metadata:
   version: "1.0.1"
-  openclaw: "{\"emoji\":\"🌡️\"}"
-  related-skills:
-    smart-home: skills/smart-home
-    home: skills/home
+  openclaw: '{"emoji":"🌡️"}'
+  related-skills: '{"home": "Household utility management and residential climate zoning.", "smart-home": "Smart home platform integration, Matter/Zigbee bridges, and automation."}'
 ---
 ## When to load references
 

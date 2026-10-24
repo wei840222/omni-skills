@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤝"}'
-  related-skills: '{"empathy":"One-shot reflective emotional response without companion memory or ongoing presence.","feelings":"Structured emotion intensity/trigger logging rather than open companionship.","journal":"Long-form writing practice and corpus review instead of conversational company.","psychologist":"Deeper distress support and evidence-based emotional processing beyond companion limits.","habits":"Recurring check-in cues once companionship cadence is stable.","memory":"Durable cross-skill facts when the user wants retention beyond the companion state tree."}'
+  related-skills: '{"empathy": "One-shot reflective emotional response without companion memory or ongoing presence.", "feelings": "Structured emotion intensity/trigger logging rather than open companionship.", "habits": "Recurring check-in cues once companionship cadence is stable.", "journal": "Long-form writing practice and corpus review instead of conversational company.", "memory": "Durable cross-skill facts when the user wants retention beyond the companion state tree.", "psychologist": "Deeper distress support and evidence-based emotional processing beyond companion limits."}'
 ---
 
 ## When to load

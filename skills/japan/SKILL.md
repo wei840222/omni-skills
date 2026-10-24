@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇯🇵"}'
-  related-skills: '{"travel":"Standing traveler system for passports, visas, bookings, and trip memory across destinations.","travel-planning":"Generic multi-city itineraries and packing/budget scaffolding beyond Japan-specific routing.","tokyo":"Greater Tokyo neighborhoods, living costs, and visitor depth when the trip stays inside Tokyo.","japanese":"Write or edit Japanese-language text rather than plan Japan travel.","english":"English drafting support for international booking or support messages.","food":"Deeper restaurant and cuisine research after Japan region and meal timing are chosen.","booking":"Search lodging after neighborhood or city base is chosen.","flight":"Search or compare flights once Japan airports and region hops are decided."}'
+  related-skills: '{"booking": "Search lodging after neighborhood or city base is chosen.", "english": "English drafting support for international booking or support messages.", "flight": "Search or compare flights once Japan airports and region hops are decided.", "food": "Deeper restaurant and cuisine research after Japan region and meal timing are chosen.", "japanese": "Write or edit Japanese-language text rather than plan Japan travel.", "tokyo": "Greater Tokyo neighborhoods, living costs, and visitor depth when the trip stays inside Tokyo.", "travel": "Standing traveler system for passports, visas, bookings, and trip memory across destinations.", "travel-planning": "Generic multi-city itineraries and packing/budget scaffolding beyond Japan-specific routing."}'
 ---
 
 ## State location

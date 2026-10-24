@@ -4,7 +4,7 @@ description: Operate academy admissions, capacity, staffing, billing, retention,
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏫"}'
-  related-skills: '{"booking":"Handles availability logic, scheduling tradeoffs, and reservation-style class workflows.","course":"Creates and operates structured programs and learning products the academy delivers.","crm":"Manages leads, contacts, follow-up history, and admissions pipeline discipline.","school":"Extends into family-facing education workflows when the academy serves school-age learners.","teacher":"Supports class delivery, instruction quality, and teaching behavior inside academy programs."}'
+  related-skills: '{"booking": "Handles availability logic, scheduling tradeoffs, and reservation-style class workflows.", "course": "Creates and operates structured programs and learning products the academy delivers.", "crm": "Manages leads, contacts, follow-up history, and admissions pipeline discipline.", "school": "Extends into family-facing education workflows when the academy serves school-age learners.", "teacher": "Supports class delivery, instruction quality, and teaching behavior inside academy programs."}'
 ---
 
 ## State location

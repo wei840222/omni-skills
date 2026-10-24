@@ -3,7 +3,7 @@ name: blockchain
 description: Evaluate whether blockchain fits a problem, explain distributed-ledger fundamentals, and safely read or write EVM smart contracts with viem. Use for blockchain architecture decisions, wallet and transaction safety, or EVM contract interactions; do not use for trading advice or price analysis.
 metadata:
   openclaw: '{"emoji":"⛓️"}'
-  related-skills: '{"solidity":"Covers Solidity development and common smart-contract security pitfalls beyond this skill’s viem interaction guidance."}'
+  related-skills: '{"solidity": "Covers Solidity development and common smart-contract security pitfalls beyond this skill’s viem interaction guidance."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

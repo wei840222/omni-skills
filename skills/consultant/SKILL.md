@@ -6,7 +6,7 @@ description: Diagnose business problems, scope engagements, and deliver decision
   or writing decision memos, roadmaps, and implementation plans.
 metadata:
   openclaw: '{"emoji":"C"}'
-  related-skills: '{"business":"Validate initiatives and prioritize strategic decisions.","strategy":"Build competitive positioning and strategic option maps.","ceo":"Support executive-level decision framing and communication.","cfo":"Model financial impact and downside scenarios.","pricing":"Design pricing structures and packaging decisions."}'
+  related-skills: '{"business": "Validate initiatives and prioritize strategic decisions.", "ceo": "Support executive-level decision framing and communication.", "cfo": "Model financial impact and downside scenarios.", "pricing": "Design pricing structures and packaging decisions.", "strategy": "Build competitive positioning and strategic option maps."}'
 ---
 
 ## Setup

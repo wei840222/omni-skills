@@ -3,7 +3,7 @@ name: minio
 description: Deploy MinIO clusters, manage bucket lifecycles, and configure IAM policies using mc.
 metadata:
   openclaw: '{"emoji": "🗂️","requires": {"bins": ["mc","curl","openssl"],"config": ["<state_root>/minio/"]},"configPaths": ["<state_root>/minio/"]}'
-  related-skills: '{"s3": "S3-compatible object storage workflows across providers when MinIO is one backend among several.","cloud-storage": "Broader storage architecture for mixed cloud and local environments beyond MinIO operations.","backups": "Backup verification and restore-first practices that complement MinIO durability controls.","infrastructure": "Infrastructure planning baselines when MinIO is part of a wider platform footprint.","docker": "Containerized deployment and service lifecycle when MinIO runs as containers."}'
+  related-skills: '{"backups": "Backup verification and restore-first practices that complement MinIO durability controls.", "cloud-storage": "Broader storage architecture for mixed cloud and local environments beyond MinIO operations.", "docker": "Containerized deployment and service lifecycle when MinIO runs as containers.", "infrastructure": "Infrastructure planning baselines when MinIO is part of a wider platform footprint.", "s3": "S3-compatible object storage workflows across providers when MinIO is one backend among several."}'
 ---
 
 ## Setup

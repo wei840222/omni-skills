@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊","displayName":"Dashboard"}'
-  related-skills: '{"grafana":"Managed Grafana panels, PromQL, alerting, and provisioning instead of static local HTML.","metrics":"Metric contracts, formulas, and reporting cadence before building a presentation surface.","stripe-api-integration":"Stripe API, webhook, and billing integration failures beyond revenue-dashboard fetch scripts.","html":"General HTML/CSS structure when the task is markup craft rather than a data dashboard.","monitoring":"Infrastructure monitoring strategy and checks beyond a local static dashboard page."}'
+  related-skills: '{"grafana": "Managed Grafana panels, PromQL, alerting, and provisioning instead of static local HTML.", "html": "General HTML/CSS structure when the task is markup craft rather than a data dashboard.", "metrics": "Metric contracts, formulas, and reporting cadence before building a presentation surface.", "monitoring": "Infrastructure monitoring strategy and checks beyond a local static dashboard page.", "stripe-api-integration": "Stripe API, webhook, and billing integration failures beyond revenue-dashboard fetch scripts."}'
 ---
 
 # Dashboard

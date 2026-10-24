@@ -3,7 +3,7 @@ name: k8s
 description: 'Debugs Kubernetes workloads, reviews manifests, and plans cluster operations. Use when the user wants to troubleshoot pod failures (e.g. CrashLoopBackOff, Pending, OOMKilled), diagnose Service/Ingress or DNS issues, investigate hung rollouts, tune resources/probes, lock down RBAC/Security, or plan cluster upgrades and backups.'
 metadata:
   version: "1.0.5"
-  related-skills: '{"docker": "building and hardening the images k8s runs", "devops": "CI/CD pipelines that deploy to the cluster", "observability": "metrics, logs, and traces behind the dashboards you read here", "linux": "node-level debugging under the kubelet"}'
+  related-skills: '{"devops": "CI/CD pipelines that deploy to the cluster", "docker": "building and hardening the images k8s runs", "linux": "node-level debugging under the kubelet", "observability": "metrics, logs, and traces behind the dashboards you read here"}'
   openclaw: '{"emoji": "\u2638", "os": ["linux", "darwin", "win32"], "requires": {"bins": ["kubectl"]}}'
 ---
 
@@ -256,11 +256,3 @@ Load these files dynamically when their condition is met:
 - **Helm vs kustomize vs plain YAML.** Helm wins at distributing software to strangers; kustomize wins at your own manifests across environments; plain YAML wins below roughly a dozen objects. Templating a chart for a single cluster you own is a cost with no buyer.
 - **Cluster granularity.** One large multi-tenant cluster maximizes bin-packing and minimizes control-plane cost; clusters per team or per environment maximize blast-radius isolation and upgrade freedom. Frontier: the moment one team's admission webhook or CRD upgrade can break another team, isolation is cheaper than the incident.
 - **Service mesh.** One camp treats mTLS, retries, and traffic splitting as platform baseline; the other points out that every request now traverses two extra proxies whose failure modes the app team cannot debug. Frontier: below roughly a dozen services with no compliance requirement for in-cluster encryption, the mesh costs more than it returns (`references/networking.md`).
-
-## Related Skills
-
-- `docker` — building and hardening the images k8s runs
-- `devops` — CI/CD pipelines that deploy to the cluster
-- `incident-response` — coordinating the humans when the cluster page fires
-- `observability` — metrics, logs, and traces behind the dashboards you read here
-- `linux` — node-level debugging under the kubelet

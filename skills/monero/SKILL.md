@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔒"}'
-  related-skills: '{"bitcoin":"Bitcoin UTXO, fee, RBF/CPFP, and Lightning recovery instead of Monero privacy defaults.","ethereum":"EVM gas, approvals, and L2 bridges instead of Monero ring/stealth flows.","crypto-tools":"Market data, explorers, and generic crypto tooling once Monero mechanics are settled.","payments":"Fiat PSP checkout and webhook-first commerce rather than XMR wallet privacy.","cybersecurity":"Broader defensive incident response when the ask is not Monero-specific."}'
+  related-skills: '{"bitcoin": "Bitcoin UTXO, fee, RBF/CPFP, and Lightning recovery instead of Monero privacy defaults.", "crypto-tools": "Market data, explorers, and generic crypto tooling once Monero mechanics are settled.", "cybersecurity": "Broader defensive incident response when the ask is not Monero-specific.", "ethereum": "EVM gas, approvals, and L2 bridges instead of Monero ring/stealth flows.", "payments": "Fiat PSP checkout and webhook-first commerce rather than XMR wallet privacy."}'
 ---
 
 # Monero

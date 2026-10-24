@@ -4,7 +4,7 @@ description: Manage Notion databases as date-aware calendars. Use when the user 
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"N","requires":{"env":["NOTION_API_KEY"]}}'
-  related-skills: '{"api":"Use for general REST auth, pagination, and HTTP error patterns when a Notion call fails outside this calendar workflow.","dates":"Use for date math and timezone ranges before writing a Notion date property.","pkm":"Use when the task is broader workspace organization rather than a dated database view.","productivity":"Use when dated Notion rows need to feed a task or execution system.","schedule":"Use when a request becomes multi-step planning beyond one Notion calendar window."}'
+  related-skills: '{"api": "Use for general REST auth, pagination, and HTTP error patterns when a Notion call fails outside this calendar workflow.", "dates": "Use for date math and timezone ranges before writing a Notion date property.", "pkm": "Use when the task is broader workspace organization rather than a dated database view.", "productivity": "Use when dated Notion rows need to feed a task or execution system.", "schedule": "Use when a request becomes multi-step planning beyond one Notion calendar window."}'
 ---
 
 ## When to load

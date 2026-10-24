@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏓"}'
-  related-skills: '{"billing":"Provider-agnostic subscription architecture once Paddle-specific IDs and events are settled.","payments":"PSP selection and one-off checkout when Paddle is not yet chosen.","subscriptions":"Personal consumer subscription inventory, not merchant Paddle product billing.","stripe-api-integration":"Direct Stripe API patterns when the merchant is not using Paddle MoR."}'
+  related-skills: '{"billing": "Provider-agnostic subscription architecture once Paddle-specific IDs and events are settled.", "payments": "PSP selection and one-off checkout when Paddle is not yet chosen.", "stripe-api-integration": "Direct Stripe API patterns when the merchant is not using Paddle MoR.", "subscriptions": "Personal consumer subscription inventory, not merchant Paddle product billing."}'
 ---
 
 # Paddle

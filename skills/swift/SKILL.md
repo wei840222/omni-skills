@@ -7,7 +7,7 @@ description: Write, debug, and optimize Swift code. Use for Swift concurrency
 metadata:
   openclaw: '{"emoji":"🦅","os":["darwin","linux"],"requires":{"bins":["swift"]}}'
   version: '1.0.3'
-  related-skills: '{"ios":"iOS apps and platform frameworks","xcode":"Xcode signing, build settings, and IDE issues","macos":"macOS platform behavior"}'
+  related-skills: '{"ios": "iOS apps and platform frameworks", "macos": "macOS platform behavior", "xcode": "Xcode signing, build settings, and IDE issues"}'
 ---
 ## State location
 

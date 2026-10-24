@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧘"}'
-  related-skills: '{"reflection":"Pre-delivery self-critique and post-mistake lesson capture rather than idle pattern meditation.","journal":"User-authored journaling practice and multi-scale reviews.","habits":"Cue and streak tracking once a meditation cadence is chosen.","daily-planner":"Places protected thinking time into the day schedule.","memory":"Long-term shared memory retrieval outside the meditate state tree."}'
+  related-skills: '{"daily-planner": "Places protected thinking time into the day schedule.", "habits": "Cue and streak tracking once a meditation cadence is chosen.", "journal": "User-authored journaling practice and multi-scale reviews.", "memory": "Long-term shared memory retrieval outside the meditate state tree.", "reflection": "Pre-delivery self-critique and post-mistake lesson capture rather than idle pattern meditation."}'
 ---
 
 # Meditate

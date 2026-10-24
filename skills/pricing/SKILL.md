@@ -3,7 +3,7 @@ name: pricing
 description: 'Manage, set, and test software pricing strategies. Trigger for value metrics, packaging tiers, discounts, price increases, willingness-to-pay research (Van Westendorp/conjoint), and marketplace take rates. Handles grandfathering logic, annual prepay calculations, price tests, and local currency rules. Limit trigger scope to B2B software/SaaS pricing; redirect consumer buying, indie launch monetization, billing system building, or corporate financial modeling to specialized tools.'
 metadata:
   openclaw: '{"emoji": "💰"}'
-  related-skills: '{"negotiate":"Deal conversation once floor and trade list exist.","billing":"Implements the charge: subscriptions, proration, invoices, webhooks, tax.","cfo":"Company financial model a pricing change feeds into.","price":"Consumer buying decisions outside B2B software pricing.","monetize":"Indie launch sequencing and revenue mix outside list-price design."}'
+  related-skills: '{"billing": "implementing the charge: subscriptions, proration, invoices, webhooks, tax", "cfo": "the company financial model a pricing change feeds into", "monetize": "Indie launch sequencing and revenue mix outside list-price design.", "negotiate": "the deal conversation itself, once the floor and the trade list exist", "price": "Consumer buying decisions outside B2B software pricing."}'
 ---
 
 **Data.** At the start of every session, read `<state_root>/pricing/config.yaml` (what the user declared) and `<state_root>/pricing/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, treat the list as dynamic and append newly discovered files to it. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — ensure all data remains local and strip any credentials before saving. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; preserve rows written by other skills as read-only, and every write and deletion is named in one line as it happens. Read `<state_root>/pricing/price-book.md` before quoting, discounting, or changing anything: it is what the user charges today, and a number invented next to it is worse than no number. If none of it exists, work from defaults and say nothing about it.
@@ -92,11 +92,3 @@ Load `references/traps.md` for traps.
 ## Where Experts Disagree
 
 Load `references/where-experts-disagree.md` for where experts disagree.
-
-## Related Skills
-
-- `unit-economics` — CAC, LTV, payback, and contribution margin, the inputs `m` comes from
-- `saas-metrics` — MRR, ARR, NRR, and churn definitions that keep a price change measurable
-- `negotiate` — the deal conversation itself, once the floor and the trade list exist
-- `billing` — implementing the charge: subscriptions, proration, invoices, webhooks, tax
-- `cfo` — the company financial model a pricing change feeds into

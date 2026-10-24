@@ -4,7 +4,7 @@ description: Track daily gratitude, discover patterns, and build a positive refl
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🙏"}'
-  related-skills: '{"habits":"Integrates gratitude logging into trackable daily routines.","journal":"Captures longer-form personal reflections beyond short gratitude entries.","reflection":"Provides structured frameworks for deeper personal review and insight."}'
+  related-skills: '{"habits": "Integrates gratitude logging into trackable daily routines.", "journal": "Captures longer-form personal reflections beyond short gratitude entries.", "reflection": "Provides structured frameworks for deeper personal review and insight."}'
 ---
 
 ## State location

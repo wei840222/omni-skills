@@ -4,7 +4,7 @@ description: "Guide car buying, maintenance, roadside emergencies, and ownership
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🚗"}'
-  related-skills: '{"buy":"General purchase research, scam checks, and deal negotiation beyond vehicle-specific buying.","money":"Household affordability and cash-flow limits around ownership costs.","price":"Fair-market and deal-timing checks before locking a purchase price."}'
+  related-skills: '{"buy": "General purchase research, scam checks, and deal negotiation beyond vehicle-specific buying.", "money": "Household affordability and cash-flow limits around ownership costs.", "price": "Fair-market and deal-timing checks before locking a purchase price."}'
 ---
 ## State location
 

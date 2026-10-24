@@ -4,7 +4,7 @@ description: Load when the user asks about visiting, moving to, or living in Bud
 license: MIT
 metadata:
   openclaw: '{"emoji": "🏛️"}'
-  related-skills: '{"travel":"General multi-destination trip framing outside Budapest-specific routing.","food":"Cuisine and dining workflows beyond Budapest restaurant/neighborhood guidance.","money":"Currency, budgeting, and payment workflows when not Budapest cost-of-living specifics."}'
+  related-skills: '{"food": "Cuisine and dining workflows beyond Budapest restaurant/neighborhood guidance.", "money": "Currency, budgeting, and payment workflows when not Budapest cost-of-living specifics.", "travel": "General multi-destination trip framing outside Budapest-specific routing."}'
 ---
 ## When to load
 

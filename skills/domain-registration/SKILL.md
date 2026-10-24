@@ -6,7 +6,7 @@ description: Manage domain registrations, transfers, and renewals across major r
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🌐", "requires": {"config": ["<state_root>/domain-registration/"]}}'
-  related-skills: '{"dns":"Configure DNS records and migrations after registration or transfer completes.","api":"Handle generic REST client auth and error patterns shared by registrar APIs.","hosting":"Connect purchased domains to hosting targets after ownership is settled.","ssl":"Issue and renew certificates once domain control is verified.","infrastructure":"Place domains into broader infra topology after registrar lifecycle work."}'
+  related-skills: '{"api": "Handle generic REST client auth and error patterns shared by registrar APIs.", "dns": "Configure DNS records and migrations after registration or transfer completes.", "hosting": "Connect purchased domains to hosting targets after ownership is settled.", "infrastructure": "Place domains into broader infra topology after registrar lifecycle work.", "ssl": "Issue and renew certificates once domain control is verified."}'
 ---
 ## Setup
 

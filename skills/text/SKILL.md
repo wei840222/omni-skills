@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📝"}'
-  related-skills: '{"writing":"Voice-matched long-form drafting and rewrite.","copywriting":"Campaign and direct-response marketing copy.","markdown":"Markdown syntax, fences, and parser targets.","csv":"Dedicated CSV/TSV parsing and transforms.","regex":"Regex pattern design beyond quick text recipes.","grammar":"Grammar-only correction without style systems.","storytelling":"Narrative craft beyond general text hygiene.","book-writing":"Book-length manuscript structure.","latex":"LaTeX when Markdown or plain citation patterns are not enough."}'
+  related-skills: '{"book-writing": "Book-length manuscript structure.", "copywriting": "Campaign and direct-response marketing copy.", "csv": "Dedicated CSV/TSV parsing and transforms.", "grammar": "Grammar-only correction without style systems.", "latex": "LaTeX when Markdown or plain citation patterns are not enough.", "markdown": "Markdown syntax, fences, and parser targets.", "regex": "Regex pattern design beyond quick text recipes.", "storytelling": "Narrative craft beyond general text hygiene.", "writing": "Voice-matched long-form drafting and rewrite."}'
 ---
 
 # Text

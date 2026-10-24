@@ -4,7 +4,7 @@ description: Adapt human-facing explanations to learned preferences for format, 
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"💬"}'
-  related-skills: '{"memory":"Memory stores durable context; Explain records only confirmed explanation preferences in its own state."}'
+  related-skills: '{"memory": "Memory stores durable context; Explain records only confirmed explanation preferences in its own state."}'
 ---
 
 ## State location

@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔄","displayName":"Skill Update","requires":{"bins":["npx"]}}'
-  related-skills: '{"skill-finder":"Find and install skills you do not have yet.","skill-publish":"Owner-side sanitize, version, and publish a skill you own.","skill-manager":"Broader install/remove/list lifecycle and unused-skill cleanup beyond one upgrade."}'
+  related-skills: '{"skill-finder": "Find and install skills you do not have yet.", "skill-manager": "Broader install/remove/list lifecycle and unused-skill cleanup beyond one upgrade.", "skill-publish": "Owner-side sanitize, version, and publish a skill you own."}'
 ---
 
 ## State location

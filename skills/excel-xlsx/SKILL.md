@@ -4,7 +4,7 @@ description: Create, inspect, and edit Excel workbooks (XLSX, XLSM) with openpyx
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"📗"}'
-  related-skills: '["csv","data","data-analysis"]'
+  related-skills: '{"csv": "Parse, validate, and generate CSV or delimited text safely across spreadsheets and programs", "data": "Work the data lifecycle end to end: extract from databases/APIs/files, clean and transform messy tables, run EDA and basic stats, visualize results, validate quality, and automate recurring reports", "data-analysis": "Analyze, visualize, and explain data to support decisions"}'
 ---
 
 ## State location

@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔌","env":["EWELINK_API_TOKEN"]}'
-  related-skills: '{"api":"General HTTP client and auth patterns when eWeLink cloud calls need request-shape help beyond SONOFF plane selection.","home-server":"Always-on host placement for iHost, local bridges, or controllers that run beside SONOFF automation.","iot":"Multi-protocol device and transport planning when SONOFF is only one node in a broader fleet.","mqtt":"Broker, topic, and QoS design when SONOFF state is bridged through MQTT rather than direct DIY/iHost HTTP.","smart-home":"Hub, room, and protocol product choices when the ask is ecosystem planning rather than SONOFF command execution."}'
+  related-skills: '{"api": "General HTTP client and auth patterns when eWeLink cloud calls need request-shape help beyond SONOFF plane selection.", "home-server": "Always-on host placement for iHost, local bridges, or controllers that run beside SONOFF automation.", "iot": "Multi-protocol device and transport planning when SONOFF is only one node in a broader fleet.", "mqtt": "Broker, topic, and QoS design when SONOFF state is bridged through MQTT rather than direct DIY/iHost HTTP.", "smart-home": "Hub, room, and protocol product choices when the ask is ecosystem planning rather than SONOFF command execution."}'
 ---
 
 ## State location

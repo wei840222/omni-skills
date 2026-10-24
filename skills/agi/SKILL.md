@@ -7,7 +7,7 @@ description: Apply human-level reasoning, multi-step planning, epistemic humilit
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'
-  related-skills: '{"memory":"Durable fact storage when a reasoning insight should become a long-lived user fact.","decide":"Consequential choice records when the outcome is a lasting decision, not only a reasoning style.","learning":"Adaptive teaching when the primary need is explaining or tutoring rather than internal deliberation.","first-principles-thinking":"Foundational decomposition when the problem should be rebuilt from base truths.","six-thinking-hats":"Structured multi-perspective analysis when parallel hats are a better fit than general AGI loops."}'
+  related-skills: '{"decide": "Consequential choice records when the outcome is a lasting decision, not only a reasoning style.", "first-principles-thinking": "Foundational decomposition when the problem should be rebuilt from base truths.", "learning": "Adaptive teaching when the primary need is explaining or tutoring rather than internal deliberation.", "memory": "Durable fact storage when a reasoning insight should become a long-lived user fact.", "six-thinking-hats": "Structured multi-perspective analysis when parallel hats are a better fit than general AGI loops."}'
 ---
 
 ## When to load

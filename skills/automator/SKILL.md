@@ -1,15 +1,11 @@
 ---
 name: automator
-description: Automate macOS tasks by executing existing Automator `.workflow` files
-  via the `automator` CLI or composing new workflows programmatically.
+description: >
+  Automate macOS tasks by executing existing Automator `.workflow` files via
+  the `automator` CLI or composing new workflows programmatically.
 metadata:
-  openclaw: '{"requires": {"config": ["<state_root>/"], "bins": ["automator", "osascript"]},
-    "emoji": "A", "os": ["darwin"]}'
-  related-skills:
-  - applescript
-  - automate
-  - macos
-  - workflow
+  openclaw: '{"requires": {"config": ["<state_root>/"], "bins": ["automator", "osascript"]}, "emoji": "A", "os": ["darwin"]}'
+  related-skills: '{"applescript": "Script app automation with robust quoting and pre-read checks.", "automate": "Design reliable multi-step automation workflows.", "macos": "Use macOS command-line and system operation patterns.", "workflow": "Structure repeatable workflows and handoff states."}'
 ---
 
 
@@ -125,9 +121,3 @@ No other data is sent externally.
 - Access credentials outside the workflow request scope.
 - Send workflow content to third-party services.
 - Execute destructive automation without explicit confirmation.
-
-## Related Skills
-- `applescript` - Script app automation with robust quoting and pre-read checks.
-- `automate` - Design reliable multi-step automation workflows.
-- `macos` - Use macOS command-line and system operation patterns.
-- `workflow` - Structure repeatable workflows and handoff states.

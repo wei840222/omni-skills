@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎬"}'
-  related-skills: '{"video-generation":"Single-clip or API-centric generation once the shot is already specified.","video-edit":"Clip-level AI edit transforms outside full production logging.","ffmpeg":"Exact encode/concat/crop/LUT shell operations.","image-generation":"Still storyboard or character-sheet frames without motion.","video-captions":"Transcription, timing, styling, and burn-in only.","prompting":"Cross-model prompt failure diagnosis outside movie production structure."}'
+  related-skills: '{"ffmpeg": "Exact encode/concat/crop/LUT shell operations.", "image-generation": "Still storyboard or character-sheet frames without motion.", "prompting": "Cross-model prompt failure diagnosis outside movie production structure.", "video-captions": "Transcription, timing, styling, and burn-in only.", "video-edit": "Clip-level AI edit transforms outside full production logging.", "video-generation": "Single-clip or API-centric generation once the shot is already specified."}'
 ---
 
 # Movie

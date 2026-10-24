@@ -5,7 +5,7 @@ metadata:
   version: "1.0.1"
   openclaw: "{\"emoji\": \"🎹\"}"
   related-skills:
-    music: skills/music
+    '{"music": "Music theory, sight reading, chord progression, and ear training."}'
 ---
 
 ## When to load references

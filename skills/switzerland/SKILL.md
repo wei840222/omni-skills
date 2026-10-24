@@ -4,7 +4,7 @@ description: Plan Switzerland trips handling Alpine rail, mountain logistics, Sc
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🇨🇭"}'
-  related-skills: '{"travel": "General trip planning and itinerary structure", "europe": "Better wider-Europe context when Switzerland is part of a longer route", "booking": "Reservation workflows and confirmation hygiene", "car-rental": "Better self-drive strategy and handoff logistics", "food": "Deeper restaurant and cuisine planning"}'
+  related-skills: '{"booking": "Reservation workflows and confirmation hygiene", "car-rental": "Better self-drive strategy and handoff logistics", "europe": "Better wider-Europe context when Switzerland is part of a longer route", "food": "Deeper restaurant and cuisine planning", "travel": "General trip planning and itinerary structure"}'
 ---
 
 

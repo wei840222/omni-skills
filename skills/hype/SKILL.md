@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟢"}'
-  related-skills: '{"binance":"Binance Spot REST/WebSocket and CEX account flows instead of Hyperliquid L1 perps.","ethereum":"Ethereum gas, approvals, and L2 bridges when the path is EVM deposit plumbing rather than Hyperliquid trading.","bitcoin":"Bitcoin UTXO and fee recovery when Unit BTC deposit paths need chain-native diagnosis.","aave":"Aave lending Health Factor risk rather than Hyperliquid perp liquidations.","invest":"General portfolio education after Hyperliquid mechanics are settled.","crypto-tools":"Market data and multi-venue tooling once Hyperliquid-specific account rules are clear."}'
+  related-skills: '{"aave": "Aave lending Health Factor risk rather than Hyperliquid perp liquidations.", "binance": "Binance Spot REST/WebSocket and CEX account flows instead of Hyperliquid L1 perps.", "bitcoin": "Bitcoin UTXO and fee recovery when Unit BTC deposit paths need chain-native diagnosis.", "crypto-tools": "Market data and multi-venue tooling once Hyperliquid-specific account rules are clear.", "ethereum": "Ethereum gas, approvals, and L2 bridges when the path is EVM deposit plumbing rather than Hyperliquid trading.", "invest": "General portfolio education after Hyperliquid mechanics are settled."}'
 ---
 
 This skill is stateless knowledge guidance. It does not store local configuration or persistent user state. The wallet owner retains signing and fund control.

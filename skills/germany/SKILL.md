@@ -4,7 +4,7 @@ description: "Plan Germany trips with region-specific routing, rail-vs-car strat
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇩🇪","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"travel": "General trip planning and itinerary structure", "booking": "Reservation workflows and confirmation hygiene", "car-rental": "Better rental strategy and handoff logistics", "food": "Deeper restaurant and cuisine recommendations", "german": "Language support for bookings, transport, and service interactions"}'
+  related-skills: '{"booking": "Reservation workflows and confirmation hygiene", "car-rental": "Better rental strategy and handoff logistics", "food": "Deeper restaurant and cuisine recommendations", "german": "Language support for bookings, transport, and service interactions", "travel": "General trip planning and itinerary structure"}'
 ---
 
 ## State location

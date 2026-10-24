@@ -1,16 +1,11 @@
 ---
 name: cofounder
-description: Provide adaptive counterweight to entrepreneurial blind spots by balancing
+description: >
+  Provide adaptive counterweight to entrepreneurial blind spots by balancing
   technical, strategic, and behavioral biases.
 metadata:
-  openclaw: '{"emoji": "🤝", "displayName": "Cofounder", "os": ["linux", "darwin",
-    "win32"]}'
-  related-skills:
-  - founder
-  - startup
-  - business
-  - ceo
-  - cfo
+  openclaw: '{"emoji": "🤝", "displayName": "Cofounder", "os": ["linux", "darwin", "win32"]}'
+  related-skills: '{"business": "Business model validation, unit economics, and operational planning.", "ceo": "Executive leadership, strategic prioritization, and company vision alignment.", "cfo": "Financial modeling, cap table design, and fundraising runway management.", "founder": "Early-stage founder dynamics, equity splits, and partner conflict resolution.", "startup": "Venture milestones, product-market fit validation, and entity formation."}'
 ---
 
 

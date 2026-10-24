@@ -4,7 +4,7 @@ description: Find, vet, and compare Groupon vouchers. Use for local-deal researc
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎟️"}'
-  related-skills: '{"buy":"Evaluate real value and compare purchase alternatives.","shopping":"Broaden a product or deal search beyond Groupon.","booking":"Plan reservations and compare travel or stay options.","tripadvisor":"Validate hospitality and attraction quality with broader review signals.","travel":"Connect local offers with larger trip planning decisions."}'
+  related-skills: '{"booking": "Plan reservations and compare travel or stay options.", "buy": "Evaluate real value and compare purchase alternatives.", "shopping": "Broaden a product or deal search beyond Groupon.", "travel": "Connect local offers with larger trip planning decisions.", "tripadvisor": "Validate hospitality and attraction quality with broader review signals."}'
 ---
 
 ## State location

@@ -15,7 +15,7 @@ description: >
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"css":"Layout, cascade, theming, and visual styling once markup structure is correct.","javascript":"DOM scripting, events, and behavior an ARIA pattern requires beyond native elements.","forms":"Product-level form design, multi-step flows, and platform choice when the issue is not HTML structure.","seo":"Search strategy, indexing, and ranking work beyond semantic markup and head tags.","svg":"Inline vector graphics, viewBox, and icon systems embedded in markup.","markdown":"Markdown syntax and conversion when the deliverable is not HTML markup.","web":"General web build, deploy, and CWV engineering under the markup layer."}'
+  related-skills: '{"css": "Layout, cascade, theming, and visual styling once markup structure is correct.", "forms": "Product-level form design, multi-step flows, and platform choice when the issue is not HTML structure.", "javascript": "DOM scripting, events, and behavior an ARIA pattern requires beyond native elements.", "markdown": "Markdown syntax and conversion when the deliverable is not HTML markup.", "seo": "Search strategy, indexing, and ranking work beyond semantic markup and head tags.", "svg": "Inline vector graphics, viewBox, and icon systems embedded in markup.", "web": "General web build, deploy, and CWV engineering under the markup layer."}'
 ---
 
 # HTML

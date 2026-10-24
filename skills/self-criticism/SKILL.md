@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧪","configPaths":["<state_root>/"]}'
-  related-skills: '{"self-improving":"Compound durable execution lessons and corrections after outcomes.","proactivity":"Anticipate next moves and recover fragile context without mid-task critique.","agent":"Frame a single agent operating style when the need is identity rather than breakpoints.","agents":"Design multi-agent memory and control loops beyond one critique habit.","reflection":"Run heavier post-task retrospective analysis when a compact breakpoint is not enough."}'
+  related-skills: '{"agent": "Frame a single agent operating style when the need is identity rather than breakpoints.", "agents": "Design multi-agent memory and control loops beyond one critique habit.", "proactivity": "Anticipate next moves and recover fragile context without mid-task critique.", "reflection": "Run heavier post-task retrospective analysis when a compact breakpoint is not enough.", "self-improving": "Compound durable execution lessons and corrections after outcomes."}'
 ---
 
 # Self-Criticism

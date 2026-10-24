@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"👍"}'
-  related-skills: '{"compare":"Structured side-by-side option matrices when ranking is secondary to explicit criteria.","decide":"Log consequential branching decisions and reuse verified outcomes beyond light preference matching.","shopping":"Purchase timing, deal validation, and return-policy checks after a product recommendation is chosen."}'
+  related-skills: '{"compare": "Structured side-by-side option matrices when ranking is secondary to explicit criteria.", "decide": "Log consequential branching decisions and reuse verified outcomes beyond light preference matching.", "shopping": "Purchase timing, deal validation, and return-policy checks after a product recommendation is chosen."}'
 ---
 
 ## State location

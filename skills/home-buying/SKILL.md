@@ -4,7 +4,7 @@ description: Buy a home with budget guardrails, listing scorecards, offer strate
   due diligence triage, and closing readiness checks.
 metadata:
   openclaw: '{"emoji": "🏠", "requires": {"config": ["<state_root>/"]}}'
-  related-skills: '{"real-estate-skill":"Broader real-estate transaction guidance across roles and stages when the task is not a primary-home purchase decision system.","property-valuation":"Comparable and income-based valuation support when pricing or appraisal gaps dominate.","contract":"Contract structure and clause review when offer language or contingencies need legal-structure scrutiny.","rental":"Rental economics when the user should compare buy vs rent or landlord/tenant economics instead.","house":"Post-purchase home ownership operations after closing."}'
+  related-skills: '{"contract": "Contract structure and clause review when offer language or contingencies need legal-structure scrutiny.", "house": "Post-purchase home ownership operations after closing.", "property-valuation": "Comparable and income-based valuation support when pricing or appraisal gaps dominate.", "real-estate-skill": "Broader real-estate transaction guidance across roles and stages when the task is not a primary-home purchase decision system.", "rental": "Rental economics when the user should compare buy vs rent or landlord/tenant economics instead."}'
 ---
 ## Setup
 

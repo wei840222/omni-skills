@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💻","os":["linux","darwin","win32"],"displayName":"Code"}'
-  related-skills: '{"coding":"Capture and apply durable coding style, stack, and architecture preferences across sessions.","agentic-coding":"Contract-driven PACT loops when merge-ready agentic delivery is the primary ask.","developer":"Full ticket-to-merge, CI parity, migration, and on-call loop beyond stepwise coding guidance.","review-code":"Risk-first PR review and merge-readiness once a diff already exists.","software-engineer":"Architecture and production trade-off coaching beyond stepwise implementation guidance.","setup":"OpenClaw install, channel, and gateway configuration outside this coding workflow."}'
+  related-skills: '{"agentic-coding": "Contract-driven PACT loops when merge-ready agentic delivery is the primary ask.", "coding": "Capture and apply durable coding style, stack, and architecture preferences across sessions.", "developer": "Full ticket-to-merge, CI parity, migration, and on-call loop beyond stepwise coding guidance.", "review-code": "Risk-first PR review and merge-readiness once a diff already exists.", "setup": "OpenClaw install, channel, and gateway configuration outside this coding workflow.", "software-engineer": "Architecture and production trade-off coaching beyond stepwise implementation guidance."}'
 ---
 
 ## State location

@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇰🇷"}'
-  related-skills: '{"japanese":"Write Japanese when Korean is not the target language.","chinese":"Write Mandarin Chinese when Korean is not the target language.","traditional-chinese":"Write Traditional Chinese when Korean is not the target language.","translate":"Translate an existing source text into Korean across formats and locales.","writing":"Shape broader prose once the Korean-language decision is settled.","english":"Draft or revise the English source before translating it into Korean.","copywriting":"Shape persuasive marketing copy after the Korean register is chosen."}'
+  related-skills: '{"chinese": "Write Mandarin Chinese when Korean is not the target language.", "copywriting": "Shape persuasive marketing copy after the Korean register is chosen.", "english": "Draft or revise the English source before translating it into Korean.", "japanese": "Write Japanese when Korean is not the target language.", "traditional-chinese": "Write Traditional Chinese when Korean is not the target language.", "translate": "Translate an existing source text into Korean across formats and locales.", "writing": "Shape broader prose once the Korean-language decision is settled."}'
 ---
 
 Research notes for speech levels, honorifics, and authoritative resources live in `references/sources.md` (progressive disclosure).

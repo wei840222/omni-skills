@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔀"}'
-  related-skills: '{"http":"Protocol-level methods, status codes, caching, and security headers beyond CORS policy design.","rest-api":"Contract-first REST API design when the ask is resource modeling rather than origin headers.","oauth":"OAuth/OIDC flows when credentialed cross-origin failures are really auth/token issues."}'
+  related-skills: '{"http": "Protocol-level methods, status codes, caching, and security headers beyond CORS policy design.", "oauth": "OAuth/OIDC flows when credentialed cross-origin failures are really auth/token issues.", "rest-api": "Contract-first REST API design when the ask is resource modeling rather than origin headers."}'
 ---
 
 # CORS

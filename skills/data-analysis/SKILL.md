@@ -4,7 +4,7 @@ description: Analyze, visualize, and explain data to support decisions. Use for 
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"D"}'
-  related-skills: '{"business-intelligence":"Extends one-off analysis into ongoing KPI systems and operating cadences.","csv":"Cleans and normalizes tabular inputs before analysis.","dashboard":"Implements KPI visualization layers after analysis defines the decision and metrics.","report":"Turns validated findings into structured stakeholder-facing deliverables.","sql":"Designs and reviews reliable extraction queries for analysis."}'
+  related-skills: '{"business-intelligence": "Extends one-off analysis into ongoing KPI systems and operating cadences.", "csv": "Cleans and normalizes tabular inputs before analysis.", "dashboard": "Implements KPI visualization layers after analysis defines the decision and metrics.", "report": "Turns validated findings into structured stakeholder-facing deliverables.", "sql": "Designs and reviews reliable extraction queries for analysis."}'
 ---
 
 

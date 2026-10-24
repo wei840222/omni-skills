@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👨‍💻"}'
-  related-skills: '{"code":"Stepwise plan→execute→verify delivery with approval checkpoints.","coding":"Durable style, stack, and architecture preference memory across sessions.","developer":"Ticket-to-merge, CI parity, migrations, and on-call mitigation loops.","review-code":"Risk-first review of an existing PR or diff.","software-architect":"Deep system design and ADRs beyond implementation coaching.","cto":"Build-vs-buy, org scaling, and one-way door strategy before hands-on coding.","engineering":"Non-software engineering practice, units, and PE/permit boundaries.","agentic-coding":"PACT contract loops when merge-ready agentic delivery is the primary ask."}'
+  related-skills: '{"agentic-coding": "PACT contract loops when merge-ready agentic delivery is the primary ask.", "code": "Stepwise plan→execute→verify delivery with approval checkpoints.", "coding": "Durable style, stack, and architecture preference memory across sessions.", "cto": "Build-vs-buy, org scaling, and one-way door strategy before hands-on coding.", "developer": "Ticket-to-merge, CI parity, migrations, and on-call mitigation loops.", "engineering": "Non-software engineering practice, units, and PE/permit boundaries.", "review-code": "Risk-first review of an existing PR or diff.", "software-architect": "Deep system design and ADRs beyond implementation coaching."}'
 ---
 
 # Software Engineer

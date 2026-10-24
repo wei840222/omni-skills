@@ -1,9 +1,9 @@
 ---
 name: cro
-description: Optimize conversion rates using funnel analysis, A/B testing, and statistical
-  evaluation.
+description: >
+  Optimize conversion rates using funnel analysis, A/B testing, and
+  statistical evaluation.
 metadata:
-  related-skills: null
   openclaw: '{"emoji": "📈"}'
 ---
 

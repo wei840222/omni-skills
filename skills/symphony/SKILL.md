@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎼","requires":{"bins":["git","codex"],"env":["LINEAR_API_KEY","OPENAI_API_KEY","GITHUB_TOKEN"],"config":["<state_root>/"]}}'
-  related-skills: '{"agent":"Single-agent execution quality inside an issue workspace.","agents":"Multi-agent ownership when a ticket needs explicit handoffs.","agentic-engineering":"High-rigor autonomous delivery gates beyond Symphony orchestration.","workflow":"General workflow design outside Symphony WORKFLOW.md contracts.","memory":"Long-term factual continuity separate from Symphony run state."}'
+  related-skills: '{"agent": "Single-agent execution quality inside an issue workspace.", "agentic-engineering": "High-rigor autonomous delivery gates beyond Symphony orchestration.", "agents": "Multi-agent ownership when a ticket needs explicit handoffs.", "memory": "Long-term factual continuity separate from Symphony run state.", "workflow": "General workflow design outside Symphony WORKFLOW.md contracts."}'
 ---
 
 ## State location

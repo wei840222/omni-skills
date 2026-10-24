@@ -3,7 +3,7 @@ name: london
 description: Plan London visits, moves, study, tech work, or startup decisions with neighborhood, transport, cost, safety, and local guidance. Use for London-specific choices; verify live fares, prices, availability, visas, and safety conditions before decisive advice.
 metadata:
   openclaw: '{"emoji":"🇬🇧"}'
-  related-skills: '{"travel":"Plans multi-destination trips beyond London-specific routing.","travel-planning":"Completes travel planning and reservations after a London choice is made.","uk":"Provides UK-wide context outside London-specific decisions."}'
+  related-skills: '{"travel": "Plans multi-destination trips beyond London-specific routing.", "travel-planning": "Completes travel planning and reservations after a London choice is made.", "uk": "Provides UK-wide context outside London-specific decisions."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state. Treat dated package figures as planning estimates, not live quotes. For fares, prices, availability, visa or immigration rules, venue access, or same-day safety decisions, read `references/current-information.md` and verify the authoritative source before giving decisive advice.

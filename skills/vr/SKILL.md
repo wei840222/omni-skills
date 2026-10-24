@@ -3,7 +3,7 @@ name: vr
 description: Set up VR headsets, troubleshoot PC/standalone VR issues, optimize physical comfort, and recommend VR experiences based on user hardware and use cases.
 metadata:
   openclaw: '{"emoji":"🥽","displayName":"VR"}'
-  related-skills: '{"fitness":"Hand off when the user wants workout planning, sweat/recovery routines, or training load beyond headset-specific VR fitness tips.","games":"Hand off when the user wants broader game discovery outside VR-native titles and platforms.","unreal-engine":"Hand off when the user is building Unreal XR/VR projects beyond headset setup guidance.","mobile":"Hand off when phone or tablet workflows matter more than headset play-space setup."}'
+  related-skills: '{"fitness": "Hand off when the user wants workout planning, sweat/recovery routines, or training load beyond headset-specific VR fitness tips.", "games": "Hand off when the user wants broader game discovery outside VR-native titles and platforms.", "mobile": "Hand off when phone or tablet workflows matter more than headset play-space setup.", "unreal-engine": "Hand off when the user is building Unreal XR/VR projects beyond headset setup guidance."}'
 ---
 
 # VR Skill

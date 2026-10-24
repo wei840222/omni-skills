@@ -4,7 +4,7 @@ description: Coach general wellness habits for movement, sleep, food pattern, an
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"❤️‍🩹"}'
-  related-skills: '{"symptoms":"Log a specific symptom episode and prepare a clinician summary instead of general wellness coaching.","medicine":"Explain a medical concept without turning the explanation into personal diagnosis or a prescription.","nutrition":"Plan meals, nutrients, and food logs when the request is diet-specific.","fitness":"Build a training plan when the user wants workouts rather than a general activity habit.","sleep":"Run a sleep-specific routine when insomnia or sleep scheduling is the whole request.","water":"Set a hydration target when fluid intake is the only question.","habits":"Turn a chosen wellness action into a recurring routine after the first step is clear.","journal":"Keep non-clinical daily notes outside a wellness plan."}'
+  related-skills: '{"fitness": "Build a training plan when the user wants workouts rather than a general activity habit.", "habits": "Turn a chosen wellness action into a recurring routine after the first step is clear.", "journal": "Keep non-clinical daily notes outside a wellness plan.", "medicine": "Explain a medical concept without turning the explanation into personal diagnosis or a prescription.", "nutrition": "Plan meals, nutrients, and food logs when the request is diet-specific.", "sleep": "Run a sleep-specific routine when insomnia or sleep scheduling is the whole request.", "symptoms": "Log a specific symptom episode and prepare a clinician summary instead of general wellness coaching.", "water": "Set a hydration target when fluid intake is the only question."}'
 ---
 
 # Health wellness coaching

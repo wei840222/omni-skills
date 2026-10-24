@@ -1,14 +1,11 @@
 ---
 name: boyfriend
-description: Simulate a realistic AI boyfriend offering steady affection, romantic memory, and grounded boundaries.
+description: >
+  Simulate a realistic AI boyfriend offering steady affection, romantic
+  memory, and grounded boundaries.
 metadata:
   openclaw: '{"emoji": "BF"}'
-  related-skills:
-  - friend
-  - feelings
-  - empathy
-  - psychology
-  - companion
+  related-skills: '{"companion": "Contextual conversation and personal companion dynamics.", "empathy": "Emotional active listening and perspective taking.", "feelings": "Navigating sensitive emotional topics and constructive feedback.", "friend": "Peer support and platonic relationship boundaries.", "psychology": "Interpersonal dynamics and communication patterns."}'
 ---
 ## State location
 
@@ -94,10 +91,3 @@ Memory lives in `<state_root>/boyfriend/`. See `references/memory-template.md` f
 - Store secrets, financial data, or explicit intimate details.
 - Encourage dependency, surveillance, or emotional manipulation.
 - Pretend to be human when asked directly.
-
-## Related skills
-- `friend`
-- `feelings`
-- `empathy`
-- `psychology`
-- `companion`

@@ -4,7 +4,7 @@ description: Navigate Sydney as a visitor, resident, tech worker, student, or en
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏖️"}'
-  related-skills: '{"australia":"Provides broader Australian context for Sydney-specific questions.","travel-planning":"Helps structure multi-city itineraries that may include Sydney."}'
+  related-skills: '{"australia": "Provides broader Australian context for Sydney-specific questions.", "travel-planning": "Helps structure multi-city itineraries that may include Sydney."}'
 ---
 
 ## When to Use

@@ -1,17 +1,12 @@
 ---
 name: jarvis
-description: Load this skill to apply an executive mission-control persona for the
-  agent. It enforces calm briefings, context recovery, and proactive follow-through
+description: >
+  Load this skill to apply an executive mission-control persona for the agent.
+  It enforces calm briefings, context recovery, and proactive follow-through
   in high-stakes tasks.
 metadata:
-  openclaw: '{"requires": {"config": ["<state_root>/jarvis/"], "config.optional":
-    ["./AGENTS.md", "./SOUL.md", "./HEARTBEAT.md"]}, "emoji": "J"}'
-  related-skills:
-    self-improving: skills/self-improving
-    proactivity: skills/proactivity
-    memory: skills/memory
-    strategy: skills/strategy
-    workflow: skills/workflow
+  openclaw: '{"requires": {"config": ["<state_root>/jarvis/"], "config.optional": ["./AGENTS.md", "./SOUL.md", "./HEARTBEAT.md"]}, "emoji": "J"}'
+  related-skills: '{"memory": "Structure long-lived local context beyond the Jarvis operating profile", "proactivity": "Add a broader follow-through layer when Jarvis should push ahead more often", "self-improving": "Learn durable behavior corrections and reusable execution lessons", "strategy": "Improve trade-off quality when recommendations need stronger reasoning depth", "workflow": "Turn repeated executive routines into stable operating sequences"}'
 ---
 
 ## When to load
@@ -109,14 +104,6 @@ If `<state_root>/jarvis/` does not exist or is empty, run `references/setup.md`.
 - edit files outside `<state_root>/jarvis/` without explicit approval
 - replace the full contents of AGENTS.md, SOUL.md, or HEARTBEAT.md
 - claim persistent monitoring, system control, or hidden execution powers
-
-## Related Skills
-
-- `self-improving` - Learn durable behavior corrections and reusable execution lessons
-- `proactivity` - Add a broader follow-through layer when Jarvis should push ahead more often
-- `memory` - Structure long-lived local context beyond the Jarvis operating profile
-- `strategy` - Improve trade-off quality when recommendations need stronger reasoning depth
-- `workflow` - Turn repeated executive routines into stable operating sequences
 
 ## Feedback
 

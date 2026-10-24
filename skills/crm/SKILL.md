@@ -4,7 +4,7 @@ description: "Run a CRM for contacts, companies, deals, pipeline stages, follow-
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🤝"}'
-  related-skills: '{"people":"Personal address book, birthdays, and staying in touch without a sales pipeline.","clients":"Delivering scoped client work after a deal closes.","outreach":"Writing sequences and campaigns that feed the pipeline.","sqlite":"Query and migration mechanics for a self-built CRM.","negotiate":"Conversation craft that moves Negotiation to Closed-won."}'
+  related-skills: '{"clients": "delivering work after the deal closes", "negotiate": "moving Negotiation to Closed-won", "outreach": "sequences and campaigns that feed the pipeline", "people": "personal address book without a sales pipeline", "sqlite": "query/migration mechanics for a self-built CRM"}'
 ---
 
 ## State location
@@ -98,11 +98,3 @@ Before delivering a pipeline view, record change, forecast, or contact suggestio
 **Local storage:** contacts, deals, interactions, and preferences stay in `<state_root>/crm/` and `<state_root>/contacts/`. This is third-party personal data: minimize to what follow-up needs, and honor deletion across every copy including exports (`references/privacy.md`).
 
 **Guardrails:** bulk edits, merges, imports, and deletions show their record count, require explicit confirmation, and run against an export written first (Rule 9). No outreach without the suppression check (Rule 8). No scraping of a platform that forbids it.
-
-## Related skills
-
-- `people` — personal address book without a sales pipeline
-- `clients` — delivering work after the deal closes
-- `outreach` — sequences and campaigns that feed the pipeline
-- `sqlite` — query/migration mechanics for a self-built CRM
-- `negotiate` — moving Negotiation to Closed-won

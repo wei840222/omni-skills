@@ -4,7 +4,7 @@ description: Use when the user needs entity bookkeeping that closes — coding t
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"banking":"Owns bank payment operations and account ops whose balances feed accountant reconciliations.","billing":"Builds payment and subscription systems whose processor payouts are reconciled here.","cfo":"Uses closed books for forecasts, runway, board packs, and capital decisions.","expenses":"Captures day-to-day spend before it is coded into the ledger.","invoice":"Issues client invoices that become receivables and revenue recognition here.","invoices":"Archives supplier invoices that become payables and expense entries.","money":"Handles personal budgeting and debt decisions outside entity books."}'
+  related-skills: '{"banking": "Owns bank payment operations and account ops whose balances feed accountant reconciliations.", "billing": "Builds payment and subscription systems whose processor payouts are reconciled here.", "cfo": "Uses closed books for forecasts, runway, board packs, and capital decisions.", "expenses": "Captures day-to-day spend before it is coded into the ledger.", "invoice": "Issues client invoices that become receivables and revenue recognition here.", "invoices": "Archives supplier invoices that become payables and expense entries.", "money": "Handles personal budgeting and debt decisions outside entity books."}'
 ---
 
 ## State location

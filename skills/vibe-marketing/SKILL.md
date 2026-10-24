@@ -9,7 +9,7 @@ description: Run AI-assisted marketing campaigns with brand-context prompts, hum
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📣"}'
-  related-skills: '{"content-marketing":"Funnel strategy, editorial calendar, and repurposing systems beyond single-campaign vibe loops.","copywriting":"Dedicated persuasion craft when the task is headlines/body/CTA without campaign automation.","growth":"Funnel constraint, channel loops, and CAC/LTV decisions outside rapid creative testing.","email-marketing":"List, sequence, and deliverability mechanics around nurture copy.","seo":"Search-intent and discoverability work beyond AI draft generation.","digital-marketing":"Broader paid/owned channel mix when vibe marketing is only the creative layer.","analytics":"Measurement design and metric definitions for test readouts."}'
+  related-skills: '{"analytics": "Measurement design and metric definitions for test readouts.", "content-marketing": "Funnel strategy, editorial calendar, and repurposing systems beyond single-campaign vibe loops.", "copywriting": "Dedicated persuasion craft when the task is headlines/body/CTA without campaign automation.", "digital-marketing": "Broader paid/owned channel mix when vibe marketing is only the creative layer.", "email-marketing": "List, sequence, and deliverability mechanics around nurture copy.", "growth": "Funnel constraint, channel loops, and CAC/LTV decisions outside rapid creative testing.", "seo": "Search-intent and discoverability work beyond AI draft generation."}'
 ---
 
 ## When to load

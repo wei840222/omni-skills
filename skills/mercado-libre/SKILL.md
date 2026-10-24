@@ -4,7 +4,7 @@ description: Guide Mercado Libre buying, selling, listing, deal validation, disp
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛒"}'
-  related-skills: '{"ads":"Extends seller work with paid-acquisition planning and measurement.","buy":"Supports purchase-decision practices beyond the Mercado Libre marketplace.","ecommerce":"Extends marketplace work into full-funnel commerce systems.","market-research":"Validates demand and competition before catalog expansion.","pricing":"Extends listing work with margin-safe pricing and promotion frameworks."}'
+  related-skills: '{"ads": "Extends seller work with paid-acquisition planning and measurement.", "buy": "Supports purchase-decision practices beyond the Mercado Libre marketplace.", "ecommerce": "Extends marketplace work into full-funnel commerce systems.", "market-research": "Validates demand and competition before catalog expansion.", "pricing": "Extends listing work with margin-safe pricing and promotion frameworks."}'
 ---
 
 ## State location

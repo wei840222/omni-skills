@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎨","requires":{"config":["<state_root>"]}}'
-  related-skills: '{"design":"Visual design judgment outside Figma file mechanics.","design-system":"Token and component architecture governing the file this skill implements.","ui":"Broader UI product patterns beyond Figma-specific mechanics.","vibe-design":"Exploratory visual direction when the ask is taste rather than file structure."}'
+  related-skills: '{"design": "Visual design judgment outside Figma file mechanics.", "design-system": "Token and component architecture governing the file this skill implements.", "ui": "Broader UI product patterns beyond Figma-specific mechanics.", "vibe-design": "Exploratory visual direction when the ask is taste rather than file structure."}'
 ---
 
 # Figma

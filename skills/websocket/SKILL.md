@@ -4,7 +4,7 @@ description: Implement reliable WebSocket connections with proper reconnection, 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔌"}'
-  related-skills: '{"http":"HTTP request/response and caching behavior outside the WebSocket upgrade path","nginx":"Nginx Upgrade headers, proxy_read_timeout, and reverse-proxy WebSocket config","network":"TCP reachability, DNS, firewall, and TLS diagnosis around the socket","security-best-practices":"Threat modeling, origin validation, and secure-by-default review of socket handlers"}'
+  related-skills: '{"http": "HTTP request/response and caching behavior outside the WebSocket upgrade path", "network": "TCP reachability, DNS, firewall, and TLS diagnosis around the socket", "nginx": "Nginx Upgrade headers, proxy_read_timeout, and reverse-proxy WebSocket config", "security-best-practices": "Threat modeling, origin validation, and secure-by-default review of socket handlers"}'
 ---
 
 ## Quick Reference

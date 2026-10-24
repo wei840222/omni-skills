@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🚀","displayName":"Indie Hacker"}'
-  related-skills: '{"business-ideas":"Brainstorm and score new concepts before solo execution.","pricing":"Deep pricing arithmetic and packaging beyond bootstrap defaults.","saas":"Subscription metrics, dunning, and packaging once the product is recurring.","founder":"Broader startup PMF, fundraising, and team topics beyond solo bootstrap.","startup":"Launch and scale after validation when the path is no longer pure indie bootstrap.","business":"Company-level strategy once the solo product needs broader planning."}'
+  related-skills: '{"business": "Company-level strategy once the solo product needs broader planning.", "business-ideas": "Brainstorm and score new concepts before solo execution.", "founder": "Broader startup PMF, fundraising, and team topics beyond solo bootstrap.", "pricing": "Deep pricing arithmetic and packaging beyond bootstrap defaults.", "saas": "Subscription metrics, dunning, and packaging once the product is recurring.", "startup": "Launch and scale after validation when the path is no longer pure indie bootstrap."}'
 ---
 
 ## When to load

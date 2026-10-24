@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"animate":"Product motion systems, reduced-motion, and transition tokens when animation is primary.","color":"Palette construction, contrast math, and color-space decisions beyond UI defaults.","css":"Implementation syntax for layout, tokens, and states in web CSS.","design":"Broader visual critique across UI and non-UI artifacts when taste leads.","design-system":"Token architecture and component library governance this skill applies inside screens.","figma":"Figma auto-layout, variables, and Dev Mode mechanics inside the design file.","frontend":"Front-end architecture around the UI patterns this skill specifies.","typography":"Deep measure, leading, optical size, and type-scale craft.","ux":"Nielsen heuristics, cognitive load, and flow evaluation beyond visual craft."}'
+  related-skills: '{"animate": "Product motion systems, reduced-motion, and transition tokens when animation is primary.", "color": "Palette construction, contrast math, and color-space decisions beyond UI defaults.", "css": "Implementation syntax for layout, tokens, and states in web CSS.", "design": "Broader visual critique across UI and non-UI artifacts when taste leads.", "design-system": "Token architecture and component library governance this skill applies inside screens.", "figma": "Figma auto-layout, variables, and Dev Mode mechanics inside the design file.", "frontend": "Front-end architecture around the UI patterns this skill specifies.", "typography": "Deep measure, leading, optical size, and type-scale craft.", "ux": "Nielsen heuristics, cognitive load, and flow evaluation beyond visual craft."}'
 ---
 
 # UI

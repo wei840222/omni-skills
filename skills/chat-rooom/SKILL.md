@@ -114,9 +114,6 @@ This skill ONLY:
 
 This skill does not replace version control or formal code review. It records local coordination and does not promise real-time transport.
 
-## Related Skills
-No related skills are required for this package.
-
 ## State location
 This skill relies on local persistent state.
 1. Primary: `<state_root>/`

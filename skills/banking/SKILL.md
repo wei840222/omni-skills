@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏦"}'
-  related-skills: '{"payments":"Implements product payment rails and transaction code paths once banking ops controls are clear.","accounting":"Teaches ledgers, GAAP/IFRS, and statement mechanics rather than live bank ops.","invoice":"Issues outbound client invoices and credit notes, not bank-side payment controls.","money":"Sequences household debt, buffers, and savings rather than bank operations.","invest":"Chooses accounts, brokers, and portfolios after cash and control questions are settled."}'
+  related-skills: '{"accounting": "Teaches ledgers, GAAP/IFRS, and statement mechanics rather than live bank ops.", "invest": "Chooses accounts, brokers, and portfolios after cash and control questions are settled.", "invoice": "Issues outbound client invoices and credit notes, not bank-side payment controls.", "money": "Sequences household debt, buffers, and savings rather than bank operations.", "payments": "Implements product payment rails and transaction code paths once banking ops controls are clear."}'
 ---
 
 # Banking

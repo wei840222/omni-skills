@@ -4,7 +4,7 @@ description: Configure OpenRouter model routing, provider preferences, fallbacks
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛣️","requires":{"bins":["curl","jq"],"env":["OPENROUTER_API_KEY"]}}'
-  related-skills: '{"api":"Designs and validates API requests used with OpenRouter.","auth":"Handles credential and authentication troubleshooting for OpenRouter clients.","models":"Helps compare and select models for routing policies.","monitoring":"Tracks runtime health and incidents for routing operations."}'
+  related-skills: '{"api": "Designs and validates API requests used with OpenRouter.", "auth": "Handles credential and authentication troubleshooting for OpenRouter clients.", "models": "Helps compare and select models for routing policies.", "monitoring": "Tracks runtime health and incidents for routing operations."}'
 ---
 
 ## State location

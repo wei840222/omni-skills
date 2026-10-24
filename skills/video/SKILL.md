@@ -6,7 +6,7 @@ description: Process, edit, convert, compress, and optimize videos for platforms
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🎬","requires":{"bins":["ffmpeg","ffprobe"]}}'
-  related-skills: '{"ffmpeg":"Lower-level codec, filter, and encoding details when a task needs precise FFmpeg flags beyond this skill.","video-captions":"Dedicated caption transcription, styling, and burn-in when captions are the primary request.","video-edit":"AI enhancement workflows (background removal, color grade, upscale, stabilize) beyond basic FFmpeg transforms.","video-downloader":"Download source media from URLs before local processing."}'
+  related-skills: '{"ffmpeg": "Lower-level codec, filter, and encoding details when a task needs precise FFmpeg flags beyond this skill.", "video-captions": "Dedicated caption transcription, styling, and burn-in when captions are the primary request.", "video-downloader": "Download source media from URLs before local processing.", "video-edit": "AI enhancement workflows (background removal, color grade, upscale, stabilize) beyond basic FFmpeg transforms."}'
 ---
 
 ## When to load

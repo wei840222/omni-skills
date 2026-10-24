@@ -1,12 +1,12 @@
 ---
 name: wardrobe
-description: 'Manage a personal wardrobe system. When to load: User mentions clothing,
-  outfit planning, mindful shopping, capsule wardrobes, seasonal rotation, or decluttering.'
+description: >
+  Manage a personal wardrobe system. When to load: User mentions clothing,
+  outfit planning, mindful shopping, capsule wardrobes, seasonal rotation, or
+  decluttering.
 metadata:
   openclaw: '{"emoji":"👔","os":["linux","darwin","win32"],"displayName":"Wardrobe"}'
-  related-skills:
-  - shopping
-  - travel
+  related-skills: '{"shopping": "Garment selection, sizing verification, fabric care, and purchasing.", "travel": "Capsule wardrobe packing, weather-appropriate outfits, and transit comfort."}'
 ---
 ## When to load
 Trigger this skill when the user mentions clothing, outfit planning, capsule wardrobes, packing lists, seasonal storage, or mindful shopping.

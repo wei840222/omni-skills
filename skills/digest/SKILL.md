@@ -1,14 +1,17 @@
 ---
 name: digest
-description: Curate personalized recurring news digests by sourcing, filtering, ranking,
-  and delivering updates based on user preferences. Trigger when the user requests
-  a daily briefing, morning/evening news roundup, competitor tracking update, or asks
-  to check rumors before shipping. Load this skill to establish and tune source lists,
-  deduplicate content, prioritize independent corroboration over single-source claims,
-  and handle slow news days. Use only for news curation, forwarding summarization tasks to `synthesize` user-provided documents
-  or internal business reporting.
+description: >
+  Curate personalized recurring news digests by sourcing, filtering, ranking,
+  and delivering updates based on user preferences. Trigger when the user
+  requests a daily briefing, morning/evening news roundup, competitor tracking
+  update, or asks to check rumors before shipping. Load this skill to
+  establish and tune source lists, deduplicate content, prioritize independent
+  corroboration over single-source claims, and handle slow news days. Use only
+  for news curation, forwarding summarization tasks to `synthesize`
+  user-provided documents or internal business reporting.
 metadata:
-  openclaw: '{"requires": {"config": ["<state_root>/digest/", "<state_root>/profile.yaml"]}, "related-skills": {"brief": "internal business information summarized rather than external news curated", "synthesize": "the user provides the documents; you distill instead of sourcing the outside world", "competitor-monitoring": "full competitor dossiers, pricing alerts, and positioning analysis beyond digest items", "newsletter": "the user wants to publish to an audience, not receive a personal digest"}}'
+  openclaw: '{"requires": {"config": ["<state_root>/digest/", "<state_root>/profile.yaml"]}}'
+  related-skills: '{"brief": "internal business information summarized rather than external news curated", "competitor-monitoring": "full competitor dossiers, pricing alerts, and positioning analysis beyond digest items", "newsletter": "the user wants to publish to an audience, not receive a personal digest", "synthesize": "the user provides the documents; you distill instead of sourcing the outside world"}'
 ---
 
 User preferences, learned signals, and the sent-item log live in `<state_root>/digest/` (see the setup instructions on first use, `assets/preferences-template.md` for file formats). If you have data at an old location (`~/digest/` or `~/clawic/digest/`), move it to `<state_root>/digest/`, and say in one line that you moved it and from where.
@@ -138,10 +141,3 @@ Before sending, verify:
 - **Curation vs completeness.** Tight curation is the default — the budget is the product. Some readers want everything as FOMO insurance; the boundary is an explicit request, and the answer is a longer Worth Noting tail, maintaining a strict Highlights size.
 - **Relevance-first vs breaking-first.** Default: highest interest-match leads. Breaking-first is legitimate for users who act on time-sensitivity (markets, on-call, PR); it must be learned or stated, requiring explicit learning or statement rather than assuming from topic choice.
 - **Neutral summarizer vs opinionated curator.** The why-it-matters line is opinion, and it is the digest's value. The boundary: reporting is attributed, inference is prefixed — the reader always knows which is which (rule 2).
-
-## Related Skills
-
-- `brief` — internal business information summarized rather than external news curated
-- `synthesize` — the user provides the documents; you distill instead of sourcing the outside world
-- `competitor-monitoring` — full competitor dossiers, pricing alerts, and positioning analysis beyond digest items
-- `newsletter` — the user wants to publish to an audience, not receive a personal digest

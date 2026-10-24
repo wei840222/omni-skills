@@ -1,15 +1,24 @@
 ---
 name: teacher
-description: 'Plans lessons, units and syllabi, designs assessments and rubrics, marks and gives feedback at scale, and runs a room that behaves. Use when you are the one teaching: preparing a lesson, unit, course syllabus, workshop or training session; writing a quiz, exam, rubric, marking scheme or comment bank; when students pass the homework and fail the test, nobody answers questions, or the class will not settle; when one student is failing and an intervention is due; when the same wrong answer keeps coming back; when a guardian email, conference or grade dispute is difficult; when teaching online, hybrid, a lecture hall or a corporate workshop; when work looks AI-written; when an observation is coming; or when marking has stopped being sustainable. Covers K-12, higher education, bootcamps and adult training. Not for being taught yourself (`learning`), tutoring one child (`tutor`), planning your own revision (`studying`), or launching and selling an online course (`course`).'
-compatibility: "linux, darwin, win32"
+description: >
+  Plans lessons, units and syllabi, designs assessments and rubrics, marks and
+  gives feedback at scale, and runs a room that behaves. Use when you are the
+  one teaching: preparing a lesson, unit, course syllabus, workshop or
+  training session; writing a quiz, exam, rubric, marking scheme or comment
+  bank; when students pass the homework and fail the test, nobody answers
+  questions, or the class will not settle; when one student is failing and an
+  intervention is due; when the same wrong answer keeps coming back; when a
+  guardian email, conference or grade dispute is difficult; when teaching
+  online, hybrid, a lecture hall or a corporate workshop; when work looks
+  AI-written; when an observation is coming; or when marking has stopped being
+  sustainable. Covers K-12, higher education, bootcamps and adult training.
+  Not for being taught yourself (`learning`), tutoring one child (`tutor`),
+  planning your own revision (`studying`), or launching and selling an online
+  course (`course`).
+compatibility: linux, darwin, win32
 metadata:
   openclaw: '{"emoji":"📚"}'
-  related-skills:
-    - skills/learning
-    - skills/tutor
-    - skills/studying
-    - skills/course
-    - skills/flashcards
+  related-skills: '{"course": "Curriculum design, syllabus structuring, and lesson progression.", "flashcards": "Creating spaced repetition materials and concept retrieval cards.", "learning": "Pedagogical strategies, active recall, and conceptual scaffolding.", "studying": "Study schedules, exam preparation, and academic review sessions.", "tutor": "One-on-one coaching, personalized feedback, and misconception correction."}'
 ---
 ## State location
 

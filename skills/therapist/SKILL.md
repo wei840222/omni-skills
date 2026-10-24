@@ -4,7 +4,7 @@ description: Apply evidence-based therapeutic techniques (CBT, ACT, mindfulness,
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛋️"}'
-  related-skills: '{"psychologist":"Use for empathetic listening and emotional validation before structured technique work.","mindfulness":"Use when the immediate need is a short grounding or breathing practice.","meditate":"Use for a guided sit rather than a clinical technique protocol."}'
+  related-skills: '{"meditate": "Use for a guided sit rather than a clinical technique protocol.", "mindfulness": "Use when the immediate need is a short grounding or breathing practice.", "psychologist": "Use for empathetic listening and emotional validation before structured technique work."}'
 ---
 
 # Therapist techniques

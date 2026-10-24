@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"☁️","requires":{"bins":["python3"]},"install":[{"id":"pyicloud","kind":"pip","package":"pyicloud==2026.10.1","label":"Install pyicloud 2026.10.1 (pip)"}]}'
-  related-skills: '{"cloud-storage":"Cross-provider storage workflows and transfer safety when the work spans Drive plus another provider.","ios":"Apple device settings, permissions, and account behavior outside the iCloud web session.","macos":"macOS keychain, SIP, and local runtime diagnostics for Apple tooling.","photos":"Local photo-library indexing and EXIF-safe organization when the workload is not iCloud Photos API access."}'
+  related-skills: '{"cloud-storage": "Cross-provider storage workflows and transfer safety when the work spans Drive plus another provider.", "ios": "Apple device settings, permissions, and account behavior outside the iCloud web session.", "macos": "macOS keychain, SIP, and local runtime diagnostics for Apple tooling.", "photos": "Local photo-library indexing and EXIF-safe organization when the workload is not iCloud Photos API access."}'
 ---
 
 # iCloud

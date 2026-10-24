@@ -4,7 +4,7 @@ description: Help users sell personal items by researching prices, writing listi
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💵"}'
-  related-skills: '{"ebay":"Platform-specific listing optimization and fee calculation for eBay sales.","etsy":"Handmade and vintage listing SEO and pricing on Etsy.","facebook-marketplace":"Local selling on Facebook Marketplace with scam detection.","negotiate":"Structured negotiation tactics for high-stakes buyer interactions.","shipping":"Carrier selection, customs, and delivery for shipped sales.","vinted":"Clothing resale on Vinted with bundle pricing and shipping."}'
+  related-skills: '{"ebay": "Platform-specific listing optimization and fee calculation for eBay sales.", "etsy": "Handmade and vintage listing SEO and pricing on Etsy.", "facebook-marketplace": "Local selling on Facebook Marketplace with scam detection.", "negotiate": "Structured negotiation tactics for high-stakes buyer interactions.", "shipping": "Carrier selection, customs, and delivery for shipped sales.", "vinted": "Clothing resale on Vinted with bundle pricing and shipping."}'
 ---
 
 Start with the item condition, sale timeline (speed versus net return), location, and willingness to ship. If the user is deciding how to respond to an offer, payment, address change, or meeting request, load `references/safety.md` before recommending a response.

@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📉"}'
-  related-skills: '{"economics":"Economic reasoning and policy tradeoff analysis.","strategy":"Structured decision design under constraints.","work":"Practical work design and role-level execution planning.","productivity":"Throughput and workflow optimization at task level.","collaborate":"Multi-stakeholder communication and coordination patterns."}'
+  related-skills: '{"collaborate": "Multi-stakeholder communication and coordination patterns.", "economics": "Economic reasoning and policy tradeoff analysis.", "productivity": "Throughput and workflow optimization at task level.", "strategy": "Structured decision design under constraints.", "work": "Practical work design and role-level execution planning."}'
 ---
 
 ## State location

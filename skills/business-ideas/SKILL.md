@@ -4,7 +4,7 @@ description: "Use when the user wants to brainstorm new business ideas, apply st
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💡"}'
-  related-skills: '{"business":"Strategy and planning for generated ideas.","indie-hacker":"Bootstrap and grow side projects solo.","startup":"Launch and scale the validated business concept."}'
+  related-skills: '{"business": "Strategy and planning for generated ideas.", "indie-hacker": "Bootstrap and grow side projects solo.", "startup": "Launch and scale the validated business concept."}'
 ---
 
 ## When to Use

@@ -4,7 +4,7 @@ description: "Manage durable cross-session memory: capture, retrieve, update, ar
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'
-  related-skills: '{"loop":"Uses durable memory as input to iterative improvement.","reflection":"Reviews learned context and decisions during self-evaluation."}'
+  related-skills: '{"loop": "Uses durable memory as input to iterative improvement.", "reflection": "Reviews learned context and decisions during self-evaluation."}'
 ---
 
 ## State location

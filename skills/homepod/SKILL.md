@@ -3,7 +3,7 @@ name: homepod
 description: Set up, troubleshoot, and optimize HomePod and Home audio workflows. Use when diagnosing Siri, Home app, automation, multiroom playback, or direct HomePod/Apple TV control; use general audio guidance when Apple Home ecosystem constraints do not drive the issue.
 metadata:
   openclaw: '{"emoji":"H"}'
-  related-skills: '{"audio":"Handles general audio routing and playback reliability beyond Apple Home environments.","ios":"Covers iPhone and iPad configuration that affects Home app control.","siri":"Diagnoses Siri intent and response behavior outside HomePod-specific workflows.","smart-home":"Provides cross-vendor smart-home architecture and reliability patterns.","wifi":"Diagnoses local network latency, packet loss, and Wi-Fi conditions."}'
+  related-skills: '{"audio": "Handles general audio routing and playback reliability beyond Apple Home environments.", "ios": "Covers iPhone and iPad configuration that affects Home app control.", "siri": "Diagnoses Siri intent and response behavior outside HomePod-specific workflows.", "smart-home": "Provides cross-vendor smart-home architecture and reliability patterns.", "wifi": "Diagnoses local network latency, packet loss, and Wi-Fi conditions."}'
 ---
 
 ## State location

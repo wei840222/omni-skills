@@ -4,7 +4,7 @@ description: Trigger this skill when the user asks about cycling training, bike 
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🚴","displayName":"Cycling"}'
-  related-skills: '{"fitness":"Broader fitness programming, cardio progression, and training plans beyond cycling-specific guidance"}'
+  related-skills: '{"fitness": "Broader fitness programming, cardio progression, and training plans beyond cycling-specific guidance"}'
 ---
 
 ## State location

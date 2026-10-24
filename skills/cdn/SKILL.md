@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"http":"Protocol-level Cache-Control, conditional requests, and status codes when the task is not CDN-edge specific.","dns":"DNS records, TTL, and Cloudflare proxy vs DNS-only before CDN hostname work.","ssl":"Certificate issuance and renewal once DNS control is verified outside CDN-managed certs.","nginx":"Origin reverse-proxy and TLS termination behind the CDN.","network":"Layer-3 reachability when CDN is only one hop among many.","firewall":"Host or edge packet filters that must allow only CDN egress IPs to origin.","aws":"Broader AWS account and IAM context when CloudFront sits inside a larger AWS design.","cloud":"General cloud landing-zone choices before locking a CDN provider."}'
+  related-skills: '{"aws": "Broader AWS account and IAM context when CloudFront sits inside a larger AWS design.", "cloud": "General cloud landing-zone choices before locking a CDN provider.", "dns": "DNS records, TTL, and Cloudflare proxy vs DNS-only before CDN hostname work.", "firewall": "Host or edge packet filters that must allow only CDN egress IPs to origin.", "http": "Protocol-level Cache-Control, conditional requests, and status codes when the task is not CDN-edge specific.", "network": "Layer-3 reachability when CDN is only one hop among many.", "nginx": "Origin reverse-proxy and TLS termination behind the CDN.", "ssl": "Certificate issuance and renewal once DNS control is verified outside CDN-managed certs."}'
 ---
 
 # CDN

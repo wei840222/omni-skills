@@ -4,7 +4,7 @@ description: Implement Alipay for web and mobile with signed request safety, gat
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💴","requires":{"bins":["curl","jq"],"env":["ALIPAY_APP_ID"]}}'
-  related-skills: '{"payments":"General payment design and checkout decision frameworks","billing":"Billing models, reconciliation, and payment lifecycle decisions","api":"Reliable backend API contracts and failure-safe integrations","auth":"Authentication and session hardening in transaction flows","android":"Android checkout implementation and runtime troubleshooting patterns"}'
+  related-skills: '{"android": "Android checkout implementation and runtime troubleshooting patterns", "api": "Reliable backend API contracts and failure-safe integrations", "auth": "Authentication and session hardening in transaction flows", "billing": "Billing models, reconciliation, and payment lifecycle decisions", "payments": "General payment design and checkout decision frameworks"}'
 ---
 
 ## Setup

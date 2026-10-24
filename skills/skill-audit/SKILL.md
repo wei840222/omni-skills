@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🛡️","displayName":"Skill Audit","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"cybersecurity":"Broader defensive security programs beyond one skill artifact.","skill-finder":"Discover candidate skills before auditing them.","skill-manager":"Install, update, and remove skills after an audit verdict.","skill-test":"Trial a skill in isolation once it passes audit.","skill-update":"Safe update mechanics once a diff-audit passes."}'
+  related-skills: '{"cybersecurity": "Broader defensive security programs beyond one skill artifact.", "skill-finder": "Discover candidate skills before auditing them.", "skill-manager": "Install, update, and remove skills after an audit verdict.", "skill-test": "Trial a skill in isolation once it passes audit.", "skill-update": "Safe update mechanics once a diff-audit passes."}'
 ---
 
 # Skill Audit

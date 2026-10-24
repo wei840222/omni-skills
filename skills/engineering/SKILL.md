@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚙️"}'
-  related-skills: '{"architecture":"Building codes, zoning, and licensed architectural practice depth.","engineer":"Systems requirements, trade-off matrices, and verification planning beyond domain coaching.","math":"Pure mathematical methods and proofs that engineering calculations depend on.","physics":"Physical modeling, units intuition, and derivation depth when the ask is physics-first.","software-engineer":"Software implementation and debugging once the engineering plan is set."}'
+  related-skills: '{"architecture": "Building codes, zoning, and licensed architectural practice depth.", "engineer": "Systems requirements, trade-off matrices, and verification planning beyond domain coaching.", "math": "Pure mathematical methods and proofs that engineering calculations depend on.", "physics": "Physical modeling, units intuition, and derivation depth when the ask is physics-first.", "software-engineer": "Software implementation and debugging once the engineering plan is set."}'
 ---
 
 # Engineering

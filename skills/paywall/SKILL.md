@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔓"}'
-  related-skills: '{"in-app-purchases":"Implement store billing, entitlements, and restore flows after paywall UX is decided.","pricing":"Broader pricing strategy and packaging outside a single paywall screen."}'
+  related-skills: '{"in-app-purchases": "Implement store billing, entitlements, and restore flows after paywall UX is decided.", "pricing": "Broader pricing strategy and packaging outside a single paywall screen."}'
 ---
 
 ## When to load

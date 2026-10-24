@@ -3,7 +3,7 @@ name: xcode
 description: Resolve common Xcode compilation and signing errors. Trigger when diagnosing Derived Data cache corruption, bundle identifier mismatches, code signing / provisioning profile issues, build settings overrides, archive-vs-simulator failures, or xcodebuild CLI destination problems.
 metadata:
   openclaw: '{"emoji":"🔨","os":["darwin"],"requires":{"bins":["xcodebuild"]}}'
-  related-skills: '{"ios":"Native iOS app lifecycle, permissions, entitlements, and App Store review beyond IDE/build settings.","swift":"Swift language mechanics, concurrency, packages, and compiler diagnostics.","app-store-connect":"ASC API for builds, metadata, and TestFlight after a successful archive.","react-native":"Cross-platform RN projects that still hit Xcode signing and archive steps."}'
+  related-skills: '{"app-store-connect": "ASC API for builds, metadata, and TestFlight after a successful archive.", "ios": "Native iOS app lifecycle, permissions, entitlements, and App Store review beyond IDE/build settings.", "react-native": "Cross-platform RN projects that still hit Xcode signing and archive steps.", "swift": "Swift language mechanics, concurrency, packages, and compiler diagnostics."}'
 ---
 
 ## State location

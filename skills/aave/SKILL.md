@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👻"}'
-  related-skills: '{"uniswap":"Token swaps and Uniswap liquidity rather than Aave lending positions.","crypto-tools":"Generic crypto data, portfolio monitoring, and exchange tooling outside Aave market analysis."}'
+  related-skills: '{"crypto-tools": "Generic crypto data, portfolio monitoring, and exchange tooling outside Aave market analysis.", "uniswap": "Token swaps and Uniswap liquidity rather than Aave lending positions."}'
 ---
 ## State location
 

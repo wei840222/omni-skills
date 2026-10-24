@@ -3,7 +3,8 @@ name: summarizer
 description: "Condense, distill, and summarize documents, meetings, papers, threads, transcripts, data, and code changes without losing claims or introducing hallucinations. Use when asked to summarize, condense, shorten, recap, distill, TLDR, abstract, or executive-summary a source; when material must hit a word count or be re-cut for a new audience or channel; or when auditing a summary that dropped, invented, or overstated a claim. Do not use for recurring external feeds (`digest`), decision memos whose point is the recommendation (`brief`), cross-source insight generation (`synthesize`), or file/video text extraction first (`extract-pdf-text`, `youtube-video-transcript`)."
 metadata:
   version: "1.0.3"
-  openclaw: '{"emoji":"📝","related-skills":{"brief":"When the deliverable is a decision document rather than a compression","synthesize":"When the point is the insight drawn across sources, not a shorter account of them","digest":"When the sources are external feeds to be curated on a schedule","meetings":"Running the meeting system itself: agendas, capture, follow-up tracking","extract-pdf-text":"Getting text out of PDFs and scans before any of this applies"}}'
+  openclaw: '{"emoji": "📝"}'
+  related-skills: '{"brief": "When the deliverable is a decision document rather than a compression", "digest": "When the sources are external feeds to be curated on a schedule", "extract-pdf-text": "Getting text out of PDFs and scans before any of this applies", "meetings": "Running the meeting system itself: agendas, capture, follow-up tracking", "synthesize": "When the point is the insight drawn across sources, not a shorter account of them"}'
 ---
 
 ## State location

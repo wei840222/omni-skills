@@ -1,38 +1,15 @@
 ---
 name: aws
-description: Architect, debug, secure, and cost-optimize AWS infrastructure. Trigger
-  this skill when investigating billing jumps, diagnosing AccessDenied or 5xx errors,
-  hardening IAM policies/security groups, auditing inherited AWS accounts, or addressing
-  service limits. Not for deep DynamoDB key modeling (dynamodb), Kubernetes manifest
-  authoring (k8s), or Terraform mechanics (terraform).
+description: >
+  Architect, debug, secure, and cost-optimize AWS infrastructure. Trigger this
+  skill when investigating billing jumps, diagnosing AccessDenied or 5xx
+  errors, hardening IAM policies/security groups, auditing inherited AWS
+  accounts, or addressing service limits. Not for deep DynamoDB key modeling
+  (dynamodb), Kubernetes manifest authoring (k8s), or Terraform mechanics
+  (terraform).
 metadata:
-  clawdbot:
-    emoji: ☁️
-    requires:
-      bins:
-      - aws
-    install:
-    - id: brew
-      kind: brew
-      formula: awscli
-      bins:
-      - aws
-      label: Install AWS CLI (Homebrew)
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: AWS | Amazon Web Services
-    configPaths:
-    - <state_root>/Clawic/data/aws/
-    - <state_root>/Clawic/data/servers/
-    - <state_root>/Clawic/profile.yaml
-  openclaw: '{"emoji":"☁️","requires":{"bins":["aws"],"config":["<state_root>/Clawic/data/aws/","<state_root>/Clawic/data/servers/","<state_root>/Clawic/profile.yaml"]},"install":[{"id":"brew","kind":"brew","formula":"awscli","bins":["aws"],"label":"Install AWS CLI (Homebrew)"}]}'
-  related-skills:
-  - terraform
-  - k8s
-  - s3
-  - dynamodb
+  openclaw: '{"emoji": "☁️", "install": [{"bins": ["aws"], "formula": "awscli", "id": "brew", "kind": "brew", "label": "Install AWS CLI (Homebrew)"}], "requires": {"bins": ["aws"], "config": ["<state_root>/Clawic/data/aws/", "<state_root>/Clawic/data/servers/", "<state_root>/Clawic/profile.yaml"]}}'
+  related-skills: '{"dynamodb": "partition/sort key modeling and query design", "infrastructure": "provider-agnostic architecture decisions", "k8s": "Kubernetes manifests and cluster debugging, for EKS workloads", "s3": "object-storage access patterns, presigned URLs, lifecycle detail", "terraform": "HCL authoring, state surgery, module design"}'
 ---
 
 **Data.** At the start of every session, read `<state_root>/Clawic/data/aws/config.yaml` (what the user declared) and `<state_root>/Clawic/data/aws/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `<state_root>/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `<state_root>/Clawic/data/servers/servers.md` before any deploy, sizing, or "what do I have" question. If none of it exists, work from defaults and say nothing about it.
@@ -253,11 +230,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 **Local storage:** preferences, memory, inventory, and cost history stay in `<state_root>/Clawic/data/aws/` on this machine — account IDs and resource names only, no secrets.
 
 **Guardrails:** commands are read-only by default. Destructive operations (delete, terminate, modify, force) are presented with their blast radius and require explicit user confirmation before running.
-
-## Related Skills
-- `terraform` — HCL authoring, state surgery, module design
-- `k8s` — Kubernetes manifests and cluster debugging, for EKS workloads
-- `s3` — object-storage access patterns, presigned URLs, lifecycle detail
-- `dynamodb` — partition/sort key modeling and query design
-- `infrastructure` — provider-agnostic architecture decisions
-

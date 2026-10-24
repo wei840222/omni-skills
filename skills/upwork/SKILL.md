@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💼"}'
-  related-skills: '{"freelance":"Practice-wide rate floor, pipeline coverage, and cash buffer outside marketplace UI tactics.","clients":"Standing client CRM and renewals when the relationship is not Upwork-specific.","negotiate":"Live counterparty bargaining once Upwork fee/Connect constraints are already clear.","fiverr":"Fiverr gig SEO and platform mechanics instead of Upwork proposals.","pricing":"Product or SaaS list pricing rather than freelancer labour rates.","career":"Employed-role offer strategy rather than marketplace freelancing."}'
+  related-skills: '{"career": "Employed-role offer strategy rather than marketplace freelancing.", "clients": "Standing client CRM and renewals when the relationship is not Upwork-specific.", "fiverr": "Fiverr gig SEO and platform mechanics instead of Upwork proposals.", "freelance": "Practice-wide rate floor, pipeline coverage, and cash buffer outside marketplace UI tactics.", "negotiate": "Live counterparty bargaining once Upwork fee/Connect constraints are already clear.", "pricing": "Product or SaaS list pricing rather than freelancer labour rates."}'
 ---
 
 # Upwork

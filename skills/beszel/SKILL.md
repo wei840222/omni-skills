@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊","requires":{"anyBins":["docker","podman"]},"configPaths":["<state_root>/"]}'
-  related-skills: '{"monitoring":"Vendor-neutral observability strategy when Beszel is only one tool among several.","server":"Host service diagnosis when the issue is not Beszel-specific.","self-host":"Whole-service self-host hardening beyond Beszel hub/agent ops.","docker":"Container runtime and image debugging for hub/agent containers.","docker-compose":"Compose wiring for multi-service hub/agent stacks.","home-server":"Homelab architecture when Beszel is one service in a larger household stack."}'
+  related-skills: '{"docker": "Container runtime and image debugging for hub/agent containers.", "docker-compose": "Compose wiring for multi-service hub/agent stacks.", "home-server": "Homelab architecture when Beszel is one service in a larger household stack.", "monitoring": "Vendor-neutral observability strategy when Beszel is only one tool among several.", "self-host": "Whole-service self-host hardening beyond Beszel hub/agent ops.", "server": "Host service diagnosis when the issue is not Beszel-specific."}'
 ---
 
 ## Setup

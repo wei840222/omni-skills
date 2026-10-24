@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.2.0"
   openclaw: '{"emoji":"📧","requires":{"bins":["himalaya"],"anyBins":["osascript","sqlite3"]},"os":["darwin","linux"],"displayName":"Mail","configPaths":["<state_root>/"]}'
-  related-skills: '{"imap":"Protocol-level IMAP UID search/sync when himalaya wrappers are not enough.","smtp":"Outbound SMTP dry-run and deliverability debugging without inbox triage.","apple-mail-macos":"Mail.app / osascript / Shortcuts automation when himalaya is unavailable.","email-management":"Inbox triage, reply drafting, and follow-up tracking strategy.","fastmail-api":"Fastmail JMAP native API instead of generic IMAP/SMTP.","google-workspace-cli":"Gmail via Google Workspace CLI / APIs instead of himalaya."}'
+  related-skills: '{"apple-mail-macos": "Mail.app / osascript / Shortcuts automation when himalaya is unavailable.", "email-management": "Inbox triage, reply drafting, and follow-up tracking strategy.", "fastmail-api": "Fastmail JMAP native API instead of generic IMAP/SMTP.", "google-workspace-cli": "Gmail via Google Workspace CLI / APIs instead of himalaya.", "imap": "Protocol-level IMAP UID search/sync when himalaya wrappers are not enough.", "smtp": "Outbound SMTP dry-run and deliverability debugging without inbox triage."}'
 ---
 
 # Mail

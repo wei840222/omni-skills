@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔬"}'
-  related-skills: '{"multi-engine-web-search":"Cross-engine discovery and site/time filters before a full investigation.","synthesize":"Combine user-provided documents instead of sourcing the outside world.","digest":"Recurring curated monitoring instead of one-off deep research.","competitor-research":"Competitor audits and positioning when the question is market rivalry rather than general investigation."}'
+  related-skills: '{"competitor-research": "Competitor audits and positioning when the question is market rivalry rather than general investigation.", "digest": "Recurring curated monitoring instead of one-off deep research.", "multi-engine-web-search": "Cross-engine discovery and site/time filters before a full investigation.", "synthesize": "Combine user-provided documents instead of sourcing the outside world."}'
 ---
 
 ## Core Role

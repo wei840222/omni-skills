@@ -7,7 +7,7 @@ description: Navigate Texas for living, moving, working, and road trips with reg
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤠","requires":{"config":["<state_root>/texas/"]}}'
-  related-skills: '{"travel":"General itinerary design and travel planning structure beyond Texas-only routing.","car-rental":"Rental car, pickup, and handoff decisions for Texas trips.","booking":"Reservation workflows for flights, hotels, and schedule holds.","business":"Broader business operations guidance beyond Texas-specific rules.","health-insurance":"Deeper insurance-plan comparison and terminology support."}'
+  related-skills: '{"booking": "Reservation workflows for flights, hotels, and schedule holds.", "business": "Broader business operations guidance beyond Texas-specific rules.", "car-rental": "Rental car, pickup, and handoff decisions for Texas trips.", "health-insurance": "Deeper insurance-plan comparison and terminology support.", "travel": "General itinerary design and travel planning structure beyond Texas-only routing."}'
 ---
 
 ## When to Use

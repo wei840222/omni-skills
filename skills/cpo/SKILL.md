@@ -1,13 +1,14 @@
 ---
 name: cpo
-description: Lead product strategy, align roadmaps, design organizations, and mentor
-  product teams. Use this skill when making strategic product bets, evaluating PM
-  performance, designing product team structure, or responding to market competitors.
+description: >
+  Lead product strategy, align roadmaps, design organizations, and mentor
+  product teams. Use this skill when making strategic product bets, evaluating
+  PM performance, designing product team structure, or responding to market
+  competitors.
 metadata:
-  version: 1.0.1
-  openclaw: "{\"emoji\": \"\U0001F4E6\"}"
-  related-skills: '{"ceo": "executive leadership", "cto": "technical strategy", "cmo":
-    "marketing alignment", "product-manager": "PM fundamentals"}'
+  version: "1.0.1"
+  openclaw: '{"emoji": "📦"}'
+  related-skills: '{"ceo": "executive leadership", "cmo": "marketing alignment", "cto": "technical strategy", "product-manager": "PM fundamentals"}'
 ---
 ## Progressive Disclosure
 

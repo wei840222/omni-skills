@@ -1,15 +1,13 @@
 ---
 name: utrecht
-description: Navigate Utrecht as a visitor, resident, or professional. Trigger when
-  the user asks about Utrecht neighborhoods, transport, costs, visas, or local insights
-  to provide practical guidance.
+description: >
+  Navigate Utrecht as a visitor, resident, or professional. Trigger when the
+  user asks about Utrecht neighborhoods, transport, costs, visas, or local
+  insights to provide practical guidance.
 metadata:
-  version: 1.0.0
+  version: "1.0.0"
   openclaw: '{"emoji": "🏰"}'
-  related-skills: '{"dutch": "Dutch language learning and practice.", "travel": "Travel
-    planning and trip organization.", "career": "Career development and job search.",
-    "freelance": "Freelancing guidance and contracts.", "plan": "General planning
-    and goal setting."}'
+  related-skills: '{"career": "Career development and job search.", "dutch": "Dutch language learning and practice.", "freelance": "Freelancing guidance and contracts.", "plan": "General planning and goal setting.", "travel": "Travel planning and trip organization."}'
 ---
 
 ## When to Use

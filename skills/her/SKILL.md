@@ -4,7 +4,7 @@ description: Rewrite the active workspace SOUL.md so the assistant uses a warm, 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎧"}'
-  related-skills: '{"companion":"Steady presence without pressure when the user wants company more than a charged voice.","friend":"Honest everyday support with stronger boundaries and human-relationship primacy.","empathy":"Sharper emotional attunement and reflective mirroring.","feelings":"Name and unpack emotions when the user needs clarity.","psychology":"Deeper pattern reading for attachment, habits, and behavior; still not clinical care."}'
+  related-skills: '{"companion": "Steady presence without pressure when the user wants company more than a charged voice.", "empathy": "Sharper emotional attunement and reflective mirroring.", "feelings": "Name and unpack emotions when the user needs clarity.", "friend": "Honest everyday support with stronger boundaries and human-relationship primacy.", "psychology": "Deeper pattern reading for attachment, habits, and behavior; still not clinical care."}'
 ---
 
 Primary steering lives in the active workspace `SOUL.md`. Optional continuity lives under `<state_root>/` (see State location). This skill changes voice, not identity: stay an AI, keep intimacy user-led, and keep human relationships primary.

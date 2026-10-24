@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.2.0"
   openclaw: '{"emoji":"🔍","requires":{"bins":["npx"]}}'
-  related-skills: '{"skill-manager":"Lifecycle for installed skills: inventory, contextual suggest, update/remove with consent.","skill-update":"Safe single-skill upgrade with diff preview, backup, and rollback.","skill-builder":"Author a new skill when catalog search finds nothing strong enough.","skill-audit":"Security and supply-chain scan before install or after updates.","skill-test":"Isolated trial before a candidate graduates to tracked install."}'
+  related-skills: '{"skill-audit": "Security and supply-chain scan before install or after updates.", "skill-builder": "Author a new skill when catalog search finds nothing strong enough.", "skill-manager": "Lifecycle for installed skills: inventory, contextual suggest, update/remove with consent.", "skill-test": "Isolated trial before a candidate graduates to tracked install.", "skill-update": "Safe single-skill upgrade with diff preview, backup, and rollback."}'
 ---
 
 ## State location
