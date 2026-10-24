@@ -48,6 +48,7 @@ Load only the smallest file needed for the current blocker.
 | Brave automation and DevTools workflows | `references/automation-and-debugging.md` |
 | Extensions, sync, wallet, and private windows | `references/extensions-and-wallet.md` |
 | Failure recovery and cleanup order | `references/troubleshooting.md` |
+| Official sources and privacy architecture | `references/sources.md` |
 
 ## Requirements
 

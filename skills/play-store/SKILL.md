@@ -15,6 +15,7 @@ Trigger this skill when the user needs to prepare, publish, or optimize an Andro
 | Listing requirements | `references/listing.md` |
 | ASO strategy | `references/aso.md` |
 | Policy compliance | `references/policies.md` |
+| Official policies and target SDK rules | `references/sources.md` |
 
 ## Core Rules
 
@@ -76,7 +77,7 @@ Before any release:
 - [ ] All store listing fields complete
 - [ ] Privacy policy URL valid and accessible
 - [ ] Content rating applied
-- [ ] Target API level meets current requirements (API 34+)
+- [ ] Target API level meets current requirements (Android 16 / API 36+ for phone/tablet)
 - [ ] 64-bit support included
 - [ ] App bundle format (.aab), not APK
 - [ ] Deobfuscation files uploaded
@@ -87,7 +88,7 @@ Before any release:
 - **Ignoring tablet screenshots** → Missed visibility on tablets and Chromebooks.
 - **Keyword in developer name** → Policy violation, can get suspended.
 - **Missing privacy policy** → Instant rejection if app requests any permissions.
-- **Low target API** → Apps must target API 34+ for new submissions.
+- **Low target API** → Apps must target current requirements (API 36+ for phone/tablet) for new submissions.
 - **APK instead of AAB** → Required since 2021, AAB enables dynamic delivery.
 - **Ignoring ANR rate** → >0.47% ANR rate triggers bad quality warnings.
 - **Changelog copy-paste** → Users notice, hurts trust. Be specific about changes.

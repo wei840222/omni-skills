@@ -47,6 +47,7 @@ Memory lives under the resolved `<state_root>`. See `assets/memory-template.md` 
 | Policy compliance | `references/policies.md` |
 | Rejection recovery | `references/rejections.md` |
 | Automation with Fastlane | `references/fastlane.md` |
+| Official policies and target SDK rules | `references/sources.md` |
 
 ## Core Rules
 

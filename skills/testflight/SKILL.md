@@ -15,6 +15,7 @@ User needs to distribute beta builds via TestFlight. Agent handles App Store Con
 | Topic | File | When to load |
 |-------|------|--------------|
 | CI/CD automation | `references/ci-cd.md` | When setting up GitHub Actions, Fastlane, or xcrun altool uploads. |
+| Official sources & API references | `references/sources.md` | When verifying TestFlight quotas, App Store Connect API endpoints, or review guidelines. |
 
 ## Core Rules
 
