@@ -20,3 +20,4 @@ S3 is a remote object storage service and does not maintain local persistent sta
 
 ## Quick Reference
 Load `references/s3-concepts.md` when diagnosing presigned URL issues, configuring lifecycle rules, setting up CORS, or handling multipart uploads.
+Load `references/sources.md` to review official Amazon S3 documentation, presigned URL guidelines, and pricing rules.

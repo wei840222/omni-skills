@@ -267,3 +267,7 @@ Environment-specific facts that defy reasonable assumptions:
 - Using mutable tags for actions — `@v4` can be moved to malicious commit
 - Storing long-lived cloud credentials as secrets — use OIDC federation instead
 - Direct interpolation of user input in workflows — use environment variables
+
+## Research Sources
+
+Load `references/sources.md` for official GitOps standards, Argo CD / Flux documentation, and SLSA / Sigstore supply chain security specifications.

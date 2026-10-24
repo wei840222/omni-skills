@@ -57,6 +57,7 @@ Load only the minimum file needed for the current request.
 | Blueprint workflow and render.yaml rules | `references/blueprint-workflow.md` | Generating or applying `render.yaml` |
 | Authentication and MCP execution mapping | `references/direct-creation.md` | Using Direct Creation or MCP services |
 | Startup and healthcheck troubleshooting | `references/troubleshooting.md` | Analyzing failed deploys or crashes |
+| Platform docs and blueprint specs | `references/sources.md` | Checking official Render docs and blueprint specifications |
 
 ## Authentication Model
 

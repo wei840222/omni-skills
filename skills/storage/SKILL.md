@@ -14,3 +14,4 @@ When asked to choose, architect, or evaluate storage systems for applications, u
 | Reference File | Description | When to load |
 |---|---|---|
 | `references/storage-knowledge.md` | Core storage system knowledge, tradeoffs, and patterns | Always load when making storage architecture decisions |
+| `references/sources.md` | Storage specifications, NVMe-oF standards, and Valkey references | Load when checking hardware standards or caching engine documentation |

@@ -45,6 +45,7 @@ Use explicit read commands to load these references when needed:
 - `references/security.md`: For secrets, WAF, and general hardening.
 - `references/services.md`: For service quotas and general service details.
 - `references/storage.md`: For S3, EBS, and EFS.
+- `references/sources.md`: For official AWS documentation and Well-Architected Framework guidelines.
 
 ## Quick Reference
 
