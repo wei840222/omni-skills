@@ -51,6 +51,7 @@ Load only the file needed for the current blocker.
 | Video, music, and async media jobs | `references/media-generation.md` |
 | MCP boundaries and orchestration choices | `references/mcp-and-orchestration.md` |
 | Failure recovery and debugging | `references/troubleshooting.md` |
+| Official docs & API references | `references/sources.md` |
 
 ## Requirements
 

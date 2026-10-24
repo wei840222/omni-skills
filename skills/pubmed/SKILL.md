@@ -20,3 +20,4 @@ Load this skill when the user asks to:
 1. **Load Reference Material**: Before providing PubMed query guidance or literature appraisal, you must read `references/guide.md`.
 2. **Apply Structured Searching**: Use PICO framework and recommended query syntax (e.g., uppercase Boolean operators) detailed in the guide.
 3. **Appraise Effectively**: Follow the study hierarchy and critical appraisal guidelines.
+4. **Official Sources and API**: For PubMed search rules, MeSH vocabulary, and NCBI E-utilities API rate limits, load `references/sources.md`.

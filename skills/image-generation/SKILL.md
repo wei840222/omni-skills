@@ -53,6 +53,7 @@ On first use, read `references/setup.md`.
 | Ideogram | `references/ideogram.md` | Typography-focused generation |
 | Replicate | `references/replicate.md` | Hosted third-party model routing |
 | Stable Diffusion | `references/stable-diffusion.md` | Local or open-weight SDXL workflows |
+| Official sources & specifications | `references/sources.md` | When checking official provider docs or model specifications |
 
 ## Core Rules and Common Traps
 

@@ -48,6 +48,7 @@ Use the smallest file that resolves the blocker.
 | Hosted versus self-hosted decisions | `references/deployment-paths.md` |
 | Tool-calling and structured output guardrails | `references/tool-calling.md` |
 | Debugging and recovery | `references/troubleshooting.md` |
+| Architecture & official sources | `references/sources.md` |
 
 ## Requirements
 

@@ -54,6 +54,7 @@ Load this skill when tasked with generating or troubleshooting music via Suno. F
 - **Commercial/Release Prep**: Load `references/release.md`.
 - **API Generation**: Load `references/api.md`.
 - **Browser Automation**: Load `references/browser.md`.
+- **Official Sources & Specs**: Load `references/sources.md`.
 
 Maintain focus on Suno generation. Route tasks involving editing existing audio to `audio` or `ffmpeg` (use `audio` or `ffmpeg`).
 

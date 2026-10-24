@@ -48,6 +48,7 @@ Memory at `<state_root>/udio/`. See `references/memory-template.md` for structur
 | Prompt crafting | `references/prompts.md` |
 | Style tags | `references/styles.md` |
 | Lyrics guide | `references/lyrics.md` |
+| Official sources & specs | `references/sources.md` |
 
 ## Core Rules
 

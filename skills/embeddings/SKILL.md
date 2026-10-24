@@ -18,6 +18,7 @@ User wants to convert text/images to vectors, build semantic search, or integrat
 | Vector database patterns | `references/storage.md` | Load when setting up vector storage like Pinecone, Weaviate, Qdrant, or pgvector. |
 | Search & retrieval tuning | `references/search.md` | Load when optimizing queries, implementing hybrid search, or improving relevance scores. |
 | Domain knowledge | `references/knowledge.md` | Load when needing foundational context on vector databases and embeddings. |
+| Vector benchmarks & official sources | `references/sources.md` | Load when verifying model specs, dimension support, or MTEB benchmark rankings. |
 
 ## Core Capabilities
 

@@ -32,6 +32,7 @@ Use the selected `<state_root>` for every state operation in this skill. All per
 |-------|------|
 | Setup process | `references/setup.md` |
 | Memory template | `references/memory-template.md` |
+| Official docs & API references | `references/sources.md` |
 
 ## Core Rules
 
