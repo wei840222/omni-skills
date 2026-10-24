@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🗄️"}'
-  related-skills: '{"nas":"Multi-vendor NAS capacity, RAID-vs-backup, and media layout when the box is not DSM-only.","backups":"Vendor-neutral backup architecture, immutability, and restore drills beyond Hyper Backup.","self-host":"Service ownership and long-term ops once Synology is only the host.","docker":"Dockerfile/Compose debugging when Container Manager is mainly a Docker host.","home-server":"Full homelab design covering network, remote access, and household services.","wireguard":"WireGuard peer and AllowedIPs details after VPN is chosen over QuickConnect."}'
+  related-skills: '{"backups": "Vendor-neutral backup architecture, immutability, and restore drills beyond Hyper Backup.", "docker": "Dockerfile/Compose debugging when Container Manager is mainly a Docker host.", "home-server": "Full homelab design covering network, remote access, and household services.", "nas": "Multi-vendor NAS capacity, RAID-vs-backup, and media layout when the box is not DSM-only.", "self-host": "Service ownership and long-term ops once Synology is only the host.", "wireguard": "WireGuard peer and AllowedIPs details after VPN is chosen over QuickConnect."}'
 ---
 
 ## When to Use

@@ -1,14 +1,15 @@
 ---
 name: batch
-description: Use this skill to process multiple items, iterate over large collections,
-  or handle batch tasks requiring progress tracking, checkpointing, and failure recovery.
-  Load `references/strategies.md` to decide between parallel and sequential strategies,
-  and `references/errors.md` for retry logic and rollback patterns.
+description: >
+  Use this skill to process multiple items, iterate over large collections, or
+  handle batch tasks requiring progress tracking, checkpointing, and failure
+  recovery. Load `references/strategies.md` to decide between parallel and
+  sequential strategies, and `references/errors.md` for retry logic and
+  rollback patterns.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "📦"}'
-  related-skills:
-  - delegate
+  related-skills: '{"delegate": "Delegate bounded, independent tasks to sub-agents when parallel work costs less than manual execution; select capability tiers, recover from failures, and verify results"}'
 ---
 ## Before Starting
 

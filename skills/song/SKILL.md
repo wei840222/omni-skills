@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎵"}'
-  related-skills: '{"music":"Track discoveries, playlists, and concerts rather than compose.","music-generation":"Run multi-provider AI generation once composition intent is clear.","suno":"Suno-specific generation, credits, and delivery when the user targets that product.","audio":"Process local audio/video files with FFmpeg rather than write songs.","writing":"General prose voice craft outside lyric meter and song form."}'
+  related-skills: '{"audio": "Process local audio/video files with FFmpeg rather than write songs.", "music": "Track discoveries, playlists, and concerts rather than compose.", "music-generation": "Run multi-provider AI generation once composition intent is clear.", "suno": "Suno-specific generation, credits, and delivery when the user targets that product.", "writing": "General prose voice craft outside lyric meter and song form."}'
 ---
 
 # Song

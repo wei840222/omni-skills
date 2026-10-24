@@ -6,7 +6,7 @@ description: >
   bridging assets, verifying contracts on bscscan, or managing BEP-20 tokens.
 metadata:
   openclaw: '{"emoji": "🔶"}'
-  related-skills: '{"ethereum":"Handle Ethereum/L2 gas, approvals, and bridges instead of BNB Chain BEP-20 flows.","blockchain":"Cover general ledger and EVM fundamentals beyond BNB-specific network and token mechanics.","crypto-tools":"Fetch market data and exchange tooling once BNB Chain transaction mechanics are settled.","binance":"Handle Binance exchange account/API workflows rather than on-chain BNB Chain operations.","aave":"Analyze multi-chain Aave positions when the request leaves BNB-native DeFi mechanics."}'
+  related-skills: '{"aave": "Analyze multi-chain Aave positions when the request leaves BNB-native DeFi mechanics.", "binance": "Handle Binance exchange account/API workflows rather than on-chain BNB Chain operations.", "blockchain": "Cover general ledger and EVM fundamentals beyond BNB-specific network and token mechanics.", "crypto-tools": "Fetch market data and exchange tooling once BNB Chain transaction mechanics are settled.", "ethereum": "Handle Ethereum/L2 gas, approvals, and bridges instead of BNB Chain BEP-20 flows."}'
 ---
 
 ## When to load

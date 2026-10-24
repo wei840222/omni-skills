@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📚"}'
-  related-skills: '{"documentation":"Product/README/API documentation systems and Diátaxis structure rather than wiki page craft.","wiki-js":"Wiki.js deployment, editor, permission, and sync traps.","pkm":"Personal atomic-note knowledge bases where the link graph is the product.","notes":"Capture and retrieval across note apps rather than wiki information architecture.","markdown":"Markdown syntax and parser compatibility under wiki content."}'
+  related-skills: '{"documentation": "Product/README/API documentation systems and Diátaxis structure rather than wiki page craft.", "markdown": "Markdown syntax and parser compatibility under wiki content.", "notes": "Capture and retrieval across note apps rather than wiki information architecture.", "pkm": "Personal atomic-note knowledge bases where the link graph is the product.", "wiki-js": "Wiki.js deployment, editor, permission, and sync traps."}'
 ---
 
 # Wiki

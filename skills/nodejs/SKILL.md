@@ -1,13 +1,13 @@
 ---
 name: nodejs
-description: 'Build, debug, and harden Node.js servers, CLIs, and npm packages. Trigger when writing code for Node, debugging memory leaks, OOM crashes, unhandled rejections, EADDRINUSE/EMFILE errors, or optimizing event loops and streams. Does not cover browser-only JS, TS type-system design, or Bun/Deno.'
+description: >
+  Build, debug, and harden Node.js servers, CLIs, and npm packages. Trigger
+  when writing code for Node, debugging memory leaks, OOM crashes, unhandled
+  rejections, EADDRINUSE/EMFILE errors, or optimizing event loops and streams.
+  Does not cover browser-only JS, TS type-system design, or Bun/Deno.
 metadata:
   openclaw: '{"emoji": "💚", "requires": {"bins": ["node"]}, "configPaths": ["<state_root>/nodejs/"]}'
-  related-skills:
-    javascript: skills/javascript
-    typescript: skills/typescript
-    docker: skills/docker
-    api: skills/api
+  related-skills: '{"api": "Use to debug, authenticate, or write client code for calling third-party REST/GraphQL APIs (e", "docker": "Build, debug, harden, and ship Docker containers, images, and Compose stacks", "javascript": "Writes, debugs, and reviews JavaScript: async/event loop, coercion, closures, dates, Unicode, regex, and ES2023+", "typescript": "Writes, reviews, and debugs type-safe TypeScript: type errors, narrowing, generics, tsconfig strictness, and declaration files"}'
 ---
 
 User preferences and memory live in `<state_root>/nodejs/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/nodejs/` or `~/clawic/nodejs/`), move it to `<state_root>/nodejs/`, and say in one line that you moved it and from where.
@@ -171,12 +171,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Dual CJS+ESM packages vs ESM-only.** Dual carries the two-instance hazard (`instanceof` fails across copies, module state duplicates); ESM-only is viable once consumers are ESM or run node >=22.12, where `require()` of a sync ESM graph works.
 - **`node:test` vs Jest vs Vitest.** `node:test` for new libraries — no transform layer, native ESM, no hoisting magic; Jest for existing suites with heavy matcher and snapshot use; Vitest where the project already runs a Vite pipeline. Migrating a green suite for aesthetics is a net loss.
 - **TypeScript at runtime vs a build step.** Type stripping deletes the toolchain for apps deployed from source; a `tsc` build stays correct for published libraries that must ship `.d.ts` and support older consumers.
-
-## Related Skills
-
-- `javascript` — language-level semantics: coercion, closures, dates, regex
-- `typescript` — type-system design, tsconfig strictness, declaration files
-- `docker` — containerizing the service, image layers, resource limits
-- `api` — HTTP API design, versioning, and contracts above the runtime
-
-Authoritative Node runtime docs and release anchors: `references/sources.md`.

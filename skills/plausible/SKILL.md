@@ -1,12 +1,11 @@
 ---
 name: plausible
-description: Query Plausible Analytics API for website traffic stats, visitors, pageviews, referrers, conversions, and custom events.
+description: >
+  Query Plausible Analytics API for website traffic stats, visitors,
+  pageviews, referrers, conversions, and custom events.
 metadata:
   openclaw: '{"emoji": "📊", "requires": {"bins": null, "env": ["PLAUSIBLE_API_KEY"]}}'
-  related-skills:
-  - skills/analytics
-  - skills/umami
-  - skills/mixpanel
+  related-skills: '{"analytics": "Deploy and harden privacy-first web analytics with Umami, Plausible, and PostHog: API auth patterns, event capture, rate limits, PII boundaries, and GDPR consent/retention defaults", "mixpanel": "Query Mixpanel product analytics with Service Account auth: Retention, Engage profiles, Insights-first reporting, Raw Event Export, and legacy Funnels/JQL caveats", "umami": "Integrate, configure, and troubleshoot Umami analytics for pageviews, custom events, SPA route tracking, self-hosting, and ad-blocker bypass"}'
 ---
 
 

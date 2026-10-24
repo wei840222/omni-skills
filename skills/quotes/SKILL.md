@@ -6,7 +6,7 @@ description: Capture, organize, tag, and proactively surface meaningful quotes w
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💬"}'
-  related-skills: '{"affirmations":"Positive self-talk practice rather than collected quotations.","habits":"Recurring delivery routines once quote cadence is chosen.","journal":"Reflective writing that may cite or expand on saved quotes.","remember":"Durable preferences and decisions outside quote collections."}'
+  related-skills: '{"affirmations": "Positive self-talk practice rather than collected quotations.", "habits": "Recurring delivery routines once quote cadence is chosen.", "journal": "Reflective writing that may cite or expand on saved quotes.", "remember": "Durable preferences and decisions outside quote collections."}'
 ---
 
 ## State location

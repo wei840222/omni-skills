@@ -1,10 +1,12 @@
 ---
 name: speak
-description: Write and convert text into natural speech-ready output with SSML tags.
-  Trigger when preparing replies to be read aloud, converting scripts for TTS, or
-  fixing mispronunciations, bad pacing, and robotic voices.
+description: >
+  Write and convert text into natural speech-ready output with SSML tags.
+  Trigger when preparing replies to be read aloud, converting scripts for TTS,
+  or fixing mispronunciations, bad pacing, and robotic voices.
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/speak/"]}}'
+  related-skills: '{"audio": "process the audio files themselves: conversion, cleanup, normalization", "listen": "the input side: speech-to-text and transcription accuracy", "talk": "set up the real-time two-way voice session this skill writes for"}'
 ---
 
 Convert written replies into speech-ready text and adapt voice, rate, and phrasing. Persistent preferences are stored in `<state_root>/speak/`.
@@ -166,8 +168,3 @@ Before sending any string to a TTS engine:
 - **Verbatim vs rewritten.** Accessibility practice reads documents faithfully — screen-reader users expect the text, not a summary; assistant practice rewrites for the ear. Boundary: user-authored content read back → verbatim with normalization only; the agent's own replies → rewritten (`references/audiences.md`).
 - **SSML vs punctuation.** SSML gives precision on one engine; punctuation survives every engine. Default: punctuation first, SSML only after a per-engine test passes (`references/ssml.md`).
 - **Faked disfluencies.** One voice-UX school injects "hmm" and discourse markers for warmth; the other calls faked hesitation deceptive. Default: none — carry warmth in word choice; switch only on explicit user request.
-
-## Related Skills
-- `talk` — set up the real-time two-way voice session this skill writes for
-- `listen` — the input side: speech-to-text and transcription accuracy
-- `audio` — process the audio files themselves: conversion, cleanup, normalization

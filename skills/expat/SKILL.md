@@ -4,7 +4,7 @@ description: "Help plan and track an international move: compare destinations, o
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌍"}'
-  related-skills: '{"travel":"Plan travel and packing for a move.","money":"Track a relocation budget and financial tasks.","projects":"Coordinate a complex multi-stage relocation plan."}'
+  related-skills: '{"money": "Track a relocation budget and financial tasks.", "projects": "Coordinate a complex multi-stage relocation plan.", "travel": "Plan travel and packing for a move."}'
 ---
 
 # Expat Companion 🌍

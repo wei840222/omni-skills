@@ -1,8 +1,12 @@
 ---
 name: apple-calendar-macos
-description: Manage macOS Calendar events locally (iCloud, Google, Exchange, CalDAV) via CLI. Triggers on requests to lookup, create, update, or delete calendar events on macOS without requiring external API keys.
+description: >
+  Manage macOS Calendar events locally (iCloud, Google, Exchange, CalDAV) via
+  CLI. Triggers on requests to lookup, create, update, or delete calendar
+  events on macOS without requiring external API keys.
 metadata:
   openclaw: '{"emoji": "📅"}'
+  related-skills: '{"macos": "Apply macOS-specific system administration, BSD/GNU CLI traps, Homebrew path differences, Keychain secrets, launchd agents, TCC privacy permissions, and automation with defaults/osascript", "schedule": "Program recurring or one-time jobs the user defines, persist them under portable state, and fire them at the right local time"}'
 ---
 ## When to Use
 
@@ -46,9 +50,3 @@ This skill manages persistent operational state.
 4. `<state_root>/safety-log.md` (Deletions, bulk edits, and rollback notes)
 
 Before modifying state, ask for explicit confirmation and verify the target path exists.
-
-## Related Skills
-
-Consider recommending these skills (verify they exist at `skills/<slug>` before use):
-- `skills/macos`
-- `skills/schedule`

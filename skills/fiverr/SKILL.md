@@ -8,7 +8,7 @@ description: Optimize Fiverr gigs, handle buyer communication, evaluate red flag
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💼"}'
-  related-skills: '{"freelance":"Cross-platform freelancing strategy when the work is not Fiverr-specific.","upwork":"Upwork proposals, contracts, and client workflows instead of Fiverr gigs.","legal":"Deeper contract, IP, or jurisdiction analysis beyond Fiverr marketplace AI/ToS notes.","content-marketing":"Long-form content systems when gig delivery is content production at scale.","copywriting":"Dedicated copy craft when the primary task is writing rather than Fiverr ops.","clients":"Durable client CRM context outside a single Fiverr order thread."}'
+  related-skills: '{"clients": "Durable client CRM context outside a single Fiverr order thread.", "content-marketing": "Long-form content systems when gig delivery is content production at scale.", "copywriting": "Dedicated copy craft when the primary task is writing rather than Fiverr ops.", "freelance": "Cross-platform freelancing strategy when the work is not Fiverr-specific.", "legal": "Deeper contract, IP, or jurisdiction analysis beyond Fiverr marketplace AI/ToS notes.", "upwork": "Upwork proposals, contracts, and client workflows instead of Fiverr gigs."}'
 ---
 
 ## When to load

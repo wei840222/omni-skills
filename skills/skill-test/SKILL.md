@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧪"}'
-  related-skills: '{"skill-audit":"Security and supply-chain scan before trusting a candidate.","skill-builder":"Author or restructure a skill after evaluation findings.","skill-finder":"Discover and install candidates to compare.","skill-manager":"Lifecycle tracking after a trial graduates to install.","skill-publish":"Registry publish path after evaluation passes.","skill-update":"Safe update/diff/rollback when re-testing an installed skill."}'
+  related-skills: '{"skill-audit": "Security and supply-chain scan before trusting a candidate.", "skill-builder": "Author or restructure a skill after evaluation findings.", "skill-finder": "Discover and install candidates to compare.", "skill-manager": "Lifecycle tracking after a trial graduates to install.", "skill-publish": "Registry publish path after evaluation passes.", "skill-update": "Safe update/diff/rollback when re-testing an installed skill."}'
 ---
 
 ## When to load

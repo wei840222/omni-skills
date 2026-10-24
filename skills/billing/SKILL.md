@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💳"}'
-  related-skills: '{"stripe-api-integration":"Stripe API call patterns once billing rules are chosen.","payments":"One-off checkout and payment capture outside subscription lifecycle.","subscriptions":"Subscription product design when the question is offer shape rather than PSP state.","paddle":"Paddle merchant-of-record billing instead of direct Stripe.","paypal":"PayPal-specific capture and dispute flows.","accounting":"Books, close, and ledger treatment after revenue events are recognized."}'
+  related-skills: '{"accounting": "Books, close, and ledger treatment after revenue events are recognized.", "paddle": "Paddle merchant-of-record billing instead of direct Stripe.", "payments": "One-off checkout and payment capture outside subscription lifecycle.", "paypal": "PayPal-specific capture and dispute flows.", "stripe-api-integration": "Stripe API call patterns once billing rules are chosen.", "subscriptions": "Subscription product design when the question is offer shape rather than PSP state."}'
 ---
 
 # Billing

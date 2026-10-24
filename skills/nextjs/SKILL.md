@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.1.2"
   openclaw: '{"emoji":"⚡"}'
-  related-skills: '{"react":"Plain React fundamentals when the ask is not Next.js App Router specific.","typescript":"Type-safety patterns that apply beyond Next.js route/module boundaries.","prisma":"Database ORM setup and query patterns used with Next.js Server Components.","tailwindcss":"Utility-class styling choices and RSC-compatible client boundaries.","nodejs":"Node runtime, packaging, and server process concerns outside Next-specific routing."}'
+  related-skills: '{"nodejs": "Node runtime, packaging, and server process concerns outside Next-specific routing.", "prisma": "Database ORM setup and query patterns used with Next.js Server Components.", "react": "Plain React fundamentals when the ask is not Next.js App Router specific.", "tailwindcss": "Utility-class styling choices and RSC-compatible client boundaries.", "typescript": "Type-safety patterns that apply beyond Next.js route/module boundaries."}'
 ---
 
 # Next.js App Router

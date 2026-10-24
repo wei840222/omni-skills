@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🍓","os":["linux","darwin"]}'
-  related-skills: '{"docker":"Container Engine install and image/runtime debugging once the Pi host is stable.","firewall":"Host or edge firewall rules after Pi exposure decisions.","iot":"Multi-protocol device planning when the Pi is one node among others.","linux":"Generic Linux host triage beyond Pi-specific boot, power, and GPIO.","network":"Broader LAN design when Pi networking is only one segment.","smart-home":"Hub and room automation product choice when Pi is an appliance host.","wireguard":"VPN overlay when remote Pi access should not rely on forwarded SSH."}'
+  related-skills: '{"docker": "Container Engine install and image/runtime debugging once the Pi host is stable.", "firewall": "Host or edge firewall rules after Pi exposure decisions.", "iot": "Multi-protocol device planning when the Pi is one node among others.", "linux": "Generic Linux host triage beyond Pi-specific boot, power, and GPIO.", "network": "Broader LAN design when Pi networking is only one segment.", "smart-home": "Hub and room automation product choice when Pi is an appliance host.", "wireguard": "VPN overlay when remote Pi access should not rely on forwarded SSH."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state. Keep inventory notes, hostnames, and credentials in ordinary user files outside the skill package.

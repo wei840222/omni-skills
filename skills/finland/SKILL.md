@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇫🇮"}'
-  related-skills: '{"travel":"Multi-country trip systems when Finland is one stop among several.","booking":"Reservation search and booking completion after a Finland base or corridor is chosen.","car-rental":"Vehicle pickup, insurance, and winter-equipment handoff for self-drive Finland segments.","food":"Deeper restaurant and cuisine planning beyond the Finland food playbook.","english":"Communication clarity for bookings, menus, and service interactions.","finnish":"Finnish language support when local wording is the main need.","travel-planning":"Day-by-day multi-stop itineraries when the trip leaves Finland."}'
+  related-skills: '{"booking": "Reservation search and booking completion after a Finland base or corridor is chosen.", "car-rental": "Vehicle pickup, insurance, and winter-equipment handoff for self-drive Finland segments.", "english": "Communication clarity for bookings, menus, and service interactions.", "finnish": "Finnish language support when local wording is the main need.", "food": "Deeper restaurant and cuisine planning beyond the Finland food playbook.", "travel": "Multi-country trip systems when Finland is one stop among several.", "travel-planning": "Day-by-day multi-stop itineraries when the trip leaves Finland."}'
 ---
 
 ## State location

@@ -3,7 +3,7 @@ name: video-downloader
 description: Download online videos with quality and format controls using yt-dlp for reliable local saves.
 metadata:
   openclaw: '{"emoji":"⬇️","requires":{"bins":["yt-dlp","python3"],"install":[{"id":"brew","kind":"brew","formula":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (Homebrew)"}]},"os":["linux","darwin"]}'
-  related-skills: '{"video":"General video processing workflows beyond one-off downloads.","ffmpeg":"Codec conversion and remux tasks after a download.","audio":"Audio cleanup workflows when the user needs post-processing beyond MP3 extraction.","youtube-video-transcript":"Transcript extraction when the user needs text rather than a media file."}'
+  related-skills: '{"audio": "Audio cleanup workflows when the user needs post-processing beyond MP3 extraction.", "ffmpeg": "Codec conversion and remux tasks after a download.", "video": "General video processing workflows beyond one-off downloads.", "youtube-video-transcript": "Transcript extraction when the user needs text rather than a media file."}'
 ---
 
 # Video Downloader

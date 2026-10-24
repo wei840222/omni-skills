@@ -5,7 +5,7 @@ description: Deploy, manage, and troubleshoot Zigbee mesh networks. Load this sk
   migrating coordinators, or resolving 2.4GHz interference.
 metadata:
   openclaw: '{"emoji":"🐝"}'
-  related-skills: '{"smart-home":"Broader hub, automation, and protocol selection when Zigbee is only one layer.","mqtt":"Broker, topic, and QoS design when Zigbee is bridged through MQTT or Zigbee2MQTT.","iot":"Cross-protocol device planning when Zigbee must coexist with Wi-Fi, Thread, or other transports.","home":"General home maintenance framing outside mesh-network operations.","thermostat":"HVAC comfort and schedule work once Zigbee climate devices are reachable."}'
+  related-skills: '{"home": "General home maintenance framing outside mesh-network operations.", "iot": "Cross-protocol device planning when Zigbee must coexist with Wi-Fi, Thread, or other transports.", "mqtt": "Broker, topic, and QoS design when Zigbee is bridged through MQTT or Zigbee2MQTT.", "smart-home": "Broader hub, automation, and protocol selection when Zigbee is only one layer.", "thermostat": "HVAC comfort and schedule work once Zigbee climate devices are reachable."}'
 ---
 
 ## State location

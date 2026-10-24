@@ -4,7 +4,7 @@ description: Triggers when the user requests to search for destinations, compare
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","requires":{"bins":["curl","jq","sed"],"env":["TRIPADVISOR_API_KEY"]},"primaryEnv":"TRIPADVISOR_API_KEY"}'
-  related-skills: '{"booking":"Compare accommodation options and total cost breakdowns after shortlisting.","travel":"Extend Tripadvisor shortlists into broader trip planning workflows.","apple-maps":"Validate route friction and area accessibility for shortlisted places.","search-engine":"Improve query iteration and source triangulation beyond Tripadvisor.","expenses":"Track trip spending after shortlist decisions.","yelp":"Cross-check local restaurant and business signals outside travel-heavy Tripadvisor results."}'
+  related-skills: '{"apple-maps": "Validate route friction and area accessibility for shortlisted places.", "booking": "Compare accommodation options and total cost breakdowns after shortlisting.", "expenses": "Track trip spending after shortlist decisions.", "search-engine": "Improve query iteration and source triangulation beyond Tripadvisor.", "travel": "Extend Tripadvisor shortlists into broader trip planning workflows.", "yelp": "Cross-check local restaurant and business signals outside travel-heavy Tripadvisor results."}'
 ---
 
 
@@ -126,11 +126,3 @@ Restricted actions (must decline):
 - Claim guaranteed booking outcomes
 - Present uncertain data as verified facts
 - Execute purchases or account actions without explicit user instruction
-
-## Related Skills
-- `booking` — compare accommodation options and total cost breakdowns
-- `travel` — manage broader trip planning workflows
-- `apple-maps` — validate route friction and area accessibility on macOS
-- `search-engine` — improve query iteration and source triangulation
-- `expenses` — track trip spending after shortlist decisions
-- `yelp` — cross-check local restaurant and business signals outside travel-heavy Tripadvisor results

@@ -5,7 +5,7 @@ metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📦"}'
   related-skills:
-    home: skills/home
+    '{"home": "Practical living-space guidance for renters and owners: safety boundaries, maintenance priorities, layout and energy basics, organization, starter plants, and budget sequencing"}'
 ---
 
 ## State location

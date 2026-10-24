@@ -3,7 +3,7 @@ name: scanner
 description: Apply jscanify document scanning to crop, straighten, and perspective-correct photos of receipts, papers, and forms. Use when the user asks to scan a document, fix page edges, deskew a photographed sheet, or make a photo look like a flatbed scan.
 metadata:
   openclaw: '{"emoji":"📄"}'
-  related-skills: '{"documents":"Post-scan document handling after the page is cleaned.","image":"Extra image cleanup beyond edge detection and perspective correction.","files":"File organization, renaming, and export handling after scans are generated."}'
+  related-skills: '{"documents": "Post-scan document handling after the page is cleaned.", "files": "File organization, renaming, and export handling after scans are generated.", "image": "Extra image cleanup beyond edge detection and perspective correction."}'
 ---
 
 ## State location

@@ -4,7 +4,7 @@ description: Diagnose a failing personal productivity practice and create the sm
 metadata:
   version: "1.0.6"
   openclaw: '{"emoji":"⚡"}'
-  related-skills: "{\"calendar-planner\":\"Automates calendar services after this skill has defined the work and time blocks.\",\"goals\":\"Extends goal and milestone design beyond this skill's goal-to-project-to-action chain.\",\"habits\":\"Operates a narrow habit-tracking practice when diagnosis is already complete.\",\"task-list\":\"Operates a day-to-day task list after this skill has repaired priorities and workflow.\",\"time-management\":\"Runs time-blocking mechanics when the user needs scheduling rather than diagnosis.\"}"
+  related-skills: '{"calendar-planner": "Automates calendar services after this skill has defined the work and time blocks.", "goals": "Extends goal and milestone design beyond this skill''s goal-to-project-to-action chain.", "habits": "Operates a narrow habit-tracking practice when diagnosis is already complete.", "task-list": "Operates a day-to-day task list after this skill has repaired priorities and workflow.", "time-management": "Runs time-blocking mechanics when the user needs scheduling rather than diagnosis."}'
 ---
 
 ## State location

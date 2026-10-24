@@ -3,7 +3,7 @@ name: ecommerce
 description: "Run online stores end-to-end: checkout, payments, inventory, returns, pricing, and taxes. Trigger when building or reviewing store code (e.g. checkout totals, webhooks, stock), troubleshooting money-path failures (e.g. double-charges, negative stock), optimizing conversion and margins, setting up platforms, or handling VAT/OSS/nexus regulations."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/ecommerce/", "<state_root>/contacts/", "<state_root>/finances/", "<state_root>/projects/", "<state_root>/domains/", "<state_root>/servers/", "<state_root>/profile.yaml"]}}'
-  related-skills: '{"payments": "payment-provider selection and integration code in depth", "shipping": "carrier selection, landed cost, customs and delivery exceptions", "cro": "research, hypothesis and test-design method for conversion", "growth": "CAC, LTV and margin decomposition beyond the store", "email-marketing": "the lifecycle flows this skill schedules"}'
+  related-skills: '{"cro": "research, hypothesis and test-design method for conversion", "email-marketing": "the lifecycle flows this skill schedules", "growth": "CAC, LTV and margin decomposition beyond the store", "payments": "payment-provider selection and integration code in depth", "shipping": "carrier selection, landed cost, customs and delivery exceptions"}'
 ---
 
 ## State location

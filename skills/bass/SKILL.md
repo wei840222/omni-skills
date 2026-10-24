@@ -7,7 +7,7 @@ metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "🎸"}'
   related-skills:
-    music: skills/music
+    '{"music": "Track and organize music discoveries, favorites, concerts, and playlists"}'
 ---
 
 ## When to load references

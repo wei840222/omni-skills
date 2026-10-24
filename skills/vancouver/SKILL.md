@@ -6,7 +6,7 @@ description: Load this skill when the user asks about visiting, moving to, worki
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🏔️"}'
-  related-skills: '{"toronto": "Canada city guide and immigration context", "seattle": "Nearby US city tech and outdoor culture"}'
+  related-skills: '{"seattle": "Nearby US city tech and outdoor culture", "toronto": "Canada city guide and immigration context"}'
 ---
 ## When to load
 
@@ -168,8 +168,3 @@ Key things newcomers should know:
 - **Wildlife**: Bears in North Shore suburbs. Coyotes everywhere. Secure garbage.
 
 See `references/safety.md` and `references/local.md` for detailed guidance.
-
-## Related Skills
-
-- `toronto` — Canada's largest city; different vibe with similar immigration pathways
-- `seattle` — Closest major US city with comparable tech and outdoor culture

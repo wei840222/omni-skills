@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🕹️","requires":{"bins":["node","python3"]}}'
-  related-skills: '{"threejs":"WebGL scene setup, disposal, responsive canvas, and GPU hygiene once gameplay needs 3D rendering.","javascript":"Browser/Node language edges for game scripts outside architecture choices.","typescript":"Typed modular game codebases and bundler/tsconfig work for Browser Structured delivery.","unity":"Editor-heavy engine path when browser delivery is no longer the right profile.","unreal-engine":"High-fidelity C++/replication engine path when advanced rendering or netcode demands it."}'
+  related-skills: '{"javascript": "Browser/Node language edges for game scripts outside architecture choices.", "threejs": "WebGL scene setup, disposal, responsive canvas, and GPU hygiene once gameplay needs 3D rendering.", "typescript": "Typed modular game codebases and bundler/tsconfig work for Browser Structured delivery.", "unity": "Editor-heavy engine path when browser delivery is no longer the right profile.", "unreal-engine": "High-fidelity C++/replication engine path when advanced rendering or netcode demands it."}'
 ---
 
 # Game Development

@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🖥️"}'
-  related-skills: '{"caddy":"Caddyfile syntax and automatic HTTPS when the edge is Caddy.","docker":"Image builds and container runtime internals beyond host service handoff.","k8s":"Kubernetes workloads instead of single-host process supervision.","linux":"Host boot, disks, permissions, cron, and OOM underneath the service layer.","nginx":"Directive-level nginx configuration and debugging beyond service topology.","ssl":"Certificate issuance, renewal, and chain problems at the TLS boundary.","vps":"Provisioning, SSH hardening, and firewalling the machine itself."}'
+  related-skills: '{"caddy": "Caddyfile syntax and automatic HTTPS when the edge is Caddy.", "docker": "Image builds and container runtime internals beyond host service handoff.", "k8s": "Kubernetes workloads instead of single-host process supervision.", "linux": "Host boot, disks, permissions, cron, and OOM underneath the service layer.", "nginx": "Directive-level nginx configuration and debugging beyond service topology.", "ssl": "Certificate issuance, renewal, and chain problems at the TLS boundary.", "vps": "Provisioning, SSH hardening, and firewalling the machine itself."}'
 ---
 
 # Server

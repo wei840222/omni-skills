@@ -1,8 +1,12 @@
 ---
 name: image
-description: Applies intent-focused rules, compression strategies, and asset-type formatting (WebP, AVIF, PNG) to optimize images for their destination contexts.
+description: >
+  Applies intent-focused rules, compression strategies, and asset-type
+  formatting (WebP, AVIF, PNG) to optimize images for their destination
+  contexts.
 metadata:
   openclaw: '{"emoji": "🖼️"}'
+  related-skills: '{"ecommerce": "Marketplace and product-listing requirements that often constrain image delivery.", "image-edit": "Masking, cleanup, inpainting, and targeted visual edits.", "image-generation": "AI image generation and editing across current model providers.", "photography": "Capture, color, and print-oriented photo workflows.", "svg": "Vector graphics workflows when raster files are the wrong output."}'
 ---
 
 
@@ -166,11 +170,3 @@ Keep the main workflow in this file, then pull in the specialized file for the e
 - Rasterizing a logo too early and then fighting blurry exports forever.
 - Shipping a screenshot with secrets, personal data, or unstable timestamps still visible.
 - Treating alt text, captions, or chart summaries as someone else's problem after the pixels look good.
-
-## Related Skills
-- `image-edit` — Masking, cleanup, inpainting, and targeted visual edits.
-- `image-generation` — AI image generation and editing across current model providers.
-- `photography` — Capture, color, and print-oriented photo workflows.
-- `svg` — Vector graphics workflows when raster files are the wrong output.
-- `ecommerce` — Marketplace and product-listing requirements that often constrain image delivery.
-

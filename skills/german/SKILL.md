@@ -1,10 +1,11 @@
 ---
 name: german
-description: Write natural, casual German that sounds human. Use modal particles and
-  prioritize everyday vocabulary over formal terms unless explicitly requested.
+description: >
+  Write natural, casual German that sounds human. Use modal particles and
+  prioritize everyday vocabulary over formal terms unless explicitly
+  requested.
 metadata:
   openclaw: '{"emoji": "🇩🇪"}'
-  related-skills: null
 ---
 ## The Real Problem
 

@@ -4,7 +4,7 @@ description: Capture, clarify, organize, and review a conversational task list w
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📋"}'
-  related-skills: "{\"assistant\":\"Coordinates broader chief-of-staff work that may include tasks, messages, and follow-through.\",\"daily-planner\":\"Turns a selected task list into a realistic day plan with focus blocks.\",\"memory\":\"Maintains broader durable context outside the task-list state root.\",\"plan\":\"Builds a structured initiative plan when a task expands beyond list management.\",\"projects\":\"Provides deeper project tracking when task-list project records are insufficient.\"}"
+  related-skills: '{"assistant": "Coordinates broader chief-of-staff work that may include tasks, messages, and follow-through.", "daily-planner": "Turns a selected task list into a realistic day plan with focus blocks.", "memory": "Maintains broader durable context outside the task-list state root.", "plan": "Builds a structured initiative plan when a task expands beyond list management.", "projects": "Provides deeper project tracking when task-list project records are insufficient."}'
 ---
 
 ## State location

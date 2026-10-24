@@ -4,7 +4,7 @@ description: Manage projects, define scopes, capture tasks, review progress, and
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📁"}'
-  related-skills: '{"calendar-planner":"Integrates project deadlines and milestones into the calendar.","goals":"Connects individual projects to larger personal goals.","invoice":"Used for client projects that require billing.","invoices":"Used for client projects that require billing."}'
+  related-skills: '{"calendar-planner": "Integrates project deadlines and milestones into the calendar.", "goals": "Connects individual projects to larger personal goals.", "invoice": "Used for client projects that require billing.", "invoices": "Used for client projects that require billing."}'
 ---
 
 ## State location

@@ -4,7 +4,7 @@ description: 'Build, debug, and ship Flutter apps. Use when writing Dart widgets
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🐦"}'
-  related-skills: '{"animate":"Cross-framework motion systems and reduced-motion policy.","app-store":"Store listing, metadata, and review process for builds produced in release.md.","in-app-purchases":"Subscriptions and paywalls on top of a Flutter app.","kotlin":"Native-only Android work outside Flutter scope.","react-native":"The other cross-platform stack; when comparing or migrating.","swift":"Native-only iOS/macOS work outside Flutter scope.","testflight":"Distributing the iOS build produced in release.md."}'
+  related-skills: '{"animate": "Cross-framework motion systems and reduced-motion policy.", "app-store": "Store listing, metadata, and review process for builds produced in release.md.", "in-app-purchases": "Subscriptions and paywalls on top of a Flutter app.", "kotlin": "Native-only Android work outside Flutter scope.", "react-native": "The other cross-platform stack; when comparing or migrating.", "swift": "Native-only iOS/macOS work outside Flutter scope.", "testflight": "Distributing the iOS build produced in release.md."}'
 ---
 
 ## State location

@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇩🇰","displayName":"Danish"}'
-  related-skills: '{"norwegian":"Write Norwegian when Danish is not the target language.","swedish":"Write Swedish when Danish is not the target language.","translate":"Translate an existing source text into Danish.","writing":"Shape broader prose once the Danish-language decision is settled.","denmark":"Plan Denmark travel or local logistics rather than Danish-language phrasing.","english":"Draft or revise the English source before translating it into Danish.","copywriting":"Shape persuasive marketing copy after the Danish register is chosen."}'
+  related-skills: '{"copywriting": "Shape persuasive marketing copy after the Danish register is chosen.", "denmark": "Plan Denmark travel or local logistics rather than Danish-language phrasing.", "english": "Draft or revise the English source before translating it into Danish.", "norwegian": "Write Norwegian when Danish is not the target language.", "swedish": "Write Swedish when Danish is not the target language.", "translate": "Translate an existing source text into Danish.", "writing": "Shape broader prose once the Danish-language decision is settled."}'
 ---
 
 Research notes for register, particles, and Scandinavian adjacency live in `references/sources.md`.

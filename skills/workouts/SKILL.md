@@ -1,18 +1,11 @@
 ---
 name: workouts
-description: Build a personal workout tracking system with exercises, routines,
+description: >
+  Build a personal workout tracking system with exercises, routines,
   progression, and PRs.
 metadata:
-  clawdbot: '{"emoji": "💪", "requires": {"bins": [], "config": ["<state_root>/"]},
-    "os": ["linux", "darwin", "win32"], "configPaths": ["<state_root>/"], "displayName":
-    "Workouts"}'
   openclaw: '{"requires": {"config": ["<state_root>/"]}}'
-  related-skills:
-  - habits
-  - health
-  - calendar
-  - goals
-  - fitness
+  related-skills: '{"fitness": "Design, progress, and adapt fitness programs (strength, cardio, endurance) based on quantified rules", "goals": "Structure, track, and review personal outcome goals with milestones and lightweight progress logs", "habits": "Design, track, and repair recurring habits, routines, completion rates, and relapse plans", "health": "Coach general wellness habits for movement, sleep, food pattern, and stress using one small next step"}'
 ---
 
 ## When to load

@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇦🇹","displayName":"Austria","requires":{"bins":[],"config":["<state_root>/"]}}'
-  related-skills: '{"travel":"General multi-country trip structure when Austria is only one segment.","car-rental":"Rental pickup/drop and cross-border permission after the route needs a car.","booking":"Reservation and confirmation hygiene for trains, hotels, and lifts.","food":"Deeper restaurant and cuisine research beyond Austria meal-rhythm basics.","german":"Language support for bookings, transport desks, and service interactions."}'
+  related-skills: '{"booking": "Reservation and confirmation hygiene for trains, hotels, and lifts.", "car-rental": "Rental pickup/drop and cross-border permission after the route needs a car.", "food": "Deeper restaurant and cuisine research beyond Austria meal-rhythm basics.", "german": "Language support for bookings, transport desks, and service interactions.", "travel": "General multi-country trip structure when Austria is only one segment."}'
 ---
 
 ## Setup
@@ -71,11 +71,3 @@ Use this map to choose the right decision module before building the route.
 | Core Rules, Traps, & Security | `references/core-rules.md` |
 
 | Evaluation harness only | `test-prompts.json` |
-
-## Related Skills
-Consider using these skills if the user needs them:
-- `travel` — General trip planning and itinerary structure
-- `car-rental` — Better rental strategy and handoff logistics
-- `booking` — Reservation workflows and confirmation hygiene
-- `food` — Deeper restaurant and cuisine recommendations
-- `german` — Language support for bookings, transport, and service interactions

@@ -2,7 +2,7 @@
 name: escalate
 description: Manage escalation thresholds to decide when to act autonomously and when to ask for explicit user approval based on reversibility and risk.
 metadata:
-  related-skills: '{"self-improving":"../self-improving","proactivity":"../proactivity","decide":"../decide","memory":"../memory"}'
+  related-skills: '{"decide": "../decide", "memory": "../memory", "proactivity": "../proactivity", "self-improving": "../self-improving"}'
   openclaw: '{"requires":{"config":["<state_root>/escalate/"]}}'
 ---
 
@@ -98,12 +98,3 @@ The packaged guides `references/boundaries.md` and `references/patterns.md` stay
 - It may suggest small non-destructive edits to those files during setup, but it must show the snippet and wait for explicit approval before any write.
 - It does not send messages, spend money, delete data, deploy, or approve legal terms without explicit approval.
 - It keeps its own `SKILL.md` strictly unmodified.
-
-## Related Skills
-
-- `self-improving` - Learn reusable execution lessons from corrections and reflection
-- `proactivity` - Push useful next steps without overstepping learned boundaries
-- `decide` - Turn repeated choices into clearer decision rules
-- `memory` - Keep durable user context and continuity across sessions
-
-

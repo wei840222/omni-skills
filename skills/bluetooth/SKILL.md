@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📶","requires":{"anyBins":["bluetoothctl","blueutil","python3"]}}'
-  related-skills: '{"iot":"Broader IoT connectivity and security when the question is not Bluetooth-specific.","smart-home":"Ecosystem-agnostic hub and automation guidance beyond Bluetooth device control.","alexa":"Alexa-specific device, routine, and skill workflows when the target is Alexa rather than raw Bluetooth.","shelly":"Shelly local RPC and cloud device control when the target is Shelly rather than generic Bluetooth.","home-server":"Always-on host placement for Bluetooth controllers, bridges, and local state."}'
+  related-skills: '{"alexa": "Alexa-specific device, routine, and skill workflows when the target is Alexa rather than raw Bluetooth.", "home-server": "Always-on host placement for Bluetooth controllers, bridges, and local state.", "iot": "Broader IoT connectivity and security when the question is not Bluetooth-specific.", "shelly": "Shelly local RPC and cloud device control when the target is Shelly rather than generic Bluetooth.", "smart-home": "Ecosystem-agnostic hub and automation guidance beyond Bluetooth device control."}'
 ---
 
 ## When to Use

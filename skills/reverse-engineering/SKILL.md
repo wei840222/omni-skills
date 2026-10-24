@@ -1,9 +1,11 @@
 ---
 name: reverse-engineering
-description: Reverse engineer undocumented systems. Map interfaces, test hypotheses,
-  and create evidence-backed behavioral models.
+description: >
+  Reverse engineer undocumented systems. Map interfaces, test hypotheses, and
+  create evidence-backed behavioral models.
 metadata:
   openclaw: '{"emoji": "🧩", "requires": {"bins": []}}'
+  related-skills: '{"analysis": "structure ambiguous problems and turn raw evidence into decisions", "api": "reason about endpoints, payloads, contracts, and integration behavior", "architecture": "model system boundaries, components, and data flow once the target is understood", "bash": "build small inspection and replay loops for traces, logs, and artifacts", "cybersecurity": "evaluate trust boundaries, attack surface, and safe handling of sensitive targets"}'
 ---
 
 ## When to load
@@ -106,10 +108,3 @@ These failures usually waste the most time or create false confidence.
 - Base all claims on verified evidence
 - Keep sensitive data strictly within the documented local folder
 - Confirm with the user before creating durable local memory
-
-## Related Skills
-- `analysis` — structure ambiguous problems and turn raw evidence into decisions
-- `api` — reason about endpoints, payloads, contracts, and integration behavior
-- `architecture` — model system boundaries, components, and data flow once the target is understood
-- `bash` — build small inspection and replay loops for traces, logs, and artifacts
-- `cybersecurity` — evaluate trust boundaries, attack surface, and safe handling of sensitive targets

@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🍎","requires":{"bins":["curl","jq"],"env":["APPLE_PAY_MERCHANT_ID"]},"os":["darwin","linux","win32"],"displayName":"Apple Pay"}'
-  related-skills: '{"api":"Backend contracts, webhooks, and failure-safe integrations around Apple Pay authorization.","app-store-connect":"Apple developer account and capability ops outside merchant-session validation.","auth":"Authentication and session hardening adjacent to checkout identity.","ios":"iOS app implementation and device debugging when payment tokens are not the focus.","payments":"Provider selection and multi-method checkout design beyond Apple Pay alone."}'
+  related-skills: '{"api": "Backend contracts, webhooks, and failure-safe integrations around Apple Pay authorization.", "app-store-connect": "Apple developer account and capability ops outside merchant-session validation.", "auth": "Authentication and session hardening adjacent to checkout identity.", "ios": "iOS app implementation and device debugging when payment tokens are not the focus.", "payments": "Provider selection and multi-method checkout design beyond Apple Pay alone."}'
 ---
 
 ## Setup
@@ -178,10 +178,3 @@ This skill does NOT:
 
 Apple Pay integrations depend on Apple infrastructure and the chosen PSP.
 Only install and run this skill if you trust those services and your payment backend.
-
-## Related Skills
-- `payments` - General payment design and checkout decision frameworks
-- `app-store-connect` - Apple ecosystem account and operational workflows
-- `ios` - iOS implementation and device-level debugging patterns
-- `auth` - Authentication and session hardening in transaction flows
-- `api` - Reliable backend API contracts and failure-safe integrations

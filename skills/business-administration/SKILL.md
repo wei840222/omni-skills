@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"accounting":"Entity bookkeeping, statements, and GAAP/IFRS judgment beyond admin framing.","agency":"Service-agency operations when the user runs a client delivery shop.","career":"Personal offer, promotion, and stay/leave decisions rather than firm strategy.","clients":"Client relationship ops, scope, and getting paid for freelancers/agencies.","consultant":"Engagement diagnosis, workstreams, and decision memos with owners.","contracts":"Contract register and renewal tracking after commercial terms are set.","management":"People-management, 1:1s, and org leadership routines.","mba":"MBA curriculum-style learning across finance, strategy, and operations.","strategy":"Competitive positioning and option maps beyond general admin framing."}'
+  related-skills: '{"accounting": "Entity bookkeeping, statements, and GAAP/IFRS judgment beyond admin framing.", "agency": "Service-agency operations when the user runs a client delivery shop.", "career": "Personal offer, promotion, and stay/leave decisions rather than firm strategy.", "clients": "Client relationship ops, scope, and getting paid for freelancers/agencies.", "consultant": "Engagement diagnosis, workstreams, and decision memos with owners.", "contracts": "Contract register and renewal tracking after commercial terms are set.", "management": "People-management, 1:1s, and org leadership routines.", "mba": "MBA curriculum-style learning across finance, strategy, and operations.", "strategy": "Competitive positioning and option maps beyond general admin framing."}'
 ---
 
 # Business Administration

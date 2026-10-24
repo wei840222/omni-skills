@@ -4,7 +4,7 @@ description: Teach and check chemistry from kitchen-level ideas to mechanisms, s
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧪"}'
-  related-skills: '{"science":"Broader science explanations when the question is not chemistry-specific.","biology":"Organism-level life science when the question leaves molecular chemistry.","physics":"Mechanics, energy, and quantitative physical derivations.","math":"Algebra, calculus, or proof checks that a chemistry calculation depends on."}'
+  related-skills: '{"biology": "Organism-level life science when the question leaves molecular chemistry.", "math": "Algebra, calculus, or proof checks that a chemistry calculation depends on.", "physics": "Mechanics, energy, and quantitative physical derivations.", "science": "Broader science explanations when the question is not chemistry-specific."}'
 ---
 
 # Chemistry

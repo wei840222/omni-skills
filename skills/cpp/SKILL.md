@@ -1,12 +1,11 @@
 ---
 name: cpp
-description: Apply C++ standard practices to manage memory safely, eliminate undefined
-  behavior, enforce RAII, and modernize legacy pointer and class architectures.
+description: >
+  Apply C++ standard practices to manage memory safely, eliminate undefined
+  behavior, enforce RAII, and modernize legacy pointer and class
+  architectures.
 metadata:
   version: "1.1.0"
-  requires:
-    bins:
-    - g++
   openclaw: '{"emoji": "⚡"}'
 ---
 

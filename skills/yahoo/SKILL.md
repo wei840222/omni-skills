@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📉","requires":{"bins":["python3"],"config":["<state_root>/yahoo/"]}}'
-  related-skills: '{"analysis":"Turn raw market inputs into explicit conclusions and tradeoffs.","economics":"Add macro context when rates, inflation, or policy events matter.","news":"Expand beyond Yahoo headlines when the story needs cross-source verification.","personal-finance-tracker":"Connect market decisions to cashflow and risk capacity.","stock-market":"Broader equity research and thesis work beyond Yahoo-specific scripts.","trading":"Structure execution checklists and post-trade reviews."}'
+  related-skills: '{"analysis": "Turn raw market inputs into explicit conclusions and tradeoffs.", "economics": "Add macro context when rates, inflation, or policy events matter.", "news": "Expand beyond Yahoo headlines when the story needs cross-source verification.", "personal-finance-tracker": "Connect market decisions to cashflow and risk capacity.", "stock-market": "Broader equity research and thesis work beyond Yahoo-specific scripts.", "trading": "Structure execution checklists and post-trade reviews."}'
 ---
 
 # Yahoo

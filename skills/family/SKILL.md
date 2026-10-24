@@ -7,7 +7,7 @@ description: >
   shared coordination.
 metadata:
   openclaw: '{"emoji":"🏠","requires":{"config":["<state_root>/family/"]}}'
-  related-skills: '{"calendar-planner":"Shared schedule repair, conflict cleanup, and weekly planning when the family calendar is the main problem.","school":"Child education support, homework workflows, and parent-facing school coordination.","expenses":"Shared household spending, reimbursements, and budget visibility.","daily-planner":"Day-level personal execution once the household plan becomes individual task flow.","memory":"Deeper long-term storage when family continuity outgrows the core operating files."}'
+  related-skills: '{"calendar-planner": "Shared schedule repair, conflict cleanup, and weekly planning when the family calendar is the main problem.", "daily-planner": "Day-level personal execution once the household plan becomes individual task flow.", "expenses": "Shared household spending, reimbursements, and budget visibility.", "memory": "Deeper long-term storage when family continuity outgrows the core operating files.", "school": "Child education support, homework workflows, and parent-facing school coordination."}'
 ---
 
 # Family

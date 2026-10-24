@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.0.6"
   openclaw: '{"emoji":"👔"}'
-  related-skills: '{"architect":"Deep architecture patterns once a CTO-level door is classified.","devops":"CI/CD, on-call tooling, and platform implementation after ops policy is set.","founder":"Company-building and founder mode outside pure engineering leadership.","software-architect":"Detailed system design and ADRs beyond strategy framing.","software-engineer":"Hands-on implementation once the CTO decision is made.","startup":"Early-stage company context when the question is broader than eng org.","tech-debt":"Dedicated debt/hotspot programs after the CTO capacity rule is set."}'
+  related-skills: '{"architect": "Deep architecture patterns once a CTO-level door is classified.", "devops": "CI/CD, on-call tooling, and platform implementation after ops policy is set.", "founder": "Company-building and founder mode outside pure engineering leadership.", "software-architect": "Detailed system design and ADRs beyond strategy framing.", "software-engineer": "Hands-on implementation once the CTO decision is made.", "startup": "Early-stage company context when the question is broader than eng org.", "tech-debt": "Dedicated debt/hotspot programs after the CTO capacity rule is set."}'
 ---
 
 ## State location

@@ -1,16 +1,11 @@
 ---
 name: airtag
-description: Manage Apple AirTags, locate items, diagnose connectivity issues, and
+description: >
+  Manage Apple AirTags, locate items, diagnose connectivity issues, and
   respond to tracking alerts safely.
 metadata:
-  openclaw: '{"emoji": "A", "requires": {"bins": []}, "os": ["darwin", "linux", "win32"],
-    "displayName": "AirTag"}'
-  related-skills:
-  - ios
-  - bluetooth
-  - homepod
-  - travel
-  - siri
+  openclaw: '{"emoji": "A", "requires": {"bins": []}, "os": ["darwin", "linux", "win32"], "displayName": "AirTag"}'
+  related-skills: '{"bluetooth": "Scan, connect, and control Bluetooth and BLE devices across Linux, macOS, and Windows", "homepod": "Set up, troubleshoot, and optimize HomePod and Home audio workflows", "ios": "Builds, ships, and debugs native iOS apps: lifecycle, permissions, entitlements, push, widgets, StoreKit, and App Store review", "siri": "Troubleshoot Siri activation and transcription failures, configure Siri-friendly HomeKit and Shortcuts names, implement App Intents / SiriKit, and diagnose unresponsiveness across iPhone, HomePod, Watch, and CarPlay", "travel": "Maintain a traveler standing system for wishlist destinations, passport and visa readiness, Schengen-style day counts, shared bookings, points expiry, trip budgets, disruption claims, and post-trip debriefs"}'
 ---
 ## When to load
 Load this skill when the user asks to manage, locate, or troubleshoot Apple AirTags, configure Find My connectivity, or respond to an unknown AirTag alert.

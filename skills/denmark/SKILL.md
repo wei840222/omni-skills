@@ -1,9 +1,11 @@
 ---
 name: denmark
-description: Plan Denmark trips with concise route logic, verify entry rules, and
-  access practical local execution guides.
+description: >
+  Plan Denmark trips with concise route logic, verify entry rules, and access
+  practical local execution guides.
 metadata:
   openclaw: '{"emoji": "🇩🇰", "requires": {"bins": [], "config": ["<state_root>/denmark/"]}}'
+  related-skills: '{"booking": "Reservation workflows and confirmation hygiene", "english": "Language support for bookings, transport, and service interactions", "europe": "Better wider-Europe context when Denmark is part of a longer route", "food": "Deeper restaurant and cuisine planning", "travel": "General trip planning and itinerary structure"}'
 ---
 ## When to load
 
@@ -108,11 +110,3 @@ Output should include:
 **Data that stays local:** Trip preferences in `<state_root>/denmark/`
 
 **This skill does NOT:** Access files outside `<state_root>/denmark/` or make network requests.
-
-## Related Skills
-Related skills:
-- `skills/travel` — General trip planning and itinerary structure
-- `skills/europe` — Better wider-Europe context when Denmark is part of a longer route
-- `skills/booking` — Reservation workflows and confirmation hygiene
-- `skills/food` — Deeper restaurant and cuisine planning
-- `skills/english` — Language support for bookings, transport, and service interactions

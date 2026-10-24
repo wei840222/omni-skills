@@ -3,7 +3,7 @@ name: madeira
 description: Navigate Madeira as visitor, digital nomad, or resident with neighborhoods, levadas, costs, visas, and local insights for the Atlantic island.
 metadata:
   openclaw: '{"emoji":"🌴"}'
-  related-skills: '{"dubai":"City-level Atlantic/Gulf visitor and resident guidance that Madeira can hand off to for UAE comparisons.","travel":"Standing travel records, visas, and multi-destination planning beyond one island.","portuguese":"Natural Portuguese language help for deeper local integration.","health":"Wellness and safety boundaries when Madeira healthcare or hiking risks come up."}'
+  related-skills: '{"dubai": "City-level Atlantic/Gulf visitor and resident guidance that Madeira can hand off to for UAE comparisons.", "health": "Wellness and safety boundaries when Madeira healthcare or hiking risks come up.", "portuguese": "Natural Portuguese language help for deeper local integration.", "travel": "Standing travel records, visas, and multi-destination planning beyond one island."}'
 ---
 
 ## When to Use

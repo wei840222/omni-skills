@@ -4,7 +4,7 @@ description: Assist with robotics hardware wiring, ROS2 setup, motor control, an
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤖","os":["linux","darwin","win32"]}'
-  related-skills: '{"arduino":"For Arduino specific hardware wiring.","linux":"For ROS2 environment configuration.","cpp":"For writing embedded and ROS2 C++ code."}'
+  related-skills: '{"arduino": "For Arduino specific hardware wiring.", "cpp": "For writing embedded and ROS2 C++ code.", "linux": "For ROS2 environment configuration."}'
 ---
 
 ## State location

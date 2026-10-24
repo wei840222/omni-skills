@@ -4,7 +4,7 @@ description: "Design, secure, and operate home servers: Docker services, remote 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"docker":"Applies container runtime and image practices to home-server workloads.","docker-compose":"Covers multi-service Compose definitions used by a home server.","linux":"Provides host administration and diagnostics for the underlying server.","self-host":"Extends home-server planning with self-hosting security and service strategy.","server":"Covers general server deployment and troubleshooting patterns."}'
+  related-skills: '{"docker": "Applies container runtime and image practices to home-server workloads.", "docker-compose": "Covers multi-service Compose definitions used by a home server.", "linux": "Provides host administration and diagnostics for the underlying server.", "self-host": "Extends home-server planning with self-hosting security and service strategy.", "server": "Covers general server deployment and troubleshooting patterns."}'
 ---
 
 ## State location

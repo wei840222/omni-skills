@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.2.0"
   openclaw: '{"emoji":"📝"}'
-  related-skills: '{"meetings":"Running the meeting itself: agendas, facilitation, and follow-up discipline.","journal":"Journaling practice and reflection prompts once the daily note exists.","task-list":"Full task system when action_target is external or actions outgrow one tracker.","voice-notes":"Voice-message transcripts as a structured searchable corpus.","notion-api-integration":"Building against the Notion API beyond note capture.","pkm":"Linked atomic-note knowledge base when the graph matters more than the record.","people":"Shared address-book context for attendees and action owners."}'
+  related-skills: '{"journal": "Journaling practice and reflection prompts once the daily note exists.", "meetings": "Running the meeting itself: agendas, facilitation, and follow-up discipline.", "notion-api-integration": "Building against the Notion API beyond note capture.", "people": "Shared address-book context for attendees and action owners.", "pkm": "Linked atomic-note knowledge base when the graph matters more than the record.", "task-list": "Full task system when action_target is external or actions outgrow one tracker.", "voice-notes": "Voice-message transcripts as a structured searchable corpus."}'
 ---
 
 ## State location

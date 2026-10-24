@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐧"}'
-  related-skills: '{"cloud":"Consumer multi-cloud file sync when the task is not Tencent-specific infrastructure.","cloud-storage":"Multi-provider object/file transfer ops outside Tencent Cloud COS-focused planning.","in-depth-research":"Long-form multi-source investigation beyond Tencent product routing.","market-research":"Broader market and competitive research when Tencent is only one vendor.","payments":"Multi-provider payment architecture when WeChat Pay is one option among many."}'
+  related-skills: '{"cloud": "Consumer multi-cloud file sync when the task is not Tencent-specific infrastructure.", "cloud-storage": "Multi-provider object/file transfer ops outside Tencent Cloud COS-focused planning.", "in-depth-research": "Long-form multi-source investigation beyond Tencent product routing.", "market-research": "Broader market and competitive research when Tencent is only one vendor.", "payments": "Multi-provider payment architecture when WeChat Pay is one option among many."}'
 ---
 
 ## State location

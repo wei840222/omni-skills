@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"✨"}'
-  related-skills: '{"colors":"Build accessible palettes and tokens after inspiration picks a visual direction.","design":"Apply quantified hierarchy, spacing, and critique rules to a chosen reference.","frontend":"Implement approved visual direction in interface code.","image-generation":"Run text-to-image or edit workflows once style references are chosen.","ui":"Map inspiration screens into reusable component and interaction patterns."}'
+  related-skills: '{"colors": "Build accessible palettes and tokens after inspiration picks a visual direction.", "design": "Apply quantified hierarchy, spacing, and critique rules to a chosen reference.", "frontend": "Implement approved visual direction in interface code.", "image-generation": "Run text-to-image or edit workflows once style references are chosen.", "ui": "Map inspiration screens into reusable component and interaction patterns."}'
 ---
 
 ## State location

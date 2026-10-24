@@ -1,10 +1,12 @@
 ---
-description: Develop and manage Telegram bots by formulating valid API requests, configuring
-  webhooks, structuring inline keyboards, and applying HTML or MarkdownV2 message
-  formatting.
+name: telegram-bot-api
+description: >
+  Develop and manage Telegram bots by formulating valid API requests,
+  configuring webhooks, structuring inline keyboards, and applying HTML or
+  MarkdownV2 message formatting.
 metadata:
   openclaw: '{"emoji": "🤖", "requires": {"bins": ["curl"]}}'
-name: telegram-bot-api
+  related-skills: '{"api": "REST API best practices", "http": "HTTP protocol essentials", "json": "JSON parsing and manipulation"}'
 ---
 
 ## Setup
@@ -146,8 +148,3 @@ No other data is sent externally. Bot token is required for all requests.
 - Store message content long-term
 - Access user data beyond what Telegram provides
 - Make requests to endpoints other than api.telegram.org
-
-## Related Skills
-- `api` — REST API best practices
-- `http` — HTTP protocol essentials
-- `json` — JSON parsing and manipulation

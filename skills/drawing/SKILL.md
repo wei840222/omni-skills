@@ -3,7 +3,7 @@ name: drawing
 description: Generate children's drawings and coloring pages with modular prompts, style packs, and print-ready constraints across image models.
 metadata:
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"art":"Broader art direction, critique, and technique guidance beyond image prompting","logo":"Prompt patterns for icons, marks, and other cleaner graphic outputs","design":"Clarify visual taste and creative direction before locking a drawing style","graphic-design":"Improve layout, print choices, and supporting visual materials around the drawing"}'
+  related-skills: '{"art": "Broader art direction, critique, and technique guidance beyond image prompting", "design": "Clarify visual taste and creative direction before locking a drawing style", "graphic-design": "Improve layout, print choices, and supporting visual materials around the drawing", "logo": "Prompt patterns for icons, marks, and other cleaner graphic outputs"}'
 ---
 
 ## When to Use

@@ -3,7 +3,7 @@ name: diverge
 description: Evaluate complex questions through multiple perspectives before reaching a reasoned synthesis. Use when the user requests competing viewpoints for product decisions, safety-critical evaluations, creative choices, or consequential trade-offs.
 metadata:
   openclaw: '{"emoji":"🌿"}'
-  related-skills: '{"delegate":"Routes approved work to sub-agents.","loop":"Iterates a validated workflow until its completion criteria are met."}'
+  related-skills: '{"delegate": "Routes approved work to sub-agents.", "loop": "Iterates a validated workflow until its completion criteria are met."}'
   version: "1.0.0"
 ---
 

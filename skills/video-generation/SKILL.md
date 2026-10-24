@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🎬","requires":{"env.optional":["OPENAI_API_KEY","GOOGLE_CLOUD_PROJECT","RUNWAY_API_KEY","LUMA_API_KEY","FAL_KEY","REPLICATE_API_TOKEN","VIDU_API_KEY","TENCENTCLOUD_SECRET_ID","TENCENTCLOUD_SECRET_KEY"],"config":["<state_root>/"]}}'
-  related-skills: '{"ffmpeg":"Compose, transcode, and package production outputs.","image-edit":"Prepare clean references, masks, and style frames.","image-generation":"Build still concepts and keyframes before video generation.","minimax":"MiniMax-focused generation when Hailuo is the primary stack.","movie":"Narrative movie planning beyond single-shot generation.","video-captions":"Add subtitle and text overlay workflows.","video-edit":"Post-process generated clips and final exports."}'
+  related-skills: '{"ffmpeg": "Compose, transcode, and package production outputs.", "image-edit": "Prepare clean references, masks, and style frames.", "image-generation": "Build still concepts and keyframes before video generation.", "minimax": "MiniMax-focused generation when Hailuo is the primary stack.", "movie": "Narrative movie planning beyond single-shot generation.", "video-captions": "Add subtitle and text overlay workflows.", "video-edit": "Post-process generated clips and final exports."}'
 ---
 
 # Video Generation

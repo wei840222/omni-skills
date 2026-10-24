@@ -4,7 +4,7 @@ description: Manage email deliverability, list health, sequences, segmentation, 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📧","requires":{"configPaths":["<state_root>/"]}}'
-  related-skills: '{"copywriting":"Owns persuasive email body, subject, and CTA craft.","content-marketing":"Places email inside content calendar and funnel systems.","affiliate-marketing":"Partner nurture and owned-audience conversion sequences.","growth-hacker":"Acquisition experiments that feed or measure email loops.","cmo":"Channel strategy and demand generation leadership around email."}'
+  related-skills: '{"affiliate-marketing": "Partner nurture and owned-audience conversion sequences.", "cmo": "Channel strategy and demand generation leadership around email.", "content-marketing": "Places email inside content calendar and funnel systems.", "copywriting": "Owns persuasive email body, subject, and CTA craft.", "growth-hacker": "Acquisition experiments that feed or measure email loops."}'
 ---
 
 ## State location

@@ -3,7 +3,7 @@ name: puppeteer
 description: "Automate Chrome and Chromium with Puppeteer. Use this for web scraping, E2E testing, PDF generation, screenshots, and navigating headless browser workflows."
 metadata:
   openclaw: '{"emoji":"🎭","requires":{"bins":["node"]},"os":["linux","darwin","win32"],"displayName":"Puppeteer"}'
-  related-skills: '{"playwright":"Cross-browser automation alternative","chrome":"Chrome DevTools and debugging","web":"General web development"}'
+  related-skills: '{"chrome": "Chrome DevTools and debugging", "playwright": "Cross-browser automation alternative", "web": "General web development"}'
 ---
 
 ## Setup

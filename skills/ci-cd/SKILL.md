@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🔄"}'
-  related-skills: '{"devops":"Release strategy, environments, rollback, and on-call after pipeline mechanics are set.","github-actions":"Actions-only workflow dialect and marketplace actions when the stack is GitHub-centric.","k8s":"Container orchestration after CI produces deployable artifacts.","monitoring":"Observability and alerting once pipelines and deploys are running.","server":"Host and runtime configuration outside the pipeline definition."}'
+  related-skills: '{"devops": "Release strategy, environments, rollback, and on-call after pipeline mechanics are set.", "github-actions": "Actions-only workflow dialect and marketplace actions when the stack is GitHub-centric.", "k8s": "Container orchestration after CI produces deployable artifacts.", "monitoring": "Observability and alerting once pipelines and deploys are running.", "server": "Host and runtime configuration outside the pipeline definition."}'
 ---
 
 ## When to Use

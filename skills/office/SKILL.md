@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏢"}'
-  related-skills: '{"spreadsheet":"Analyze or edit table files with schema memory when the artifact is the spreadsheet itself.","excel-xlsx":"Programmatic XLSX/XLSM generation and formula-safe edits beyond how-to guidance.","word":"Live macOS Word control when an open document or review markup matters.","word-docx":"Offline DOCX/OOXML structural edits without a live Word session.","powerpoint":"Live macOS PowerPoint control when presenter/window state matters.","powerpoint-pptx":"Offline PPTX generation and structural deck edits.","google-workspace-cli":"Drive Gmail/Drive/Calendar/Sheets/Docs through the gws CLI or Admin SDK."}'
+  related-skills: '{"excel-xlsx": "Programmatic XLSX/XLSM generation and formula-safe edits beyond how-to guidance.", "google-workspace-cli": "Drive Gmail/Drive/Calendar/Sheets/Docs through the gws CLI or Admin SDK.", "powerpoint": "Live macOS PowerPoint control when presenter/window state matters.", "powerpoint-pptx": "Offline PPTX generation and structural deck edits.", "spreadsheet": "Analyze or edit table files with schema memory when the artifact is the spreadsheet itself.", "word": "Live macOS Word control when an open document or review markup matters.", "word-docx": "Offline DOCX/OOXML structural edits without a live Word session."}'
 ---
 
 # Office

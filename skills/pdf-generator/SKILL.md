@@ -4,7 +4,7 @@ description: Generate professional PDFs from Markdown, HTML, data, or code (repo
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📄"}'
-  related-skills: '{"markdown":"Source drafting and Markdown structure before PDF export.","latex":"TeX authoring and build recovery when pandoc/LaTeX is the chosen engine.","extract-pdf-text":"Read or OCR text from existing PDFs rather than generating new ones.","word-docx":"Editable Word documents when PDF is not the delivery format.","office":"Broader Office document workflows beyond PDF-specific generation."}'
+  related-skills: '{"extract-pdf-text": "Read or OCR text from existing PDFs rather than generating new ones.", "latex": "TeX authoring and build recovery when pandoc/LaTeX is the chosen engine.", "markdown": "Source drafting and Markdown structure before PDF export.", "office": "Broader Office document workflows beyond PDF-specific generation.", "word-docx": "Editable Word documents when PDF is not the delivery format."}'
 ---
 
 ## State location

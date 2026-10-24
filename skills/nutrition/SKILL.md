@@ -8,7 +8,7 @@ description: Close micronutrient gaps and raise diet quality. Use when assessing
   meal plans (`meal-planner`), hydration (`water`), or fasting windows (`fasting`).
 metadata:
   openclaw: '{"emoji": "🥗", "configPaths": ["<state_root>/nutrition/", "<state_root>/health/", "<state_root>/contacts/", "<state_root>/profile.yaml", "~/nutrition/", "~/clawic/nutrition/"], "requires": {"config": ["<state_root>/nutrition/", "<state_root>/health/", "<state_root>/contacts/", "<state_root>/profile.yaml", "~/nutrition/", "~/clawic/nutrition/"]}}'
-  related-skills: '{"calories":"Owns calorie, macro, and weight-trend tracking.","meal-planner":"Turns nutrient gaps into menus and shopping lists.","water":"Owns fluid intake and electrolyte replacement.","fitness":"Owns training programs and their nutrient demands.","fasting":"Owns eating windows that change nutrient timing."}'
+  related-skills: '{"calories": "Owns calorie, macro, and weight-trend tracking.", "fasting": "Owns eating windows that change nutrient timing.", "fitness": "Owns training programs and their nutrient demands.", "meal-planner": "Turns nutrient gaps into menus and shopping lists.", "water": "Owns fluid intake and electrolyte replacement."}'
 ---
 **Data.** At the start of every session, read `<state_root>/nutrition/config.yaml` (what the user declared) and `<state_root>/nutrition/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, treat the list as dynamic. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — all operations occur locally on the machine and keep credentials fully out of saved data. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, kept unchanged, and every write and deletion is named in one line as it happens. Read the shared health box `<state_root>/health/profile.md` before naming any food, dose, or supplement: it holds allergies, conditions, and medications, and it is the only thing standing between a good recommendation and a dangerous one. If none of it exists, work from defaults and say nothing about it.
 
@@ -186,10 +186,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Whether ultra-processed is a useful category or a proxy for sugar, salt, and fat.** The mechanistic critique is fair, and the one controlled feeding trial that isolated it (Hall 2019, n=20, 2-week crossover) still found ~500 kcal/day higher intake on the ultra-processed arm at matched macronutrients. Default: use UPF share as a practical steering signal, not as a moral category.
 - **Fish oil supplements for cardiovascular prevention.** Trials split by dose, formulation, and population, and the field is unsettled. Default: two portions of oily fish a week, supplements reserved for non-fish-eaters and for clinician-directed indications.
 - **RDAs as individual targets.** An RDA is set to cover ~97.5% of a population, so it overshoots most individuals and undershoots a few; the EAR is the population-comparison figure. Use the RDA as a personal target and the trend in labs and symptoms as the correction — not as proof that an intake below it is a deficiency.
-
-## Related Skills
-- `calories` — calorie, macro, and weight-trend tracking, the energy half of the same diet
-- `meal-planner` — turning the gaps found here into weekly menus and shopping lists
-- `water` — fluid intake and electrolyte replacement
-- `fitness` — training programs, and the nutrient demands they raise
-- `fasting` — eating windows, and their effect on when nutrients can be taken

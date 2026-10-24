@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👥"}'
-  related-skills: '{"ceo":"Aligns HR strategy with overall executive goals.","cfo":"Coordinates on compensation budgets and headcount planning.","coo":"Partners on operational workforce management.","legal":"Employment-law review when discipline, termination, or protected activity is in scope.","management":"Day-to-day people-management routines and 1:1 craft beyond HR systems.","clo":"Corporate legal / compliance framing when HR issues become entity-level risk."}'
+  related-skills: '{"ceo": "Aligns HR strategy with overall executive goals.", "cfo": "Coordinates on compensation budgets and headcount planning.", "clo": "Corporate legal / compliance framing when HR issues become entity-level risk.", "coo": "Partners on operational workforce management.", "legal": "Employment-law review when discipline, termination, or protected activity is in scope.", "management": "Day-to-day people-management routines and 1:1 craft beyond HR systems."}'
 ---
 
 Orientation only. Do not present this skill as licensed employment counsel, a filed charge response, or a substitute for local HR/legal review. Statutory thresholds, filing calendars, and penalty figures come from `references/sources.md`; re-check them before a material decision.

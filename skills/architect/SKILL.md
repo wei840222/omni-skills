@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏛️"}'
-  related-skills: '{"architecture":"Role-based code, licensure, and professional practice depth after conceptual design.","interior-design":"Room-level fit-out, materials, and staging after shell and adjacencies are set.","home-renovation":"Contractor bids, sequencing, and renovation project tracking.","design":"Visual hierarchy and critique when the need is graphic/UI, not building design.","home":"Household context and home-life constraints feeding residential design."}'
+  related-skills: '{"architecture": "Role-based code, licensure, and professional practice depth after conceptual design.", "design": "Visual hierarchy and critique when the need is graphic/UI, not building design.", "home": "Household context and home-life constraints feeding residential design.", "home-renovation": "Contractor bids, sequencing, and renovation project tracking.", "interior-design": "Room-level fit-out, materials, and staging after shell and adjacencies are set."}'
 ---
 
 ## State location

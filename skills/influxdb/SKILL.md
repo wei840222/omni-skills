@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "📈", "requires": {"anyBins": ["influx", "curl"]}, "os": ["linux", "darwin", "win32"], "displayName": "InfluxDB"}'
-  related-skills: '{"metrics": "Define standardized metric contracts and formulas before storing series in InfluxDB.", "elasticsearch": "Full-text/search workloads; not a substitute for time-series ingestion and continuous queries.", "minio": "Object storage for long-term exports or backup artifacts adjacent to InfluxDB retention.", "docker": "Containerized InfluxDB deployment and local stack lifecycle outside query design."}'
+  related-skills: '{"docker": "Containerized InfluxDB deployment and local stack lifecycle outside query design.", "elasticsearch": "Full-text/search workloads; not a substitute for time-series ingestion and continuous queries.", "metrics": "Define standardized metric contracts and formulas before storing series in InfluxDB.", "minio": "Object storage for long-term exports or backup artifacts adjacent to InfluxDB retention."}'
 ---
 
 # InfluxDB 📈

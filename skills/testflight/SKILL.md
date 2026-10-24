@@ -4,7 +4,7 @@ description: Distribute iOS and macOS beta builds via TestFlight. Handles App St
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛫"}'
-  related-skills: '{"ios":"Native iOS app build, entitlements, and App Store submission patterns that feed TestFlight uploads.","xcode":"Xcode archive, signing, and IDE upload workflows used before TestFlight distribution.","flutter":"Cross-platform mobile build pipelines that still ship iOS betas through TestFlight."}'
+  related-skills: '{"flutter": "Cross-platform mobile build pipelines that still ship iOS betas through TestFlight.", "ios": "Native iOS app build, entitlements, and App Store submission patterns that feed TestFlight uploads.", "xcode": "Xcode archive, signing, and IDE upload workflows used before TestFlight distribution."}'
 ---
 ## State location
 
@@ -117,8 +117,3 @@ xcrun altool --upload-app \
 - Apple Developer — [App Store Connect API](https://developer.apple.com/documentation/appstoreconnectapi) (API key auth for uploads)
 - Fastlane docs — [upload_to_testflight](https://docs.fastlane.tools/actions/upload_to_testflight/) (lane options and API key JSON)
 - Apple Support — [Export compliance](https://developer.apple.com/documentation/security/complying-with-encryption-export-regulations) (ITSAppUsesNonExemptEncryption)
-
-## Related Skills
-- `ios` — iOS development patterns
-- `xcode` — Xcode workflows
-- `flutter` — cross-platform builds

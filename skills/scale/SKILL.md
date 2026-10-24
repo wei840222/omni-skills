@@ -1,15 +1,11 @@
 ---
 name: scale
-description: Scale technical systems, software architecture, and organizations by
-  mapping bottlenecks and executing risk-aware leverage plans.
+description: >
+  Scale technical systems, software architecture, and organizations by mapping
+  bottlenecks and executing risk-aware leverage plans.
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/scale/"]}}'
-  related-skills:
-  - architecture
-  - systems-architect
-  - startup
-  - growth
-  - strategy
+  related-skills: '{"architecture": "Guide architectural projects from homeowner design basics to professional code compliance (IBC 2024), student critiques, and contractor documents", "growth": "Run growth as a system: name the constrained funnel stage in absolute units, choose compounding loops, and size channel/experiment programs", "startup": "Orchestrates startup work by routing tasks to specialized agents and applying stage-appropriate priorities", "strategy": "Design robust competitive and product strategies with proven frameworks, constraint mapping, cognitive-bias checks, and kill criteria", "systems-architect": "Design infrastructure, networks, and multi-cloud system topology with integration, reliability, security, capacity, and migration patterns"}'
 ---
 
 ## Setup

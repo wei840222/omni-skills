@@ -4,7 +4,7 @@ description: 'Builds, ships, and debugs native iOS apps: lifecycle, permissions,
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"📱","os":["darwin"],"requires":{"bins":["xcodebuild"]}}'
-  related-skills: '{"app-store":"Handles store listings and submission workflow.","app-store-connect":"Uses the ASC API for automating builds, metadata and analytics.","flutter":"Cross-platform framework for building apps.","react-native":"Cross-platform framework for building apps.","swift":"Handles Swift language mechanics: concurrency, ARC, optionals, Codable, packages.","testflight":"Handles beta distribution, tester management, and build expiry.","xcode":"Handles IDE, build settings, signing, provisioning, derived data."}'
+  related-skills: '{"app-store": "Handles store listings and submission workflow.", "app-store-connect": "Uses the ASC API for automating builds, metadata and analytics.", "flutter": "Cross-platform framework for building apps.", "react-native": "Cross-platform framework for building apps.", "swift": "Handles Swift language mechanics: concurrency, ARC, optionals, Codable, packages.", "testflight": "Handles beta distribution, tester management, and build expiry.", "xcode": "Handles IDE, build settings, signing, provisioning, derived data."}'
 ---
 ## State location
 

@@ -4,7 +4,7 @@ description: Plan and analyze growth experiments, viral loops, and marketing fun
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🚀"}'
-  related-skills: '{"cro": "Conversion rate optimization", "analytics": "Track and analyze metrics", "seo": "Organic search growth", "cmo": "Brand and marketing strategy"}'
+  related-skills: '{"analytics": "Track and analyze metrics", "cmo": "Brand and marketing strategy", "cro": "Conversion rate optimization", "seo": "Organic search growth"}'
 ---
 
 
@@ -96,9 +96,3 @@ This skill is stateless. It provides operational guidelines and playbooks but do
 **If implementing tactics requires external access:**
 - User must explicitly grant access to specific tools
 - Each integration should be reviewed separately
-
-## Related Skills
-- `cro` — Conversion rate optimization
-- `analytics` — Track and analyze metrics
-- `seo` — Organic search growth
-- `cmo` — Brand and marketing strategy

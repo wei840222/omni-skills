@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💼"}'
-  related-skills: '{"career":"Offer evaluation, negotiation, promotions, pivots, and layoff response beyond day-to-day office tactics.","productivity":"Personal planning, overwhelm triage, and habit repair rather than workplace communication.","meetings":"Agendas, facilitation, minutes, and follow-ups when the meeting itself is the deliverable.","management":"People-management craft for leading a team rather than navigating as an IC."}'
+  related-skills: '{"career": "Offer evaluation, negotiation, promotions, pivots, and layoff response beyond day-to-day office tactics.", "management": "People-management craft for leading a team rather than navigating as an IC.", "meetings": "Agendas, facilitation, minutes, and follow-ups when the meeting itself is the deliverable.", "productivity": "Personal planning, overwhelm triage, and habit repair rather than workplace communication."}'
 ---
 
 # Work

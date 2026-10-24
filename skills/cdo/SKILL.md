@@ -3,7 +3,7 @@ name: cdo
 description: "Load this skill when asked to define data strategy, build governance frameworks, manage analytics platforms, oversee AI/ML data readiness, or establish privacy compliance programs."
 metadata:
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"cto":"Technical infrastructure and platform ownership boundaries.","cfo":"Data platform cost, headcount, and ROI trade-offs.","ceo":"Company-stage strategy alignment for data bets.","analytics":"Hands-on analytics/BI implementation details."}'
+  related-skills: '{"analytics": "Hands-on analytics/BI implementation details.", "ceo": "Company-stage strategy alignment for data bets.", "cfo": "Data platform cost, headcount, and ROI trade-offs.", "cto": "Technical infrastructure and platform ownership boundaries."}'
 ---
 
 ## Trigger conditions
@@ -29,10 +29,3 @@ metadata:
 ## State location
 
 This skill is stateless and does not store local configuration.
-
-## Related Skills
-Hand off when the request leaves CDO strategy/governance scope:
-- `cto` — technical infrastructure and platform ownership boundaries
-- `cfo` — data platform cost, headcount, and ROI trade-offs
-- `ceo` — company-stage strategy alignment for data bets
-- `analytics` — hands-on analytics/BI implementation details

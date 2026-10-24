@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🦞"}'
-  related-skills: '{"united-states":"Country-level multi-city US routing when Boston is only one stop.","booking":"Lodging search and reservation completion after a neighborhood base is chosen.","expat":"Cross-border move project tracking beyond Boston neighborhood and settling advice.","travel":"Standing multi-destination travel records when Boston is one city among several.","travel-planning":"Day-by-day multi-city itineraries when the trip leaves Boston.","dubai":"Peer city-guide pattern for another dense metro when comparing city skills."}'
+  related-skills: '{"booking": "Lodging search and reservation completion after a neighborhood base is chosen.", "dubai": "Peer city-guide pattern for another dense metro when comparing city skills.", "expat": "Cross-border move project tracking beyond Boston neighborhood and settling advice.", "travel": "Standing multi-destination travel records when Boston is one city among several.", "travel-planning": "Day-by-day multi-city itineraries when the trip leaves Boston.", "united-states": "Country-level multi-city US routing when Boston is only one stop."}'
 ---
 
 ## State location
@@ -76,11 +76,3 @@ For multi-city US trips, load `united-states` as the routing parent. Hand generi
 | Universities & education | `references/education.md` |
 | Expat & social life | `references/lifestyle.md` |
 | Driving & car ownership | `references/driving.md` |
-
-## Related Skills
-
-- `united-states` — multi-city US routing when Boston is one stop
-- `travel` / `travel-planning` — generic trip systems and multi-city itineraries
-- `expat` — full cross-border move project tracking
-- `booking` — lodging search after a neighborhood base is chosen
-- `dubai` — peer city-guide pattern for dense-metro comparisons

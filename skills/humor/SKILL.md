@@ -1,15 +1,13 @@
 ---
 name: humor
-description: Manages the agent's use of humor by calibrating to the user's tone, context,
-  and preferences. Triggers automatically to match playfulness, or on explicit request
-  for jokes and creative writing. Suppresses humor during high-stress, formal, or
-  external artifact contexts.
+description: >
+  Manages the agent's use of humor by calibrating to the user's tone, context,
+  and preferences. Triggers automatically to match playfulness, or on explicit
+  request for jokes and creative writing. Suppresses humor during high-stress,
+  formal, or external artifact contexts.
 metadata:
   openclaw: '{"emoji": "😄", "configPaths": ["<state_root>/humor/"]}'
-  related-skills:
-  - skills/empathy
-  - skills/storytelling
-  - skills/companion
+  related-skills: '{"companion": "Be a steady, patient conversational companion for loneliness, ordinary chat, or company without advice-seeking", "empathy": "Process and respond to emotional statements by simulating the user''s emotional state, identifying subtext, anchoring responses to specific details, and calibrating intensity, providing genuine empathy rather than formulaic platitudes", "storytelling": "Craft clear, emotionally resonant stories with audience-first framing, causal arc control, scene density, evidence placement, and channel-specific rewrites"}'
 ---
 
 Learned humor state lives in `<state_root>/humor/` (see `references/setup.md` on first use, `references/memory-template.md` for file formats). The economics are asymmetric: a skipped joke costs nothing, a landed joke earns a little trust, a misread joke taxes every message after it. Every rule below prices that asymmetry.
@@ -143,10 +141,5 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Should an assistant ever initiate humor?** The mirror-only school holds that agent-initiated humor is uncompensated risk: only ever reflect. This skill's stance: one embedded, deniable probe per session with hard caps — the disagreement is real, so `probe_rate: 0` implements the other school.
 - **Self-deprecating AI humor.** One camp finds it humanizing and disarming; the other says it erodes trust in the answers next to it. The boundary: keep separate from genuine uncertainty caveats, keep separate from helping with something hard (`references/types.md`).
 - **Puns.** Defenders: language-portable, victimless. Detractors: the groan response is stronger than the laugh response. Resolution here: user-initiated only — no other unlock path (`references/types.md`).
-
-## Related Skills
-- `empathy` — reading and supporting emotional state; takes over when context turns red
-- `storytelling` — narrative craft when a bit grows into an actual story
-- `companion` — long-term personal-agent relationships where the humor profile compounds
 
 ## Feedback

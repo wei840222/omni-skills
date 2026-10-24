@@ -1,17 +1,14 @@
 ---
 name: php
-description: Writes, debugs, and reviews PHP code. Use when working with PHP 8+ features,
-  type juggling, OOP, Composer, PDO, sessions, PHP-FPM, or OPcache. Trigger when debugging
-  white screens, 500 errors, memory leaks, configuration issues, or updating legacy
-  PHP. Not for framework internals (use laravel for Laravel).
-license: MIT
+description: >
+  Writes, debugs, and reviews PHP code. Use when working with PHP 8+ features,
+  type juggling, OOP, Composer, PDO, sessions, PHP-FPM, or OPcache. Trigger
+  when debugging white screens, 500 errors, memory leaks, configuration
+  issues, or updating legacy PHP. Not for framework internals (use laravel for
+  Laravel).
 metadata:
   openclaw: '{"emoji": "🐘", "requires": {"bins": ["php"]}, "configPaths": ["<state_root>/php/"]}'
-  related-skills:
-  - skills/laravel
-  - skills/mysql
-  - skills/nginx
-  - skills/regex
+  related-skills: '{"laravel": "Apply Laravel best practices when writing controllers, Eloquent models, Blade templates, queues, Artisan commands, or auth logic to avoid framework traps", "mysql": "Write correct MySQL queries utilizing proper character sets, indexing, transactions, and production patterns", "nginx": "Configure and debug Nginx servers for reverse proxying, load balancing, static file serving, and SSL/TLS termination", "regex": "Write, debug, and optimize regular expressions across JavaScript, Python, PCRE, and Go engines"}'
 ---
 ## When to load
 
@@ -178,11 +175,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **How strict to run the analyzer.** One camp treats anything below `max` as unfinished; the other stops where the false-positive rate exceeds the bug-catch rate. Boundary: a greenfield typed domain reaches high levels cheaply; a decade-old codebase baselines and ratchets, and measures success as baseline shrinkage rather than level number (`references/static-analysis.md`).
 - **Long-running runtimes.** Swoole, RoadRunner, and FrankenPHP remove per-request bootstrap and can cut latency materially; they also delete PHP's strongest safety property, that every request starts from a clean process. Boundary: adopt when bootstrap is a measured share of p95 AND the team accepts hunting state leaks — only when strictly necessary (`references/concurrency.md`).
 - **Framework or none.** A framework supplies routing, DI, migrations, and a hiring pool; plain PHP with a few PSR packages supplies a dependency tree you can read end to end. Boundary: the number of cross-cutting concerns you would otherwise hand-write — auth, queues, and migrations together is the tipping point.
-
-## Related Skills
-
-- `laravel` — Eloquent, queues, Blade, and Laravel-specific auth
-- `mysql` — schema design, indexes, and query plans behind PDO
-- `nginx` — the server in front of PHP-FPM: buffering, timeouts, static files
-- `regex` — PCRE pattern design; this skill's `references/strings.md` covers only the PHP bindings
-- `debugging` — language-agnostic fault isolation; the PHP-specific version is this skill's `references/debugging.md`

@@ -6,7 +6,7 @@ description: Design agendas, facilitate meetings, capture decisions, and drive f
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤝"}'
-  related-skills: '{"notes":"Note apps and vault storage once the meeting artifact must live outside the meeting ledger.","people":"Shared address-book context for attendees and relationship history.","calendar-planner":"Calendar conflicts, focus protection, and weekly schedule repair around meeting load.","summarizer":"Compress long transcripts while preserving claims and decisions.","decide":"Durable decision logs and autonomous decision patterns beyond a single meeting close."}'
+  related-skills: '{"calendar-planner": "Calendar conflicts, focus protection, and weekly schedule repair around meeting load.", "decide": "Durable decision logs and autonomous decision patterns beyond a single meeting close.", "notes": "Note apps and vault storage once the meeting artifact must live outside the meeting ledger.", "people": "Shared address-book context for attendees and relationship history.", "summarizer": "Compress long transcripts while preserving claims and decisions."}'
 ---
 
 ## State location
@@ -238,14 +238,6 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - Close every meeting with decisions, dated owners, open questions, and the next occurrence or an explicit stop.
 - Write durable records, decisions, and follow-ups into the resolved `<state_root>` tree in the same turn.
 - Propose recording only under the configured consent rule, and store join secrets as pointers rather than raw credentials.
-
-## Related Skills
-
-- `notes` — note apps, vaults, and retrieval once the meeting artifact must live outside the meeting ledger
-- `people` — durable attendee context, birthdays, and relationship history in the shared address book
-- `calendar-planner` — calendar conflicts, focus protection, and weekly schedule repair around the meeting load
-- `summarizer` — compress a long transcript or document while preserving claims and decisions
-- `decide` — durable decision logs and autonomous decision patterns beyond a single meeting close
 
 ## Security & Privacy
 

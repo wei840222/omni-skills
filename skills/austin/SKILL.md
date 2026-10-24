@@ -7,7 +7,7 @@ description: Provide practical Austin, Texas guidance for visitors, relocators, 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤠","requires":{"config":["<state_root>/austin/"]}}'
-  related-skills: '{"texas":"Statewide Texas metro choice, DPS/TxDMV, property tax, and road-trip logistics beyond Austin-only detail.","travel":"General itinerary design and multi-city travel structure.","restaurants":"Dining discovery workflows when the ask is food-first rather than Austin culture.","booking":"Reservation holds for flights, hotels, and timed tickets.","business":"Broader business operations beyond Texas LLC / Austin startup context.","health-insurance":"Deeper plan comparison when Austin healthcare access is not enough.","music":"General live-music discovery beyond Austin venue and festival specifics."}'
+  related-skills: '{"booking": "Reservation holds for flights, hotels, and timed tickets.", "business": "Broader business operations beyond Texas LLC / Austin startup context.", "health-insurance": "Deeper plan comparison when Austin healthcare access is not enough.", "music": "General live-music discovery beyond Austin venue and festival specifics.", "restaurants": "Dining discovery workflows when the ask is food-first rather than Austin culture.", "texas": "Statewide Texas metro choice, DPS/TxDMV, property tax, and road-trip logistics beyond Austin-only detail.", "travel": "General itinerary design and multi-city travel structure."}'
 ---
 
 Persistent Austin context lives under `<state_root>/austin/` (see State location). One-off visitor questions stay stateless.

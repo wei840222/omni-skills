@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📡"}'
-  related-skills: '{"alerts":"Incident paging, severity ladders, webhook reliability, and fatigue controls once a signal exists.","grafana":"Dashboard layout and panel craft on top of already-chosen metrics/logs/traces.","metrics":"Product/KPI metric contracts and formulas, not Prometheus/OTel telemetry series.","monitoring":"Uptime and tool-ladder setup when the ask is coverage tiers rather than signal design.","devops":"Delivery and platform operations surrounding the observability stack.","sysadmin":"Host logs, services, and capacity signals that often feed collectors."}'
+  related-skills: '{"alerts": "Incident paging, severity ladders, webhook reliability, and fatigue controls once a signal exists.", "devops": "Delivery and platform operations surrounding the observability stack.", "grafana": "Dashboard layout and panel craft on top of already-chosen metrics/logs/traces.", "metrics": "Product/KPI metric contracts and formulas, not Prometheus/OTel telemetry series.", "monitoring": "Uptime and tool-ladder setup when the ask is coverage tiers rather than signal design.", "sysadmin": "Host logs, services, and capacity signals that often feed collectors."}'
 ---
 
 # Observability

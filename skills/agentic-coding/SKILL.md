@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","requires":{"bins":["git"]}}'
-  related-skills: '{"agentic-engineering":"Multi-agent blast-radius sizing, parallel terminals, and recovery once work spans several agent sessions.","coding":"Durable coding style, stack, and architecture preferences across sessions.","code":"Stepwise plan→execute→verify coaching with approval between steps.","copilot":"Cross-session priority and continuity outside a single PACT contract.","delegate":"Bounded sub-agent fan-out when parallel cost beats serial execution.","vibe-coding":"Prompt-led exploration and MVP shipping when deep review is deferred."}'
+  related-skills: '{"agentic-engineering": "Multi-agent blast-radius sizing, parallel terminals, and recovery once work spans several agent sessions.", "code": "Stepwise plan→execute→verify coaching with approval between steps.", "coding": "Durable coding style, stack, and architecture preferences across sessions.", "copilot": "Cross-session priority and continuity outside a single PACT contract.", "delegate": "Bounded sub-agent fan-out when parallel cost beats serial execution.", "vibe-coding": "Prompt-led exploration and MVP shipping when deep review is deferred."}'
 ---
 
 ## State location

@@ -4,7 +4,7 @@ description: Create, adjust, and deliver reminders for commitments the user alre
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"⏰"}'
-  related-skills: '{"alerts":"Handles new or urgent information the user did not already know.","memory":"Stores durable context beyond reminder preferences.","notify":"Selects delivery channels, batching, and notification-fatigue controls.","schedule":"Executes scheduled work rather than recalling a user commitment."}'
+  related-skills: '{"alerts": "Handles new or urgent information the user did not already know.", "memory": "Stores durable context beyond reminder preferences.", "notify": "Selects delivery channels, batching, and notification-fatigue controls.", "schedule": "Executes scheduled work rather than recalling a user commitment."}'
 ---
 
 ## State location

@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨","requires":{"bins":["python3"]}}'
-  related-skills: '{"fastapi":"Mount Gradio inside FastAPI when you need custom routes or external OAuth.","flask":"Serve a Flask app instead of a Gradio demo.","hugging-face":"Publish the demo on Spaces or pick Hub models and datasets.","mlops":"Production model serving, monitoring, and rollout beyond a demo UI.","py":"Plain Python packaging and typing outside the Gradio app."}'
+  related-skills: '{"fastapi": "Mount Gradio inside FastAPI when you need custom routes or external OAuth.", "flask": "Serve a Flask app instead of a Gradio demo.", "hugging-face": "Publish the demo on Spaces or pick Hub models and datasets.", "mlops": "Production model serving, monitoring, and rollout beyond a demo UI.", "py": "Plain Python packaging and typing outside the Gradio app."}'
 ---
 
 ## When to load

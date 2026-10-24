@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💬"}'
-  related-skills: '{"assistant":"Build clearer working agreements and recurring collaboration patterns with an AI assistant.","brainstorm":"Expand idea generation before converging into a final prompt packet.","chat":"Improve conversational structure and turn-taking in multi-turn interactions.","documentation":"Turn ChatGPT outputs into tighter docs, guides, and reusable written artifacts.","memory":"Design durable host-side memory patterns beyond ChatGPT product memory settings.","prompting":"Iterate and diagnose provider-agnostic prompts when the ask is not ChatGPT UI routing."}'
+  related-skills: '{"assistant": "Build clearer working agreements and recurring collaboration patterns with an AI assistant.", "brainstorm": "Expand idea generation before converging into a final prompt packet.", "chat": "Improve conversational structure and turn-taking in multi-turn interactions.", "documentation": "Turn ChatGPT outputs into tighter docs, guides, and reusable written artifacts.", "memory": "Design durable host-side memory patterns beyond ChatGPT product memory settings.", "prompting": "Iterate and diagnose provider-agnostic prompts when the ask is not ChatGPT UI routing."}'
 ---
 
 # ChatGPT

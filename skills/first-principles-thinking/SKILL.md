@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔬"}'
-  related-skills: '{"business":"Strategy and commercial constraints once fundamentals are clear.","ceo":"Executive framing when the rebuilt option needs leadership tradeoffs.","decide":"Log the chosen option and approval boundary after fundamentals rebuild.","second-order-effects":"Trace multi-order consequences after a rebuilt option is on the table.","six-thinking-hats":"Parallel thinking modes when multiple stakeholder lenses are needed.","startup":"Zero-to-PMF rebuilds that start from customer fundamentals.","strategy":"Portfolio and positioning choices after the problem is reduced to fundamentals."}'
+  related-skills: '{"business": "Strategy and commercial constraints once fundamentals are clear.", "ceo": "Executive framing when the rebuilt option needs leadership tradeoffs.", "decide": "Log the chosen option and approval boundary after fundamentals rebuild.", "second-order-effects": "Trace multi-order consequences after a rebuilt option is on the table.", "six-thinking-hats": "Parallel thinking modes when multiple stakeholder lenses are needed.", "startup": "Zero-to-PMF rebuilds that start from customer fundamentals.", "strategy": "Portfolio and positioning choices after the problem is reduced to fundamentals."}'
 ---
 
 ## When to load

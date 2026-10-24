@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇬🇧","requires":{"config":["<state_root>/uk/"]}}'
-  related-skills: '{"travel":"Standing traveler system for passports, visas, bookings, and trip memory across destinations.","travel-planning":"Multi-city itineraries, packing lists, and budget tracking beyond one-country UK routing.","booking":"Search lodging or timed tickets after UK bases and dates are chosen.","car-rental":"Arrange rental cars after UK road and rural-route decisions are set.","food":"Deeper restaurant and cuisine planning once the UK route is fixed.","english":"Language help for bookings, menus, and service interactions.","flight":"Search or compare flights once UK airports and dates are decided."}'
+  related-skills: '{"booking": "Search lodging or timed tickets after UK bases and dates are chosen.", "car-rental": "Arrange rental cars after UK road and rural-route decisions are set.", "english": "Language help for bookings, menus, and service interactions.", "flight": "Search or compare flights once UK airports and dates are decided.", "food": "Deeper restaurant and cuisine planning once the UK route is fixed.", "travel": "Standing traveler system for passports, visas, bookings, and trip memory across destinations.", "travel-planning": "Multi-city itineraries, packing lists, and budget tracking beyond one-country UK routing."}'
 ---
 
 ## State location

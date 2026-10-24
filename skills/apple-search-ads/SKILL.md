@@ -1,18 +1,14 @@
 ---
 name: apple-search-ads
-description: Manage Apple Search Ads (ASA) campaigns via the Campaign Management API
-  v5. Trigger this skill to launch or restructure iOS app ad campaigns, optimize bids
-  and budgets, perform keyword graduation from search-term reports, defend brand terms,
-  test Custom Product Pages, and diagnose impression drops or attribution discrepancies
-  (AdServices/SKAN).
+description: >
+  Manage Apple Search Ads (ASA) campaigns via the Campaign Management API v5.
+  Trigger this skill to launch or restructure iOS app ad campaigns, optimize
+  bids and budgets, perform keyword graduation from search-term reports,
+  defend brand terms, test Custom Product Pages, and diagnose impression drops
+  or attribution discrepancies (AdServices/SKAN).
 metadata:
-  openclaw: '{"emoji": "🍎", "requires": {"bins": ["curl", "jq"], "env": ["ASA_CLIENT_ID",
-    "ASA_TEAM_ID", "ASA_KEY_ID", "ASA_ORG_ID", "ASA_PRIVATE_KEY_FILE"]}}'
-  related-skills:
-  - app-store-connect
-  - aso
-  - analytics
-  - ios
+  openclaw: '{"emoji": "🍎", "requires": {"bins": ["curl", "jq"], "env": ["ASA_CLIENT_ID", "ASA_TEAM_ID", "ASA_KEY_ID", "ASA_ORG_ID", "ASA_PRIVATE_KEY_FILE"]}}'
+  related-skills: '{"analytics": "Deploy and harden privacy-first web analytics with Umami, Plausible, and PostHog: API auth patterns, event capture, rate limits, PII boundaries, and GDPR consent/retention defaults", "app-store-connect": "Execute Apple App Store Connect API workflows for app management, TestFlight distribution, metadata updates, and build submission", "aso": "Plan and improve App Store Optimization (ASO) for iOS or Android apps", "ios": "Builds, ships, and debugs native iOS apps: lifecycle, permissions, entitlements, push, widgets, StoreKit, and App Store review"}'
 ---
 
 ## State location

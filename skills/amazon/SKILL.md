@@ -1,10 +1,10 @@
 ---
 name: amazon
-description: Navigate Amazon as a buyer, seller, or affiliate by tracking prices,
+description: >
+  Navigate Amazon as a buyer, seller, or affiliate by tracking prices,
   optimizing listings, and making smart purchasing decisions.
 metadata:
   openclaw: '{"emoji": "📦"}'
-  related-skills: null
 ---
 
 ## Quick Reference

@@ -4,7 +4,7 @@ description: Evaluate AliExpress vendors, compare landed costs and dropshipping 
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🛒"}'
-  related-skills: '{"temu":"Compare a similar marketplace listing when the user is choosing between AliExpress and Temu.","inventory":"Record purchased goods, warranties, and claim evidence after an order is placed.","seo":"Shape a resale listing after sourcing is decided.","contracts":"Track a supplier agreement once terms move beyond a marketplace order.","alipay":"Handle Alipay payment integration; it does not evaluate AliExpress sellers."}'
+  related-skills: '{"alipay": "Handle Alipay payment integration; it does not evaluate AliExpress sellers.", "contracts": "Track a supplier agreement once terms move beyond a marketplace order.", "inventory": "Record purchased goods, warranties, and claim evidence after an order is placed.", "seo": "Shape a resale listing after sourcing is decided.", "temu": "Compare a similar marketplace listing when the user is choosing between AliExpress and Temu."}'
 ---
 
 ## When to load

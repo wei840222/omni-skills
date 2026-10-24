@@ -3,7 +3,7 @@ name: whatsapp-business-api
 description: Manage WhatsApp Business Cloud API. Use this to send messages, templates, media, handle webhooks, and manage business profiles.
 metadata:
   openclaw: '{"emoji":"💬","requires":{"env":["WHATSAPP_ACCESS_TOKEN","WHATSAPP_PHONE_NUMBER_ID"]},"primaryEnv":"WHATSAPP_ACCESS_TOKEN","os":["linux","darwin","win32"],"displayName":"WhatsApp Business API"}'
-  related-skills: '{"api":"REST API patterns","webhook":"Webhook handling","chat":"Conversational patterns"}'
+  related-skills: '{"api": "REST API patterns", "chat": "Conversational patterns", "webhook": "Webhook handling"}'
 ---
 
 # WhatsApp Business API

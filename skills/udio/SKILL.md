@@ -1,10 +1,11 @@
 ---
 name: udio
-description: Generate AI music via Udio community API wrappers or browser automation.
+description: >
+  Generate AI music via Udio community API wrappers or browser automation.
   Trigger when asked to create, extend, or prompt engineer music using Udio.
 metadata:
-  openclaw: '{"emoji": "🎵", "requires": {"bins": ["python3"], "env": ["UDIO_AUTH_TOKEN"]},
-    "primaryEnv": "UDIO_AUTH_TOKEN"}'
+  openclaw: '{"emoji": "🎵", "requires": {"bins": ["python3"], "env": ["UDIO_AUTH_TOKEN"]}, "primaryEnv": "UDIO_AUTH_TOKEN"}'
+  related-skills: '{"audio": "Audio processing and editing", "ffmpeg": "Audio format conversion, cropping, cross-fades", "suno": "Alternate AI music generation platform and lyrics workflows", "video": "Combine music with video content"}'
 ---
 
 ## Initialization
@@ -279,9 +280,3 @@ Auth token is sent with API requests. No other data leaves the machine.
 ## Trust
 
 By using this skill with API wrappers, prompts and lyrics are sent to Udio's servers for music generation. Only use if you trust Udio with your creative content. Review Udio's terms of service at udio.com/terms.
-
-## Related Skills
-- `suno` — Alternate AI music generation platform and lyrics workflows
-- `audio` — Audio processing and editing
-- `video` — Combine music with video content
-- `ffmpeg` — Audio format conversion, cropping, cross-fades

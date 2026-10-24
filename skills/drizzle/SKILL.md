@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💧","requires":{"bins":["npx"]}}'
-  related-skills: '{"backend":"Service architecture around the DB tier beyond Drizzle client usage.","database-manager":"Production migration governance, backups, and incident response outside ORM syntax.","mysql":"MySQL server/engine quirks when the problem is not Drizzle API shape.","nodejs":"Process lifecycle, pools, and shutdown around the Node driver Drizzle wraps.","prisma":"Prisma schema/client workflows when the stack is Prisma-first instead of Drizzle.","sql":"Hand-written SQL, EXPLAIN, and cross-engine query design beneath or beside Drizzle.","sqlite":"SQLite concurrency/pragmas when the issue is the embedded engine, not Drizzle.","typescript":"Type-system depth beyond Drizzle inferred select/insert types."}'
+  related-skills: '{"backend": "Service architecture around the DB tier beyond Drizzle client usage.", "database-manager": "Production migration governance, backups, and incident response outside ORM syntax.", "mysql": "MySQL server/engine quirks when the problem is not Drizzle API shape.", "nodejs": "Process lifecycle, pools, and shutdown around the Node driver Drizzle wraps.", "prisma": "Prisma schema/client workflows when the stack is Prisma-first instead of Drizzle.", "sql": "Hand-written SQL, EXPLAIN, and cross-engine query design beneath or beside Drizzle.", "sqlite": "SQLite concurrency/pragmas when the issue is the embedded engine, not Drizzle.", "typescript": "Type-system depth beyond Drizzle inferred select/insert types."}'
 ---
 
 # Drizzle

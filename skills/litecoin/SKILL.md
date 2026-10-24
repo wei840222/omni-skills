@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"Ł"}'
-  related-skills: '{"bitcoin":"Bitcoin UTXO, fees, RBF/CPFP, and Lightning outside Litecoin.","dogecoin":"Dogecoin-only txs and Scrypt merged-mining peer of Litecoin.","ethereum":"EVM gas, approvals, and L2 bridges outside Litecoin.","blockchain":"General ledger fundamentals beyond Litecoin-specific address and MWEB guidance.","crypto-tools":"Market data and exchange tooling once Litecoin transaction mechanics are settled."}'
+  related-skills: '{"bitcoin": "Bitcoin UTXO, fees, RBF/CPFP, and Lightning outside Litecoin.", "blockchain": "General ledger fundamentals beyond Litecoin-specific address and MWEB guidance.", "crypto-tools": "Market data and exchange tooling once Litecoin transaction mechanics are settled.", "dogecoin": "Dogecoin-only txs and Scrypt merged-mining peer of Litecoin.", "ethereum": "EVM gas, approvals, and L2 bridges outside Litecoin."}'
 ---
 
 # Litecoin (LTC)

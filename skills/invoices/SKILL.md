@@ -3,7 +3,7 @@ name: invoices
 description: 'Files, checks, and audits incoming invoices. Automates e-invoice XML parsing, OCR extraction, duplicate detection, and VAT deduction prep. Use when an invoice arrives, when preparing tax exports, or to query past supplier spend.'
 metadata:
   openclaw: '{"emoji":"🧾"}'
-  related-skills: '{"accountant":"Preparing statements and returns the archive feeds, and what to hand over.","accounting":"The bookkeeping model behind the ledger: accounts, entries, statements.","clients":"The client side of money owed to you, including chasing late payment.","expenses":"Day-to-day spending logs, where small purchases live before any invoice exists.","invoice":"Issuing and sending invoices to your own clients, the other direction of the same document."}'
+  related-skills: '{"accountant": "Preparing statements and returns the archive feeds, and what to hand over.", "accounting": "The bookkeeping model behind the ledger: accounts, entries, statements.", "clients": "The client side of money owed to you, including chasing late payment.", "expenses": "Day-to-day spending logs, where small purchases live before any invoice exists.", "invoice": "Issuing and sending invoices to your own clients, the other direction of the same document."}'
 ---
 
 

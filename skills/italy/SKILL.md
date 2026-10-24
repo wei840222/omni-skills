@@ -14,7 +14,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇮🇹"}'
-  related-skills: '{"travel":"Multi-country trip systems when Italy is one stop among several.","booking":"Reservation search and booking completion after an Italy base or corridor is chosen.","car-rental":"Vehicle pickup and insurance handoff for self-drive Tuscany/countryside segments—pair with ZTL avoidance.","food":"Deeper restaurant and cuisine planning beyond the Italy food playbook.","english":"Communication clarity for bookings, menus, and service interactions.","italian":"Italian language support when local wording is the main need.","travel-planning":"Day-by-day multi-stop itineraries when the trip leaves Italy.","rome":"Rome-resident neighborhood, cost, and lifestyle depth beyond visitor routing.","venice":"Venice neighborhood and water-transport depth beyond a visitor day plan."}'
+  related-skills: '{"booking": "Reservation search and booking completion after an Italy base or corridor is chosen.", "car-rental": "Vehicle pickup and insurance handoff for self-drive Tuscany/countryside segments—pair with ZTL avoidance.", "english": "Communication clarity for bookings, menus, and service interactions.", "food": "Deeper restaurant and cuisine planning beyond the Italy food playbook.", "italian": "Italian language support when local wording is the main need.", "rome": "Rome-resident neighborhood, cost, and lifestyle depth beyond visitor routing.", "travel": "Multi-country trip systems when Italy is one stop among several.", "travel-planning": "Day-by-day multi-stop itineraries when the trip leaves Italy.", "venice": "Venice neighborhood and water-transport depth beyond a visitor day plan."}'
 ---
 
 ## State location

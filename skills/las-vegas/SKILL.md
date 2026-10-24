@@ -1,13 +1,12 @@
 ---
 name: las-vegas
-description: Provide Las Vegas guidance for visitors, residents, remote workers, and entrepreneurs. Trigger on questions about Vegas travel, relocation, costs, or neighborhoods.
+description: >
+  Provide Las Vegas guidance for visitors, residents, remote workers, and
+  entrepreneurs. Trigger on questions about Vegas travel, relocation, costs,
+  or neighborhoods.
 metadata:
   openclaw: '{"emoji":"\ud83c\udfb0","os":["linux","darwin","win32"],"displayName":"Las Vegas"}'
-  related-skills:
-  - travel
-  - dubai
-  - business
-  - money
+  related-skills: '{"business": "Apply proven business frameworks to validate startup ideas, define strategic priorities, track unit economics, and manage irreversible decisions", "dubai": "Provide practical guidance on Dubai for visitors, residents, tech workers, and entrepreneurs", "money": "Guide debt-payoff order, emergency-fund sizing, saving rates, affordability, and financial shocks", "travel": "Maintain a traveler standing system for wishlist destinations, passport and visa readiness, Schengen-style day counts, shared bookings, points expiry, trip budgets, disruption claims, and post-trip debriefs"}'
 ---
 
 ## When to Use

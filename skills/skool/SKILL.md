@@ -1,10 +1,12 @@
 ---
 name: skool
-description: Load this when operating Skool groups to manage onboarding, classroom
-  structure, calendar cadence, member lifecycle workflows, and official automations
-  safely.
+description: >
+  Load this when operating Skool groups to manage onboarding, classroom
+  structure, calendar cadence, member lifecycle workflows, and official
+  automations safely.
 metadata:
   openclaw: '{"emoji": "🎓"}'
+  related-skills: '{"community-manager": "extend Skool strategy into day-to-day moderation and operating rituals", "course": "improve curriculum structure and lesson sequencing inside the classroom", "growth": "connect Skool funnel work to broader acquisition and retention experiments", "webhook": "harden delivery, retries, and verification around Skool webhook flows", "zapier": "wire approved Skool workflows into broader automation systems"}'
 ---
 
 ## When to load
@@ -173,12 +175,3 @@ Restricted actions (must seek approval or avoid):
 - bypass confirmation for live member-impacting changes
 - claim a feature exists without checking current Skool docs when exact behavior matters
 - turn local memory into a shadow CRM full of unnecessary member data
-
-## Related Skills
-More skills (install if the user confirms):
-- `community-manager` - extend Skool strategy into day-to-day moderation and operating rituals
-- `zapier` - wire approved Skool workflows into broader automation systems
-- `webhook` - harden delivery, retries, and verification around Skool webhook flows
-- `course` - improve curriculum structure and lesson sequencing inside the classroom
-- `growth` - connect Skool funnel work to broader acquisition and retention experiments
-

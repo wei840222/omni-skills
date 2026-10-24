@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📚"}'
-  related-skills: '{"literature":"Scholarly close reading, theory lenses, and critical essays rather than everyday reading coaching.","learning":"In-session teaching and misconception repair when the goal is understanding a topic live.","studying":"Exam countdowns, coursework schedules, and retrieval blocks tied to assessments.","learn":"Multi-week self-directed curriculum and mastery systems without a course or exam.","bookmarks":"Saving and organizing links or read-later queues after a title is chosen.","book-writing":"Planning and drafting long-form manuscripts rather than reading existing works.","spaced-repetition":"Long-horizon review scheduling once reading takeaways become durable cards or prompts."}'
+  related-skills: '{"book-writing": "Planning and drafting long-form manuscripts rather than reading existing works.", "bookmarks": "Saving and organizing links or read-later queues after a title is chosen.", "learn": "Multi-week self-directed curriculum and mastery systems without a course or exam.", "learning": "In-session teaching and misconception repair when the goal is understanding a topic live.", "literature": "Scholarly close reading, theory lenses, and critical essays rather than everyday reading coaching.", "spaced-repetition": "Long-horizon review scheduling once reading takeaways become durable cards or prompts.", "studying": "Exam countdowns, coursework schedules, and retrieval blocks tied to assessments."}'
 ---
 
 # Reading coach

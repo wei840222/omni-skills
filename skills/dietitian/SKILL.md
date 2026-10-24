@@ -4,7 +4,7 @@ description: Plan meals, calculate calorie targets and macros, schedule meal tim
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🥗"}'
-  related-skills: '{"fitness":"Can create complementary workouts and manage overall health."}'
+  related-skills: '{"fitness": "Can create complementary workouts and manage overall health."}'
 ---
 
 ## State location

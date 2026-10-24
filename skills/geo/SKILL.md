@@ -3,7 +3,7 @@ name: geo
 description: "Audit and optimize Generative Engine Optimization (GEO). Trigger to improve AI recommendations for brands, run multi-model visibility audits, or develop platform-specific presence strategies."
 metadata:
   openclaw: '{"emoji":"🤖"}'
-  related-skills: '{"seo":"For traditional Google search ranking", "ads":"For paid advertising campaigns"}'
+  related-skills: '{"ads": "For paid advertising campaigns", "seo": "For traditional Google search ranking"}'
 ---
 
 ## State location

@@ -13,7 +13,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟠","requires":{"env":[]},"configPaths":["<state_root>/"]}'
-  related-skills: '{"ads":"Paid acquisition strategy, testing discipline, and media-buying tradeoffs beyond Whop Ads specifics.","api":"Generic REST auth, pagination, and HTTP debugging outside Whop endpoint families.","oauth":"OAuth token lifecycles and delegated access when the path is Sign in with Whop rather than iframe auth.","payments":"Provider selection, checkout design, and PCI-safe payment handling beyond Whop dashboard/API specifics.","webhook":"Generic webhook receiver security, replay handling, and idempotency outside Whop Standard Webhooks envelopes."}'
+  related-skills: '{"ads": "Paid acquisition strategy, testing discipline, and media-buying tradeoffs beyond Whop Ads specifics.", "api": "Generic REST auth, pagination, and HTTP debugging outside Whop endpoint families.", "oauth": "OAuth token lifecycles and delegated access when the path is Sign in with Whop rather than iframe auth.", "payments": "Provider selection, checkout design, and PCI-safe payment handling beyond Whop dashboard/API specifics.", "webhook": "Generic webhook receiver security, replay handling, and idempotency outside Whop Standard Webhooks envelopes."}'
 ---
 
 # Whop
@@ -210,11 +210,3 @@ No other data is sent externally by this skill.
 By using this skill for live integrations, data is sent to Whop.
 Only continue if you trust Whop with customer, growth, payout, membership, and
 business metadata.
-
-## Related skills
-
-- `ads` — Paid acquisition strategy beyond Whop Ads specifics
-- `api` — Generic REST debugging outside Whop endpoint families
-- `oauth` — Delegated Sign in with Whop / OAuth lifecycles
-- `payments` — Provider-agnostic payment design beyond Whop
-- `webhook` — Generic receiver security outside Whop envelopes

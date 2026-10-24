@@ -4,7 +4,7 @@ description: Guide Facebook Marketplace buying, selling, pricing, listing, picku
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛍️"}'
-  related-skills: '{"marketplace":"Compare Marketplace against other buyer, seller, and builder workflows.","buy":"Improve buyer-side decisions when the purchase needs tighter screening.","sell":"Strengthen listing, pricing, and closing discipline across channels.","pricing":"Set floors, negotiation bands, and margin-aware discount rules.","ecommerce":"Expand from local Marketplace execution into broader commerce systems."}'
+  related-skills: '{"buy": "Improve buyer-side decisions when the purchase needs tighter screening.", "ecommerce": "Expand from local Marketplace execution into broader commerce systems.", "marketplace": "Compare Marketplace against other buyer, seller, and builder workflows.", "pricing": "Set floors, negotiation bands, and margin-aware discount rules.", "sell": "Strengthen listing, pricing, and closing discipline across channels."}'
 ---
 
 ## State location

@@ -4,7 +4,7 @@ description: "Identify and fix Ansible playbook mistakes: YAML quoting traps, va
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"✨"}'
-  related-skills: '{"yaml":"Parser-level YAML quoting, booleans, and indentation traps under Ansible files.","linux":"Host-side sudo, permissions, and service behavior when become or package tasks fail.","bash":"Shell/command module scripts that need idempotence wrappers or creates/removes."}'
+  related-skills: '{"bash": "Shell/command module scripts that need idempotence wrappers or creates/removes.", "linux": "Host-side sudo, permissions, and service behavior when become or package tasks fail.", "yaml": "Parser-level YAML quoting, booleans, and indentation traps under Ansible files."}'
 ---
 
 ## State location

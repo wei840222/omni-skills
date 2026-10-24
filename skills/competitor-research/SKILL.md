@@ -1,15 +1,12 @@
 ---
 name: competitor-research
-description: Conduct competitor audits, market positioning, and gap analysis for strategic
-  decisions.
+description: >
+  Conduct competitor audits, market positioning, and gap analysis for
+  strategic decisions.
 metadata:
   version: "1.1.0"
-  openclaw: '{"emoji": "🔬", "requires": {"bins": [], "paths": ["<state_root>/competitor-research/"]},
-    "os": ["linux", "darwin", "win32"], "displayName": "Competitor Research"}'
-  related-skills:
-  - market-research
-  - business
-  - competitor-monitoring
+  openclaw: '{"emoji": "🔬", "requires": {"bins": [], "paths": ["<state_root>/competitor-research/"]}, "os": ["linux", "darwin", "win32"], "displayName": "Competitor Research"}'
+  related-skills: '{"business": "Apply proven business frameworks to validate startup ideas, define strategic priorities, track unit economics, and manage irreversible decisions", "competitor-monitoring": "Monitor competitors by tracking pricing, features, and positioning", "market-research": "Conduct market research including sizing (TAM/SAM/SOM), segmentation, competitor analysis, pricing checks, and demand validation"}'
 ---
 ## Setup
 

@@ -5,7 +5,7 @@ license: MIT
 metadata:
   version: "1.0.7"
   openclaw: '{"emoji":"💼"}'
-  related-skills: '{"ceo":"company-level strategy and board management","coo":"operations and scaling execution","accountant":"bookkeeping mechanics, statements, and tax filing","founder":"the founder''s own path: product-market fit, team, resilience","startup":"stage-appropriate priorities across every function"}'
+  related-skills: '{"accountant": "bookkeeping mechanics, statements, and tax filing", "ceo": "company-level strategy and board management", "coo": "operations and scaling execution", "founder": "the founder''s own path: product-market fit, team, resilience", "startup": "stage-appropriate priorities across every function"}'
 ---
 User preferences and prior context live in `<state_root>/cfo/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/cfo/` or `~/clawic/cfo/`), move it to `<state_root>/cfo/`, and say in one line that you moved it and from where. Store settings and context only — avoid account numbers, credentials, or raw statements (→ Security & Privacy).
 

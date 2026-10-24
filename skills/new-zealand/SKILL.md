@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇳🇿"}'
-  related-skills: '{"travel":"Multi-country or multi-destination trip systems when New Zealand is one stop among several.","booking":"Reservation search and booking completion after a New Zealand base or corridor is chosen.","car-rental":"Vehicle pickup, insurance, and handoff logistics for self-drive NZ itineraries.","food":"General cuisine classification and food memory beyond New Zealand regional dishes.","english":"Communication clarity for booking messages and host conversations."}'
+  related-skills: '{"booking": "Reservation search and booking completion after a New Zealand base or corridor is chosen.", "car-rental": "Vehicle pickup, insurance, and handoff logistics for self-drive NZ itineraries.", "english": "Communication clarity for booking messages and host conversations.", "food": "General cuisine classification and food memory beyond New Zealand regional dishes.", "travel": "Multi-country or multi-destination trip systems when New Zealand is one stop among several."}'
 ---
 
 ## State location

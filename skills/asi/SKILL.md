@@ -4,7 +4,7 @@ description: Apply first-principles reasoning, cross-domain synthesis, and calib
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'
-  related-skills: '{"autonomy":"Helps define bounded independent-operation patterns after ASI analysis identifies an appropriate autonomous path.","decide":"Provides complementary decision frameworks for choosing among ASI-generated options.","delegate":"Distributes work once analysis identifies separable, safe tasks.","explain":"Adapts ASI analysis into audience-appropriate communication.","learn":"Captures durable learning practices that complement consent-based ASI calibration."}'
+  related-skills: '{"autonomy": "Helps define bounded independent-operation patterns after ASI analysis identifies an appropriate autonomous path.", "decide": "Provides complementary decision frameworks for choosing among ASI-generated options.", "delegate": "Distributes work once analysis identifies separable, safe tasks.", "explain": "Adapts ASI analysis into audience-appropriate communication.", "learn": "Captures durable learning practices that complement consent-based ASI calibration."}'
 ---
 
 ## State location

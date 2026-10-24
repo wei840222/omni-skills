@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📝"}'
-  related-skills: '{"act-prep":"ACT section strategy, enhanced-format checks, and ACT college targeting instead of Digital SAT.","toefl":"TOEFL iBT structure and score logistics instead of SAT.","ielts":"IELTS Academic/GT workflows instead of SAT.","exam":"Generate practice questions or mocks from supplied notes rather than Digital SAT format workflows.","study":"Semester coursework schedules beyond SAT-focused prep.","tutor":"General multi-subject tutoring outside SAT section tactics.","english":"General English writing and correction outside scored SAT RW tasks.","grammar":"Pure correctness passes where SAT task strategy must not move.","writing":"Long-form drafting in the user voice outside SAT RW drills.","gaokao":"Gaokao workflows for China admissions instead of College Board SAT."}'
+  related-skills: '{"act-prep": "ACT section strategy, enhanced-format checks, and ACT college targeting instead of Digital SAT.", "english": "General English writing and correction outside scored SAT RW tasks.", "exam": "Generate practice questions or mocks from supplied notes rather than Digital SAT format workflows.", "gaokao": "Gaokao workflows for China admissions instead of College Board SAT.", "grammar": "Pure correctness passes where SAT task strategy must not move.", "ielts": "IELTS Academic/GT workflows instead of SAT.", "study": "Semester coursework schedules beyond SAT-focused prep.", "toefl": "TOEFL iBT structure and score logistics instead of SAT.", "tutor": "General multi-subject tutoring outside SAT section tactics.", "writing": "Long-form drafting in the user voice outside SAT RW drills."}'
 ---
 
 ## When to load

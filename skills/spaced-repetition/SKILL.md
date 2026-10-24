@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚡"}'
-  related-skills: '{"anki":"Anki product operations: deck options UI, FSRS toggles, sync, imports, templates.","flashcards":"Atomic card authoring and TSV/export formats when the ask is writing cards, not scheduling theory.","learning":"Broader learning strategy; use when SR is only one tactic inside a larger learning plan.","memory":"Durable fact store for lookup; use when the goal is storing a fact to retrieve later, not practicing recall on a schedule.","notes":"Source material and atomic notes that feed cards; use when capturing notes before carding.","studying":"Exam countdowns, study blocks, and session coaching beyond scheduler mechanics."}'
+  related-skills: '{"anki": "Anki product operations: deck options UI, FSRS toggles, sync, imports, templates.", "flashcards": "Atomic card authoring and TSV/export formats when the ask is writing cards, not scheduling theory.", "learning": "Broader learning strategy; use when SR is only one tactic inside a larger learning plan.", "memory": "Durable fact store for lookup; use when the goal is storing a fact to retrieve later, not practicing recall on a schedule.", "notes": "Source material and atomic notes that feed cards; use when capturing notes before carding.", "studying": "Exam countdowns, study blocks, and session coaching beyond scheduler mechanics."}'
 ---
 
 This skill is knowledge-only: it does not store local configuration or persistent user state. Anki collection data stays in the user's Anki app; optional preferences for Anki itself belong to the `anki` skill's `<state_root>`.

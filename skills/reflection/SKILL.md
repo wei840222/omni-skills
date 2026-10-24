@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🪞","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"self-criticism":"Insert compact mid-task critique at branching or friction breakpoints; use reflection for heavier post-task retrospectives.","self-improving":"Compound durable execution lessons after outcomes; reflection owns the 7-dimension loop and pattern log.","decide":"Log consequential branch choices; reflection logs how work was evaluated, not which option to pick.","memory":"Long-term factual continuity; reflection stores evaluation lessons, not durable world facts.","learning":"Study and spaced practice; reflection captures agent performance lessons from corrections."}'
+  related-skills: '{"decide": "Log consequential branch choices; reflection logs how work was evaluated, not which option to pick.", "learning": "Study and spaced practice; reflection captures agent performance lessons from corrections.", "memory": "Long-term factual continuity; reflection stores evaluation lessons, not durable world facts.", "self-criticism": "Insert compact mid-task critique at branching or friction breakpoints; use reflection for heavier post-task retrospectives.", "self-improving": "Compound durable execution lessons after outcomes; reflection owns the 7-dimension loop and pattern log."}'
 ---
 
 # Reflection

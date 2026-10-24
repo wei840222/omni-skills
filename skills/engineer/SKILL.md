@@ -3,7 +3,7 @@ name: engineer
 description: Trigger when evaluating system requirements, comparing designs via trade-offs, planning execution steps, or troubleshooting complex process failures. Use `software-engineer` for standard code implementation.
 metadata:
   openclaw: '{"emoji":"🛠️"}'
-  related-skills: '{"architecture":"System structure and boundary decisions beyond single-process engineering judgment.","analytics":"Measurement and evidence framing once verification criteria exist.","product-manager":"Product scope and prioritization adjacent to engineering trade-offs.","cto":"Org-level tech strategy when the decision exceeds local system design.","software-engineer":"Implementation and code debugging once the engineering plan is set."}'
+  related-skills: '{"analytics": "Measurement and evidence framing once verification criteria exist.", "architecture": "System structure and boundary decisions beyond single-process engineering judgment.", "cto": "Org-level tech strategy when the decision exceeds local system design.", "product-manager": "Product scope and prioritization adjacent to engineering trade-offs.", "software-engineer": "Implementation and code debugging once the engineering plan is set."}'
 ---
 ## When to Use
 

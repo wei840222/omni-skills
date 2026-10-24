@@ -15,7 +15,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐","requires":{"anyBins":["gcloud"]}}'
-  related-skills: '{"terraform":"HCL authoring, state surgery, and module design beyond GCP platform defaults.","k8s":"Kubernetes manifests and in-cluster debugging for workloads on GKE.","pg":"PostgreSQL query, index, and vacuum tuning inside Cloud SQL or AlloyDB.","aws":"Multi-cloud counterpart and common migration source estate.","infrastructure":"Provider-agnostic architecture decisions before GCP-specific services."}'
+  related-skills: '{"aws": "Multi-cloud counterpart and common migration source estate.", "infrastructure": "Provider-agnostic architecture decisions before GCP-specific services.", "k8s": "Kubernetes manifests and in-cluster debugging for workloads on GKE.", "pg": "PostgreSQL query, index, and vacuum tuning inside Cloud SQL or AlloyDB.", "terraform": "HCL authoring, state surgery, and module design beyond GCP platform defaults."}'
 ---
 
 ## When to load

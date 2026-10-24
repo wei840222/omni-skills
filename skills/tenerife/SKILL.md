@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌋"}'
-  related-skills: '{"travel":"Multi-country or multi-island itineraries when Tenerife is only one stop.","booking":"Reservation hygiene after the Tenerife base and dates are chosen.","food":"Deeper cuisine workflows beyond Canarian dining pointers.","spanish":"Spanish production for forms, menus, and local bookings.","housing":"Cross-market housing search when Tenerife is one candidate island.","europe":"Schengen / multi-city Europe framing beyond Tenerife-only logistics.","flight":"Flight shopping and buffer planning into TFN/TFS.","expat":"General expat settling patterns that are not Tenerife-specific."}'
+  related-skills: '{"booking": "Reservation hygiene after the Tenerife base and dates are chosen.", "europe": "Schengen / multi-city Europe framing beyond Tenerife-only logistics.", "expat": "General expat settling patterns that are not Tenerife-specific.", "flight": "Flight shopping and buffer planning into TFN/TFS.", "food": "Deeper cuisine workflows beyond Canarian dining pointers.", "housing": "Cross-market housing search when Tenerife is one candidate island.", "spanish": "Spanish production for forms, menus, and local bookings.", "travel": "Multi-country or multi-island itineraries when Tenerife is only one stop."}'
 ---
 
 # Tenerife

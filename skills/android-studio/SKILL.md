@@ -9,7 +9,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤖"}'
-  related-skills: '{"android":"App build, runtime, targetSdk, signing, and Play shipping outside the IDE surface.","kotlin":"Kotlin language mechanics, coroutines, and null-safety rather than IDE navigation.","java":"Java syntax and interop details when the codebase is Java-first."}'
+  related-skills: '{"android": "App build, runtime, targetSdk, signing, and Play shipping outside the IDE surface.", "java": "Java syntax and interop details when the codebase is Java-first.", "kotlin": "Kotlin language mechanics, coroutines, and null-safety rather than IDE navigation."}'
 ---
 
 # Android Studio

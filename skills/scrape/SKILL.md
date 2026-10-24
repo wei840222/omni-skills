@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🕷️"}'
-  related-skills: '{"http":"Protocol-level methods, status codes, caching, and headers beyond scrape fetch loops.","playwright":"JS-rendered pages, locators, and browser automation when plain HTTP is insufficient.","puppeteer":"Chromium-only headless flows, screenshots, and PDF capture.","legal":"Jurisdiction-first IRAC analysis when scrape ToS/CFAA risk needs structured legal framing.","web":"Site architecture and launch work rather than extraction scripts.","seo":"Ranking and Search Console work beyond robots.txt compliance for crawlers."}'
+  related-skills: '{"http": "Protocol-level methods, status codes, caching, and headers beyond scrape fetch loops.", "legal": "Jurisdiction-first IRAC analysis when scrape ToS/CFAA risk needs structured legal framing.", "playwright": "JS-rendered pages, locators, and browser automation when plain HTTP is insufficient.", "puppeteer": "Chromium-only headless flows, screenshots, and PDF capture.", "seo": "Ranking and Search Console work beyond robots.txt compliance for crawlers.", "web": "Site architecture and launch work rather than extraction scripts."}'
 ---
 
 ## When to load

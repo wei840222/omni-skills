@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📜","os":["linux","darwin","win32"],"displayName":"History"}'
-  related-skills: '{"homework":"Assignment help that may include history essays; history owns multi-perspective analysis and source criticism.","studying":"Long-horizon exam study plans rather than one historical narrative.","learning":"Open-ended concept learning outside historical method.","writing":"Prose craft and revision; history supplies argument structure and evidence standards.","course":"Designing a full history course product rather than answering a history question."}'
+  related-skills: '{"course": "Designing a full history course product rather than answering a history question.", "homework": "Assignment help that may include history essays; history owns multi-perspective analysis and source criticism.", "learning": "Open-ended concept learning outside historical method.", "studying": "Long-horizon exam study plans rather than one historical narrative.", "writing": "Prose craft and revision; history supplies argument structure and evidence standards."}'
 ---
 
 ## When to Use

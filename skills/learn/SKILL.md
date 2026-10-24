@@ -17,7 +17,7 @@ description: >
 metadata:
   version: "1.0.5"
   openclaw: '{"emoji":"🎓","requires":{"config":["<state_root>/"]},"os":["linux","darwin","win32"],"displayName":"Learn"}'
-  related-skills: '{"learning":"Live teach-me sessions that explain a concept, adapt depth, and check understanding in the moment—not multi-week curriculum ownership.","studying":"Exam or coursework plans with a syllabus and a date rather than open-ended self-directed mastery.","anki":"Building and repairing Anki decks when `sr_tool` is Anki.","flashcards":"Atomic card authoring and export formats without owning the long-horizon learning system.","spaced-repetition":"Scheduler theory and review economy when the ask is SRS mechanics rather than the full learn loop.","memory":"Durable personal facts outside any learning topic."}'
+  related-skills: '{"anki": "Building and repairing Anki decks when `sr_tool` is Anki.", "flashcards": "Atomic card authoring and export formats without owning the long-horizon learning system.", "learning": "Live teach-me sessions that explain a concept, adapt depth, and check understanding in the moment—not multi-week curriculum ownership.", "memory": "Durable personal facts outside any learning topic.", "spaced-repetition": "Scheduler theory and review economy when the ask is SRS mechanics rather than the full learn loop.", "studying": "Exam or coursework plans with a syllabus and a date rather than open-ended self-directed mastery."}'
 ---
 
 ## State location

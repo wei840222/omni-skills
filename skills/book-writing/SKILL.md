@@ -3,7 +3,7 @@ name: book-writing
 description: Plan, draft, and revise long-form books and manuscripts with a structural blueprint, chapter outcomes, voice continuity, and staged revision passes. Use when a user needs book planning, drafting, manuscript revision, or progress control across multiple chapters.
 metadata:
   openclaw: '{"emoji":"📚"}'
-  related-skills: '{"writing": "voice adaptation and writing preference memory", "writer": "anti-robotic writing patterns and rhythm control", "write": "general-purpose drafting support for fast composition", "article": "long-form article structuring and editorial flow", "content-marketing": "audience-driven messaging and conversion framing"}'
+  related-skills: '{"article": "long-form article structuring and editorial flow", "content-marketing": "audience-driven messaging and conversion framing", "write": "general-purpose drafting support for fast composition", "writer": "anti-robotic writing patterns and rhythm control", "writing": "voice adaptation and writing preference memory"}'
 ---
 
 ## State location

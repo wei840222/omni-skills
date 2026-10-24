@@ -4,7 +4,7 @@ description: Plan Norway trips. Load references/ for fjord routing, entry rules,
   logistics, and safety guidelines.
 metadata:
   openclaw: '{"emoji": "🇳🇴", "requires": {"bins": [], "config": ["<state_root>/data/norway/"]}}'
-  related-skills: '{"travel": "Broader multi-country trip framing when Norway is only one stop.", "booking": "Reservation timing, inventory risk, and booking tradeoffs for stays or transport.", "car-rental": "Vehicle choice and rental logistics once a self-drive corridor is chosen.", "food": "General dining strategy outside Norway-specific supermarket and alcohol constraints.", "english": "Language help when the traveler needs phrasing support rather than Norway route logic."}'
+  related-skills: '{"booking": "Reservation timing, inventory risk, and booking tradeoffs for stays or transport.", "car-rental": "Vehicle choice and rental logistics once a self-drive corridor is chosen.", "english": "Language help when the traveler needs phrasing support rather than Norway route logic.", "food": "General dining strategy outside Norway-specific supermarket and alcohol constraints.", "travel": "Broader multi-country trip framing when Norway is only one stop."}'
 ---
 
 ## When to load

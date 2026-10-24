@@ -5,7 +5,7 @@ license: MIT
 compatibility: "*"
 metadata:
   openclaw: '{"emoji":"🇪🇺"}'
-  related-skills: '{"travel":"skills/travel","booking":"skills/booking","car-rental":"skills/car-rental","health-insurance":"skills/health-insurance","english":"skills/english"}'
+  related-skills: '{"booking": "skills/booking", "car-rental": "skills/car-rental", "english": "skills/english", "health-insurance": "skills/health-insurance", "travel": "skills/travel"}'
 ---
 ## When to Use
 

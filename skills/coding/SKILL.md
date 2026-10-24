@@ -1,11 +1,11 @@
 ---
 name: coding
-description: Manage and apply user-specific coding style preferences, stack decisions,
-  and architectural patterns. Trigger when explicitly corrected by the user or when
-  generating code that requires style alignment.
+description: >
+  Manage and apply user-specific coding style preferences, stack decisions,
+  and architectural patterns. Trigger when explicitly corrected by the user or
+  when generating code that requires style alignment.
 metadata:
   openclaw: '{"emoji": "💻", "os": ["linux", "darwin", "win32"], "displayName": "Coding"}'
-  related-skills: null
 ---
 
 ## When to load

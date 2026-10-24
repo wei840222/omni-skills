@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📖","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"writing":"Improve sentence-level prose, voice fingerprint, and revision passes when the problem is wording rather than story logic.","content-marketing":"Connect finished stories to funnel stages, distribution plans, and editorial calendars.","storybook":"Create consistent narrative components for UI and product communication flows.","history":"Build chronology-aware historical narratives with source-aware framing.","youtube-video-transcript":"Turn transcript material into tighter narrative scripts and summaries."}'
+  related-skills: '{"content-marketing": "Connect finished stories to funnel stages, distribution plans, and editorial calendars.", "history": "Build chronology-aware historical narratives with source-aware framing.", "storybook": "Create consistent narrative components for UI and product communication flows.", "writing": "Improve sentence-level prose, voice fingerprint, and revision passes when the problem is wording rather than story logic.", "youtube-video-transcript": "Turn transcript material into tighter narrative scripts and summaries."}'
 ---
 
 # Storytelling

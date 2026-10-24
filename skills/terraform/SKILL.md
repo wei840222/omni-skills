@@ -1,21 +1,17 @@
 ---
 name: terraform
-description: >-
+description: >
   Write, debug, and refactor Terraform or OpenTofu HCL: modules, plan/apply
-  failures, permanent diffs, state surgery, stuck locks, drift, provider pinning,
-  and plan-on-PR gates. Use when reviewing HCL, when plan shows forces replacement
-  or unexplained destroy, when for_each is unknown until apply, when upgrading
-  providers/CLI, or recovering lost/corrupt state. Not for choosing which cloud
-  services to build (aws/gcp/azure) or configuring software inside instances (ansible).
-
+  failures, permanent diffs, state surgery, stuck locks, drift, provider
+  pinning, and plan-on-PR gates. Use when reviewing HCL, when plan shows
+  forces replacement or unexplained destroy, when for_each is unknown until
+  apply, when upgrading providers/CLI, or recovering lost/corrupt state. Not
+  for choosing which cloud services to build (aws/gcp/azure) or configuring
+  software inside instances (ansible).
 metadata:
-  openclaw: '{"emoji": "🟪"}'
   version: "1.0.4"
-  related-skills: '{"aws": "Provides specific guidance for AWS resources managed by
-    Terraform.", "devops": "Guides pipeline and delivery design around Terraform plan
-    and apply gates.", "github-actions": "Wires up plan-on-PR and apply-on-merge workflows.",
-    "ansible": "Configures workloads inside the instances provisioned by Terraform.",
-    "k8s": "Manages workloads on Kubernetes clusters provisioned by Terraform."}'
+  openclaw: '{"emoji": "🟪"}'
+  related-skills: '{"ansible": "Configures workloads inside the instances provisioned by Terraform.", "aws": "Provides specific guidance for AWS resources managed by Terraform.", "devops": "Guides pipeline and delivery design around Terraform plan and apply gates.", "github-actions": "Wires up plan-on-PR and apply-on-merge workflows.", "k8s": "Manages workloads on Kubernetes clusters provisioned by Terraform."}'
 ---
 
 ## State location
@@ -187,16 +183,6 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Exact module pins vs `~>` constraints**: exact pins for third-party registry modules (supply-chain surface); pessimistic minor constraints acceptable for internal modules gated by your own CI.
 - **One shared state vs many micro-states**: the frontier is change coupling — resources that always ship together belong in one state; every cross-state reference costs a data-source hop and an ordering problem between pipelines.
 - **Terraform vs OpenTofu**: the frontier is licensing exposure and feature need, not ideology — OpenTofu is a drop-in for most existing code and adds state encryption; teams already on a managed HashiCorp platform, or depending on features that landed after the fork, pay a migration cost for nothing. Decide once, per organization (`references/upgrades.md`).
-
-## Related Skills
-
-Load only when the task leaves pure Terraform workflow:
-
-- `aws` — provider-specific AWS resource design and IAM once the plan/state problem is clear
-- `devops` — delivery topology around plan/apply gates and environment promotion
-- `github-actions` — concrete plan-on-PR / apply-on-merge workflow wiring
-- `ansible` — configuration of workloads *inside* instances Terraform provisioned
-- `k8s` — workload management on clusters that Terraform provisioned
 
 ## Safety reminders
 

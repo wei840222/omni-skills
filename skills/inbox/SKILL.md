@@ -4,7 +4,7 @@ description: "Triage any inbox across email, chat, and project tools with cognit
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📥"}'
-  related-skills: '{"email-management":"Use for email-specific triage, reply drafting, and follow-up tracking.", "secretary":"Use for executive assistant orchestration around communications and scheduling.", "productivity":"Use for broader prioritization and execution frameworks beyond inbox triage.", "brief":"Use when synthesizing inbox items into concise status briefs."}'
+  related-skills: '{"brief": "Use when synthesizing inbox items into concise status briefs.", "email-management": "Use for email-specific triage, reply drafting, and follow-up tracking.", "productivity": "Use for broader prioritization and execution frameworks beyond inbox triage.", "secretary": "Use for executive assistant orchestration around communications and scheduling."}'
 ---
 
 

@@ -8,7 +8,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🚬", "requires": {"config": ["<state_root>/smoking/"]}}'
-  related-skills: '{"health": "broader health planning context that can shape smoking goals", "psychologist": "behavior-change framing and supportive conversation patterns", "daily-planner": "routine design and schedule anchors for new habits", "coach": "accountability loops and structured progress reviews", "nutrition": "appetite and energy planning during reduction or quit periods"}'
+  related-skills: '{"coach": "accountability loops and structured progress reviews", "daily-planner": "routine design and schedule anchors for new habits", "health": "broader health planning context that can shape smoking goals", "nutrition": "appetite and energy planning during reduction or quit periods", "psychologist": "behavior-change framing and supportive conversation patterns"}'
 ---
 
 ## Setup
@@ -132,11 +132,3 @@ No other data is sent externally.
 
 This is an instruction-only behavioral tracking and coaching skill.
 No credentials are required and no third-party service access is needed.
-
-## Related Skills
-
-- `health` — broader health planning context that can shape smoking goals.
-- `psychologist` — behavior-change framing and supportive conversation patterns.
-- `daily-planner` — routine design and schedule anchors for new habits.
-- `coach` — accountability loops and structured progress reviews.
-- `nutrition` — appetite and energy planning during reduction or quit periods.

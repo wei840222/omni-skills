@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💾"}'
-  related-skills: '{"cloud-storage":"Provider upload/download/sync operations and egress cost checks once backup targets are chosen.","storage":"Capacity, durability class, and media planning outside backup workflow design.","s3":"S3 Object Lock, versioning, and bucket policy details for immutable backup repositories.","encryption":"Key management and at-rest encryption choices for backup payloads and repositories.","linux":"Host paths, permissions, cron/systemd scheduling, and filesystem quirks that affect backup jobs.","documentation":"External runbooks and credential placement outside the backup repository itself."}'
+  related-skills: '{"cloud-storage": "Provider upload/download/sync operations and egress cost checks once backup targets are chosen.", "documentation": "External runbooks and credential placement outside the backup repository itself.", "encryption": "Key management and at-rest encryption choices for backup payloads and repositories.", "linux": "Host paths, permissions, cron/systemd scheduling, and filesystem quirks that affect backup jobs.", "s3": "S3 Object Lock, versioning, and bucket policy details for immutable backup repositories.", "storage": "Capacity, durability class, and media planning outside backup workflow design."}'
 ---
 
 ## When to load

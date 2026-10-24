@@ -4,7 +4,7 @@ description: Deploy, host, publish, or relink a web project on Netlify. Use when
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"NET","requires":{"bins":["npx","git"]}}'
-  related-skills: '{"ci-cd":"Provides delivery-pipeline design and release automation practices.","deploy":"Provides provider-neutral deployment planning across environments.","devops":"Provides infrastructure and operational guardrails for deployment work.","git":"Provides branch hygiene and release-safe commit workflow."}'
+  related-skills: '{"ci-cd": "Provides delivery-pipeline design and release automation practices.", "deploy": "Provides provider-neutral deployment planning across environments.", "devops": "Provides infrastructure and operational guardrails for deployment work.", "git": "Provides branch hygiene and release-safe commit workflow."}'
 ---
 
 ## State location

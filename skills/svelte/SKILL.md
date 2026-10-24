@@ -1,15 +1,14 @@
 ---
 name: svelte
-description: 'Builds, debugs, and reviews Svelte and SvelteKit apps: runes, stores, load functions, form actions. Use when the UI does not update after a state change, an effect loops forever, props or bindings stop reacting, or state leaks between users on the server. Not for Vue or Nuxt.'
+description: >
+  Builds, debugs, and reviews Svelte and SvelteKit apps: runes, stores, load
+  functions, form actions. Use when the UI does not update after a state
+  change, an effect loops forever, props or bindings stop reacting, or state
+  leaks between users on the server. Not for Vue or Nuxt.
 metadata:
-  related-skills:
-    - skills/typescript
-    - skills/vite
-    - skills/playwright
-    - skills/tailwindcss
-    - skills/nodejs
-  version: '1.0.2'
+  version: "1.0.2"
   openclaw: '{"emoji": "🔥", "requires": {"bins": ["node"], "config": ["<state_root>/svelte/"]}}'
+  related-skills: '{"nodejs": "Build, debug, and harden Node", "playwright": "Automate, test, and debug browsers with Playwright: locators, auto-waiting, traces, CI sharding, storageState auth, request mocking, visual diffs, and Playwright MCP control", "tailwindcss": "Writes and debugs Tailwind CSS: utility classes, theme config, dark mode, variants, plugins, and build setup", "typescript": "Writes, reviews, and debugs type-safe TypeScript: type errors, narrowing, generics, tsconfig strictness, and declaration files", "vite": "Configure and optimize Vite for development, production builds, and library bundling"}'
 ---
 
 User preferences and memory live in `<state_root>/svelte/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/svelte/`, `~/clawic/svelte/`, or `~/Clawic/data/svelte/`), move it to `<state_root>/svelte/`, and say in one line that you moved it and from where.
@@ -185,11 +184,3 @@ Before emitting a component or route, verify:
 - **How much `$effect` is acceptable.** The framework position is that effects are a last resort for synchronizing with systems outside Svelte; the pragmatic position accepts effects for analytics, logging, and persistence. Both agree on the hard line: an effect that assigns state which feeds back into its own dependencies is a bug, not a style choice.
 - **SSR by default vs SPA.** Prerendering or SSR wins for public, indexable, first-paint-sensitive pages. `adapter-static` with `ssr = false` is a legitimate choice for an internal dashboard behind auth where every view needs the client anyway — the deciding factors are SEO, first paint, and no-JS support, not fashion.
 - **Validation libraries in form actions.** Hand-rolled checks are fine for one to three fields. Once you need repopulating on failure, nested data, arrays, or multi-step wizards, a schema library plus a form helper stops the per-field boilerplate from drifting out of sync with the server.
-
-## Related Skills
-More related skills:
-- `typescript` — type-system depth beyond the Svelte-specific typings
-- `vite` — dev server, plugins, and build configuration under SvelteKit
-- `playwright` — end-to-end testing of the running app
-- `tailwindcss` — utility styling inside Svelte components
-- `nodejs` — running and hardening the `adapter-node` server

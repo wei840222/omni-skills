@@ -7,7 +7,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔐"}'
-  related-skills: '{"passwords":"Password policy, reset, and storage handoff when hashing is the whole task.","crypto-tools":"CLI encrypt, decrypt, sign, and verify commands after the algorithm is chosen.","security-best-practices":"Broader application security review beyond cryptographic primitives.","ssl":"Certificate issuance, renewal, and TLS termination after cipher policy is set.","jwt":"Token signing and verification once the signing algorithm and key rotation are chosen."}'
+  related-skills: '{"crypto-tools": "CLI encrypt, decrypt, sign, and verify commands after the algorithm is chosen.", "jwt": "Token signing and verification once the signing algorithm and key rotation are chosen.", "passwords": "Password policy, reset, and storage handoff when hashing is the whole task.", "security-best-practices": "Broader application security review beyond cryptographic primitives.", "ssl": "Certificate issuance, renewal, and TLS termination after cipher policy is set."}'
 ---
 
 ## When to load

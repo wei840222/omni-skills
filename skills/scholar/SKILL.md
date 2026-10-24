@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎓"}'
-  related-skills: '{"pubmed":"Biomedical literature with MeSH, PICO, and clinical study hierarchy.","multi-engine-web-search":"Cross-engine web discovery when Scholar alone is not enough.","in-depth-research":"Structured multi-source investigation after candidate papers are found.","literature":"Literary analysis and critical essays rather than scholarly search.","web":"Open and inspect a selected page after Scholar discovery.","digest":"Recurring monitoring feeds instead of one-shot Scholar lookup.","synthesize":"Combine user-supplied documents without new external search."}'
+  related-skills: '{"digest": "Recurring monitoring feeds instead of one-shot Scholar lookup.", "in-depth-research": "Structured multi-source investigation after candidate papers are found.", "literature": "Literary analysis and critical essays rather than scholarly search.", "multi-engine-web-search": "Cross-engine web discovery when Scholar alone is not enough.", "pubmed": "Biomedical literature with MeSH, PICO, and clinical study hierarchy.", "synthesize": "Combine user-supplied documents without new external search.", "web": "Open and inspect a selected page after Scholar discovery."}'
 ---
 
 # Google Scholar

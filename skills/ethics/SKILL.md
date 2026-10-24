@@ -4,7 +4,7 @@ description: Guide moral reasoning, from resolving personal ethical dilemmas to 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⚖️"}'
-  related-skills: '{"philosophy":"Broader philosophical inquiry beyond applied moral dilemmas","studying":"Study planning when the user needs exam prep rather than moral analysis","writing":"Essay drafting and voice when ethics is not the primary subject"}'
+  related-skills: '{"philosophy": "Broader philosophical inquiry beyond applied moral dilemmas", "studying": "Study planning when the user needs exam prep rather than moral analysis", "writing": "Essay drafting and voice when ethics is not the primary subject"}'
 ---
 
 ## Detect Level, Adapt Everything

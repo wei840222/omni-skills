@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🍎","os":["darwin"],"requires":{"bins":["osascript"]}}'
-  related-skills: '{"automate":"General automation reliability and workflow design around AppleScript steps.","bash":"Shell wrappers, quoting, and process control when invoking osascript from scripts.","files":"Safe bulk file operations outside app dictionaries.","macos":"Darwin host admin, TCC privacy gates, and non-AppleEvent system tooling.","notes":"Structured note capture when the target is knowledge content rather than Notes.app scripting."}'
+  related-skills: '{"automate": "General automation reliability and workflow design around AppleScript steps.", "bash": "Shell wrappers, quoting, and process control when invoking osascript from scripts.", "files": "Safe bulk file operations outside app dictionaries.", "macos": "Darwin host admin, TCC privacy gates, and non-AppleEvent system tooling.", "notes": "Structured note capture when the target is knowledge content rather than Notes.app scripting."}'
 ---
 
 ## State location

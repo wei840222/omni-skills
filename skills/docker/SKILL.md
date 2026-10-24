@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐳","requires":{"bins":["docker"]}}'
-  related-skills: '{"devops":"CI/CD, release, and rollback systems around the images this skill builds.","k8s":"Kubernetes manifests and cluster debugging once images leave a single host.","linux":"Host cgroups, systemd, firewall, and kernel limits under the Docker daemon.","server":"Server administration for the machine that runs the daemon.","traefik":"Reverse proxy and TLS in front of Compose services."}'
+  related-skills: '{"devops": "CI/CD, release, and rollback systems around the images this skill builds.", "k8s": "Kubernetes manifests and cluster debugging once images leave a single host.", "linux": "Host cgroups, systemd, firewall, and kernel limits under the Docker daemon.", "server": "Server administration for the machine that runs the daemon.", "traefik": "Reverse proxy and TLS in front of Compose services."}'
 ---
 
 # Docker

@@ -4,7 +4,7 @@ description: Plan and troubleshoot Minecraft worlds, builds, redstone, commands,
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧱"}'
-  related-skills: '{"gaming":"Provides broader game strategy outside Minecraft-specific mechanics.","home-server":"Covers private self-hosted infrastructure for a Minecraft server.","java":"Covers Java runtime and tooling issues behind Java Edition launchers, mods, or dedicated servers.","linux":"Covers Linux host administration for Minecraft servers or containers.","server":"Covers general dedicated-server deployment and troubleshooting patterns."}'
+  related-skills: '{"gaming": "Provides broader game strategy outside Minecraft-specific mechanics.", "home-server": "Covers private self-hosted infrastructure for a Minecraft server.", "java": "Covers Java runtime and tooling issues behind Java Edition launchers, mods, or dedicated servers.", "linux": "Covers Linux host administration for Minecraft servers or containers.", "server": "Covers general dedicated-server deployment and troubleshooting patterns."}'
 ---
 
 ## State location

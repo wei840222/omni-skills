@@ -4,7 +4,7 @@ description: Provide drum practice strategies, technique correction, groove deve
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🥁"}'
-  related-skills: '{"music":"Track listening history, playlists, and concerts rather than drum practice technique.","piano":"Keyboard practice plans and technique instead of drum kit work.","acoustic-guitar":"Acoustic guitar practice and repertoire instead of drums.","electric-guitar":"Electric guitar practice and gear instead of drums.","habits":"Design the recurring practice habit once the drum routine itself is clear."}'
+  related-skills: '{"acoustic-guitar": "Acoustic guitar practice and repertoire instead of drums.", "electric-guitar": "Electric guitar practice and gear instead of drums.", "habits": "Design the recurring practice habit once the drum routine itself is clear.", "music": "Track listening history, playlists, and concerts rather than drum practice technique.", "piano": "Keyboard practice plans and technique instead of drum kit work."}'
 ---
 
 ## When to load

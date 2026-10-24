@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇹🇷","displayName":"Turkish"}'
-  related-skills: '{"turkey":"Plan Turkey travel clusters and logistics rather than composing Turkish text.","translate":"Translate an existing source text into Turkish across formats and locales.","writing":"Shape broader prose once the Turkish-language decision is settled.","english":"Draft or revise the English source before translating it into Turkish.","copywriting":"Shape persuasive marketing copy after the Turkish register is chosen.","arabic":"Write Arabic when Turkish is not the target language.","persian":"Write Persian when Turkish is not the target language."}'
+  related-skills: '{"arabic": "Write Arabic when Turkish is not the target language.", "copywriting": "Shape persuasive marketing copy after the Turkish register is chosen.", "english": "Draft or revise the English source before translating it into Turkish.", "persian": "Write Persian when Turkish is not the target language.", "translate": "Translate an existing source text into Turkish across formats and locales.", "turkey": "Plan Turkey travel clusters and logistics rather than composing Turkish text.", "writing": "Shape broader prose once the Turkish-language decision is settled."}'
 ---
 
 Research notes for sen/siz, particles, greetings, and authoritative resources live in `references/sources.md` (progressive disclosure).

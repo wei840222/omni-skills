@@ -3,7 +3,7 @@ name: plant-identifier
 description: Identify plants from photos using trait-based analysis. Use for plant IDs, lookalike triage, evidence-led follow-up captures, and approved reusable observation logs.
 metadata:
   openclaw: '{"emoji":"🌿"}'
-  related-skills: '{"image":"Inspects and improves plant photos before identification.","photography":"Improves close-up capture, lighting, and color reliability for plant evidence.","photos":"Organizes repeated observation photo sets.","plants":"Provides broader plant-care context after identification."}'
+  related-skills: '{"image": "Inspects and improves plant photos before identification.", "photography": "Improves close-up capture, lighting, and color reliability for plant evidence.", "photos": "Organizes repeated observation photo sets.", "plants": "Provides broader plant-care context after identification."}'
 ---
 
 ## State location

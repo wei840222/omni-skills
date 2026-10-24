@@ -1,15 +1,14 @@
 ---
 name: render-deploy
-description: Deploy and host applications on Render using Blueprint generation or Direct Creation. Trigger this skill when deploying, provisioning, or troubleshooting Render services. Trigger specifically for Render, instead of AWS or generic CI/CD pipelines.
+description: >
+  Deploy and host applications on Render using Blueprint generation or Direct
+  Creation. Trigger this skill when deploying, provisioning, or
+  troubleshooting Render services. Trigger specifically for Render, instead of
+  AWS or generic CI/CD pipelines.
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🚀", "requires": {"bins": ["git", "render"], "env": ["RENDER_API_KEY"], "config": ["<state_root>/render-deploy/"]}, "primaryEnv": "RENDER_API_KEY", "install": [{"id": "brew", "kind": "brew", "formula": "render", "bins": ["render"], "label": "Install Render CLI (Homebrew)"}]}'
-  related-skills:
-  - skills/deploy
-  - skills/devops
-  - skills/docker
-  - skills/ci-cd
-  - skills/nodejs
+  related-skills: '{"ci-cd": "Automate builds, tests, and deployments for web, mobile, and backend apps", "deploy": "Plan and execute application deployments with CI/CD pipelines, GitOps workflows, and zero-downtime strategies", "devops": "Runs the delivery side of software: CI/CD pipelines, release and rollback strategy, environments, reliability and on-call", "docker": "Build, debug, harden, and ship Docker containers, images, and Compose stacks", "nodejs": "Build, debug, and harden Node"}'
 ---
 
 

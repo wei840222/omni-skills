@@ -8,7 +8,7 @@ description: Provide practical Madrid guidance for visitors, relocators, tech wo
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇪🇸","requires":{"config":["<state_root>/madrid/"]}}'
-  related-skills: '{"spain":"Spain-wide destinations, regional routing, and multi-city itineraries beyond Madrid-only depth.","travel":"General multi-destination trip systems and travel memory.","barcelona":"Compare or switch to Barcelona-specific neighborhood, cost, and lifestyle depth.","europe":"Cross-border EU mobility context beyond Madrid.","booking":"Lodging and reservation execution after a Madrid base is chosen.","career":"Broader career decisions after Madrid tech or job context is set.","startup":"Founder workflows after Madrid startup landscape is scoped.","food":"Deeper food-system workflows beyond madrileño dining guidance."}'
+  related-skills: '{"barcelona": "Compare or switch to Barcelona-specific neighborhood, cost, and lifestyle depth.", "booking": "Lodging and reservation execution after a Madrid base is chosen.", "career": "Broader career decisions after Madrid tech or job context is set.", "europe": "Cross-border EU mobility context beyond Madrid.", "food": "Deeper food-system workflows beyond madrileño dining guidance.", "spain": "Spain-wide destinations, regional routing, and multi-city itineraries beyond Madrid-only depth.", "startup": "Founder workflows after Madrid startup landscape is scoped.", "travel": "General multi-destination trip systems and travel memory."}'
 ---
 
 ## State location

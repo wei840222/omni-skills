@@ -10,7 +10,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⟠"}'
-  related-skills: '{"ethereum":"L1 gas, approvals, MEV, and bridge framing once Solidity authoring is not the main ask.","blockchain":"Ledger-fit decisions and viem contract reads/writes beyond Solidity language pitfalls.","arbitrum":"Arbitrum One/Nova bridging and L2 ops rather than Solidity authoring.","security-best-practices":"General secure-code review when the finding is not Solidity-specific.","crypto-tools":"Explorers, prices, and contract screening tools after language-level guidance."}'
+  related-skills: '{"arbitrum": "Arbitrum One/Nova bridging and L2 ops rather than Solidity authoring.", "blockchain": "Ledger-fit decisions and viem contract reads/writes beyond Solidity language pitfalls.", "crypto-tools": "Explorers, prices, and contract screening tools after language-level guidance.", "ethereum": "L1 gas, approvals, MEV, and bridge framing once Solidity authoring is not the main ask.", "security-best-practices": "General secure-code review when the finding is not Solidity-specific."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

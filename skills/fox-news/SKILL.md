@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🦊","requires":{"bins":["curl"],"anyBins":["python3","python"]}}'
-  related-skills: '{"news":"Personalized multi-outlet briefings once the ask is broader than Fox-owned surfaces.","hacker-news":"Live Hacker News API/search rather than Fox RSS or section pages.","apple-news":"macOS News.app and Apple News Shortcuts instead of Fox web/RSS workflows.","digest":"Recurring curated digests across many sources when Fox is only one input.","summarizer":"Compress one known Fox article or transcript after the source is already chosen.","scrape":"Extract structured content from a single Fox URL when the briefing needs a primary document."}'
+  related-skills: '{"apple-news": "macOS News.app and Apple News Shortcuts instead of Fox web/RSS workflows.", "digest": "Recurring curated digests across many sources when Fox is only one input.", "hacker-news": "Live Hacker News API/search rather than Fox RSS or section pages.", "news": "Personalized multi-outlet briefings once the ask is broader than Fox-owned surfaces.", "scrape": "Extract structured content from a single Fox URL when the briefing needs a primary document.", "summarizer": "Compress one known Fox article or transcript after the source is already chosen."}'
 ---
 
 # Fox News Monitor

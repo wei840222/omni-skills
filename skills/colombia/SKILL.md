@@ -4,7 +4,7 @@ description: Plan Colombia trips with region-specific routing, verified entry ru
   weather-aware logistics, and practical tourist safety.
 metadata:
   openclaw: '{"emoji": "🇨🇴"}'
-  related-skills: '{"travel":"General multi-destination trip framing outside Colombia-specific routing.","travel-planning":"Cross-country itinerary structure when Colombia is only one segment.","booking":"Availability and reservation workflows after a Colombia route is chosen.","flight":"Flight search and connection logic feeding Colombia arrival/departure choices.","mexico":"Mexico trip planning when the user compares or chains Latin America destinations.","brazil":"Brazil trip planning for multi-country South America routes.","argentina":"Argentina trip planning for multi-country South America routes.","spain":"Spain trip planning when the user is comparing Iberian vs Andean/Caribbean options."}'
+  related-skills: '{"argentina": "Argentina trip planning for multi-country South America routes.", "booking": "Availability and reservation workflows after a Colombia route is chosen.", "brazil": "Brazil trip planning for multi-country South America routes.", "flight": "Flight search and connection logic feeding Colombia arrival/departure choices.", "mexico": "Mexico trip planning when the user compares or chains Latin America destinations.", "spain": "Spain trip planning when the user is comparing Iberian vs Andean/Caribbean options.", "travel": "General multi-destination trip framing outside Colombia-specific routing.", "travel-planning": "Cross-country itinerary structure when Colombia is only one segment."}'
 ---
 
 ## Setup

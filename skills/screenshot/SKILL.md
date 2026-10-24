@@ -1,16 +1,12 @@
 ---
 name: screenshot
-description: Capture screenshots of desktop apps, browser pages, simulators, and CI
-  environments. Load when you need to capture screenshots for debugging, QA, visual
-  reviews, or before/after visual comparisons.
+description: >
+  Capture screenshots of desktop apps, browser pages, simulators, and CI
+  environments. Load when you need to capture screenshots for debugging, QA,
+  visual reviews, or before/after visual comparisons.
 metadata:
   openclaw: '{"emoji": "📸"}'
-  related-skills:
-  - playwright
-  - image
-  - image-edit
-  - documentation
-  - video
+  related-skills: '{"documentation": "Plan, write, restructure, and maintain technical documentation: README front doors, Diátaxis information types (tutorial/how-to/reference/explanation), API docs, code examples, versioned docs, troubleshooting, and freshness reviews", "image": "Applies intent-focused rules, compression strategies, and asset-type formatting (WebP, AVIF, PNG) to optimize images for their destination contexts", "image-edit": "Edit and enhance existing images with AI tools for inpainting, outpainting, background removal, upscaling, restoration, and style transfer", "playwright": "Automate, test, and debug browsers with Playwright: locators, auto-waiting, traces, CI sharding, storageState auth, request mocking, visual diffs, and Playwright MCP control", "video": "Process, edit, convert, compress, and optimize videos for platforms with ffmpeg"}'
 ---
 
 ## When to load

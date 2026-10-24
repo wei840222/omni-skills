@@ -18,7 +18,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍳","requires":{"config":["<state_root>/recipe/","<state_root>/health/","<state_root>/contacts/","<state_root>/projects/"]}}'
-  related-skills: '{"cooking":"Heat, seasoning, doneness and rescue once the recipe is at the stove.","meal-planner":"Longer-horizon menus, batch cooking and household logistics beyond a week built from this collection.","grocery":"Pantry inventory and store-level list management.","calories":"Calories, macros and targets for what gets cooked.","nutrition":"Micronutrient gaps and dietary-pattern coverage.","chef":"General cooking help and technique explanations with no recipe file at the end."}'
+  related-skills: '{"calories": "Calories, macros and targets for what gets cooked.", "chef": "General cooking help and technique explanations with no recipe file at the end.", "cooking": "Heat, seasoning, doneness and rescue once the recipe is at the stove.", "grocery": "Pantry inventory and store-level list management.", "meal-planner": "Longer-horizon menus, batch cooking and household logistics beyond a week built from this collection.", "nutrition": "Micronutrient gaps and dietary-pattern coverage."}'
 ---
 
 ## State location

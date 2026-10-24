@@ -11,7 +11,7 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"☁️"}'
-  related-skills: '{"s3":"Deep S3-compatible lifecycle, CORS, presigned URLs, and multipart patterns.","storage":"Storage architecture and system selection beyond day-to-day file ops.","aws":"Broader AWS infra, IAM, and billing outside object/file transfers.","azure":"Azure platform work beyond Blob/file operations.","backups":"Backup policy, retention, and restore drills rather than one-off transfers."}'
+  related-skills: '{"aws": "Broader AWS infra, IAM, and billing outside object/file transfers.", "azure": "Azure platform work beyond Blob/file operations.", "backups": "Backup policy, retention, and restore drills rather than one-off transfers.", "s3": "Deep S3-compatible lifecycle, CORS, presigned URLs, and multipart patterns.", "storage": "Storage architecture and system selection beyond day-to-day file ops."}'
 ---
 
 # Cloud Storage

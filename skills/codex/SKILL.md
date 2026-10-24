@@ -1,36 +1,11 @@
 ---
 name: codex
-description: Operate Codex coding agents safely across CLI, review mode, MCP servers,
-  and cloud workflows with explicit sandboxing.
+description: >
+  Operate Codex coding agents safely across CLI, review mode, MCP servers, and
+  cloud workflows with explicit sandboxing.
 metadata:
-  clawdbot:
-    emoji: 🧭
-    requires:
-      bins:
-      - codex
-      bins.optional:
-      - git
-      - rg
-      env.optional:
-      - OPENAI_API_KEY
-      config:
-      - <state_root>/codex/
-      - ~/.codex/config.toml
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - <state_root>/codex/
-    - ~/.codex/config.toml
-    displayName: Codex
-  openclaw: '{"requires": {"config": ["<state_root>/codex/", "~/.codex/config.toml"]}}'
-  related-skills:
-  - agentic-engineering
-  - coding
-  - git
-  - api
-  - workflow
+  openclaw: '{"emoji": "🧭", "requires": {"bins": ["codex"]}}'
+  related-skills: '{"agentic-engineering": "Coordinate work with CLI coding agents using blast-radius sizing, parallel terminals, and atomic commits", "api": "Use to debug, authenticate, or write client code for calling third-party REST/GraphQL APIs (e", "coding": "Manage and apply user-specific coding style preferences, stack decisions, and architectural patterns", "git": "Commits, branches, merges, and rebases Git repositories, resolves conflicts, and recovers lost history", "workflow": "Build automated pipelines with reusable components, node data flow, triggers, locks, and portable state under `<state_root>/workflows/`"}'
 ---
 
 ## When to load
@@ -104,10 +79,3 @@ Load `references/traps.md` for common operating mistakes and recovery patterns.
 ## Security, Trust, and Scope
 
 Load `references/security-and-scope.md` for external data flow details, privacy boundaries, and explicit scope rules.
-
-## Related Skills
-- `agentic-engineering` - Strengthen the human workflow around parallel coding agents and blast-radius thinking.
-- `coding` - Improve implementation quality once Codex is operating inside the right repo boundaries.
-- `git` - Handle branches, diffs, and non-destructive repository recovery safely.
-- `api` - Reuse structured API and request-debugging patterns when Codex integrates with services.
-- `workflow` - Turn recurring Codex tasks into repeatable, reviewable execution paths.

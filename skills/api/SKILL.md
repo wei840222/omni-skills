@@ -4,7 +4,7 @@ description: 'Use to debug, authenticate, or write client code for calling third
 metadata:
   version: "1.3.7"
   openclaw: '{"emoji":"🔌"}'
-  related-skills: '{"http":"Use for HTTP request construction and protocol-level behavior that is not specific to a third-party API.","json":"Use for JSON parsing, transformation, validation, and schema questions outside an API integration workflow.","webhook":"Use for webhook receiver design and delivery handling that needs depth beyond a provider-specific API integration."}'
+  related-skills: '{"http": "Use for HTTP request construction and protocol-level behavior that is not specific to a third-party API.", "json": "Use for JSON parsing, transformation, validation, and schema questions outside an API integration workflow.", "webhook": "Use for webhook receiver design and delivery handling that needs depth beyond a provider-specific API integration."}'
 ---
 
 ## State location

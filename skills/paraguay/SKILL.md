@@ -4,7 +4,7 @@ description: Plan Paraguay trips with border-savvy routing, river-city prioritie
   and practical guidance for Asuncion, Encarnacion, Ciudad del Este, and the Chaco.
 metadata:
   openclaw: '{"emoji": "🇵🇾"}'
-  related-skills: null
+  related-skills: '{"argentina": "Better regional planning for cross-border combinations", "booking": "Reservation workflows and confirmation hygiene", "food": "Deeper restaurant and cuisine planning", "spanish": "Language support for bookings and practical interactions", "travel": "General trip planning and itinerary structure"}'
 ---
 
 ## Setup
@@ -99,11 +99,3 @@ Output should include:
 **Data that stays local:** Trip preferences in `<state_root>/`
 
 **This skill does NOT:** Access files outside `<state_root>/` or make network requests.
-
-## Related Skills
-
-- `travel` - General trip planning and itinerary structure
-- `booking` - Reservation workflows and confirmation hygiene
-- `food` - Deeper restaurant and cuisine planning
-- `spanish` - Language support for bookings and practical interactions
-- `argentina` - Better regional planning for cross-border combinations

@@ -5,7 +5,7 @@ description: Configure OpenClaw Talk mode or Voice Call telephony. Use when a us
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📞"}'
-  related-skills: '{"api":"Covers provider API integration and webhook diagnostics beyond the OpenClaw voice configuration.","setup":"Covers general OpenClaw installation and configuration outside voice-specific workflows."}'
+  related-skills: '{"api": "Covers provider API integration and webhook diagnostics beyond the OpenClaw voice configuration.", "setup": "Covers general OpenClaw installation and configuration outside voice-specific workflows."}'
 ---
 
 ## Use this skill

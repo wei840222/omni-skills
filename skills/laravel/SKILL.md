@@ -4,7 +4,7 @@ description: Apply Laravel best practices when writing controllers, Eloquent mod
   Blade templates, queues, Artisan commands, or auth logic to avoid framework traps.
 metadata:
   openclaw: '{"emoji":"🔴","requires":{"bins":["php","composer"]}}'
-  related-skills: '{"php":"Core PHP language patterns that Laravel builds on.","backend":"General backend service design beyond the Laravel stack.","api":"HTTP API design patterns often paired with Laravel controllers.","auth":"Cross-framework authentication concepts used with guards and policies.","docker":"Containerized local stacks commonly used with Laravel Sail."}'
+  related-skills: '{"api": "HTTP API design patterns often paired with Laravel controllers.", "auth": "Cross-framework authentication concepts used with guards and policies.", "backend": "General backend service design beyond the Laravel stack.", "docker": "Containerized local stacks commonly used with Laravel Sail.", "php": "Core PHP language patterns that Laravel builds on."}'
 ---
 
 ## When to load

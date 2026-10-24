@@ -12,7 +12,7 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💼","displayName":"Career","configPaths":["<state_root>/"]}'
-  related-skills: '{"resume":"Resume/CV drafting and diagnosis when the document itself is the deliverable.","job-search":"Application pipeline, company research, and interview prep beyond a single career decision.","negotiate":"Live salary or offer counters when the conversation is already in motion.","coach":"Ongoing coaching cadence when the ask is accountability rather than a discrete career decision."}'
+  related-skills: '{"coach": "Ongoing coaching cadence when the ask is accountability rather than a discrete career decision.", "job-search": "Application pipeline, company research, and interview prep beyond a single career decision.", "negotiate": "Live salary or offer counters when the conversation is already in motion.", "resume": "Resume/CV drafting and diagnosis when the document itself is the deliverable."}'
 ---
 
 # Career
