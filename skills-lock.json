@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "ontology": {
+      "source": "clawhub.ai",
+      "sourceUrl": "https://clawhub.ai/oswalpalash/skills/ontology",
+      "sourceType": "well-known",
+      "computedHash": "983d26354ecc455782ec2b2323797466b849ca0fc1b3cac4322ca26f643b475a",
+      "wellKnownDigest": "sha256:4ce4175900ff336039ad05eb358546aa43bb29526dc68e5abb09c786b5b95de3"
+    }
+  }
+}
