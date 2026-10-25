@@ -2,7 +2,7 @@
 
 - 日期：2026-10-25
 - 深度：L3；跨資料集、實驗程式與 harness，預期跨多個工作階段。
-- 狀態：M0、M1 已完成驗收；180 題最終 silver labels／hash manifest 已凍結（175 題可評分、5 題 uncertain）。M2 的 dev raw capture 與兩種融合比較已完成；current-max F1 81.12%、skill-identity-sum 76.33%，依規則保留 current-max。pool10 已執行，pool20 正在執行，尚未評保留集。
+- 狀態：M0–M4 已完成，最終 source gate ACCEPT。180 題 silver labels（175 resolved）凍結；dev 五配置與單次 holdout 均不支持改動，保留 current-max/pool6/none。24 份 fresh native 產物已驗收：primary 各 10／12；四份 guard-rejected 產物另作相容性補充並通過，原分數不改寫。
 - 本次授權：使用者於 2026-10-25 指示「照你的計劃完成吧」，核准 M0–M4 執行與 Antigravity CLI（`agy`）獨立複核。Jev 按前述討論設 US$2 停止預算；正式 runtime 維持只讀，合併 main／部署不在此次授權。
 - 計畫類型：act-as；後續由 agent 依里程碑執行。
 - 時程：無指定截止日。
@@ -67,9 +67,9 @@
 | --- | --- | --- | --- |
 | M0：凍結證據與重播可行性 | baseline manifest、隔離方式與回復檢查、五案例重播紀錄；明確決定可沿用、需 adapter 或阻擋。通過條件見下節。 | 2–3 小時；spike 硬上限 3 小時 | 完成；`m0-acceptance.json`，25／30 外送、五例完整 query replay（四例呼叫 Decision、空池一例略過） |
 | M1：修正標籤並凍結契約 | 全 2,554 題結構／身分檢查清單、已確認缺陷修正 diff、180 題 AI 雙方複核 pilot（silver labels）、固定 dev／holdout、評分與成本契約。 | 6–12 小時 | 完成；九批 AGY 及最終 source gate ACCEPT，`m1-freeze.json`／`m1-silver-labels.json` |
-| M2：候選融合與候選池消融 | 在固定 raw hitlists 下，分別比較 current max 與 skill-level fusion，以及候選六／十／二十個；最終注入 cap 固定。交付召回、誤載、成本差異與選擇理由。 | 4–8 小時 | 進行中；融合比較保留 current-max，pool10 完成、pool20 執行中 |
-| M3：Decision 命中片段 A/B | 固定 M2 選定候選池與同一 Decision model，比較現行 metadata＋association payload（無命中片段）與加入有界命中片段；交付逐題差異、選取品質、耗時與 token 報表。 | 4–8 小時 | M2；待執行 |
-| M4：保留集、回歸與交付決策 | 凍結配置後一次評保留集；通過時形成候選修補與回歸結果，再用 12 個可離線驗收任務檢查實際產物。交付採用／不採用決策及文件，不宣稱代表全庫任務品質。 | 2–4 小時 | M3；待執行 |
+| M2：候選融合與候選池消融 | 在固定 raw hitlists 下，分別比較 current max 與 skill-level fusion，以及候選六／十／二十個；最終注入 cap 固定。交付召回、誤載、成本差異與選擇理由。 | 4–8 小時 | 完成；current-max/pool6 保留，pool10／20 均較差且超出 token p95 比率門檻 |
+| M3：Decision 命中片段 A/B | 固定 M2 選定候選池與同一 Decision model，比較現行 metadata＋association payload（無命中片段）與加入有界命中片段；交付逐題差異、選取品質、耗時與 token 報表。 | 4–8 小時 | 完成；加入片段 F1 79.50% 對基線 81.12%，新增兩題 no-skill FP，保留基線 |
+| M4：保留集、回歸與交付決策 | 凍結配置後一次評保留集；通過時形成候選修補與回歸結果，再用 12 個可離線驗收任務檢查實際產物。交付採用／不採用決策及文件，不宣稱代表全庫任務品質。 | 2–4 小時 | 完成；holdout 不採用，24 產物已驗收，文件與 notebook 通過最終 source gate |
 
 **初估總投入：18–35 小時，跨多個工作階段**，不含等待人工裁決或服務恢復。高端由標籤分歧、host 重播 adapter 及 SDK／索引版本差異驅動。這是未校準初估；M0 後重估剩餘工作。若需超過區間或擴大語料／外送資料範圍，先更新本計畫。
 
@@ -171,16 +171,23 @@
 | --- | --- |
 | 計畫交付 | 已寫入；2026-10-25 獨立 plan-review：OKAY，無重大阻擋；後續契約待決項保留於 M1 |
 | Antigravity 獨立審查 | 已透過 `agy --print` 完成一次；原始結論 CLARIFY。已補盲審／silver-label、覆蓋率、holdout 使用時點、預算停止與任務斷言契約；全快取禁用及覆蓋率公式未照單採用，採納說明見 `../reviews/2026-10-25-agy-plan-review/review.md`。未對修訂版再送模型 |
-| 實驗與修補 M0–M4 | M0、M1 通過；M2 融合比較完成、pool 實驗進行中；M3、M4 尚未執行，未實作線上候選修補 |
+| 實驗與修補 M0–M4 | M0–M3 通過驗收；dev 五配置均完成，未發現符合規則的改善。M4 保留集及 24 次真實任務產物已完成；最終文件／交付審查 ACCEPT，未實作線上候選修補 |
 | 已發生偏差 | AGY 初次 `--print` 引數失敗未進模型；改用官方 stream-json 後第一批已有有效 terminal SUCCESS，但 CLI 沒自行結束。保留原始輸出並修正 terminal 後程序清理，再以明確 recovery 匯入成功批次，不重跑。其後共完成五批／100 題；回報 output 合計 101,650 超過原訂 100,000，driver 已停止後續四批。使用者其後明確同意提高至 250,000；授權原文與 prepare／freeze hash 存於 `execution.budget-amendment.json`，以第二次 recovery 匯入五批後接續四批。所有舊 marker、原始回應及 usage 均保留。 |
 | M1 來源複核 | 最終 source gate ACCEPT 完整 180 題。AGY 九次 review，770,123 input／174,355 output；全部低於修訂額度，未重跑成功批次。80 次讀檔嘗試中 67 次成功、13 次不存在；成功 bytes 與公開快照相同，來源根目錄偏差已揭露。197 筆引文為 137 逐字、44 Markdown 格式差異、16 省略／串接改寫；保留原文並補來源。第八批 free-text 串接 draft／final，依官方 schema 欄位與最後 finish 參數一致的 `structured_output` 解析，未新增該批模型呼叫。 |
 | M1 最終凍結 | labels SHA `3fca29489297cd536b322707944167736792080e2b0114677ff9d8b5b5b71538`；freeze SHA `c19b7fa44a798794d7e263bb8dc2f0d8e275258eac077f5f6bde9c5b980d14f8`。相對 primary 20 題裁決變更；175／180 resolved、35／36 家族可評分。holdout 55／60、11／12 家族；f32 全部 uncertain。SQL 有效替代跨 split 共用，不能宣稱最終技能身分完全未見。最終 silver snapshot 另存 `experiments/fixtures/harness_silver_annotations.json`，不是 human gold。 |
 | 已完成資料修正 | `a760c6f6` 單獨提交 Avalanche 三題領域修正；重新檢查官方來源、JSON-RPC batch 與實際離線 Python controls 通過。公開 SKILL／references 語料與歷史結果未改寫。 |
-| 消融／任務準備 | `harness_ablation_protocol.json` 已在看變體結果前凍結階段選擇、命中片段 2048／320 UTF-8 bytes 及保留集使用規則。12 題任務／驗收器已凍結，7 tests 包含正負控制通過；真正 24 次 paired outputs 尚未執行。 |
+| 消融／任務準備 | `harness_ablation_protocol.json` 已在看變體結果前凍結階段選擇、命中片段 2048／320 UTF-8 bytes 及保留集使用規則。12 題任務／驗收器已凍結，7 tests 包含正負控制通過；真正 24 次 fresh native 產物其後已執行；primary／supplement 分開保留。 |
 | M2 真實觀測 | 120 題 raw capture 完成，361 次外送（含一個額外 embedding）、零失敗，所有原始清單保存。current-max/pool6/none：family-macro set-F1 0.81115079、exact 0.58333333、recall 0.92083333、no-skill FP 1／20。identity-sum/pool6/none：F1 0.76333333、FP 2／20；paired family bootstrap delta −0.04781746，95% CI [−0.08694444, −0.0125]，新增 FP p149，故不採用此融合介入。來源 `development/*-summary.json` 與 `m2-fusion-comparison.json`。 |
 | 重播工具修正 | source gate 先拒絕 policy hash 形狀混用、endpoint 配對缺漏、cache billing metadata 不一致；修正與 regression tests 通過後接受。120 題 raw 及 386 個既有 cache payload／ledger usage 獨立核對無差異。另修 stdin UTF-8 跨 buffer 解碼；第一次 selector 在 preflight 即停止、零模型請求。保留舊準備檔，重建後證明兩個融合各 120 題的 model-input objects 完全相同，raw hash 未改；同樣修正 summary 的內嵌 Node hashing reader。未變更標籤、評分規則或比較門檻。 |
-| Jev 批次預算 | 進入 pool20 前全 run 476 次 Jev／1,045,194 input tokens，公開牌價 US$0.043898148；unknown usage 0。US$2 停止上限維持。其他 provider／AGY 用量分列，不把此數字當成所有服務的帳戶實收。 |
+| M2 pool／M3 真實觀測 | pool10 F1 0.77369048、pool20 0.77067460；selector input p95 為基線約 1.50／2.63 倍。命中片段 F1 0.79503968，delta −0.01611111、95% CI [−0.04416667, 0.00555556]，新增 no-skill FP p135／p148。五配置皆完整且無服務錯誤，保留 current-max/pool6/none。 |
+| M4 候選凍結 | `challenger-config.json` SHA `de334db2e2ca7d7ad03a892bccb1c2486e4388c1c31ae22179d6e83f42bbb66f`；依事前規則，從已完成非基線選出最高 F1 的 matched-reference 作單一診斷對照，不是建議採用；在首次 holdout capture 前凍結，之後不調參。 |
+| Jev 批次預算 | M3 完成時全 run 706 次 Jev／1,971,130 input tokens，公開牌價 US$0.08278746；unknown usage 0。US$2 停止上限維持。其他 provider／AGY 用量分列，不把此數字當成所有服務的帳戶實收。 |
 | 模型與預算決策 | Jev 全 run 47M 付費輸入 token／US$1.974 公開牌價；M0 另限 30 外送。持久化 ledger 8 tests、受控 fetch 9 tests 及 host 13 tests 通過；M0 共 25 次外送：embedding 6 次／9,266 tokens、expansion 5 次／5,682 tokens、Jev 14 次／26,133 input tokens（US$0.001097586 公開牌價） |
+| M4 holdout 真實觀測 | 單次 60 題兩臂均 completed、55 題／11 families 納入主要計分。baseline F1 0.74727273、片段版 0.73878788；delta −0.00848485，95% CI [−0.02303030, 0.00242424]。兩者 no-skill FP 同為 2／5，但片段版新增 p155 並修復 p151；不符合 no-new-FP 與效果門檻，保留 baseline。 |
+| M4 任務路由偏差 | 第一次 task-routing/raw 在 t01 expansion 發生 transport-error；已停止、未自動重試。2 次實體請求：Jev completed 847 input，expansion usage 不明，保留 75,291 tokens 預留。原始 pending／failed marker 與 ledger 保留。來源支持 timeout 推論，底層原因未保留；一次明確 recovery 完成 12 題／36 新請求／零 cache hit，原成功 intent fingerprint 不同，未宣稱重用。未知預留仍保留，不視為合法空池或零費用。 |
+| M4 實際任務 | 12 題實際 query／兩臂 Decision 完成；24 個 fresh native worker、每臂一次生成、未提供 grader／peer outputs／修正回饋。主代理先檢視原始碼再驗收。凍結 primary 各 10／12；t05、t12 四份受 API guard 攔截，未進語義案例。獨立 reviewer 接受保留原結果另補最小相容性驗證，四份通過；不改寫 primary，也不作 adoption 依據。所有原始碼與 hash 併入報告。 |
+| 最終預算／驗證 | 全 run 1,320 次實體 attempt；Jev 923 次／2,387,507 input／US$0.100275294；embedding 199 次／25,123 tokens；expansion 198 次／224,644 已知 tokens，另 75,291 預留用量未知。原 US$2 停止額度維持。Python 99／Node 78 tests 通過；六個原基線、8,678 份公開 SKILL／refs、23 個 M1 anchors 不變。harness notebook 12 cells／7 summaries 正常，無 raw 的 committed-export fallback 也通過。 |
+| 最終交付物 | `experiments/reports/harness-quality-20261025.md`、同名 JSON（含 24 份產物原始碼）與 `experiments/notebooks/harness_quality_mo.py`；live http://127.0.0.1:2720 。新配置沒有勝出，沒有 production patch。最終 source gate ACCEPT；執行工具提交 `cce07d0f`，報告與本計畫另作共同提交。版本紀錄以 Git log 為準；交付範圍限 own Gitea feature branch。 |
 | 政策／正式 runtime 變更 | 無 |
 
 連續兩個步驟偏離預期輸出、需要更換模型／語料範圍、預算或工時超出本計畫時，先記錄原因並重排剩餘里程碑，不連續補丁式往下推。閒置超過七天時，先重核 HEAD、基線 hash 與 M0 最大風險。
@@ -205,9 +212,9 @@
 - M1 primary package：180 案／36 families，類型 60 single、40 alternatives、30 multi、30 no-skill、20 followup；dev120／holdout60，主可接受技能身分跨 split 無交集，M0 五技能不在 holdout。初標 6 案 uncertain，不能提前當成雙方共識。
 - 在盲審／變體觀測前補了 10 題「提到技能名但只是 literal copy／pick」負樣本；可靠性契約補明 unavailable 不能當正確空選擇，合法空池 skip 才可正常計分。原採用數值門檻未降低。
 - `m1-pre-review-freeze.json` 固定 cases／primary annotations／contract／metrics 雜湊；Antigravity 收到的只含 opaque cases、完整963技能目錄與公開來源，不含初標、family、split、排名或變體結果。上限九批各20案、無自動重試、每批5分鐘；可觀察額度 input4M/output100k，限制不冒充 provider 帳單硬上限。
-- 尚待：Antigravity 盲審、分歧處理與 final silver-label freeze、已知 avalanche 問題修正、M2–M4。不得將 M0 成功或初標凍結當成完成整體實驗。
+- 上列 M0／初標紀錄為歷史快照；AGY 九批、最終標籤、Avalanche 修正及 M2–M3 已完成。M4 單次 holdout、12 組真實 paired task 產物、回歸及文件亦已完成；最終來源／交付審查 ACCEPT；實驗已結案，版本交付以 Git log 為準。
 
-**Next action：**依凍結輸入執行九批 Antigravity 盲審，核對回應與引用、處理分歧並凍結 final silver labels，再進入 M2；整個 run 持續共用 Jev US$2 停止額度。
+**結案：**保留 current-max/pool6/none；交付 source-reviewed 報告、七組逐題結果、24 份產物及互動 notebook。後續最小技能集合／no-harness control 等假設需新案例另開研究；本輪不利用已看過的 holdout 再調參，不合併 main 或部署。
 
 ## 依據
 

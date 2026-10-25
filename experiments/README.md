@@ -28,6 +28,7 @@ local caches; changing the corpus, query or model invalidates affected entries.
 ```bash
 uv run marimo edit notebooks/skill_router_mo.py --host 127.0.0.1 --port 2718 --no-token
 uv run marimo edit notebooks/vector_visualization_mo.py --host 127.0.0.1 --port 2719 --no-token
+uv run marimo edit notebooks/harness_quality_mo.py --host 127.0.0.1 --port 2720 --no-token
 ```
 
 The router notebook shows measured metrics, per-query failures, transitions and
@@ -82,7 +83,9 @@ caches and virtual environments are ignored by Git.
 
 ## Harness-aligned evaluation
 
-The separate harness evaluation is in progress under
+The 2026-10-25 harness run retained the current baseline. See the
+[results and limitations](reports/harness-quality-20261025.md),
+[compact data and task sources](reports/harness-quality-20261025.json), and
 `../plan/active/2026-10-25-skill-library-harness-quality.md`. Its M0 artifacts
 freeze the public corpus and installed plugin/host source hashes. They do not
 turn the historical `rerank-3` results into production Decision accuracy.
@@ -115,8 +118,9 @@ node --test tests/*.mjs
 
 The host and QMD tests require the installed local plugins. Five successful
 public M0 host probes validate integration only. The independent pilot labels,
-development comparisons and held-out quality results must be completed before
-recommending a production change.
+development comparisons and single held-out comparison were completed. No tested
+change passed the frozen adoption rules; this run does not establish a causal
+benefit over using no harness.
 
 The pilot has 180 public cases in 36 intent families, with 120 development cases
 and 60 held-out cases. The committed primary annotations are an immutable first
@@ -153,3 +157,25 @@ time, reconstructed pipeline time and actual new spending are separate measures.
 The 12 task validators in `harness_task_checks.py` check generated artifacts; their
 authored positive/negative controls are not counted as actual paired task results.
 They cover a small public task subset and do not establish whole-library quality.
+
+The harness notebook reads the local run when present and otherwise uses the
+committed compact export. It shows family-macro set F1, single/multi-turn case
+groups, uncertainty exclusions, paired comparisons, original service timings,
+and actual task results without issuing model requests.
+
+M4 task routing uses three fresh Node processes through this launcher:
+
+```bash
+uv run python scripts/run_harness_tasks.py --stage raw --run-dir datasets/harness-quality-20261025
+uv run python scripts/run_harness_tasks.py --stage prepare --run-dir datasets/harness-quality-20261025
+uv run python scripts/run_harness_tasks.py --stage select --run-dir datasets/harness-quality-20261025
+```
+
+Routing does not generate task answers. `prepare_harness_task_packets.py` prepares
+opaque public-only packets for fresh native workers; `collect_harness_tasks.py`
+requires primary-agent source inspection before executing the frozen graders.
+The completed run has 24 single-attempt native artifacts. Primary scores remain
+10/12 per arm. Four guard-rejected artifacts passed a separately reviewed API
+compatibility supplement; `supplement_harness_task_checks.py` preserves the
+original grader, cases, artifacts and primary scores. This supplement is not
+adoption evidence. The JSON export includes the actual artifact sources.
