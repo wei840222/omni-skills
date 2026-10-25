@@ -32,7 +32,7 @@
 Skill entity：
 
 ```json
-{"id":"skill:omni-skills:aws","type":"Skill","properties":{"name":"aws","source_path":"skills/aws/SKILL.md"}}
+{"id":"github:wei840222/omni-skills:aws","type":"Skill","properties":{"name":"aws","source_path":"skills/aws/SKILL.md"}}
 ```
 
 ID 不含 SHA 或本機絕對路徑，內容更新仍是同一技能；catalog 不同則 namespace 不同。改名需新 ID 或顯式 mapping，不靠 fuzzy 猜測。保留全部 963 個節點。
@@ -40,14 +40,14 @@ ID 不含 SHA 或本機絕對路徑，內容更新仍是同一技能；catalog �
 關係操作：
 
 ```json
-{"op":"relate","from":"skill:omni-skills:aws","rel":"related","to":"skill:omni-skills:terraform","properties":{"reason":"HCL authoring, state surgery, module design","classification_status":"not_classified","verification_status":"unverified"}}
+{"op":"relate","from":"github:wei840222/omni-skills:aws","rel":"related","to":"github:wei840222/omni-skills:terraform","properties":{"reason":"HCL authoring, state surgery, module design"}}
 ```
 
-共同 catalog、formatVersion、來源欄位契約放 schema／manifest；各檔 SHA／related-skills presence 放 manifest。邊不重複 origin、source_path、yaml_field、inner_json_key，由 from 節點與 to 還原。同步器須檢查 target key 與目標名稱一致；未來別名需明確修訂契約，不默默丟掉原值。
+ID 格式為 `<provider>:<repository>:<skill>`，共同來源契約由 schema 的 sources 按 provider／repository 分組，schema 不再綁單一 catalog。這是使用者指定的邏輯來源識別，不宣稱目前 Git remote 使用 GitHub transport。各檔 SHA／related-skills presence 的 manifest 屬後續同步器選項。邊不重複 origin、source_path、yaml_field、inner_json_key，由 from 節點與 to 還原。同步器須檢查 target key 與目標名稱一致；未來別名需明確修訂契約，不默默丟掉原值。
 
 aws → terraform 與反向獨立；後者理由為 `provider-specific AWS resource design and IAM once the plan/state problem is clear`。不補反向、不跨 hop 推論。完整 reason 保留，YAML 原 bytes 從固定 Git 來源取得。
 
-Predicate 沿用 related、depends_on、composes_with、similar_to、conflicts_with、specializes；MVP 全部 related，不呼叫分類模型。後續分類更新同一邊 rel／properties，按需加入 scores、model、classificationVersion、所依據的端點 SHA。尚未分類、成功、含混及失敗可區分；分類不是驗證，不觸發依賴閉包／互斥／自動共同載入。
+Predicate 沿用 related、depends_on、composes_with、similar_to、conflicts_with、specializes；目前全部 related，不呼叫分類模型。依使用者最新核准，不存 classification_status、verification_status，也不新增 status。rel 表達關係種類，reason 保留理由；分類／審核尚無對應流程，不預建狀態機。未來真有流程再定義必要欄位；分類不是驗證，不觸發依賴閉包／互斥／自動共同載入。
 
 Reason 或端點內容改變，舊分類失效或重審；無差異同步不清除既有分類。一條邊只有一個當前主要 predicate，完整 reason 保留其他語義。
 
@@ -168,3 +168,18 @@ P0 記錄原 repo experiments/datasets/ 六個 baseline 實際 hash：manifest.j
 - 獨立 ontology_notebook_review（source-review／ponytail-review）ACCEPT；靜態核對重播、方向、分母、圖說與測試。Live execution 及測試由主代理負責。
 
 交付：保留本機 marimo session 供查看，README 加入開啟命令。完整增量同步器與 runtime adapter 仍是另一期工作。
+
+## 2026-10-26：來源命名空間與移除狀態欄位
+
+使用者核准 ID 改為 github:wei840222/omni-skills:<skill>，並明確指示這次刪除舊紀錄、直接重建 graph.jsonl；此一次性重建優先於原先 append-only 預設，舊檔仍在 Git 歷史。一般未來更新的 operation-log 語義保持不變。
+
+- Schema 升為 version 2，改以 identity 格式與 sources map 表示多來源；不增加重複的節點／邊來源欄位。
+- 重建後仍為 963 個節點、3,862 條有向邊、4,825 筆初始操作。名稱、source_path、關係類型、方向及每個 reason 均保持一致。
+- 依使用者選擇，邊 properties 只保留 reason；不存分類狀態、驗證狀態或 status。所有關係仍是參考主張，不自動當執行約束。
+- 分析表、圖標籤及技能選單以完整 ID 區分多來源同名技能，單一來源無歧義時仍顯示簡短名稱。選中技能同時顯示完整 ID。
+- 新增無 status、多來源同名互連案例，確認不合併節點、不覆蓋下拉選項、不混淆方向，並保持舊 ontology 操作語義相容。
+- 新 graph SHA256：1e9b604009589177f7191b00683ef50e3f6ee19f7d508f5a20b49389620ab790。舊 SHA 僅是上方歷史驗收紀錄，不代表目前圖檔。
+
+驗收：10 個 focused tests、Python 全套 109 tests、marimo check 與 ontology notebook app 均通過。原生 ontology reader／schema validator 也通過。主代理逐一比對舊版節點屬性、3862 個 reason／類型／方向及所有現有 SKILL.md metadata；除了核准的 ID／狀態移除，資料完全一致。Live kernel 12 cells idle，完整讀入新 SHA 與新 ID，所有選項覆蓋 963 個 ID，並切換至 github:wei840222/omni-skills:bluetooth 驗證局部圖。獨立 ontology_identity_review（source-review／ponytail-review）ACCEPT，未發現必修問題。
+
+本次不新增資料來源、不改正式 harness runtime，也不呼叫 embedding／rerank／分類服務。既有 QMD Node 環境問題未因此變更，也不重跑不相關的 Node 檢查。重建與 notebook 更新納入目前分支提交。

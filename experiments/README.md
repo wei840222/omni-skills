@@ -44,6 +44,13 @@ outgoing or both to inspect its one-hop arrows and original relation reasons.
 It uses local data only. Force-layout distances are visual, and relation counts
 are not skill-quality scores or evidence of routing accuracy.
 
+Skill IDs use `<provider>:<repository>:<skill>`, for example
+`github:wei840222/omni-skills:bluetooth`. This is a logical source identity,
+independent of the checkout's transport or Git remote. Same-named skills from
+different sources remain distinct; the notebook qualifies ambiguous labels with
+their full IDs. Relation properties contain the original `reason`; there is no
+per-edge classification or verification status without a corresponding workflow.
+
 ## What is compared
 
 | Representation | Content |

@@ -180,9 +180,24 @@ def _strong_components(outgoing, incoming):
     return sorted(groups, key=lambda group: (-len(group), group))
 
 
+def skill_labels(entities):
+    """Keep names short, qualifying collisions with the full source identity."""
+    counts = Counter(entity["properties"]["name"] for entity in entities.values())
+    labels = {
+        identity: (f"{entity['properties']['name']} [{identity}]"
+                   if counts[entity["properties"]["name"]] > 1
+                   else entity["properties"]["name"])
+        for identity, entity in entities.items()
+    }
+    if len(set(labels.values())) != len(labels):
+        return {identity: identity for identity in entities}
+    return labels
+
+
 def analyze_graph(entities, relations):
     """Return directed graph metrics and deterministic node/edge table rows."""
     _validate_graph(entities, relations)
+    labels = skill_labels(entities)
     outgoing = {node: set() for node in entities}
     incoming = {node: set() for node in entities}
     for edge in relations:
@@ -202,6 +217,7 @@ def analyze_graph(entities, relations):
         roles[role] += 1
         nodes.append({
             "id": node, "name": entities[node]["properties"]["name"],
+            "display_name": labels[node],
             "source_path": entities[node]["properties"]["source_path"],
             "in_degree": in_degree, "out_degree": out_degree,
             "total_degree": in_degree + out_degree, "role": role,
@@ -210,8 +226,8 @@ def analyze_graph(entities, relations):
     pairs = {(edge["from"], edge["to"]) for edge in relations}
     reciprocal_edges = sum((target, source) in pairs for source, target in pairs)
     edges = [{
-        "source": entities[edge["from"]]["properties"]["name"],
-        "target": entities[edge["to"]]["properties"]["name"],
+        "source": labels[edge["from"]],
+        "target": labels[edge["to"]],
         "source_id": edge["from"], "target_id": edge["to"],
         "relation_type": edge["rel"], "reason": edge["properties"]["reason"],
         "reciprocal": (edge["to"], edge["from"]) in pairs,

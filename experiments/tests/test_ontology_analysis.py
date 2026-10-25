@@ -87,6 +87,28 @@ class OntologyAnalysisTests(unittest.TestCase):
         summary = analysis.analyze_graph(entities, edges)["summary"]
         self.assertEqual((count, summary["node_count"], summary["edge_count"], summary["density"], summary["reciprocity"]), (0, 0, 0, 0, 0))
 
+    def test_multiple_sources_keep_same_named_skills_distinct_without_status(self):
+        first = create("github:wei840222/omni-skills:bluetooth")
+        second = create("github:another/skills:bluetooth")
+        for record in [first, second]:
+            record["entity"]["properties"] = {"name": "bluetooth", "source_path": "skills/bluetooth/SKILL.md"}
+        edge = {"op": "relate", "from": first["entity"]["id"], "rel": "related", "to": second["entity"]["id"], "properties": {"reason": "Complementary Bluetooth guidance."}}
+        entities, edges, _ = self.load([first, second, edge])
+        result = analysis.analyze_graph(entities, edges)
+        self.assertEqual((result["summary"]["node_count"], result["summary"]["edge_count"]), (2, 1))
+        labels = analysis.skill_labels(entities)
+        self.assertEqual(len(set(labels.values())), 2)
+        self.assertIn(first["entity"]["id"], labels[first["entity"]["id"]])
+        self.assertIn(second["entity"]["id"], labels[second["entity"]["id"]])
+        self.assertEqual({row["display_name"] for row in result["nodes"]}, set(labels.values()))
+        self.assertEqual(result["edges"][0]["source"], labels[first["entity"]["id"]])
+        self.assertEqual(result["edges"][0]["target"], labels[second["entity"]["id"]])
+        self.assertEqual(edges[0]["properties"], {"reason": "Complementary Bluetooth guidance."})
+
+    def test_single_source_keeps_short_skill_labels(self):
+        entities, _, _ = self.fixture()
+        self.assertEqual(analysis.skill_labels(entities), {name: name for name in "abcd"})
+
     def test_replay_preserves_existing_ontology_overwrite_and_noop_semantics(self):
         replacement = create("a")
         replacement["entity"]["properties"]["name"] = "renamed-a"

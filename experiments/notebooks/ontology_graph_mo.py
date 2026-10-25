@@ -112,12 +112,12 @@ def _(mo, nodes_df, plt):
     _fig, _axes = plt.subplots(1, 2, figsize=(15, 6))
     for _ax, _column, _title, _color in zip(_axes, ["in_degree", "out_degree"], ["Most referenced skills (incoming)", "Most declared targets (outgoing)"], ["#167c80", "#bd6b27"]):
         _top = nodes_df.sort_values([_column, "name"], ascending=[False, True]).head(15).iloc[::-1]
-        _ax.barh(_top["name"], _top[_column], color=_color)
+        _ax.barh(_top["display_name"], _top[_column], color=_color)
         _ax.set(title=_title, xlabel="Directed edges")
     _fig.tight_layout()
     _most_referenced = nodes_df.sort_values(["in_degree", "name"], ascending=[False, True]).iloc[0]
     _max_out = int(nodes_df["out_degree"].max())
-    _max_out_names = ", ".join(nodes_df.loc[nodes_df["out_degree"] == _max_out, "name"].sort_values())
+    _max_out_names = ", ".join(nodes_df.loc[nodes_df["out_degree"] == _max_out, "display_name"].sort_values())
     _mode_out = int(nodes_df["out_degree"].mode().iloc[0])
     _mode_count = int((nodes_df["out_degree"] == _mode_out).sum())
     _zero_out = int((nodes_df["out_degree"] == 0).sum())
@@ -126,7 +126,7 @@ def _(mo, nodes_df, plt):
     ## 關聯集中在哪些技能
 
     - 出度最常見是 **{_mode_out} 條**，共有 **{_mode_count:,} 個技能**；出度最高為 **{_max_out} 條**，是 `{_max_out_names}`。
-    - 入度最高是 **{_most_referenced['name']}（{_most_referenced['in_degree']} 次）**。入度較集中，代表一些技能被多個作者拿來作關聯目標；不等於它在每個任務都適用。
+    - 入度最高是 **{_most_referenced['display_name']}（{_most_referenced['in_degree']} 次）**。入度較集中，代表一些技能被多個作者拿來作關聯目標；不等於它在每個任務都適用。
     - 沒有 outgoing 的 **{_zero_out:,} 個技能**中，**{_incoming_only:,} 個**仍有 incoming。單看自己是否宣告關聯，會漏掉其他技能對它的引用。
 
     這是作者宣告的引用與連結分布，不是使用量、任務重要性或路由準確率排名。
@@ -207,11 +207,11 @@ def _(FancyArrowPatch, LineCollection, PolyCollection, np, plt):
                 ax.scatter(xy[:, 0], xy[:, 1], s=sizes, c=color, label=f"{labels[role]} ({len(members)})", edgecolors="white", linewidths=0.35, zorder=3)
         if selected is not None:
             ax.scatter(*layout[selected], s=180, facecolors="none", edgecolors="#202b32", linewidths=2, zorder=4)
-        labelled = ids if len(ids) <= 50 else sorted(ids, key=lambda node: (-rows[node]["total_degree"], rows[node]["name"]))[:20]
+        labelled = ids if len(ids) <= 50 else sorted(ids, key=lambda node: (-rows[node]["total_degree"], rows[node]["display_name"]))[:20]
         if selected is not None and selected not in labelled:
             labelled.append(selected)
         for node in labelled:
-            ax.annotate(rows[node]["name"], layout[node], xytext=(4, 4), textcoords="offset points", fontsize=8, color="#26333a", zorder=5)
+            ax.annotate(rows[node]["display_name"], layout[node], xytext=(4, 4), textcoords="offset points", fontsize=8, color="#26333a", zorder=5)
         ax.set_xlim(coords[:, 0].min() - span * 0.08, coords[:, 0].max() + span * 0.08)
         ax.set_ylim(coords[:, 1].min() - span * 0.08, coords[:, 1].max() + span * 0.08)
         ax.set_aspect("equal")
@@ -247,9 +247,11 @@ def _(
 
 
 @app.cell(hide_code=True)
-def _(entities, mo):
-    _options = {entity["properties"]["name"]: identity for identity, entity in sorted(entities.items(), key=lambda item: item[1]["properties"]["name"])}
-    skill_choice = mo.ui.dropdown(options=_options, value="aws" if "aws" in _options else next(iter(_options)), searchable=True, label="搜尋技能")
+def _(entities, graph_tools, mo):
+    _labels = graph_tools.skill_labels(entities)
+    _options = {label: identity for identity, label in sorted(_labels.items(), key=lambda pair: (pair[1], pair[0]))}
+    _default = next((label for label, identity in _options.items() if entities[identity]["properties"]["name"] == "aws"), next(iter(_options)))
+    skill_choice = mo.ui.dropdown(options=_options, value=_default, searchable=True, label="搜尋技能")
     direction_choice = mo.ui.dropdown(options={"雙向": "both", "只看自己指向誰": "outgoing", "只看誰指向自己": "incoming"}, value="雙向", label="關聯方向")
     mo.hstack([skill_choice, direction_choice], justify="start", wrap=True)
     return direction_choice, skill_choice
@@ -275,12 +277,13 @@ def _(
     for _index, _node in enumerate(_neighbors):
         _angle = 2 * np.pi * _index / max(len(_neighbors), 1)
         _local_positions[_node] = (float(np.cos(_angle)), float(np.sin(_angle)))
-    _fig = draw_relation_graph(entities, selected_relations, _local_positions, nodes_df.to_dict("records"), visible_ids=selected_ids, selected=skill_choice.value, title=f"{_row['name']}: {direction_choice.value} / {len(selected_ids)} skills / {len(selected_relations)} edges")
-    _rows = [{"來源": entities[edge["from"]]["properties"]["name"], "目標": entities[edge["to"]]["properties"]["name"], "類型": edge["rel"], "原始理由": edge["properties"]["reason"]} for edge in selected_relations]
+    _fig = draw_relation_graph(entities, selected_relations, _local_positions, nodes_df.to_dict("records"), visible_ids=selected_ids, selected=skill_choice.value, title=f"{_row['display_name']}: {direction_choice.value} / {len(selected_ids)} skills / {len(selected_relations)} edges")
+    _display_labels = graph_tools.skill_labels(entities)
+    _rows = [{"來源": _display_labels[edge["from"]], "目標": _display_labels[edge["to"]], "類型": edge["rel"], "原始理由": edge["properties"]["reason"]} for edge in selected_relations]
     _items = [mo.md(f"""
         ## 單一技能與一跳關聯
 
-        **{_row['name']}**：全圖入度 **{_row['in_degree']}**、出度 **{_row['out_degree']}**。
+        **{_row['display_name']}**：識別為 `{skill_choice.value}`；全圖入度 **{_row['in_degree']}**、出度 **{_row['out_degree']}**。
         目前顯示 **{len(selected_ids)} 個節點、{len(selected_relations)} 條關係**，只取符合所選方向的 incident edges，不加入鄰居之間的其他關係。
         橘色箭頭是自己指向目標，藍色是其他技能指向自己；雙向宣告用分開的弧線表示。
         超過 50 個節點時只顯示部分名稱，節點、箭頭及下方完整理由表不截斷。
