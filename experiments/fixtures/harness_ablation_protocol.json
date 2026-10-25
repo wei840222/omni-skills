@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "protocol_version": "harness-ablation-v1",
+  "status": "frozen-before-variant-observations",
+  "frozen_at_utc": "2026-10-25T11:02:40.259657+00:00",
+  "variant_observations_used": false,
+  "baseline": {
+    "fusion": "current-max",
+    "poolLimit": 6,
+    "snippet": "none"
+  },
+  "fixed_conditions": {
+    "catalog_skills": 963,
+    "embedding": {
+      "model": "text-embedding-3-small",
+      "dimensions": 1536
+    },
+    "selector_model_requested": "jev-latest",
+    "selector_model_resolved": "jev-1.14.0",
+    "routing_timeout_ms": 8000,
+    "injection_cap": 6,
+    "skill_relevance_threshold": 0.4,
+    "raw_hitlists": "Capture once per public case and reuse unchanged for every variant. Three collections top40 each.",
+    "experiences": "unavailable-not-imported",
+    "graph": "unavailable-not-imported",
+    "query_inputs": "Only original latest and synthetic/public conversation; no annotations, owners, ranks or labels as query evidence."
+  },
+  "snippet_policy": {
+    "version": 1,
+    "totalUtf8Bytes": 2048,
+    "perCandidateUtf8Bytes": 320,
+    "accounting": "JSON UTF-8 bytes of reference_matched_snippets value, including names and escaping",
+    "matching": "installed path identity; SDK bestChunk only; body/references before meta; score descending then collection/path; candidate-order allocation"
+  },
+  "stages": [
+    {
+      "id": "M2-fusion",
+      "configs": [
+        {
+          "fusion": "current-max",
+          "poolLimit": 6,
+          "snippet": "none"
+        },
+        {
+          "fusion": "skill-identity-sum",
+          "poolLimit": 6,
+          "snippet": "none"
+        }
+      ]
+    },
+    {
+      "id": "M2-pool",
+      "fusion": "development fusion stage winner",
+      "pool_limits": [
+        6,
+        10,
+        20
+      ],
+      "snippet": "none"
+    },
+    {
+      "id": "M3-snippet",
+      "fusion_and_pool": "development pool stage winner",
+      "snippet": [
+        "none",
+        "matched-reference"
+      ]
+    }
+  ],
+  "development_selection": {
+    "primary": "family-macro best-acceptable-set F1 over resolved development labels, as frozen in harness_evaluation_contract.json",
+    "eligible": "Complete reliable outputs on the same120developmentcases; zero newly introduced no-skill false positives versus original baseline; original Jev service p95 and billed-input-token p95 both at most1.25 times original baseline. Missing original measurements or failures are ineligible.",
+    "choose": "Include the original baseline at each stage. Choose the eligible configuration with the highest primary score. Exact ties prefer smaller pool, then no snippets, then current-max. A stage with no eligible change retains its incoming baseline.",
+    "uncertainty": "Report paired family-bootstrap intervals for every comparison. Do not use holdout outcomes to choose development winners.",
+    "diagnostic_contender": "If the staged winner is unchanged original baseline, freeze the highest-scoring fully completed nonbaseline configuration actually tested as the single diagnostic holdout contender, preferring eligible contenders and the same tie order. Label it diagnostic, not a recommended change. If no nonbaseline completed, retain all failures and report insufficient evidence; do not invent a challenger."
+  },
+  "holdout": {
+    "cases": 60,
+    "comparisons": 1,
+    "freeze_before_capture": "One baseline/challenger config plus final labels, cases, contract, protocol and implementation hashes; no tuning after holdout results.",
+    "adoption": "Use unchanged harness_evaluation_contract.json/harness_metrics.adoption_decision gates: F1 gain>=0.03, bootstrap95% lower>0, no new no-skill FP, reliability, latency/cost ratios<=1.25, hardtimeout and budget. Diagnostic contender status alone does not establish benefit."
+  },
+  "task_validation": {
+    "task_fixture": "harness_task_checks.json",
+    "pairs": 12,
+    "arms_per_pair": 2,
+    "native_worker_turns_max": 24,
+    "attempts_per_arm": 1,
+    "grader_feedback_to_workers": false,
+    "instruction": "Fresh native worker per arm receives only public_task_input and full harness-selected SKILL.md contents plus the corresponding public reference allowlist. It may read necessary listed references and write one artifact. No grader/oracles, expected skills, variant names, peer outputs, tests or revision feedback.",
+    "artifact_max_bytes": 12000,
+    "remote_host": "ssh wei-workspace allowed when heavy compilation is actually needed; current12boundedtasks do not require it.",
+    "model": "Inherit the native runtime model with no override; report exact identity/usage only if observable."
+  },
+  "request_bounds": {
+    "development_selector_configs_max": 5,
+    "development_selector_calls_max": 600,
+    "holdout_selector_calls_max": 120,
+    "shared_raw_query_cases": 180,
+    "additional_task_query_cases": 12,
+    "additional_task_selector_calls_max": 24,
+    "global_jev_ledger_calls_max": 1000,
+    "global_jev_input_tokens_max": 47000000,
+    "notes": "Query intent uses Jev in addition to final selectors. Reuse exact completed payloads/caches; these bounds are request counts, not account billing guarantees."
+  }
+}

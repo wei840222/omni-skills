@@ -1,0 +1,17 @@
+{
+  "review_scope": "plan and future silver-label protocol only",
+  "input_plan": "plan/active/2026-10-25-skill-library-harness-quality.md",
+  "input_plan_sha256": "e03233df052b6922ece364b8c899ce5402d8af4952743bb1c12530aa3dd429ac",
+  "model_override": null,
+  "tools_authorized": false,
+  "experiment_execution_authorized": false,
+  "started_unix": 1792917793.7164059,
+  "returncode": 0,
+  "finished_unix": 1792917821.1476517,
+  "response_bytes": 6292,
+  "stderr_bytes": 78,
+  "review_verdict": "CLARIFY",
+  "review_report_sha256": "4a2001bf58a4a74592f5c3c56ae7d007cfdc03720227376663f2021e99276e09",
+  "response_sha256": "8bbdc7bec6a73f4564644d25f5a9682bf09708d0c75eb476e214cb50606ea7ea",
+  "primary_disposition": "Documented corrections and reservations; no second model review; experiments not started"
+}

@@ -1,0 +1,932 @@
+{
+  "schema_version": 1,
+  "dataset_id": "harness-public-pilot-180-v1",
+  "rubric_version": "harness-public-pilot-v1.1",
+  "rubric_sha256": "e39da625fa5f597c36f4e1c3a5b2d5f0b43b6a2d1259f351ce4121384bf741d9",
+  "source_head": "3ba7dbe23e84d3646ded825a6890f485597d4bc9",
+  "public_catalog_skill_count": 963,
+  "public_catalog_sha256": "ad9418f31ed9396beaf6a7edf59232ac71b4c69fbb29b65edc29a2c9fb22854a",
+  "input_policy": "Only latest and optional public/synthetic conversation are inference inputs; opaque id is bookkeeping.",
+  "cases": [
+    {
+      "id": "p001",
+      "latest": "A strict TypeScript build rejects a union response because only one variant has error.message. Show how to narrow the result without an unchecked cast."
+    },
+    {
+      "id": "p002",
+      "latest": "Our TypeScript helper takes an object and a key but returns a union of every property type. Make the generic preserve the selected property's type."
+    },
+    {
+      "id": "p003",
+      "latest": "A small npm package ships no declarations. Add a minimal .d.ts for its callable export and two option fields without declaring the whole module as any."
+    },
+    {
+      "id": "p004",
+      "latest": "I want to enable strictNullChecks in an existing TypeScript library gradually. Outline a safe migration order and the tests that catch changed assumptions."
+    },
+    {
+      "id": "p005",
+      "latest": "The editor becomes sluggish after we added a deeply recursive conditional type. Help isolate the instantiation hotspot and simplify the public type."
+    },
+    {
+      "id": "p006",
+      "latest": "Nginx serves /api/users to the upstream as /users, but that service expects the /api prefix. Explain which location and proxy_pass slash choices to inspect."
+    },
+    {
+      "id": "p007",
+      "latest": "An HTTP backend responds directly, yet the Nginx front end returns 502 immediately. Give me a focused log-driven diagnosis before changing timeouts."
+    },
+    {
+      "id": "p008",
+      "latest": "WebSocket connections work directly and fail through our Nginx server block. Review the upgrade headers and the matching location."
+    },
+    {
+      "id": "p009",
+      "latest": "Our event stream reaches clients in one big chunk only when Nginx is in the path. What proxy settings should I verify for streaming?"
+    },
+    {
+      "id": "p010",
+      "latest": "A static upload endpoint gets a 413 from Nginx before the application sees it. Help scope the body-size setting to that route and verify the config."
+    },
+    {
+      "id": "p011",
+      "latest": "Two local workers updating the same SQLite file intermittently get SQLITE_BUSY. Suggest a bounded connection and transaction strategy, without replacing the storage engine."
+    },
+    {
+      "id": "p012",
+      "latest": "Foreign-key constraints work in one SQLite connection and silently fail in another. Explain what to check at connection creation."
+    },
+    {
+      "id": "p013",
+      "latest": "A SQLite column accepts both numbers and text and our comparisons look inconsistent. Explain affinity and whether a STRICT table fits this local file."
+    },
+    {
+      "id": "p014",
+      "latest": "I need a consistent backup of a SQLite database while the desktop app keeps writing to it. Compare safe file/API approaches for that one database."
+    },
+    {
+      "id": "p015",
+      "latest": "Importing 50,000 rows into SQLite one INSERT at a time is slow. Show a transaction-batching plan that still rolls back a failed import."
+    },
+    {
+      "id": "p016",
+      "latest": "A GitHub README table falls apart when one cell contains a vertical bar. Repair the Markdown while preserving the text in that cell."
+    },
+    {
+      "id": "p017",
+      "latest": "Everything after my shell example renders as code in a Markdown document. Help find and fix the unclosed fenced block."
+    },
+    {
+      "id": "p018",
+      "latest": "The same Markdown page looks right in GitHub and wrong in our MDX site. Give me a compatibility checklist for the syntax before we rewrite content."
+    },
+    {
+      "id": "p019",
+      "latest": "Convert a short nested outline into valid Markdown headings and lists, preserving the hierarchy and keeping code examples fenced."
+    },
+    {
+      "id": "p020",
+      "latest": "Our Markdown link label displays raw HTML in the exported version. Explain how to check parser support and choose portable syntax."
+    },
+    {
+      "id": "p021",
+      "latest": "I dropped a local stash before applying it. Walk me through a read-only recovery search and how to recover it onto a new branch."
+    },
+    {
+      "id": "p022",
+      "latest": "My feature branch contains an unrelated change in the middle of three unpublished commits. Help split it into reviewable commits without losing work."
+    },
+    {
+      "id": "p023",
+      "latest": "A merge left conflict markers in two files and I am unsure which stage I am in. Show the checks to understand the state before resolving anything."
+    },
+    {
+      "id": "p024",
+      "latest": "I checked out an old commit to inspect a regression and now have new local edits in detached HEAD. Help preserve them on a branch."
+    },
+    {
+      "id": "p025",
+      "latest": "I need two checkouts of the same repository for independent features. Explain how worktrees and branch ownership fit together."
+    },
+    {
+      "id": "p026",
+      "latest": "Redis keeps rejecting writes with OOM although old cache entries should expire. Help inspect maxmemory, eviction policy and actual TTLs."
+    },
+    {
+      "id": "p027",
+      "latest": "Our Redis leaderboard needs per-user scores and rank lookup. Propose the data structure and atomic update commands."
+    },
+    {
+      "id": "p028",
+      "latest": "A consumer of a Redis Stream sometimes leaves work pending after a crash. Explain how to inspect and reclaim abandoned entries."
+    },
+    {
+      "id": "p029",
+      "latest": "A Redis Cluster script fails with CROSSSLOT after we split related keys. Help redesign those key names and identify the atomicity boundary."
+    },
+    {
+      "id": "p030",
+      "latest": "A large Redis DEL causes a visible pause. Compare ways to retire a large key while keeping foreground latency bounded."
+    },
+    {
+      "id": "p031",
+      "latest": "A Docker image builds locally but a clean CI build misses almost every cache layer. Review the Dockerfile ordering and context boundaries."
+    },
+    {
+      "id": "p032",
+      "latest": "The container exits with code 137 during a batch job. Help distinguish an enforced memory limit from an application crash using container evidence."
+    },
+    {
+      "id": "p033",
+      "latest": "Our image works as root but cannot write its mounted data directory under a non-root UID. Explain the volume ownership checks."
+    },
+    {
+      "id": "p034",
+      "latest": "Stopping a Docker container waits until it is killed even though the app handles SIGTERM. Inspect entrypoint signal forwarding and PID 1 behavior."
+    },
+    {
+      "id": "p035",
+      "latest": "I want a smaller multi-stage container image without putting build-time secrets into layers. Show the build/runtime separation to review."
+    },
+    {
+      "id": "p036",
+      "latest": "I need a PCRE pattern that extracts a ticket like OPS-204 from a log line but does not consume adjacent punctuation. Explain the boundaries."
+    },
+    {
+      "id": "p037",
+      "latest": "A regular expression takes seconds on a long near-match. Show how to find catastrophic backtracking and rewrite the repeated groups."
+    },
+    {
+      "id": "p038",
+      "latest": "The pattern we copied from JavaScript fails in Go's regexp package. Explain how to remove unsupported lookbehind while keeping the match contract."
+    },
+    {
+      "id": "p039",
+      "latest": "Replace only standalone draft markers, leaving words like draftable unchanged. Give a regex and positive/negative test strings."
+    },
+    {
+      "id": "p040",
+      "latest": "Our multiline log matcher stops at the first newline. Explain the difference between multiline anchors and dot-all behavior in the selected engine."
+    },
+    {
+      "id": "p041",
+      "latest": "This Rust loop consumes a Vec and then I need to read its length. Explain the ownership issue and the smallest borrowing change."
+    },
+    {
+      "id": "p042",
+      "latest": "A Rust function returns a reference to a String it created locally. Help redesign the return type instead of guessing lifetime annotations."
+    },
+    {
+      "id": "p043",
+      "latest": "Two mutable references into different parts of a Rust slice are rejected. Show a safe way to make disjointness explicit."
+    },
+    {
+      "id": "p044",
+      "latest": "My Rust async task holds a mutex guard across await and other tasks stop making progress. Help shorten the guarded section."
+    },
+    {
+      "id": "p045",
+      "latest": "Cargo chooses two incompatible versions of a crate across workspace members. Show how to inspect the dependency graph and constrain the build."
+    },
+    {
+      "id": "p046",
+      "latest": "A Go function returns an error interface holding a nil pointer, but err != nil is true. Explain the representation and fix the return path."
+    },
+    {
+      "id": "p047",
+      "latest": "A Go worker pool never exits after cancellation. Help trace which goroutine owns closing the channel and where receives should stop."
+    },
+    {
+      "id": "p048",
+      "latest": "Appending to a Go subslice unexpectedly changes the original buffer. Explain capacity and show a deliberate copy boundary."
+    },
+    {
+      "id": "p049",
+      "latest": "errors.Is no longer matches the original Go error after we format it into another message. Show the wrapping change and a focused test."
+    },
+    {
+      "id": "p050",
+      "latest": "A Go service has a data race on a shared map. Suggest a simple synchronization plan and a way to validate it with the race detector."
+    },
+    {
+      "id": "p051",
+      "latest": "A MySQL text column mangles four-byte emoji on insert. Help verify the database, table and connection character sets."
+    },
+    {
+      "id": "p052",
+      "latest": "Our MySQL query ignores a composite index when filtering by its second column alone. Explain the index order and how to check the plan."
+    },
+    {
+      "id": "p053",
+      "latest": "Two MySQL transactions deadlock while updating the same pair of rows in opposite order. Help establish a consistent locking order."
+    },
+    {
+      "id": "p054",
+      "latest": "I need a MySQL upsert that preserves the existing creation timestamp but refreshes the other fields. Show the query and uniqueness assumptions."
+    },
+    {
+      "id": "p055",
+      "latest": "A MySQL pagination endpoint gets slower at high offsets. Explain a keyset version with a stable tie-breaker."
+    },
+    {
+      "id": "p056",
+      "latest": "MongoDB explain shows COLLSCAN on a customer lookup despite an index on the collection. Help compare the filter shape with the index."
+    },
+    {
+      "id": "p057",
+      "latest": "I need a MongoDB aggregation that groups orders by customer and keeps the latest order date. Lay out the pipeline stages."
+    },
+    {
+      "id": "p058",
+      "latest": "An unbounded comments array is making one MongoDB document grow without limit. Compare a bounded embedded model with a referenced collection."
+    },
+    {
+      "id": "p059",
+      "latest": "A MongoDB service reports driver timeouts during replica-set failover. Help separate topology discovery from pool saturation."
+    },
+    {
+      "id": "p060",
+      "latest": "A MongoDB compound index speeds one query but bloats writes. Help choose which fields and sort order really belong in it."
+    },
+    {
+      "id": "p061",
+      "latest": "I have weekly signup and cancellation counts from three regions. Help find the main patterns and explain what the table can and cannot support before I write a team update."
+    },
+    {
+      "id": "p062",
+      "latest": "The monthly sales export has duplicate customer rows and gaps. Give me an analysis plan that checks quality before comparing regions; no implementation code yet."
+    },
+    {
+      "id": "p063",
+      "latest": "A dashboard says conversion improved, but the denominator changed last month. Help inspect the metric definition and present a cautious interpretation."
+    },
+    {
+      "id": "p064",
+      "latest": "We have a small table of delivery delays by warehouse. Suggest a clear chart and a short explanation of the variability for operations staff."
+    },
+    {
+      "id": "p065",
+      "latest": "The product team wants to understand a sudden drop in weekly active users from the supplied aggregate table. Organize the checks and separate evidence from possible explanations."
+    },
+    {
+      "id": "p066",
+      "latest": "Our family has booked a week away. Help organize the reservation details, cancellation dates and shared spending responsibilities into a practical checklist."
+    },
+    {
+      "id": "p067",
+      "latest": "Three friends are taking a two-city holiday with one person paying deposits. We need a simple way to track the shared budget and what is still unpaid."
+    },
+    {
+      "id": "p068",
+      "latest": "We are travelling with an elderly parent and want a preparation checklist for documents, bookings, walking limits and who handles each item."
+    },
+    {
+      "id": "p069",
+      "latest": "A group trip is half booked and two people may cancel. Help list the booking deadlines, refund exposure and remaining decisions before we commit further."
+    },
+    {
+      "id": "p070",
+      "latest": "Our relatives are joining different parts of one holiday. Help coordinate arrivals, shared reservations and a realistic daily spending envelope."
+    },
+    {
+      "id": "p071",
+      "latest": "We have three rollout plans with supplied cost, recovery time and staffing estimates. Reliability matters most, then effort. Compare the tradeoffs and challenge the assumptions before recommending one."
+    },
+    {
+      "id": "p072",
+      "latest": "Two workshop venues meet our accessibility requirements; one costs more and saves travel time. Help weigh the supplied figures for a one-day internal event."
+    },
+    {
+      "id": "p073",
+      "latest": "Should a small team keep a simple queue or adopt a more complex workflow engine? Use the constraints listed in our brief, spell out reversibility and avoid treating popularity as evidence."
+    },
+    {
+      "id": "p074",
+      "latest": "We can postpone an internal migration, run it in stages, or do a short freeze. Help compare the supplied risk notes and identify what missing evidence could change the choice."
+    },
+    {
+      "id": "p075",
+      "latest": "For a volunteer project, compare two maintenance plans using the supplied hours and reliability estimates. Give a recommendation that changes if maintenance effort is the top priority."
+    },
+    {
+      "id": "p076",
+      "latest": "Condense these three supplied project updates into one short account. Keep each owner's claims attributed and do not smooth over their disagreement about the deadline."
+    },
+    {
+      "id": "p077",
+      "latest": "I pasted two meeting transcripts about the same launch. Produce a compact shared recap with separate notes where the accounts conflict; do not add a recommendation."
+    },
+    {
+      "id": "p078",
+      "latest": "Turn four supplied incident notes into a one-page account of agreed facts, contested facts and unknowns. Only use what those notes actually say."
+    },
+    {
+      "id": "p079",
+      "latest": "We have three short reports with overlapping findings. Reduce repetition while preserving who reported each number and where the reports disagree."
+    },
+    {
+      "id": "p080",
+      "latest": "Combine the supplied interview summaries into a concise briefing that keeps minority views visible rather than claiming everyone agreed."
+    },
+    {
+      "id": "p081",
+      "latest": "Create a six-slide PPTX from our supplied outline, with one consistent title style, a summary table and speaker notes. No desktop PowerPoint session is open."
+    },
+    {
+      "id": "p082",
+      "latest": "An existing PPTX has crowded text and inconsistent margins. Rework the layouts while preserving its theme and keeping all supplied claims."
+    },
+    {
+      "id": "p083",
+      "latest": "Build a short training PPTX with a cover, two process diagrams, a comparison table and a recap slide. Keep the diagrams editable."
+    },
+    {
+      "id": "p084",
+      "latest": "Update a provided PPTX's chart labels and presenter notes without replacing the master layouts. Include a content and visual QA pass."
+    },
+    {
+      "id": "p085",
+      "latest": "Convert the supplied quarterly report outline into an eight-slide PPTX with readable tables and source notes. The file must remain editable."
+    },
+    {
+      "id": "p086",
+      "latest": "Turn our product webinar outline into a short announcement email for existing trial users. The next step is to register; keep the promise specific and avoid invented results."
+    },
+    {
+      "id": "p087",
+      "latest": "Rework a case-study excerpt into three short campaign posts aimed at operations leads, each pointing to the same supplied download."
+    },
+    {
+      "id": "p088",
+      "latest": "Our free workshop campaign needs a clear headline, short invitation and one registration call to action for the audience described in the brief."
+    },
+    {
+      "id": "p089",
+      "latest": "Rewrite the launch announcement around the buyer's main problem and one honest next step. Keep the existing evidence and fit it to a short email."
+    },
+    {
+      "id": "p090",
+      "latest": "Adapt this long product explainer into a concise follow-up message for people who attended the demo, with one relevant next action."
+    },
+    {
+      "id": "p091",
+      "latest": "Before we build a new scheduling tool, map the leading alternatives for small clinics, compare their stated features and show where evidence of an unmet need is weak."
+    },
+    {
+      "id": "p092",
+      "latest": "We need a source-backed comparison of four competing collaboration products for our positioning workshop. Separate vendor claims from independently supported findings."
+    },
+    {
+      "id": "p093",
+      "latest": "Investigate how similar subscription services describe their plans and target customers. Build a feature-and-segment matrix rather than guessing a market winner."
+    },
+    {
+      "id": "p094",
+      "latest": "Our team is considering a niche analytics product. Review direct competitors' offerings and highlight gaps that still need customer validation."
+    },
+    {
+      "id": "p095",
+      "latest": "Audit the public product pages of our named competitors and compare their onboarding promises, integrations and pricing structure, with dates and sources."
+    },
+    {
+      "id": "p096",
+      "latest": "Our public site is built in Webflow. Before launch, audit mobile layout, keyboard access, broken links and loading performance; give a prioritized fix list."
+    },
+    {
+      "id": "p097",
+      "latest": "A Webflow marketing site shifts its hero layout while loading and feels slow on phones. Inspect the page-level performance and layout causes before recommending changes."
+    },
+    {
+      "id": "p098",
+      "latest": "We inherited a Webflow site with inconsistent headings and missing image text. Review accessibility and basic launch metadata across the pages."
+    },
+    {
+      "id": "p099",
+      "latest": "Check our Webflow portfolio site for responsive navigation, form usability and performance bottlenecks. Keep the work at the audit-and-fix-plan level."
+    },
+    {
+      "id": "p100",
+      "latest": "The redesigned Webflow site is ready for review. Give a cross-page checklist for usable mobile layouts, social previews and obvious accessibility gaps."
+    },
+    {
+      "id": "p101",
+      "latest": "A React filter panel loses a selection after a state update, and its CSS grid overflows on narrow screens. Diagnose the state issue and separately repair the responsive layout."
+    },
+    {
+      "id": "p102",
+      "latest": "Our React modal fetches stale data when reopened; its overlay also appears behind the header despite a large z-index. Fix the lifecycle race and explain the stacking context."
+    },
+    {
+      "id": "p103",
+      "latest": "A React controlled form resets user input on rerender, while its labels clip at high zoom. Review the state ownership and the responsive text/layout rules."
+    },
+    {
+      "id": "p104",
+      "latest": "A long React list rerenders on every keystroke, and the sticky toolbar stops sticking inside an overflow container. Propose focused fixes for both problems."
+    },
+    {
+      "id": "p105",
+      "latest": "We need a React tab component with correct state transitions, plus a separate CSS solution for a wrapping tab bar that remains usable on small screens."
+    },
+    {
+      "id": "p106",
+      "latest": "Move existing AWS network resources into Terraform modules without recreating them, and separately assess whether the current NAT design is driving avoidable charges. Give a review plan; do not apply anything."
+    },
+    {
+      "id": "p107",
+      "latest": "Our Terraform plan wants to replace an existing AWS resource after an address rename. Explain a no-recreation migration and review the attached IAM permissions for least privilege."
+    },
+    {
+      "id": "p108",
+      "latest": "Import a manually created AWS storage resource into Terraform with a zero-change plan, then review its public access and retention settings against the stated requirements."
+    },
+    {
+      "id": "p109",
+      "latest": "A Terraform refactor split our AWS environment into modules. Help preserve resource identities and independently evaluate whether the subnet and security-group design matches the application's connectivity needs."
+    },
+    {
+      "id": "p110",
+      "latest": "We have a Terraform provider upgrade that changes the plan and an AWS bill increase starting that week. Separate provider/state validation from a service-level cost investigation."
+    },
+    {
+      "id": "p111",
+      "latest": "A supplier CSV has quoted newlines and leading-zero customer IDs. Define a lossless import/export contract, then write a pandas transformation that deduplicates by customer and computes monthly totals."
+    },
+    {
+      "id": "p112",
+      "latest": "We receive semicolon-delimited files in two encodings. Establish validation and output rules, then use pandas to merge them with a reference table and report unmatched keys."
+    },
+    {
+      "id": "p113",
+      "latest": "Prepare a pandas pivot report from a CSV whose empty fields and literal NA codes have different meanings. Preserve that distinction in both parsing and the exported file."
+    },
+    {
+      "id": "p114",
+      "latest": "Our pandas groupby report is correct in memory but the CSV opens with split columns and formula-like text in a spreadsheet. Fix the interchange profile and keep the aggregation reproducible."
+    },
+    {
+      "id": "p115",
+      "latest": "A large CSV contains embedded commas and inconsistent headers. Validate the file structure first, then replace a slow pandas row loop with a vectorized cleaning-and-summary pipeline."
+    },
+    {
+      "id": "p116",
+      "latest": "Build a FastAPI reporting endpoint with a properly scoped database dependency, and design the SQL window query that ranks each customer's latest events without duplicate rows."
+    },
+    {
+      "id": "p117",
+      "latest": "Our FastAPI dependency leaks a session after failed requests. Fix the yield cleanup, and separately rewrite a reporting JOIN that multiplies totals across two child tables."
+    },
+    {
+      "id": "p118",
+      "latest": "A FastAPI route returns 422 for a nested filter object. Correct the request model and design a stable keyset SQL query using that filter."
+    },
+    {
+      "id": "p119",
+      "latest": "Add a FastAPI endpoint with a clear response model and write the SQL CTE that computes a running total with a deterministic tie-breaker."
+    },
+    {
+      "id": "p120",
+      "latest": "The FastAPI service blocks the event loop during a report. Review async versus sync execution and optimize the separate SQL query whose plan scans all historical rows."
+    },
+    {
+      "id": "p121",
+      "latest": "A Laravel page issues one Eloquent query per item, and its remaining MySQL query ignores the intended composite index. Fix the eager-loading pattern and inspect the engine plan separately."
+    },
+    {
+      "id": "p122",
+      "latest": "Our Laravel queued job rereads a changed model unexpectedly, while the MySQL transaction it runs inside can deadlock. Explain serialization and review the lock order."
+    },
+    {
+      "id": "p123",
+      "latest": "A Laravel observer sends a notification on both create and update, and the MySQL text field loses emoji. Review the observer condition and connection/table charset settings."
+    },
+    {
+      "id": "p124",
+      "latest": "A Laravel controller exposes an unsafe mass-assignment path. Tighten the model/controller boundary and redesign the MySQL uniqueness/upsert behavior that prevents duplicate imports."
+    },
+    {
+      "id": "p125",
+      "latest": "A Laravel report hides soft-deleted related records, and the resulting MySQL query slows badly at high offsets. Address ORM visibility and engine-level keyset pagination."
+    },
+    {
+      "id": "p126",
+      "latest": "Package our Electron desktop app for Windows, and separately review the companion file-upload HTTP service for exploitable validation and secret-exposure risks. Deliver two scoped checklists; do not deploy."
+    },
+    {
+      "id": "p127",
+      "latest": "An Electron upgrade broke a native module. Plan the ABI rebuild, then risk-review the separate webhook receiver it talks to for untrusted-input handling."
+    },
+    {
+      "id": "p128",
+      "latest": "The Electron main process freezes during a large import. Propose an architecture fix, and review the separate backend's upload/delete handlers for secure defaults."
+    },
+    {
+      "id": "p129",
+      "latest": "Our Electron installer includes unnecessary development dependencies. Review packaging contents and independently audit the companion REST service's unsafe error and logging behavior."
+    },
+    {
+      "id": "p130",
+      "latest": "Help diagnose white-flash startup in the Electron app, then perform a prioritized security review of a separate archive-extraction API before the release."
+    },
+    {
+      "id": "p131",
+      "latest": "Reply with exactly READY, with no explanation."
+    },
+    {
+      "id": "p132",
+      "latest": "Return only the string blue-team. Do not add quotation marks."
+    },
+    {
+      "id": "p133",
+      "latest": "For this handshake, answer with the single character K."
+    },
+    {
+      "id": "p134",
+      "latest": "Please copy this token exactly: sample_27."
+    },
+    {
+      "id": "p135",
+      "latest": "Say received in lowercase and nothing else."
+    },
+    {
+      "id": "p136",
+      "latest": "From 'ref: Q7; owner: Mira', return only the owner value."
+    },
+    {
+      "id": "p137",
+      "latest": "The note says 'Door B — bring the green folder'. Which door does it name?"
+    },
+    {
+      "id": "p138",
+      "latest": "In the list red, amber, violet, repeat the middle item only."
+    },
+    {
+      "id": "p139",
+      "latest": "This line reads 'status=paused'. What word follows the equals sign?"
+    },
+    {
+      "id": "p140",
+      "latest": "Given 'Box: cedar; Shelf: east', return just the shelf location."
+    },
+    {
+      "id": "p141",
+      "latest": "Thanks, that's all I needed."
+    },
+    {
+      "id": "p142",
+      "latest": "Got it. I'll come back with the details later."
+    },
+    {
+      "id": "p143",
+      "latest": "Okay, I understand the distinction now."
+    },
+    {
+      "id": "p144",
+      "latest": "That answers my question; no further changes for now."
+    },
+    {
+      "id": "p145",
+      "latest": "Perfect, keep things as they are."
+    },
+    {
+      "id": "p146",
+      "latest": "The label is 'git'. Repeat it exactly so I can paste it into a note."
+    },
+    {
+      "id": "p147",
+      "latest": "The supplied list is 'nginx: selected; cedar: skipped'. Return only the selected entry's name."
+    },
+    {
+      "id": "p148",
+      "latest": "Copy the text between the brackets exactly: [sqlite]. Keep it as a bare word."
+    },
+    {
+      "id": "p149",
+      "latest": "This card already has the approved label 'markdown'. Repeat that label, without reformatting anything."
+    },
+    {
+      "id": "p150",
+      "latest": "The active row is '* typescript'; the other row is 'oak'. Return only the active row's word, removing the marker."
+    },
+    {
+      "id": "p151",
+      "latest": "Copy the category label before the colon in 'rust: sample-42'. Return only that label."
+    },
+    {
+      "id": "p152",
+      "latest": "Two tags are provided: 'go (keep)' and 'cedar (discard)'. Return the tag marked keep, without its marker."
+    },
+    {
+      "id": "p153",
+      "latest": "In the supplied text 'before -> mysql <- after', return only the token between the arrows."
+    },
+    {
+      "id": "p154",
+      "latest": "The approved display label is 'mongodb'; the earlier draft says 'cedar'. Copy only the approved label."
+    },
+    {
+      "id": "p155",
+      "latest": "Select the single checked entry from '[ ] ash | [x] svelte | [ ] yew'; return its text without brackets."
+    },
+    {
+      "id": "p156",
+      "latest": "Can you fix it? I haven't sent the thing yet."
+    },
+    {
+      "id": "p157",
+      "latest": "Which one is better? I'll paste the options next."
+    },
+    {
+      "id": "p158",
+      "latest": "Do the same thing with the other one; this is the start of our chat."
+    },
+    {
+      "id": "p159",
+      "latest": "Please explain that error. I forgot to include the message."
+    },
+    {
+      "id": "p160",
+      "latest": "Make it more suitable, but I haven't provided the text or audience yet."
+    },
+    {
+      "id": "p161",
+      "latest": "Why is it still the old value?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "In this JavaScript closure, each handler should log its own loop index, but all handlers see the final value."
+        },
+        {
+          "role": "assistant",
+          "text": "Let's inspect the loop binding and when each callback reads it."
+        }
+      ]
+    },
+    {
+      "id": "p162",
+      "latest": "Then why doesn't it wait?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "My JavaScript function starts array.forEach(async item => await save(item)) and returns before the saves finish."
+        },
+        {
+          "role": "assistant",
+          "text": "The outer operation must await the work it creates."
+        }
+      ]
+    },
+    {
+      "id": "p163",
+      "latest": "Could the ordering explain it?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "In JavaScript I log once synchronously, once in Promise.then and once with setTimeout. The order surprises me."
+        },
+        {
+          "role": "assistant",
+          "text": "We should trace the synchronous stack, microtasks and timer callback separately."
+        }
+      ]
+    },
+    {
+      "id": "p164",
+      "latest": "That still changes the first one.",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "In JavaScript I copied an object with a spread, then edited a nested array on the copy and the original changed."
+        },
+        {
+          "role": "assistant",
+          "text": "A spread copies only the outer level, so the nested reference needs attention."
+        }
+      ]
+    },
+    {
+      "id": "p165",
+      "latest": "What should I compare instead?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "My JavaScript Date comparison looks unequal even when two separately constructed dates represent the same instant."
+        },
+        {
+          "role": "assistant",
+          "text": "First distinguish object identity from the represented timestamp."
+        }
+      ]
+    },
+    {
+      "id": "p166",
+      "latest": "What about the spaces?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "This Bash loop does for f in $(find ./input -type f); do process $f; done and breaks on some filenames."
+        },
+        {
+          "role": "assistant",
+          "text": "We need to preserve filename boundaries through discovery and argument passing."
+        }
+      ]
+    },
+    {
+      "id": "p167",
+      "latest": "Will the failure reach the caller?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "My Bash script runs producer | consumer and I need a failing producer to make the script fail."
+        },
+        {
+          "role": "assistant",
+          "text": "Let's inspect the pipeline's exit status and which shell options apply."
+        }
+      ]
+    },
+    {
+      "id": "p168",
+      "latest": "Does that run on the old machine?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "I wrote a Bash script using mapfile, but the target is the default Bash bundled with an older macOS system."
+        },
+        {
+          "role": "assistant",
+          "text": "Check the shell version before choosing the input-reading construct."
+        }
+      ]
+    },
+    {
+      "id": "p169",
+      "latest": "And if it gets interrupted?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "A Bash batch script creates a temporary directory and should remove only that directory on exit."
+        },
+        {
+          "role": "assistant",
+          "text": "A cleanup trap should retain the directory identity and preserve the final exit status."
+        }
+      ]
+    },
+    {
+      "id": "p170",
+      "latest": "Why are there suddenly more arguments?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "In Bash I stored '*.log' in a variable and then passed the variable unquoted to an archive command."
+        },
+        {
+          "role": "assistant",
+          "text": "Unquoted expansion can split text and then expand filename patterns."
+        }
+      ]
+    },
+    {
+      "id": "p171",
+      "latest": "Can you preserve those too?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "I need to update an XLSX workbook's input cells without changing its formulas, named ranges or number formats."
+        },
+        {
+          "role": "assistant",
+          "text": "We should distinguish editable input cells from formula and formatting structure."
+        }
+      ]
+    },
+    {
+      "id": "p172",
+      "latest": "Why did those become blank?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "I opened an XLSX using openpyxl with data_only=True and some formula cells do not show values."
+        },
+        {
+          "role": "assistant",
+          "text": "We need to distinguish stored formulas from cached calculation results."
+        }
+      ]
+    },
+    {
+      "id": "p173",
+      "latest": "Keep it editable, please.",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "The deliverable is an XLSX with separate monthly sheets, formulas and a summary chart, not a flattened export."
+        },
+        {
+          "role": "assistant",
+          "text": "Let's retain native workbook objects and inspect the generated structure."
+        }
+      ]
+    },
+    {
+      "id": "p174",
+      "latest": "What happens to the macros?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "The supplied file is XLSM and we are editing a few cells programmatically while preserving the existing project."
+        },
+        {
+          "role": "assistant",
+          "text": "The load/save path needs to preserve the macro-bearing workbook format."
+        }
+      ]
+    },
+    {
+      "id": "p175",
+      "latest": "Does the format survive the save?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "A workbook has dates, currency cells and leading-zero identifiers; we are changing values with openpyxl."
+        },
+        {
+          "role": "assistant",
+          "text": "Cell value types and display formats need separate checks during round-trip editing."
+        }
+      ]
+    },
+    {
+      "id": "p176",
+      "latest": "Why doesn't it react now?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "In a Svelte 5 component I put items in a normal Map, mutate it and expect the UI to change."
+        },
+        {
+          "role": "assistant",
+          "text": "We should check whether that collection participates in Svelte's reactivity."
+        }
+      ]
+    },
+    {
+      "id": "p177",
+      "latest": "Could that be derived instead?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "My Svelte component uses an effect to copy count * 2 into another state variable."
+        },
+        {
+          "role": "assistant",
+          "text": "The second value is computed from existing state rather than an external side effect."
+        }
+      ]
+    },
+    {
+      "id": "p178",
+      "latest": "Does it run on the server?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "Our SvelteKit component reads window inside an effect and we need to understand what happens during rendering."
+        },
+        {
+          "role": "assistant",
+          "text": "Let's separate server rendering from browser-only effects."
+        }
+      ]
+    },
+    {
+      "id": "p179",
+      "latest": "Why is the next user seeing it?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "A SvelteKit server module stores the current user's cart in a shared module-level variable."
+        },
+        {
+          "role": "assistant",
+          "text": "Request-specific state must not be shared across server requests."
+        }
+      ]
+    },
+    {
+      "id": "p180",
+      "latest": "What if the read comes after await?",
+      "conversation": [
+        {
+          "role": "user",
+          "text": "In a Svelte effect we read one reactive value only after awaiting a promise and then wonder why it does not rerun."
+        },
+        {
+          "role": "assistant",
+          "text": "We should examine when the effect captures dependencies."
+        }
+      ]
+    }
+  ]
+}

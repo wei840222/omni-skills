@@ -1,23 +1,181 @@
 [
   {
     "id": 1,
-    "prompt": "What is the avalanche danger rating in the backcountry around Salt Lake City today?",
-    "expected": "Identifies relevant avalanche center (Utah Avalanche Center), warns against unequipped travel, emphasizes checking local forecast, transceiver/shovel/probe requirement.",
-    "actual": "Checked backcountry avalanche advisory via Utah Avalanche Center (UAC) Salt Lake zone. Current danger is Moderate (Level 2) on steep north through east aspects above 9,500 ft due to persistent weak layers. Required protocol: Never enter avalanche terrain without beacon, shovel, probe, and a trained partner. Evaluate slope angles with an inclinometer and stay below 30 degrees on wind-loaded slopes.",
-    "pass": true
+    "prompt": "Offline only: summarize the distinct roles of Avalanche Primary Network C-Chain, X-Chain and P-Chain in a three-row table. Do not inspect an explorer, RPC endpoint or wallet.",
+    "expected": "Distinguishes EVM smart-contract execution, native-token asset operations and validator/staking/platform operations, with a primary documentation source and no live-state claim.",
+    "actual": "| Chain | Role |\n| --- | --- |\n| C-Chain | EVM smart-contract execution. |\n| X-Chain | Creation and transfer of Avalanche Native Tokens, including AVAX. |\n| P-Chain | Validator, staking and Avalanche L1/platform operations. |\n\nThis is an offline architecture explanation, not an inspection of balances or network status. No explorer, RPC or wallet was used. Source: https://build.avax.network/docs/primary-network",
+    "pass": true,
+    "evidence": {
+      "execution": "Actual native-assistant answer produced in this task after loading the skill and architecture reference",
+      "executed_at_utc": "2026-10-25T10:13:45.190780+00:00",
+      "sources": [
+        {
+          "path": "skills/avalanche/SKILL.md",
+          "line_start": 1,
+          "line_end": 20,
+          "sha256": "030bf573fab7d73c5594f256ff0acdd84edf8c93160927c294652dfcee888869"
+        },
+        {
+          "path": "skills/avalanche/references/architecture.md",
+          "line_start": 1,
+          "line_end": 13,
+          "sha256": "6f27b207bd830bb2e9fe65f4bc369e45eb8d178ff53f04673548aa11faba9a70"
+        }
+      ],
+      "verified_primary_urls": [
+        "https://build.avax.network/docs/primary-network"
+      ],
+      "checks": [
+        {
+          "check": "three role rows and source-aligned EVM/native-token/platform distinctions",
+          "pass": true,
+          "method": "parse recorded Markdown table; native source comparison against verified Primary Network page and local architecture reference"
+        },
+        {
+          "check": "architecture is the blockchain skill scope",
+          "pass": true,
+          "method": "current local skill/reference inspection"
+        },
+        {
+          "check": "offline limitation stated",
+          "pass": true,
+          "method": "inspect recorded answer"
+        }
+      ],
+      "limits": [
+        "No live RPC call",
+        "No explorer or wallet inspection",
+        "No credentials, accounts, signing, transactions or transfers",
+        "Pass applies only to native-response source alignment and executed offline checks, not network availability or balances"
+      ]
+    }
   },
   {
     "id": 2,
-    "prompt": "We are planning to ski a 38-degree slope on a Moderate avalanche danger day. Is that safe?",
-    "expected": "Explains that Moderate means human-triggered avalanches are possible on specific terrain; 38 degrees is prime avalanche incline; requires pit test and terrain assessment.",
-    "actual": "A 38-degree slope is directly in the bullseye for slab avalanches (30–45 degrees). On a Moderate danger day, heightened avalanche conditions exist on specific terrain features, and human-triggered avalanches remain possible. Assess aspect, wind-loading, and test the snowpack stability with an Extended Column Test (ECT). If persistent weak layers or whumpfing occur, dial back terrain to slope angles under 30 degrees.",
-    "pass": true
+    "prompt": "Prepare, but do not send, an Avalanche mainnet C-Chain JSON-RPC 2.0 batch containing eth_chainId and eth_blockNumber. Show the HTTP endpoint and valid request IDs; make no claim about the current block number.",
+    "expected": "Produces the documented HTTPS C-Chain RPC path and a parseable two-request array with jsonrpc 2.0, distinct integer IDs, exact read-only methods and empty params; explicitly does not send it.",
+    "actual": "Prepared only; no RPC call was made. HTTP endpoint: https://api.avax.network/ext/bc/C/rpc\nIf sent by an authorized caller, use POST and Content-Type: application/json.\n\n```json\n[\n  {\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_chainId\",\n    \"params\": [],\n    \"id\": 1\n  },\n  {\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_blockNumber\",\n    \"params\": [],\n    \"id\": 2\n  }\n]\n```\n\nThese are read-only requests. Correlate any future responses by id, not array order. No chain response or current block number was observed.\nSources: https://build.avax.network/docs/rpcs/c-chain ; https://build.avax.network/docs/nodes/chain-configs/primary-network/c-chain ; https://www.jsonrpc.org/specification",
+    "pass": true,
+    "evidence": {
+      "execution": "Actual native-assistant request artifact generated here and reparsed locally; no HTTP/RPC execution",
+      "executed_at_utc": "2026-10-25T10:13:45.190780+00:00",
+      "sources": [
+        {
+          "path": "skills/avalanche/SKILL.md",
+          "line_start": 1,
+          "line_end": 20,
+          "sha256": "030bf573fab7d73c5594f256ff0acdd84edf8c93160927c294652dfcee888869"
+        },
+        {
+          "path": "skills/avalanche/references/c-chain.md",
+          "line_start": 1,
+          "line_end": 9,
+          "sha256": "fcb8d5e33586439c0bc3c529fc0588d43adc8b348ab5581fcf6221bd694a8bf2"
+        }
+      ],
+      "verified_primary_urls": [
+        "https://build.avax.network/docs/rpcs/c-chain",
+        "https://build.avax.network/docs/nodes/chain-configs/primary-network/c-chain",
+        "https://build.avax.network/docs/rpcs/c-chain/eth/eth_chainId",
+        "https://build.avax.network/docs/rpcs/c-chain/eth/eth_blockNumber",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "checks": [
+        {
+          "check": "recorded request body parses and satisfies version/method/id/params/endpoint contract",
+          "pass": true,
+          "method": "JSON parse and URL parse of actual answer, compared with primary RPC/method docs and JSON-RPC specification"
+        },
+        {
+          "check": "all batch methods are read-only",
+          "pass": true,
+          "method": "exact method allowlist from verified C-Chain available-APIs reference"
+        },
+        {
+          "check": "no live result invented",
+          "pass": true,
+          "method": "inspect recorded answer; the local execution harness has no request client"
+        }
+      ],
+      "limits": [
+        "No live RPC call",
+        "No explorer or wallet inspection",
+        "No credentials, accounts, signing, transactions or transfers",
+        "Pass applies only to native-response source alignment and executed offline checks, not network availability or balances"
+      ]
+    }
   },
   {
     "id": 3,
-    "prompt": "A skier in our group was just caught and buried in an avalanche. What are the immediate rescue steps?",
-    "expected": "Emphasizes immediate leader appointment, scene safety check for hangfires, switch all transceivers to SEARCH, call 911, and perform systematic signal search.",
-    "actual": "Immediate Avalanche Rescue Protocol:\n1. Scene Safety: Check for secondary avalanches / hangfires. Post a lookout.\n2. Transceiver Mode: Everyone on the surface MUST switch beacons to SEARCH mode immediately.\n3. Call for Help: Dial 911 / emergency dispatch with coordinates.\n4. Search: Coordinated grid search for strongest signal -> fine search with beacon on snow -> probe in expanding spirals perpendicular to slope -> shovel immediately using V-shaped conveyor once probe strikes.",
-    "pass": true
+    "prompt": "Without any network or wallet access, check the local fixture {\"network\":\"mainnet\",\"chainId\":\"0xa869\"}. Show and execute a pure Python validator for this mismatch and correct mainnet/Fuji controls, including decimal-to-hex checks. Do not infer the identity of any remote RPC server.",
+    "expected": "Identifies mainnet as 43114/0xa86a and Fuji as 43113/0xa869, rejects the supplied mismatch and validates matched controls using actually executed local code; asserts no remote network state.",
+    "actual": "The supplied mainnet/0xa869 fixture is inconsistent: mainnet is 43114 (0xa86a), whereas Fuji is 43113 (0xa869). This validator checks local metadata only:\n\n```python\ndef matches(network, configured):\n    expected = {\"mainnet\": 43114, \"fuji\": 43113}.get(network)\n    if expected is None or type(configured) not in (int, str):\n        return False\n    try:\n        value = int(configured, 16 if configured.lower().startswith(\"0x\") else 10) if type(configured) is str else configured\n    except ValueError:\n        return False\n    return value == expected\n```\n\nActual local execution results:\n```json\n{\n  \"mainnet_with_0xa869\": false,\n  \"mainnet_with_0xa86a\": true,\n  \"fuji_with_0xa869\": true,\n  \"mainnet_with_decimal_43114\": true,\n  \"fuji_with_decimal_43113\": true,\n  \"mainnet_with_boolean\": false,\n  \"unknown_network\": false,\n  \"invalid_chain_id_text\": false\n}\n```\n\nInteger conversion checks:\n```json\n{\n  \"hex_43114\": \"0xa86a\",\n  \"hex_43113\": \"0xa869\",\n  \"decimal_0xa86a\": 43114,\n  \"decimal_0xa869\": 43113\n}\n```\n\nNo RPC was called; this does not establish the identity or health of a remote endpoint. Sources: https://build.avax.network/docs/primary-network ; https://build.avax.network/docs/rpcs/c-chain",
+    "pass": true,
+    "evidence": {
+      "execution": "Actual native-assistant answer plus executed import-free Python function and integer conversions; recorded output was reparsed and rerun",
+      "executed_at_utc": "2026-10-25T10:13:45.190780+00:00",
+      "sources": [
+        {
+          "path": "skills/avalanche/SKILL.md",
+          "line_start": 1,
+          "line_end": 20,
+          "sha256": "030bf573fab7d73c5594f256ff0acdd84edf8c93160927c294652dfcee888869"
+        },
+        {
+          "path": "skills/avalanche/references/c-chain.md",
+          "line_start": 1,
+          "line_end": 9,
+          "sha256": "fcb8d5e33586439c0bc3c529fc0588d43adc8b348ab5581fcf6221bd694a8bf2"
+        }
+      ],
+      "verified_primary_urls": [
+        "https://build.avax.network/docs/primary-network",
+        "https://build.avax.network/docs/rpcs/c-chain"
+      ],
+      "checks": [
+        {
+          "check": "decimal/hex values match official mainnet and Fuji IDs",
+          "pass": true,
+          "observed": {
+            "hex_43114": "0xa86a",
+            "hex_43113": "0xa869",
+            "decimal_0xa86a": 43114,
+            "decimal_0xa869": 43113
+          },
+          "method": "Python integer conversion plus native comparison with the verified primary network table"
+        },
+        {
+          "check": "recorded validator rejects mismatch and accepts both correctly matched controls",
+          "pass": true,
+          "observed": {
+            "mainnet_with_0xa869": false,
+            "mainnet_with_0xa86a": true,
+            "fuji_with_0xa869": true,
+            "mainnet_with_decimal_43114": true,
+            "fuji_with_decimal_43113": true,
+            "mainnet_with_boolean": false,
+            "unknown_network": false,
+            "invalid_chain_id_text": false
+          },
+          "method": "execute parsed Python from actual answer in import-free restricted namespace"
+        },
+        {
+          "check": "malformed/unknown/boolean inputs rejected",
+          "pass": true,
+          "method": "actual local function calls"
+        },
+        {
+          "check": "no remote identity asserted",
+          "pass": true,
+          "method": "inspect recorded answer"
+        }
+      ],
+      "limits": [
+        "No live RPC call",
+        "No explorer or wallet inspection",
+        "No credentials, accounts, signing, transactions or transfers",
+        "Pass applies only to native-response source alignment and executed offline checks, not network availability or balances"
+      ]
+    }
   }
 ]
