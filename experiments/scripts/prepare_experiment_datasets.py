@@ -1,124 +1,114 @@
 #!/usr/bin/env python3
-"""
-Prepare datasets for SkillRouter replication experiments.
+"""Snapshot every current skill into three chunked routing representations."""
 
-Reads all refactored skills listed in CHANGELOG.md and generates three datasets in `experiments/datasets/`:
-1. `name-description`: Contains only skill name + description (metadata-only).
-2. `full`: Contains the full SKILL.md file.
-3. `full-references`: Contains the full SKILL.md file plus all files under `references/`.
-"""
-
-import os
-import re
-import sys
-import shutil
-import yaml
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
 from pathlib import Path
+import subprocess
 
-def parse_changelog_skills(changelog_path: Path) -> list[str]:
-    if not changelog_path.exists():
-        raise FileNotFoundError(f"Changelog not found: {changelog_path}")
-    
-    skills = []
-    seen = set()
-    for line in changelog_path.read_text(encoding="utf-8").splitlines():
-        match = re.match(r"^\|\s*([a-zA-Z0-9_\-]+)\s*\|", line)
-        if match:
-            slug = match.group(1).strip()
-            if slug not in ("Skill", "----------------------------") and slug not in seen:
-                skills.append(slug)
-                seen.add(slug)
-    return skills
+import yaml
 
-def extract_frontmatter(content: str) -> tuple[dict, str]:
-    if content.startswith("---"):
-        parts = content.split("---", 2)
-        if len(parts) >= 3:
-            fm_text = parts[1]
-            body = parts[2].strip()
-            try:
-                data = yaml.safe_load(fm_text) or {}
-                return data, body
-            except yaml.YAMLError:
-                pass
-    return {}, content
+from generate_bm25_prompts import compile_queries
+
+COLLECTIONS = ("name-description", "full", "full-references")
+
+
+def content_hash(value) -> str:
+    return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
+def chunk_text(text: str, size: int = 6000, overlap: int = 400) -> list[str]:
+    if size < 2 or overlap < 0 or overlap >= size // 2:
+        raise ValueError("Chunk overlap must be nonnegative and less than half the chunk size")
+    chunks = []
+    start = 0
+    while start < len(text):
+        end = min(start + size, len(text))
+        # Byte-level BPE cannot have more tokens than UTF-8 bytes. Leave room
+        # for the skill prefix below and the embedding service's 8192-token cap.
+        bounded = text[start:end].encode("utf-8")[:7500].decode("utf-8", errors="ignore")
+        end = start + len(bounded)
+        if end < len(text):
+            boundary = text.rfind("\n", start + size // 2, end)
+            if boundary > start:
+                end = boundary
+        chunk = text[start:end].strip()
+        if chunk:
+            chunks.append(chunk)
+        if end == len(text):
+            break
+        start = max(start + 1, end - overlap)
+    return chunks
+
+
+def prepare(root: Path, chunk_size: int = 6000, overlap: int = 400):
+    documents = {collection: [] for collection in COLLECTIONS}
+    skill_files = sorted((root / "skills").glob("*/SKILL.md"))
+    if not skill_files:
+        raise ValueError("No skills/*/SKILL.md found")
+    source_files = {}
+    for entrypoint in skill_files:
+        slug = entrypoint.parent.name
+        full_text = entrypoint.read_text(encoding="utf-8")
+        if not full_text.startswith("---"):
+            raise ValueError(f"Missing YAML frontmatter: {slug}")
+        sections = full_text.split("---", 2)
+        if len(sections) != 3:
+            raise ValueError(f"Unclosed YAML frontmatter: {slug}")
+        metadata = yaml.safe_load(sections[1])
+        if not isinstance(metadata, dict) or not isinstance(metadata.get("description"), str):
+            raise ValueError(f"Invalid skill description: {slug}")
+        nd = f"{metadata.get('name', slug)}\n{metadata['description']}"
+        documents["name-description"].append({"id": f"{slug}/name-description", "skill": slug, "path": str(entrypoint.relative_to(root)), "text": nd})
+        references = sorted((entrypoint.parent / "references").rglob("*.md"))
+        for source in [entrypoint, *references]:
+            relative = str(source.relative_to(root))
+            text = full_text if source == entrypoint else source.read_text(encoding="utf-8")
+            source_files[relative] = hashlib.sha256(text.encode()).hexdigest()
+            chunks = chunk_text(text, chunk_size, overlap)
+            for index, chunk in enumerate(chunks):
+                document = {"id": f"{relative}#{index}", "skill": slug, "path": relative, "text": f"Skill: {slug}\n{chunk}"}
+                documents["full-references"].append(document)
+                if source == entrypoint:
+                    documents["full"].append(document)
+    queries = compile_queries(root)
+    for prompt_file in sorted((root / "skills").glob("*/test-prompts.json")):
+        source_files[str(prompt_file.relative_to(root))] = hashlib.sha256(prompt_file.read_bytes()).hexdigest()
+    git = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
+    manifest = {
+        "schema_version": 2,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "source_git_commit": git,
+        "skill_count": len(skill_files),
+        "query_count": len(queries),
+        "document_count_by_collection": {key: len(value) for key, value in documents.items()},
+        "corpus_hash": content_hash(documents),
+        "queries_hash": content_hash(queries),
+        "source_files": source_files,
+        "chunk_size_chars": chunk_size,
+        "chunk_overlap_chars": overlap,
+        "protocol": "All current skills; original natural prompts for every pipeline; single owning-skill label from author test prompts. No answer-conditioned keyword generation. Chunk max pooling per skill.",
+    }
+    output = root / "experiments" / "datasets"
+    output.mkdir(parents=True, exist_ok=True)
+    for filename, data in [("documents.json", documents), ("benchmark_queries.json", queries), ("manifest.json", manifest)]:
+        temporary = output / (filename + ".tmp")
+        temporary.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        temporary.replace(output / filename)
+    return manifest
+
 
 def main():
-    root_dir = Path(__file__).resolve().parent.parent.parent
-    changelog_path = root_dir / "CHANGELOG.md"
-    skills_dir = root_dir / "skills"
-    
-    exp_dir = root_dir / "experiments" / "datasets"
-    nd_dir = exp_dir / "name-description"
-    full_dir = exp_dir / "full"
-    ref_dir = exp_dir / "full-references"
-    
-    nd_dir.mkdir(parents=True, exist_ok=True)
-    full_dir.mkdir(parents=True, exist_ok=True)
-    ref_dir.mkdir(parents=True, exist_ok=True)
-    
-    skills = parse_changelog_skills(changelog_path)
-    print(f"[*] Found {len(skills)} refactored skills in CHANGELOG.md")
-    
-    processed = 0
-    missing = []
-    
-    for slug in skills:
-        src_skill_dir = skills_dir / slug
-        src_file = src_skill_dir / "SKILL.md"
-        if not src_file.exists():
-            missing.append(slug)
-            continue
-        
-        full_content = src_file.read_text(encoding="utf-8")
-        fm_data, _ = extract_frontmatter(full_content)
-        
-        name = fm_data.get("name", slug)
-        desc = fm_data.get("description", "").strip()
-        
-        # 1. Dataset 1: Name + Description only (name-description)
-        target_nd_dir = nd_dir / slug
-        target_nd_dir.mkdir(parents=True, exist_ok=True)
-        nd_file = target_nd_dir / "SKILL.md"
-        nd_content = (
-            f"---\n"
-            f"name: {name}\n"
-            f"description: >-\n"
-            f"  {desc}\n"
-            f"---\n\n"
-            f"# {name}\n\n"
-            f"{desc}\n"
-        )
-        nd_file.write_text(nd_content, encoding="utf-8")
-        
-        # 2. Dataset 2: Full SKILL.md (full)
-        target_full_dir = full_dir / slug
-        target_full_dir.mkdir(parents=True, exist_ok=True)
-        all_file = target_full_dir / "SKILL.md"
-        all_file.write_text(full_content, encoding="utf-8")
-        
-        # 3. Dataset 3: Full SKILL.md + references (full-references)
-        target_ref_dir = ref_dir / slug
-        target_ref_dir.mkdir(parents=True, exist_ok=True)
-        ref_skill_file = target_ref_dir / "SKILL.md"
-        ref_skill_file.write_text(full_content, encoding="utf-8")
-        
-        src_refs = src_skill_dir / "references"
-        target_refs = target_ref_dir / "references"
-        if src_refs.exists() and src_refs.is_dir():
-            if target_refs.exists():
-                shutil.rmtree(target_refs)
-            shutil.copytree(src_refs, target_refs)
-            
-        processed += 1
-    
-    print(f"[✓] Successfully prepared {processed} skills in:")
-    print(f"    - Name-Description dataset: {nd_dir}")
-    print(f"    - Full dataset: {full_dir}")
-    print(f"    - Full + References dataset: {ref_dir}")
-    
-    if missing:
-        print(f"[!] Warning: {len(missing)} skills were not found in {skills_dir}: {missing}")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument("--chunk-size", type=int, default=6000)
+    parser.add_argument("--overlap", type=int, default=400)
+    args = parser.parse_args()
+    manifest = prepare(args.root, args.chunk_size, args.overlap)
+    print(json.dumps({key: manifest[key] for key in ("skill_count", "query_count", "document_count_by_collection", "corpus_hash", "queries_hash")}, indent=2))
+
 
 if __name__ == "__main__":
     main()
