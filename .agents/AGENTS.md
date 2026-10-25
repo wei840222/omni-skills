@@ -102,7 +102,7 @@ Review an open GitHub Pull Request against:
 
 - Agent Skills specification + official validator
 - Gates 1–9 in `.agents/workflows/skill-refactor.md`
-- Three mandatory quality lenses: `code-review-and-quality` (`.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md`) + `writing-for-agents` (`.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`) + `darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`)
+- Three mandatory quality lenses: `code-review-and-quality` (`.agents/skills/code-review-and-quality/SKILL.md`) + `writing-for-agents` (`.agents/skills/writing-for-agents/SKILL.md`) + `darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`)
 
 Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `main`.
 
@@ -127,7 +127,7 @@ Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `main
    - Audit against `.agents/workflows/skill-refactor.md` and classify each gap as Required / Optional / Nit.
 
 5. **Step 5: Three-lens quality review (mandatory)**
-   - Load and apply `code-review-and-quality` (`.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md`), `writing-for-agents` (`.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`), and `darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`).
+   - Load and apply `code-review-and-quality` (`.agents/skills/code-review-and-quality/SKILL.md`), `writing-for-agents` (`.agents/skills/writing-for-agents/SKILL.md`), and `darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`).
    - Block on wrong commands, unsafe defaults, broken recovery paths, and mixed security controls.
    - Do not treat a claimed Darwin number as sufficient evidence by itself.
    - Distinguish true runtime drift (imperative single-runtime commands) from false positives (anti-pattern citations, meta-rules, audit commands).

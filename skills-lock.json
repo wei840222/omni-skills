@@ -1,6 +1,30 @@
 {
   "version": 1,
   "skills": {
+    "anysearch": {
+      "source": "anysearch-ai/anysearch-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "b09764af85a353ddfa7aa5d976f666340262d4fef14725fe2c5390427903a905"
+    },
+    "code-review-and-quality": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/code-review-and-quality/SKILL.md",
+      "computedHash": "0667c7af98996c0bec4fb0eb444680bdbf1da1d6a3cfdf5dbe8cbd350d9d2752"
+    },
+    "darwin-skill": {
+      "source": "alchaincyf/darwin-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "0bb3513470ac76aa803232f75f63750eccfbdddc86514951100369141a402cca"
+    },
+    "freud-skill": {
+      "source": "alchaincyf/freud-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "b676383e9554ba3f5376a650167fc689b02b6ab5c09469e67a4e65ef320de74e"
+    },
     "marimo-pair": {
       "source": "marimo-team/marimo-pair",
       "sourceType": "github",
@@ -13,6 +37,12 @@
       "sourceType": "well-known",
       "computedHash": "983d26354ecc455782ec2b2323797466b849ca0fc1b3cac4322ca26f643b475a",
       "wellKnownDigest": "sha256:4ce4175900ff336039ad05eb358546aa43bb29526dc68e5abb09c786b5b95de3"
+    },
+    "writing-for-agents": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
+      "computedHash": "95da47fc97af998e85b7d7e6d57b3ac76727c1e290cfe9ea09005aacb826959f"
     }
   }
 }
