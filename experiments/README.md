@@ -117,3 +117,39 @@ The host and QMD tests require the installed local plugins. Five successful
 public M0 host probes validate integration only. The independent pilot labels,
 development comparisons and held-out quality results must be completed before
 recommending a production change.
+
+The pilot has 180 public cases in 36 intent families, with 120 development cases
+and 60 held-out cases. The committed primary annotations are an immutable first
+review, not final gold labels. Final source-adjudicated silver labels and their
+hash manifest live in the ignored run directory as `m1-silver-labels.json` and
+`m1-freeze.json`. Uncertain cases remain visible and are excluded from the main
+quality denominator. A launcher refuses paid stages before that freeze exists.
+A versioned copy of the final silver annotations is also committed as
+`fixtures/harness_silver_annotations.json`; it has the same bytes as the run copy.
+
+The ablation protocol is fixed in `fixtures/harness_ablation_protocol.json`.
+It first compares fusion rules, then candidate pools of 6/10/20 with injection
+cap 6, then bounded matched passages. Every variant reuses the same captured raw
+hitlists. The selector uses the installed host facade, the frozen 0.4 skill
+threshold and 8,000 ms timeout. It does not substitute a generic reranker.
+
+After the M1 freeze, the explicit development-stage commands are:
+
+```bash
+uv run python scripts/run_harness_stage.py --stage capture --phase development --run-dir datasets/harness-quality-20261025
+uv run python scripts/run_harness_stage.py --stage prepare --phase development --run-dir datasets/harness-quality-20261025 --fusion current-max --pool-limit 6 --snippet none
+uv run python scripts/run_harness_stage.py --stage select --phase development --run-dir datasets/harness-quality-20261025 --variant current-max-pool6-none
+```
+
+Capture and selection read only the allowed model fields from QMD settings and
+pass credentials in memory through stdin. Preparation runs without model access.
+Completed artifacts must match their original hashes; an incomplete paid attempt
+requires inspection rather than an automatic rerun. Holdout capture and selection
+also require the single frozen `challenger-config.json`.
+
+Cached model observations retain their original service time and billed input
+tokens. Cache lookup time is never reported as selector service latency. Query
+time, reconstructed pipeline time and actual new spending are separate measures.
+The 12 task validators in `harness_task_checks.py` check generated artifacts; their
+authored positive/negative controls are not counted as actual paired task results.
+They cover a small public task subset and do not establish whole-library quality.

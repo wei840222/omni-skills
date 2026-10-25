@@ -38,7 +38,7 @@ const payloads = [];
 const callback = async (url, init) => {
   const body = JSON.parse(init.body);
   payloads.push({ url: String(url), body });
-  if (String(url).endsWith("/embeddings")) return Response.json({ object: "list", model: body.model, data: body.input.map((_, index) => ({ object: "embedding", index, embedding: [1, ...Array(1535).fill(0)] })), usage: { prompt_tokens: 0, total_tokens: 0 } });
+  if (String(url).endsWith("/embeddings")) return Response.json({ object: "list", model: body.model, data: body.input.map((_, index) => ({ object: "embedding", index, embedding: [1, ...Array(1535).fill(0)] })), usage: { prompt_tokens: 0, total_tokens: 0 } }, { headers: { "x-omni-observation-source": "cache", "x-omni-original-service-ms": "12.5" } });
   if (String(url).endsWith("/systemone")) return Response.json({ model: body.model, answers: { strategy: { type: "choice", choice: "how_to_guide", confidence: 0.9 }, needs_hyde: { type: "noul", noul: 0.1 } }, usage: { input_tokens: 1, output_tokens: 1 } });
   if (String(url).endsWith("/chat/completions")) return Response.json({ choices: [{ message: { content: "lex: basil leaves\nvec: How do I grow healthy basil?" } }], usage: { prompt_tokens: 1, completion_tokens: 1 } });
   throw new Error("Unexpected fixture route");
@@ -60,6 +60,8 @@ test("actual three-collection query preserves raw hits before source skill max/c
   assert.ok(payloads.some(({ url, body }) => url.endsWith("/chat/completions") && body.messages[1].content.includes("<search_intent>")));
   assert.equal(JSON.stringify(payloads).includes("PRIVATE_LABEL_SENTINEL"), false);
   assert.equal(payloads.some(({ url }) => url.endsWith("/rerank")), false);
+  assert.ok(result.requests.some((request) => request.observationSource === "cache" && request.originalServiceMs === 12.5));
+  assert.ok(result.requests.some((request) => request.kind === "expansion" && request.observationSource === null && request.originalServiceMs === null));
   assert.ok(result.rawHitlists.some(({ hits }) => hits.length > result.skillHits.length));
   const manifest = adapter.rawHitlistManifest();
   assert.equal(manifest.profile.publicSkillCount, 2);

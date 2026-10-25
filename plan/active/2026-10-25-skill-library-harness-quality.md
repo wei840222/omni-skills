@@ -2,7 +2,7 @@
 
 - 日期：2026-10-25
 - 深度：L3；跨資料集、實驗程式與 harness，預期跨多個工作階段。
-- 狀態：M0 已完成公開隔離範圍驗收；M1 進行中，180 案 primary package／評分契約已凍結，準備 Antigravity 獨立盲審。
+- 狀態：M0、M1 已完成驗收；180 題最終 silver labels／hash manifest 已凍結（175 題可評分、5 題 uncertain）。M2 的 dev raw capture 與兩種融合比較已完成；current-max F1 81.12%、skill-identity-sum 76.33%，依規則保留 current-max。pool10 已執行，pool20 正在執行，尚未評保留集。
 - 本次授權：使用者於 2026-10-25 指示「照你的計劃完成吧」，核准 M0–M4 執行與 Antigravity CLI（`agy`）獨立複核。Jev 按前述討論設 US$2 停止預算；正式 runtime 維持只讀，合併 main／部署不在此次授權。
 - 計畫類型：act-as；後續由 agent 依里程碑執行。
 - 時程：無指定截止日。
@@ -52,6 +52,7 @@
 界線：
 
 - 首輪使用公開技能與新寫的公開案例。私密 runtime 僅參考已核對的摘要與案例類型，不直接匯出原始對話。
+- 使用者於 2026-10-25 補充授權：需要較重的編譯／區塊鏈技能測試時可用 `ssh wei-workspace`。已唯讀確認可連線、Linux x86_64／8 核及 Python、Node、uv、Cargo、Go 的 PATH 入口；入口存在不代表版本或依賴已驗證。僅在實際任務需要時建立專屬實驗目錄，記錄遠端工具版本與產物 hash；本次不因此增加鏈上交易或部署。
 - 不操作正式 Gateway、正式 QMD 索引、經驗卡、關係圖、credentials 或線上門檻。
 - 不重開既有固定觀察窗、name-match 移除研究、關係問法 A/B、通用評測服務或版本追蹤服務。
 - 既有關係圖重建與 Review CRUD／confidence TODO 維持獨立；本計畫不重建正式圖。
@@ -65,8 +66,8 @@
 | 里程碑 | 可交付成果與可觀察驗收 | 估計投入 | 依賴／狀態 |
 | --- | --- | --- | --- |
 | M0：凍結證據與重播可行性 | baseline manifest、隔離方式與回復檢查、五案例重播紀錄；明確決定可沿用、需 adapter 或阻擋。通過條件見下節。 | 2–3 小時；spike 硬上限 3 小時 | 完成；`m0-acceptance.json`，25／30 外送、五例完整 query replay（四例呼叫 Decision、空池一例略過） |
-| M1：修正標籤並凍結契約 | 全 2,554 題結構／身分檢查清單、已確認缺陷修正 diff、180 題 AI 雙方複核 pilot（silver labels）、固定 dev／holdout、評分與成本契約。 | 6–12 小時 | 進行中；180 案初標／契約已凍結，待 AGY 盲審與分歧處理 |
-| M2：候選融合與候選池消融 | 在固定 raw hitlists 下，分別比較 current max 與 skill-level fusion，以及候選六／十／二十個；最終注入 cap 固定。交付召回、誤載、成本差異與選擇理由。 | 4–8 小時 | M1；待執行 |
+| M1：修正標籤並凍結契約 | 全 2,554 題結構／身分檢查清單、已確認缺陷修正 diff、180 題 AI 雙方複核 pilot（silver labels）、固定 dev／holdout、評分與成本契約。 | 6–12 小時 | 完成；九批 AGY 及最終 source gate ACCEPT，`m1-freeze.json`／`m1-silver-labels.json` |
+| M2：候選融合與候選池消融 | 在固定 raw hitlists 下，分別比較 current max 與 skill-level fusion，以及候選六／十／二十個；最終注入 cap 固定。交付召回、誤載、成本差異與選擇理由。 | 4–8 小時 | 進行中；融合比較保留 current-max，pool10 完成、pool20 執行中 |
 | M3：Decision 命中片段 A/B | 固定 M2 選定候選池與同一 Decision model，比較現行 metadata＋association payload（無命中片段）與加入有界命中片段；交付逐題差異、選取品質、耗時與 token 報表。 | 4–8 小時 | M2；待執行 |
 | M4：保留集、回歸與交付決策 | 凍結配置後一次評保留集；通過時形成候選修補與回歸結果，再用 12 個可離線驗收任務檢查實際產物。交付採用／不採用決策及文件，不宣稱代表全庫任務品質。 | 2–4 小時 | M3；待執行 |
 
@@ -170,8 +171,15 @@
 | --- | --- |
 | 計畫交付 | 已寫入；2026-10-25 獨立 plan-review：OKAY，無重大阻擋；後續契約待決項保留於 M1 |
 | Antigravity 獨立審查 | 已透過 `agy --print` 完成一次；原始結論 CLARIFY。已補盲審／silver-label、覆蓋率、holdout 使用時點、預算停止與任務斷言契約；全快取禁用及覆蓋率公式未照單採用，採納說明見 `../reviews/2026-10-25-agy-plan-review/review.md`。未對修訂版再送模型 |
-| 實驗與修補 M0–M4 | M0 公開隔離驗收通過；M1 初標與契約完成、待獨立盲審；M2–M4 尚未執行，未實作線上候選修補 |
-| 已發生偏差 | 無；未進入執行 |
+| 實驗與修補 M0–M4 | M0、M1 通過；M2 融合比較完成、pool 實驗進行中；M3、M4 尚未執行，未實作線上候選修補 |
+| 已發生偏差 | AGY 初次 `--print` 引數失敗未進模型；改用官方 stream-json 後第一批已有有效 terminal SUCCESS，但 CLI 沒自行結束。保留原始輸出並修正 terminal 後程序清理，再以明確 recovery 匯入成功批次，不重跑。其後共完成五批／100 題；回報 output 合計 101,650 超過原訂 100,000，driver 已停止後續四批。使用者其後明確同意提高至 250,000；授權原文與 prepare／freeze hash 存於 `execution.budget-amendment.json`，以第二次 recovery 匯入五批後接續四批。所有舊 marker、原始回應及 usage 均保留。 |
+| M1 來源複核 | 最終 source gate ACCEPT 完整 180 題。AGY 九次 review，770,123 input／174,355 output；全部低於修訂額度，未重跑成功批次。80 次讀檔嘗試中 67 次成功、13 次不存在；成功 bytes 與公開快照相同，來源根目錄偏差已揭露。197 筆引文為 137 逐字、44 Markdown 格式差異、16 省略／串接改寫；保留原文並補來源。第八批 free-text 串接 draft／final，依官方 schema 欄位與最後 finish 參數一致的 `structured_output` 解析，未新增該批模型呼叫。 |
+| M1 最終凍結 | labels SHA `3fca29489297cd536b322707944167736792080e2b0114677ff9d8b5b5b71538`；freeze SHA `c19b7fa44a798794d7e263bb8dc2f0d8e275258eac077f5f6bde9c5b980d14f8`。相對 primary 20 題裁決變更；175／180 resolved、35／36 家族可評分。holdout 55／60、11／12 家族；f32 全部 uncertain。SQL 有效替代跨 split 共用，不能宣稱最終技能身分完全未見。最終 silver snapshot 另存 `experiments/fixtures/harness_silver_annotations.json`，不是 human gold。 |
+| 已完成資料修正 | `a760c6f6` 單獨提交 Avalanche 三題領域修正；重新檢查官方來源、JSON-RPC batch 與實際離線 Python controls 通過。公開 SKILL／references 語料與歷史結果未改寫。 |
+| 消融／任務準備 | `harness_ablation_protocol.json` 已在看變體結果前凍結階段選擇、命中片段 2048／320 UTF-8 bytes 及保留集使用規則。12 題任務／驗收器已凍結，7 tests 包含正負控制通過；真正 24 次 paired outputs 尚未執行。 |
+| M2 真實觀測 | 120 題 raw capture 完成，361 次外送（含一個額外 embedding）、零失敗，所有原始清單保存。current-max/pool6/none：family-macro set-F1 0.81115079、exact 0.58333333、recall 0.92083333、no-skill FP 1／20。identity-sum/pool6/none：F1 0.76333333、FP 2／20；paired family bootstrap delta −0.04781746，95% CI [−0.08694444, −0.0125]，新增 FP p149，故不採用此融合介入。來源 `development/*-summary.json` 與 `m2-fusion-comparison.json`。 |
+| 重播工具修正 | source gate 先拒絕 policy hash 形狀混用、endpoint 配對缺漏、cache billing metadata 不一致；修正與 regression tests 通過後接受。120 題 raw 及 386 個既有 cache payload／ledger usage 獨立核對無差異。另修 stdin UTF-8 跨 buffer 解碼；第一次 selector 在 preflight 即停止、零模型請求。保留舊準備檔，重建後證明兩個融合各 120 題的 model-input objects 完全相同，raw hash 未改；同樣修正 summary 的內嵌 Node hashing reader。未變更標籤、評分規則或比較門檻。 |
+| Jev 批次預算 | 進入 pool20 前全 run 476 次 Jev／1,045,194 input tokens，公開牌價 US$0.043898148；unknown usage 0。US$2 停止上限維持。其他 provider／AGY 用量分列，不把此數字當成所有服務的帳戶實收。 |
 | 模型與預算決策 | Jev 全 run 47M 付費輸入 token／US$1.974 公開牌價；M0 另限 30 外送。持久化 ledger 8 tests、受控 fetch 9 tests 及 host 13 tests 通過；M0 共 25 次外送：embedding 6 次／9,266 tokens、expansion 5 次／5,682 tokens、Jev 14 次／26,133 input tokens（US$0.001097586 公開牌價） |
 | 政策／正式 runtime 變更 | 無 |
 

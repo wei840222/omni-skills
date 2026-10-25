@@ -170,12 +170,19 @@ export async function createHarnessRetrievalAdapter({ root = workspace, profileD
     if (!active) throw new Error("Query transport called outside an active retrieval");
     const endpoint = new URL(String(url));
     const body = JSON.parse(init.body);
-      const kind = endpoint.pathname.endsWith("/embeddings") ? "query-embedding" : endpoint.pathname.endsWith("/chat/completions") ? "expansion" : endpoint.pathname.endsWith("/systemone") ? "query-intent" : undefined;
+    const kind = endpoint.pathname.endsWith("/embeddings") ? "query-embedding" : endpoint.pathname.endsWith("/chat/completions") ? "expansion" : endpoint.pathname.endsWith("/systemone") ? "query-intent" : undefined;
     if (endpoint.origin !== new URL(logicalBase).origin || init.method !== "POST" || !kind || (kind === "query-intent" && Object.keys(body.questions ?? {}).some((key) => !["strategy", "needs_hyde"].includes(key)))) throw new Error("Retrieval transport denied an unexpected endpoint or rerank request");
     const started = performance.now();
     const record = { kind, logical_url: String(url), request_sha256: digest(init.body), request_bytes: Buffer.byteLength(init.body), model: body.model, input_count: Array.isArray(body.input) ? body.input.length : undefined };
     active.requests.push(record);
-    try { const response = await fetchImpl(url, init); record.status = response.status; return response; }
+    try {
+      const response = await fetchImpl(url, init); record.status = response.status;
+      const source = response.headers.get("x-omni-observation-source");
+      const service = response.headers.get("x-omni-original-service-ms");
+      record.observationSource = ["remote", "cache"].includes(source) ? source : null;
+      record.originalServiceMs = service !== null && service.trim() !== "" && Number.isFinite(Number(service)) && Number(service) >= 0 ? Number(service) : null;
+      return response;
+    }
     finally { record.callback_ms = performance.now() - started; }
   };
   const factory = async (options) => {

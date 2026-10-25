@@ -172,6 +172,8 @@ export async function createHostDecisionAdapter({
   let closed = false;
   return {
     provenance,
+    // Expose the installed pure builder itself; callers may add root state only.
+    buildSelectionBatch,
     validateWireResponse(payload, body) {
       // Use the exact installed consumer schemas for pre-cache validation too.
       return parseResult(payload, parseInput(body));
