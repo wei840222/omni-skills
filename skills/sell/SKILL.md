@@ -15,11 +15,11 @@ For a price-or-platform answer without the seller's live account data, explicitl
 
 ## Verification Gates
 
-🔴 **Pricing gate:** Gather the exact item model, condition, location, sale timeline, delivery method, and target net return. Use completed comps and current costs before naming a price; otherwise state the missing input and the verification step.
+**Pricing gate:** Gather the exact item model, condition, location, sale timeline, delivery method, and target net return. Use completed comps and current costs before naming a price; otherwise state the missing input and the verification step.
 
-🔴 **Platform gate:** Match the item and delivery method to a candidate platform, then confirm the seller's current account flow, fees, payout, restricted-item rules, and protection conditions before calculating net return.
+**Platform gate:** Match the item and delivery method to a candidate platform, then confirm the seller's current account flow, fees, payout, restricted-item rules, and protection conditions before calculating net return.
 
-🔴 **Transaction gate:** For an offer, payment, pickup, address change, or dispute, load `references/safety.md` first. Keep the recommendation tied to the verified transaction view and retained evidence.
+**Transaction gate:** For an offer, payment, pickup, address change, or dispute, load `references/safety.md` first. Keep the recommendation tied to the verified transaction view and retained evidence.
 
 **Unverified-facts boundary:** Until the seller provides a current comp, current account term, or verified transaction detail, do not supply a currency amount, percentage, fee, ranking, protection outcome, or predicted payment result. Ask for the missing fact or give the verification path instead.
 

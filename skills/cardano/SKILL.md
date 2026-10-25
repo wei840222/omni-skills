@@ -89,7 +89,7 @@ cardano-cli transaction submit --tx-file "$TX_SIGNED_FILE" --mainnet
 - "UTxO too fragmented" → Consolidate with self-transfer first
 - "Transaction too large" → Split into multiple transactions
 
-🔴 **CHECKPOINT: Before signing** — Present the complete draft for explicit user approval: recipient address, lovelace and asset quantities, fee, certificates, validity interval, and exact network.
+**Pre-signing verification gate:** Present the complete draft for explicit user approval: recipient address, lovelace and asset quantities, fee, certificates, validity interval, and exact network.
 
 **Load for details:** [references/utxo-and-transactions.md](references/utxo-and-transactions.md) — fee calculation, minimum UTxO, metadata standards, and advanced transaction building.
 
@@ -132,7 +132,7 @@ cardano-cli transaction build \
 4. Operator pledge and published operational information
 5. Pool's current status from an independent explorer or the operator
 
-🔴 **CHECKPOINT: Before delegating** — Present the selected pool ID, current metrics, certificate contents, transaction fee, and network for explicit user approval. Explain that delegation and rewards take effect over future epochs, not immediately.
+**Pre-delegation verification gate:** Present the selected pool ID, current metrics, certificate contents, transaction fee, and network for explicit user approval. Explain that delegation and rewards take effect over future epochs, not immediately.
 
 **Load for details:** [references/staking.md](references/staking.md) — pool evaluation workflow, reward calculation, epoch timing, and verification checkpoints.
 
@@ -181,7 +181,7 @@ cardano-cli transaction build \
 - Check IPFS pinning is permanent before buying NFTs
 - Time-locked policies cannot mint/burn after expiry
 
-🔴 **CHECKPOINT: Before minting** — First exercise the policy on testnet. Then present the policy ID, asset name, mint/burn quantity, metadata, validity interval, fee, and mainnet transaction details for explicit user approval.
+**Pre-minting verification gate:** First exercise the policy on testnet. Then present the policy ID, asset name, mint/burn quantity, metadata, validity interval, fee, and mainnet transaction details for explicit user approval.
 
 **Load for details:** [references/tokens-and-nfts.md](references/tokens-and-nfts.md) — policy script types, CIP standards, minting/burning workflows, and marketplace verification.
 
@@ -222,7 +222,7 @@ cardano-cli transaction build \
 - "Insufficient collateral" → Provide adequate collateral
 - "Script execution failed on-chain" → Verify context requirements
 
-🔴 **CHECKPOINT: Before submitting a Plutus transaction** — Present the collateral input and size, datum/redeemer, script version, evaluated execution units, fee, validity interval, outputs, and network for explicit user approval.
+**Plutus submission verification gate:** Present the collateral input and size, datum/redeemer, script version, evaluated execution units, fee, validity interval, outputs, and network for explicit user approval.
 
 **Load for details:** [references/smart-contracts.md](references/smart-contracts.md) — EUTxO model, development languages, validator scripts, execution units, and PlutusV3 features.
 

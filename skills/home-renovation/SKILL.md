@@ -86,8 +86,8 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 1. Ask for square footage and scope details (which rooms, what fixtures).
 2. Load `references/projects.md` and find the matching project type.
 3. Compare the user's number against the Low/Mid/High ranges.
-4. If the quote is >25% above the High range → 🔴 **STOP: flag overpricing risk**. Tell the user: "This quote is significantly above typical range for [project type] in [area]. Get 2 more quotes before proceeding."
-5. If the quote is >25% below the Low range → 🔴 **STOP: flag underpricing risk**. Tell the user: "This quote is significantly below typical range. Verify what's excluded — low bids often mean missing scope, cheap materials, or change orders coming."
+4. If the quote is >25% above the High range → **Overpricing risk flag:** Tell the user: "This quote is significantly above typical range for [project type] in [area]. Get 2 more quotes before proceeding."
+5. If the quote is >25% below the Low range → **Underpricing risk flag:** Tell the user: "This quote is significantly below typical range. Verify what's excluded — low bids often mean missing scope, cheap materials, or change orders coming."
 6. If within range → confirm the scope matches the range assumptions.
 7. If a project file exists → record the quote, source, and date in its Budget table.
 
@@ -101,7 +101,7 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 2. Identify the user's current phase.
 3. Verify the next planned action matches the standard sequence:
    Planning → Permits → Demo → Structural → Rough-in MEP → Inspection → Insulation → Drywall → Prime/Texture → Finish Work → Flooring → Paint → Fixtures → Final Inspection → Punch List.
-4. If the user's planned action is out of sequence → 🔴 **STOP: wrong sequence**. Tell the user exactly what comes first and why skipping it causes rework.
+4. If the user's planned action is out of sequence → **Sequence correction:** State exactly what comes first and why skipping it causes rework.
 5. If a project file exists → record current phase and next milestone in its Timeline table.
 
 **Output:** Sequence validated or corrected.
@@ -113,13 +113,13 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 1. Load `references/contractors.md`.
 2. For each contractor, verify: license status, insurance certificate, 3+ recent references, written contract with scope/timeline/payment schedule.
 3. Compare quotes using the Quote Comparison Checklist from `references/contractors.md`.
-4. 🔴 **CHECKPOINT before signing:** Confirm all of these with the user:
+4. **Pre-signing verification gate:** Confirm all of these with the user:
    - [ ] Deposit complies with the applicable local legal cap (California home-improvement contracts: $1,000 or 10% of the contract price, whichever is less)
    - [ ] Payment schedule tied to milestones (payments follow completed work)
    - [ ] Written contract includes: scope, materials (brand/model), start/end dates, change order process, warranty terms, permit responsibility
    - [ ] Contract assigns permit responsibility and the responsible party will obtain any locally required permits
    - [ ] 5-10% retainage held until punch list complete
-5. If any box unchecked → 🔴 **STOP: resolve gaps before signing**. Address each unchecked item first.
+5. If any box is unchecked → **Action required before signing:** Resolve and address each unchecked item first.
 6. If a project file exists → record selected contractor, quote amount, and contract terms.
 
 **Output:** Contractor evaluated. All safety checks passed or gaps identified.
@@ -131,7 +131,7 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 1. Get a written quote for the change before approving.
 2. If a project file exists → update its Budget table: add line item with estimated vs actual.
 3. Recalculate remaining contingency: `contingency_remaining = total_contingency - sum(approved change orders)`.
-4. If `contingency_remaining < 5%` of total budget → 🔴 **STOP: contingency nearly exhausted**. Warn the user that any further changes risk going over total budget.
+4. If `contingency_remaining < 5%` of total budget → **Contingency alert:** Warn the user that any further changes risk going over total budget.
 5. Assess timeline impact: how many days/weeks does this add?
 6. Record: what changed, why, cost impact, timeline impact, date approved/declined.
 

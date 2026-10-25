@@ -21,7 +21,7 @@ Credential-bearing text in chat, logs, tool arguments, environment variables, an
 
 Identify the requested action: store, retrieve, rotate, audit, share, or leak check. Capture only non-secret metadata such as the service name, account label, and the user's stated goal.
 
-🔴 **Before a credential would enter the agent context:** keep the value in the user's password manager or local service UI and continue with a redacted description.
+**Before a credential would enter the agent context:** keep the value in the user's password manager or local service UI and continue with a redacted description.
 
 Done when: the request has a clear action and contains no credential material.
 

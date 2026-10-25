@@ -43,10 +43,10 @@ Before reading or writing state, resolve `<state_root>` as follows:
 
 Use the selected `<state_root>` for every state operation in this skill. If older
 notes exist only at `~/Clawic/data/community-manager/`, propose a
-copy/validation/cutover plan and **CHECKPOINT:** wait for user confirmation
-before any migration. If the user declines migration, keep working in one-off
-mode or the modern root only — do not read or copy the legacy tree. Never write
-the literal string `<state_root>` to disk.
+copy/validation/cutover plan and wait for user confirmation before any
+migration. If the user declines migration, keep working in one-off mode or the
+modern root only — do not read or copy the legacy tree. Never write the literal
+string `<state_root>` to disk.
 
 ## When to use
 
@@ -135,10 +135,10 @@ In a new member's first 48 hours:
 | Crisis resolved | Document under `<state_root>/archive/` |
 | Metrics collected | Update the community file |
 
-**CHECKPOINT:** Ask before creating or expanding durable memory. If consent is
-refused, stay in one-off mode and keep plans in chat only. If a write fails
-(permissions, missing parent directory), report the error, do not invent a
-second root, and fall back to one-off mode for the rest of the turn.
+**State verification gate:** Ask before creating or expanding durable memory. If
+consent is refused, stay in one-off mode and keep plans in chat only. If a write
+fails (permissions, missing parent directory), report the error, do not invent
+a second root, and fall back to one-off mode for the rest of the turn.
 
 ## Community traps → successful next action
 

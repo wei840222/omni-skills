@@ -145,6 +145,22 @@ Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `main
 
 ---
 
+## Standing Initiatives & Long-term Maintenance
+
+### Gate 6: Domain Knowledge & Historical Fact Compliance
+
+Domain facts, API surfaces, model generations, platform limits, and regulatory constraints change over time. Maintaining high factual freshness across the skill catalog is managed as a **Standing Long-term Initiative**:
+
+1. **Completed Baseline (P0 / P1 Batches)**:
+   - High-drift categories (P0: AI/LLM models, CLI/SDK tools, Cloud/DevOps infrastructure, and Web/Mobile frameworks; P1: Data/Databases, Security/Cryptography, Finance/Blockchain/Staking, API/Productivity tools, and City travel guides) totaling 73 skills were audited, research-verified, and aligned to primary sources (PR #64 through #72).
+2. **Catalog Maintenance Scope**:
+   - The remaining catalog (890 general methodology, design patterns, cognitive frameworks, and evergreen reference skills) is maintained incrementally.
+   - When any skill is refactored, reviewed, or modified, Phase 2 (Gate 6) fact-checking must be applied to identify and update any obsolete assumptions, pricing, versions, or deprecated tooling.
+3. **Periodic Audits**:
+   - High-velocity ecosystems (e.g., active AI models, cloud vendor CLI tools, fast-evolving blockchain protocols) should be periodically sampled and refreshed against official documentation and releases.
+
+---
+
 ## Specification Feedback Loop
 
 1. Apply existing gates without inventing hidden requirements.

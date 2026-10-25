@@ -58,7 +58,7 @@ Mode: **advise by default**. Present options with total cost and let the user pi
 4. **Ask about purpose** — tourist, business, family, remote work, budget. Needs differ completely.
 5. **Surface deal-breakers early** — non-refundable, no A/C, far from center, negative review patterns, wifi issues for workers.
 6. **Shortlist concisely** — Present 3-5 curated options with trade-offs.
-7. **CHECKPOINT before checkout** — Before any paid booking step, restate property name, dates, guest count, total price, cancellation deadline, and payment channel; proceed only after the user confirms that exact summary.
+7. **Pre-checkout verification gate** — Before any paid booking step, restate property name, dates, guest count, total price, cancellation deadline, and payment channel; proceed only after the user confirms that exact summary.
 8. **Check cancellation policy** — state deadline clearly before any booking.
 
 ## Traveler-Specific Traps

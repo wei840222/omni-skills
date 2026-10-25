@@ -75,9 +75,9 @@ Treat admissions → onboarding → attendance → progress → billing → rene
 | Pricing, collections, retention math | `references/finance-retention.md` |
 | Weekly/monthly KPI rhythm | `references/dashboard.md` |
 
-🔴 **Capacity decision gate:** Before recommending a new cohort, promo, or discount, confirm seat capacity, teacher availability, calendar fit, and delivery margin together. If any input is missing, request it and keep the recommendation conditional.
+**Capacity decision gate:** Before recommending a new cohort, promo, or discount, confirm seat capacity, teacher availability, calendar fit, and delivery margin together. If any input is missing, request it and keep the recommendation conditional.
 
-🔴 **Growth spend gate:** Before increasing paid acquisition, rank the live bottleneck. If collections, coverage, or renewal is the top constraint, repair that path first and state the unlock condition for ads.
+**Growth spend gate:** Before increasing paid acquisition, rank the live bottleneck. If collections, coverage, or renewal is the top constraint, repair that path first and state the unlock condition for ads.
 
 Done when: the proposed action names the upstream and downstream effects on capacity, cash, and student success.
 

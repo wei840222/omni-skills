@@ -31,9 +31,9 @@ Choose a deployment strategy based on risk tolerance, resource availability, and
 
 No universal best exists. Match strategy to your risk tolerance and available resources.
 
-## 🔴 Pre-Deploy Checkpoint
+## Pre-Deploy Verification Checklist
 
-**STOP and verify these conditions before every deployment:**
+**Verify these conditions before every deployment:**
 
 - Tests passing in CI — verify all tests pass before deploying
 - Environment variables set in target — missing secrets cause silent failures
@@ -168,7 +168,7 @@ cosign verify \
 - Document rollback procedure — panic time is not learning time
 - GitOps revert — change Git manifest back to previous version, controller reconciles automatically
 
-**🔴 Rollback Decision Checkpoint:**
+**Rollback Decision Criteria:**
 If error rate increases > 1% or latency increases > 20% after deploy, execute rollback immediately. Do not wait for confirmation.
 
 **Kubernetes Rollback:**
