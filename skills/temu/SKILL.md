@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛍️"}'
-  related-skills: '{"ecommerce": "Broader store operations and funnel work outside one marketplace.", "fashion": "Outfit styling and wardrobe strategy beyond Temu product picks.", "shein": "Shein-specific sizing, quality, and marketplace workflows.", "shopping": "General multi-store purchase research outside Temu."}'
 ---
 
 ## When to Use

@@ -4,7 +4,6 @@ description: "Write casual, natural-sounding Ukrainian with correct ти/Ви, p
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇺🇦","displayName":"Ukrainian"}'
-  related-skills: '{"polish": "Write Polish when Ukrainian is not the target language.", "russian": "Write Russian when Ukrainian is not the target language.", "serbian": "Write Serbian when Ukrainian is not the target language.", "translate": "Translate an existing source text into Ukrainian.", "writing": "Shape broader prose once the Ukrainian-language decision is settled."}'
 ---
 
 Research notes for register, particles, and Ukrainian-vs-Russian boundaries live in `references/sources.md`.

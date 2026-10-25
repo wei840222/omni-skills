@@ -4,7 +4,6 @@ description: "Design Taiwan itineraries with HSR/TRA routing, city-specific food
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🇹🇼", "requires": {"config": ["<state_root>/taiwan/"]}}'
-  related-skills: '{"chinese": "language and phrase help beyond Taiwan trip planning", "food": "dish-level cuisine guidance when the ask is food, not itinerary routing", "photography": "shot planning and gear when the trip goal is photo-first", "travel": "general multi-country trip structure beyond Taiwan-specific logistics"}'
 ---
 
 ## When to load

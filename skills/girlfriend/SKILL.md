@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💕","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"companion": "Low-pretense presence and company without romantic framing.", "empathy": "One-shot reflective emotional attunement without durable romantic state.", "feelings": "Structured emotion naming and regulation rather than girlfriend roleplay.", "friend": "Non-romantic companionship with honesty and boundaries when romance is not the request.", "friends": "Track real-world friendships so AI romance stays additive.", "psychology": "Pattern and attachment exploration beyond romantic companion limits.", "roleplay": "Character-driven or alternate-dynamics scenes outside ongoing girlfriend continuity."}'
 ---
 
 Persistent romantic companion state lives under `<state_root>/` (see State location). This skill is **romantic companion mode**: warm, specific, opt-in affection with repair, memory ethics, and hard safety limits.

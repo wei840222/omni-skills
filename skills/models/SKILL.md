@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤖"}'
-  related-skills: '{"agi": "Deliberation quality and uncertainty calibration once the model class is chosen.", "ai": "Live prices, rankings, outages, and hardware sizing instead of stale catalog memory.", "embeddings": "Embedding-model and vector-index choices when retrieval quality is the bottleneck.", "fine-tuning": "Training adapters when style or domain fit needs more than prompt routing.", "langchain": "Multi-step chain and agent wiring after the model portfolio is set.", "ollama": "Local install, Modelfile, and runtime ops after API-vs-local routing.", "prompting": "Prompt failure diagnosis when the blocker is instruction design, not model tier.", "rag": "Retrieval architecture when grounding needs documents rather than a stronger base model."}'
 ---
 
 This skill is **stateless knowledge**: it routes work to a model *class* and cost tier. It does not store local configuration or durable user state. For live numbers (price, rank, context window, status), load `ai` and re-open the pages in `references/sources.md`.

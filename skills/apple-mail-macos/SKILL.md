@@ -4,7 +4,6 @@ description: "Manage synced mail accounts in Apple Mail on macOS via CLI without
 license: MIT
 metadata:
   openclaw: '{"emoji": "\u2709\ufe0f", "requires": {"bins": null, "anyBins": ["osascript", "shortcuts", "sqlite3"], "config": ["<state_root>/"]}}'
-  related-skills: '{"events": "skills/events", "macos": "skills/macos", "mail": "skills/mail", "productivity": "skills/productivity", "schedule": "skills/schedule"}'
 ---
 ## Setup
 

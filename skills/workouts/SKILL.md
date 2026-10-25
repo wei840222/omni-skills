@@ -3,7 +3,6 @@ name: workouts
 description: "Structure personal strength and conditioning workout routines. Use when designing exercise splits, tracking progressive overload and personal records (PRs), scheduling deload weeks, or balancing training volume."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/"]}}'
-  related-skills: '{"fitness": "Exercise selection, progressive overload tracking, and form standards.", "goals": "Setting measurable strength, endurance, and conditioning targets.", "habits": "Habit stacking and adherence tracking for recurring training routines.", "health": "Injury prevention, recovery monitoring, and holistic physical wellness."}'
 ---
 
 ## When to load

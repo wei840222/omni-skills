@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍽️"}'
-  related-skills: '{"calories": "Food and calorie logging rather than weekly meal planning.", "cooking": "Technique and recipe execution once a meal is chosen.", "daily-planner": "Places cook nights into the day schedule.", "habits": "Recurring meal-prep or cook-night routines.", "health": "Broader health context when meal balance intersects care plans.", "journal": "Free-form food notes outside structured meal records.", "shopping": "Generic shopping lists and store runs beyond meal-ingredient aggregation.", "water": "Hydration tracking separate from meal composition."}'
 ---
 
 # Meals

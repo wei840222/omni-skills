@@ -4,7 +4,6 @@ description: Plan, create, measure, and repurpose audience-focused content acros
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📝"}'
-  related-skills: '{"branding": "Defines the brand voice and identity that content must follow.", "growth-hacker": "Extends content plans with growth experiments and distribution tactics.", "seo": "Optimizes discoverability and search intent for content assets.", "writing": "Drafts and edits the individual content asset."}'
 ---
 
 ## State location

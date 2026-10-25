@@ -4,7 +4,6 @@ description: "Find, vet, and compare Groupon vouchers. Use when working with loc
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎟️"}'
-  related-skills: '{"booking": "Plan reservations and compare travel or stay options.", "buy": "Evaluate real value and compare purchase alternatives.", "shopping": "Broaden a product or deal search beyond Groupon.", "travel": "Connect local offers with larger trip planning decisions.", "tripadvisor": "Validate hospitality and attraction quality with broader review signals."}'
 ---
 
 ## State location

@@ -15,7 +15,6 @@ description: >
 metadata:
   version: "1.0.7"
   openclaw: '{"emoji":"⚛️","requires":{"bins":["node"]}}'
-  related-skills: '{"frontend": "Broader UI composition, layout, and design-system work beyond React component mechanics.", "nextjs": "Next.js App Router, caching, and deployment beyond generic React guidance.", "react-native": "Mobile React Native UI and native modules instead of web React.", "typescript": "TypeScript beyond component props: generics, tsconfig, declaration files."}'
 ---
 
 # React

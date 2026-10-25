@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"❓"}'
-  related-skills: '{"brainstorm": "Generate option volume when the need is ideas, not interview or discovery questions.", "coach": "Full coaching session arcs, commitments, and accountability beyond question craft.", "collaborate": "Bounded critique exchanges once a position exists to challenge.", "compare": "Weighted multi-option scoring after criteria are clear.", "decide": "Log consequential choices after questioning surfaces the decision.", "empathy": "One-shot reflective support without structured questioning.", "market-research": "Market and demand research beyond interview question design.", "ux-researcher": "Broader UX research programs when questioning is only one method.", "writing": "Prose craft for non-question deliverables."}'
 ---
 
 # Question

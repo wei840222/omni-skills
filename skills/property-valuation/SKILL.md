@@ -4,7 +4,6 @@ description: Estimate a residential or commercial property's market-value range 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"financial-literacy": "Explains the financial concepts and calculations that support property analysis.", "house": "Helps with home-management decisions after a valuation.", "real-estate-skill": "Covers broader purchase, sale, and transaction decisions beyond a value estimate."}'
 ---
 
 ## State location

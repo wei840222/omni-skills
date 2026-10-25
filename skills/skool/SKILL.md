@@ -3,7 +3,6 @@ name: skool
 description: "Manage and optimize online communities on Skool. Use when designing member onboarding flows, structuring classroom courses, setting community calendar cadence, or driving member engagement."
 metadata:
   openclaw: '{"emoji": "🎓"}'
-  related-skills: '{"community-manager": "extend Skool strategy into day-to-day moderation and operating rituals", "course": "improve curriculum structure and lesson sequencing inside the classroom", "growth": "connect Skool funnel work to broader acquisition and retention experiments", "webhook": "harden delivery, retries, and verification around Skool webhook flows", "zapier": "wire approved Skool workflows into broader automation systems"}'
 ---
 
 ## When to load

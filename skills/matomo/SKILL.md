@@ -4,7 +4,6 @@ description: Use to query, analyze, and manage Matomo Analytics via its Reportin
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "📊"}'
-  related-skills: '{"analytics": "General analytics patterns.", "api": "REST API integration.", "umami": "Privacy-focused analytics."}'
 ---
 
 ## State location

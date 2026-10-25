@@ -4,7 +4,6 @@ description: "Write casual, natural-sounding Norwegian (Bokmål by default) with
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇳🇴","displayName":"Norwegian"}'
-  related-skills: '{"danish": "Write Danish when Norwegian is not the target language.", "norway": "Plan Norway travel logistics rather than Norwegian-language phrasing.", "swedish": "Write Swedish when Norwegian is not the target language.", "translate": "Translate an existing source text into Norwegian.", "writing": "Shape broader prose once the Norwegian-language decision is settled."}'
 ---
 
 Research notes for Bokmål/Nynorsk, particles, and Scandinavian adjacency live in `references/sources.md`.

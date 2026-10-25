@@ -4,7 +4,6 @@ description: 'Build and repair Anki decks: card writing, FSRS and SM-2 deck opti
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🧠"}'
-  related-skills: '{"flashcards": "Covers flashcard writing when the task is not specific to Anki.", "spaced-repetition": "Explains spaced-repetition theory outside Anki operations.", "studying": "Handles study planning and technique choices beyond Anki deck operations.", "usmle": "Provides board-exam content strategy for medical deck workflows."}'
 ---
 
 ## State location

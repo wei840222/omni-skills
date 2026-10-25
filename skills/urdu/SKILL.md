@@ -4,7 +4,6 @@ description: Write natural, expressive Urdu that prefers تم over آپ by defau
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇵🇰"}'
-  related-skills: '{"arabic": "Shares script similarities and some vocabulary.", "english": "Used alongside Urdu in online/romanized contexts.", "hindi": "Shares spoken similarities with Urdu but uses a different script.", "persian": "Shares script and vocabulary with Urdu.", "translate": "General translation skill that this skill refines for Urdu."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

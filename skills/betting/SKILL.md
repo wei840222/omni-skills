@@ -3,7 +3,6 @@ name: betting
 description: "Evaluate sports betting and wagering opportunities. Use when conducting odds and line shopping, managing bankroll discipline, checking market movements, or applying risk filters before placing stakes."
 metadata:
   openclaw: '{"requires":{"config":["<state_root>/betting/"]}}'
-  related-skills: '{"decide": "structure tradeoffs and pass-or-proceed decisions without hype", "legal": "tighten wording when the user asks about compliance, terms, or risk boundaries", "pricing": "reason about price quality when the user needs cleaner expected value language", "trader": "frame discipline, journaling, and risk control for repeated decision making"}'
 ---
 
 ## When to Use

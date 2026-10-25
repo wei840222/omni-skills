@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎓"}'
-  related-skills: '{"act-prep": "ACT section strategy and college targeting instead of IELTS.", "english": "General native-style English writing and correction outside IELTS band criteria.", "exam": "Generate practice questions or mock exams from supplied notes rather than IELTS-format workflows.", "sat": "Digital SAT structure and admissions prep instead of IELTS.", "study": "Semester coursework schedules beyond IELTS-focused prep.", "toefl": "TOEFL iBT structure, scoring, and admissions prep instead of IELTS.", "tutor": "General multi-subject tutoring outside IELTS band descriptors."}'
 ---
 
 ## When to load

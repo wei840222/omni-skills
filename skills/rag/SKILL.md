@@ -14,7 +14,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔎"}'
-  related-skills: '{"elasticsearch": "Elasticsearch/OpenSearch retrieval and RRF when the store API itself is the work.", "embeddings": "Provider mechanics, batching, prefixes, and vector storage details behind the RAG fingerprint.", "langchain": "Building the same pipeline in LangChain or LangGraph specifically.", "qdrant": "Qdrant collection, filter, and payload work once the store choice is Qdrant.", "weaviate": "Weaviate schema, hybrid, and module configuration once the store choice is Weaviate."}'
 ---
 
 # RAG Pipelines

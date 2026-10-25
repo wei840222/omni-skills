@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🦉"}'
-  related-skills: '{"anki": "Anki/deck-manager workflows beyond one-session miss export.", "coach": "Goal coaching and accountability without subject lesson loops.", "flashcards": "Atomic card authoring when the deliverable is a deck, not a lesson loop.", "habits": "Habit streaks alone when no curriculum or review queue is needed.", "learn": "Multi-week self-directed curriculum and exit tests rather than daily micro-loops.", "learning": "Live teach-me sessions without a durable multi-topic learning OS.", "spaced-repetition": "Long-horizon SRS scheduling and card review ownership outside interactive lessons.", "studying": "Exam countdowns and coursework revision grids instead of streaked practice tracks.", "tutor": "Multi-learner tutoring profiles and parent oversight rather than a personal Learning OS."}'
 ---
 
 ## When to Use

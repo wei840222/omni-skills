@@ -4,7 +4,6 @@ description: "Run defensive security work: alert triage, compromise scoping, con
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛡️","os":["linux","darwin","win32"],"displayName":"Cybersecurity"}'
-  related-skills: '{"auth": "Building authentication flows (sessions, JWT, OAuth, passkeys) rather than defensive judgement around them.", "firewall": "Host and cloud packet-filter design when the remaining work is ports, dual-layer firewalls, or lockout recovery.", "linux": "OS baselines, sysctl, and host hardening details underneath endpoint and network advice.", "network": "Generic reachability, DNS, routing, and TLS diagnosis when packet policy is only one hop.", "security-best-practices": "Line-by-line secure code review and minimal-diff fixes for a specific codebase.", "vps": "Rented-box lifecycle, dual-layer firewalls, and break-glass console access during containment."}'
 ---
 
 # Cybersecurity

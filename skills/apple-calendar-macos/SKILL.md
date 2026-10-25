@@ -3,7 +3,6 @@ name: apple-calendar-macos
 description: "Manage macOS Calendar events locally (iCloud, Google, Exchange, CalDAV) via CLI. Use when requesting to lookup, create, update, or delete calendar events on macOS without requiring external API keys."
 metadata:
   openclaw: '{"emoji": "📅"}'
-  related-skills: '{"macos": "Apply system administration, BSD CLI tools, and launchd scheduling.", "schedule": "Schedule and manage recurring jobs and calendar-triggered alerts."}'
 ---
 ## When to Use
 

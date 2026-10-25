@@ -3,7 +3,6 @@ name: plausible
 description: "Query and analyze website analytics via Plausible API. Use when retrieving visitor statistics, pageviews, top referrers, bounce rates, conversion goal funnels, or custom event metrics."
 metadata:
   openclaw: '{"emoji": "📊", "requires": {"bins": null, "env": ["PLAUSIBLE_API_KEY"]}}'
-  related-skills: '{"analytics": "Core web traffic metrics, conversion goals, and event funnel tracking.", "mixpanel": "User journey tracking and product analytics beyond aggregate web traffic.", "umami": "Privacy-focused self-hosted analytics comparison and migration."}'
 ---
 
 ## Setup

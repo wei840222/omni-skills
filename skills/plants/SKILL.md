@@ -4,7 +4,6 @@ description: Track houseplant care, watering, growth, and issues. Use when the u
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌱"}'
-  related-skills: '{"daily-planner": "Places recurring plant-care work into daily priorities and time blocks.", "garden": "Handles outdoor garden planning and broader growing-space management.", "habits": "Turns recurring watering and care into trackable routines.", "journal": "Captures free-form plant observations outside structured care records.", "remind": "Schedules user-approved watering and seasonal reminders."}'
 ---
 
 ## State location

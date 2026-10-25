@@ -4,7 +4,6 @@ description: "Analyze soccer/football matches, tactics, and player scouting. Use
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⚽","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"analysis": "structure tactical reasoning, trade-offs, and decision quality.", "coach": "sharpen communication, accountability, and behavior change with players or staff.", "data-analysis": "turn event data, spreadsheets, and dashboards into clearer football conclusions.", "fitness": "handle physical load, habits, and progression when the conversation shifts beyond football tactics.", "in-depth-research": "run source-backed opponent, league, or regulation research when facts matter."}'
 ---
 
 ## When to Use

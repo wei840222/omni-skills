@@ -4,7 +4,6 @@ description: Explain science for children, students, researchers, and teachers a
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔬"}'
-  related-skills: '{"biology": "Organism-level life science, physiology, genetics, ecology, and biology education.", "chemistry": "Matter, reactions, stoichiometry, and lab chemistry depth.", "computer-science": "Algorithms, computation, and programming reasoning adjacent to scientific computing.", "math": "Mathematical methods, proofs, and quantitative checks that science explanations depend on.", "physics": "Mechanics, energy, waves, fields, and quantitative physics derivations."}'
 ---
 
 ## Use this skill

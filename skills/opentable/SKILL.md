@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍽️"}'
-  related-skills: '{"analytics": "Metric design and experiment readouts for operational decisions.", "booking": "Booking workflows and reservation operations in adjacent channels.", "crm": "Guest segmentation and lifecycle handling beyond single reservations.", "customer-support": "Guest communication quality and service recovery patterns.", "travel": "Broader travel planning context that intersects with dining reservations."}'
 ---
 
 ## State location

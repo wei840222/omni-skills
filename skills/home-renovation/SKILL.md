@@ -4,7 +4,6 @@ description: Plan, budget, and manage home renovation projects including contrac
 metadata:
   version: "2.0.0"
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"money": "Provides personal finance and budgeting context for renovation spending.", "plan": "Supports goal setting and milestone planning for renovation timelines.", "projects": "Offers general project tracking that complements renovation-specific management."}'
 ---
 
 ## State location

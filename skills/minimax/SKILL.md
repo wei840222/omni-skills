@@ -4,7 +4,6 @@ description: "Manage MiniMax multimodal generation (text, speech, video). Use wh
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🎛️", "requires": {"env": ["MINIMAX_API_KEY"], "config": ["<state_root>/"]}, "primaryEnv": "MINIMAX_API_KEY"}'
-  related-skills: '{"ai": "Compare MiniMax against other model providers before locking the stack.", "api": "Reuse structured HTTP, retry, and payload-debugging patterns around the MiniMax APIs.", "models": "Choose the right model family and fallback chain for quality, latency, and cost.", "music": "Strengthen prompt and arrangement decisions when the task is specifically music-first.", "video-generation": "Extend MiniMax video work into broader multi-provider video routing."}'
 ---
 ## When to Use
 

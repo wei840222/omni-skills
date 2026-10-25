@@ -3,7 +3,6 @@ name: deno
 description: Configure Deno environments. Use when writing or running Deno code to manage permissions, import dependencies securely, and migrate Node.js patterns.
 metadata:
   openclaw: '{"emoji":"🦕","requires":{"bins":["deno"]}}'
-  related-skills: '{"bun": "Alternative JS runtime often compared during migration decisions.", "javascript": "Core JavaScript patterns shared across Deno and other JS runtimes.", "nodejs": "Node.js runtime patterns when comparing APIs or migrating away from Node.", "typescript": "TypeScript language guidance that pairs with Deno-first TS workflows."}'
 ---
 
 ## When to load

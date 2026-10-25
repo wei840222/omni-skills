@@ -4,7 +4,6 @@ description: "Guide visits, relocation, work, and daily life in Beijing. Use whe
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji": "🏯"}'
-  related-skills: '{"china": "Travel across the rest of China; Beijing hands off there for any other city or region.", "chinese": "Writing natural Chinese; this skill covers survival language only.", "travel": "General trip planning and itinerary structuring beyond one city."}'
 ---
 
 

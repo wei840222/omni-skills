@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇫🇮"}'
-  related-skills: '{"copywriting": "Shape persuasive marketing copy after the Finnish register is chosen.", "english": "Draft or revise the English source before translating it into Finnish.", "norwegian": "Apply the same register-first writing method to Norwegian instead of Finnish.", "swedish": "Handle Swedish requests that share Nordic context but not Finnish pronouns or compounds.", "writing": "Plan structure and argument before polishing the Finnish wording."}'
 ---
 
 ## When to load

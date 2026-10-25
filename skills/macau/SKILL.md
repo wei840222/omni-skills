@@ -4,7 +4,6 @@ description: "Plan Macau trips, relocations, work, study, or cross-border logist
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇲🇴"}'
-  related-skills: '{"dubai": "Another compact tourism-heavy city with relocation depth, useful as a benchmark.", "money": "Budgeting, exchange-rate thinking, and cost trade-offs relevant to Macau trip or relocation planning.", "taiwan": "Another Chinese-language destination with practical travel depth, shares cultural context.", "traditional-chinese": "Traditional Chinese context useful across Macau and nearby regions.", "travel": "General trip planning and itinerary structure that complements Macau-specific guidance."}'
 ---
 
 # Macau

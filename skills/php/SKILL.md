@@ -8,7 +8,6 @@ description: >
   Laravel).
 metadata:
   openclaw: '{"emoji": "🐘", "requires": {"bins": ["php"]}, "configPaths": ["<state_root>/php/"]}'
-  related-skills: '{"laravel": "Eloquent, queues, Blade, and Laravel-specific auth", "mysql": "schema design, indexes, and query plans behind PDO", "nginx": "the server in front of PHP-FPM: buffering, timeouts, static files", "regex": "PCRE pattern design; this skill''s `references/strings.md` covers only the PHP bindings"}'
 ---
 ## When to load
 

@@ -6,7 +6,6 @@ compatibility: markdown
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📜","displayName":"Contract"}'
-  related-skills: '{"contracts": "Manage existing finalized contracts rather than drafting new agreements from scratch."}'
 ---
 
 ## Role

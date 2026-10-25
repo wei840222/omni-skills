@@ -4,7 +4,6 @@ description: 'Query, load, export, and sync Salesforce data via REST, Bulk, Comp
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"☁️","requires":{"env":["SF_ACCESS_TOKEN","SF_INSTANCE_URL"]},"primaryEnv":"SF_ACCESS_TOKEN"}'
-  related-skills: '{"sql": "Shaping the warehouse side of a Salesforce sync"}'
 ---
 ## State location
 

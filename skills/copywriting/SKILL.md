@@ -4,7 +4,6 @@ description: "Draft and review high-converting marketing copy. Use when writing 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📈"}'
-  related-skills: '{"ads": "Owns paid media formats and bidding constraints around ad copy.", "branding": "Applies brand voice and positioning so copy stays on-identity.", "content-marketing": "Places copy inside funnel, calendar, and distribution systems.", "email-marketing": "Owns sequence and list mechanics where email copy runs.", "landing-page": "Owns page structure and conversion layout around the copy."}'
 ---
 
 ## When to load

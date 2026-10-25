@@ -3,7 +3,6 @@ name: scale
 description: "Scale software architectures, data pipelines, and technical systems. Use when identifying performance bottlenecks, designing distributed caching, decoupling monoliths into asynchronous services, or planning high-load capacity."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/scale/"]}}'
-  related-skills: '{"architecture": "High-throughput system partitioning, caching, and horizontal scaling.", "growth": "Scaling team processes and business capacity to match user volume.", "startup": "Transitioning from MVP architecture to production-grade reliability.", "strategy": "Prioritizing infrastructure investment against technical debt.", "systems-architect": "Distributed system reliability, failover patterns, and SLA targets."}'
 ---
 
 ## Setup

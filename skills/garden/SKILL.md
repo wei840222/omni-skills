@@ -4,7 +4,6 @@ description: Track plants, zones, tasks, harvests, and climate-aware rotations a
 metadata:
   version: "1.1.6"
   openclaw: '{"emoji":"🌱"}'
-  related-skills: '{"daily-planner": "Places garden work into daily priorities and time blocks.", "habits": "Turns recurring garden care into trackable routines.", "journal": "Captures free-form garden observations outside structured records.", "plants": "Extends garden with plant-specific care and identification.", "remind": "Schedules watering and seasonal task reminders."}'
 ---
 
 ## State location

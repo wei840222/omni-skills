@@ -4,7 +4,6 @@ description: "Condense, distill, and summarize documents, meetings, papers, thre
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji": "📝"}'
-  related-skills: '{"brief": "When the deliverable is a decision document rather than a compression", "digest": "When the sources are external feeds to be curated on a schedule", "extract-pdf-text": "Getting text out of PDFs and scans before any of this applies", "meetings": "Running the meeting system itself: agendas, capture, follow-up tracking", "synthesize": "When the point is the insight drawn across sources, not a shorter account of them"}'
 ---
 
 ## State location

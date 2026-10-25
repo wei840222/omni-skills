@@ -4,7 +4,6 @@ description: Write native-quality Mandarin Chinese for any context — WeChat me
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🇨🇳"}'
-  related-skills: '{"china": "Travelling in the country these texts are read in.", "japanese": "The same problem in the neighbouring language.", "traditional-chinese": "Traditional-only writing for Taiwan and Hong Kong readers.", "translate": "Bound to an existing source text in another language.", "writing": "The craft of prose itself, once the language question is settled."}'
 ---
 
 ## State location

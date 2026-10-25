@@ -4,7 +4,6 @@ description: Plan a product launch from audience preparation through launch-day 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📈"}'
-  related-skills: '{"copywriting": "Creates launch messaging for landing pages, email, and social channels.", "email-marketing": "Builds the waitlist, announcement, and follow-up email sequence.", "landing-page": "Designs the launch destination and its conversion path.", "retention": "Defines the post-launch retention work that validates lasting adoption."}'
 ---
 
 ## Core workflow

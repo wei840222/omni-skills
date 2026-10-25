@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇦🇩"}'
-  related-skills: '{"catalan": "Catalan language production and register rather than Andorra logistics.", "food": "Deeper cuisine workflows beyond Andorran food pointers.", "french": "French writing and register for border-side service context.", "travel": "Multi-country itineraries and general travel memory beyond Andorra-only parish routing."}'
 ---
 
 # Andorra

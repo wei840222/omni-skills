@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"👅"}'
-  related-skills: '{"art": "Art-making practice and critique beyond taste model calibration.", "branding": "Brand positioning and identity systems rather than per-user taste learning.", "color": "Full color systems, tokens, and cross-surface validation.", "copywriting": "Persuasive marketing and conversion copy rather than aesthetic judgment loops.", "design": "Quantified hierarchy, spacing, type, and color rules for visual artifacts.", "typography": "Deep type systems, optical sizes, and print settings.", "ui": "Interface component patterns and interaction states.", "writing": "Multi-format prose drafting and voice matching rather than taste calibration."}'
 ---
 
 # Taste

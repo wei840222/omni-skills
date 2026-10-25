@@ -4,7 +4,6 @@ description: Track fishing trips, log catches, save spot patterns, and get perso
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎣"}'
-  related-skills: '{"plan": "Plan fishing trips.", "remind": "Set reminders for fishing trips or license renewals."}'
 ---
 
 

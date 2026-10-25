@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"♟️"}'
-  related-skills: '{"brainstorm": "Raw idea volume before strategic selection and trade-off ranking.", "business": "Startup validation, unit economics, and irreversible decision tracking rather than competitive option maps.", "ceo": "Company-level pivot, fundraising, layoff, and board decisions.", "competitor-research": "Competitor audits, positioning, and gap analysis when the ask is research depth.", "management": "People-leadership routines rather than market/competitive strategy.", "mba": "MBA curriculum and case learning across finance, strategy, and operations."}'
 ---
 
 # Strategy

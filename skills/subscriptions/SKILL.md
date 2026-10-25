@@ -4,7 +4,6 @@ description: Track personal subscriptions, recurring payments, billing dates, re
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔄"}'
-  related-skills: '{"billing": "Merchant payment systems and product subscription lifecycles, not personal consumer trackers.", "money": "Household money ladder and payoff/savings sequencing beyond subscription inventory.", "notify": "Delivery channel and batching once a subscription alert decision exists.", "personal-finance-tracker": "CSV imports, cashflow rollups, and net-worth tooling that may include recurring charges.", "remind": "Generic commitment nudges once a renewal or cancel decision is already known."}'
 ---
 
 ## State location

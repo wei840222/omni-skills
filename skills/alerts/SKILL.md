@@ -4,7 +4,6 @@ description: Design and operate smart alerting for services and AI agents—dedu
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🚨"}'
-  related-skills: '{"memory": "Durable context beyond alert playbooks and incident scratch.", "notify": "Chooses delivery channel, batching, and fatigue controls once an alert decision exists.", "remind": "Surfaces commitments the user already knows; alerts owns new or urgent world-state signals.", "report": "Recurring metric digests rather than incident-time urgent alerts.", "sysadmin": "Host logs, services, and capacity signals that often feed alert definitions."}'
 ---
 
 ## State location

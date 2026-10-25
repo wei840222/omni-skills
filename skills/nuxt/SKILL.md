@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💚","requires":{"bins":["node"]}}'
-  related-skills: '{"frontend": "Cross-framework UI polish and accessibility.", "nodejs": "Node runtime and process concerns outside Nitro handlers.", "seo": "General SEO strategy beyond Nuxt useSeoMeta helpers.", "typescript": "Language-level typing outside Nuxt auto-import and Nitro types.", "vite": "Bundler and Vite plugin issues outside Nuxt conventions.", "vue": "Vue reactivity, SFC, and SPA patterns when the problem is not Nuxt-specific."}'
 ---
 
 # Nuxt

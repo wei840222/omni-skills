@@ -4,7 +4,6 @@ description: Design, build, and debug reliable backend services. Use when optimi
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⚙️"}'
-  related-skills: '{"nginx": "Works with Nginx for reverse proxying and load balancing backend services.", "storage": "Works with storage layers often connected to backend services."}'
 ---
 
 # Backend Best Practices

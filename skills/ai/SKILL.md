@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤖"}'
-  related-skills: '{"agi": "Deliberation and uncertainty calibration when the need is reasoning quality, not AI product facts.", "embeddings": "Embedding model and vector-index choices supporting RAG stacks.", "fine-tuning": "Training data, adapters, and eval loops when style/domain fit needs fine-tuning.", "langchain": "Multi-step chain/agent wiring after the AI approach is chosen.", "models": "Task-to-model and cost-tier selection beyond generic AI Q&A.", "ollama": "Local Ollama install, Modelfile, and runtime ops after API-vs-local choice.", "prompting": "Prompt failure diagnosis and iteration when the blocker is instruction design.", "rag": "Retrieval architecture, chunking, and evaluation when RAG is the chosen path."}'
 ---
 
 ## When to load

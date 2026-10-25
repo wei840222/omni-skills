@@ -4,7 +4,6 @@ description: Organize, track, and analyze contracts with renewal alerts, clause 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📑"}'
-  related-skills: '{"calendar-planner": "Multi-calendar planning when renewal alerts must land on a real calendar", "documents": "Personal document vault when the file is an ID/certificate rather than an executable contract", "extract-pdf-text": "Local PDF text extraction before contract metadata filing", "lawyer": "Counsel-style redlines and negotiation when the user needs markup, not a register", "legal": "Issue-spotting drills when the task is legal analysis rather than contract filing"}'
 ---
 
 ## Role

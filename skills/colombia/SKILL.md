@@ -3,7 +3,6 @@ name: colombia
 description: "Plan travel across Colombia. Use when creating region-specific itineraries (Bogotá, Medellín, Cartagena, Coffee Triangle), checking entry/visa rules, understanding weather logistics, or tourist safety tips."
 metadata:
   openclaw: '{"emoji": "🇨🇴"}'
-  related-skills: '{"argentina": "Argentina trip planning for multi-country South America routes.", "booking": "Availability and reservation workflows after a Colombia route is chosen.", "brazil": "Brazil trip planning for multi-country South America routes.", "flight": "Flight search and connection logic feeding Colombia arrival/departure choices.", "mexico": "Mexico trip planning when the user compares or chains Latin America destinations.", "spain": "Spain trip planning when the user is comparing Iberian vs Andean/Caribbean options.", "travel": "General multi-destination trip framing outside Colombia-specific routing.", "travel-planning": "Cross-country itinerary structure when Colombia is only one segment."}'
 ---
 
 ## Setup

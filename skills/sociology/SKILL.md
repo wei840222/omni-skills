@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"👥"}'
-  related-skills: '{"decide": "Log a chosen research design or policy option after analysis.", "first-principles-thinking": "Strip assumptions when a social problem is stuck in convention and needs fundamentals rebuild.", "journal": "Free-form field notes and reflections outside structured analysis.", "psychology": "Individual cognition and clinical frameworks when the question is person-level rather than structural.", "second-order-effects": "Trace multi-order consequences of a social intervention after the structural diagnosis.", "six-thinking-hats": "Parallel stakeholder lenses when facilitation needs multiple roles.", "writing": "Academic or public writing craft after the sociological argument is clear."}'
 ---
 
 ## When to load

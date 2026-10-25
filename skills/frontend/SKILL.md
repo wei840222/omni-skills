@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🖥️"}'
-  related-skills: '{"css": "Cascade, layout bugs, and render-performance CSS outside Tailwind-first guidance.", "dashboard": "Analytics dashboard IA and chart/table composition beyond generic frontend patterns.", "design": "Quantified hierarchy, spacing, and visual critique before implementation.", "design-system": "Token and component-system governance across products.", "forms": "Multi-step form validation, error recovery, and field UX beyond general traps.", "inspiration": "Gallery and screenshot references before committing to an aesthetic.", "nextjs": "App Router, RSC, caching, and Next.js deployment mechanics.", "react": "React component patterns, hooks, and state beyond stack recommendations.", "tailwindcss": "Utility-class debugging, theme config, and Tailwind build setup.", "ux": "Nielsen heuristics and cognitive-load review of flows rather than visual implementation."}'
 ---
 
 # Frontend

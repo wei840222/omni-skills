@@ -4,7 +4,6 @@ description: "Plan Tai Chi practice, coach form, and track balance-focused sessi
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"☯️","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"fitness": "Broader training plans once Tai Chi is one block inside a larger program.", "habits": "Turns short Tai Chi sessions into a repeatable routine.", "health": "Wider health context and safety-aware framing around symptoms.", "mindfulness": "Breath and attention work that pairs with slow movement.", "yoga": "Adjacent posture, breath, and mobility language for crossover users."}'
 ---
 
 # Tai Chi

@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👔","configPaths":["<state_root>/"]}'
-  related-skills: '{"hiring": "Human or freelancer contractor pipelines, platforms, and milestone payments rather than workspace virtual employees.", "management": "People-management routines and 1:1 craft for human teams.", "paperclip": "AI-company control plane and org-chart operations beyond a single employee lifecycle.", "recruiter": "Human candidate sourcing, screening, and interview loops.", "roleplay": "Fictional character scenes and rehearsal rather than persistent task workers."}'
 ---
 
 # Employee

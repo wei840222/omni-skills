@@ -3,7 +3,6 @@ name: pull-request
 description: Create and review pull requests with repository-specific validation, focused scope, and maintainer-ready descriptions. Use when preparing, submitting, or reviewing a pull request for any repository.
 metadata:
   openclaw: '{"emoji":"🔀"}'
-  related-skills: '{"git": "Manage source code versioning locally before creating a pull request.", "github-actions": "Inspect and understand CI workflows that a pull request must satisfy."}'
 ---
 
 ## When to Use

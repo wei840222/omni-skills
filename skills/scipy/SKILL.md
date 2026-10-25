@@ -4,7 +4,6 @@ description: "Solve scientific, numerical, and engineering problems using SciPy 
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🔬", "requires": {"bins": ["python3"]}, "os": ["linux", "darwin", "win32"], "displayName": "SciPy"}'
-  related-skills: '{"data": "data handling patterns", "data-analysis": "data exploration workflows", "math": "mathematical concepts and formulas", "numpy": "array and vectorization fundamentals"}'
 ---
 
 ## When to load

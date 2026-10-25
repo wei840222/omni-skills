@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚛️","displayName":"Physics"}'
-  related-skills: '{"biology": "Life-science and physiology depth beyond physical modeling.", "chemistry": "Matter, reactions, and lab chemistry when the core question leaves physics.", "math": "Pure mathematical methods, proofs, and algebra checks that physics derivations depend on.", "science": "Cross-domain science literacy and audience routing when the question is not physics-specific."}'
 ---
 
 # Physics

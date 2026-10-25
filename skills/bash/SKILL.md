@@ -16,7 +16,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🖥️","requires":{"bins":["bash"]}}'
-  related-skills: '{"devops": "CI/CD orchestration around scripts this skill authors or reviews.", "docker": "Container entrypoints and image shells that still need Bash quoting and PID 1 hygiene.", "linux": "Host permissions, systemd, cron installation, and OS-level failures outside the script text.", "server": "Server administration for the machine where scripts run unattended."}'
 ---
 
 # Bash

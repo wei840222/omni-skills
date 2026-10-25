@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📸"}'
-  related-skills: '{"design": "Visual design direction before picking photo subjects or placeholder style.", "frontend": "Embed returned URLs into layouts, components, and responsive image tags.", "image": "Compress, convert, or optimize the final asset after a URL is chosen.", "image-generation": "Create original AI images when stock/placeholder libraries are not enough.", "ui": "UI kits and interface patterns that consume the selected image assets."}'
 ---
 
 ## State location

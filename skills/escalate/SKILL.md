@@ -2,7 +2,6 @@
 name: escalate
 description: "Manage autonomous action thresholds and approval gates. Use when evaluating task risk and reversibility, determining whether to act autonomously or prompt for human confirmation."
 metadata:
-  related-skills: '{"decide": "Turn repeated choices into clearer decision rules", "memory": "Keep durable user context and continuity across sessions", "proactivity": "Push useful next steps without overstepping learned boundaries", "self-improving": "Learn reusable execution lessons from corrections and reflection"}'
   openclaw: '{"requires":{"config":["<state_root>/escalate/"]}}'
 ---
 

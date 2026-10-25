@@ -8,10 +8,6 @@ description: Acts as chief executive (CEO) for company strategy, capital allocat
 metadata:
   version: 1.1.6
   openclaw: '{"emoji": "👔"}'
-  related-skills: '{"business": "Strategy validation and planning.", "cfo": "Financial
-    modeling, forecast, close, and dilution math.", "cmo": "Marketing strategy and
-    growth.", "coo": "Operations and scaling execution.", "cto": "Technical leadership
-    and architecture."}'
 ---
 
 

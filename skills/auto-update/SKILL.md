@@ -6,11 +6,6 @@ description: Manage automatic updates for OpenClaw and installed skills via cron
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🔄", "requires": {"bins": ["openclaw", "clawic"]}}'
-  related-skills: '{"backups": "Strengthen backup and restore practices beyond the
-    default updater snapshots.", "heartbeat": "Pair exact-time update jobs with adaptive
-    follow-up checks.", "self-improving": "Learn recurring update preferences, failure
-    patterns, and workflow opportunities.", "skill-update": "Review risky skill diffs,
-    migrations, and rollback choices in more depth."}'
 ---
 
 

@@ -4,7 +4,6 @@ description: "Debugs and hardens Linux hosts across Debian, RHEL, Arch, Alpine, 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐧","os":["linux","darwin"],"displayName":"Linux","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"backups": "Backup strategy, retention, and offsite policy across systems", "bash": "Shell scripting syntax and safety beyond OS behavior", "docker": "Container builds, images, and runtime debugging", "monitoring": "Observability stack design: metrics, dashboards, and alert routing", "vps": "Provisioning and securing rented servers end to end"}'
 ---
 
 ## State location

@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"analytics": "Product/web tracking stacks (Umami/Plausible/PostHog) rather than dataset analysis.", "csv": "Delimited-text interchange contracts before or after broader cleaning.", "db": "Cross-engine database operational gotchas (pools, locks, migrations) outside analysis and reporting.", "numpy": "ndarray vectorization and broadcasting instead of tabular cleaning.", "pandas": "Python DataFrame mechanics once the workflow is fixed to pandas.", "pg": "PostgreSQL server internals such as vacuum, work_mem, and Postgres-only ops.", "r": "R language traps and data.frame quirks instead of language-agnostic workflow.", "sql": "Dialect-aware SQL craft, EXPLAIN, and schema design when the ask is query shape rather than the full lifecycle.", "statistics": "Hypothesis tests, effect sizes, and inference language beyond exploratory summaries."}'
 ---
 
 This skill is **stateless**. It does not store credentials, DSNs, or durable user preferences in the package. Inject connections and paths at runtime; never commit secrets into skill files.

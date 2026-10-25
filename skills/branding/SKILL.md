@@ -4,7 +4,6 @@ description: Build distinctive brand identity with clear positioning, voice, and
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"✨"}'
-  related-skills: '{"copywriting": "Uses brand voice for content creation.", "design": "Executes visual direction into concrete assets."}'
 ---
 
 ## State location

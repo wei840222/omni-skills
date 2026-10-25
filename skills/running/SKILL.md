@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏃"}'
-  related-skills: '{"calories": "Meal-level energy balance when fueling becomes a nutrition plan.", "fitness": "Quantified load, RIR, volume, and layoff-discount rules when concurrent strength programming matters.", "personal-trainer": "General gym coaching tone and exercise cues outside run-specific pacing.", "sleep": "Recovery and readiness when sleep is the limiting input."}'
 ---
 
 Advise-mode skill for **human runners**: prescribe intensity balance, pacing,

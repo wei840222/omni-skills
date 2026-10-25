@@ -18,7 +18,6 @@ description: >
 compatibility: linux, darwin, win32
 metadata:
   openclaw: '{"emoji":"📚"}'
-  related-skills: '{"course": "Curriculum design, syllabus structuring, and lesson progression.", "flashcards": "Creating spaced repetition materials and concept retrieval cards.", "learning": "Pedagogical strategies, active recall, and conceptual scaffolding.", "studying": "Study schedules, exam preparation, and academic review sessions.", "tutor": "One-on-one coaching, personalized feedback, and misconception correction."}'
 ---
 ## State location
 

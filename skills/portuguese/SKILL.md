@@ -4,7 +4,6 @@ description: "Write natural, casual Portuguese with appropriate regional variant
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇵🇹"}'
-  related-skills: '{"brazil": "Plan travel in Brazil rather than compose Portuguese text.", "english": "Write English when Portuguese is not the target language.", "portugal": "Plan travel in Portugal rather than compose Portuguese text.", "spanish": "Write Spanish when Portuguese is not the target language.", "translate": "Translate an existing source text into Portuguese.", "writing": "Shape broader prose once the Portuguese-language decision is settled."}'
 ---
 
 ## The Real Problem

@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛠️"}'
-  related-skills: '{"developer": "Deep coding editor, language, and local toolchain design once a stack preference is known.", "devops": "Delivery, CI/CD, container, and cloud platform choices beyond personal defaults.", "notes": "Long-form research notes about tools that are not preference ledger rows.", "productivity": "Whole-life capacity and priority when tool churn is really overload.", "software-engineer": "Broader engineering practice and architecture when the question is not only which app to open."}'
 ---
 
 ## State location

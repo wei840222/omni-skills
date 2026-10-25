@@ -2,7 +2,6 @@
 name: quizlet
 description: "Use when needing to manage Quizlet study workflows, including designing high-yield card sets, selecting optimal study modes (Learn, Test), diagnosing poor retention, and analyzing weak cards. Trigger strictly for Quizlet workflows; route Anki or general knowledge tasks elsewhere."
 metadata:
-  related-skills: '{"exam": "Exam-specific preparation, prioritization, and review strategy", "flashcards": "Core flashcard writing rules and question quality patterns", "study": "Structured study planning and session management workflows"}'
   openclaw: '{"requires": {"config": ["<state_root>/quizlet/"]}}'
 ---
 

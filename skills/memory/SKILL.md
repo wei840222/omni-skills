@@ -2,7 +2,6 @@
 name: memory
 description: "Manage a durable markdown fact store at <state_root>/ for long-term memory. Use when the user explicitly asks to remember, update, or forget a fact, or when retrieving historical context outside of the current session. Do not use for session-scoped context."
 metadata:
-  related-skills: '{"decide": "Decision-making patterns on top of the decisions/ category this store builds", "journal": "Journaling practice, prompts, and reflection; use it for the entry the user writes, not the fact you extract from it", "learn": "Spaced repetition and study tracking; use it when the goal is knowing something by heart, not looking it up", "notes": "Note-taking into apps like Obsidian, Notion, or Apple Notes; use it when the destination is an app, not a durable fact store", "spaced-repetition": "Scheduling review at expanding intervals for retention; use it when the goal is remembering by spaced practice, not looking a fact up"}'
   openclaw: '{"emoji":"🧠","requires":{"config":["<state_root>/"]}}'
 ---
 

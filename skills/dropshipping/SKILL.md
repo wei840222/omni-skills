@@ -4,7 +4,6 @@ description: Build and scale dropshipping businesses with product research, supp
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📦"}'
-  related-skills: '{"ecommerce": "For general ecommerce knowledge and platform comparison", "sell": "For general selling and sales techniques"}'
 ---
 
 ## Core Workflow

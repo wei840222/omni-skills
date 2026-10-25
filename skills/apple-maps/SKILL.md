@@ -8,7 +8,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🗺️","os":["darwin"],"requires":{"anyBins":["open","shortcuts","osascript"]}}'
-  related-skills: '{"car-rental": "Route-linked transport planning adjacent to map destinations.", "macos": "macOS command workflows and automation patterns used by Maps launches.", "restaurants": "Food venue discovery and shortlist workflows that often hand off to Maps.", "travel": "Travel-planning flows and destination strategy that need map or route opens."}'
 ---
 ## State location
 

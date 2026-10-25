@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💘"}'
-  related-skills: '{"chat": "General communication tone and format preferences beyond Tinder threads.", "coach": "Non-dating goal coaching and weekly accountability.", "couple": "Established relationship milestones after dating becomes a partnership.", "dates": "Offline date logging and person notes once a match leaves the swipe funnel.", "empathy": "Reading emotional subtext when a thread feels tense or ambiguous."}'
 ---
 
 # Tinder

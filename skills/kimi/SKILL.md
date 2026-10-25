@@ -4,7 +4,6 @@ description: Build and debug Moonshot AI Kimi API workflows for chat, coding, re
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌙","requires":{"bins":["curl","jq"],"env":["MOONSHOT_API_KEY"],"config":["<state_root>/kimi/"]}}'
-  related-skills: '{"api": "Debug API authentication, payloads, retries, and OpenAI-compatible request shapes.", "backend": "Connect Kimi workflows to services, jobs, and API boundaries.", "coding": "Harden coding-agent behavior after the Kimi route is stable.", "fastapi": "Expose Kimi-backed endpoints with request validation and safer deployment defaults.", "models": "Compare model families and cost tiers before production selection."}'
 ---
 
 ## When to Use

@@ -4,7 +4,6 @@ description: "Navigate Venice as a traveler or resident. Use when planning canal
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏛️"}'
-  related-skills: '{"dubai": "Compare luxury city destination", "toronto": "Compare with another major city skill", "travel": "General travel planning and logistics"}'
 ---
 
 ## State location

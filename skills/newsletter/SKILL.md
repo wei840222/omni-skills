@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📧"}'
-  related-skills: '{"copywriting": "Landing pages, lead magnets, and campaign CTAs beyond newsletter issue craft.", "email-management": "Inbox triage and follow-up queues rather than publishing a list.", "growth": "Broader acquisition systems when email is only one channel.", "message": "One-off interpersonal or channel-safe outbound drafts rather than broadcast list sends.", "writing": "Long-form voice and rewrite craft when the deliverable is prose quality, not list ops."}'
 ---
 
 # Newsletter strategy

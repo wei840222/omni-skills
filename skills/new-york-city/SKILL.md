@@ -4,7 +4,6 @@ description: "Plan NYC visits, moves, neighborhood choices, transit, housing, fo
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🗽"}'
-  related-skills: '{"booking": "Handles accommodation comparisons, cancellation terms, and reservation completion after an NYC stay has been selected.", "business": "Extends NYC work, startup, and business-location choices into broader business strategy.", "car-rental": "Covers rental-car decisions when an airport pickup or trip beyond NYC makes a car appropriate.", "health-insurance": "Provides detailed coverage comparisons when a move or job change raises insurance questions.", "travel": "Provides cross-destination travel planning and standing travel records beyond NYC-specific routing."}'
 ---
 
 ## State location

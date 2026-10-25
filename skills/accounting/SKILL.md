@@ -4,7 +4,6 @@ description: Teach and apply accounting from bookkeeping basics through GAAP/IFR
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📒"}'
-  related-skills: '{"accountant": "Runs entity bookkeeping that closes: coding, reconciliations, month-end lock, and statement ties.", "expenses": "Captures day-to-day spend before it is coded into ledgers or statements.", "personal-finance-tracker": "Tracks personal cashflow and net worth outside business entity accounting."}'
 ---
 
 ## Detect Level, Adapt Everything

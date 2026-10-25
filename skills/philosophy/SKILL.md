@@ -4,7 +4,6 @@ description: Guide philosophical inquiry from first questions to scholarly debat
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤔"}'
-  related-skills: '{"in-depth-research": "Provides deep research strategies for tracking philosophical debates."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

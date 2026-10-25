@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"catalan": "Write Catalan when Basque is not the target language.", "copywriting": "Shape persuasive marketing copy after the Basque register is chosen.", "english": "Draft or revise the English source before translating it into Basque.", "france": "Plan France travel logistics rather than Basque-language phrasing.", "french": "Write French when Basque is not the target language.", "galician": "Write Galician when Basque is not the target language.", "spain": "Plan Spain travel logistics rather than Basque-language phrasing.", "spanish": "Write Spanish when Basque is not the target language.", "translate": "Translate an existing source text into Basque across formats and locales.", "writing": "Shape broader prose once the Basque-language decision is settled."}'
 ---
 
 Research notes for zu/hi, batua, dialects, and authoritative resources live in `references/sources.md` (progressive disclosure).

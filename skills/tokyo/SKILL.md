@@ -4,7 +4,6 @@ description: "Navigate Tokyo for tourism, residency, tech work, or studying. Use
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🗼"}'
-  related-skills: '{"booking": "Accommodation comparisons and reservation completion after a Tokyo stay is selected.", "japan": "Japan-wide travel and regional context outside Greater Tokyo.", "japanese": "Natural Japanese language help for deeper local integration.", "travel": "Multi-destination trip planning beyond Tokyo-specific routing."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state. For live fares, rents, visa eligibility, lodging availability, or weather/disaster-dependent plans, load the matching reference and verify the official source in `references/sources.md` before treating a figure as current.

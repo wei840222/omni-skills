@@ -4,7 +4,6 @@ description: "Design and implement product UI motion systems across Flutter, Rea
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎞️","requires":{"config":["<state_root>"]}}'
-  related-skills: '{"android": "Android/Compose platform constraints beyond cross-stack motion defaults.", "animations": "Broader animation craft or non-product motion when not shipping app UI systems.", "css": "CSS transition/animation syntax depth without multi-stack product motion routing.", "design": "Visual design judgment when taste leads and motion is secondary.", "figma": "Figma prototype and Smart Animate mechanics inside the design file.", "flutter": "Flutter widget and navigation implementation beyond generic motion contracts.", "frontend": "Broader web front-end architecture around CSS/JS motion choices.", "react": "React/Next component and router patterns when motion is only one layer.", "react-native": "RN/worklet/native-driver specifics past shared motion rules.", "swift": "Swift/SwiftUI host patterns when Apple-platform motion is the main stack.", "ui": "General UI product patterns when animation is not the primary ask."}'
 ---
 
 ## State location

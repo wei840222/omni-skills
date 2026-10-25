@@ -4,7 +4,6 @@ description: Write, fix, format, and convert Markdown documents. Use when genera
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji": "\ud83d\udcdd", "configPaths": ["<state_root>/", "<workspace>/projects/", "<workspace>/contacts/", "<workspace>/profile.yaml"], "requires": {"config": ["<state_root>/", "<workspace>/projects/", "<workspace>/contacts/", "<workspace>/profile.yaml"]}}'
-  related-skills: '{"documentation": "Decides what documentation should exist and how it is maintained.", "latex": "Produces LaTeX documents when Markdown plus math is no longer enough.", "notes": "Stores notes across plain files and external systems.", "pdf-generator": "Used when the PDF layout, branding, and templates are the focus rather than simple conversion.", "word-docx": "Handles .docx production and round-trip editing.", "yaml": "Handles the frontmatter language, type coercion, and multiline forms."}'
 ---
 
 ## State location

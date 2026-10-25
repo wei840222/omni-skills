@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇭🇺"}'
-  related-skills: '{"copywriting": "Shape persuasive marketing copy after the Hungarian register is chosen.", "english": "Draft or revise the English source before translating it into Hungarian.", "polish": "Apply the same register-first casual-writing method to Polish instead of Hungarian.", "speak": "Handle spoken delivery cues after the Hungarian wording is settled.", "writing": "Plan structure and argument before polishing the Hungarian wording."}'
 ---
 
 ## When to load

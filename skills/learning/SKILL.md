@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📚"}'
-  related-skills: '{"anki": "Deck management and Anki-specific workflows beyond one-session miss export.", "flashcards": "Atomic card authoring and Anki/TSV formatting when the deliverable is a deck.", "learn": "Self-directed multi-week curriculum, exit tests, and long-horizon mastery systems—not live teach-me sessions.", "spaced-repetition": "Long-horizon review scheduling and SRS handoff after session misses are exported.", "studying": "Exam countdowns, weekly revision grids, and coursework study plans rather than in-the-moment teaching.", "tutor": "Multi-learner tutoring profiles, parent oversight, and age-graded progress tracking."}'
 ---
 
 ## State location

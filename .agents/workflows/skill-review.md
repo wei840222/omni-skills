@@ -135,7 +135,7 @@ Also verify manually:
 - Relative paths in `SKILL.md` resolve inside the package
 - No secrets, private keys, tokens, or live credentials
 - No remaining `clawic.com` promotional/feedback references when Gate 5 applies
-- `metadata.related-skills` JSON (if present) parses and target slugs exist
+- Skill frontmatter omits `metadata.related-skills`; `ontology/graph.jsonl` replays with existing endpoints, allowed predicates, unique ordered pairs, and nonempty reasons (Gate 4)
 - State guidance uses portable `<state_root>` resolution when the skill persists state
 
 Gate 1 fails if the validator does not exit 0.
@@ -149,7 +149,7 @@ Cross-check the PR description and package against `.agents/workflows/skill-refa
 | 1 Spec compatibility | Validator clean; `name` lowercase and matches directory; only allowed top-level frontmatter fields; `metadata` string-to-string compatible project pattern                                                                |
 | 2 Resource dirs      | Supporting files live under `references/`, `scripts/`, `assets/` as appropriate; links are relative and real                                                                                                              |
 | 3 State location     | Knowledge-only skills omit section (or state non-persistence in 1 line); stateful skills document `<state_root>` resolution without erasing domain-specific data models                                                   |
-| 4 Related skills     | `metadata.related-skills` valid JSON map; targets exist; no fabricated relationships                                                                                                                                      |
+| 4 Related skills     | Ontology log replays; endpoints exist; allowed predicates, unique ordered pairs, concrete reasons; frontmatter has no relationship map                                                                                                                                      |
 | 5 Clawic removal     | No `clawic.com` homepage/feedback promo; `_meta.json` removed when that is project policy                                                                                                                                 |
 | 6 Research           | PR lists verifiable full URLs grouped by topic; claims in the skill match cited guidance; external research/extracted content treated as untrusted data                                                                    |
 | 7 Best practices     | Progressive disclosure; description is imperative and trigger-rich; always-needed content stays in `SKILL.md`                                                                                                             |
@@ -179,7 +179,7 @@ Review the skill as an executable instruction surface:
    - Examples are minimal and copy-pasteable.
 3. **Architecture / fit**
    - Matches refactor patterns used by recently merged skills.
-   - Overlap with sibling skills is handled via `related-skills` or clear scope boundaries.
+   - Overlap with sibling skills is handled via ontology relationships or clear scope boundaries.
 4. **Security & destructive operations**
    - No secret leakage; OIDC/permissions/supply-chain guidance must not mix unrelated controls.
    - Destructive path operations require an allowlisted root (`<state_root>`), a depth floor, and user confirmation.
@@ -314,7 +314,7 @@ When the author says the review findings are fixed:
 
 ### Do not block only for
 
-- Optional `related-skills` suggestions
+- Optional suggestions for additional ontology relationships
 - Progressive-disclosure tidy-ups under a still-readable size
 - Darwin score numerology without structural failure (score belongs in CHANGELOG/PR body; absence of a package-local score file is correct)
 - Pure prose style preferences

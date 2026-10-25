@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💬"}'
-  related-skills: '{"chat": "General conversational patterns when the task is dialogue design, not channel-safe delivery.", "copywriting": "Persuasive marketing copy and CTA systems rather than interpersonal sends.", "customer-support": "Support empathy and issue resolution patterns when the thread is a customer case.", "email-management": "Inbox triage, follow-up tracking, and thread queues rather than one-off sends.", "escalate": "Durable ask-vs-act thresholds when the decision is policy, not a single draft.", "writing": "Long-form voice, structure, and rewrite craft beyond a single outbound message."}'
 ---
 
 ## When to use

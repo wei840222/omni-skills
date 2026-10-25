@@ -4,7 +4,6 @@ description: "Choose, organize, sync, share, and back up personal files across i
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"☁️","displayName":"Cloud"}'
-  related-skills: '{"backups": "3-2-1-1-0 backup architecture and verified restore drills.", "cloud-storage": "Provider upload/download/sync ops and egress cost across object stores and drives.", "icloud": "Authenticated local iCloud Drive/Photos/Find My operations.", "s3": "S3-compatible object storage deep dive outside consumer plans.", "storage": "Application storage architecture beyond consumer file sync."}'
 ---
 
 ## When to use

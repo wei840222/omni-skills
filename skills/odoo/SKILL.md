@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏢"}'
-  related-skills: '{"accounting": "Accounting standards coaching when the task is not tied to a live Odoo instance.", "crm": "Customer pipeline workflows when the work is mainly around leads, deals, and sales motion outside Odoo-specific ERP flows.", "inventory": "Personal asset tracking rather than Odoo warehouse stock moves.", "powerpoint": "Executive summaries and deck outputs from Odoo reporting work.", "word": "Polished SOPs, proposals, and customer-facing documents built from Odoo context."}'
 ---
 
 # Odoo

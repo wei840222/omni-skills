@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"accountant": "Entity bookkeeping that closes ledgers rather than CPA exam prep.", "accounting": "GAAP/IFRS teaching and judgment outside CPA exam scheduling and credit windows.", "bar-exam": "US Bar Exam MBE/essay prep instead of CPA Core+Discipline workflows.", "exam": "Generic practice questions, flashcards, and mock exams from supplied study material rather than CPA section logistics.", "personal-finance-tracker": "Personal cashflow tracking outside CPA exam fees and NTS planning.", "study": "Semester coursework systems beyond CPA section sequencing."}'
 ---
 
 ## State location

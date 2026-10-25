@@ -4,7 +4,6 @@ description: "Navigate Bucharest for visitors, residents, tech workers, students
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏛️"}'
-  related-skills: '{"booking": "Lodging search and reservation completion after a Bucharest neighborhood base is chosen.", "dubai": "Peer city-guide pattern for another dense metro when comparing city skills.", "expat": "Cross-border move project tracking beyond Bucharest neighborhood and settling advice.", "romania": "Country-level multi-city Romania routing when Bucharest is only one stop.", "romanian": "Everyday Romanian for menus, bookings, and on-the-ground talk.", "toronto": "Peer city-guide pattern with immigration-heavy framing when comparing city skills.", "travel": "Standing multi-destination travel records when Bucharest is one city among several.", "travel-planning": "Day-by-day multi-city itineraries when the trip leaves Bucharest."}'
 ---
 
 ## State location

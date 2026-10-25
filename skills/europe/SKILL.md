@@ -4,7 +4,6 @@ description: "Navigate cross-border travel and relocation across Europe. Use whe
 license: MIT
 metadata:
   openclaw: '{"emoji":"🇪🇺"}'
-  related-skills: '{"booking": "skills/booking", "car-rental": "skills/car-rental", "english": "skills/english", "health-insurance": "skills/health-insurance", "travel": "skills/travel"}'
 ---
 ## When to Use
 

@@ -4,7 +4,6 @@ description: "Design and operate relational databases safely: connection pools, 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🗃️"}'
-  related-skills: '{"backups": "Retention, immutability, and restore drills beyond engine-native dump/PITR.", "dynamodb": "AWS DynamoDB single-table design and capacity modes.", "influxdb": "Influx time-series write/query paths.", "mariadb": "MariaDB-only features (sequences, temporal tables, Galera, thread pool).", "mongodb": "Document store modeling and ops outside relational gotchas.", "mysql": "MySQL-server-specific syntax, InnoDB quirks, and ops.", "observability": "Metrics, logs, and traces for pool saturation, lag, and lock waits.", "oracle-db": "Oracle-specific SQL and administration.", "sql": "Dialect-agnostic SQL craft, EXPLAIN patterns, and schema design when the ask is query/model shape rather than ops traps.", "sqlite": "Embedded/local SQLite instead of a server database.", "timescaledb": "Postgres time-series hypertables and continuous aggregates."}'
 ---
 
 # db
@@ -98,4 +97,4 @@ Load only `SKILL.md` first. Open `references/database-gotchas.md` for trap depth
 
 - Implementing a full ORM or generating entire application schemas from scratch without an engine target
 - Vendor pricing, managed-SKU recommendations without current official docs
-- Replacing engine-specific skills listed in `related-skills`
+- Replacing engine-specific skills

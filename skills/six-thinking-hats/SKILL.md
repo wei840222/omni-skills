@@ -4,7 +4,6 @@ description: Use this skill when the user needs to analyze a decision, evaluate 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎩"}'
-  related-skills: '{"brainstorm": "Generates creative ideas before or after structured hat analysis.", "decide": "Applies decision frameworks to evaluate options produced by hat analysis.", "first-principles-thinking": "Breaks problems to foundational truths, complementing hat-based perspective exploration."}'
 ---
 
 ## State location

@@ -4,7 +4,6 @@ description: "Design agent-powered organizational structures. Use when mapping b
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🏢"}'
-  related-skills: '{"business": "Focuses on strategy, complementing this skill''s focus on organizational structure.", "startup": "Provides methodology for new ventures, whereas this skill focuses on building the organization itself."}'
 ---
 ## Triggers
 

@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🔔","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"alerts": "Decides that new or urgent world-state warrants attention before this skill chooses how to deliver it.", "message": "Drafts channel-safe outbound wording once notify has chosen channel and timing.", "monitor": "Persists recurring checks that should notify on change, not on every poll.", "remind": "Surfaces commitments the user already knows rather than delivery policy.", "report": "Builds recurring metric digests whose delivery still follows this skill.", "schedule": "Runs timed jobs that may emit notifications through this skill."}'
 ---
 
 # Notify

@@ -3,7 +3,6 @@ name: wardrobe
 description: "Organize personal wardrobe collections and capsule systems. Use when cataloging clothing inventory, planning seasonal wardrobe rotations, building capsule wardrobes, or decluttering garments mindfully."
 metadata:
   openclaw: '{"emoji":"👔","os":["linux","darwin","win32"],"displayName":"Wardrobe"}'
-  related-skills: '{"shopping": "Garment selection, sizing verification, fabric care, and purchasing.", "travel": "Capsule wardrobe packing, weather-appropriate outfits, and transit comfort."}'
 ---
 ## When to load
 Trigger this skill when the user mentions clothing, outfit planning, capsule wardrobes, packing lists, seasonal storage, or mindful shopping.

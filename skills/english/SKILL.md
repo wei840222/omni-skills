@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇬🇧"}'
-  related-skills: '{"grammar": "Pure correctness passes where meaning and style must not move.", "ielts": "Band scoring, task types, and exam tactics for IELTS.", "speak": "Turning text into speech-ready output for a TTS engine.", "toefl": "TOEFL iBT structure, scoring, and admissions prep.", "translate": "Moving text between languages, glossaries, and localization.", "writing": "Long-form drafting and editing in the users own voice."}'
 ---
 # English
 

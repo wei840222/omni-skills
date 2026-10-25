@@ -4,7 +4,6 @@ description: Plan place search, geocoding, routing, and map-link workflows acros
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🗺️"}'
-  related-skills: '{"apple-maps": "Handles Apple Maps search and route flows on macOS.", "car-rental": "Connects route assumptions and pickup zones to rental decisions.", "travel": "Turns approved routes and place constraints into trip plans.", "tripadvisor": "Compares venues for map-based shortlists."}'
 ---
 
 ## State location

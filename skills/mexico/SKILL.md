@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇲🇽"}'
-  related-skills: '{"booking": "Search lodging after neighborhood or coast base is chosen.", "car-rental": "Arrange rental cars after Mexico road and daylight-driving decisions are set.", "dominican-republic": "Plan Dominican Republic travel instead of Mexico destinations.", "english": "English drafting support for international booking or support messages.", "flight": "Search or compare flights once Mexico airports and region hops are decided.", "food": "Deeper restaurant and cuisine research after Mexico region and meal timing are chosen.", "spanish": "Write or edit Spanish-language text rather than plan Mexico travel.", "travel": "Standing traveler system for passports, visas, bookings, and trip memory across destinations.", "travel-planning": "Generic multi-city itineraries and packing/budget scaffolding beyond Mexico-specific routing."}'
 ---
 
 ## State location

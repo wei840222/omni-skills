@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"❤️","requires":{"bins":["node","npx"],"env":["HEALTH_DATA_DIR"]},"install":[{"id":"npm","kind":"npm","package":"@neiltron/apple-health-mcp","bins":["apple-health-mcp"],"label":"Install Apple Health MCP Server (npm)"}]}'
-  related-skills: '{"api": "API and MCP integration debugging outside exported-health analysis.", "health": "General wellness framing beyond analysis of exported records.", "ios": "iPhone export setup and iOS platform troubleshooting.", "sleep": "Sleep coaching and interpretation beyond querying recorded sleep.", "swift": "HealthKit application implementation rather than terminal export analysis."}'
 ---
 
 ## State location

@@ -4,7 +4,6 @@ description: "Provide empathetic emotional support using active listening and ev
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'
-  related-skills: '{"meditate": "Provides mindfulness techniques for immediate distress tolerance.", "mindfulness": "Offers grounding exercises to manage acute emotional overwhelm.", "psychology": "References formal psychological frameworks that inform active listening.", "reflection": "Facilitates structured processing of emotions identified during support.", "therapist": "A professional-level handoff target for persistent symptoms or clinical needs."}'
 ---
 
 # Psychological Support

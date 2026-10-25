@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🚗"}'
-  related-skills: '{"booking": "Lodging and non-vehicle reservation terms.", "buy": "Vehicle purchase research when rent/lease is no longer the right path.", "compare": "Generic option matrices outside rental-specific total-cost rules.", "parking": "Bay search and reservation after a rental car is secured.", "taxi": "On-demand rideshares and car services instead of multi-day self-drive.", "travel": "Standing travel docs, wishlists, and long-lived trip boxes that may include self-drive segments.", "travel-planning": "Day-by-day itineraries where a hire car is only one leg."}'
 ---
 
 # Car Rental

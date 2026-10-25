@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟣"}'
-  related-skills: '{"blockchain": "Ledger fundamentals and contract interaction beyond Polygon operations.", "crypto-tools": "Prices, explorers, and portfolio tooling after Polygon tx mechanics are clear.", "ethereum": "Generic EVM gas, approvals, and L1/L2 patterns outside Polygon Chain specifics."}'
 ---
 
 # Polygon Chain

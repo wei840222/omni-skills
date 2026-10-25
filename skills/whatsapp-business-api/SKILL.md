@@ -3,7 +3,6 @@ name: whatsapp-business-api
 description: "Manage messaging workflows via WhatsApp Business Cloud API. Use when sending template messages, configuring incoming webhooks, handling media uploads, managing contact opt-ins, or debugging API error codes."
 metadata:
   openclaw: '{"emoji":"💬","requires":{"env":["WHATSAPP_ACCESS_TOKEN","WHATSAPP_PHONE_NUMBER_ID"]},"primaryEnv":"WHATSAPP_ACCESS_TOKEN","os":["linux","darwin","win32"],"displayName":"WhatsApp Business API"}'
-  related-skills: '{"api": "REST API patterns", "chat": "Conversational patterns", "webhook": "Webhook handling"}'
 ---
 
 # WhatsApp Business API

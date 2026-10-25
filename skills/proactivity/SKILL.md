@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⚡"}'
-  related-skills: '{"calendar-planner": "Timed commitments and calendar decisions after a proactive need is clear.", "heartbeat": "Recurring monitor loops and HEARTBEAT_OK empty cycles.", "self-improving": "Durable execution lessons and corrections after outcomes.", "skill-finder": "Discover adjacent skills when proactivity alone is insufficient."}'
 ---
 
 # Proactivity

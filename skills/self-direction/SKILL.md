@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","requires":{"config":["<state_root>/self-direction/"]}}'
-  related-skills: '{"decide": "consequential branch-choice logging", "delegate": "spawn mechanics and verification", "escalate": "ask-vs-act thresholds", "memory": "long-term factual continuity", "reflection": "structured self-evaluation before or after delivery"}'
 ---
 
 # Self-Direction

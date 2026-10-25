@@ -4,7 +4,6 @@ description: "Assist with Amsterdam travel, relocation, work, study, or local li
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🚲"}'
-  related-skills: '{"booking": "Reservation hygiene for hotels, flights, and tickets after the Amsterdam plan is set.", "cycling": "General bike-fit and ride craft beyond Amsterdam street norms.", "dutch": "Language support for menus, gemeente forms, and daily phrases.", "europe": "Schengen / multi-city Europe routing when the trip is not Amsterdam-centric.", "expat": "General expat settling patterns that are not Amsterdam-specific.", "flight": "Flight shopping and buffer planning into AMS.", "food": "Broader meal planning beyond Amsterdam food area notes.", "housing": "Cross-city housing search process when Amsterdam is one candidate market.", "travel": "Multi-country or Europe-wide itinerary framing when Amsterdam is only one stop."}'
 ---
 
 ## State location

@@ -4,7 +4,6 @@ description: "Navigate Buenos Aires as a visitor, resident, tech worker, student
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇦🇷"}'
-  related-skills: '{"argentina": "Country-level macro-region routing when Buenos Aires is only one stop.", "booking": "Lodging search, total-cost comparison, and reservation completion after a barrio base is chosen.", "expat": "Cross-border move project tracking beyond CABA neighborhood and settling advice.", "spanish": "Rioplatense and everyday Spanish for menus, bookings, and on-the-ground talk.", "travel": "Standing multi-destination travel records when BA is one city among several.", "travel-planning": "Day-by-day multi-city itineraries when the trip leaves Buenos Aires."}'
 ---
 
 ## State location

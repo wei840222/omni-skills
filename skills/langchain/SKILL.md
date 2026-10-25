@@ -17,7 +17,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: "{\"emoji\":\"🦜\",\"requires\":{\"bins\":[\"python3\"]}}"
-  related-skills: '{"agents": "Framework-agnostic agent architecture, memory, and tool-loop design before any of it is LangChain code.", "prompting": "Provider-agnostic prompt iteration when the ask is not LangChain ChatPromptTemplate wiring.", "rag": "Retrieval pipeline design and evaluation that is not tied to LangChain APIs."}'
 ---
 
 # LangChain

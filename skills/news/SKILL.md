@@ -4,7 +4,6 @@ description: "Build personalized news briefings that learn interests, format, an
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📰","os":["linux","darwin","win32"],"displayName":"News"}'
-  related-skills: '{"reading": "Maintain reading lists and long-form tracking instead of recurring news digests.", "scrape": "Extract structured content from a single URL when a briefing needs a primary document.", "summarizer": "Condense one known long article once the briefing already has the source."}'
 ---
 
 # News

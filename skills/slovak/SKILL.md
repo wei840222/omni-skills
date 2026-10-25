@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇸🇰"}'
-  related-skills: '{"copywriting": "Shape persuasive marketing copy after the Slovak register is chosen.", "czech": "Write Czech when Slovak is not the target; keep vocabulary and endings separate.", "translate": "Translate an existing source text into Slovak across formats and locales.", "writing": "Shape broader prose once the Slovak-language decision is settled."}'
 ---
 
 Research notes for ty/vy, colloquial particles, and authoritative resources live in `references/sources.md` (progressive disclosure).

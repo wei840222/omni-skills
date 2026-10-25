@@ -4,7 +4,6 @@ description: Generate personas, pain points, journey maps, heuristic evaluations
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "🔬"}'
-  related-skills: '{"cpo": "Executive product leadership and org-level bets that consume research evidence.", "design": "Visual and interaction design execution that turns research findings into concrete UI decisions.", "product": "Product strategy, validation, and launch framing once research outputs must drive roadmap or listing decisions."}'
 ---
 
 ## State location

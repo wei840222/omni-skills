@@ -4,11 +4,6 @@ description: "Plan tasks with sizing, structuring steps, estimates, and risk rol
 metadata:
   openclaw: '{"emoji": "🗺️", "requires": {"config": ["<state_root>/", "~/plan/", "~/clawic/plan/"]}}'
   version: 1.0.3
-  related-skills: '{"decide": "Choose between options inside a plan step.", "escalate":
-    "Ask-vs-act boundaries beyond planning scope.", "memory": "Long-term context and
-    user continuity beyond planning records.", "productivity": "Personal productivity
-    systems, time blocking, and reviews; plan covers executing a single task.", "self-improving":
-    "General execution lessons; plan keeps only planning lessons."}'
 ---
 
 

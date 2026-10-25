@@ -6,7 +6,6 @@ description: Design and execute paid acquisition strategies, allocate budgets, a
   scaling spend, or aligning ads with landing pages and attribution reality.
 metadata:
   openclaw: '{"emoji": "📢"}'
-  related-skills: '{"copywriting": "Owns ad copy craft and headline/body/CTA quality.", "email-marketing": "Owns owned-list nurture that paid traffic may feed.", "growth-hacker": "Runs acquisition experiments adjacent to paid media.", "market-research": "Validates audience and demand before paid spend."}'
 ---
 ## When to load
 

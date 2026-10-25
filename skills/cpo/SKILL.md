@@ -4,7 +4,6 @@ description: "Act as Chief Product Officer. Use when setting product vision, pri
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "📦"}'
-  related-skills: '{"ceo": "executive leadership", "cmo": "marketing alignment", "cto": "technical strategy", "product-manager": "PM fundamentals"}'
 ---
 ## Progressive Disclosure
 

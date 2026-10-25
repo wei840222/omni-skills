@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📦","displayName":"Product"}'
-  related-skills: '{"amazon": "Amazon buyer/seller ops beyond product listing image and FBA launch checklists.", "etsy": "Etsy listing diagnostics and shop growth beyond cross-channel product launch.", "growth": "Acquisition funnels after PMF and retention math are sound.", "indie-hacker": "Solo founder validation and time protection for side projects.", "pricing": "Deep B2B/SaaS list-price design and WTP research beyond fee-aware product margins.", "product-launch": "Launch sequencing and go-to-market when the build is already decided.", "product-manager": "Pure PM discovery, roadmaps, and PRD craft without marketplace imagery.", "saas": "Subscription MRR/NRR ops and packaging once the product is recurring."}'
 ---
 
 # Product

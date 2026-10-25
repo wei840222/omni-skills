@@ -4,7 +4,6 @@ description: Program recurring or one-time jobs the user defines, persist them u
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"📅","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"calendar-planner": "Cross-calendar conflict repair and focus-block planning", "daily-planner": "Day shaping and top-priority protection before jobs are stored", "productivity": "Diagnose overload and pick the smallest sustainable plan before scheduling", "remind": "Lead-time nudges for commitments the user already knows, not job execution", "time-management": "Time-blocking mechanics when the need is planning, not a durable job store"}'
 ---
 
 ## State location

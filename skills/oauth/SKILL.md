@@ -4,7 +4,6 @@ description: Implement OAuth 2.0 and OpenID Connect flows securely. Use when wri
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔑","os":["linux","darwin","win32"]}'
-  related-skills: '{"auth": "General authentication architecture context.", "jwt": "Handling JWT validation and claims in OAuth."}'
 ---
 
 # OAuth 2.0 and OpenID Connect

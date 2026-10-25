@@ -4,7 +4,6 @@ description: Design scalable DynamoDB tables, model access patterns, and avoid N
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚡","requires":{"anyBins":["aws"]}}'
-  related-skills: '{"aws": "Broad AWS architecture, IAM, networking, and cost work beyond DynamoDB data modeling.", "s3": "Store large objects in S3 and keep only references or metadata keys in DynamoDB.", "terraform": "Author Terraform resources for DynamoDB tables and indexes after the access model is decided."}'
 ---
 
 Use this skill to design DynamoDB data models, pick efficient access patterns, and prevent cost or latency failures before they reach production.

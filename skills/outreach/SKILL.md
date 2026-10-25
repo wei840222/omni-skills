@@ -14,7 +14,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📣"}'
-  related-skills: '{"affiliate-marketing": "Affiliate program economics and partner ops beyond first-touch outreach.", "b2b": "Single-account enterprise qualification and forecast judgment rather than volume campaigns.", "crm": "Durable contacts, deals, and do-not-contact after outreach creates pipeline state.", "email-marketing": "Owned-audience nurture and marketing email once consent/list membership exists.", "influencer": "Creator partnership and paid influencer programs beyond a one-off pitch.", "negotiate": "Bargaining scripts when the thread has moved from intro to terms.", "recruiter": "Hiring funnel, screens, and offer process beyond candidate outreach copy.", "seo": "Broader SEO strategy when the ask is rankings or content systems rather than link pitches."}'
 ---
 
 # Outreach

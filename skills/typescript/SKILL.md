@@ -2,7 +2,6 @@
 name: typescript
 description: 'Writes, reviews, and debugs type-safe TypeScript: type errors, narrowing, generics, tsconfig strictness, and declaration files. Use when a build hits type errors ("not assignable", "possibly undefined", "excessively deep", "cannot find module"), when eliminating any or unchecked as casts, designing generics or discriminated unions, writing .d.ts files or typing untyped npm packages, configuring tsconfig or module resolution, fixing ESM/CJS import crashes ("ERR_REQUIRE_ESM", "x is not a function"), validating API or JSON data at runtime, migrating JavaScript to TypeScript or upgrading the TypeScript version, or when tsc or the editor gets slow or runs out of memory.'
 metadata:
-  related-skills: '{"deno": "TypeScript-native runtime without a build step", "javascript": "runtime semantics: coercion, closures, event loop", "nodejs": "Node runtime, packaging, and ESM/CJS beyond the type layer", "react": "typing components, hooks, and props in practice"}'
   openclaw: '{"emoji":"🔷","requires":{"config":["<state_root>/typescript/","~/typescript/","~/clawic/typescript/"]}}'
 ---
 

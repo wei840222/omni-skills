@@ -15,7 +15,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌊"}'
-  related-skills: '{"css": "CSS cascade, flex/grid sizing, stacking, and layout mechanics without Tailwind utility generation.", "design-system": "Palette, type, and spacing taste when the ask is design tokens rather than Tailwind build wiring.", "frontend": "Broader UI composition and design-system work beyond Tailwind class authoring.", "html": "Semantic markup and document structure when the issue is HTML rather than utility CSS.", "nextjs": "Next.js App Router, caching, and deployment beyond generic Tailwind setup.", "react": "React component and state mechanics when the ask is not Tailwind-specific."}'
 ---
 
 # Tailwind CSS

@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"analytics": "Web traffic and conversion measurement rather than public social sentiment.", "branding": "Brand strategy and identity systems used to interpret perception, not live mention sampling.", "monitor": "Recurring HTTP/TLS/process health checks rather than social-opinion tracking."}'
 ---
 
 ## State location

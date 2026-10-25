@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🍎","requires":{"bins":["curl","jq"],"env":["APPLE_PAY_MERCHANT_ID"]},"os":["darwin","linux","win32"],"displayName":"Apple Pay"}'
-  related-skills: '{"api": "Reliable backend API contracts and failure-safe integrations", "app-store-connect": "Apple ecosystem account and operational workflows", "auth": "Authentication and session hardening in transaction flows", "ios": "iOS implementation and device-level debugging patterns", "payments": "General payment design and checkout decision frameworks"}'
 ---
 
 ## Setup

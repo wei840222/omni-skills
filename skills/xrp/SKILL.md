@@ -6,7 +6,6 @@ description: Assist with XRPL transactions, diagnose transaction failures, and e
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "💧"}'
-  related-skills: '{"bitcoin": "Handle Bitcoin UTXO, Lightning, and derivation-path wallet issues instead of XRPL reserves/tags.", "blockchain": "Cover general ledger/EVM contract fundamentals beyond XRPL-specific operations.", "crypto-tools": "Fetch market data, portfolio monitoring, and exchange tooling once XRPL mechanics are settled.", "ethereum": "Handle Ethereum gas, approvals, and L2 bridges instead of XRPL flows."}'
 ---
 ## Destination Tags (Critical)
 - Exchanges require destination tags to credit deposits — sending without tag means lost funds or lengthy recovery

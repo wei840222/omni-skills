@@ -4,7 +4,6 @@ description: "Guide biotechnology learning, research planning, bioinformatics, g
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧬"}'
-  related-skills: '{"biology": "Provides foundational life-science context for biotechnology questions.", "chemistry": "Provides molecular and chemical foundations for biochemical techniques.", "science": "Provides scientific-method and experimental-design context for biotechnology work."}'
 ---
 
 ## State location

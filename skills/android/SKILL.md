@@ -4,7 +4,6 @@ description: "Builds, debugs, ships, and hardens Android apps. Use when working 
 metadata:
   version: '1.0.3'
   openclaw: '{"emoji":"🤖","requires":{"anyBins":["adb","gradle"]}}'
-  related-skills: '{"android-studio": "the IDE itself: profiler navigation, inspectors, refactoring", "ci-cd": "pipeline design around the build and upload steps", "google-play-store": "store listing, ASO keywords, and the marketing side of publishing", "ios": "the other half of a two-platform product", "kotlin": "the language itself: coroutines, null safety, collections, Java interop"}'
 ---
 
 ## State location

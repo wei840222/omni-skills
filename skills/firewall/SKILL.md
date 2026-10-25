@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛡️"}'
-  related-skills: '{"docker": "Container publish, bridge networking, and DOCKER-USER filter placement when exposure is container-driven.", "linux": "Host sysctl, forwarding, and distribution firewall backends under the OS.", "network": "Generic reachability, DNS, routing, and TLS diagnosis when firewall is only one hop.", "nginx": "Reverse-proxy and TLS termination once only 80/443 should face the internet.", "security-best-practices": "Application-layer secure-by-default review beyond packet filters.", "vpn": "VPN client/provider transport ports and kill-switch expectations outside host filter design.", "vps": "Rented-box first boot, dual-layer firewalls, and lockout recovery as part of VPS lifecycle.", "wireguard": "WireGuard ListenPort and peer path once the remaining work is WG-specific."}'
 ---
 
 # Firewall

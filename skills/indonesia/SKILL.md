@@ -4,7 +4,6 @@ description: "Plan an Indonesia trip by island cluster, entry path, weather and 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇮🇩"}'
-  related-skills: '{"booking": "Hotel, flight, ferry, and excursion reservation hygiene after the Indonesia route is chosen.", "esim": "Connectivity and eSIM setup once island bases are set.", "food": "Broader meal planning beyond the Indonesia food playbook.", "indonesian": "Bahasa Indonesia support for menus, bookings, and on-the-ground phrases.", "travel": "Multi-country or multi-region itineraries when Indonesia is only one stop."}'
 ---
 
 ## State location

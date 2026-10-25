@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"mixpanel": "Product analytics event modeling outside privacy-first web stacks.", "mobile-app-analytics": "Mobile retention/funnels via store consoles and Firebase.", "plausible": "Deep Plausible Stats/Events API queries and site memory.", "umami": "Umami self-host and tracker configuration details."}'
 ---
 
 # Analytics

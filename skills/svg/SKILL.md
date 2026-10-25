@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📐"}'
-  related-skills: '{"css": "Page layout, cascade, and stylesheet architecture around SVG presentation.", "design": "Visual hierarchy and multi-surface design critique beyond SVG markup.", "figma": "Figma export, vectors, and Dev Mode handoff that produce SVG assets.", "html": "Document semantics, embeds, and non-SVG accessibility patterns.", "icons": "Product UI icon systems, sizing, and performance once SVG primitives are correct.", "image": "Raster formats (WebP/AVIF/PNG) rather than vector SVG markup."}'
 ---
 
 # SVG

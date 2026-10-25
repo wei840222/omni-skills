@@ -4,7 +4,6 @@ description: Provide structured financial education for budgeting, debt, credit,
 metadata:
   version: "1.2.0"
   openclaw: '{"emoji":"💰"}'
-  related-skills: '{"accountant": "Provides accounting-focused financial guidance and bookkeeping.", "banking": "Covers banking products, accounts, and financial institution services.", "invest": "Focuses on investment execution and portfolio construction.", "personal-finance-tracker": "Tracks daily expenses, budgets, and net worth over time.", "stock-market": "Provides market data, stock analysis, and trading information."}'
 ---
 
 # Financial Literacy

@@ -4,7 +4,6 @@ description: Configure and manage multi-container applications using Docker Comp
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🐳","requires":{"anyBins":["docker-compose","docker"]}}'
-  related-skills: '{"backend": "Use for designing the architecture of backend services deployed via docker-compose.", "deploy": "Use for deploying docker-compose applications to production servers.", "docker": "Use for building individual images and managing containers directly."}'
 ---
 ## Working space
 

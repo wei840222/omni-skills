@@ -4,7 +4,6 @@ description: Execute swaps, provide liquidity, and assess risks on Uniswap. Use 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🦄"}'
-  related-skills: '{"crypto-tools": "Use for broader crypto management beyond trading on Uniswap.", "ethereum": "Provides deep context for Ethereum transactions and token standard specifics."}'
 ---
 
 ## Core Workflows

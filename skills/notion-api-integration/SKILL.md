@@ -14,7 +14,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"N","requires":{"env":["NOTION_API_KEY"]},"primaryEnv":"NOTION_API_KEY"}'
-  related-skills: '{"api": "Generic third-party REST/GraphQL client patterns without Notion-specific object models.", "http": "Protocol-level HTTP status/headers/caching outside Notion payloads.", "notes": "Writing notes into Notion or other apps without operating the Notion API.", "notion-calendar": "Date-aware Notion scheduling and planning views rather than raw API integration.", "pkm": "Knowledge-base organization across tools once content exists.", "webhook": "Generic webhook receiver design and signature verification beyond Notion event payloads."}'
 ---
 
 # Notion API Integration

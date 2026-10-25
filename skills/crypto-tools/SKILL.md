@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"₿"}'
-  related-skills: '{"aave": "Aave lending health and markets instead of generic portfolio monitors.", "bitcoin": "Bitcoin-specific UTXO and fee workflows once generic tooling is insufficient.", "blockchain": "Ledger fundamentals and EVM contract interaction beyond market tooling.", "invest": "Broader portfolio education after crypto operational facts are settled.", "trading": "Technical analysis and trade education after market data is retrieved."}'
 ---
 
 # Crypto Tools

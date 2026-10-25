@@ -4,7 +4,6 @@ description: "Guide property decisions for buyers, sellers, landlords, tenants, 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏡","displayName":"Real Estate"}'
-  related-skills: '{"home-buying": "Owner-occupant purchase focus when the user is only buying a primary home.", "invest": "Broader capital allocation when property is one option among many asset classes.", "legal": "Contract and enforceability review when counsel-level document work is the primary need.", "negotiate": "Live counterparty offer/counter craft with hard limits when the thread is pure deal messaging.", "property-valuation": "Comp-driven market value checks against a price thesis.", "real-estate-agent": "Listing CRM, client profile, and property tracking state when the user wants durable agent workflow memory.", "real-estate-investing": "Deep buy-and-hold, BRRRR, flip, and underwriting when the task is investment analysis rather than general transaction coaching.", "rental": "Tenant-landlord operations and leasing details beyond high-level landlord protocol."}'
 ---
 
 This skill is **stateless process knowledge**: it routes role, stage, and jurisdiction-aware coaching. It does not store client CRM files or durable deal ledgers. For persistent listing/client memory load `real-estate-agent`; for investment underwriting load `real-estate-investing`. Re-open URLs in `references/sources.md` before stating jurisdiction-specific legal, disclosure, or lending claims as current fact.

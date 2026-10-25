@@ -3,7 +3,6 @@ name: suno
 description: "Generate music and structured lyrics with Suno. Use when users request to create songs, jingles, anthems, or background tracks, convert lyrics into audio, match a specific artist's style, or troubleshoot generation issues like off-genre results or cut-off endings."
 metadata:
   openclaw: '{"emoji": "🎵"}'
-  related-skills: '{"audio": "Audio processing and editing", "ffmpeg": "Audio format conversion, cropping, cross-fades", "video": "Combine music with video content"}'
 ---
 
 This skill stores all persistent data under `<state_root>/suno/` (config, preferences, project tracking, downloaded audio — see `references/setup.md` on first use, `references/memory-template.md` for the memory format). If you have data at an old location (`~/suno/` or `~/clawic/suno/`), move it to `<state_root>/suno/`, and say in one line that you moved it and from where.

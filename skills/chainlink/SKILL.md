@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⬡"}'
-  related-skills: '{"avalanche": "Avalanche C/X/P-Chain operations when the ask is network-native rather than Chainlink feeds/CCIP.", "blockchain": "Ledger fundamentals and viem contract interaction beyond oracle integration.", "crypto-tools": "Prices, explorers, and portfolio tooling after Chainlink product rules are clear.", "ethereum": "Generic EVM gas, approvals, nonce, and L2 bridge mechanics outside Chainlink product guidance.", "polygon": "Polygon Chain PoS wallet/gas/Portal bridging outside Chainlink product flows.", "solidity": "Solidity security pitfalls (reentrancy, visibility) when writing consumer contracts."}'
 ---
 
 # Chainlink

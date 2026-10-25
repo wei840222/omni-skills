@@ -4,7 +4,6 @@ description: Log gym sessions, track progressive overload and personal records, 
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏋️"}'
-  related-skills: '{"dietitian": "Handles calorie targets, macros, and meal plans beyond gym-day nutrition cues.", "fitness": "Owns multi-week program design, splits, and periodization; gym owns session logging and next-set coaching.", "habits": "Tracks gym attendance and routine adherence once the workout behavior is defined.", "health": "Routes red-flag symptoms and general wellness boundaries that exceed training advice.", "nutrition": "Covers micronutrients, supplements, and food-quality gaps beyond session fueling.", "personal-trainer": "Provides broader trainer-role program framing when the user wants role-based coaching.", "workouts": "Offers a personal workout-system framing; gym remains the set/rep logging and gym-floor coach."}'
 ---
 
 ## State location

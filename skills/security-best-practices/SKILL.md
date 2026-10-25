@@ -4,7 +4,6 @@ description: "Review code with secure-by-default standards, prioritize exploitab
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛡️"}'
-  related-skills: '{"auth": "Authentication design and session hardening when the finding is authn-specific.", "authorization": "Access-control and permission-boundary design when the finding is authz-specific.", "devops": "Secure delivery, CI checks, and operational safeguards for shipping fixes.", "encryption": "Key management and cryptographic hygiene beyond generic secret handling.", "firewall": "Network exposure and policy controls outside application-layer review."}'
 ---
 
 ## When to load

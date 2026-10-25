@@ -4,7 +4,6 @@ description: "Manages student course load, study schedules, assignments, and exa
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"📚","requires":{"config":["<state_root>/study/","<state_root>/contacts/","<state_root>/projects/","<state_root>/bookings/","<state_root>/profile.yaml"]}}'
-  related-skills: '{"anki": "deck mechanics, FSRS and SM-2 settings, leeches, imports and sync", "daily-planner": "Plans daily study slots", "habits": "Tracks study routines", "learn": "self-directed learning of a skill with no course, exam, or grade", "learning": "teaching a specific concept in the moment, when the block is understanding rather than schedule", "notes": "general-purpose note capture and retrieval outside coursework", "sleep": "the consolidation side of Rule 9, when sleep itself is the broken part"}'
 ---
 
 ## State location

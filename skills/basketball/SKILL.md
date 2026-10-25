@@ -3,7 +3,6 @@ name: basketball
 description: "Analyze games, scout players, plan practices, and structure possession-based game reviews. Use when dealing with basketball strategy, lineup, or practice requests."
 metadata:
   openclaw: '{"emoji": "\ud83c\udfc0", "requires": {"configPaths": ["<state_root>/basketball/"]}}'
-  related-skills: '{"analysis": "Structure trade-offs, assumptions, and decision quality.", "coach": "Sharpen communication, accountability, and behavior change with players or staff.", "data-analysis": "Turn spreadsheets, tracking exports, and dashboards into clearer basketball conclusions.", "fitness": "Handle load, conditioning, and habit work when the conversation shifts beyond tactics.", "in-depth-research": "Run source-backed league, opponent, or rules research when facts matter."}'
 ---
 
 ## When to Use

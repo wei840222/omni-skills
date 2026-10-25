@@ -5,7 +5,6 @@ compatibility: "OpenClaw Gateway with an available Talk provider or the voice-ca
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📞"}'
-  related-skills: '{"api": "Covers provider API integration and webhook diagnostics beyond the OpenClaw voice configuration.", "setup": "Covers general OpenClaw installation and configuration outside voice-specific workflows."}'
 ---
 
 ## Use this skill

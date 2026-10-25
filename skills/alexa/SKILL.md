@@ -4,7 +4,6 @@ description: "Control Alexa smart home devices, automate routines, and guide cus
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔊"}'
-  related-skills: '{"amazon": "Broader Amazon buyer/seller workflows outside Alexa device and skill operations.", "iot": "Broader IoT device and connectivity patterns when the question is not Alexa-specific.", "smart-home": "Ecosystem-agnostic protocol, hub, security, and automation guidance beyond Alexa-only workflows."}'
 ---
 
 ## Device Control

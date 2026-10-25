@@ -4,7 +4,6 @@ description: "Load and optimize Google Fonts: display=swap, preconnect, exact we
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔤"}'
-  related-skills: '{"branding": "Brand voice and visual identity that constrain font choice.", "css": "@font-face, font-display, and CSS delivery details around the selected fonts.", "typography": "Measure, leading, tracking, and optical scale once the font files are chosen."}'
 ---
 
 ## When to Use

@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇵🇹"}'
-  related-skills: '{"food": "Deeper cuisine workflows beyond Portuguese food pointers.", "portuguese": "Portuguese language production and register rather than trip logistics.", "travel": "Multi-country itineraries and general travel memory beyond Portugal-only routing."}'
 ---
 
 # Portugal

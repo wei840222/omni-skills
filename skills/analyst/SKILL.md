@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔍"}'
-  related-skills: '{"analytics": "Product analytics tooling deployment and privacy APIs (Umami/Plausible/PostHog), not ad-hoc insight work.", "csv": "Delimiter, encoding, and RFC 4180 interchange when the hard problem is file dialect rather than insight.", "data": "General data plumbing, pipelines, and warehouse ops outside decision-facing analysis.", "spreadsheet": "Workbook or sheet analysis when the primary surface is Excel/Sheets cells rather than SQL or BI queries.", "sql": "Deep SQL dialect, schema design, or engine-specific optimization beyond analysis patterns.", "statistics": "Formal statistical tests, power, and inference when the ask is methods-first rather than business analysis."}'
 ---
 
 ## State location

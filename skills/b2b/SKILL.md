@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤝"}'
-  related-skills: '{"crm": "Contact/company/deal records, stage hygiene, and local CRM ops once qualification decisions need durable storage.", "outreach": "Campaign-level sequences and multi-channel copy when the job is volume outreach rather than a single deal strategy.", "salesforce-api-integration": "SOQL, Bulk, and org API mechanics when the blocker is Salesforce data access rather than sales judgment."}'
 ---
 
 ## When to use

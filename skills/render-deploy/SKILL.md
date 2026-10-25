@@ -4,7 +4,6 @@ description: "Deploy and host applications on Render using Blueprint generation 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🚀", "requires": {"bins": ["git", "render"], "env": ["RENDER_API_KEY"], "config": ["<state_root>/render-deploy/"]}, "primaryEnv": "RENDER_API_KEY", "install": [{"id": "brew", "kind": "brew", "formula": "render", "bins": ["render"], "label": "Install Render CLI (Homebrew)"}]}'
-  related-skills: '{"ci-cd": "Automating build hooks, pull request preview environments, and deploy triggers.", "deploy": "Multi-cloud hosting evaluation and production zero-downtime cutover.", "devops": "Infrastructure configuration, health check monitoring, and rollbacks.", "docker": "Containerizing web services and background workers for Render deployment.", "nodejs": "Node.js service build commands, environment variables, and memory tuning."}'
 ---
 
 ## State location

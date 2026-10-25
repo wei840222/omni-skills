@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📈","requires":{"config":["<state_root>/"]},"os":["linux","darwin","win32"],"displayName":"Digital Marketing"}'
-  related-skills: '{"content-marketing": "Editorial planning and repurposing when the ask is content systems, not full-funnel orchestration.", "email-marketing": "Deliverability, segmentation, and campaign sequences as the owned channel.", "growth-hacker": "Experiment backlog, viral loops, and unconventional acquisition tactics.", "seo": "Search intent, technical fixes, and ranking workflows instead of multi-channel campaign ownership.", "tiktok-ads": "Platform-specific short-form paid creative rules on TikTok."}'
 ---
 
 ## State location

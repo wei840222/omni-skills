@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛒","requires":{"config":["<state_root>/dhgate/"]}}'
-  related-skills: '{"amazon": "Local-retail convenience baseline versus import risk and lead times.", "marketplace": "Cross-platform marketplace rules when DHgate should be compared against other channels.", "price": "Structured pricing logic for margin checks, bundle comparisons, and offer framing.", "shopping": "Broader multi-store purchase research and deal timing outside DHgate."}'
 ---
 
 ## When to load

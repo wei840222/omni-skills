@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⚡","requires":{"bins":["jq","yq","curl","uuidgen","flock"]},"os":["linux","darwin"],"displayName":"Workflow"}'
-  related-skills: '{"cycle": "Design LLM-driven multi-phase processes before turning them into executable pipelines.", "loop": "Iterate one action or phase until success criteria once the pipeline step is chosen."}'
 ---
 
 ## State location

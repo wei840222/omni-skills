@@ -4,7 +4,6 @@ description: "Deploy, configure, and tune Meilisearch for production search: ind
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔎"}'
-  related-skills: '{"api": "REST API integration patterns including auth, rate limits, and retries.", "database-manager": "Relational database schema governance and recovery playbooks.", "docker": "Containerizing Meilisearch with proper volume and secret handling.", "elasticsearch": "Elasticsearch/OpenSearch cluster operations and advanced query DSL."}'
 ---
 
 ## State location

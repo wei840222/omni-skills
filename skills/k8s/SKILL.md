@@ -3,7 +3,6 @@ name: k8s
 description: 'Debugs Kubernetes workloads, reviews manifests, and plans cluster operations. Use when the user wants to troubleshoot pod failures (e.g. CrashLoopBackOff, Pending, OOMKilled), diagnose Service/Ingress or DNS issues, investigate hung rollouts, tune resources/probes, lock down RBAC/Security, or plan cluster upgrades and backups.'
 metadata:
   version: "1.0.5"
-  related-skills: '{"devops": "CI/CD pipelines that deploy to the cluster", "docker": "building and hardening the images k8s runs", "linux": "node-level debugging under the kubelet", "observability": "metrics, logs, and traces behind the dashboards you read here"}'
   openclaw: '{"emoji": "\u2638", "os": ["linux", "darwin", "win32"], "requires": {"bins": ["kubectl"]}}'
 ---
 

@@ -4,7 +4,6 @@ description: "Implement Alipay for web and mobile. Use when configuring signed r
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💴","requires":{"bins":["curl","jq"],"env":["ALIPAY_APP_ID"]}}'
-  related-skills: '{"android": "Android checkout implementation and runtime troubleshooting patterns", "api": "Reliable backend API contracts and failure-safe integrations", "auth": "Authentication and session hardening in transaction flows", "billing": "Billing models, reconciliation, and payment lifecycle decisions", "payments": "General payment design and checkout decision frameworks"}'
 ---
 
 ## Setup

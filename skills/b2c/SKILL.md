@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📱"}'
-  related-skills: '{"b2b": "Enterprise deal qualification, MEDDIC, and pipeline judgment when the customer is a company buying committee rather than end consumers.", "growth": "Channel experiments and growth-program execution after the B2C stage, loop, and kill metrics are already chosen.", "pricing": "Detailed price-point research and packaging math once the monetization model is selected.", "product": "General product discovery and roadmap craft adjacent to consumer-specific monetization and loops.", "retention": "Deep retention diagnostics and cohort instrumentation once stage priorities point at habit formation.", "saas": "SaaS operating playbooks that span B2B and B2C once consumer-specific economics are already framed."}'
 ---
 
 ## When to use

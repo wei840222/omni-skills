@@ -7,7 +7,6 @@ description: Design and adjust personalized workout programs, explain exercises,
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏋️"}'
-  related-skills: '{"fitness": "Quantified load, RIR, volume, and layoff-discount rules when numbers matter more than coaching tone."}'
 ---
 
 This skill is **advise mode**: coach a human who performs the training. It is stateless and does not store local configuration. For quantified load math, e1RM, volume corridors, and layoff discounts, load `fitness`.

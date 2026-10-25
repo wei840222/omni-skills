@@ -4,7 +4,6 @@ description: Search, compare, and book accommodation across platforms with real 
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏨"}'
-  related-skills: '{"flight": "Pairs accommodation dates with flight search, fare rules, and disruption handling.", "travel-planning": "Extends lodging choices into a full itinerary, packing list, and whole-trip budget."}'
 ---
 
 ## State location

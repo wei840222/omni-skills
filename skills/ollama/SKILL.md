@@ -4,7 +4,6 @@ description: "Run, configure, and troubleshoot local Ollama instances. Load this
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🦙", "requires": {"bins": ["ollama"], "anyBins": ["curl", "jq"], "config": ["~/.ollama/"]}}'
-  related-skills: '{"ai": "Frame when local Ollama is the right fit versus cloud inference.", "api": "Reuse robust HTTP request, retry, and parsing patterns around local services.", "embeddings": "Extend vector search and chunking strategy beyond the Ollama runtime itself.", "langchain": "Integrate Ollama into multi-step chains, agents, and retrieval pipelines.", "models": "Compare local model families, sizes, and capability tradeoffs before pinning defaults."}'
 ---
 ## State location
 

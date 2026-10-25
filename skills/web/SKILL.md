@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"css": "Cascade, layout bugs, and stylesheet architecture beyond quick web traps.", "deploy": "Host-specific deploy runbooks when the platform is already chosen.", "frontend": "React/Next/Tailwind UI systems and component polish.", "html": "Deep semantic markup, forms, dialogs, and sanitization details.", "icons": "Accessible SVG icon patterns and touch targets.", "image": "Format choice, compression, and responsive image delivery.", "javascript": "Language-only JS patterns outside DOM/web delivery context.", "nextjs": "App Router, caching, and Next-specific deployment depth.", "react": "Component model and hooks beyond the short web traps list.", "seo": "Organic ranking strategy and Search Console recovery beyond launch tags.", "typography": "Measure, leading, and type scale for readable pages.", "website": "Content-site IA, launch checklist, and static-site CWV coaching."}'
 ---
 
 ## When to load

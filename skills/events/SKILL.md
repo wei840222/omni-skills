@@ -4,7 +4,6 @@ description: Track and organize personal events, concerts, conferences, parties,
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📅"}'
-  related-skills: '{"apple-calendar-macos": "Creates or edits macOS Calendar entries when the user wants system calendar sync.", "habits": "Recurring practices and streaks rather than dated one-off events.", "journal": "Reflective writing and memories after an event ends.", "notes": "General retrieval notes unrelated to dated event logistics.", "productivity": "Whole-life capacity and priority tradeoffs beyond a single event.", "remind": "Fires timed nudges for known commitments; events owns durable event records and logistics.", "travel-planning": "Trip design and booking research that may feed multi-day event folders."}'
 ---
 
 ## State location

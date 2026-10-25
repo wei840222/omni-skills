@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇮🇹"}'
-  related-skills: '{"business": "Company operations beyond Milan company-setup notes.", "expat": "General relocation mindset and admin priorities outside Milan-specific districts.", "food": "Personalized restaurant research when city context is already set.", "italian": "Language help for bureaucracy and daily phrases.", "travel": "Broader multi-city trip logistics when Milan is only one stop."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state. Keep itineraries, rental notes, visa checklists, and personal documents in ordinary user files outside the skill package.

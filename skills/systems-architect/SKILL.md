@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"aws": "AWS service and IAM detail after the topology decision is set.", "azure": "Azure landing-zone and identity detail beyond generic multi-cloud design.", "cto": "Org-level build-vs-buy, hiring, and engineering strategy above platform topology.", "devops": "CI/CD, release, and on-call delivery systems that operate the designed platform.", "gcp": "GCP project/network and workload-identity detail after topology is chosen.", "infrastructure": "Provisioning command generation once the architecture decision is locked.", "k8s": "Kubernetes manifests and cluster operations for the chosen runtime target.", "monitoring": "Metrics/logs/traces stack once SLIs and golden signals are defined.", "network": "Packet/DNS/TLS troubleshooting when the ask is connectivity diagnosis, not topology design.", "software-architect": "Application boundaries, domain patterns, and service decomposition inside the platform.", "terraform": "HCL modules and state design that encode the chosen infrastructure topology."}'
 ---
 
 ## State location

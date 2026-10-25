@@ -4,7 +4,6 @@ description: "Design, progress, and adapt fitness programs (strength, cardio, en
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💪","requires":{"config":["<state_root>/fitness/"]}}'
-  related-skills: '{"calories": "Deficit or surplus math behind fat-loss and muscle-gain phases.", "gym": "Rep-by-rep workout logging and in-session routine execution.", "running": "Run-specific pacing, race prep, and running injury prevention.", "sleep": "Readiness checks when sleep is the limiting recovery input."}'
 ---
 
 Training logs, preferences, and derived baselines (e1RMs, resting HR, attendance rate) persist in `<state_root>/fitness/` as plain markdown (see `references/setup.md` on first use, `references/memory-template.md` for file formats). If you have data at an old location (`~/fitness/` or `~/clawic/fitness/`), move it to `<state_root>/fitness/`, and say in one line that you moved it and from where. Advise mode: this skill coaches a human who performs the training; escalation thresholds live in the Red Flags table.

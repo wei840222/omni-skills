@@ -4,7 +4,6 @@ description: "Analyze Aave supply, borrow, withdrawal, liquidation, E-Mode, or G
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👻"}'
-  related-skills: '{"crypto-tools": "Generic crypto data, portfolio monitoring, and exchange tooling outside Aave market analysis.", "uniswap": "Token swaps and Uniswap liquidity rather than Aave lending positions."}'
 ---
 ## Operating principle
 

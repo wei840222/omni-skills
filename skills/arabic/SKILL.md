@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇸🇦"}'
-  related-skills: '{"english": "Used alongside Arabic in bilingual or Arabizi contexts.", "french": "Write French when Arabic is not the target language.", "persian": "Shares script and historical vocabulary contact with Arabic.", "translate": "Translate an existing source text into Arabic.", "urdu": "Shares Perso-Arabic script contact and some vocabulary flavor.", "writing": "Shape broader prose once the Arabic-language decision is settled."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

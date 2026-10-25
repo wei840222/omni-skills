@@ -4,7 +4,6 @@ description: Plan and organize travel across France. Use when the user wants to 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🇫🇷"}'
-  related-skills: '{"english": "Backup communication support for multilingual travel", "food": "Deeper restaurant and cuisine recommendations", "french": "Language support for local communication and bookings", "travel": "General trip planning and itinerary structuring"}'
 ---
 ## State location
 

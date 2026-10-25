@@ -4,7 +4,6 @@ description: Forecast uncertain outcomes by designing resolvable questions, find
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔮"}'
-  related-skills: '{"analysis": "structure assumptions, causal chains, and trade-offs before forecasting.", "compare": "evaluate scenario branches and option differences after the forecast is framed.", "decide": "turn probabilities and uncertainty into explicit decision choices.", "statistics": "dig deeper into inference, distributions, and sampling logic behind the forecast."}'
 ---
 
 ## When to Use

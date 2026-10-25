@@ -4,7 +4,6 @@ description: Drive systematic growth with acquisition loops, experimentation fra
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📈"}'
-  related-skills: '{"analytics": "Provides data analysis for growth metrics and experimentation results.", "cmo": "Handles marketing strategy that complements growth acquisition loops.", "cpo": "Drives product-led growth that integrates with growth systems.", "cro": "Optimizes conversion funnels that feed into acquisition and retention."}'
 ---
 
 # CGO / Chief Growth Officer

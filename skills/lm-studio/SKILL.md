@@ -4,7 +4,6 @@ description: Run and integrate LM Studio with local model lifecycle control, Ope
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🧪","requires":{"bins":["curl","jq"],"config":["<state_root>/"]}}'
-  related-skills: '{"api": "Shape request payloads, retries, parsing, and integration debugging for the local OpenAI-compatible server.", "docker": "Package helper services or MCP servers consistently on the local machine.", "models": "Choose models by workload, context budget, and quality tradeoffs before loading one locally.", "open-router": "Escalate from local-first execution to routed cloud models when capability gaps matter.", "self-host": "Operate local infrastructure with practical reliability and security habits."}'
 ---
 
 ## State location

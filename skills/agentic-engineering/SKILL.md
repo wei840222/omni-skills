@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🤖","requires":{"bins":["git"]}}'
-  related-skills: '{"agentic-coding": "Apply coding-loop tactics once a single agent task is already scoped.", "git": "Inspect history, commits, and recovery commands when agents share one working tree."}'
 ---
 
 ## When to load

@@ -4,7 +4,6 @@ description: "Select and run text-to-image or image-editing workflows across AI 
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🎨","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"colors": "Build palettes for visual consistency across assets", "ffmpeg": "Post-process image sequences and exports", "image-edit": "Specialized inpainting, outpainting, and mask workflows", "video-generation": "Convert image concepts into video pipelines"}'
 ---
 
 ## When to Use

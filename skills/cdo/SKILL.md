@@ -3,7 +3,6 @@ name: cdo
 description: "Act as Chief Data Officer. Use when defining data governance frameworks, managing enterprise analytics platforms, evaluating AI/ML data readiness, or establishing data privacy compliance policies."
 metadata:
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"analytics": "hands-on analytics/BI implementation details", "ceo": "company-stage strategy alignment for data bets", "cfo": "data platform cost, headcount, and ROI trade-offs", "cto": "technical infrastructure and platform ownership boundaries"}'
 ---
 
 ## Trigger conditions

@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚡"}'
-  related-skills: '{"business": "Idea validation and strategy frameworks before operationalizing.", "ceo": "Company-level strategy, capital allocation, and board calls rather than day-to-day operations.", "cfo": "Cash, runway, budget, and board packs rather than process design.", "chro": "HR pipelines, compliance, and workforce systems rather than process ops.", "cto": "Technical architecture and engineering org design rather than general operations.", "management": "People-management routines and 1:1 craft beyond operational systems."}'
 ---
 
 # COO / Chief Operations Officer

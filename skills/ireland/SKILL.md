@@ -4,7 +4,6 @@ description: "Plan an Ireland trip with local-perspective city bases, coastal ro
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇮🇪"}'
-  related-skills: '{"booking": "Hotel, rail, car, and attraction reservation hygiene after the Ireland route is chosen.", "english": "Booking and communication support when language scaffolding is the main need.", "esim": "Connectivity and eSIM setup once city or coastal bases are set.", "food": "Broader meal planning beyond the Ireland food playbook.", "irish": "Irish language and local phrase support for menus and on-the-ground talk.", "travel": "Multi-country or multi-region itineraries when Ireland is only one stop."}'
 ---
 
 ## State location

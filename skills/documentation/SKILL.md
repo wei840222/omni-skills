@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📚"}'
-  related-skills: '{"api": "Debug or integrate third-party APIs when the task is client behavior rather than documenting an API surface.", "book-writing": "Plan and revise long manuscripts when the deliverable is a book, not product docs.", "copywriting": "Write persuasive marketing copy when the goal is conversion rather than accurate how-to or reference docs.", "markdown": "Fix Markdown syntax, conversion, or parser compatibility after the documentation structure is decided.", "writing": "Adapt general prose voice and tighten non-doc writing once documentation structure is settled."}'
 ---
 
 This skill is stateless. It does not store local configuration or persistent user state.

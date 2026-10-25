@@ -3,7 +3,6 @@ name: bioinformatics
 description: "Process and analyze biological sequences. Run genomic pipelines for sequence alignment, variant calling, and expression analysis on DNA, RNA, or protein data. Use when executing BLAST searches, processing FASTQ/BAM files, variant calling, or analyzing gene expression."
 metadata:
   openclaw: '{"emoji":"🧬","requires":{"bins":["samtools","bcftools","bedtools","bwa","fastqc","fastp"],"config":["<state_root>/bioinformatics/"]},"os":["linux","darwin"]}'
-  related-skills: '{"data-analysis": "Statistical tables, plots, and tabular post-processing of alignment or expression outputs.", "science": "Broader scientific method, experiment design, and non-sequence lab workflows outside genomics toolchains.", "statistics": "Hypothesis tests, multiple-testing correction, and quantitative interpretation of variant or expression results."}'
 ---
 ## When to load
 

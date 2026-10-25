@@ -6,8 +6,6 @@ description: Process video and audio streams using correct FFmpeg codecs, filter
 metadata:
   version: 1.0.1
   openclaw: '{"emoji": "🎬", "requires": {"bins": ["ffmpeg"]}}'
-  related-skills: '{"bash": "Execute FFmpeg scripts and automate batch processing.",
-    "powershell": "Execute FFmpeg commands on Windows systems."}'
 ---
 
 ## Input Seeking (Major Difference)

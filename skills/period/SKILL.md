@@ -4,7 +4,6 @@ description: "Track menstrual cycles, log symptoms, predict periods and ovulatio
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🩸"}'
-  related-skills: '{"doctor": "Turns flagged signals into a structured question list for an appointment.", "health": "Longitudinal wellness habits beyond the cycle.", "pregnancy": "Tracking shifts to prenatal once a pregnancy is confirmed.", "symptoms": "General symptom tracking and doctor-visit prep outside the cycle."}'
 ---
 ## State location
 

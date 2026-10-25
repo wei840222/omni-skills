@@ -4,7 +4,6 @@ description: "Track skin lesions, rashes, photos, treatment response, and dermat
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"D"}'
-  related-skills: '{"doctor": "Provides broader symptom triage when a skin concern may reflect systemic illness.", "health": "Covers general wellness questions outside dermatology tracking.", "memory": "Maintains durable facts that are not part of a dermatology case record.", "photos": "Organizes broader local photo libraries beyond clinical comparison workflows."}'
 ---
 
 ## State location

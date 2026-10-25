@@ -3,7 +3,6 @@ name: baby
 description: "Track infant care logs and caregiver handoffs. Use when recording baby feeds, sleep schedules, diaper counts, symptoms, growth milestones, or preparing pediatric visit summaries; not for medical diagnosis."
 metadata:
   openclaw: '{"emoji":"👶","requires":{"config":["<state_root>/baby/"]}}'
-  related-skills: '{"doctor": "Structured preparation for pediatric or family medical visits beyond daily infant tracking.", "health": "Broader health planning and longitudinal family tracking outside infant day-to-day ops.", "nutrition": "Meal, hydration, and solids planning once food logistics dominate over core infant tracking.", "parenting": "Broader parenting support beyond daily operational infant tracking.", "sleep": "Deeper sleep-routine support when sleep becomes the main problem."}'
 ---
 ## When to load
 

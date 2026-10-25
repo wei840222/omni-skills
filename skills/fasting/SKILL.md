@@ -4,7 +4,6 @@ description: "Track intermittent and extended fasts: log start/break times, elap
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "⏳", "requires": {"config": ["<state_root>/"]}}'
-  related-skills: '{"calories": "Window calorie/macro totals and TDEE recalibration.", "dietitian": "Clinical nutrition when medical diet context dominates.", "fitness": "Quantified training load for fasted sessions.", "meal-planner": "Menus inside the eating window.", "nutrition": "Window macros and micros.", "personal-trainer": "Coaching tone and program adaptations around fasted training.", "water": "Hydration and electrolyte logging."}'
 ---
 
 User preferences and fast state live under `<state_root>/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). Prefer `<state_root>/config.yaml`, `log.md`, and `memory.md`.

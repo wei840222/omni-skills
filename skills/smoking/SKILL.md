@@ -4,7 +4,6 @@ description: "Track tobacco and nicotine use, log triggers, reduce consumption, 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🚬", "requires": {"config": ["<state_root>/smoking/"]}}'
-  related-skills: '{"coach": "accountability loops and structured progress reviews.", "daily-planner": "routine design and schedule anchors for new habits.", "health": "broader health planning context that can shape smoking goals.", "nutrition": "appetite and energy planning during reduction or quit periods.", "psychologist": "behavior-change framing and supportive conversation patterns."}'
 ---
 
 ## Setup

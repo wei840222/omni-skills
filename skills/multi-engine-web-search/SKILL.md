@@ -8,7 +8,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔎"}'
-  related-skills: '{"analysis": "Turn search findings into clear conclusions.", "compare": "Compare options and trade-offs side by side.", "elasticsearch": "Design or operate a custom search backend.", "in-depth-research": "Expand discovery into a structured investigation.", "web": "Inspect a selected page after discovery."}'
 ---
 
 ## State location

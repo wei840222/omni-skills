@@ -4,7 +4,6 @@ description: "Navigate Boston for visitors, residents, tech workers, students, a
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🦞"}'
-  related-skills: '{"booking": "Lodging search and reservation completion after a neighborhood base is chosen.", "dubai": "Peer city-guide pattern for another dense metro when comparing city skills.", "expat": "Cross-border move project tracking beyond Boston neighborhood and settling advice.", "travel": "Standing multi-destination travel records when Boston is one city among several.", "travel-planning": "Day-by-day multi-city itineraries when the trip leaves Boston.", "united-states": "Country-level multi-city US routing when Boston is only one stop."}'
 ---
 
 ## State location

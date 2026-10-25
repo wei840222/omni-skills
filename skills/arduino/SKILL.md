@@ -4,7 +4,6 @@ description: "Review and troubleshoot Arduino circuits and C++ sketches for comm
 compatibility: "arduino, cpp"
 metadata:
   openclaw: '{"emoji":"🔌","os":["linux","darwin","win32"],"displayName":"Arduino"}'
-  related-skills: '{"cpp": "C++ language details, memory, and undefined behavior behind Arduino sketches."}'
 ---
 
 ## When to Use

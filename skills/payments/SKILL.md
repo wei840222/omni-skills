@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💳"}'
-  related-skills: '{"billing": "Subscription lifecycle, proration, dunning, tax/invoice fields, and revenue recognition once PSP rules dominate.", "crm": "Contact and pipeline hygiene after a paid lead becomes a CRM record.", "paddle": "Paddle merchant-of-record catalog, checkout, and tax handling.", "paypal": "PayPal REST checkout, OAuth tokens, and PayPal disputes.", "saas": "SaaS packaging and go-to-market when payments are only the monetization layer.", "stripe-api-integration": "Stripe API objects, Checkout Sessions, Connect, and webhook signature debugging.", "subscriptions": "Offer tiers, trials, and packaging when the ask is product design not PSP state.", "webhook": "Generic webhook receivers, signatures, retries, and idempotency beyond payment providers."}'
 ---
 
 # Payments

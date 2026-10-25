@@ -6,7 +6,6 @@ description: Create, calculate, generate, send, and track professional invoices 
 metadata:
   version: 1.0.0
   openclaw: '{"emoji":"🧾","requires":{"bins":[]},"os":["linux","darwin","win32"],"configPaths":["<state_root>/billing/"],"displayName":"Invoice"}'
-  related-skills: '{"billing": "Product or subscription billing systems when the work is software billing rather than a single client invoice.", "clients": "Client CRM records and follow-up when invoice work needs durable client context beyond billing state.", "email-management": "Outbound send and mailbox workflows after the PDF is finalized.", "expenses": "Day-to-day spend logs that are not client-facing invoices.", "invoices": "Filing and auditing invoices the user received from suppliers, the opposite document direction.", "money": "Cashflow and payment-status views once invoices are sent.", "pdf-generator": "Generic PDF rendering helpers when the invoice HTML template needs a shared converter."}'
 ---
 
 ## When to load

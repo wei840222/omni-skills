@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📡"}'
-  related-skills: '{"alerts": "Severity ladders, PagerDuty/Slack routing, silences, and fatigue controls for actionable pages.", "dashboard": "Local static HTML KPI boards instead of managed Grafana or infra monitors.", "devops": "CI/CD, release strategy, and on-call system design surrounding the monitoring stack.", "grafana": "Dashboard panels, variables, provisioning, and Grafana-native alerting craft.", "metrics": "Product/KPI metric contracts and formulas, not Prometheus scrape series.", "observability": "OTel collectors, PromQL histograms, SLOs, and cardinality once the coverage ladder is chosen.", "sysadmin": "Linux host journals, services, and capacity signals that feed exporters."}'
 ---
 
 # Monitoring

@@ -4,7 +4,6 @@ description: "Formulate corporate strategy, assess competitors, prioritize growt
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🎯"}'
-  related-skills: '{"business": "Provides business-fundamentals context for strategic decisions.", "ceo": "Connects corporate strategy to executive leadership decisions.", "cfo": "Evaluates financial implications and capital-allocation trade-offs.", "coo": "Translates approved strategy into operational execution."}'
 ---
 
 ## When to Use

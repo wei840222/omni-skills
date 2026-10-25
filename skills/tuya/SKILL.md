@@ -9,7 +9,6 @@ license: MIT
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔌","requires":{"bins":["curl","jq","openssl"],"env":["TUYA_ACCESS_ID","TUYA_ACCESS_SECRET"]},"displayName":"Tuya Smart"}'
-  related-skills: '{"api": "Generic HTTP API request craft when Tuya signing is not the focus.", "iot": "Broader IoT patterns outside Tuya-specific cloud control.", "mqtt": "Local/broker messaging paths adjacent to cloud control.", "smart-home": "Home automation context that may include non-Tuya devices.", "zigbee": "Local radio fabrics that may coexist with Tuya cloud devices."}'
 ---
 
 ## State location

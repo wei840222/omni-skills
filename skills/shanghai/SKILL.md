@@ -4,7 +4,6 @@ description: "Plan a Shanghai trip, relocation, study stay, remote base, or busi
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌆"}'
-  related-skills: '{"booking": "Handle hotel, transport, and activity reservations after the Shanghai plan is chosen.", "chinese": "Support daily Mandarin tasks and local communication.", "expat": "Plan the broader move and settling around a Shanghai base.", "travel": "Build a multi-city route when Shanghai is only one stop."}'
 ---
 
 ## State location

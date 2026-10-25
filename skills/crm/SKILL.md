@@ -4,7 +4,6 @@ description: "Run a CRM for contacts, companies, deals, pipeline stages, follow-
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🤝"}'
-  related-skills: '{"clients": "delivering work after the deal closes", "negotiate": "moving Negotiation to Closed-won", "outreach": "sequences and campaigns that feed the pipeline", "people": "personal address book without a sales pipeline", "sqlite": "query/migration mechanics for a self-built CRM"}'
 ---
 
 ## State location

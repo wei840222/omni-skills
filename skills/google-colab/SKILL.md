@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📓","requires":{"bins":["curl","jq"]}}'
-  related-skills: '{"api": "Design resilient API contracts for notebook data and model integrations.", "automate": "Convert proven notebook steps into reliable automation after Colab reproducibility is locked.", "gcp": "Plan GCS, IAM, and Google Cloud service boundaries used by Colab workloads.", "numpy": "Improve numerical computation patterns inside Colab cells.", "pandas": "Build tabular transforms and schema validation used before Colab training runs."}'
 ---
 
 ## State location

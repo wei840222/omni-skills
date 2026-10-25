@@ -12,6 +12,8 @@ The project is progressively refactoring the library toward the [Agent Skills sp
 
 Check each skill's runtime and tool requirements before use; compatibility and validation coverage vary across the library.
 
+Skill identities and directed relationships are maintained in [`ontology/graph.jsonl`](ontology/graph.jsonl), using [`ontology/schema.yaml`](ontology/schema.yaml). The graph is the canonical relationship source; skill frontmatter does not duplicate it. Each edge includes a reason and represents a reference assertion, not an automatic loading requirement.
+
 ## Contributing
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md) for package conventions and [`.agents/AGENTS.md`](.agents/AGENTS.md) for agent execution rules. The workflows below define the detailed quality checks.

@@ -3,7 +3,6 @@ name: webflow
 description: "Design, build, and optimize responsive websites on Webflow. Use when structuring CMS collections, implementing responsive CSS grid/flexbox layouts, configuring client-side interactions, or auditing site performance."
 metadata:
   openclaw: '{"emoji": "🌐", "os": ["linux", "darwin", "win32"]}'
-  related-skills: '{"design": "Broader design systems and visual direction when the work is not Webflow-bound.", "landing-page": "Conversion-focused landing structure and offer messaging that Webflow then implements.", "ui": "General interface composition and visual hierarchy outside Webflow-specific controls.", "website": "Multi-page site IA and content structure beyond a single Webflow build."}'
 ---
 ## When to load
 

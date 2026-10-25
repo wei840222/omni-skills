@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"👁️","requires":{"anyBins":["cqlsh","nodetool"]}}'
-  related-skills: '{"backups": "Retention, immutability, and restore drills beyond Cassandra snapshots and incremental backups.", "db": "Cross-engine relational ops traps when the workload is not Cassandra-specific.", "dynamodb": "AWS DynamoDB single-table design and capacity modes instead of Cassandra CQL.", "mongodb": "Document-store modeling outside Cassandra wide-column tables.", "observability": "Metrics, logs, and traces for latency, tombstones, and repair progress.", "sql": "Dialect-agnostic SQL and EXPLAIN craft when the engine is relational, not CQL."}'
 ---
 
 # Cassandra

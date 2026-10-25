@@ -3,7 +3,6 @@ name: find
 description: "Use when needing to locate specific information, entities, or sources when the exact location is unknown. It executes a progressive search, validates findings, and iterates until the target is found or all paths are exhausted."
 metadata:
   openclaw: '{"emoji":"🔎","displayName":"Find"}'
-  related-skills: '{"cycle": "For multi-phase workflows", "loop": "For iterating until success criteria are met"}'
 ---
 
 ## Pattern

@@ -4,7 +4,6 @@ description: "Edit and enhance existing images with AI tools for inpainting, out
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"✂️","os":["linux","darwin","win32"],"displayName":"Image Editing"}'
-  related-skills: '{"image-generation": "Use when creating new images from prompts rather than editing an existing image.", "photography": "Use for camera technique, composition, and capture guidance outside post-edit workflows.", "screenshot": "Use for capture and annotation of screen images before deeper edit pipelines.", "video-edit": "Use when the asset is video rather than a still image."}'
 ---
 # AI Image Editing
 

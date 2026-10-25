@@ -9,7 +9,6 @@ description: Manage App Store Connect and Google Play Console publishing, review
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📱"}'
-  related-skills: '{"app-store-connect": "API workflows for JWT auth, builds, TestFlight, metadata, and App Review submission.", "play-store": "Android Play Console listing, ASO, policy, and release-track details."}'
 ---
 
 ## When to load

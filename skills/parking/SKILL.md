@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🅿️","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"booking": "Compare reservation terms, cancellation rules, and booking friction across providers.", "car-rental": "Add pickup, return, and vehicle-access context when parking sits inside a driving trip.", "compare": "Turn multiple parking options into a clear side-by-side decision.", "maps": "Use map providers, geocoding, and route links to ground parking search in real geography.", "travel": "Fold parking into standing travel docs and long-lived trip boxes.", "travel-planning": "Whole-trip itineraries and budgets beyond a single parking decision."}'
 ---
 
 # Parking

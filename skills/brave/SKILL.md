@@ -3,7 +3,6 @@ name: brave
 description: "Manage Brave Browser profiles and settings. Use when troubleshooting Brave Shields site breakage, resolving extension conflicts, configuring privacy protections, or executing Chromium debugging workflows."
 metadata:
   openclaw: '{"emoji": "🦁", "requires": {"config": ["<state_root>/brave/"]}, "configPaths": ["<state_root>/brave/"]}'
-  related-skills: '{"chrome": "Reuse Chromium debugging patterns when the issue is not Brave-specific.", "macos": "Handle macOS app paths, permissions, and automation details around Brave on Apple systems.", "playwright": "Automate and verify web flows after the Brave launch surface is stable.", "puppeteer": "Drive DevTools and Chromium automation with lower-level script control.", "web": "Fetch or inspect web content after the browser environment is behaving correctly."}'
 ---
 
 ## When to load

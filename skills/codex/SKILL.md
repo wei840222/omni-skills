@@ -3,7 +3,6 @@ name: codex
 description: "Operate Codex coding agents safely across CLI, review mode, MCP servers, and cloud environments. Use when configuring execution sandboxes, sandboxing tool permissions, or conducting automated code reviews."
 metadata:
   openclaw: '{"emoji": "🧭", "requires": {"bins": ["codex"]}}'
-  related-skills: '{"agentic-engineering": "Strengthen the human workflow around parallel coding agents and blast-radius thinking.", "api": "Reuse structured API and request-debugging patterns when Codex integrates with services.", "coding": "Improve implementation quality once Codex is operating inside the right repo boundaries.", "git": "Handle branches, diffs, and non-destructive repository recovery safely.", "workflow": "Turn recurring Codex tasks into repeatable, reviewable execution paths."}'
 ---
 
 ## When to load

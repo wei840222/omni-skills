@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧬","configPaths":["<state_root>/"]}'
-  related-skills: '{"decide": "Choose among options once; self-evolving tests a single lever across comparable runs.", "learning": "Deliberate practice plans; self-evolving promotes proven workflow mutations.", "memory": "Durable facts and diary continuity; self-evolving stores workflow mutation evidence.", "proactivity": "Carry the next step after a promoted pattern exists.", "self-improving": "Log corrections and compound execution lessons; self-evolving owns one-lever experiment promotion."}'
 ---
 
 # Self-Evolving

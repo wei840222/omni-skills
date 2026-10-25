@@ -3,7 +3,6 @@ name: mobile
 description: "Architect and design cross-platform and native mobile applications. Use when structuring offline-first synchronization, mobile app lifecycles, navigation patterns, or optimizing mobile rendering performance."
 metadata:
   openclaw: '{"emoji":"📱","os":["linux","darwin","win32"],"displayName":"Mobile"}'
-  related-skills: '{"android": "Android platform specific guidance", "app-store-connect": "App Store deployment and survival guidelines", "flutter": "Cross-platform development guidance", "iphone": "iOS platform specific guidance"}'
 ---
 
 ## Quick Reference

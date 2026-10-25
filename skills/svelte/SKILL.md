@@ -8,7 +8,6 @@ description: >
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji": "🔥", "requires": {"bins": ["node"], "config": ["<state_root>/svelte/"]}}'
-  related-skills: '{"nodejs": "running and hardening the `adapter-node` server", "playwright": "end-to-end testing of the running app", "tailwindcss": "utility styling inside Svelte components", "typescript": "type-system depth beyond the Svelte-specific typings", "vite": "dev server, plugins, and build configuration under SvelteKit"}'
 ---
 
 User preferences and memory live in `<state_root>/svelte/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/svelte/`, `~/clawic/svelte/`, or `~/Clawic/data/svelte/`), move it to `<state_root>/svelte/`, and say in one line that you moved it and from where.

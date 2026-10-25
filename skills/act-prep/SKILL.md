@@ -4,7 +4,6 @@ description: Prepare for the ACT with study plans, section pacing, score trackin
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📝"}'
-  related-skills: '{"exam": "Generate practice questions, flashcards, or mock exams from supplied study material rather than ACT-specific workflows.", "habits": "Routine design once an ACT study habit is chosen.", "parenting": "Broader parenting coaching when the request is not ACT prep.", "sat": "Digital SAT structure, scoring, and admissions prep instead of ACT.", "school": "Curriculum or classroom systems beyond parent-side ACT planning.", "study": "Semester coursework schedules and student systems beyond ACT-focused prep.", "tutor": "General multi-subject tutoring workflows outside ACT section strategy."}'
 ---
 
 ## When to load

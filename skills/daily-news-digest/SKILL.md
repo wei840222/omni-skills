@@ -4,7 +4,6 @@ description: "Fetch and compile personalized news briefings from specified sourc
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📰"}'
-  related-skills: '{"digest": "general content digests", "news": "personalized news with learning", "podcast": "audio content discovery", "schedule": "calendar and scheduling", "summarizer": "article summarization"}'
 ---
 
 ## When to load

@@ -4,7 +4,6 @@ description: Execute Apple App Store Connect API workflows for app management, T
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🍎","requires":{"env":["ASC_ISSUER_ID","ASC_KEY_ID","ASC_PRIVATE_KEY_PATH"]}}'
-  related-skills: '{"ios": "iOS development patterns", "mobile-app-analytics": "Mobile metrics including App Store Connect analytics", "swift": "Swift language reference", "xcode": "Xcode IDE workflows"}'
 ---
 
 ## When to Use

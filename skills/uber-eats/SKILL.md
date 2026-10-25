@@ -5,7 +5,6 @@ compatibility: Requires an approved browser or app session for live Uber Eats ac
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🍔","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"applescript": "Builds macOS browser-control snippets when an approved Uber Eats workflow needs Apple Events.", "food-delivery": "Provides delivery advice when the user is not committed to Uber Eats.", "maps": "Checks delivery geography and route realism for the selected address.", "safari": "Controls an approved Safari session when Uber Eats is open there.", "shopping": "Compares fees, promotions, and checkout value before purchase."}'
 ---
 
 ## State location
