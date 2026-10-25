@@ -9,15 +9,14 @@ import { createHarnessRetrievalAdapter } from "./harness_retrieval_adapter.mjs";
 import { createHostDecisionAdapter } from "./host_decision_adapter.mjs";
 import { createControlledFetch } from "./controlled_model_fetch.mjs";
 import { validateEmbeddings } from "./embed_public_gaps.mjs";
+import { readJsonStdin } from "./json_stdin.mjs";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const sha = (value) => createHash("sha256").update(value).digest("hex");
 
 async function main() {
   const nativeFetch = globalThis.fetch;
-  let stdin = "";
-  for await (const part of process.stdin) stdin += part;
-  const settings = JSON.parse(stdin);
+  const settings = await readJsonStdin();
   const runDir = path.resolve(settings.runDir);
   const relative = path.relative(path.join(root, "experiments/datasets"), runDir);
   if (!relative || relative.startsWith("..") || path.isAbsolute(relative)) throw new Error("Invalid run directory");

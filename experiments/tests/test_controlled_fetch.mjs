@@ -43,6 +43,44 @@ test("unapproved endpoint/model/long context never reaches transport", async (t)
   assert.equal(calls, 0);
 });
 
+test("cached billed tokens must match validated response usage before observation", async (t) => {
+  let calls = 0;
+  const { dir, fetch } = await fixture(t, async () => {
+    calls++; return Response.json({ model: "jev-1.14.0", usage: { input_tokens: 1000, total_tokens: 1007 }, answers: {} });
+  });
+  await fetch(rule.url, request);
+  const cachePath = path.join(dir, "model-cache", `${fetch.stats.observations[0].key}.json`);
+  const cached = JSON.parse(await readFile(cachePath, "utf8"));
+  cached.billedTokens = 1;
+  await writeFile(cachePath, JSON.stringify(cached));
+  await assert.rejects(fetch(rule.url, request), /cache usage/);
+  assert.equal(calls, 1);
+  assert.equal(fetch.stats.cacheHits, 0);
+  assert.equal(fetch.stats.observations.length, 1);
+  cached.billedTokens = 1000;
+  delete cached.payload.usage;
+  await writeFile(cachePath, JSON.stringify(cached));
+  await assert.rejects(fetch(rule.url, request), /cache usage/);
+  assert.equal(calls, 1);
+});
+
+test("legacy cache derives billed input from payload without inventing service time", async (t) => {
+  let calls = 0;
+  const { dir, fetch } = await fixture(t, async () => {
+    calls++; return Response.json({ model: "jev-1.14.0", usage: { input_tokens: 1000 }, answers: {} });
+  });
+  await fetch(rule.url, request);
+  const cachePath = path.join(dir, "model-cache", `${fetch.stats.observations[0].key}.json`);
+  const cached = JSON.parse(await readFile(cachePath, "utf8"));
+  delete cached.billedTokens;
+  delete cached.originalServiceMs;
+  await writeFile(cachePath, JSON.stringify(cached));
+  await fetch(rule.url, request);
+  assert.equal(fetch.stats.observations[1].billedTokens, 1000);
+  assert.equal(fetch.stats.observations[1].originalServiceMs, null);
+  assert.equal(calls, 1);
+});
+
 test("two unknown failures trip ledger before a third physical attempt", async (t) => {
   let calls = 0;
   const { fetch } = await fixture(t, async () => { calls++; throw new Error("synthetic"); });
@@ -108,4 +146,19 @@ test("documented expansion output bound reserves tokens without changing product
   } });
   await fetch(expansion.url, { method: "POST", body: original });
   assert.equal(calls, 1);
+});
+
+test("cached selectors retain the original service observation rather than cache read time", async (t) => {
+  const { fetch } = await fixture(t, async () => {
+    await new Promise((resolve) => setTimeout(resolve, 5));
+    return Response.json({ model: "jev-1.14.0", answers: {}, usage: { input_tokens: 12 } });
+  });
+  const first = await fetch(rule.url, request);
+  const second = await fetch(rule.url, request);
+  assert.equal(first.headers.get("x-omni-observation-source"), "remote");
+  assert.equal(second.headers.get("x-omni-observation-source"), "cache");
+  assert.ok(Number(first.headers.get("x-omni-original-service-ms")) > 0);
+  assert.equal(first.headers.get("x-omni-original-service-ms"), second.headers.get("x-omni-original-service-ms"));
+  assert.equal(fetch.stats.observations.length, 2);
+  assert.equal(fetch.stats.observations[1].billedTokens, 12);
 });

@@ -15,7 +15,15 @@ export function createControlledFetch({ runDir, endpoints, nativeFetch, python, 
   if (endpoints.some((rule) => !rule.resolvedModel || typeof rule.validate !== "function")) {
     throw new Error("Every endpoint requires a frozen resolved model and consumer response validator");
   }
-  const stats = { physicalAttempts: 0, cacheHits: 0 };
+  const stats = { physicalAttempts: 0, cacheHits: 0, observations: [] };
+  const billedUsage = (payload, provider) => provider === "jev" ? payload.usage?.input_tokens
+    : payload.usage?.total_tokens ?? ((payload.usage?.prompt_tokens ?? NaN) + (payload.usage?.completion_tokens ?? 0));
+  const observedResponse = (payload, observation) => {
+    stats.observations.push(observation);
+    const headers = { "content-type": "application/json", "x-omni-observation-source": observation.source };
+    if (Number.isFinite(observation.originalServiceMs)) headers["x-omni-original-service-ms"] = String(observation.originalServiceMs);
+    return new Response(JSON.stringify(payload), { status: 200, headers });
+  };
   const command = (ledger, limits, args) => {
     const result = spawnSync(python, [path.join(scriptRoot, "model_budget.py"),
       "--ledger", path.join(runDir, ledger), "--limits", path.join(runDir, limits), ...args],
@@ -52,8 +60,13 @@ export function createControlledFetch({ runDir, endpoints, nativeFetch, python, 
       const cached = JSON.parse(await readFile(cachePath, "utf8"));
       if (cached.key !== key || cached.model !== rule.model || cached.payload.model !== rule.resolvedModel) throw new Error("Corrupt model cache identity");
       await rule.validate(cached.payload, body);
+      const billed = billedUsage(cached.payload, rule.provider);
+      if (!Number.isSafeInteger(billed) || billed < 0 || (cached.billedTokens !== undefined && cached.billedTokens !== billed)) {
+        throw new Error("Corrupt model cache usage; no automatic refetch");
+      }
       stats.cacheHits++;
-      return new Response(JSON.stringify(cached.payload), { status: 200, headers: { "content-type": "application/json" } });
+      return observedResponse(cached.payload, { key, provider: rule.provider, source: "cache",
+        originalServiceMs: cached.originalServiceMs ?? null, billedTokens: billed });
     } catch (error) {
       if (error.code !== "ENOENT") throw error;
     }
@@ -85,10 +98,11 @@ export function createControlledFetch({ runDir, endpoints, nativeFetch, python, 
       settle(undefined, "invalid-response");
       throw new Error("Model returned invalid JSON");
     }
-    const usage = payload.usage;
-    const billed = rule.provider === "jev" ? usage?.input_tokens
-      : usage?.total_tokens ?? ((usage?.prompt_tokens ?? NaN) + (usage?.completion_tokens ?? 0));
-    if (!Number.isInteger(billed) || billed < 0) {
+    // Network plus response-body/JSON time, excluding ledger settlement and
+    // cache I/O. Replaying a response must retain this original observation.
+    const originalServiceMs = performance.now() - started;
+    const billed = billedUsage(payload, rule.provider);
+    if (!Number.isSafeInteger(billed) || billed < 0) {
       settle(undefined, "usage-unavailable");
       throw new Error("Model usage is unavailable; reservation retained and result not cached");
     }
@@ -102,12 +116,12 @@ export function createControlledFetch({ runDir, endpoints, nativeFetch, python, 
     }
     settle(billed, "completed");
     await mkdir(path.dirname(cachePath), { recursive: true });
-    await writeFile(cachePath, JSON.stringify({ key, model: rule.model, payload }), { flag: "wx" });
+    await writeFile(cachePath, JSON.stringify({ key, model: rule.model, payload, originalServiceMs, billedTokens: billed }), { flag: "wx" });
     await appendFile(path.join(runDir, "model-requests.jsonl"), JSON.stringify({
       provider: rule.provider, requestedModel: rule.model, observedModel: payload.model ?? null,
-      key, billedTokens: billed, durationMs: performance.now() - started,
+      key, billedTokens: billed, originalServiceMs, durationMs: performance.now() - started,
     }) + "\n");
-    return new Response(JSON.stringify(payload), { status: 200, headers: { "content-type": "application/json" } });
+    return observedResponse(payload, { key, provider: rule.provider, source: "remote", originalServiceMs, billedTokens: billed });
   };
   transport.stats = stats;
   return transport;

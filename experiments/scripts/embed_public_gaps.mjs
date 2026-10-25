@@ -6,6 +6,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createControlledFetch } from "./controlled_model_fetch.mjs";
+import { readJsonStdin } from "./json_stdin.mjs";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const hash = (value) => createHash("sha256").update(value).digest("hex");
@@ -21,9 +22,7 @@ export function validateEmbeddings(payload, body) {
 }
 
 async function main() {
-  let stdin = "";
-  for await (const chunk of process.stdin) stdin += chunk;
-  const config = JSON.parse(stdin);
+  const config = await readJsonStdin();
   const runDir = path.resolve(config.runDir);
   const relative = path.relative(path.join(root, "experiments/datasets"), runDir);
   if (!relative || relative.startsWith("..") || path.isAbsolute(relative)) throw new Error("Run path is outside the experiment root");
