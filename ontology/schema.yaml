@@ -1,0 +1,34 @@
+# Skill catalog profile for the ontology JSONL operation log.
+# Property types/enums and the domain invariants below require caller validation;
+# the ontology CLI enforces only a subset of this schema.
+# Invariants of the replayed graph: distinct Skill IDs, no self edges, at most
+# one edge per ordered (from, to) pair. Reverse edges and cycles are permitted.
+version: 1
+catalog: omni-skills
+source:
+  skills: skills/*/SKILL.md
+  relation_field: metadata.related-skills
+
+types:
+  Skill:
+    required: [name, source_path]
+    properties:
+      name: string
+      source_path: string
+
+relations:
+  related: &skill_relation
+    from_types: [Skill]
+    to_types: [Skill]
+    cardinality: many_to_many
+    acyclic: false
+    required: [reason, classification_status, verification_status]
+    properties:
+      reason: string
+      classification_status: enum(not_classified, classified, ambiguous, failed, stale)
+      verification_status: enum(unverified)
+  depends_on: *skill_relation
+  composes_with: *skill_relation
+  similar_to: *skill_relation
+  conflicts_with: *skill_relation
+  specializes: *skill_relation
