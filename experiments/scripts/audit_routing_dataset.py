@@ -195,7 +195,8 @@ def audit_dataset(root: Path, dataset_dir: Path):
             "query_ids": [item["query_id"] for item in avalanche_cases],
             "skill_path": "skills/avalanche/SKILL.md", "test_path": "skills/avalanche/test-prompts.json",
             "skill_sha256": file_hash(skills["avalanche"]) if "avalanche" in skills else None,
-            "finding": "The skill covers Avalanche blockchain operations; its authored cases concern snow avalanches, skiing and rescue.",
+            "finding": ("The skill covers Avalanche blockchain operations; its authored cases concern snow avalanches, skiing and rescue."
+                        if confirmed else "Previously identified snow/blockchain mismatch; the current source requires manual semantic revalidation before treating the issue as still present or resolved."),
             "action": "Manual semantic adjudication required; labels and baseline data remain unchanged.",
         })
 

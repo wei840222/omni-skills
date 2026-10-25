@@ -134,6 +134,13 @@ class DatasetAuditTests(unittest.TestCase):
         self.assertEqual(issue["status"], "previously_confirmed_still_present")
         self.assertEqual(issue["query_ids"], ["avalanche_1"])
         self.assertEqual(json.loads((self.dataset / "benchmark_queries.json").read_text()), self.queries)
+        self.records[0]["prompt"] = "Explain Avalanche C-Chain roles offline."
+        self.save_sources()
+        changed = self.audit()["manual_semantic_issues"][0]
+        self.assertEqual(changed["status"], "requires_revalidation")
+        self.assertIn("Previously identified", changed["finding"])
+        self.assertIn("current source requires", changed["finding"])
+        self.assertEqual(json.loads((self.dataset / "benchmark_queries.json").read_text()), self.queries)
 
     def test_writer_refuses_to_overwrite_an_existing_audit(self):
         output = self.root / "run"

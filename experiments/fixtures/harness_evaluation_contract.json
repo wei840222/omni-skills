@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "rubric_version": "harness-public-pilot-v1.1",
+  "annotation_origin": "primary AI source-based annotation; not human gold and not AGY adjudication",
+  "status": "primary source/annotation freeze before variant observations; pending parent source review and independent blind adjudication",
+  "source_head": "3ba7dbe23e84d3646ded825a6890f485597d4bc9",
+  "blinding": {
+    "primary_author": "Public skill sources only; no retrieval, ranking, selection or variant outputs read.",
+    "independent_reviewer": "AGY receives cases and the global public catalog, without primary annotations or variant outputs. No model CLI is invoked by this task.",
+    "model_input": "Only latest and optional conversation; ids, family, split, type, labels, rationale and source references are never model evidence."
+  },
+  "sampling": {
+    "cases": 180,
+    "intent_families": 36,
+    "variants_per_family": 5,
+    "effective_independent_units": 36,
+    "type_counts": {
+      "single": 60,
+      "alternatives": 40,
+      "multi": 30,
+      "no-skill": 30,
+      "followup": 20
+    },
+    "splits": {
+      "development": 120,
+      "holdout": 60
+    },
+    "split_rule": "Families and every primary-acceptable skill identity are disjoint across splits. M0-exposed typescript/nginx/sqlite/markdown/git cannot be holdout labels.",
+    "variant_rule": "Five related but materially different task contexts or failure modes per family; not five independent samples.",
+    "holdout_policy": "Open once at M4 after annotations, variants, thresholds and analysis are frozen. Never tune after holdout observations.",
+    "split_family_counts": {
+      "development": 24,
+      "holdout": 12
+    }
+  },
+  "scoring": {
+    "primary": "Mean over intent families of the mean resolved-case best-acceptable-set F1 within that family, retaining operational failures as zero-score cases. Families with no resolved annotations are excluded and counted explicitly.",
+    "secondary": "Family-macro exact acceptable-set hit, precision and recall, plus descriptive case-weighted means (not pooled micro-F1).",
+    "acceptable_sets": "Each inner set is a complete acceptable loading decision. Alternatives are not unioned; choose the target yielding highest F1, then exact hit, precision, recall and lexicographic identity order for deterministic ties.",
+    "empty_rules": "For completed decisions or validated empty-pool skips only: empty prediction and empty target gives precision=recall=F1=exact=1; exactly one empty gives all four zero. Unavailable/timeout/error always gives precision=recall=F1=exact=0, even for an empty target.",
+    "uncertain": "Exclude uncertain primary annotations from main scores. Report resolved/total cases and families, uncertain ids, case-level and family-macro exact-success bounds with uncertain operationally successful decisions pessimistically 0 or optimistically 1. Any operational failure has both bounds zero, regardless of annotation uncertainty. Bounds describe annotation uncertainty, not statistical confidence intervals.",
+    "candidate_any_relevant": "For resolved cases with nonempty acceptable sets, 1 if candidates intersect the union of acceptable identities; family-macro aggregate.",
+    "candidate_complete_set": "For resolved cases with nonempty acceptable sets, 1 if candidates contain at least one entire acceptable set; family-macro aggregate. Empty-target cases are excluded to avoid vacuous inflation.",
+    "no_skill_false_positive": "On resolved no-skill cases, any selected identity is a false positive. Report count, rate and case ids. Adoption disallows any newly false-positive case, even if aggregate counts tie.",
+    "missing_predictions": "Reject missing or duplicate case outputs. Real-run evaluate() requires explicit {status, skills} records by default. Permitted statuses: completed, skipped-empty-pool, unavailable, timeout, error. An empty-pool skip additionally requires skills=[] and candidate_count=0, consistent with supplied candidates. Only unit fixtures may set require_status=False to treat legacy lists as completed; their reliability summaries are ineligible for adoption.",
+    "identity": "Exact public catalog names; deduplicate predictions and targets as sets. No alias normalization or label-dependent expansion.",
+    "reliability": "Report every status count, failure count/ids, successful fraction, annotation coverage and successful-resolved-case count. Unavailable/timeout/error stay in resolved quality denominators at score zero. On no-skill cases report correct-empty and operational-failure counts separately from false positives; fail-open emptiness is never a correct negative."
+  },
+  "inference": {
+    "method": "Paired bootstrap of intent-family mean F1 differences, resampling matched families with replacement. Never bootstrap individual correlated paraphrases independently.",
+    "confidence": 0.95,
+    "replicates": 10000,
+    "seed": 20261025,
+    "interval": "Two-sided percentile interval with linear quantile interpolation; same resolved families for both variants.",
+    "multiple_variants": "Development variants are exploratory; choose one frozen challenger before the single holdout comparison. Do not claim independent confirmation from selecting the best development variant."
+  },
+  "adoption": {
+    "minimum_family_macro_f1_improvement": 0.03,
+    "paired_interval_lower_must_exceed": 0,
+    "new_no_skill_false_positive_cases_allowed": 0,
+    "maximum_latency_p95_ratio": 1.25,
+    "maximum_cost_p95_ratio": 1.25,
+    "budget": "Existing predeclared persisted global and probe budgets remain mandatory; no silent reset or cap increase.",
+    "hard_timeout_ms": 8000,
+    "failure_rule": "Keep baseline unless every adoption condition passes, including complete reliable paired evidence, budget and hard-timeout checks. No heuristic fallback, alternate model, or post-results threshold adjustment.",
+    "p95_definition": "Linear interpolation at index 0.95*(n-1) of sorted eligible observations. The latency gate uses original successful Jev selector service observations; the cost gate uses verified per-case Jev selector input-token equivalent costs at one shared declared unit price. Cache-read milliseconds and zero incremental cache spend are not substitutes for those observations. Missing verified original observations make adoption evidence insufficient.",
+    "reliability": "Require explicit status records, complete matched case-id sets, zero baseline failures and zero candidate unavailable/timeout/error outcomes. Incomplete, implicit-status or failed runs are evidence-insufficient: keep baseline regardless of numerical quality gains. Pass the reliability summaries produced by evaluate() to adoption_decision()."
+  },
+  "limitations": [
+    "Skill-authored public catalog and AI-authored cases are a controlled routing pilot, not real-user traffic or independent human gold.",
+    "Task labels establish materially helpful skill scopes, not production tool availability or permissions.",
+    "Selection tests with controlled candidate/experience/relation fixtures do not prove faithful live QMD retrieval or production experience/graph behavior."
+  ],
+  "freeze": {
+    "frozen_at_utc": "2026-10-25T09:59:57.159461+00:00",
+    "stage": "primary-ai-only; not independently adjudicated",
+    "source_head": "3ba7dbe23e84d3646ded825a6890f485597d4bc9",
+    "skills_dirty_at_freeze": false,
+    "rubric_sha256": "e39da625fa5f597c36f4e1c3a5b2d5f0b43b6a2d1259f351ce4121384bf741d9",
+    "rubric_hash_fields": [
+      "rubric_version",
+      "sampling",
+      "scoring",
+      "inference",
+      "adoption",
+      "annotation_rubric",
+      "measurement"
+    ],
+    "public_catalog_skill_count": 963,
+    "public_catalog_sha256": "ad9418f31ed9396beaf6a7edf59232ac71b4c69fbb29b65edc29a2c9fb22854a",
+    "public_corpus_file_count": 9908,
+    "public_corpus_sha256": "4d1155d5893fd17e7f730829114ecd91e4fa55d14ca1547fc89ef5f854a53e60",
+    "artifacts": [
+      {
+        "path": "experiments/fixtures/harness_pilot_cases.json",
+        "sha256": "6de50bb8e4fa60f09193e9cfa717789bdc65b407c151df1d29a229bfbbb0bc3c"
+      },
+      {
+        "path": "experiments/fixtures/harness_primary_annotations.json",
+        "sha256": "0edf471e636a3d2ee3526268ceed7aa7b0741c27576c052732838068effa5031"
+      },
+      {
+        "path": "experiments/scripts/harness_metrics.py",
+        "sha256": "02b2d1108331f8988ed022c0bbf9e00916072a7e1cdc1a1fbd41c697d9e720c4"
+      },
+      {
+        "path": "experiments/tests/test_harness_metrics.py",
+        "sha256": "5ee6c43874a44c212da3857cdc302547618fd9378d36b426fd5230d1594e8509"
+      }
+    ],
+    "budget_contracts": [
+      {
+        "path": "experiments/datasets/harness-quality-20261025/budget-limits.json",
+        "sha256": "3b8968f41b2d646c68382327933ceb9c14f3f0446ca3942afedda7641406b91e"
+      },
+      {
+        "path": "experiments/datasets/harness-quality-20261025/probe-budget-limits.json",
+        "sha256": "d13ce75dcec30ed878a12d8071c588c7efb2b12d7d58e01e4c70267c20f74b26"
+      }
+    ],
+    "self_hash_rule": "This file cannot contain its own SHA256; compute the full contract hash externally. rubric_sha256 covers the named immutable rubric fields without freeze metadata."
+  },
+  "annotation_rubric": {
+    "positive": "A selected identity must provide material task-specific guidance. Prefer complete minimal sufficient loading sets; do not label every broadly related skill or add prerequisites automatically.",
+    "single": "One clearly dominant specialist scope, with one singleton acceptable set.",
+    "alternatives": "Two or more distinct complete acceptable sets, any one sufficient; selecting their union incurs extra-skill penalties.",
+    "multi": "Two or more distinct materially required scopes in every acceptable set; include two concrete work components rather than assuming graph prerequisites.",
+    "no-skill": "A direct literal, acknowledgement or clarification-only response requires no materially useful specialist workflow. Ambiguous workflow-activation negatives are uncertain.",
+    "followup": "History establishes a specialist scope that a short ambiguous latest message alone does not recover.",
+    "uncertainty": "Mark unresolved catalog-scope ambiguity explicitly; independent blind annotations may revise labels before any variant evaluation, with version/hash update.",
+    "source_rule": "Scope claims cite current public SKILL.md description/body and selected references, with path, line bounds and SHA256. Public catalog presence does not establish live tools or credentials."
+  },
+  "review_change_policy": "Any adjudication or source change before evaluation requires a version/hash refresh. After variant observations, do not edit this corpus or rubric to favor a result; start a separately declared evaluation instead.",
+  "pre_variant_revisions": [
+    {
+      "stage": "before AGY and before any variant performance observations",
+      "change": "Replace f30/p146-p150 and f31/p151-p155 with literal supplied-token/marked-entry negatives containing split-appropriate public skill names. No other case query or label/split/type changed.",
+      "performance_observations_used": false
+    },
+    {
+      "stage": "before AGY and before any variant performance observations",
+      "change": "Add terminal-status reliability guard so fail-open empty selections cannot score as correct no-skill decisions; require complete matched explicit-status evidence and zero failures for adoption. All prior numerical thresholds remain unchanged.",
+      "performance_observations_used": false
+    },
+    {
+      "stage": "before AGY and before any variant performance observations",
+      "change": "Clarify original-selector-service latency on cache reuse, selector-only same-price Jev input-token cost gate, and separate query/reconstructed-pipeline/actual-new-spend reporting. Keep 1.25 ratios and every other numerical gate unchanged.",
+      "performance_observations_used": false
+    }
+  ],
+  "measurement": {
+    "selector_latency_gate": "Use original_service_ms recorded for the validated successful selector request. Cache reuse carries forward that original observation; report cache-read/wall latency separately and never call it model service speed. Record eligible service-observation counts. A valid empty-pool skip has no service observation, is counted separately, and must not receive fabricated service milliseconds. An empty service-observation cohort has unavailable p95 and cannot support adoption.",
+    "query_stage": "Report the shared frozen-query stage observations independently, with provenance and sample counts. Reusing these observations across variants is not a new end-to-end measurement.",
+    "selector_stage": "Separately report original selector service time, observed local cache/read time, physical attempt counts and validated empty-pool skips. Preserve original timing and usage provenance when cached responses are reused.",
+    "reconstructed_pipeline": "For each case, report frozen shared-query observation plus original selector service observation (zero selector work only for a validated no-dispatch skip). Label the sum reconstructed shared-query-plus-selector time, not observed cold end-to-end gateway latency. Do not manufacture a sum when a required observation is absent.",
+    "selector_cost_gate": "Compute each case Jev selector input_tokens times the same predeclared USD-per-million input-token rate for both variants; retain original verified usage on cache reuse. A validated no-dispatch skip has zero selector input tokens. Report this equivalent selector cost separately from actual incremental spending. Unknown/unverifiable usage is not zero and is insufficient for the cost gate.",
+    "shared_query_cost": "List the fixed/shared query cost separately because the query observation is frozen and is not the selector intervention. Do not add it to the selector-only cost gate numerator or denominator.",
+    "actual_new_spend": "Report physical new-request spending for the whole run separately, by provider and purpose; retain conservative reservations for unknown usage in the persisted budget. Global and probe budget gates still cover all actual attempts.",
+    "other_costs": "Report other providers, AGY annotation calls and the 12-task main conversational model separately with their own verified rates or explicit unknowns. Do not combine them into Jev selector cost or invent prices/usage.",
+    "no_measurement_claim": "This contract declares methods only. No variant timings, cost observations or quality results were used to choose these definitions."
+  }
+}
