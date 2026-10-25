@@ -6,8 +6,6 @@ description: Provide bass guitar practice strategies, groove development, techni
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "🎸"}'
-  related-skills:
-    '{"music": "Musical notation, music theory, and rhythm training."}'
 ---
 
 ## When to load references

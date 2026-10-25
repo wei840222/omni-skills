@@ -39,8 +39,9 @@ Every package needs:
 Allowed top-level frontmatter fields follow the specification:
 `name`, `description`, `license`, `compatibility`, `metadata`, `allowed-tools`.
 Project convention: keep `version` only as `metadata.version` (string); store
-OpenClaw fields in a `metadata.openclaw` JSON string; store relationships in a
-`metadata.related-skills` JSON string.
+OpenClaw fields in a `metadata.openclaw` JSON string. In omni-skills, maintain
+directed relationships and their reasons in `ontology/graph.jsonl` using
+`ontology/schema.yaml`, rather than duplicating them in skill frontmatter.
 
 Specification: https://agentskills.io/specification
 Document index: https://agentskills.io/llms.txt

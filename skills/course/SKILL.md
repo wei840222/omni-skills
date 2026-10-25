@@ -4,8 +4,6 @@ description: Design, launch, and manage online courses. Use when a user wants to
 metadata:
   version: 1.0.1
   openclaw: '{"emoji": "📚"}'
-  related-skills: '{"school": "For taking courses as a student in a school context.",
-    "university": "For taking courses as a student in a university context."}'
 ---
 
 ## State location

@@ -4,7 +4,6 @@ description: "Track user fluid intake from conversational mentions, applying cli
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "💧", "requires": {"config": ["<state_root>/water/"]}}'
-  related-skills: '{"calories": "meal and drink logging when the user tracks food, not just fluids", "fasting": "eating-window rules and electrolyte protocol for fasts over 24 h", "gym": "workout logging that feeds the exercise adjustment automatically", "running": "race-day fueling and pacing where fluid plans meet training plans"}'
 ---
 Hydration tracking and advice from conversational mentions. All persistent data lives in `<state_root>/water/` — `log.md` (daily entries), `memory.md` (learned containers, baseline, patterns), `config.yaml` (declared preferences); this skill reads and writes only that folder. Health context stays local under `<state_root>/water/`: this skill reads and writes only that folder and stores no credentials or identifiers. If you have data at an old location (legacy locations), move it to `<state_root>/water/`, and say in one line that you moved it and from where. When loaded, first read `references/setup.md` to establish baseline context.
 

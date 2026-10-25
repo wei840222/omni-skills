@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🖼️","requires":{"bins":["exiftool"]}}'
-  related-skills: '{"backups": "Backup retention and restore drills for irreplaceable photo libraries beyond local trash staging.", "image": "Compress, convert formats, or optimize delivery after library organization.", "image-edit": "Pixel-level edits and non-destructive edit pipelines for a single image.", "nas": "Synology/QNAP/TrueNAS share layout, @eaDir quirks, and remote-access hardening for photo volumes.", "organize": "General file/folder naming conventions outside photo-library workflows.", "photography": "Camera settings, exposure, composition, and capture advice rather than library indexing.", "stock-images": "Placeholder and free stock URLs for mockups instead of personal library search."}'
 ---
 
 # Photos

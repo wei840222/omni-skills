@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇷🇴","displayName":"Romanian"}'
-  related-skills: '{"bucharest": "Navigate Bucharest neighborhoods and logistics rather than language drafting.", "english": "Draft or revise the English source before translating it into Romanian.", "french": "Write French when Romanian is not the target language.", "romania": "Plan Romania travel itineraries instead of composing Romanian text.", "spanish": "Write Spanish when Romanian is not the target language.", "translate": "Move an existing source text into Romanian when translation workflow is the main need.", "writing": "Shape broader prose once the Romanian-language decision is settled."}'
 ---
 
 ## When to load

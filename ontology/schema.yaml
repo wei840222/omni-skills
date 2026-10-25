@@ -10,7 +10,8 @@ identity:
 sources:
   github:wei840222/omni-skills:
     skills: skills/*/SKILL.md
-    relation_field: metadata.related-skills
+
+# Relationships are maintained directly in graph.jsonl, not skill frontmatter.
 
 types:
   Skill:

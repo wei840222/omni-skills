@@ -4,7 +4,6 @@ description: "Provide practical gardening advice. Use when troubleshooting soil 
 metadata:
   openclaw: '{"emoji":"🌱","displayName":"Gardening"}'
   category: lifestyle
-  related-skills: '{"plants": "Focuses on specific plant types"}'
 ---
 
 ## Soil Fundamentals

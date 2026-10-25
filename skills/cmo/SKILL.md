@@ -14,7 +14,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📣"}'
-  related-skills: '{"ads": "paid media craft under the allocation layer", "business": "strategy validation and planning", "ceo": "executive strategy and board management", "content-marketing": "content and SEO systems after the content bet is set", "coo": "operations and scaling execution", "cro": "conversion-rate optimization and landing-page experiments", "email-marketing": "owned-list nurture under the lifecycle plan", "growth-hacker": "acquisition experiments adjacent to channel strategy"}'
 ---
 
 # CMO

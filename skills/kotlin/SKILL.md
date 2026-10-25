@@ -4,7 +4,6 @@ description: "Write, debug, and review Kotlin: coroutines and flows, null safety
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟠","requires":{"bins":["kotlin"]},"os":["linux","darwin","win32"],"displayName":"Kotlin"}'
-  related-skills: '{"android": "Android build system, release configuration, and deployment.", "android-studio": "IDE workflow: debugging, profiling, refactoring.", "java": "The language on the other side of every interop boundary.", "swift": "The Swift side when Kotlin Multiplatform ships an iOS framework."}'
 ---
 
 User preferences and memory live under the resolved `<state_root>/` (see `references/setup.md` on first use, `assets/memory-template.md` for the file format).

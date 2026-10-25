@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💍"}'
-  related-skills: '{"calendar-planner": "Multi-calendar conflict repair and focus protection when wedding logistics land on shared calendars.", "daily-planner": "Day-level time blocking when wedding tasks compete with ordinary work.", "expenses": "Generic spend ledger and split settlements outside wedding budget lanes.", "outfits": "Attire and wardrobe combinations once dress code and fittings are set.", "plan": "Multi-session task plans when the work is not wedding-domain planning."}'
 ---
 
 ## When to use

@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧑🏫","displayName":"Tutor"}'
-  related-skills: '{"homework": "Assignment triage helpers when full tutoring posture is unnecessary.", "learn": "Long-horizon self-taught curricula without a live tutor loop.", "learning": "Live teach-me topic sessions without durable per-learner tutoring state.", "reading": "Choose what/how to read and retention tactics rather than subject tutoring.", "spaced-repetition": "Long-horizon card scheduling once concepts become durable prompts.", "study": "Assessment-tied study blocks instead of multi-session tutor logs.", "studying": "Exam and coursework schedules rather than guided tutoring sessions.", "teacher": "Classroom or instructor workflows rather than 1:1 adaptive tutoring."}'
 ---
 
 ## State location

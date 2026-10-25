@@ -4,7 +4,6 @@ description: "Drive Google Workspace from the terminal with the gws CLI: search,
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"\ud83d\uddc2\ufe0f","requires":{"bins":["gws","jq"],"env":["HOME"]},"install":[{"id":"npm","kind":"npm","package":"@googleworkspace/cli","bins":["gws"],"label":"Install gws CLI (npm)"}]}'
-  related-skills: '{"apple-calendar-macos": "Local macOS Calendar events with no Google API or OAuth.", "apple-mail-macos": "Local macOS Mail with no Google API or OAuth.", "automate": "Turn a repeated Workspace procedure into a scheduled automation.", "calendar-planner": "Cross-provider planning and weekly reviews, not raw Calendar API calls.", "oauth": "OAuth client, scope, and token hygiene beyond gws auth login."}'
 ---
 
 ## State location

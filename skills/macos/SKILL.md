@@ -4,7 +4,6 @@ description: "Administer macOS systems and configure Darwin-specific tools. Use 
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍎","os":["darwin"]}'
-  related-skills: '{"backups": "Cross-system backup retention and restore policy beyond local macOS copy tools.", "bash": "Shell scripting syntax and safety beyond macOS BSD utility traps.", "linux": "Non-Darwin host triage, systemd, and Linux package/firewall workflows.", "network": "Layer-3 reachability, DNS, routing, and TLS diagnosis beyond macOS interface helpers.", "windows": "Windows host traps and Credential Manager when the target is not Darwin."}'
 ---
 
 # macOS

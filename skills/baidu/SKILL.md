@@ -4,7 +4,6 @@ description: "Route Baidu Search, Baike, Wenku, Maps, AI Cloud, and Qianfan work
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"B"}'
-  related-skills: '{"maps": "Handles deeper geospatial and map-platform workflows after Baidu surface routing.", "market-research": "Frames competitive and ecosystem analysis beyond a single Baidu product.", "monitoring": "Adds thresholds, status rules, and recurring checks to an approved Baidu workflow.", "tencent": "Supports a comparison with another China-focused platform when vendor tradeoffs matter.", "web": "Inspects specific pages after Baidu routing identifies the target surface."}'
 ---
 
 ## State location

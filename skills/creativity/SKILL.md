@@ -4,7 +4,6 @@ description: "Generate creative options and brainstorm across a safe→stretch�
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"brainstorm": "Fast unstructured idea dumps when taste calibration and technique rotation are not needed.", "business-ideas": "Startup and side-project ideation with market-validation framing.", "designer": "Design artifacts and systems after creative direction is locked.", "prompting": "Diagnose and iterate prompts when the blocker is instruction quality rather than idea generation.", "writing": "Draft or rewrite prose after a creative direction is chosen."}'
 ---
 
 ## When to Use

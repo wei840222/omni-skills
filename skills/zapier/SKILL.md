@@ -8,7 +8,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚡","requires":{"env":["ZAPIER_API_KEY","ZAPIER_TABLES_TOKEN"],"config":["<state_root>/"]},"primaryEnv":"ZAPIER_API_KEY","os":["linux","darwin","win32"],"displayName":"Zapier"}'
-  related-skills: '{"api": "Generic REST/GraphQL client patterns outside Zapier-hosted APIs.", "saas": "Subscription and plan-economics framing when Zapier billing or task usage is the ask.", "webhook": "Provider-agnostic webhook receiver/sender design when Zapier is not the platform."}'
 ---
 
 

@@ -4,7 +4,6 @@ description: Search Hacker News, fetch top stories, read comments, and browse us
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟠"}'
-  related-skills: '{"api": "Use for general third-party API client patterns (auth, pagination, retries) outside HN-specific endpoints.", "http": "Use for HTTP caching, redirects, and status-code behavior that is not HN-specific.", "news": "Use for personalized multi-source news briefings rather than live Hacker News API access."}'
 ---
 
 ## Quick Reference

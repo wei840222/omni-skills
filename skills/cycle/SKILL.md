@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.2.0"
   openclaw: '{"emoji":"🔁"}'
-  related-skills: '{"brainstorm": "Generate option volume before locking a cycle design.", "loop": "Iterate one action or phase until success criteria are met.", "question": "Craft discovery interview questions when questioning is the deliverable.", "workflow": "Build executable automated pipelines once the cycle design is stable."}'
 ---
 
 # Cycle

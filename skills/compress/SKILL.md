@@ -4,7 +4,6 @@ description: Compress text semantically with progressive levels, format-specific
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🗜️"}'
-  related-skills: '{"prompting": "Diagnose and iterate a failing prompt instead of only shrinking text.", "summarizer": "Produce a reader-facing summary of a source rather than a reusable compressed prompt artifact."}'
 ---
 
 ## Scope

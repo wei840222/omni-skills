@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔒","requires":{"bins":["caddy"]}}'
-  related-skills: '{"dns": "DNS records and ACME DNS-01 provider setup upstream of certificate issuance.", "docker": "Compose networks, published ports, and volume mounts that Caddy depends on.", "firewall": "Opening or forwarding TCP 80/443 (and UDP 443 for HTTP/3) to the Caddy process.", "nginx": "Nginx reverse proxy, location matching, and TLS termination when the stack is nginx-first.", "ssl": "Certificate issuance, renewal, and TLS debugging outside Caddy automatic HTTPS.", "traefik": "Traefik labels, entrypoints, and Docker provider routing instead of Caddyfile.", "vps": "Host firewall, DNS A/AAAA, and public port exposure around the Caddy edge.", "websocket": "App-level WebSocket protocol issues after the proxy upgrade path is correct."}'
 ---
 
 # Caddy

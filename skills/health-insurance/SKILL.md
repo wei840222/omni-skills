@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏥"}'
-  related-skills: '{"compare": "Generic side-by-side decision frameworks when the question is structure rather than insurance rules.", "doctor": "Provider interaction and visit preparation once coverage constraints are known.", "health": "Health planning context that informs insurance priorities before plan choice.", "money": "Household cash-flow and budget sequencing around premiums and out-of-pocket risk."}'
 ---
 
 # Health Insurance

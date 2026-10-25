@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"👥","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"branding": "Define voice, positioning, and visual identity that community channels must follow.", "cmo": "Own marketing strategy, budget, and pipeline decisions above day-to-day community ops.", "content-marketing": "Plan funnel-stage content programs and editorial calendars beyond community stewardship.", "growth": "Diagnose acquisition and retention loops when community growth is the constraint."}'
 ---
 
 # Community Manager

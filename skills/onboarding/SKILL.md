@@ -4,7 +4,6 @@ description: "Design and optimize user onboarding flows that maximize activation
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🚀","os":["linux","darwin","win32"],"displayName":"Onboarding"}'
-  related-skills: '{"growth": "Use when onboarding is one stage inside a broader growth system or channel experiment program.", "product": "Use for product strategy, PMF, and launch work beyond first-run activation.", "product-manager": "Use for roadmap and requirement work that feeds onboarding scope.", "retention": "Use after activation for cohort retention, churn prevention, and reactivation.", "ux": "Use for broader UX research and interaction design outside first-run flows."}'
 ---
 
 Use this skill for first-run activation design. Deeper research notes and source URLs live in `references/sources.md`.

@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🎸"}'
-  related-skills: '{"acoustic-guitar": "Unplugged fingerstyle, strumming, and acoustic care instead of amplified tone work.", "drums": "Drum-kit practice and rudiments instead of electric guitar work.", "habits": "Design the recurring practice habit once the electric routine itself is clear.", "music": "Track listening history, playlists, and concerts rather than guitar technique.", "piano": "Keyboard practice plans and technique instead of electric guitar.", "song": "Original songwriting, lyrics, and harmony when composition is the goal."}'
 ---
 
 ## State location

@@ -119,7 +119,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📎"}'
-  related-skills: '{"other-skill":"Why hand off or bound scope."}'
 ---
 ```
 
@@ -131,6 +130,9 @@ Omit unused optional fields. Do not keep top-level `slug`, `homepage`, or
 - [ ] `SKILL.md` stays scannable; deep material is routed
 - [ ] Description includes triggers and boundaries
 - [ ] State paths use `<state_root>/...` after the resolver
-- [ ] `related-skills` targets exist in-repo when listed
+- [ ] For omni-skills, relationships are maintained in `ontology/graph.jsonl`;
+      replayed edges have existing endpoints, allowed predicates, unique ordered
+      pairs, and nonempty reasons under `ontology/schema.yaml`. Append changes;
+      replace an existing edge with `unrelate` followed by `relate`.
 - [ ] `uvx --from skills-ref agentskills validate skills/<slug>` exits 0
 - [ ] `test-prompts.json` has realistic prompts with expected outcomes

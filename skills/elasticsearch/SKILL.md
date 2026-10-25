@@ -4,7 +4,6 @@ description: "Design mappings, construct Query DSL/ES|QL, and manage Elasticsear
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🔍", "requires": {"anyBins": ["curl"]}}'
-  related-skills: '{"database-manager": "broader database operations outside Elasticsearch-specific search and cluster work", "meilisearch": "lighter site and product search when a cluster is more machinery than the job needs", "rag": "retrieval design for LLM pipelines built on top of an index like this one", "search-engine": "engine-agnostic search design and relevance evaluation when the target is not Elasticsearch", "sql": "general SQL patterns; not a substitute for Query DSL or ES|QL"}'
 ---
 
 # Elasticsearch 🔍

@@ -4,7 +4,6 @@ description: Provide practical Barcelona guidance for visitors, relocators, tech
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏖️","requires":{"config":["<state_root>/barcelona/"]}}'
-  related-skills: '{"booking": "Lodging and reservation execution after a Barcelona base is chosen.", "career": "Broader career decisions after Barcelona tech or job context is set.", "catalan": "Natural Catalan writing and register rather than Barcelona logistics.", "europe": "Cross-border EU mobility context beyond Barcelona.", "food": "Deeper food-system workflows beyond Catalan dining guidance.", "madrid": "Compare or switch to Madrid-specific neighborhood, cost, and lifestyle depth.", "spain": "Spain-wide destinations, regional routing, and multi-city itineraries beyond Barcelona-only depth.", "startup": "Founder workflows after Barcelona startup landscape is scoped.", "travel": "General multi-destination trip systems and travel memory."}'
 ---
 
 ## State location

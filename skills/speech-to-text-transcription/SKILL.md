@@ -4,7 +4,6 @@ description: Transcribe local audio, video, and downloaded recordings into text,
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎤","requires":{"bins":["ffmpeg"]}}'
-  related-skills: '{"audio": "General audio processing.", "ffmpeg": "Video and audio conversion.", "podcast": "Podcast creation and editing."}'
 ---
 
 

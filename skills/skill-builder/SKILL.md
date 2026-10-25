@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛠️"}'
-  related-skills: '{"skill-audit": "Security and supply-chain scan before trusting a candidate package.", "skill-finder": "Catalog discovery when the need is find/install rather than author.", "skill-manager": "Lifecycle inventory, install consent, and cleanup after a skill exists.", "skill-publish": "Registry publish path after authoring and evaluation pass.", "skill-test": "Isolated trial and multi-lens evaluation before install or publish.", "skill-update": "Safe upgrade with preview, backup, and rollback for installed skills."}'
 ---
 
 # Skill Builder
@@ -70,7 +69,8 @@ catalog search (`skill-finder`), sandbox trial (`skill-test`), security scan
    would miss without the skill.
 2. Draft frontmatter: lowercase `name` matching the directory, description that
    states capability **and** triggers, `metadata.version` as a string, and
-   `metadata.openclaw` / `related-skills` JSON strings when needed.
+   a `metadata.openclaw` JSON string when needed. In omni-skills, maintain
+   relationships in `ontology/graph.jsonl` using `ontology/schema.yaml`.
 3. Keep always-on instructions in `SKILL.md` (target well under 500 lines).
    Move deep reference material to `references/` and say **when** to load each
    file.

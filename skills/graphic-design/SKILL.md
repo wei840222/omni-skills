@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"art": "Studio media technique and critique beyond production graphics.", "branding": "Brand strategy and identity systems that feed graphic deliverables.", "colors": "Accessible palette systems and contrast ratios.", "design": "Quantified hierarchy, spacing, and layout critique across UI and non-UI artifacts.", "drawing": "Children image prompts and coloring-page scaffolds.", "figma": "Figma auto-layout, variables, and Dev Mode mechanics.", "typography": "Deep measure, leading, optical size, and print type settings."}'
 ---
 
 # Graphic Design

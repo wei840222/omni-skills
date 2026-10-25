@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"✨","displayName":"Flask","requires":{"bins":["python3"]}}'
-  related-skills: '{"django": "Full Django stack, ORM, admin, and migrations beyond Flask.", "fastapi": "Async-first FastAPI services instead of Flask.", "http": "Protocol-level HTTP status, headers, and caching independent of Flask.", "py": "Plain Python packaging, typing, and pytest outside Flask.", "rest-api": "Framework-independent API contracts and error shapes."}'
 ---
 
 ## When to load

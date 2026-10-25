@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟨","requires":{"config":["<state_root>/javascript/","~/javascript/","~/clawic/javascript/"]}}'
-  related-skills: '{"nodejs": "Runtime environment, event loop execution, and ESM/CJS packaging.", "react": "Component rendering, virtual DOM state updates, and hooks semantics.", "typescript": "Static typing, compile-time contracts, and declaration files."}'
 ---
 
 ## State location

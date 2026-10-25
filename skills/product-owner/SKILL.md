@@ -3,7 +3,6 @@ name: product-owner
 description: "Manage agile product backlogs and sprint priorities. Use when writing user stories with Given-When-Then acceptance criteria, grooming backlogs, estimating story value, or aligning sprint scope with stakeholders."
 metadata:
   openclaw: '{"emoji": "📋"}'
-  related-skills: '{"business": "Business strategy fundamentals", "cpo": "Chief Product Officer leadership", "delegate": "Task delegation patterns", "product-manager": "Product strategy and roadmap"}'
 ---
 
 ## Setup

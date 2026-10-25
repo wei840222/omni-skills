@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"💳","requires":{"bins":["curl","jq"],"env":["GOOGLE_PAY_MERCHANT_ID"]},"configPaths":["<state_root>/"]}'
-  related-skills: '{"android": "Non-payment Android app build, Play packaging, and device tooling around an in-app Google Pay button.", "billing": "Subscription billing state machines, proration, and dunning after Google Pay captures the initial method.", "payments": "Provider selection, one-off checkout design, and PCI-safe payment handling beyond Google Pay wallet specifics.", "paypal": "PayPal REST and wallet flows when the PSP path is PayPal rather than Google Pay.", "stripe-api-integration": "Stripe call-level debugging once Google Pay tokens are handed to Stripe.", "subscriptions": "Offer-shape and renewal product design when Google Pay is only the initial capture path.", "webhook": "Generic webhook receiver security and idempotency for PSP async payment events."}'
 ---
 
 # Google Pay

@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🦊"}'
-  related-skills: '{"ci-cd": "Cross-platform CI product choice and generic pipeline pitfalls.", "docker": "Host Docker/daemon issues outside GitLab runner DinD.", "git": "Git branching and merge mechanics outside pipeline YAML.", "github-actions": "GitHub Actions workflow semantics instead of GitLab CI.", "yaml": "Parser-level YAML quoting and indentation without CI keywords."}'
 ---
 
 ## When to Use

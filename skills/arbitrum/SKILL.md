@@ -4,7 +4,6 @@ description: "Operate Arbitrum One and Nova: official bridging and ~7-day exits,
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔵"}'
-  related-skills: '{"blockchain": "Broader ledger and EVM interaction decisions when the problem is not Arbitrum-specific.", "ethereum": "L1 gas, approvals, MEV, and cross-L2 bridge framing once Arbitrum-specific steps are clear.", "solidity": "Contract authoring and audit patterns when the task moves from chain ops into Solidity code."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

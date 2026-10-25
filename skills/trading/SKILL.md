@@ -3,7 +3,6 @@ name: trading
 description: "Provide trading analysis and education. Use when users ask about technical analysis, chart patterns, risk management, or position sizing."
 metadata:
   openclaw: '{"emoji":"📈","requires":{"config":["<state_root>/trading/"]}}'
-  related-skills: '{"business": "business strategy and planning", "crypto-tools": "cryptocurrency utilities", "invest": "long-term investing fundamentals", "money": "personal finance basics"}'
 ---
 
 ## Guardrails

@@ -8,7 +8,6 @@ description: >
   (memory/journal) and not a full skill-authoring workflow (skill-builder).
 metadata:
   openclaw: '{"emoji": "H"}'
-  related-skills: '{"memory": "structure durable local memory for agent continuity", "self-improving": "capture corrections and recurring lessons so execution quality compounds", "skill-builder": "turn a proven repeated workflow into a dedicated skill package", "workflow": "formalize repeated operating patterns into stable execution sequences"}'
 ---
 
 ## When to load

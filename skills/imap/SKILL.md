@@ -4,7 +4,6 @@ description: Read, search, and sync IMAP mailboxes with UID-safe fetches, precis
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📬"}'
-  related-skills: '{"api": "API-integration boundary for authenticated mailbox wrappers.", "bash": "Shell-first mailbox automation and repeatable wrappers.", "code": "Implementing or verifying a mailbox parser or sync worker.", "http": "HTTP transport and header debugging outside IMAP.", "json": "Structured mailbox-result transformation."}'
 ---
 
 ## When to Use

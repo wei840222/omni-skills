@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔬"}'
-  related-skills: '{"competitor-research": "Competitor audits and positioning when the ask is market rivalry rather than open-ended scientific inquiry.", "digest": "Recurring curated monitoring instead of a one-shot research cycle.", "in-depth-research": "Exhaustive multi-source investigation with explicit halt criteria when the ask is depth-first answering rather than hypothesis-led cycles.", "literature": "Literary close reading and critical essays instead of empirical research pipelines.", "market-research": "TAM/SAM/SOM, segmentation, and demand validation before build-or-enter decisions.", "multi-engine-web-search": "Cross-engine discovery and filters before committing to a full vibe-research cycle.", "synthesize": "Reconcile user-provided documents without opening a fresh external research loop."}'
 ---
 
 This skill is stateless. It does not store local configuration or persistent user research state.

@@ -6,7 +6,6 @@ description: Optimize purchase decisions by validating budgets, researching real
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji": "🛍️"}'
-  related-skills: '{"amazon": "Amazon-specific buying, price tracking, and listing workflows after a general purchase decision.", "buy": "Execution-focused checkout and order placement once the recommendation is settled.", "expenses": "Capture the purchase into household or personal spend tracking after the buy decision.", "marketplace": "Cross-platform listing, scam, fee, and sold-price research beyond a single retailer.", "money": "Budget ceilings, cash-flow timing, and total cost of ownership before committing."}'
 ---
 
 ## When to load

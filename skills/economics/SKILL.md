@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📈"}'
-  related-skills: '{"accounting": "Bookkeeping, GAAP/IFRS, and financial-statement mechanics.", "financial-literacy": "Personal budgeting, credit, tax, and investor-protection education rather than general economic reasoning.", "invest": "Investing education and portfolio framing when the ask is capital markets, not policy or trade-off theory.", "post-labor-economics": "Automation shocks, UBI/job-guarantee portfolios, and post-employment transition design.", "statistics": "Probability, hypothesis testing, and causal-inference methods when the ask is statistical rather than economic.", "trading": "Technical analysis and position-sizing education for market execution questions."}'
 ---
 
 # Economics

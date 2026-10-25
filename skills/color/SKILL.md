@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎨"}'
-  related-skills: '{"branding": "Brand strategy and identity before applying a palette across channels.", "colors": "Compact UI palette and WCAG checklist when a full multi-surface color system is not needed.", "design": "One-off visual critique with hierarchy and spacing rather than a durable color token system.", "design-system": "Component libraries and token architecture that consume this skill''s color primitives.", "image": "Image processing and export workflows where overlay and caption color must survive real photos.", "typography": "Type size and weight paired with contrast checks for text legibility.", "ui": "Interface component patterns and interaction states that consume semantic color tokens."}'
 ---
 
 ## When to Use

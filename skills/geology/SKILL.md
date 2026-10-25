@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🪨"}'
-  related-skills: '{"astronomy": "Planetary and space context beyond Earth surface/crust processes.", "geography": "Spatial patterns, maps, and human–environment analysis when the question is not rock/process geology.", "history": "Human historiography and primary-source criticism rather than geologic deep time.", "science": "Cross-domain science literacy when the ask is broader than Earth geology."}'
 ---
 
 # Geology

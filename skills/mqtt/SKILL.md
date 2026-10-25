@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📡"}'
-  related-skills: '{"firewall": "Host or edge firewall rules once broker exposure and VLAN decisions are set.", "iot": "Cross-protocol device and transport planning when MQTT is only one layer.", "smart-home": "Hub and room automation choices when broker design is secondary.", "zigbee": "Mesh pairing and routing when Zigbee is bridged through MQTT or Zigbee2MQTT."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state. Keep broker inventories, ACLs, and credentials in ordinary user files outside the skill package.

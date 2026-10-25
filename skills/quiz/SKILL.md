@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"❓"}'
-  related-skills: '{"flashcards": "Atomic recall cards and deck authoring when the deliverable is SRS cards, not a scored quiz.", "forms": "Form fields, validation, and submissions when there is no quiz scoring or outcome mapping.", "learning": "Live adaptive teaching and misconception repair rather than one-shot quiz design.", "quizlet": "Quizlet set/mode workflows rather than generic quiz design.", "school": "K-12 tutoring with parental controls when the primary task is homework help, not authoring a quiz.", "studying": "Exam calendars and multi-session revision grids outside a single quiz artifact."}'
 ---
 
 ## State location

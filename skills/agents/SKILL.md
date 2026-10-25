@@ -4,7 +4,6 @@ description: Designs, debugs, evaluates, and hardens AI agents — the loop, too
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🤖"}'
-  related-skills: '{"agent": "Persona, voice and boundaries of a single assistant.", "langchain": "Concrete LangChain and LangGraph APIs for the same patterns.", "observability": "Tracing, metrics and alerting for the service the agent runs in.", "prompting": "Prompt craft in general, beyond the agent system prompt.", "rag": "Retrieval quality behind an agent''s search tool."}'
 ---
 
 ## State location

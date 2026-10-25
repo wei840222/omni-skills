@@ -4,7 +4,6 @@ description: Act as a real estate agent for finding properties, tracking listing
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"invest": "Investment analysis for rental yield, cash-on-cash, and portfolio decisions.", "legal": "Contract review basics before offers or leases.", "negotiate": "Deal negotiation tactics for offers, counters, and concessions."}'
 ---
 
 ## State location

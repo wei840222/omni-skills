@@ -3,7 +3,6 @@ name: laravel
 description: "Apply Laravel framework best practices. Use when developing or reviewing controllers, Eloquent models, Blade templates, queues, Artisan commands, or authentication to avoid common framework pitfalls."
 metadata:
   openclaw: '{"emoji":"🔴","requires":{"bins":["php","composer"]}}'
-  related-skills: '{"api": "HTTP API design patterns often paired with Laravel controllers.", "auth": "Cross-framework authentication concepts used with guards and policies.", "backend": "General backend service design beyond the Laravel stack.", "docker": "Containerized local stacks commonly used with Laravel Sail.", "php": "Core PHP language patterns that Laravel builds on."}'
 ---
 
 ## When to load

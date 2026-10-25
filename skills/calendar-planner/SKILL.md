@@ -2,7 +2,6 @@
 name: calendar-planner
 description: Plan work, life, and travel across command-line calendar adapters (Google, Outlook, Apple, CalDAV). Use when reconciling cross-calendar conflicts, optimizing weekly schedules, and protecting focus time, rather than just simple scheduling.
 metadata:
-  related-skills: '{"assistant": "Chief-of-staff style execution across tasks, messages, and planning.", "daily-planner": "Daily plan shaping, sequencing, and realistic task placement.", "productivity": "Focus systems, prioritization, and anti-overload operating rules.", "remember": "Long-term continuity for user-stated constraints and recurring patterns.", "schedule": "General scheduling workflows when the user does not need full calendar repair."}'
   openclaw: '{"requires":{"bins":["python3","jq"],"config":["<state_root>/"]}}'
 ---
 

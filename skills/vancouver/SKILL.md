@@ -4,7 +4,6 @@ description: "Load this skill Use when the user asks about visiting, moving to, 
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🏔️"}'
-  related-skills: '{"seattle": "Closest major US city with comparable tech and outdoor culture", "toronto": "Canada''s largest city; different vibe with similar immigration pathways"}'
 ---
 ## When to load
 

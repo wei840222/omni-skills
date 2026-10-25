@@ -14,7 +14,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛒"}'
-  related-skills: '{"amazon": "Amazon listing, tracking, and account workflows after a general buy decision.", "expenses": "Capture spend after the buy decision.", "home-buying": "Primary-residence purchase system with listings, offers, and closing; buy covers general purchase research outside that pipeline.", "marketplace": "Cross-platform listing, fee, and sold-price ops beyond a single retailer.", "money": "Household cash-flow and affordability sequencing beyond one purchase.", "negotiate": "Live counterparty negotiation with mandatory limits and approval gates; buy covers buyer research and script coaching before/around that.", "price": "Price-history, dynamic-pricing, and sale-legitimacy analysis when the ask is timing rather than full purchase workflow.", "sell": "Seller listing and intake when the user is on the sell side.", "shopping": "Product recommendation and buy-vs-wait framing when the hard part is choosing what to buy rather than executing acquisition research.", "subscriptions": "Recurring-charge inventory and renewal tracking when the ask is portfolio audit rather than one-off negotiation.", "walmart": "Walmart basket, pickup, substitution, and restock flows."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

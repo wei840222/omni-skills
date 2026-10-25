@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🐕","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"memory": "Durable household facts that outlive a single dog-care session.", "photos": "Photo library organization when dog photos need indexing rather than care records.", "remind": "Walk, medication, and appointment nudges the user already decided to schedule.", "shopping": "Food, gear, and supply purchase decisions beyond simple reorder thresholds.", "travel": "Human travel logistics when pet boarding or pet travel is only one part of the trip."}'
 ---
 
 # Dog

@@ -4,7 +4,6 @@ description: "Navigate Seoul for travel, living, or relocation. Use when researc
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏙️"}'
-  related-skills: '{"food": "Dining and cuisine guidance when Seoul food questions go beyond local context.", "korean": "Language help for signs, phrases, and everyday communication in Seoul.", "money": "Budgeting and cashflow framing for Seoul housing deposits, salaries, and daily costs.", "travel": "Broader multi-city or multi-country trip planning beyond Seoul-specific guidance."}'
 ---
 
 ## When to load

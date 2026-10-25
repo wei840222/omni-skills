@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🟠","requires":{"env":[]},"configPaths":["<state_root>/"]}'
-  related-skills: '{"ads": "Paid acquisition strategy beyond Whop Ads specifics", "api": "Generic REST debugging outside Whop endpoint families", "oauth": "Delegated Sign in with Whop / OAuth lifecycles", "payments": "Provider-agnostic payment design beyond Whop", "webhook": "Generic receiver security outside Whop envelopes"}'
 ---
 
 # Whop

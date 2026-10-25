@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔢","requires":{"bins":["python3"]}}'
-  related-skills: '{"data": "Broader data lifecycle cleaning and reporting around array work.", "math": "Concept and proof explanations without NumPy APIs.", "pytorch": "Tensor training, devices, and autograd once the task leaves plain ndarrays.", "scipy": "Optimization, stats, signal, and sparse routines built on NumPy arrays.", "statistics": "Hypothesis testing and inference language beyond array reductions."}'
 ---
 
 # NumPy

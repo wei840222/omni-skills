@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛵"}'
-  related-skills: '{"applescript": "macOS browser-control snippets when exact Apple Events are required.", "food-delivery": "Platform-agnostic ordering preferences and multi-app comparison when the user is not locked to Glovo.", "maps": "Delivery geography, area fit, and route realism around the chosen address.", "safari": "Control the user real Safari session when Glovo is open there.", "shopping": "Fee, promo, and checkout-value comparison beyond a single Glovo cart."}'
 ---
 
 ## When to load

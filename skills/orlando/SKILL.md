@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎢"}'
-  related-skills: '{"car-rental": "Vehicle rental logistics after Orlando car-need is decided.", "florida": "Statewide Florida region, insurance, and storm context outside metro Orlando.", "money": "Budget framing and currency math around Orlando trip or move costs.", "travel": "Multi-destination trip systems beyond Orlando-only routing.", "united-states": "National U.S. context when the decision is not Orlando-specific."}'
 ---
 
 ## State location

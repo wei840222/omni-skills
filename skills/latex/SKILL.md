@@ -4,7 +4,6 @@ description: Create, compile, debug, and review LaTeX `.tex` documents with corr
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📐"}'
-  related-skills: '{"markdown": "Handles Markdown authoring and conversion when the source or target is Markdown rather than LaTeX.", "pdf-generator": "Handles templated PDF workflows when layout and branding are the primary concern.", "typography": "Guides typographic decisions that can inform LaTeX document layout."}'
 ---
 
 ## Quick workflow

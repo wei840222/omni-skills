@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📄"}'
-  related-skills: '{"career": "Offer evaluation, promotion, pivot, and layoff strategy when the document itself is not the deliverable.", "job-search": "Application pipeline, company research, and interview prep beyond a single resume draft.", "negotiate": "Live salary or offer counters after the resume has done its job.", "writing": "General prose voice and editing when the artifact is not a resume/CV."}'
 ---
 
 # Resume

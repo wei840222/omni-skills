@@ -3,7 +3,6 @@ name: java
 description: "Write, debug, and tune Java and the JVM. Use when needing to resolve exceptions (NullPointerException, ClassCastException, OutOfMemoryError, etc.), thread deadlocks, memory leaks, high CPU usage, build and packaging issues (Maven/Gradle), date/text rendering bugs, database connection exhaustion, or Spring @Transactional failures. It also provides expertise for JDK version upgrades (8 to 17/21+), memory sizing in containers, and library configuration. Not for Kotlin, JavaScript, or Android app development."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/Clawic/data/java/", "<state_root>/Clawic/profile.yaml", "<state_root>/java/", "<state_root>/clawic/java/"]}, "emoji": "☕", "configPaths": ["<state_root>/Clawic/data/java/", "<state_root>/Clawic/profile.yaml", "<state_root>/java/", "<state_root>/clawic/java/"]}'
-  related-skills: '{"android": "Android SDK, lifecycle, and app packaging", "docker": "containerizing a JVM and matching memory limits to heap", "kotlin": "the other JVM language; same bytecode, different null and concurrency model", "sql": "the queries your JDBC and JPA code actually sends"}'
 ---
 User preferences and memory live in `<state_root>/Clawic/data/java/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`<state_root>/java/` or `<state_root>/clawic/java/`), move it to `<state_root>/Clawic/data/java/`, and say in one line that you moved it and from where.
 

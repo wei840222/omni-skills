@@ -4,7 +4,6 @@ description: Hire freelancers, contractors, and AI agents with platform selectio
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🧑‍💼"}'
-  related-skills: '{"contracts": "Supplies deeper contract drafting and clause libraries once a hire is selected.", "fiverr": "Runs Fiverr-specific gig search, ordering, and delivery workflows.", "freelance": "Covers freelancing career and client-side market practice adjacent to hiring.", "negotiate": "Handles rate and scope negotiation before contract lock-in.", "upwork": "Runs Upwork-specific job posts, proposals, and escrow workflows."}'
 ---
 
 ## State location

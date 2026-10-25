@@ -15,7 +15,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"✈️"}'
-  related-skills: '{"booking": "Accommodation search and booking completion after a destination is chosen.", "car-rental": "Vehicle hire pricing and insurance handoff for self-drive segments.", "expat": "Permanent relocation, residence visas, and settling abroad.", "flight": "Fare search, award travel, baggage, and flight disruption claims.", "travel-planning": "Day-by-day itinerary and multi-city routing for one trip."}'
 ---
 
 ## State location

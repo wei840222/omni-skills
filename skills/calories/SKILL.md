@@ -14,7 +14,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍎","requires":{"config":["<state_root>/calories/"]}}'
-  related-skills: '{"dietitian": "Turn calorie/macro targets into meal plans and timing.", "fasting": "Eating-window and fast tracking when time-restricted eating is the ask.", "gym": "Training programming for a cut, bulk, or recomposition.", "meal-planner": "Menu construction and shopping lists once targets already exist.", "nutrition": "Micronutrients and broader dietary adequacy beyond calories and macros.", "water": "Fluid intake and hydration advice when the user is not logging food calories."}'
 ---
 
 ## State location

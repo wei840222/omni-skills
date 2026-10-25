@@ -4,7 +4,6 @@ description: "Use when needing to process multiple items, iterate over large col
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "📦"}'
-  related-skills: '{"delegate": "Parallel task delegation and worker fan-out across multiple jobs."}'
 ---
 ## Before Starting
 

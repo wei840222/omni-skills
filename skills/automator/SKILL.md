@@ -3,7 +3,6 @@ name: automator
 description: "Automate macOS tasks using Automator. Use when executing existing .workflow files via the automator CLI, passing input arguments, or scripting desktop automation routines."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/"], "bins": ["automator", "osascript"]}, "emoji": "A", "os": ["darwin"]}'
-  related-skills: '{"applescript": "Script app automation with robust quoting and pre-read checks.", "automate": "Design reliable multi-step automation workflows.", "macos": "Use macOS command-line and system operation patterns.", "workflow": "Structure repeatable workflows and handoff states."}'
 ---
 
 ## Setup

@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚙️","requires":{"bins":["gcc","clang"]},"displayName":"C"}'
-  related-skills: '{"code": "Plan→execute→verify delivery loops before language-specific C fixes.", "cpp": "C++ RAII, smart pointers, and modernization instead of C memory discipline.", "go": "Go memory, slices, and concurrency when the codebase is Go rather than C.", "rust": "Rust ownership and borrow-checker work, or C FFI from the Rust side.", "security-best-practices": "Minimal-diff secure coding review beyond C-language UB and memory traps."}'
 ---
 
 ## When to use

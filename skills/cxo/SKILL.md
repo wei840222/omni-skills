@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎯"}'
-  related-skills: '{"ceo": "Executive priorities and company-wide trade-offs.", "cmo": "Marketing alignment for acquisition and brand messaging.", "coo": "Operational excellence and delivery systems.", "cpo": "Product experience and roadmap trade-offs."}'
 ---
 
 ## When to Use

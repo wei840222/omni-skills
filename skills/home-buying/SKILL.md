@@ -3,7 +3,6 @@ name: home-buying
 description: "Navigate residential home buying from search to close. Use when evaluating housing budgets, scoring property listings, formulating offer strategies, reviewing inspection reports, or preparing for closing."
 metadata:
   openclaw: '{"emoji": "🏠", "requires": {"config": ["<state_root>/"]}}'
-  related-skills: '{"contract": "Contract structure and clause review when offer language or contingencies need legal-structure scrutiny.", "house": "Post-purchase home ownership operations after closing.", "property-valuation": "Comparable and income-based valuation support when pricing or appraisal gaps dominate.", "real-estate-skill": "Broader real-estate transaction guidance across roles and stages when the task is not a primary-home purchase decision system.", "rental": "Rental economics when the user should compare buy vs rent or landlord/tenant economics instead."}'
 ---
 ## Setup
 

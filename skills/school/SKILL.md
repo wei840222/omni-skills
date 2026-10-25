@@ -5,7 +5,6 @@ compatibility: "linux, darwin, win32"
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏫"}'
-  related-skills: '{"flashcards": "Build spaced-repetition decks when the learner needs durable recall drills", "studying": "Plan study schedules and retrieval practice for exams"}'
 ---
 
 ## When to Use

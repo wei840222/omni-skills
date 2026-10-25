@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"🎭","requires":{"bins":["node","npx"]}}'
-  related-skills: '{"cypress": "Maintain or migrate an existing Cypress suite rather than Playwright-first work.", "http": "Plain HTTP/API checks that do not need a real browser.", "puppeteer": "Maintain Puppeteer automation outside the Playwright runner."}'
 ---
 
 # Playwright

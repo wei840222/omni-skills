@@ -3,7 +3,6 @@ name: humor
 description: "Incorporate tasteful, context-aware humor into agent dialogue. Use when crafting witty banter, humorous dialogue, or playful creative writing; suppress humor during high-stress, formal, or external artifact contexts."
 metadata:
   openclaw: '{"emoji": "😄", "configPaths": ["<state_root>/humor/"]}'
-  related-skills: '{"companion": "long-term personal-agent relationships where the humor profile compounds", "empathy": "reading and supporting emotional state; takes over when context turns red", "storytelling": "narrative craft when a bit grows into an actual story"}'
 ---
 
 Learned humor state lives in `<state_root>/humor/` (see `references/setup.md` on first use, `references/memory-template.md` for file formats). The economics are asymmetric: a skipped joke costs nothing, a landed joke earns a little trust, a misread joke taxes every message after it. Every rule below prices that asymmetry.

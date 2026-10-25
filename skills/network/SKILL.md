@@ -4,7 +4,6 @@ description: Diagnose network reachability, DNS, routing, firewall, NAT, VPN, po
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"vpn": "Covers VPN selection and configuration beyond network diagnosis.", "wifi": "Covers wireless-network setup and troubleshooting.", "wireguard": "Covers WireGuard-specific configuration and operations."}'
 ---
 
 # Network Fundamentals

@@ -3,7 +3,6 @@ name: beauty
 description: "Use when the user requests help with skincare, makeup, or haircare routines. Refer medical conditions requiring a dermatologist to a professional."
 metadata:
   openclaw: '{"emoji":"💄","requires":{"os":["linux","darwin","win32"]},"displayName":"Beauty"}'
-  related-skills: '{"fitness": "movement and recovery that affect skin and energy", "habits": "behavior systems for consistent routines", "nutrition": "food pattern guidance that supports long-term skin health", "outfits": "outfit strategy and style coordination", "sleep": "sleep optimization for recovery and appearance stability"}'
 ---
 
 ## State location

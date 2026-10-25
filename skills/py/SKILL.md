@@ -16,7 +16,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐍","requires":{"bins":["python3"]},"os":["linux","darwin","win32"],"displayName":"Python"}'
-  related-skills: '{"code": "Language-agnostic implementation planning when the task is not Python-specific.", "django": "Django ORM and framework patterns.", "docker": "Container base images and pin strategy for Python runtimes.", "fastapi": "Async web APIs in Python.", "flask": "Flask apps, Werkzeug debugger, and WSGI patterns.", "git": "Repository workflow around the Python change being committed.", "numpy": "Array and numerical work beyond plain Python lists.", "pandas": "DataFrame-specific traps and idioms beyond core Python.", "regex": "Deeper regular-expression craft beyond stdlib re."}'
 ---
 
 ## State location

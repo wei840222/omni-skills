@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌲"}'
-  related-skills: '{"dubai": "Parallel city-guide pattern for another metro with progressive neighborhood/food routing.", "negotiate": "Salary and offer negotiation once Seattle/tech comp ranges are framed.", "travel": "Multi-stop trip planning and logistics beyond a single Seattle stay."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state. Keep moving checklists, lease notes, and personal budgets in ordinary user files outside the skill package.

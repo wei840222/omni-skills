@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🗄️"}'
-  related-skills: '{"backups": "Generic backup policy language when the conversation is not NAS-appliance centered.", "docker": "Dockerfile, Compose, publish, and container limits when the NAS is mainly a Docker host.", "linux": "Host sysctl, filesystems, and distribution tools under DIY/TrueNAS SCALE Linux.", "network": "Generic reachability, DNS, and routing when packet path is not NAS-specific.", "security-best-practices": "Broader secure-by-default review beyond NAS admin hardening.", "storage": "Application database/object/CDN storage design beyond NAS shares.", "synology": "DSM-specific packages, Hyper Backup, and Container Manager once the box is Synology-only.", "vpn": "VPN client/provider and kill-switch expectations outside NAS-hosted access.", "vps": "Rented-server lifecycle when the storage box is a VPS rather than appliance NAS.", "wireguard": "WireGuard peer and ListenPort details after VPN is chosen for remote access."}'
 ---
 
 # NAS

@@ -4,11 +4,6 @@ description: Plan United States itineraries. Use when users need entry requireme
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "\ud83c\uddfa\ud83c\uddf8"}'
-  related-skills: '{"booking": "Reservation workflows and confirmation hygiene.",
-    "car-rental": "Better rental strategy and handoff logistics.", "english": "Language
-    support for calls, bookings, and service interactions.", "food": "Deeper culinary
-    planning for each destination.", "travel": "General trip planning and itinerary
-    structure."}'
 ---
 
 

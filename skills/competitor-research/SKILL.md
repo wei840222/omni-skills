@@ -4,7 +4,6 @@ description: "Conduct in-depth competitor audits and market positioning. Use whe
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🔬", "requires": {"bins": [], "paths": ["<state_root>/competitor-research/"]}, "os": ["linux", "darwin", "win32"], "displayName": "Competitor Research"}'
-  related-skills: '{"business": "Strategic market positioning, differentiation, and moat evaluation.", "competitor-monitoring": "Continuous competitive tracking, price change alerts, and feature watch.", "market-research": "Industry sizing, TAM estimation, and customer segment profiling."}'
 ---
 ## Setup
 

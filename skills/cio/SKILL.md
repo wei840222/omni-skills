@@ -4,7 +4,6 @@ description: "Drive IT strategy, vendor evaluation, architecture governance, and
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💻"}'
-  related-skills: '{"business": "Business-fundamentals framing for technology investments.", "cfo": "IT budget, ROI, and capital-allocation trade-offs.", "cso": "Corporate strategy context for technology bets.", "cto": "Hands-on technology leadership and engineering org decisions.", "software-architect": "Deep system-design and architecture patterns behind ADRs."}'
 ---
 
 ## When to Use

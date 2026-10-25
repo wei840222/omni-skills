@@ -4,7 +4,6 @@ description: "Use when the user requests to search for destinations, compare hot
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧭","requires":{"bins":["curl","jq","sed"],"env":["TRIPADVISOR_API_KEY"]},"primaryEnv":"TRIPADVISOR_API_KEY"}'
-  related-skills: '{"apple-maps": "validate route friction and area accessibility on macOS", "booking": "compare accommodation options and total cost breakdowns", "expenses": "track trip spending after shortlist decisions", "search-engine": "improve query iteration and source triangulation", "travel": "manage broader trip planning workflows", "yelp": "cross-check local restaurant and business signals outside travel-heavy Tripadvisor results"}'
 ---
 
 ## State location

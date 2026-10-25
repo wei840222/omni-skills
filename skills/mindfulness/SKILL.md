@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧘"}'
-  related-skills: '{"coach": "Accountability loops and progress reviews around practice adherence.", "habits": "Generic habit design and cue-routine-reward framing outside meditation coaching.", "health": "Broader health context that can shape mindfulness goals without clinical diagnosis.", "journal": "Free-form reflection workflows after sessions rather than structured session logs.", "sleep": "Evening wind-down and sleep hygiene when the request is recovery, not live practice."}'
 ---
 
 # Mindfulness

@@ -3,7 +3,6 @@ name: singapore
 description: "Navigate Singapore for travel, expatriate living, or business. Use when researching Singapore neighborhoods, MRT public transport, Employment Passes and visa rules, living expenses, or business entity setup."
 metadata:
   openclaw: '{"emoji":"🦁"}'
-  related-skills: '{"expat": "For general expatriate advice", "travel-planning": "For flight/hotel bookings beyond the skill scope"}'
 ---
 
 ## Quick Reference

@@ -4,7 +4,6 @@ description: "Guide Tenerife visits, moves, and remote-work stays with north/sou
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌋"}'
-  related-skills: '{"booking": "Reservation hygiene after the Tenerife base and dates are chosen.", "europe": "Schengen / multi-city Europe framing beyond Tenerife-only logistics.", "expat": "General expat settling patterns that are not Tenerife-specific.", "flight": "Flight shopping and buffer planning into TFN/TFS.", "food": "Deeper cuisine workflows beyond Canarian dining pointers.", "housing": "Cross-market housing search when Tenerife is one candidate island.", "spanish": "Spanish production for forms, menus, and local bookings.", "travel": "Multi-country or multi-island itineraries when Tenerife is only one stop."}'
 ---
 
 # Tenerife

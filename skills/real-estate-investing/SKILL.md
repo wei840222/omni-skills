@@ -3,7 +3,6 @@ name: real-estate-investing
 description: Evaluate buy-and-hold, BRRRR, flip, and value-add real estate investments with conservative underwriting, debt stress tests, and diligence gates. Use when choosing or comparing investment properties.
 metadata:
   openclaw: '{"emoji":"🏘️"}'
-  related-skills: '{"home-buying": "Routes owner-occupant or mixed-use decisions outside an investment-led analysis.", "invest": "Compares property returns with broader capital-allocation choices.", "property-valuation": "Tests a property’s market value and comp-driven price against the investment thesis.", "real-estate-skill": "Handles broader property transactions, including buying, selling, and agent workflows.", "rental": "Covers tenant-landlord operations and leasing details outside core investment analysis."}'
 ---
 
 ## State location

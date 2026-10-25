@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⭐"}'
-  related-skills: '{"buy": "Checkout, order placement, and scam checks after the user decides to purchase a saved item.", "expenses": "Post-purchase spend logging after an item moves to purchased.", "gifts": "Gift ideas and occasion tracking for other people rather than the user own wants list.", "money": "Affordability, cash-flow timing, and budget ceilings before committing a must-have spend.", "price": "Fair-value and sale-legitimacy checks when the question is the price itself, not list hygiene.", "remind": "Calendar nudges for sale windows or review dates once the list decision is set.", "shopping": "Product research and buy-vs-wait once a wishlist item is ready for a purchase decision."}'
 ---
 
 ## When to use

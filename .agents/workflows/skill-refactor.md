@@ -191,7 +191,6 @@ description: Track plants, garden zones, care tasks, harvests, health issues, cr
 metadata:
   version: "1.1.6"
   openclaw: '{"emoji":"🌱"}'
-  related-skills: '{"daily-planner":"Places garden work into daily priorities and time blocks.","habits":"Turns recurring garden care into trackable routines.","journal":"Captures free-form garden observations outside structured records.","plants":"Extends Garden with plant-specific care and identification.","remind":"Schedules watering and seasonal task reminders."}'
 ---
 ```
 
@@ -517,126 +516,74 @@ Create optional state only when the corresponding feature is actually needed. Do
 
 ---
 
-### Gate 4: Related-skill metadata integrity
+### Gate 4: Ontology relationship integrity
 
-#### Specification status
+#### Canonical source and model
 
-`metadata.related-skills` is a project-level `omni-skills` extension that turns cross-skill relationships inside a skill package into one machine-readable index. The Agent Skills specification supplies only the string-to-string `metadata` container. This gate defines the JSON schema for the `related-skills` string value and must not present this field as a built-in Agent Skills or OpenClaw relationship mechanism.
+Maintain skill relationships in `ontology/graph.jsonl`, using `ontology/schema.yaml`. This operation log is the canonical relationship source. The former `metadata.related-skills` field has been migrated out of skill frontmatter; do not recreate it or maintain a second relationship list in `SKILL.md`.
 
-After `metadata.related-skills` is added, it becomes the canonical relationship list. A dedicated `Related Skill`, `Related Skills`, or equivalent section in `SKILL.md` that enumerates other skills must be removed so metadata and prose do not maintain two lists.
+Each skill is a `Skill` entity identified by `<provider>:<repository>:<skill>`, for example `github:wei840222/omni-skills:garden`. Its properties contain the canonical `name` and repository-relative `source_path`. Each directed edge has a nonempty `reason`. Preserve the existing graph and append operations for changes; replay and validate the resulting graph before accepting them.
+
+Use `related` for an author-declared association unless evidence supports another predicate allowed by the schema. A relationship is a reference assertion, not verified permission to load or install another skill. Reverse edges are separate assertions; never infer reverse edges, transitive relationships, or runtime prerequisites from graph connectivity.
 
 #### Trigger conditions and scan scope
 
-Before deleting any section during refactoring, scan the complete skill package, not only `SKILL.md`:
+Before deleting any relationship section during refactoring, scan the complete skill package:
 
 - dedicated sections in `SKILL.md` that enumerate other skills;
-- inline handoffs, alternatives, dependencies, install instructions, or statements such as "for this case, see/use `<skill>`";
+- inline handoffs, alternatives, dependencies, installation guidance, or statements such as "for this case, see/use `<skill>`";
 - `references/`, `assets/`, `scripts/`, and other supporting files;
 - Markdown links, code spans, CLI examples, comments, template text, and explicit skill names.
 
-Create a relationship only when the text genuinely identifies another skill. General domain vocabulary does not count. For example, the ordinary noun "plants" in Garden does not become a relationship merely because the repository contains a `plants` skill; there must be an explicit skill mention, handoff, installation suggestion, or capability boundary.
+Create a relationship only when the text genuinely identifies another skill. Ordinary domain vocabulary does not establish a relationship merely because a skill has the same name. Record each genuine mention, its source, the resolved identity, and a concrete reason before removing its source list.
 
-#### Repository existence gate
+#### Identity and existence checks
 
-Every related skill must actually exist in the current repository:
+For this repository, resolve each target against `skills/<canonical-name>/SKILL.md` and its corresponding graph entity:
 
-```text
-skills/<canonical-name>/SKILL.md
+- The folder name, frontmatter `name`, entity `name`, ID suffix, and `source_path` must agree.
+- Do not infer existence from a website, registry, old slug, or natural-language mention. Do not create placeholder skills to satisfy a reference.
+- If a target does not exist, record an unresolved reference and correct or remove the mention; Gate 4 remains failing until resolved.
+- Both endpoints must be distinct existing `Skill` entities. The effective graph must have at most one edge per ordered pair, with a nonempty reason describing the relationship to the source skill.
+- Other sources must use their own provider and repository identity, following the same schema; do not map them to a local skill solely by name.
+
+#### Operation-log changes
+
+Use the ontology operation format. For example, this adds one directed association when that ordered pair has no effective edge:
+
+```json
+{"op":"relate","from":"github:wei840222/omni-skills:garden","rel":"related","to":"github:wei840222/omni-skills:plants","properties":{"reason":"Extends Garden with plant-specific care and identification."}}
 ```
 
-Validation rules:
+`relate` appends a relation; it does not replace an existing edge. To change a reason or predicate, append `unrelate` for the old `(from, rel, to)` triple followed by `relate` with the replacement. To remove an association, append `unrelate` only. Replay the whole log and validate its effective state, including endpoint existence, allowed predicates, unique ordered pairs, and nonempty reasons; CLI validation alone covers only part of the schema.
 
-- The key is the directory name in `skills/<canonical-name>/`. After Gate 1, the target `SKILL.md` name must also exactly match that directory.
-- Do not assume a skill exists solely because a website, registry, old slug, or natural-language text mentions its name.
-- If the target does not exist, do not add it to `related-skills`. Record an unresolved reference and correct or remove the original mention; Gate 4 remains failing.
-- Do not create an empty placeholder skill to make validation pass.
-- The current skill must not include itself in the relation map.
+When there are no relationships, add no edge or empty placeholder. Preserve unrelated entities, edges, and reasons. Record the graph diff and replay result in the change report.
 
-#### `metadata.related-skills` format
+#### Prose deduplication and inline references
 
-The field must be under `metadata` in `SKILL.md`, and its YAML value must be a single string containing a valid JSON object:
+After relationships have been preserved and validated in the graph:
 
-```yaml
-metadata:
-  related-skills: '{"daily-planner":"Places garden work into daily priorities and time blocks.","plants":"Extends Garden with plant-specific care and identification."}'
-```
+- Remove dedicated `Related Skill`, `Related Skills`, or equivalent list sections, including generic installation introductions and catalog links within them.
+- Keep contextual handoffs when they guide an operational decision. Each explicit skill reference retained in the skill or its supporting files must have a corresponding graph edge whose reason summarizes that handoff, alternative, or capability boundary.
+- If a skill is mentioned in several places, keep one effective edge per ordered pair whose reason summarizes the primary relationship.
+- Do not recreate the complete relationship list in prose or frontmatter, or add useless prose merely to justify an existing edge. The pre-change inventory and change report preserve provenance for removed lists.
+- Declare required dependencies through the runtime's formal requirement mechanism. The graph does not replace runtime requirements, installation procedures, or user authorization.
+- Verify retained links and correct or remove dead URLs and unresolved `<slug>` placeholders. Installing, downloading, or enabling another skill still requires user authorization.
 
-The decoded JSON contract is:
+#### Worked Example: Garden
 
-```text
-object<string, string>
-key   = canonical name of the related skill
-value = one concise reason the skill relates to the current skill
-```
-
-Required rules:
-
-- The JSON root must be an object, not an array, nested object, boolean, or null.
-- Every key must be a canonical skill name that actually exists in the repository; display names, URLs, `<slug>` placeholders, and speculative nonexistent names are forbidden.
-- Every value must be a nonempty string explaining the specific relationship to the **current skill**, not merely repeating the target name or saying "related."
-- Sort keys lexicographically to produce deterministic diffs.
-- When no related skill exists, omit `related-skills`; do not write `'{}'`, `'[]'`, or an empty string.
-- `related-skills` describes relationships only. It does not replace dependencies, runtime requirements, installation procedures, or user authorization.
-
-#### Prose deduplication and inline-reference rules
-
-After metadata is created and validated, normalize content as follows:
-
-- Delete dedicated `Related Skill`, `Related Skills`, or equivalent sections in `SKILL.md`, including installation introductions and catalog links within them.
-- Do not recreate the same complete list, table, or expanded JSON elsewhere in `SKILL.md`.
-- A contextual handoff such as "for general plant identification, see the `plants` skill" may remain because it is an in-context operational decision rather than a duplicate list.
-- Every retained inline skill reference must appear in `metadata.related-skills`; its reason should summarize that handoff, alternative, or capability boundary.
-- Contextual references in supporting files may remain when required for agent behavior, but metadata must index them as well.
-- Do not add a useless recommendation to prose merely to make a metadata entry "traceable." If the source was a removed dedicated section, the pre-change inventory and pull-request report provide provenance; metadata is the sole post-change list.
-- If one related skill appears in multiple places, metadata keeps one key whose value summarizes the primary relationship to the current skill.
-- If a mention represents a required dependency, declare it through the runtime's formal dependency or requirement mechanism in addition to `related-skills`. The agent must not infer and install dependencies from this field.
-
-#### Link and installation safety
-
-- The `related-skills` JSON stores canonical names and reasons only, not catalog URLs.
-- When deleting a dedicated Related Skills section, also remove generic catalog links and `<slug>` placeholder links in that section.
-- If a retained inline reference includes a link, verify the actual target. Remove or correct dead and 404 URLs.
-- Installing, downloading, or enabling a related skill still requires user authorization; the presence of a metadata key is not installation consent.
-
-#### Worked Example: Garden decisions and results for this rewrite
-
-Garden's original `Related Skills` section listed five skills. Before creating metadata, the following targets were individually verified to contain `SKILL.md` in the repository:
-
-```text
-skills/daily-planner/SKILL.md
-skills/habits/SKILL.md
-skills/journal/SKILL.md
-skills/plants/SKILL.md
-skills/remind/SKILL.md
-```
-
-Garden now keeps this canonical relation map:
-
-```yaml
-metadata:
-  related-skills: '{"daily-planner":"Places garden work into daily priorities and time blocks.","habits":"Turns recurring garden care into trackable routines.","journal":"Captures free-form garden observations outside structured records.","plants":"Extends Garden with plant-specific care and identification.","remind":"Schedules watering and seasonal task reminders."}'
-```
-
-The dedicated `Related Skills` section was removed from `SKILL.md`; Garden currently has no other inline related-skill reference that needs to remain. The original section's `https://clawic.com/skills/<slug>` placeholder was removed with it.
+Garden's five declared associations are preserved as outgoing `related` edges to `daily-planner`, `habits`, `journal`, `plants`, and `remind`, with their original individual reasons in `ontology/graph.jsonl`. Its frontmatter contains no relationship map. Its removed `Related Skills` section and catalog placeholder links are not recreated.
 
 #### Gate 4 pass criteria
 
-- [ ] Before deleting a relationship section, `SKILL.md`, `references/`, `assets/`, `scripts/`, and every other package file were scanned.
-- [ ] Every candidate mention was classified as a genuine skill identity or ordinary domain vocabulary.
-- [ ] Every relationship key passes the `skills/<canonical-name>/SKILL.md` existence check.
-- [ ] Nonexistent targets were not added to metadata; unresolved references were fixed or explicitly block Gate 4.
-- [ ] `metadata.related-skills` exists when relationships exist and is omitted entirely when none exist.
-- [ ] The YAML value is a string that decodes successfully into a JSON object.
-- [ ] Every key and value in the decoded object is a nonempty string; no nested values exist.
-- [ ] Keys are lexicographically sorted, with no self-relationship or duplicate relationship.
-- [ ] Every reason explains a concrete relationship to the current skill rather than using a generic label.
-- [ ] Dedicated `Related Skill` or `Related Skills` list sections were removed from `SKILL.md`.
-- [ ] Prose does not recreate the complete relationship list or a copy of metadata elsewhere.
-- [ ] Every retained inline or situational skill reference appears in metadata.
-- [ ] Every explicit skill reference retained in supporting files appears in metadata.
-- [ ] Required dependencies still use the formal dependency/requirement mechanism; `related-skills` does not imply automatic installation.
-- [ ] No unresolved `<slug>`, dead catalog URL, or URL stored in a JSON value remains.
-- [ ] The pull-request report includes the pre-change relationship inventory, mention sources, resolved canonical names, existence checks, JSON parse result, removed dedicated sections, and unresolved references.
+- [ ] The complete package was scanned before removing relationship content, and genuine skill mentions were distinguished from ordinary vocabulary.
+- [ ] Each referenced skill resolves to an existing entity and verified package; nonexistent targets remain unresolved failures rather than placeholders.
+- [ ] Skill frontmatter has no `metadata.related-skills` field or duplicate relationship list.
+- [ ] The operation log replays successfully; effective edges have valid distinct endpoints, allowed predicates, unique ordered pairs, and nonempty concrete reasons.
+- [ ] Existing directions and reasons were preserved unless an intentional change is supported and documented.
+- [ ] Dedicated relationship lists were removed after graph validation; every retained contextual reference has a corresponding edge.
+- [ ] Runtime requirements and authorization remain explicit; associations do not imply automatic installation or co-loading.
+- [ ] The change report includes mention sources, resolved identities, existence checks, graph operations, replay validation, removed sections, and unresolved references.
 
 ---
 

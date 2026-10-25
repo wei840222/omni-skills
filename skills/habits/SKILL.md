@@ -4,7 +4,6 @@ description: Design, track, and repair recurring habits, routines, completion ra
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"✅"}'
-  related-skills: '{"coach": "Provides accountability conversations when a habit problem is not primarily mechanical.", "fitness": "Designs the exercise program once the recurring exercise habit is stable.", "goals": "Turns outcomes and milestones into goals; habits owns the recurring behavior layer.", "journal": "Captures reflective context and the narrative portion of reviews.", "productivity": "Handles whole-life capacity, priorities, and overwhelm beyond one recurring behavior."}'
 ---
 
 ## State location

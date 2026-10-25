@@ -4,7 +4,6 @@ description: "Navigate Valencia for visitors, residents, tech workers, students,
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍊"}'
-  related-skills: '{"booking": "Lodging search and reservation completion after a Valencia neighborhood base is chosen.", "dubai": "Peer city-guide pattern for another dense metro when comparing city skills.", "expat": "Cross-border move project tracking beyond Valencia neighborhood and settling advice.", "spain": "Country-level multi-city Spain routing when Valencia is only one stop.", "spanish": "Everyday Spanish for menus, bookings, and on-the-ground talk.", "travel": "Standing multi-destination travel records when Valencia is one city among several.", "travel-planning": "Day-by-day multi-city itineraries when the trip leaves Valencia."}'
 ---
 
 ## State location

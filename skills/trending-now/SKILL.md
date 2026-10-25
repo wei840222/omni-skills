@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📈","requires":{"bins":[],"config":["<state_root>/"]},"os":["darwin","linux","win32"],"displayName":"Trending Now"}'
-  related-skills: '{"competitor-monitoring": "Competitor dossiers, pricing, and positioning alerts beyond a single trend spike.", "digest": "Recurring curated digests with preference learning instead of score-gated trend heartbeats.", "in-depth-research": "Expand a weak or contested trend into evidence-backed analysis.", "monitoring": "Uptime/coverage ladders and infra heartbeats once the ask is service health, not social narrative.", "news": "Personalized news briefings and interest profiles instead of thresholded trend alerts."}'
 ---
 
 # Trending Now

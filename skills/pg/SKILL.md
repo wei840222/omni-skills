@@ -17,7 +17,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐘"}'
-  related-skills: '{"db": "Engine-agnostic database reliability, scaling, and operations patterns beyond Postgres-specific recipes.", "prisma": "ORM-level schema modeling and query pitfalls when the stack sits on top of Postgres.", "sql": "Cross-engine SQL portability and dialect differences outside Postgres-only work.", "timescaledb": "Time-series workloads on Postgres: hypertables, compression, and continuous aggregates."}'
 ---
 
 ## State location

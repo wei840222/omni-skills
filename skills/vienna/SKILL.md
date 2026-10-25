@@ -4,7 +4,6 @@ description: "Provide practical travel and living guidance for Vienna. Use when 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🏛️"}'
-  related-skills: '{"austria": "Austria-wide trip and alpine routing when Vienna is one stop.", "booking": "Lodging and reservation execution after a Vienna base is chosen.", "career": "Broader career decisions after Vienna tech or job context is set.", "europe": "Cross-border EU mobility context beyond Vienna.", "food": "Deeper food system workflows beyond Viennese dining guidance.", "german": "Austrian German wording and natural phrasing.", "plan": "General planning structure when the Vienna decision is only one input.", "startup": "Founder stage routing after Vienna startup landscape is scoped.", "travel": "Multi-destination travel framing beyond Vienna-specific routing."}'
 ---
 
 ## When to Use

@@ -4,7 +4,6 @@ description: "Apply proven business frameworks for strategic decisions. Use when
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "💼"}'
-  related-skills: '{"ceo": "Executive leadership and board management.", "cfo": "Financial planning and capital allocation.", "pricing": "Pricing strategy and optimization.", "startup": "Early-stage founder guidance.", "strategy": "Competitive strategy and positioning."}'
 ---
 
 ## When to Use

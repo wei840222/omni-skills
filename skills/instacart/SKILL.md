@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛒","requires":{"env":["INSTACART_API_KEY"],"bins":["jq"]},"primaryEnv":"INSTACART_API_KEY"}'
-  related-skills: '{"api": "generic REST patterns", "auth": "non-Instacart credential hygiene", "grocery": "shopping planning without Instacart APIs", "webhook": "Connect callback verification", "workflow": "general runbook design"}'
 ---
 
 ## State location

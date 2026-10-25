@@ -4,7 +4,6 @@ description: Manage personal game collections, track backlogs, log playthroughs,
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎮"}'
-  related-skills: '{"family": "Helps integrate family activities and kids games.", "gaming": "Complements general gaming tracking."}'
 ---
 
 ## State location

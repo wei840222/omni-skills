@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"💡"}'
-  related-skills: '{"diverge": "Multi-perspective evaluation and synthesis when idea volume is not enough.", "loop": "Iterate a chosen direction until success criteria are met.", "question": "Craft interview or discovery questions instead of generating option lists."}'
 ---
 
 ## Default: ideas first

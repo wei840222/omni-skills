@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔒","displayName":"Chief Information Security Officer"}'
-  related-skills: '{"auth": "Authentication and MFA design when the finding is identity-specific.", "authorization": "Access-control and least-privilege design beyond program-level policy.", "devops": "Secure CI/CD, change control, and operational safeguards that implement CISO controls.", "encryption": "Key management and cryptographic hygiene beyond generic secret handling.", "firewall": "Network exposure and policy controls outside application-layer review.", "security-best-practices": "Code and config secure-by-default reviews when the ask is remediation, not program design."}'
 ---
 
 # CISO

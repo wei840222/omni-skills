@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📽️","os":["darwin"],"requires":{"bins":["osascript"]}}'
-  related-skills: '{"applescript": "Deeper AppleScript/dictionary design beyond known-good PowerPoint snippets.", "documents": "General document prep workflows that often feed deck content.", "office": "Cross-app Office routing across documents, spreadsheets, and presentations.", "powerpoint-pptx": "Offline PPTX generation and structural file editing without a live app session."}'
 ---
 
 # PowerPoint

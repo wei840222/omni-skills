@@ -4,8 +4,6 @@ description: "Maintain a markdown-based personal inventory system in <state_root
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"📦"}'
-  related-skills:
-    '{"home": "Household asset management, storage organization, and property tracking."}'
 ---
 
 ## State location

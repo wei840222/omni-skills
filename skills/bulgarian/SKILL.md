@@ -4,7 +4,6 @@ description: Write natural, casual Bulgarian that prefers ти over Вие, uses
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇧🇬"}'
-  related-skills: '{"bulgaria": "Context for travel and culture in Bulgaria."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.

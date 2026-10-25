@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇮🇩"}'
-  related-skills: '{"copywriting": "Shape persuasive marketing copy after the Indonesian register is chosen.", "english": "Draft or revise the English source before translating it into Indonesian.", "malay": "Handle Malay requests that look similar but use different pronouns, particles, and spelling.", "thai": "Apply the same register-first writing method to Thai instead of Indonesian.", "writing": "Plan structure and argument before polishing the Indonesian wording."}'
 ---
 
 ## When to load

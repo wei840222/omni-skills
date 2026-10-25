@@ -4,7 +4,6 @@ description: Produce evidence-labelled equity research, dated market briefings, 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📈"}'
-  related-skills: '{"business-intelligence": "Converts market analysis outputs into dashboards and decision reporting.", "economics": "Interprets macro indicators and policy signals that move markets.", "market-research": "Builds sector and theme landscape analysis that feeds stock-level thesis work.", "trading": "Structures trade execution plans and operational checklists for approved candidates."}'
 ---
 
 ## State location

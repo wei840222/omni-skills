@@ -4,7 +4,6 @@ description: "Manage self-reflection, criticism, learning, and self-organizing m
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠","requires":{"config":["<state_root>/self-improving/"]}}'
-  related-skills: '{"decide": "Consequential choice patterns; self-improving logs how work was executed, not branch decisions.", "escalate": "Ask-vs-act thresholds; self-improving records corrections after outcomes.", "learning": "General learning workflows; self-improving stores durable agent performance rules.", "memory": "Long-term factual continuity and diary context; self-improving owns execution lessons and corrections."}'
 ---
 
 ## When to load

@@ -4,7 +4,6 @@ description: "Manage TP-Link Tapo smart cameras on local networks. Use when disc
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "📷","requires": {"bins": ["python3","ffmpeg","kasa"],"pip": ["python-kasa"],"config": ["<state_root>/"],"env.optional": ["TAPO_CAMERA_USERNAME","TAPO_CAMERA_PASSWORD","KASA_CREDENTIALS_HASH"]},"install": [{"id": "pip-python-kasa","kind": "pip","package": "python-kasa","bins": ["kasa"],"label": "Install python-kasa and the kasa CLI (pip)"},{"id": "brew-ffmpeg","kind": "brew","formula": "ffmpeg","bins": ["ffmpeg"],"label": "Install ffmpeg (Homebrew)"}],"configPaths": ["<state_root>/"],"os": ["darwin","linux","win32"]}'
-  related-skills: '{"cameras": "broader camera capture and review workflows outside the Tapo-specific lane", "ffmpeg": "deeper frame extraction, transcoding, and media inspection once capture works", "iot": "local-device debugging and network-aware connector reasoning", "photos": "organize and inspect saved captures after acquisition", "smart-home": "ecosystem-level device coordination and automation planning"}'
 ---
 ## When to load
 

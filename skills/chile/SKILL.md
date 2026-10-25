@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇨🇱"}'
-  related-skills: '{"food": "Deeper restaurant and cuisine planning once the Chile route and base cities are fixed.", "spanish": "Language support for bookings, menus, and practical on-the-ground interactions.", "travel": "General multi-country trip system, wishlist, and disruption handling outside Chile-specific routing."}'
 ---
 
 ## Setup

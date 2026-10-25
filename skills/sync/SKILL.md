@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔄","requires":{"anyBins":["rsync","rclone"]},"os":["linux","darwin","win32"],"displayName":"Sync"}'
-  related-skills: '{"backups": "Versioned/immutable backup and restore design when the need is recovery, not live mirroring.", "cloud-storage": "Multi-provider cloud file ops, auth, and egress-cost checks once destinations are chosen.", "files": "Local filesystem inspection and path hygiene before constructing sync commands.", "linux": "Host paths, mounts, permissions, and SSH quirks that affect remote rsync.", "s3": "S3 bucket, Object Lock, and key-layout details when the destination is object storage.", "storage": "Capacity and media planning outside a concrete transfer command."}'
 ---
 
 # Sync

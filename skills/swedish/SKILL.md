@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇸🇪"}'
-  related-skills: '{"copywriting": "Shape persuasive marketing copy after the Swedish register is chosen.", "danish": "Write Danish when Swedish is not the target language.", "english": "Draft or revise the English source before translating it into Swedish.", "finnish": "Handle Finnish requests that share Nordic context but not Swedish particles or lagom tone.", "norwegian": "Write Norwegian when Swedish is not the target language.", "sweden": "Plan Sweden travel or local logistics rather than Swedish-language phrasing.", "translate": "Translate an existing source text into Swedish.", "writing": "Shape broader prose once the Swedish-language decision is settled."}'
 ---
 
 Research notes for du-reform, particles, lagom tone, and Scandinavian adjacency live in `references/sources.md`.

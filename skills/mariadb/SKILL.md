@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🦭","requires":{"bins":["mariadb"]}}'
-  related-skills: '{"mysql": "Hand off when the server is MySQL-specific rather than MariaDB syntax or Galera/temporal features.", "sql": "Use for dialect-agnostic SQL patterns before specializing to MariaDB.", "sqlite": "Use when the workload fits embedded/local SQLite instead of a server MariaDB instance.", "timescaledb": "Hand off time-series hypertable and continuous-aggregate work on PostgreSQL/Timescale."}'
 ---
 
 ## When to load

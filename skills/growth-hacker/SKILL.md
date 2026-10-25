@@ -4,7 +4,6 @@ description: Plan and analyze growth experiments, viral loops, and marketing fun
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🚀"}'
-  related-skills: '{"analytics": "Track and analyze metrics", "cmo": "Brand and marketing strategy", "cro": "Conversion rate optimization", "seo": "Organic search growth"}'
 ---
 
 ## When to load

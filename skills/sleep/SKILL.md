@@ -4,7 +4,6 @@ description: 'Manage sleep protocols for insomnia, jet lag, shift work, and circ
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji": "😴"}'
-  related-skills: '{"dreams": "Dream journaling and pattern exploration.", "fasting": "When late eating windows or fasting schedules collide with the sleep window.", "fitness": "When the lever is training load, overtraining, or workout timing rather than the night itself.", "plan": "When the fix is calendar surgery, moving deep work to the user''s alert hours instead of fixing sleep."}'
 ---
 
 Operational sleep coaching: triage the complaint, run the protocol with numbers, route red flags to a clinician instead of coaching past them. Advise mode only: guide the human, ensure they consult their physician regarding medication changes. Diary, trip plans, and preferences persist in `<state_root>/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format; created only when the user starts a protocol). If you have data at an old location (`~/sleep/` or `~/clawic/sleep/`), move it to `<state_root>/`, and say in one line that you moved it and from where.

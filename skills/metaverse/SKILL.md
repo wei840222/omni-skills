@@ -4,7 +4,6 @@ description: "Guide users in selecting metaverse platforms, securing digital ass
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🕶️"}'
-  related-skills: '{"blender": "For creating 3D models to use in metaverse platforms.", "crypto-tools": "For managing crypto wallets often needed for web3 metaverse platforms."}'
 ---
 
 When guiding a user on the metaverse, use progressive disclosure to provide platform recommendations, digital asset management, and hardware setup. Load the specific references based on the user's needs.

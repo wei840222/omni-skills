@@ -4,7 +4,6 @@ description: Create, schedule, format, and deliver automated recurring reports f
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📊","requires":{"config":["<state_root>/report/"]}}'
-  related-skills: '{"alerts": "Urgent new-information notifications rather than scheduled metric digests.", "analytics": "Broader analytics querying when the ask is analysis rather than scheduled delivery.", "memory": "Durable user context beyond report configs and generated archives.", "notify": "Delivery channel, batching, and fatigue controls for report alerts.", "pdf-generator": "One-off or template PDF generation without a recurring report config.", "schedule": "Cron/job scheduling execution after a report cadence is chosen."}'
 ---
 
 ## State location

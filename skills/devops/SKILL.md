@@ -5,7 +5,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "🔧", "requires": {"config": ["<state_root>/"]}}'
-  related-skills: '{"ansible": "Configures workloads inside hosts that delivery pipelines provision or promote.", "aws": "Cloud-provider resource and IAM detail once delivery topology is set.", "azure": "Azure-specific delivery and identity detail beyond generic pipeline design.", "backups": "Backup architecture and timed restore drills beyond delivery recovery policy.", "ci-cd": "Per-stack CI recipes and app pipeline wiring under the delivery system this skill designs.", "deploy": "Single-app ship checklists and deploy execution under the release strategy chosen here.", "docker": "Image builds and runtime for artifacts the pipeline promotes.", "gcp": "GCP-specific delivery and workload identity detail beyond generic pipeline design.", "github-actions": "GitHub Actions workflow dialect, reusable workflows, and runner configuration.", "gitlab": "GitLab CI YAML dialect and runner patterns when ci_platform is GitLab.", "k8s": "Kubernetes manifests and cluster debugging for the deploy target.", "monitoring": "Metrics, logs, and alert routing stacks once SLIs and error budgets are defined.", "terraform": "HCL authoring, state surgery, and module design inside IaC delivery gates."}'
 ---
 
 ## State location

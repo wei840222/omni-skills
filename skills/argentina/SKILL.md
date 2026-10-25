@@ -4,7 +4,6 @@ description: "Plan an Argentina trip by macro-region, entry path, money strategy
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇦🇷"}'
-  related-skills: '{"booking": "Keep hotel, flight, and excursion reservation hygiene after the Argentina route is chosen.", "car-rental": "Decide when a self-drive segment in wine country, lakes, or the north actually helps.", "food": "Extend regional meal planning beyond the Argentina food playbook.", "spanish": "Support menus, bookings, and on-the-ground Spanish once the route is set.", "travel": "Build a multi-country itinerary when Argentina is only one stop."}'
 ---
 
 ## State location

@@ -4,7 +4,6 @@ description: Prepare for the US Bar Exam with MBE practice, essay drilling, weak
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"⚖️","requires":{"config":["<state_root>/bar-exam/"]}}'
-  related-skills: '{"career": "Broader career decisions after bar timing or practice-jurisdiction context is set.", "exam": "Generic practice questions, flashcards, and mock exams from supplied study material rather than US Bar–specific MBE/MEE/MPT workflows.", "law": "Jurisdiction-aware legal information and research outside bar-exam drilling.", "lawyer": "Live counsel workflows for agreements and risk, not bar study.", "legal": "General issue-spotting frameworks rather than timed bar components.", "study": "Semester coursework and student schedule systems beyond bar-focused prep."}'
 ---
 
 ## State location

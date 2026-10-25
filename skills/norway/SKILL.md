@@ -3,7 +3,6 @@ name: norway
 description: "Plan Norway travel routes and fjord itineraries. Use when planning rail, ferry, or road travel across Norwegian fjords, verifying Schengen entry rules, budgeting costs, or packing for Arctic weather."
 metadata:
   openclaw: '{"emoji": "🇳🇴", "requires": {"bins": [], "config": ["<state_root>/data/norway/"]}}'
-  related-skills: '{"booking": "Reservation timing, inventory risk, and booking tradeoffs for stays or transport.", "car-rental": "Vehicle choice and rental logistics once a self-drive corridor is chosen.", "english": "Language help when the traveler needs phrasing support rather than Norway route logic.", "food": "General dining strategy outside Norway-specific supermarket and alcohol constraints.", "travel": "Broader multi-country trip framing when Norway is only one stop."}'
 ---
 
 ## When to load

@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🗄️","requires":{"bins":[]},"configPaths":["<state_root>/database-manager/"]}'
-  related-skills: '{"backend": "Backend architecture and service delivery surrounding the database tier.", "mysql": "MySQL-specific workflows, engines quirks, and troubleshooting.", "prisma": "Prisma schema and migration tooling when the stack is Prisma-first.", "sql": "SQL query authoring and analysis when the ask is statement design rather than full DB operating discipline.", "sqlite": "Local SQLite prototyping and file-backed database workflows."}'
 ---
 
 ## When to load

@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📱"}'
-  related-skills: '{"ads": "Cross-platform paid acquisition principles when TikTok is one channel among Meta/Google/LinkedIn/YouTube.", "apple-search-ads": "iOS App Store search campaigns and SKAN/AdServices attribution outside TikTok auction ads.", "content-marketing": "Owned funnel content programs that paid TikTok traffic may feed.", "copywriting": "Headline/body/CTA craft without TikTok Ads Manager mechanics.", "digital-marketing": "Channel-mix planning around TikTok paid placements.", "ugc": "Creator briefs and organic short-form craft before Spark authorization or boost.", "video-captions": "Burn-in caption mechanics for sound-off TikTok creative.", "video-generation": "Synthetic/video-model pipelines when generating TikTok creatives."}'
 ---
 
 ## When to load

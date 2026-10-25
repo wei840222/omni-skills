@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧘","requires":{"config":["<state_root>/pilates/"]}}'
-  related-skills: '{"fitness": "General training planning once Pilates is part of a broader program.", "habits": "Makes short Pilates sessions a repeatable routine.", "health": "Broader health context and safety-aware habit framing.", "mindfulness": "Calm focus and body-awareness that pairs with controlled movement.", "yoga": "Adjacent breath, posture, and mobility language for crossover users."}'
 ---
 
 ## When to load

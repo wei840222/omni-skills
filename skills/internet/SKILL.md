@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌐"}'
-  related-skills: '{"dns": "Resolver and record debugging once path reachability is settled.", "network": "Layer-3 reachability, DNS, routing, NAT, firewall, and TLS beyond ISP/last-mile checks.", "vpn": "VPN provider selection and privacy trade-offs outside local ISP diagnosis.", "wifi": "Wireless channel, interference, placement, and WPA hardening when the radio layer is the fault.", "wireguard": "WireGuard tunnel setup when the path issue is VPN routing, not the ISP link."}'
 ---
 
 # Internet

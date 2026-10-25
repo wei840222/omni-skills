@@ -4,7 +4,6 @@ description: Resolve TensorFlow execution, memory, shape, and training gotchas. 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠","requires":{"bins":["python3"]}}'
-  related-skills: '{"keras": "High-level Keras model-building patterns that often sit on top of TensorFlow.", "numpy": "Array and broadcasting fundamentals that TensorFlow interops with outside the graph.", "pytorch": "Use when the stack is PyTorch rather than TensorFlow/Keras."}'
 ---
 
 ## When to load

@@ -14,7 +14,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⌨️","requires":{"config":["<state_root>/"]},"configPaths":["<state_root>/"],"displayName":"Cursor"}'
-  related-skills: '{"agentic-engineering": "Strengthen multi-agent workflow design, review discipline, and blast-radius thinking around Cursor usage.", "api": "Reuse request-debugging and integration patterns when Cursor work touches external services.", "coding": "Improve implementation quality once Cursor is operating inside the right repo boundaries.", "git": "Handle branches, diffs, stashes, and non-destructive repo recovery around Cursor-driven changes.", "workflow": "Turn recurring Cursor tasks into cleaner, repeatable operating procedures."}'
 ---
 
 ## When to Use

@@ -4,11 +4,6 @@ description: "Evaluate, self-host, maintain, and publish open source projects. U
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🌍"}'
-  related-skills: '{"devops": "Structure delivery, automation, and operational workflows
-    end to end.", "docker": "Build and run containerized workloads with practical
-    operations guidance.", "git": "Manage repository workflows, branching, and change
-    control safely.", "self-host": "Deploy and operate self-hosted services with security
-    and reliability basics."}'
 ---
 
 

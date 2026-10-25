@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"💻"}'
-  related-skills: '{"ci-cd": "Pipeline and staged-rollout plumbing that backs safe developer delivery.", "git": "Branching, bisect, history recovery, and commit mechanics under the developer loop.", "review-code": "Risk-first formal review analysis when a diff needs a structured pass.", "shipping": "Release, rollout, and rollback operations when the change is already merged.", "tech-debt": "Debt inventory and payoff cadence outside a single ticket."}'
 ---
 
 ## State location

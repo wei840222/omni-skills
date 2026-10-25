@@ -8,7 +8,6 @@ description: Review code and pull requests with risk-first analysis, evidence-ba
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🔎"}'
-  related-skills: '{"ci-cd": "Release-gate and deployment safeguard checks after review fixes land.", "code": "Implementation workflow that turns review findings into concrete code changes.", "devops": "Production risk, monitoring, and rollback planning around reviewed changes.", "git": "Safer branch, diff, and commit handling while remediating review findings.", "typescript": "Stricter typing and runtime-safety review when the diff is TypeScript-heavy."}'
 ---
 
 ## When to load

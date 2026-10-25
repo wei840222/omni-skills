@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🖧","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"backups": "Offsite backup architecture beyond provider snapshots.", "dns": "Record design and TTL for migration cutovers.", "docker": "Container runtime, images, and Compose on the server.", "firewall": "Host and cloud packet-filter design around the instance.", "hosting": "What to run on the box once the rented machine side is settled.", "linux": "Host internals, systemd, disks, and boot once you are on the box.", "monitoring": "Metrics, logs, and alerts once one box becomes several.", "nginx": "Reverse proxy, vhosts, and TLS in front of services."}'
 ---
 
 ## When to load

@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇦🇺"}'
-  related-skills: '{"booking": "Hotel, flight, car, and attraction reservation hygiene after the Australia route is chosen.", "english": "Booking and communication support when language scaffolding is the main need.", "food": "Broader meal planning beyond the Australia food playbook.", "sydney": "Deeper Sydney visitor, resident, and neighborhood guidance when the trip is Sydney-centric.", "travel": "Multi-country or multi-region itineraries when Australia is only one stop."}'
 ---
 
 ## State location

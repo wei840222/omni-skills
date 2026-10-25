@@ -4,7 +4,6 @@ description: "Query Polymarket events, outcome-token prices and public positions
 metadata:
   version: '1.0.0'
   openclaw: '{"emoji":"📊","requires":{"bins":["polymarket"]},"os":["linux","darwin"]}'
-  related-skills: '{"crypto-tools": "Cryptocurrency research and utilities beyond Polymarket market access.", "polygon": "Polygon network and gas operations required by direct on-chain transactions.", "trading": "General trading strategy and risk planning outside CLI execution."}'
 ---
 
 ## State location

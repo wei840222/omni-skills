@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔒"}'
-  related-skills: '{"dns": "Resolver and leak fixes once tunnel DNS policy is decided.", "firewall": "Host or edge packet filters that must allow the VPN transport ports.", "network": "Layer-3 reachability and routing diagnosis when VPN is only one hop among many.", "wireguard": "WireGuard interface, peers, AllowedIPs, keys, and keepalive once the problem is WG-specific."}'
 ---
 
 # VPN

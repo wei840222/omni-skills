@@ -4,7 +4,6 @@ description: "Configure and debug Nginx servers for reverse proxying, load balan
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🌐","requires":{"config":["<state_root>/nginx/"]}}'
-  related-skills: '{"caddy": "when automatic HTTPS and a simpler config beat nginx''s control", "dns": "records and propagation issues upstream of the proxy", "docker": "nginx in containers: images, networks, and the resolver at 127.0.0.11", "ssl": "certificate issuance, renewal, and TLS debugging beyond nginx directives", "vps": "server provisioning and hardening around the nginx install"}'
 ---
 
 ## State location

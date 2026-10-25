@@ -4,7 +4,6 @@ description: "Provide practical frameworks and communication tools for marital c
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"💍"}'
-  related-skills: '{"couple": "Handles relationship milestones, celebrations, and shared memory rather than conflict frameworks.", "family": "Coordinates household logistics and multi-member family systems around the marriage.", "parenting": "Covers age-specific child guidance that intersects with marital conflict or divorce planning.", "therapist": "Hands off to clinical CBT/ACT techniques when individual mental-health work is the primary need."}'
 ---
 
 ## Approach

@@ -3,7 +3,6 @@ name: postman
 description: "Design, organize, and automate API test collections with Postman. Use when authoring Postman collection JSON, setting up environment variables, writing test assertions, or executing collections with Newman CLI."
 metadata:
   openclaw: '{"emoji":"📮","requires":{"bins":["newman"]},"install":[{"id":"npm","kind":"npm","package":"newman","bins":["newman"],"label":"Install Newman (npm)"}]}'
-  related-skills: '{"api": "API endpoint design, REST contracts, and request debugging.", "ci-cd": "Automating Newman collection test runs inside deployment pipelines.", "json": "Response body validation, JSON schema assertions, and payload formatting."}'
 ---
 
 ## Setup

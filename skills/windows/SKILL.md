@@ -8,7 +8,6 @@ description: Diagnose silent Windows failures, manage credentials safely, and na
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🪟","os":["win32"]}'
-  related-skills: '{"cybersecurity": "Broader defensive security triage, detection, and program work beyond Windows ops traps.", "powershell": "PowerShell language, pipelines, arrays, operators, and cross-version syntax beyond Windows host traps.", "security-best-practices": "Secure-by-default code review and remediation rather than Windows host operations."}'
 ---
 
 ## When to Use

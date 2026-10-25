@@ -4,7 +4,6 @@ description: "Design agendas, facilitate meetings, capture decisions, and drive 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤝"}'
-  related-skills: '{"calendar-planner": "calendar conflicts, focus protection, and weekly schedule repair around the meeting load", "decide": "durable decision logs and autonomous decision patterns beyond a single meeting close", "notes": "note apps, vaults, and retrieval once the meeting artifact must live outside the meeting ledger", "people": "durable attendee context, birthdays, and relationship history in the shared address book", "summarizer": "compress a long transcript or document while preserving claims and decisions"}'
 ---
 
 ## State location

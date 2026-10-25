@@ -4,7 +4,6 @@ description: "Choose a Bali base and operating plan for a trip, relocation, remo
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌴"}'
-  related-skills: '{"expat": "Plan the broader move, settling, and adaptation around a Bali base.", "food": "Deepen cuisine, dietary, or restaurant planning beyond Bali area defaults.", "startup": "Founder legal vehicle, fundraising, and go-to-market beyond Bali base selection.", "travel": "Build a general itinerary when Bali is only one stop."}'
 ---
 
 ## State location

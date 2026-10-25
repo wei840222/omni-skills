@@ -3,7 +3,6 @@ name: vue
 description: "Build, debug, and optimize Vue 3 applications. Use when resolving reactivity loss in Composition API, handling component communication, fixing SSR hydration mismatches, debugging Pinia store warnings, or configuring Vite."
 metadata:
   openclaw: '{"requires": {"config": ["<state_root>/data/vue/", "<state_root>/vue/", "<state_root>/clawic/vue/"]}}'
-  related-skills: '{"javascript": "JavaScript semantics", "nuxt": "Nuxt.js SSR and server logic", "playwright": "End-to-end tests", "typescript": "Type system design", "vite": "Vite build and configuration"}'
 ---
 ## When to load references
 This skill supports deep expertise in Vue 3. When encountering specific issues, load the corresponding reference document:

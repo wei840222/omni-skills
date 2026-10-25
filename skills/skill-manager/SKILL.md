@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧩","requires":{"bins":["npx"]}}'
-  related-skills: '{"skill-audit": "Security and supply-chain scan before install or after updates.", "skill-finder": "User-initiated catalog search and first-time install discovery.", "skill-test": "Isolated trial before a candidate graduates to tracked install.", "skill-update": "Safe single-skill upgrade with preview, backup, and rollback."}'
 ---
 
 ## State location

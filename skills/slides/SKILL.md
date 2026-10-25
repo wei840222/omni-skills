@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊"}'
-  related-skills: '{"design": "Quantified visual hierarchy, type, color, and layout judgment beyond slide-specific defaults.", "figma": "Design-file and prototype handoff when the deck originates in Figma.", "powerpoint": "Live PowerPoint app control on macOS when automation of an open PPT session is required.", "storytelling": "Story arc and audience framing for pitch and keynote narratives.", "typography": "Measure, leading, and type-scale depth when legibility is the primary problem.", "writing": "Narrative structure and concise copy when slide wording needs editing beyond layout."}'
 ---
 
 ## State location

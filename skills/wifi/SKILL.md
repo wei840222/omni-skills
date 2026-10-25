@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📶"}'
-  related-skills: '{"network": "Layer-3 reachability, DNS, routing, firewall, and TLS diagnosis beyond the wireless radio.", "vpn": "VPN provider selection and privacy trade-offs outside local WLAN design.", "wireguard": "WireGuard tunnel setup when the issue is VPN pathing, not Wi-Fi airtime."}'
 ---
 
 # WiFi

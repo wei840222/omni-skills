@@ -4,7 +4,6 @@ description: Capture anxiety episodes, map triggers, and plan coping strategies.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"A"}'
-  related-skills: '{"journal": "reflective writing and pattern capture", "mindfulness": "grounding and attention training practices", "psychologist": "structured behavior and cognition guidance", "sleep": "sleep stability support for anxiety management", "therapist": "supportive therapeutic conversation framing"}'
 ---
 
 ## Setup

@@ -5,7 +5,6 @@ compatibility: "Roblox Studio and Luau"
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎲"}'
-  related-skills: '{"review-code": "Review Roblox Luau changes for correctness, security, and maintainability."}'
 ---
 
 ## Scope

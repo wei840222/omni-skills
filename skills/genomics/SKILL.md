@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🧬"}'
-  related-skills: '{"bioinformatics": "Alignment, variant calling, and raw NGS processing before interpretation.", "biology": "Molecular mechanisms when pathway context is needed.", "chemistry": "Drug metabolism chemistry underlying PGx phenotypes.", "health": "Patient-care framing outside specialist genomic reporting.", "medicine": "Broader clinical decision support beyond variant-level genomics."}'
 ---
 
 # Genomics

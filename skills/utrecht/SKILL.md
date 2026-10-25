@@ -4,7 +4,6 @@ description: "Navigate Utrecht as a visitor, resident, or professional. Use when
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji": "🏰"}'
-  related-skills: '{"career": "Career development and job search.", "dutch": "Dutch language learning and practice.", "freelance": "Freelancing guidance and contracts.", "plan": "General planning and goal setting.", "travel": "Travel planning and trip organization."}'
 ---
 
 ## When to Use

@@ -4,7 +4,6 @@ description: Guide New York State living, moving, work, taxes, housing, winter r
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🍎"}'
-  related-skills: '{"booking": "Completes lodging, transport, and reservation workflows after a New York plan is selected.", "business": "Extends New York business, permit, and startup choices into broader operations strategy.", "health-insurance": "Provides deeper coverage comparison when a move or job change raises insurance questions.", "home-buying": "Deepens purchase workflow after New York region and housing fit are narrowed.", "new-york-city": "Owns borough-level NYC itineraries, neighborhood bases, and city-only commute decisions.", "travel": "Handles multi-destination travel framing beyond New York State corridors."}'
 ---
 
 ## State location

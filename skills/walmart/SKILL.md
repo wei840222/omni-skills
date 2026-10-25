@@ -4,7 +4,6 @@ description: "Plan Walmart grocery and household orders with pickup timing, subs
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛒","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"family": "Multi-member household logistics that may feed a shared Walmart trip.", "grocery": "Cross-store grocery lists, pantry inventory, and dietary checks; walmart owns Walmart pickup/delivery/substitution/recovery flows.", "meal-planner": "Decide meals and recipes first; walmart turns the resulting staples into a Walmart basket.", "price": "Price-history and sale-legitimacy analysis when the ask is deal timing rather than Walmart cart execution.", "shopping": "General product research and buy-vs-wait judgment outside a Walmart-specific basket.", "subscriptions": "Recurring non-Walmart renewals; walmart covers store restock cadence and reorder memory."}'
 ---
 
 # Walmart

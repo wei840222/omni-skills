@@ -3,7 +3,6 @@ name: vinted
 description: Buy and resell on Vinted with listing systems, price discipline, shipping workflows, and trust-first handling for offers, bundles, and disputes. Use when sourcing pieces, checking fair price, writing listings, managing offers, packing sold items, or resolving shipping and dispute issues.
 metadata:
   openclaw: '{"emoji":"👗"}'
-  related-skills: '{"buy": "General purchase research and deal checks outside Vinted sourcing.", "ebay": "Auction or broader marketplace listing work on eBay.", "ecommerce": "Full-funnel store operations beyond one resale marketplace.", "etsy": "Handmade or vintage listing work on Etsy instead of Vinted.", "facebook-marketplace": "Local pickup selling outside Vinted shipping flows.", "negotiate": "High-stakes offer negotiation once floor and stop rules exist.", "pricing": "Margin-safe pricing frameworks when the question leaves marketplace comps.", "sell": "Cross-platform personal-item selling when the user is not locked to Vinted.", "shipping": "Carrier selection and exception depth beyond Vinted labels."}'
 ---
 
 ## When to Use

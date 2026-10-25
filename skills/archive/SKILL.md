@@ -4,7 +4,6 @@ description: Preserve user-provided URLs, text, and files as semantic snapshots,
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📦"}'
-  related-skills: '{"bookmarks": "Bookmarks stores just URLs, whereas Archive captures full content for permanence.", "memory": "Memory manages agent context, whereas Archive preserves external content as snapshots.", "pkm": "PKM manages evolving notes, whereas Archive handles immutable snapshots."}'
 ---
 
 

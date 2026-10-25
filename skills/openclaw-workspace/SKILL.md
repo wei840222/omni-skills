@@ -4,7 +4,6 @@ description: Audit and improve an OpenClaw workspace's agent behavior, bootstrap
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧩"}'
-  related-skills: '{"analysis": "Structures evidence-backed workspace and system audits.", "memory": "Designs memory architecture when recall requirements exceed this workspace audit.", "proactivity": "Tunes initiative, follow-through, and automation boundaries.", "self-improving": "Turns recurring corrections into durable operating improvements."}'
 ---
 
 

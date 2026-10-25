@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📡"}'
-  related-skills: '{"arduino": "General Arduino sketch and board work outside ESP/IoT deployment.", "firewall": "Host or edge firewall rules once IoT VLAN and exposure decisions are set.", "mqtt": "Broker, topic, QoS, TLS, and client-ID design when the work is MQTT-specific.", "smart-home": "Hub and automation product choices when protocol selection is only one layer.", "zigbee": "Zigbee mesh pairing, routing, and coordinator migration beyond multi-protocol IoT planning."}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state. Keep inventories, credentials, and network diagrams in ordinary user files outside the skill package.

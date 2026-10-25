@@ -5,7 +5,6 @@ description: >
 compatibility: code, code-insiders, vscodium, cursor, windsurf, code-server
 metadata:
   openclaw: '{"emoji": "💻", "os": ["linux", "darwin", "win32"], "displayName": "VSCode", "configPaths": ["<state_root>/vscode/", "<state_root>/servers/", "<state_root>/projects/", "<state_root>/profile.yaml"]}'
-  related-skills: '{"cursor": "skills/cursor", "docker": "skills/docker", "git": "skills/git", "typescript": "skills/typescript"}'
 ---
 
 **Data.** At the start of every session, read `<state_root>/vscode/config.yaml` (what the user declared) and `<state_root>/vscode/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, always check the list to see what is currently included. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved without modification or deletion, and every write and deletion is named in one line as it happens. Read `<state_root>/servers/servers.md` before touching Remote-SSH, a tunnel, or a dev container on a named host. If none of it exists, work from defaults and say nothing about it.

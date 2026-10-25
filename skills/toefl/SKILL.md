@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎓"}'
-  related-skills: '{"act-prep": "ACT section strategy and college targeting instead of TOEFL.", "english": "General native-style English writing and correction outside TOEFL task criteria.", "exam": "Generate practice questions or mock exams from supplied notes rather than TOEFL-format workflows.", "grammar": "Pure correctness passes where TOEFL task strategy must not move.", "ielts": "IELTS Academic/GT structure, band scoring, and immigration CLB mapping instead of TOEFL.", "sat": "Digital SAT structure and admissions prep instead of TOEFL.", "speak": "Speech-ready delivery and TTS phrasing outside scored TOEFL Speaking tasks.", "study": "Semester coursework schedules beyond TOEFL-focused prep.", "tutor": "General multi-subject tutoring outside TOEFL section tactics.", "writing": "Long-form drafting in the user voice outside TOEFL Writing tasks."}'
 ---
 
 ## When to load

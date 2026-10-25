@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📋"}'
-  related-skills: '{"agent": "Defines persona/voice identity rather than operational assistant procedures.", "inbox": "Owns multi-channel triage methodology when the primary surface is unread volume.", "productivity": "Diagnoses whole-life capacity, overwhelm, and sustainable plans beyond single-request coordination.", "secretary": "Owns preference memory and draft-before-send secretary workflows.", "time-management": "Owns day/week MIT and time-blocking mechanics once priorities are clear."}'
 ---
 
 ## State location

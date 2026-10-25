@@ -4,7 +4,6 @@ description: "Act as Chief Legal Officer. Use when managing commercial contract 
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⚖️"}'
-  related-skills: '{"business": "Business fundamentals aligned with corporate governance.", "ceo": "Executive leadership context for legal decisions.", "cfo": "Financial strategy implications of legal risk.", "coo": "Operational compliance implementation."}'
 ---
 
 Orientation only. Do not present this skill as licensed legal advice, a filing, or a substitute for counsel. Numeric penalties and patent terms come from `references/sources.md`; re-check them before a material decision.

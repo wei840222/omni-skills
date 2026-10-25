@@ -8,7 +8,6 @@ description: Plan Canadian travel with concrete regional recommendations, city g
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍁"}'
-  related-skills: '{"english": "English writing and register rather than Canada logistics.", "food": "Deeper cuisine workflows beyond Canadian regional food pointers.", "french": "French writing and register, especially for Quebec service context.", "travel": "Multi-destination trip systems and general travel memory beyond Canada-only routing."}'
 ---
 
 ## Setup

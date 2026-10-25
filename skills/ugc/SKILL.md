@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📱"}'
-  related-skills: '{"ads": "Cross-platform paid media structure when UGC is the creative input.", "analytics": "Measurement definitions and dashboard design for hook/hold/CTR readouts.", "branding": "Brand voice and identity constraints that UGC must still respect.", "content-marketing": "Funnel/calendar systems when UGC is one channel asset.", "copywriting": "Headline/body/CTA craft without creator-brief or short-form video ops.", "digital-marketing": "Channel mix and paid/owned planning around UGC creatives.", "growth": "Loop and constraint strategy above individual creative tests.", "tiktok-ads": "Paid Spark Ads, boost, and TikTok ad-account mechanics after organic UGC wins.", "vibe-marketing": "Broader AI campaign loops, humanize, and 48-hour tests beyond UGC video craft.", "video": "General video production planning outside UGC authenticity constraints.", "video-captions": "Caption/burn-in mechanics supporting sound-off UGC."}'
 ---
 
 ## When to load

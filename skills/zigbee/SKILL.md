@@ -3,7 +3,6 @@ name: zigbee
 description: "Deploy, manage, and troubleshoot Zigbee smart home mesh networks. Use when pairing devices, analyzing mesh routing topology, migrating coordinators, or resolving 2.4GHz Wi-Fi and Zigbee channel interference."
 metadata:
   openclaw: '{"emoji":"🐝"}'
-  related-skills: '{"home": "General home maintenance framing outside mesh-network operations.", "iot": "Cross-protocol device planning when Zigbee must coexist with Wi-Fi, Thread, or other transports.", "mqtt": "Broker, topic, and QoS design when Zigbee is bridged through MQTT or Zigbee2MQTT.", "smart-home": "Broader hub, automation, and protocol selection when Zigbee is only one layer.", "thermostat": "HVAC comfort and schedule work once Zigbee climate devices are reachable."}'
 ---
 
 ## When to load

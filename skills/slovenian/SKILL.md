@@ -4,7 +4,6 @@ description: "Write casual, natural-sounding Slovenian with correct ti/Vi, dual 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇸🇮","displayName":"Slovenian"}'
-  related-skills: '{"croatian": "Write Croatian when Slovenian is not the target language.", "serbian": "Write Serbian when Slovenian is not the target language.", "slovak": "Write Slovak when Slovenian is not the target language.", "translate": "Translate an existing source text into Slovenian.", "writing": "Shape broader prose once the Slovenian-language decision is settled."}'
 ---
 
 Research notes for register, dual forms, particles, and South Slavic boundaries live in `references/sources.md`.

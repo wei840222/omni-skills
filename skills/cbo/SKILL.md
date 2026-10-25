@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🤝","displayName":"Chief Business Officer"}'
-  related-skills: '{"billing": "Implements charges after commercial terms exist.", "business": "Company frameworks and irreversible-decision memory outside pure BD execution.", "ceo": "Executive and board framing when BD is only one input.", "cfo": "Capital, margin, and cash constraints that bound commercial bets.", "cgo": "Growth-org leadership when the bottleneck is growth system design.", "crm": "Pipeline stages, forecast hygiene, and deal records.", "founder": "Founder operating context when the ask is broader than commercial leadership.", "growth": "Funnel constraints, channel experiments, and loop design.", "negotiate": "Live counterparty negotiation with mandatory limits and autonomy rules.", "pricing": "Packaging, value metrics, and list-price design before deal discounts.", "startup": "Stage priorities and multi-function orchestration beyond BD.", "strategy": "Competitive positioning and portfolio choices that set BD targets."}'
 ---
 
 ## When to use

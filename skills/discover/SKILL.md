@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔭","requires":{"config":["<state_root>/"]}}'
-  related-skills: '{"heartbeat": "Owns recurring OpenClaw heartbeat playbooks and quiet no-change contracts when discovery is heartbeat-approved.", "in-depth-research": "Deep multi-source investigation when a single discovery needs exhaustive methodology rather than ongoing novelty tracking.", "market-research": "Market and competitor framing when discovery topics are commercial rather than open-loop life or opportunity tracks.", "notes": "Retrieval-oriented capture when the user wants a second brain entry instead of novelty-over-time discovery.", "schedule": "Exact-time cron or calendar jobs when discovery work needs precise timing instead of heartbeat."}'
 ---
 
 # Discover

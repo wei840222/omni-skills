@@ -4,7 +4,6 @@ description: "Diagnose Bitcoin transactions, wallet derivation mismatches, fee s
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "₿"}'
-  related-skills: '{"blockchain": "Cover general ledger fundamentals beyond Bitcoin-specific wallet and fee recovery.", "crypto-tools": "Fetch market data and exchange tooling once Bitcoin transaction mechanics are settled.", "ethereum": "Handle EVM gas, approvals, and L2 bridges instead of Bitcoin UTXO/Lightning flows.", "xrp": "Handle XRPL reserves, destination tags, and native DEX instead of Bitcoin fees/UTXOs."}'
 ---
 
 ## When to load

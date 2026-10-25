@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📬"}'
-  related-skills: '{"email-management": "Handles reading and sorting emails.", "mail": "Uses Mail.app or himalaya to read and send email."}'
 ---
 
 ## When to Use

@@ -5,11 +5,6 @@ description: Validate, debug, and write YAML safely. Use when a file fails to pa
   or untrusted YAML needs parsing. Not for JSON or TOML.
 metadata:
   openclaw: '{"emoji": "📋"}'
-  related-skills: '{"ansible": "Playbook semantics, variable precedence, idempotence.",
-    "github-actions": "Workflow design and CI semantics above the YAML layer.", "json":
-    "JSON payload design, JSON Schema authoring, jq.", "k8s": "What the manifests
-    mean once they parse: pods, probes, rollouts, RBAC.", "toml": "The other config
-    format, when YAML''s implicit typing is the problem."}'
   version: 1.0.2
 ---
 

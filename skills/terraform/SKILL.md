@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji": "🟪"}'
-  related-skills: '{"ansible": "configuration of workloads *inside* instances Terraform provisioned", "aws": "provider-specific AWS resource design and IAM once the plan/state problem is clear", "devops": "delivery topology around plan/apply gates and environment promotion", "github-actions": "concrete plan-on-PR / apply-on-merge workflow wiring", "k8s": "workload management on clusters that Terraform provisioned"}'
 ---
 
 ## State location

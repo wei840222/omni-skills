@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"buy": "End-to-end purchase research and deal timing for furniture, appliances, and gear.", "home-buying": "Primary-residence search, offer, and closing when the ask is purchasing a home.", "home-renovation": "Remodel scope, contractor sequencing, and renovation budgets.", "house": "Buy, sell, seasonal property maintenance, permits, and landlord decisions beyond day-to-day living guidance.", "iot": "Cross-protocol device and broker patterns beyond a single-home living guide.", "plants": "Structured houseplant care, logging, and diagnosis beyond starter plant tips.", "smart-home": "Protocol, hub, VLAN, and automation planning once the user commits to connected devices."}'
 ---
 
 # Home

@@ -7,7 +7,6 @@ description: Generate constraint-driven names for products, brands, features, AP
 metadata:
   version: 1.0.0
   openclaw: '{"emoji":"🏷️","requires":{"bins":[]},"os":["linux","darwin","win32"],"configPaths":["<state_root>/"],"displayName":"Naming"}'
-  related-skills: '{"api": "API path, resource, and client-method naming when the surface is integration code rather than product brand.", "branding": "Brand identity and positioning when the name must carry story and market distinctiveness beyond utility clarity.", "copywriting": "Marketing headlines and persuasive lines after a shortlist exists; not the primary naming workflow.", "design": "UI label length and visual hierarchy constraints that bound feature and navigation names.", "product": "Product framing and launch language when the named object is a shippable product surface.", "product-manager": "Roadmap and requirement language when naming must match problem statements and prioritization artifacts.", "strategy": "Positioning and competitive framing when the name encodes category strategy."}'
 ---
 
 ## When to load

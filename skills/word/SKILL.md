@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📝","os":["darwin"],"requires":{"bins":["osascript"]}}'
-  related-skills: '{"applescript": "General macOS osascript patterns, dictionary discovery, and argv transport outside Word-specific workflows.", "office": "Broader Office task routing across documents, spreadsheets, and presentations.", "word-docx": "Offline DOCX/OOXML generation and structural edits when Word does not need to stay open."}'
 ---
 
 # Word

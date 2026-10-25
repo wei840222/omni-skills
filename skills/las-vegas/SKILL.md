@@ -3,7 +3,6 @@ name: las-vegas
 description: "Provide practical Las Vegas guidance. Use when planning Las Vegas itineraries, navigating Strip vs Downtown lodging, estimating dining/entertainment costs, or researching local living conditions."
 metadata:
   openclaw: '{"emoji":"\ud83c\udfb0","os":["linux","darwin","win32"],"displayName":"Las Vegas"}'
-  related-skills: '{"business": "Conference logistics, trade show attendance, and corporate entertainment.", "dubai": "Comparative luxury travel, entertainment, and hospitality benchmarking.", "money": "Travel budgeting, expense management, and casino expenditure limits.", "travel": "Strip transit, flight booking, resort reservations, and itinerary design."}'
 ---
 
 ## When to Use

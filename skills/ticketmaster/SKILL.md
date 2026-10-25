@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎟️","requires":{"env":["TM_API_KEY"],"bins":["curl"]},"configPaths":["<state_root>/"]}'
-  related-skills: '{"api": "Generic REST request shaping and response inspection outside Ticketmaster Discovery.", "booking": "Reservation confirmation and hold hygiene after discovery turns into an action.", "events": "Event-planning schedules and logistics when Ticketmaster is not the data source."}'
 ---
 
 # Ticketmaster

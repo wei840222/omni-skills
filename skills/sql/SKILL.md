@@ -16,7 +16,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🗄️","requires":{"anyBins":["sqlite3","psql","mysql","sqlcmd"]}}'
-  related-skills: '{"mysql": "MySQL/InnoDB-specific charset, indexing, and production patterns once the engine is fixed.", "pg": "PostgreSQL server internals: vacuum, work_mem, wraparound, and Postgres-only ops.", "prisma": "ORM-level schema modeling and client workflows rather than raw SQL craft.", "sqlite": "SQLite concurrency, pragmas, and type affinity for embedded/local workloads."}'
 ---
 
 # SQL

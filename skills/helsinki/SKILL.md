@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇫🇮"}'
-  related-skills: '{"dubai": "Parallel Gulf city base when comparing Helsinki vs Dubai living or work.", "startup": "Founder operating judgment and multi-function startup orchestration beyond Helsinki base selection.", "travel": "Multi-stop itinerary framing when Helsinki is only one city in a larger trip."}'
 ---
 
 ## State location

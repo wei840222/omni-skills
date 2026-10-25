@@ -4,7 +4,6 @@ description: "Design and optimize affiliate programs with partner scoring, commi
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🤝","requires":{"configPaths":["<state_root>/"]}}'
-  related-skills: '{"cmo": "Channel strategy, demand generation, and marketing leadership.", "content-marketing": "Content partner enablement and repurposing systems.", "email-marketing": "Nurture sequences and owned-audience conversion.", "growth-hacker": "Acquisition experiments and growth loops.", "market-research": "Partner landscape, vertical mapping, and competitor analysis."}'
 ---
 
 ## State location

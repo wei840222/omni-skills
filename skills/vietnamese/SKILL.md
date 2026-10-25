@@ -3,7 +3,6 @@ name: vietnamese
 description: "Compose natural, idiomatic Vietnamese dialogue and text. Use when selecting proper relationship-based pronouns (anh, chị, em), conversational particles (nhé, nha, nhỉ), or writing informal messages in native tone."
 metadata:
   openclaw: '{"emoji": "🇻🇳"}'
-  related-skills: '{"chinese": "Write Chinese when Vietnamese is not the target language.", "english": "Write English when Vietnamese is not the target language.", "thai": "Write Thai when Vietnamese is not the target language.", "traditional-chinese": "Write Traditional Chinese when Vietnamese is not the target language.", "translate": "Translate an existing source text into Vietnamese.", "writing": "Shape broader prose once the Vietnamese-language decision is settled."}'
 ---
 
 Research notes for pronouns, particles, dialects, and orthography live in `references/sources.md`.

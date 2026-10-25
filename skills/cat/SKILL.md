@@ -6,7 +6,6 @@ description: Manage real cat care with triage, litter and behavior workflows, ro
 metadata:
   version: 1.0.0
   openclaw: '{"emoji":"🐈","requires":{"bins":[]},"os":["linux","darwin","win32"],"configPaths":["<state_root>/cat/"],"displayName":"Cat"}'
-  related-skills: '{"memory": "Durable household facts when the user wants long-term retention beyond the cat state tree.", "photos": "Photo albums and keepsakes after care milestones or memorable moments.", "remind": "Medication, appointment, and recurring care nudges once the user already knows the commitment.", "shopping": "Food, litter, and supply purchase decisions when restock thresholds are reached.", "travel": "Human trip structure when a cat is moving with the user or needs boarding coordination."}'
 ---
 
 ## When to load

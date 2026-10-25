@@ -4,7 +4,6 @@ description: "Assist students with assignments by prioritizing teaching, hints, 
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📚"}'
-  related-skills: '{"exam": "Generate practice tests and timed simulations.", "learning": "Self-directed concept learning outside a graded assignment.", "school": "Parent-managed K-12 tutoring systems and progress tracking.", "studying": "Plan study schedules and retrieval practice rather than completing one assignment.", "tutor": "Long-running personalized tutoring with learner profiles."}'
 ---
 
 ## When to Use

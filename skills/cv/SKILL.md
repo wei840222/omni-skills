@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📄"}'
-  related-skills: '{"career": "Offer evaluation, promotion, pivot, and layoff strategy when the document itself is not the deliverable.", "job-search": "Application pipeline, company research, and interview prep beyond drafting the document.", "resume": "Deep resume diagnosis, JD tailoring, and seniority calibration when that specialized workflow is the primary ask.", "writing": "General prose voice work when the artifact is not a resume/CV."}'
 ---
 
 # CV / Resume Craft

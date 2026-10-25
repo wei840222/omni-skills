@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🛍️","requires":{"config":["<state_root>"]}}'
-  related-skills: '{"content-marketing": "Messaging frameworks that improve listing clarity when the ask is broader content craft.", "ecommerce": "Multi-channel store operations and conversion foundations beyond Etsy-only listing execution.", "market-research": "Competitive and demand validation before listing-level experiments.", "pricing": "Broader pricing strategy and tradeoffs outside Etsy fee-aware listing checks.", "seo": "General organic search when the surface is not an Etsy listing."}'
 ---
 
 ## State location

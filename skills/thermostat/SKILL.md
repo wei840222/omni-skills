@@ -8,7 +8,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🌡️"}'
-  related-skills: '{"home": "Household utility management and residential climate zoning.", "smart-home": "Smart home platform integration, Matter/Zigbee bridges, and automation."}'
 ---
 ## When to load references
 

@@ -13,7 +13,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🏯"}'
-  related-skills: '{"seoul": "Parallel capital/nomad base comparison for Korea.", "singapore": "Southeast Asian hub comparison on cost, visas, and transit.", "thailand": "Choosing a Thai base beyond Bangkok: islands, Chiang Mai, beaches.", "tokyo": "Parallel major Asian city guide when comparing Tokyo vs Bangkok.", "travel": "General multi-stop itinerary framing when Bangkok is only one city."}'
 ---
 
 ## State location

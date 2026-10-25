@@ -10,7 +10,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🎞️","requires":{"bins":["ffmpeg"]}}'
-  related-skills: '{"ffmpeg": "Lower-level codec, filter, and encoding details when palette or seek flags need precise FFmpeg control.", "image": "Static image format, compression, and delivery decisions when the artifact is not an animated GIF.", "video": "Platform packaging, trim/convert pipelines, and non-GIF delivery when MP4/WebM is the better output."}'
 ---
 
 ## When to use

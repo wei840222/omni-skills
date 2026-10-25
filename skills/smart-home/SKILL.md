@@ -6,7 +6,6 @@ description: Set up, automate, secure, and troubleshoot smart home devices with 
   IoT security, recovering offline devices, or planning renter-friendly installs.
 metadata:
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"alexa": "Alexa-specific skill and device workflows inside a broader smart-home plan.", "home-server": "Always-on local hosts that run Home Assistant, brokers, or controllers.", "iot": "Cross-protocol device and broker patterns beyond a single-home automation plan.", "mqtt": "Broker, topic, and QoS design when hubs and devices exchange state over MQTT.", "network": "VLAN, firewall, and reachability work that underpins IoT isolation.", "thermostat": "HVAC schedules and comfort control once climate devices are on the network.", "wifi": "Wireless channel and client issues when smart devices share the RF environment.", "zigbee": "Mesh design, pairing, and interference when Zigbee is the chosen radio layer."}'
 ---
 
 ## State location

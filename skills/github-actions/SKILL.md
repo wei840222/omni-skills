@@ -3,7 +3,6 @@ name: github-actions
 description: "Design, debug, and harden GitHub Actions workflows. Use when working with reusable pipelines, OIDC, permissions matrices, or cache fixes in GitHub Actions."
 metadata:
   openclaw: '{"emoji": "GHA", "requires": {"bins": null, "config": ["<state_root>/"]}, "os": ["darwin", "linux", "win32"], "displayName": "GitHub Actions"}'
-  related-skills: '{"ci-cd": "Choose CI and deployment strategy before locking into one platform.", "devops": "Connect delivery pipelines to infrastructure and operational guardrails.", "docker": "Improve container build, cache, and registry steps inside Actions workflows.", "git": "Tighten branch, tag, and history handling around workflow events.", "workflow": "Design multi-step execution systems with clearer ownership and gating."}'
 ---
 
 ## Setup

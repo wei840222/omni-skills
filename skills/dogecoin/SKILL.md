@@ -4,7 +4,6 @@ description: "Diagnose Dogecoin (DOGE) address formats, fees, confirmations, unc
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🐕"}'
-  related-skills: '{"bitcoin": "Bitcoin UTXO, fees, RBF/CPFP, and Lightning outside Dogecoin.", "blockchain": "General ledger fundamentals beyond Dogecoin-specific payment guidance.", "crypto-tools": "Market data and exchange tooling once Dogecoin transaction mechanics are settled.", "litecoin": "Litecoin address/MWEB flows and Scrypt merged-mining peer of Dogecoin.", "xrp": "XRPL reserves and destination tags instead of Dogecoin simple addresses."}'
 ---
 
 # Dogecoin (DOGE)

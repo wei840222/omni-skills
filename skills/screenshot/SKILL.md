@@ -3,7 +3,6 @@ name: screenshot
 description: "Capture screenshots of desktop apps, browser pages, simulators, and CI environments. Use when you need to capture screenshots for debugging, QA, visual reviews, or before/after visual comparisons."
 metadata:
   openclaw: '{"emoji": "📸"}'
-  related-skills: '{"documentation": "Embedding UI screenshots, visual diagrams, and visual walk-throughs.", "image": "Image manipulation, compression, and format optimization.", "image-edit": "Cropping, annotating, highlighting, and watermarking captured screenshots.", "playwright": "Automated headless browser screenshot capture and full-page rendering.", "video": "Converting visual captures into video clips or screen recording flows."}'
 ---
 
 ## When to load

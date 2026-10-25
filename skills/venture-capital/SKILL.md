@@ -3,7 +3,6 @@ name: venture-capital
 description: "Evaluate early-stage startups and navigate venture capital processes. Use when reviewing startup pitch decks, conducting investor due diligence, analyzing term sheets, modeling cap tables, or refining fundraising strategy."
 metadata:
   openclaw: '{"emoji": "💰", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"], "displayName": "Venture Capital"}'
-  related-skills: '{"business": "Business model scalability, moat analysis, and defensibility evaluation.", "ceo": "Pitch deck narrative, founder vision, and executive board governance.", "cfo": "Cap table math, term sheet dilution, valuation modeling, and fund economics.", "founder": "Founder-investor alignment, reference checks, and syndicate building.", "startup": "Due diligence readiness, venture growth metrics, and fundraise milestones."}'
 ---
 
 ## When to load

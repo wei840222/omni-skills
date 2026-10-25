@@ -4,7 +4,6 @@ description: Orchestrates startup work by routing tasks to specialized agents an
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"🦄","os":["linux","darwin","win32"],"displayName":"Startup","configPaths":["<state_root>/","~/startup/","~/clawic/startup/"],"requires":{"config":["<state_root>/","~/startup/","~/clawic/startup/"]}}'
-  related-skills: '{"founder": "when the bottleneck is the founders own psychology or operating system, not the company", "hiring": "running the actual hiring process once this skill says the timing is right", "venture-capital": "term sheets, investor dynamics, and round mechanics in depth"}'
 ---
 
 # Startup Orchestration

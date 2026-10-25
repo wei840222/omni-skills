@@ -12,7 +12,6 @@ description: >
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛟"}'
-  related-skills: '{"crm": "Connect support insights to customer lifecycle systems after help-center priorities are set.", "customer-support": "Run live frontline ticket and escalation workflows after the help center is planned.", "documentation": "Write product or internal docs when the task is content quality rather than support deflection.", "workflow": "Design repeatable operational handoffs that the help center should feed."}'
 ---
 
 ## State location

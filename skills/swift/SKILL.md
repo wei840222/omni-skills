@@ -4,7 +4,6 @@ description: "Write, debug, and optimize Swift code. Use when working with Swift
 metadata:
   openclaw: '{"emoji":"🦅","os":["darwin","linux"],"requires":{"bins":["swift"]}}'
   version: '1.0.3'
-  related-skills: '{"ios": "iOS apps and platform frameworks", "macos": "macOS platform behavior", "xcode": "Xcode signing, build settings, and IDE issues"}'
 ---
 ## State location
 

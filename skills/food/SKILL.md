@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍽️"}'
-  related-skills: '{"calories": "Detailed macro, TDEE, and label math after food is classified.", "dietitian": "Clinical or therapeutic nutrition plans beyond casual logging.", "habits": "Turns recurring meal or prep routines into trackable habits.", "inventory": "Pantry or fridge stock lists when classification is already done.", "journal": "Free-form food notes outside structured food memory.", "meal-planner": "Multi-day meal plans once preferences and inventory are known."}'
 ---
 
 ## State location

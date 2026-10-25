@@ -6,9 +6,6 @@ description: Plan India trips, recommend regional food, provide route options, a
 metadata:
   version: 1.0.0
   openclaw: '{"emoji": "🇮🇳"}'
-  related-skills: '{"food": "Food recommendations and dining guidance for India trips.",
-    "hindi": "Hindi language help for signs, menus, and quick phrases.", "travel":
-    "General travel planning and routing outside of India."}'
 ---
 
 ## State location

@@ -3,7 +3,6 @@ name: mysql
 description: Write correct MySQL queries utilizing proper character sets, indexing, transactions, and production patterns. Use when modifying or querying a MySQL database.
 metadata:
   openclaw: '{"emoji": "🐬","requires": {"bins": ["mysql"]}}'
-  related-skills: '{"mariadb": "Use when the target is MariaDB-specific syntax or operational differences from MySQL.", "sql": "Use for dialect-agnostic SQL patterns before specializing to MySQL.", "sqlite": "Use when the workload fits embedded/local SQLite instead of a server MySQL instance.", "timescaledb": "Hand off time-series hypertable and continuous-aggregate work on PostgreSQL/Timescale."}'
 ---
 ## Quick Reference
 

@@ -4,7 +4,6 @@ description: "Map practical AI agent use cases by role and skill level. Use when
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📋","displayName":"Use Cases"}'
-  related-skills: '{"ai": "Verify current model, pricing, ranking, and hardware facts instead of static examples.", "assistant": "Run personal-assistant capture, triage, and follow-up workflows once a use case is selected.", "brainstorm": "Generate option volume after a use case direction is chosen.", "onboarding": "Design product first-run activation flows; use-cases covers AI capability discovery, not signup UX.", "prompting": "Diagnose and iterate prompts when the blocker is instruction design, not discovery."}'
 ---
 
 # Use Cases

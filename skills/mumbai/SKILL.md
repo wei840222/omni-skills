@@ -3,7 +3,6 @@ name: mumbai
 description: "Navigate Mumbai for visitors, expats, and residents. Use when researching Mumbai neighborhoods, local train travel, housing rent dynamics, monsoon logistics, or local etiquette."
 metadata:
   openclaw: '{"emoji": "\ud83c\udfd9\ufe0f", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"], "displayName": "Mumbai"}'
-  related-skills: '{"austin": "Tech hub comparison for relocation decisions", "dubai": "Fellow financial hub, many Mumbai expats there", "travel": "General travel planning and tips"}'
 ---
 
 ## When to Use

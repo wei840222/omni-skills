@@ -4,7 +4,6 @@ description: Track and organize music discoveries, favorites, concerts, and play
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🎵"}'
-  related-skills: '{"audio": "Process or convert audio files rather than curate personal listening memory.", "journal": "Capture reflective concert or discovery narratives beyond structured music tracking.", "music-generation": "Generate AI music with style prompts once the listening goal is clear.", "remember": "Store durable cross-session preferences that should survive beyond the music state tree.", "song": "Write original lyrics, chords, and melody when the user wants to compose rather than track listening."}'
 ---
 
 ## State location

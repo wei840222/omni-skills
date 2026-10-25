@@ -4,7 +4,6 @@ description: "Manage iOS and macOS beta distribution using Apple TestFlight. Use
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛫"}'
-  related-skills: '{"flutter": "cross-platform builds", "ios": "iOS development patterns", "xcode": "Xcode workflows"}'
 ---
 ## When to Use
 

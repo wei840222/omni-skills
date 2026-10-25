@@ -9,7 +9,6 @@ description: >
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🚦"}'
-  related-skills: '{"inbox": "Processes message streams before items become triaged tasks.", "productivity": "Diagnoses whole-life capacity and sustainable plans when triage alone cannot absorb the load.", "task-list": "Maintains the durable queue once triage has assigned levels.", "time-management": "Protects day plans and deep-work blocks that P2/P3 must not interrupt."}'
 ---
 
 # Triage

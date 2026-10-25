@@ -11,7 +11,6 @@ description: >
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"👤","requires":{"bins":["curl","python3"]}}'
-  related-skills: '{"agent": "Persona, voice, and identity writing after a face is chosen.", "image": "Compress or convert the chosen avatar file after selection.", "image-edit": "Crop, mask, or background edits on an already chosen face asset.", "image-generation": "Prompt-based generative faces when a library shortlist is not enough.", "stock-images": "Generic placeholders and non-face stock/avatar seeds instead of Generated Photos faces."}'
 ---
 
 # Face
