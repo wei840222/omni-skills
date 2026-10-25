@@ -1,0 +1,1070 @@
+{
+  "schema_version": 1,
+  "task_set_version": "harness-offline-task-checks-v1",
+  "status": "Pre-variant grader/spec freeze; no actual paired agent task outputs executed.",
+  "scope": "12 public-subset tasks; later 12 baseline plus 12 challenger outputs. Not a whole-library quality claim.",
+  "blinding": "Models receive only public_task_input(id) plus harness-selected full skill and necessary references. Never provide grader cases/oracles, source-owner labels, variant names, peer outputs or grader feedback. This is prompt-level blinding, not a filesystem permission boundary.",
+  "execution_limits": {
+    "artifact_size_bytes": 12000,
+    "subprocess_timeout_seconds": 4,
+    "node_vm_timeout_ms": 200,
+    "stdout_stderr_limit_bytes": 131072,
+    "filesystem": "Read one regular artifact under workspace experiments/datasets; execute its copied content only in an owned temporary directory. SQL is an in-memory DB inside a bounded worker.",
+    "security": "Conservative syntax/API guards, restricted Bash, SQLite authorizer, minimal env and process limits. These are not a hard OS/network sandbox; accept only reviewed task artifacts and never claim adversarial isolation.",
+    "memory": "Python worker address space 1GiB; Bash 256MiB; Node old-space 64MiB; TypeScript native compiler soft GOMEMLIMIT 128MiB. Process/VM timeouts and output caps also apply; no hard OS sandbox claim.",
+    "core_dumps": "Disabled for subprocesses.",
+    "grader_visibility": "Submitted runtime gets argument data only, not expected results, private type-test code, source-owner metadata, variant names or peer output. Evaluator/controller retains private oracles."
+  },
+  "runtime_dependencies": {
+    "node": {
+      "path": "/usr/bin/node",
+      "observed_version": "26.12.1"
+    },
+    "typescript": {
+      "path": "/home/wei/.openclaw/extensions/skill-harness/node_modules/typescript/bin/tsc",
+      "observed_version": "7.0.2",
+      "entry": "Run through /usr/bin/node; absent from PATH."
+    },
+    "python": {
+      "path": "/home/wei/orca/workspaces/clam/experiments/.venv/bin/python",
+      "observed_version": "3.13.16"
+    },
+    "sqlite3": {
+      "observed_version": "3.53.1",
+      "provider": "Python standard library"
+    },
+    "pandas": {
+      "observed_version": "3.0.5",
+      "provider": "experiments/.venv"
+    },
+    "bash": {
+      "path": "/usr/bin/bash",
+      "observed_version": "5.3.9"
+    },
+    "heavy_remote_execution_required": [],
+    "remote_validation": "Not performed. These 12 bounded checks do not require heavy compilation or blockchain execution. Fixed local runtime paths are verified here; relocation needs equivalent pinned local dependencies."
+  },
+  "tasks": [
+    {
+      "id": "t01",
+      "public": {
+        "request": "Implement an exported describe(result: Result): string for a discriminated success/failure result. Success returns \"value=\"+value; failure returns \"error=\"+message. Preserve the supplied public type and use real narrowing.",
+        "artifact_contract": {
+          "filename": "solution.ts",
+          "interface": "export type Result = {ok:true,value:number}|{ok:false,message:string}; export function describe(result:Result):string",
+          "constraints": "No imports, any, casts/type assertions, compiler suppression directives, filesystem or network APIs. Plain exported function declarations; no classes or decorators."
+        },
+        "input_data": {
+          "examples": [
+            {
+              "input": {
+                "ok": true,
+                "value": 3
+              },
+              "output": "value=3"
+            },
+            {
+              "input": {
+                "ok": false,
+                "message": "retry"
+              },
+              "output": "error=retry"
+            }
+          ]
+        }
+      },
+      "grader": {
+        "kind": "ts",
+        "function": "describe",
+        "ts_harness": "import {describe, type Result} from \"./solution\";\nconst a: string = describe({ok:true,value:2});\nconst b: string = describe({ok:false,message:\"x\"});\n// @ts-expect-error missing branch payload\ndescribe({ok:true});\n// @ts-expect-error wrong discriminator\ndescribe({ok:\"yes\",value:1});\n",
+        "cases": [
+          {
+            "args": [
+              {
+                "ok": true,
+                "value": 0
+              }
+            ],
+            "expected": "value=0"
+          },
+          {
+            "args": [
+              {
+                "ok": true,
+                "value": -8
+              }
+            ],
+            "expected": "value=-8"
+          },
+          {
+            "args": [
+              {
+                "ok": false,
+                "message": ""
+              }
+            ],
+            "expected": "error="
+          },
+          {
+            "args": [
+              {
+                "ok": false,
+                "message": "line\nbreak"
+              }
+            ],
+            "expected": "error=line\nbreak"
+          }
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/typescript/SKILL.md",
+          "line_start": 3,
+          "line_end": 3,
+          "sha256": "9230a9b19f9d26f3b872aa22bd67f522b7f4ee39b2778d4918d0e11e2017a84c"
+        }
+      ]
+    },
+    {
+      "id": "t02",
+      "public": {
+        "request": "Implement exported pick(object,key) so the return type is precisely the selected property type, not a union of all fields. It must return the actual property value and reject nonexistent keys at compile time.",
+        "artifact_contract": {
+          "filename": "solution.ts",
+          "interface": "export function pick<T extends object,K extends keyof T>(object:T,key:K):T[K]",
+          "constraints": "No imports, any, type assertions/casts, compiler suppression directives or I/O. Use a plain exported function declaration."
+        },
+        "input_data": {
+          "example": {
+            "object": {
+              "title": "sample",
+              "count": 2
+            },
+            "key": "count",
+            "result": 2
+          }
+        }
+      },
+      "grader": {
+        "kind": "ts",
+        "function": "pick",
+        "ts_harness": "import {pick} from \"./solution\";\nconst obj = {name:\"x\", count:2, active:true};\nconst n:number=pick(obj,\"count\"); const s:string=pick(obj,\"name\"); const b:boolean=pick(obj,\"active\");\n// @ts-expect-error missing key\npick(obj,\"absent\");\n// @ts-expect-error return must retain number\nconst bad:string=pick(obj,\"count\");\nconst literal:{readonly v:7}={v:7}; const seven:7=pick(literal,\"v\");\n",
+        "cases": [
+          {
+            "args": [
+              {
+                "left": 9,
+                "right": false
+              },
+              "right"
+            ],
+            "expected": false
+          },
+          {
+            "args": [
+              {
+                "a": "001",
+                "b": null
+              },
+              "b"
+            ],
+            "expected": null
+          },
+          {
+            "args": [
+              {
+                "x": 0
+              },
+              "x"
+            ],
+            "expected": 0
+          }
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/typescript/SKILL.md",
+          "line_start": 3,
+          "line_end": 3,
+          "sha256": "9230a9b19f9d26f3b872aa22bd67f522b7f4ee39b2778d4918d0e11e2017a84c"
+        }
+      ]
+    },
+    {
+      "id": "t03",
+      "public": {
+        "request": "Write makeReaders(items), returning one zero-argument function per item. After construction each reader must keep its own original item value, even after the caller mutates the original array. Empty input returns an empty array.",
+        "artifact_contract": {
+          "filename": "solution.js",
+          "interface": "function makeReaders(items) -> Array<() => originalItem>",
+          "constraints": "Pure JavaScript function; no imports, exports, I/O, eval, dynamic code, classes or external timers. Tests use primitive item values."
+        },
+        "input_data": {
+          "example": {
+            "input": [
+              "red",
+              "blue"
+            ],
+            "reader_results": [
+              "red",
+              "blue"
+            ]
+          }
+        }
+      },
+      "grader": {
+        "kind": "js",
+        "function": "makeReaders",
+        "mode": "readers",
+        "cases": [
+          {
+            "args": [
+              [
+                1,
+                2,
+                3
+              ]
+            ],
+            "expected": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "args": [
+              [
+                "a b",
+                "",
+                0,
+                false
+              ]
+            ],
+            "expected": [
+              "a b",
+              "",
+              0,
+              false
+            ]
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": []
+          }
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/javascript/SKILL.md",
+          "line_start": 3,
+          "line_end": 9,
+          "sha256": "80e40d39603a67cf17e52585a04e2f5a81e1be325af6f309700b4de0ef5ff3df"
+        }
+      ]
+    },
+    {
+      "id": "t04",
+      "public": {
+        "request": "Write uniqueById(rows). Keep the first row for each exact string id, preserve first-occurrence order, and do not mutate the input array or row objects. Numeric-looking ids remain distinct strings.",
+        "artifact_contract": {
+          "filename": "solution.js",
+          "interface": "function uniqueById(rows) -> Array<{id:string,value:number}>",
+          "constraints": "Pure function, no imports/exports, I/O, eval, dynamic code or classes."
+        },
+        "input_data": {
+          "example": {
+            "input": [
+              {
+                "id": "a",
+                "value": 1
+              },
+              {
+                "id": "a",
+                "value": 2
+              }
+            ],
+            "output": [
+              {
+                "id": "a",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      "grader": {
+        "kind": "js",
+        "function": "uniqueById",
+        "mode": "normal",
+        "cases": [
+          {
+            "args": [
+              [
+                {
+                  "id": "01",
+                  "value": 1
+                },
+                {
+                  "id": "1",
+                  "value": 2
+                },
+                {
+                  "id": "01",
+                  "value": 3
+                },
+                {
+                  "id": "",
+                  "value": 4
+                }
+              ]
+            ],
+            "expected": [
+              {
+                "id": "01",
+                "value": 1
+              },
+              {
+                "id": "1",
+                "value": 2
+              },
+              {
+                "id": "",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "args": [
+              [
+                {
+                  "id": "b",
+                  "value": 8
+                },
+                {
+                  "id": "a",
+                  "value": 7
+                },
+                {
+                  "id": "b",
+                  "value": 0
+                }
+              ]
+            ],
+            "expected": [
+              {
+                "id": "b",
+                "value": 8
+              },
+              {
+                "id": "a",
+                "value": 7
+              }
+            ]
+          },
+          {
+            "args": [
+              []
+            ],
+            "expected": []
+          }
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/javascript/SKILL.md",
+          "line_start": 3,
+          "line_end": 9,
+          "sha256": "80e40d39603a67cf17e52585a04e2f5a81e1be325af6f309700b4de0ef5ff3df"
+        }
+      ]
+    },
+    {
+      "id": "t05",
+      "public": {
+        "request": "Write one SQLite transaction script that transfers the request amount from sender to recipient and inserts one ledger record. Commit only the successful unit. If a statement fails, the caller will rollback(); no partial balance or ledger change may survive. Do not modify schema or disable constraints.",
+        "artifact_contract": {
+          "filename": "transfer.sql",
+          "interface": "SQL script operating on existing accounts, request (one row), ledger tables",
+          "constraints": "Only BEGIN/COMMIT/ROLLBACK, SELECT, UPDATE and INSERT into accounts/ledger. No PRAGMA, ATTACH, schema changes, files or extensions."
+        },
+        "input_data": {
+          "schema": "CREATE TABLE accounts(id TEXT PRIMARY KEY,balance INTEGER NOT NULL CHECK(balance>=0)); CREATE TABLE request(sender TEXT,recipient TEXT,amount INTEGER NOT NULL CHECK(amount>0)); CREATE TABLE ledger(sender TEXT REFERENCES accounts(id),recipient TEXT REFERENCES accounts(id),amount INTEGER NOT NULL CHECK(amount>0));",
+          "sample_accounts": [
+            [
+              "A",
+              100
+            ],
+            [
+              "B",
+              40
+            ]
+          ],
+          "sample_request": [
+            "A",
+            "B",
+            25
+          ]
+        }
+      },
+      "grader": {
+        "kind": "transaction",
+        "schema": "CREATE TABLE accounts(id TEXT PRIMARY KEY,balance INTEGER NOT NULL CHECK(balance>=0)); CREATE TABLE request(sender TEXT,recipient TEXT,amount INTEGER NOT NULL CHECK(amount>0)); CREATE TABLE ledger(sender TEXT REFERENCES accounts(id),recipient TEXT REFERENCES accounts(id),amount INTEGER NOT NULL CHECK(amount>0));",
+        "cases": [
+          {
+            "accounts": [
+              [
+                "A",
+                100
+              ],
+              [
+                "B",
+                40
+              ]
+            ],
+            "request": [
+              "A",
+              "B",
+              25
+            ],
+            "valid": true
+          },
+          {
+            "accounts": [
+              [
+                "A",
+                5
+              ],
+              [
+                "B",
+                40
+              ]
+            ],
+            "request": [
+              "A",
+              "B",
+              10
+            ],
+            "valid": false
+          },
+          {
+            "accounts": [
+              [
+                "A",
+                100
+              ],
+              [
+                "B",
+                40
+              ]
+            ],
+            "request": [
+              "A",
+              "missing",
+              25
+            ],
+            "valid": false
+          },
+          {
+            "accounts": [
+              [
+                "A",
+                100
+              ],
+              [
+                "B",
+                40
+              ]
+            ],
+            "request": [
+              "B",
+              "A",
+              5
+            ],
+            "valid": true
+          }
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/sqlite/SKILL.md",
+          "line_start": 3,
+          "line_end": 11,
+          "sha256": "bc0ae8682025601150a265e2b5e84ed38e3432ab785f20b46ee3461dd5acfc83"
+        }
+      ]
+    },
+    {
+      "id": "t06",
+      "public": {
+        "request": "Return one row per customer: customer, event_id of their latest event, and total of all their amounts. Latest means highest occurred_at, breaking ties by highest event_id. Return rows ordered by customer. Do not change the database.",
+        "artifact_contract": {
+          "filename": "query.sql",
+          "interface": "One read-only SQLite SELECT; output columns customer,event_id,total",
+          "constraints": "No writes, PRAGMA, files or extensions. Empty table produces zero rows."
+        },
+        "input_data": {
+          "schema": "CREATE TABLE events(event_id INTEGER PRIMARY KEY,customer TEXT,occurred_at INTEGER,amount INTEGER);",
+          "example_events": [
+            [
+              1,
+              "A",
+              10,
+              5
+            ],
+            [
+              2,
+              "A",
+              20,
+              7
+            ]
+          ],
+          "example_output": [
+            [
+              "A",
+              2,
+              12
+            ]
+          ]
+        }
+      },
+      "grader": {
+        "kind": "sql",
+        "cases": [
+          [
+            [
+              90,
+              "a",
+              10,
+              4
+            ],
+            [
+              3,
+              "a",
+              20,
+              6
+            ],
+            [
+              4,
+              "b",
+              20,
+              -2
+            ],
+            [
+              5,
+              "b",
+              20,
+              8
+            ]
+          ],
+          [
+            [
+              1,
+              "01",
+              7,
+              3
+            ],
+            [
+              2,
+              "1",
+              6,
+              4
+            ],
+            [
+              3,
+              "01",
+              7,
+              -3
+            ]
+          ],
+          [],
+          [
+            [
+              7,
+              "z",
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              8,
+              "a",
+              2,
+              -4
+            ],
+            [
+              2,
+              "a",
+              3,
+              1
+            ],
+            [
+              10,
+              "b",
+              1,
+              7
+            ]
+          ]
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/sqlite/SKILL.md",
+          "line_start": 3,
+          "line_end": 11,
+          "sha256": "bc0ae8682025601150a265e2b5e84ed38e3432ab785f20b46ee3461dd5acfc83"
+        }
+      ]
+    },
+    {
+      "id": "t07",
+      "public": {
+        "request": "Write convert_csv(text), converting the supplied semicolon-delimited CSV dialect to comma-delimited CSV with the same header, row order and exact field values. Preserve leading-zero ids, quoted delimiters, quotes and embedded newlines. Produce CRLF record separators.",
+        "artifact_contract": {
+          "filename": "solution.py",
+          "interface": "def convert_csv(text: str) -> str",
+          "constraints": "No imports or I/O. The standard-library csv and io modules are preprovided; work only with in-memory strings. Use no introspection/dynamic execution."
+        },
+        "input_data": {
+          "input": "id;note;amount\r\n001;\"hello; world\";2\r\n",
+          "output_profile": "UTF-8 text, comma delimiter, CRLF rows, header retained"
+        }
+      },
+      "grader": {
+        "kind": "python",
+        "function": "convert_csv",
+        "mode": "csv",
+        "cases": [
+          "id;note;amount\r\n001;\"hello; world\";2\r\n002;\"line1\nline2\";0\r\n",
+          "id;note;amount\r\nNA;\"say \"\"yes\"\"\";-3\r\n000;\"\";9\r\n",
+          "id;note;amount\r\n",
+          "id;note;amount\n003;中文;4\n"
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/csv/SKILL.md",
+          "line_start": 3,
+          "line_end": 3,
+          "sha256": "328cc8cdc15aa1d2c4c52c5ff59e1772123603fb50b09d0d75d395ea784464ae"
+        }
+      ]
+    },
+    {
+      "id": "t08",
+      "public": {
+        "request": "Write summarize(records), producing one {sku,units} record per exact sku string, sorted by sku. Sum units, treat null units as zero, retain zero-total groups and preserve ids such as \"001\", \"1\" and literal \"NA\". Do not mutate the input.",
+        "artifact_contract": {
+          "filename": "solution.py",
+          "interface": "def summarize(records: list[dict]) -> list[dict]",
+          "constraints": "No imports or I/O; pandas is preprovided as pd. Pure builtins are also permitted. Return JSON-serializable records with integer units; no introspection/dynamic execution."
+        },
+        "input_data": {
+          "example_input": [
+            {
+              "sku": "a",
+              "units": 2
+            },
+            {
+              "sku": "a",
+              "units": null
+            }
+          ],
+          "example_output": [
+            {
+              "sku": "a",
+              "units": 2
+            }
+          ]
+        }
+      },
+      "grader": {
+        "kind": "pandas",
+        "function": "summarize",
+        "mode": "normal",
+        "cases": [
+          [
+            {
+              "sku": "001",
+              "units": 3
+            },
+            {
+              "sku": "1",
+              "units": 2
+            },
+            {
+              "sku": "001",
+              "units": -3
+            },
+            {
+              "sku": "NA",
+              "units": null
+            }
+          ],
+          [
+            {
+              "sku": "b",
+              "units": 2
+            },
+            {
+              "sku": "a",
+              "units": null
+            },
+            {
+              "sku": "b",
+              "units": 5
+            }
+          ],
+          [],
+          [
+            {
+              "sku": "quote\"x",
+              "units": -2
+            },
+            {
+              "sku": "line\nbreak",
+              "units": 4
+            }
+          ]
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/pandas/SKILL.md",
+          "line_start": 3,
+          "line_end": 3,
+          "sha256": "4ea9a089b54637c8831a3c32f02f607419bfbf5627b8018281a08f29392dff5b"
+        }
+      ]
+    },
+    {
+      "id": "t09",
+      "public": {
+        "request": "Define emit_argv() as a Bash function. Write each received argument exactly once followed by a NUL byte, in order. With no arguments produce no bytes. Do not interpret options, split on whitespace or expand globs.",
+        "artifact_contract": {
+          "filename": "solution.sh",
+          "interface": "emit_argv() { ...; }",
+          "constraints": "Function definition only; builtins printf, test/[ ], local, read and control syntax are allowed. No external commands, command/process substitution, redirection, eval, source, exec, traps or environment changes."
+        },
+        "input_data": {
+          "example_argv": [
+            "a b",
+            "*",
+            ""
+          ],
+          "example_bytes_description": "a b NUL * NUL empty NUL"
+        }
+      },
+      "grader": {
+        "kind": "bash",
+        "function": "emit_argv",
+        "cases": [
+          [],
+          [
+            "a b",
+            "*",
+            "-n",
+            ""
+          ],
+          [
+            "single\"quote",
+            "apostrophe'",
+            "line\nbreak",
+            "tab\there"
+          ],
+          [
+            "中文",
+            "--",
+            "  "
+          ]
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/bash/SKILL.md",
+          "line_start": 3,
+          "line_end": 15,
+          "sha256": "efec887efdbeeef3b310997a1cc03fa4e8a1133f70424b12f126329dfe8516f1"
+        }
+      ]
+    },
+    {
+      "id": "t10",
+      "public": {
+        "request": "Define basenames() as a Bash function. Read complete NUL-delimited path strings from stdin and emit the suffix after each last slash followed by NUL. Preserve spaces, quotes, newlines and empty records. A trailing slash has an empty suffix. Never access the filesystem.",
+        "artifact_contract": {
+          "filename": "solution.sh",
+          "interface": "basenames() { ...; }",
+          "constraints": "Function definition only; Bash builtins/control syntax only, no external basename command, substitutions, redirection, eval/source/exec, traps or environment changes. Input always ends with NUL unless empty."
+        },
+        "input_data": {
+          "example_paths": [
+            "dir/a b",
+            "plain",
+            "trailing/"
+          ],
+          "example_outputs": [
+            "a b",
+            "plain",
+            ""
+          ]
+        }
+      },
+      "grader": {
+        "kind": "bash",
+        "function": "basenames",
+        "cases": [
+          [],
+          [
+            "dir/a b",
+            "plain",
+            "trailing/"
+          ],
+          [
+            "x/line\nbreak",
+            "a//b",
+            ""
+          ],
+          [
+            "dir/*",
+            "-n",
+            "dir/中文"
+          ]
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/bash/SKILL.md",
+          "line_start": 3,
+          "line_end": 15,
+          "sha256": "efec887efdbeeef3b310997a1cc03fa4e8a1133f70424b12f126329dfe8516f1"
+        }
+      ]
+    },
+    {
+      "id": "t11",
+      "public": {
+        "request": "Provide a JavaScript regular expression that extracts ticket tokens in order, including repeated occurrences. A token is 2-5 uppercase ASCII letters, a hyphen and 1-6 ASCII digits. Neither neighbor may be an ASCII letter, digit or underscore. Reject longer prefixes/numbers and lowercase prefixes.",
+        "artifact_contract": {
+          "filename": "pattern.json",
+          "interface": "JSON object {\"pattern\":\"...\", \"flags\":\"g\" or \"gu\"}",
+          "constraints": "Pattern length <=256; no executable code. Preserve exact matched text and duplicates. Bounded long near-matches are graded."
+        },
+        "input_data": {
+          "input": "See OPS-17, QA-2 and xOPS-3.",
+          "output": [
+            "OPS-17",
+            "QA-2"
+          ]
+        }
+      },
+      "grader": {
+        "kind": "regex",
+        "cases": [
+          {
+            "text": "OPS-1 QA-22;OPS-1",
+            "expected": [
+              "OPS-1",
+              "QA-22",
+              "OPS-1"
+            ]
+          },
+          {
+            "text": "xOPS-3 OPS-1234567 TOOLONG-1 ok-2",
+            "expected": []
+          },
+          {
+            "text": "(AB-0)\nZZZZZ-999999!",
+            "expected": [
+              "AB-0",
+              "ZZZZZ-999999"
+            ]
+          },
+          {
+            "text": "_AA-1 AA-1_ 3AA-2",
+            "expected": []
+          },
+          {
+            "text": "",
+            "expected": []
+          },
+          {
+            "text": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-1",
+            "expected": []
+          }
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/regex/SKILL.md",
+          "line_start": 3,
+          "line_end": 3,
+          "sha256": "929a6f7a5490e3bfa2ded6e0e651efaf5c9b5e1add42a1959a2f6c2b0d61a20e"
+        }
+      ]
+    },
+    {
+      "id": "t12",
+      "public": {
+        "request": "Write parse_records(text), validating NDJSON records. Ignore blank lines. Each other line must be exactly an object with keys id and value: id is a non-whitespace string, value is an integer (not boolean). Reject duplicate ids, nonobjects, missing/extra keys, invalid JSON, floats and null values by raising ValueError. Preserve valid row order.",
+        "artifact_contract": {
+          "filename": "solution.py",
+          "interface": "def parse_records(text: str) -> list[dict]",
+          "constraints": "No imports or I/O; json is preprovided. No introspection/dynamic execution. Work on the supplied string only."
+        },
+        "input_data": {
+          "example_input": "{\"id\":\"a\",\"value\":2}\n\n{\"id\":\"b\",\"value\":0}\n",
+          "example_output": [
+            {
+              "id": "a",
+              "value": 2
+            },
+            {
+              "id": "b",
+              "value": 0
+            }
+          ]
+        }
+      },
+      "grader": {
+        "kind": "python",
+        "function": "parse_records",
+        "mode": "ndjson",
+        "cases": [
+          {
+            "text": "{\"id\":\"001\",\"value\":0}\n\n{\"id\":\"中文\",\"value\":-4}\n",
+            "valid": true
+          },
+          {
+            "text": "  \n",
+            "valid": true
+          },
+          {
+            "text": "{\"id\":\"a\",\"value\":1}\n{\"id\":\"a\",\"value\":2}\n",
+            "valid": false
+          },
+          {
+            "text": "{\"id\":\"a\",\"value\":true}",
+            "valid": false
+          },
+          {
+            "text": "{\"id\":\"a\",\"value\":1.5}",
+            "valid": false
+          },
+          {
+            "text": "{\"id\":\"a\",\"value\":null}",
+            "valid": false
+          },
+          {
+            "text": "{\"id\":\" \",\"value\":1}",
+            "valid": false
+          },
+          {
+            "text": "{\"id\":\"a\",\"value\":1,\"extra\":0}",
+            "valid": false
+          },
+          {
+            "text": "[]",
+            "valid": false
+          },
+          {
+            "text": "{\"id\":\"a\"} trailing",
+            "valid": false
+          }
+        ]
+      },
+      "source_refs": [
+        {
+          "path": "skills/json/SKILL.md",
+          "line_start": 3,
+          "line_end": 3,
+          "sha256": "248a09d0ae1c363e41b2de7dfd485b972fcf06b66d76925542616711028ddaf6"
+        }
+      ]
+    }
+  ],
+  "freeze": {
+    "frozen_at_utc": "2026-10-25T10:51:47.166851+00:00",
+    "source_head": "53d5368625fb2f1f882a876e40f66fbeb52fc5e8",
+    "author_has_seen_variant_results": false,
+    "actual_paired_agent_outputs_executed": 0,
+    "task_count": 12,
+    "intended_future_paired_agent_outputs": 24,
+    "task_hashes": [
+      {
+        "id": "t01",
+        "public_sha256": "61cc8171614d6b9b97b35a370b44f903cd17abe83b41e705e7bd1f79979c950a",
+        "grader_sha256": "e7ef720356862fccac24084e2db712ff3a555862b69189671f0f6509292f7d01"
+      },
+      {
+        "id": "t02",
+        "public_sha256": "10de3e9ab3a6251147968572fed3b78da6dccf6f4acf812fc7d28a52bfd92e36",
+        "grader_sha256": "107f4570eb6069083ae570faae2fe4a5800d1680c85176627015b97018078952"
+      },
+      {
+        "id": "t03",
+        "public_sha256": "3f18171bec8f8e66ef395ade2b55927a7662fbacdb77b595d12010befd9351eb",
+        "grader_sha256": "1caece646eab7a187081b66274858ca912ec8e1456e41c1a0b7475efe5313e31"
+      },
+      {
+        "id": "t04",
+        "public_sha256": "0c370abbfcadcde993e902cdb6e546c3324f999b40be66cfc3099682f3dd9039",
+        "grader_sha256": "c8cd8f658cff3ed1b4789fc18139fd7149e96108242ee7c9226cca8a9b6f0ffa"
+      },
+      {
+        "id": "t05",
+        "public_sha256": "ec229cf1da9f41f622699da49fdfcb4284cf57f5a1757feb45d2761204dd1472",
+        "grader_sha256": "f55a07ffff021c91d6a18e4a32c871f2320896ed48aaf97016acd1109aafd14a"
+      },
+      {
+        "id": "t06",
+        "public_sha256": "f23f4e57bf383a73c4b5a7e212f75c8b62e27f41479bf58aa03cf00d7b189d13",
+        "grader_sha256": "2126d9fac93f675f57e7a2bca5ddb0c7239bd055010da90b2a7446088d704940"
+      },
+      {
+        "id": "t07",
+        "public_sha256": "e11a2e8a9e77ad7b4aec63291b04cb6ecbd3e2d87b38520736e962e621a0d40a",
+        "grader_sha256": "dea11b2aa2d0f3fbf6e2e452f5764b8ed97142feac03a3d4df416b88a5f5a575"
+      },
+      {
+        "id": "t08",
+        "public_sha256": "719a32231951f47b8b815c2c62b41f608f02f676a8e6435c8fdc10df8788c292",
+        "grader_sha256": "fec60c4569e35abc8cbc7dc79605b9a5da3c3c6ff95fbd3deb1c44fb76413ad7"
+      },
+      {
+        "id": "t09",
+        "public_sha256": "3c137d8ffd1a762fea4c0b2f2cb38f6ddd70b1d722be144c0797742acf8a5a66",
+        "grader_sha256": "c5308e7e1dbd3be369ad92f5eb264996771f1a1872e1eac01e9b1ddcceded700"
+      },
+      {
+        "id": "t10",
+        "public_sha256": "10aaa2d26fcb3583344fadfa8e5cf7a512afe2db9df0fd026820b58ca89b962e",
+        "grader_sha256": "f60a2395d0667d4c2d262eaa4f25be0c7baccf7a731ff3f59c5a8b6560d67650"
+      },
+      {
+        "id": "t11",
+        "public_sha256": "f3bd99c6fb2c6bb73d04f030f97b3aaeecca396e106200439438146431f087c8",
+        "grader_sha256": "aa1d5f0276b1fc6f03adcdbbd4b416287dfcd66c536e40c994d0175c989cbae0"
+      },
+      {
+        "id": "t12",
+        "public_sha256": "3213c7fdcccb16c1addac9b7074b0f2e87c8789da4a72f9dc7209bc42acbc65a",
+        "grader_sha256": "2165b39c35e9c760187b414a7210e177251f6193b560cd41d13d131a569d84ad"
+      }
+    ],
+    "files": [
+      {
+        "path": "experiments/scripts/harness_task_checks.py",
+        "sha256": "35a0dba9052affa2a1599f2ea0e8794b0aeb92991904944a60aaaf36ff573a13"
+      },
+      {
+        "path": "experiments/tests/test_harness_task_checks.py",
+        "sha256": "20d36b8a479c3e08571f98949c5adde5e2d3ee87c347d0e1c2a3f51cb6b9b8a3"
+      }
+    ],
+    "self_hash_rule": "The fixture cannot embed its own SHA256. Its full-file digest is reported externally; each public prompt and hidden grader is independently hashed here.",
+    "control_fixture_policy": "The unit-test GOOD/BAD snippets are authored grader acceptance/rejection canaries, not real baseline/challenger task answers, and must never be sent to either solver."
+  }
+}
