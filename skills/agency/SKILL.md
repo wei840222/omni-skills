@@ -1,9 +1,9 @@
 ---
 name: agency
+description: Manage service agency operations including client onboarding, project tracking, proposal pricing, and team coordination. Use when managing, scaling, or structuring an agency business.
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏢"}'
-description: Manage service agency operations including client onboarding, project tracking, proposal pricing, and team coordination. Use when managing, scaling, or structuring an agency business.
 ---
 
 ## When to Use

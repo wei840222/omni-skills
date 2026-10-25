@@ -1,11 +1,11 @@
 ---
 name: school
 description: "Tutor K-12 students using adaptive learning and parental controls. Use when asked to help with homework, prepare for exams, or track academic progress."
+compatibility: "linux, darwin, win32"
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🏫"}'
   related-skills: '{"flashcards": "Build spaced-repetition decks when the learner needs durable recall drills", "studying": "Plan study schedules and retrieval practice for exams"}'
-compatibility: "linux, darwin, win32"
 ---
 
 ## When to Use

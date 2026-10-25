@@ -1,4 +1,5 @@
 ---
+name: yaml
 description: Validate, debug, and write YAML safely. Use when a file fails to parse,
   implicit types corrupt data (e.g., `yes` becoming boolean), duplicate keys conflict,
   or untrusted YAML needs parsing. Not for JSON or TOML.
@@ -10,7 +11,6 @@ metadata:
     mean once they parse: pods, probes, rollouts, RBAC.", "toml": "The other config
     format, when YAML''s implicit typing is the problem."}'
   version: 1.0.2
-name: yaml
 ---
 
 ## State location

@@ -1,7 +1,5 @@
 ---
 name: spain
-compatibility: 'none'
-license: 'none'
 description: 'Plans Spain travel with local-level picks: named restaurants, regional rules, timing, booking windows, and tourist-trap avoidance. Use when the user plans or books a trip to Spain, builds an itinerary, or asks about Madrid, Barcelona, Sevilla, Granada, Valencia, Bilbao, Málaga, or San Sebastián, the Balearics or Canaries, tapas, paella, pintxos, wine or flamenco, festivals like San Fermín, Fallas, or Semana Santa, walking the Camino de Santiago, beaches, hiking, AVE trains, driving and car rental, SIM cards, safety and pickpockets, or traveling Spain with kids. Not for learning the Spanish language — that is the spanish skill.'
 metadata:
   openclaw: '{"emoji":"🇪🇸","requires":{"config":["<state_root>/"]},"displayName":"Spain"}'

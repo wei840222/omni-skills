@@ -5,12 +5,11 @@ description: >
   request signing, region-aware routing, and safe command execution. Use when
   the user needs Tuya/Smart Life cloud auth, device discovery, DPS commands,
   account linking, or multi-device orchestration rather than generic IoT advice.
+license: MIT
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔌","requires":{"bins":["curl","jq","openssl"],"env":["TUYA_ACCESS_ID","TUYA_ACCESS_SECRET"]},"displayName":"Tuya Smart"}'
   related-skills: '{"api": "Generic HTTP API request craft when Tuya signing is not the focus.", "iot": "Broader IoT patterns outside Tuya-specific cloud control.", "mqtt": "Local/broker messaging paths adjacent to cloud control.", "smart-home": "Home automation context that may include non-Tuya devices.", "zigbee": "Local radio fabrics that may coexist with Tuya cloud devices."}'
-compatibility: '*'
-license: MIT
 ---
 
 ## State location

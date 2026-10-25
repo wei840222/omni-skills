@@ -10,7 +10,6 @@ metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"⚖️"}'
   related-skills: '{"decide": "Log decision outcomes and patterns after a comparison leads to a choice.", "memory": "Stores durable user facts that may inform comparison preferences beyond compare-local state."}'
-compatibility: '*'
 ---
 
 ## State location

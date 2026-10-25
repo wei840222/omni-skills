@@ -1,9 +1,9 @@
 ---
 name: spreadsheet
 description: Read, write, and analyze spreadsheets with schema memory and format preservation. Use when the user requests table analysis, cell edits, reports, or structured tracking in Google Sheets, Excel, or CSV files.
+compatibility: "linux, darwin, win32"
 metadata:
   openclaw: '{"emoji":"📊"}'
-compatibility: "linux, darwin, win32"
 ---
 
 ## State location
