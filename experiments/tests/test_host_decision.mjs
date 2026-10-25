@@ -113,7 +113,16 @@ test("host facade, controlled transport and both ledgers agree on validated cach
   assert.deepEqual(first.outcome.result.usage, { inputTokens: 321, outputTokens: 7 });
   const repeated = await adapter.evaluateSelection(params);
   assert.deepEqual(repeated.selection, first.selection);
-  assert.deepEqual(controlled.stats, { physicalAttempts: 1, cacheHits: 1 });
+  const { observations, ...counts } = controlled.stats;
+  assert.deepEqual(counts, { physicalAttempts: 1, cacheHits: 1 });
+  assert.equal(observations.length, 2);
+  assert.equal(observations[0].provider, "jev");
+  assert.equal(observations[0].source, "remote");
+  assert.equal(observations[0].billedTokens, 321);
+  assert.match(observations[0].key, /^[a-f0-9]{64}$/);
+  assert.ok(Number.isFinite(observations[0].originalServiceMs) && observations[0].originalServiceMs >= 0);
+  assert.deepEqual(observations[1], { ...observations[0], source: "cache" });
+  const originalObservation = structuredClone(observations[0]);
   assert.equal(nativeCalls, 1);
   for (const [ledger, limitFile] of [["model-budget.sqlite", "budget-limits.json"], ["probe-budget.sqlite", "probe-budget-limits.json"]]) {
     const result = summary(ledger, limitFile);
@@ -129,7 +138,8 @@ test("host facade, controlled transport and both ledgers agree on validated cach
   assert.equal(invalid.trace.fetchCalls, 1);
   assert.equal(invalid.trace.legacyCalls, 0);
   assert.equal(nativeCalls, 2);
-  assert.deepEqual(controlled.stats, { physicalAttempts: 2, cacheHits: 1 });
+  assert.deepEqual(controlled.stats, { physicalAttempts: 2, cacheHits: 1,
+    observations: [originalObservation, { ...originalObservation, source: "cache" }] });
   assert.equal((await readdir(path.join(runDir, "model-cache"))).length, 1);
   for (const [ledger, limitFile] of [["model-budget.sqlite", "budget-limits.json"], ["probe-budget.sqlite", "probe-budget-limits.json"]]) {
     const result = summary(ledger, limitFile);
@@ -141,7 +151,8 @@ test("host facade, controlled transport and both ledgers agree on validated cach
   const validAgain = await adapter.evaluateSelection(params);
   assert.deepEqual(validAgain.selection, first.selection);
   assert.equal(nativeCalls, 2);
-  assert.deepEqual(controlled.stats, { physicalAttempts: 2, cacheHits: 2 });
+  assert.deepEqual(controlled.stats, { physicalAttempts: 2, cacheHits: 2,
+    observations: [originalObservation, { ...originalObservation, source: "cache" }, { ...originalObservation, source: "cache" }] });
   assert.deepEqual(adapter.provenance.network, { socketAttempts: 0, dnsAttempts: 0 });
 });
 
