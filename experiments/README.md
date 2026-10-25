@@ -29,12 +29,27 @@ local caches; changing the corpus, query or model invalidates affected entries.
 uv run marimo edit notebooks/skill_router_mo.py --host 127.0.0.1 --port 2718 --no-token
 uv run marimo edit notebooks/vector_visualization_mo.py --host 127.0.0.1 --port 2719 --no-token
 uv run marimo edit notebooks/harness_quality_mo.py --host 127.0.0.1 --port 2720 --no-token
+uv run marimo edit notebooks/ontology_graph_mo.py --host 127.0.0.1 --port 2721 --no-token
 ```
 
 The router notebook shows measured metrics, per-query failures, transitions and
 service timing. The vector notebook shows projections and distances from the
 current embedding artifacts. Missing artifacts produce instructions to run the
 commands above. No QMD index or global collection changes are required.
+
+The ontology notebook replays `../ontology/graph.jsonl` and shows the current
+directed graph, degree distributions, reciprocal declarations, connected
+components and isolated skills. Search for a skill and choose incoming,
+outgoing or both to inspect its one-hop arrows and original relation reasons.
+It uses local data only. Force-layout distances are visual, and relation counts
+are not skill-quality scores or evidence of routing accuracy.
+
+Skill IDs use `<provider>:<repository>:<skill>`, for example
+`github:wei840222/omni-skills:bluetooth`. This is a logical source identity,
+independent of the checkout's transport or Git remote. Same-named skills from
+different sources remain distinct; the notebook qualifies ambiguous labels with
+their full IDs. Relation properties contain the original `reason`; there is no
+per-edge classification or verification status without a corresponding workflow.
 
 ## What is compared
 
