@@ -222,3 +222,7 @@ __marimo__/
 # Refactor-review artifacts stay outside skill packages.
 skills/**/freud-audit.md
 skills/**/trigger-tests.md
+
+# AGY / workspace plans
+/plan/
+

@@ -1,11 +1,10 @@
 ---
 name: grounding
 description: Verify real-world facts, synthesize domain research, and learn new skills.
-version: 0.1.0
-author: Hermes
 metadata:
-  hermes:
-    tags: [Research, Learning, Grounding]
+  version: "0.1.0"
+  author: "Hermes"
+  tags: "Research, Learning, Grounding"
 ---
 
 # Grounding & Skill Learning
