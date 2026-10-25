@@ -1,9 +1,9 @@
 ---
+name: marketplace
 description: "Optimize listings, compare pricing, and detect scams across online marketplaces. Use when buying, selling, or researching goods on eBay, Amazon, Etsy, Facebook Marketplace, or Mercari."
 metadata:
   openclaw: '{"emoji": "🛒"}'
   version: 1.0.1
-name: marketplace
 ---
 
 

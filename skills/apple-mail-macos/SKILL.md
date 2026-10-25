@@ -1,10 +1,10 @@
 ---
 name: apple-mail-macos
 description: "Manage synced mail accounts in Apple Mail on macOS via CLI without external APIs or OAuth. Use when triaging messages, searching local mailboxes, drafting replies, or automating macOS Mail workflows."
+license: MIT
 metadata:
   openclaw: '{"emoji": "\u2709\ufe0f", "requires": {"bins": null, "anyBins": ["osascript", "shortcuts", "sqlite3"], "config": ["<state_root>/"]}}'
   related-skills: '{"events": "skills/events", "macos": "skills/macos", "mail": "skills/mail", "productivity": "skills/productivity", "schedule": "skills/schedule"}'
-license: MIT
 ---
 ## Setup
 

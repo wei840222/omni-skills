@@ -1,9 +1,9 @@
 ---
 name: storage
 description: "Architect data storage systems and persistence strategies. Use when selecting relational vs NoSQL databases, designing object and block storage architectures, or configuring CDN caching layers."
+compatibility: "linux, darwin, win32"
 metadata:
   openclaw: '{"emoji":"💾"}'
-  compatibility: "linux, darwin, win32"
 ---
 ## Scope and Trigger
 

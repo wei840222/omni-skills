@@ -1,7 +1,7 @@
 ---
-compatibility: "OpenClaw Gateway with an available Talk provider or the voice-call plugin"
 name: talk
 description: Configure OpenClaw Talk mode or Voice Call telephony. Use when a user wants continuous voice chat, TTS playback, inbound or outbound phone calls, a voice provider, or voice-call setup and diagnostics.
+compatibility: "OpenClaw Gateway with an available Talk provider or the voice-call plugin"
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📞"}'

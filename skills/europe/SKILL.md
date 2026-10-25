@@ -2,7 +2,6 @@
 name: europe
 description: "Navigate cross-border travel and relocation across Europe. Use when coordinating Schengen 90/180-day limits, EU cross-border transit, digital nomad visas, or moving between EU/EEA countries."
 license: MIT
-compatibility: "*"
 metadata:
   openclaw: '{"emoji":"🇪🇺"}'
   related-skills: '{"booking": "skills/booking", "car-rental": "skills/car-rental", "english": "skills/english", "health-insurance": "skills/health-insurance", "travel": "skills/travel"}'

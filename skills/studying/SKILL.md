@@ -1,11 +1,11 @@
 ---
 name: studying
 description: Plan study schedules and coach active study sessions with retrieval practice, spaced review, exam countdowns, problem practice, and test-day preparation. Use when a student is preparing for an exam, final, or certification; wants help studying, revising, memorizing, or cramming; is forgetting material; is procrastinating; or is coordinating several courses.
+compatibility: "Any Agent Skills-compatible runtime; state uses the runtime-provided <state_root>."
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"📖"}'
   related-skills: '{"anki": "handles card design and deck mechanics for fact-heavy tracks.", "exam": "generates the practice tests and timed simulations this skill schedules.", "homework": "handles completing an assignment rather than preparing for a test."}'
-compatibility: "Any Agent Skills-compatible runtime; state uses the runtime-provided <state_root>."
 ---
 
 User preferences and session history persist in `<state_root>/studying/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If legacy state exists under `~/studying/`, `~/clawic/studying/`, or `~/Clawic/data/studying/`, ask for confirmation before migrating it to `<state_root>/studying/`, then report the completed migration in one line.

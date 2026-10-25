@@ -1,7 +1,7 @@
 ---
 name: storybook
-compatibility: "linux, darwin, win32"
 description: Create, configure, document, and test Storybook component stories with CSF, args, controls, decorators, and play functions. Use when implementing or debugging a Storybook story.
+compatibility: "linux, darwin, win32"
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📖"}'
