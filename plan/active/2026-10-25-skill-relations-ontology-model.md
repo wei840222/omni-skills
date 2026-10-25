@@ -144,3 +144,27 @@ P0 記錄原 repo experiments/datasets/ 六個 baseline 實際 hash：manifest.j
 - 初始匯入獨立 ontology_bootstrap_review（source-review／ponytail-review）ACCEPT，無必修項；全量實體／邊與 schema 核對通過。Leaf 僅靜態核對 reader 相容性，實際 load_graph／validate_graph 由主代理執行通過。
 
 本輪交付：初始資料已驗收並通過 review，納入目前分支提交。未來完整同步器從 P0 做起，不直接重建正式圖或付費分類。
+
+## 2026-10-26：圖分布分析筆記本
+
+使用者追加分析與有箭頭的技能圖，隨後指定沿用 experiments/notebooks/skill_router_mo.py 的 marimo 方式，不做獨立網頁。原先 HTML 工作在寫檔前停止；本次只新增 notebook、分析 helper、相關測試及使用說明，原始 graph/schema 不改。
+
+- Notebook：experiments/notebooks/ontology_graph_mo.py，沿用現有 uv、marimo、matplotlib、numpy、pandas，不新增依賴。
+- Helper：experiments/scripts/ontology_analysis.py。依既有 create/update/delete/relate/unrelate 語義重播有效圖，再算有向入／出度、reciprocity、強弱連通與孤立技能；不把歷史操作筆數當有效邊數。
+- 視覺：分布圖、熱門 incoming／outgoing、連結角色、963 節點／3,862 箭頭全圖，以及搜尋技能與方向篩選的一跳圖、原始理由表。完整資料可搜尋／分頁；只限制密集圖的名稱標籤，不截斷點或邊。
+- 固定種子的 NumPy force layout 約 4 秒，獨立 cell 計算一次，方向切換不重算；位置不是語義距離，關聯數不代表品質或路由準確率。
+- 實際分析：平均入／出度 4.0104；reciprocal pairs 392、其中有向邊 784（20.3004%）；弱連通 44 個、最大 920；強連通 479 個、最大 423；孤立 43。角色 both 573、incoming-only 142、outgoing-only 205。
+- 強連通的 479／423 已由主代理以另一個 forward/backward reachability 演算法獨立核對，不只採信 helper 的 Kosaraju 結果。
+- 分析只描述宣告結構；有幫助的多選可接受，不能由缺邊、度數或可達路徑推導是否應載入。
+
+驗證：
+
+- uv sync --locked 完成；8 個新增 focused tests 通過，Python 全套 107 tests 通過。
+- uv run marimo check notebooks 通過。新 notebook 的 Python app 完整執行；router/vector apps 在此 worktree 缺少 ignored datasets，只驗證到既有缺資料提示，不宣稱已重跑其圖表或評測。
+- 實際 marimo live kernel 全部 12 cells idle、無 cell errors；透過 code-mode 切換 aws outgoing（5）、incoming（8）、孤立 analyze（1 node／0 edges），結果與來源逐條一致，並確認全圖 layout 物件與耗時未變。最後恢復 aws／both。
+- 目視檢查 live cell 實際輸出的全圖與一跳 PNG 表示；圖在 notebook 內顯示，未新增專案圖片／HTML 產物。Orca browser 已顯示摘要／分布與表格；後續 desktop browser sharing 中斷，未宣稱完成所有 viewport 或完整 browser console 無錯誤。Editor console 的既有 language-server initialization timeout 不屬於 notebook cell error。
+- Node 全套未通過：既有 QMD 整合遇到 vectors_vec 表缺失及已不存在的 @wei840222/qmd@2026.10.19 dist 路徑；相關 source/tests 未修改，沒有跳過測試或改低門檻。本次不修 runtime 或重建凍結資料。
+- graph.jsonl SHA 仍為 fba52cb89f46785a56ce8e3d857ad04d591bfce2a1dada28da418449c31c5fec，schema／graph 與原 repo 相同。此 worktree 缺少六個 ignored baseline，不能用它做逐檔 baseline 對比；本輪未重建它們。
+- 獨立 ontology_notebook_review（source-review／ponytail-review）ACCEPT；靜態核對重播、方向、分母、圖說與測試。Live execution 及測試由主代理負責。
+
+交付：保留本機 marimo session 供查看，README 加入開啟命令。完整增量同步器與 runtime adapter 仍是另一期工作。
