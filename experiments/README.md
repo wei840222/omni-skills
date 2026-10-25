@@ -79,3 +79,41 @@ uv run marimo check notebooks
 
 Run both notebook apps after generating data. Generated datasets, service
 caches and virtual environments are ignored by Git.
+
+## Harness-aligned evaluation
+
+The separate harness evaluation is in progress under
+`../plan/active/2026-10-25-skill-library-harness-quality.md`. Its M0 artifacts
+freeze the public corpus and installed plugin/host source hashes. They do not
+turn the historical `rerank-3` results into production Decision accuracy.
+
+The Node adapters use the locally installed skill-harness, QMD, OpenClaw and
+TypeSafe implementations. Host tests exercise the actual public Decision
+facade with synthetic configuration and a controlled HTTP callback. The SDK
+mock-fetch seam bypasses DNS/dispatcher creation; the tests do not validate the
+production network guard. No Gateway is started or changed.
+
+Public QMD document vectors are reused only when normalized content, path,
+title, model, chunk positions and dimensions match. Changed public content stays
+in the corpus and is reported as a gap. The current run reused 10,433 inputs and
+embedded ten public `triage` inputs; the resulting isolated profile has 10,443
+vector rows. This is corpus readiness, not a measured routing improvement.
+
+Every physical paid request and retry passes a persisted reservation ledger.
+The M0 attempt cap also consumes the full-run ledger. Missing usage retains its
+reservation; two consecutive provider failures stop new requests. Cache keys
+include exact payload and frozen response model, and only consumer-validated
+responses enter the cache. Budget files and credentials are never committed;
+credentials reach the paid runners through stdin rather than command arguments.
+
+From this directory, the offline checks are:
+
+```bash
+uv run python -m unittest discover -s tests -v
+node --test tests/*.mjs
+```
+
+The host and QMD tests require the installed local plugins. Five successful
+public M0 host probes validate integration only. The independent pilot labels,
+development comparisons and held-out quality results must be completed before
+recommending a production change.
